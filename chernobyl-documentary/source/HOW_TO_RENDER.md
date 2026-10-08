@@ -1,0 +1,28 @@
+# Rendering pipeline
+
+Requirements: Node 18+, Playwright with Chromium (WebGL2 runs on CPU through SwiftShader, so no GPU is needed), Python 3 with numpy, scipy and Pillow, and ffmpeg.
+
+```bash
+npm install three@0.186.1
+node gen_noise.js                      # builds web/assets/noise3d_128.bin (tileable 3D noise for the smoke)
+curl -L -o web/assets/Soldier.glb \
+  https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/models/gltf/Soldier.glb   # mocap rig (skeleton + clips only)
+node render.js S3 --stills 0,70,120    # preview frames -> out/stills/
+./render_all.sh                        # renders S1..S10 -> out/S*.mov (about 3-4 h on 4 CPU cores)
+python3 titles.py out/titles           # title-card PNG sequences
+node lampcurve.mjs && python3 audio.py # sound design -> out/soundtrack_raw.wav
+ffmpeg -i out/soundtrack_raw.wav -c:a pcm_s24le out/soundtrack.wav
+./assemble.sh                          # final edit -> out/chernobyl_final.mp4
+```
+
+## Layout
+
+- `web/main.js` is the runtime. It loads one shot, renders frame N on request, and returns raw RGBA pixels.
+- `web/lib/post.js` holds the HDR pipeline: MSAA or supersampled scene, low-res volumes, camera motion blur, depth of field, bloom, halation, AgX tone mapping, split-tone grade, film grain and gate weave.
+- `web/lib/volume.js` ray-marches smoke and fire: plumes with fire-light self-shadowing, the explosion fireball, and ground smoke. Beacon and alarm lights scatter visibly in the smoke.
+- `web/lib/city.js` builds Pripyat: a microdistrict layout, procedural panel-block facades (windows, curtains, TV flicker, entrance lamps, broken glass), roads, the lamp light map and trees.
+- `web/lib/plant.js` builds the ChNPP: units 1–4, the turbine hall, the VT-1 and VT-2 lattice stacks, cooling towers under construction, pylons, floodlights, and unit 4's destructible central hall with its ruins.
+- `web/lib/fx.js` has the flames, ballistic debris, embers and dust. `web/lib/people.js` has the firefighters (mocap skeleton dressed in period gear) and the ZIL fire tankers.
+- The shots live in `web/shots.js` (S1), `web/shots_plant.js` (S2, S3, S4, S10), `web/shots_fire.js` (S5, S6, S7) and `web/shots_after.js` (S8, S9).
+
+Everything is a pure function of time, so any frame can be rendered on its own.
