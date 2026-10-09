@@ -12,11 +12,11 @@ f_cell, f_cellb = F(CAR, 21), F(CARB, 21)
 f_hdr = F(CAR, 17); f_ui = F(CAR, 17); f_uib = F(CARB, 17); f_small = F(CAR, 14)
 f_title = F(CARB, 28); f_fbar = F(CAR, 21); f_tab = F(CAR, 18); f_tabb = F(CARB, 18)
 
-GREEN = (33, 115, 70); GRID = (218, 220, 224); HDRBG = (243, 243, 243)
-TOP_COLHDR = 204; COLHDR_H = 28; ROW_H = 34; ROW0 = TOP_COLHDR + COLHDR_H; RH_W = 56
+GREEN = (16, 124, 65); GRID = (225, 225, 225); HDRBG = (245, 245, 245)
+TOP_COLHDR = 236; COLHDR_H = 26; ROW_H = 34; ROW0 = TOP_COLHDR + COLHDR_H; RH_W = 56
 TABS_Y = 1006; STATUS_Y = 1044
 
-WIDTHS = {"Old Data": [150, 190, 150, 110, 110, 120],
+WIDTHS = {"All Data": [150, 190, 150, 110, 110, 120],
           "Summary": [200, 150, 140, 150, 150, 40, 190, 140, 150, 150]}
 NCOLS = 16
 
@@ -105,8 +105,8 @@ def initial_state():
     for c, h in enumerate(hdr, 1): od[(1, c)] = {"v": h, "b": True}
     for r, row in enumerate(data, 2):
         for c, v in enumerate(row, 1): od[(r, c)] = {"v": v}
-    return {"sheets": {"Old Data": od}, "order": ["Old Data"], "active": "Old Data",
-            "sel": {"Old Data": (1, 1, 1, 1)}, "edit": None, "tabedit": None, "hl": {}, "call": {},
+    return {"sheets": {"All Data": od}, "order": ["All Data"], "active": "All Data",
+            "sel": {"All Data": (1, 1, 1, 1)}, "edit": None, "tabedit": None, "hl": {}, "call": {},
             "banner": None, "title": None, "zoom": (960, 540, 1.0), "cur": (1100, 700), "ring": None,
             "drag": None, "dialog": None, "ants": None, "table": False, "fmt": 0, "check": None}
 
@@ -118,14 +118,16 @@ def target_xy(st, t):
     if isinstance(t, tuple) and isinstance(t[0], (int, float)): return t
     if isinstance(t, tuple) and t[0] == "tab": return tab_center(st, t[1])
     if t == "plus": return plus_pos(st)
-    if t == "fbar": return (560, 180)
+    if t == "fbar": return (560, 214)
+    if isinstance(t, tuple) and t[0] == "btn":
+        import ribbon365; return ribbon365.BTN[t[1]]
     if isinstance(t, tuple) and t[0] == "corner":
         r1, c1, r2, c2 = rng(t[1]); x0, y0, x1, y1 = cell_rect(sh, r1, c1, r2, c2); return (x1, y1)
     r1, c1, r2, c2 = rng(t); x0, y0, x1, y1 = cell_rect(sh, r1, c1, r2, c2)
     return ((x0 + x1) / 2, (y0 + y1) / 2)
 
 def zoom_center(st, t):
-    if t == "fbar": return (620, 200)
+    if t == "fbar": return (620, 230)
     return target_xy(st, t)
 
 def tab_layout(st):
@@ -253,7 +255,7 @@ def state_at(ops, T):
 # ---------------- drawing ----------------
 def fmt_val(st, sheet, r, c, v, cell):
     if isinstance(v, (int, float)):
-        if (sheet == "Summary" and st["fmt"] >= 2 and cell.get("f")) or (sheet == "Old Data" and c == 6 and st["fmt"] >= 2):
+        if (sheet == "Summary" and st["fmt"] >= 2 and cell.get("f")) or (sheet == "All Data" and c == 6 and st["fmt"] >= 2):
             return f"{int(v):,}"
         return str(int(v))
     return "" if v is None else str(v)
@@ -286,22 +288,27 @@ def draw_ribbon(d):
 
 def draw_screen(st):
     img = Image.new("RGB", (W, H), "white"); d = ImageDraw.Draw(img)
-    draw_ribbon(d)
+    import ribbon365; img.paste(ribbon365.CHROME, (0, 0)); d = ImageDraw.Draw(img)
     sh = st["active"]; cells = st["sheets"][sh]; sel = st["sel"][sh]
     ar, ac = sel[0], sel[1]
-    # formula bar
-    d.rectangle([0, 158, W, 202], fill=(250, 250, 250))
-    d.rectangle([8, 166, 128, 196], outline=(190, 190, 190), fill="white")
-    d.text((16, 181), f"{L(ac)}{ar}", font=f_fbar, fill="black", anchor="lm")
-    d.text((150, 181), "✕   ✓   fx", font=F(SANS, 16), fill=(110, 110, 110), anchor="lm")
-    d.rectangle([236, 166, W - 8, 196], outline=(190, 190, 190), fill="white")
+    # formula bar (Microsoft 365 style)
+    d.rectangle([0, 192, W, 234], fill="white"); d.line([0, 234, W, 234], fill=(214, 214, 214))
+    d.rounded_rectangle([8, 199, 132, 227], radius=4, outline=(200, 200, 200), fill="white")
+    d.text((16, 213), f"{L(ac)}{ar}", font=f_fbar, fill="black", anchor="lm")
+    d.line([(116, 211), (120, 215), (124, 211)], fill=(110, 110, 110), width=2)
+    d.text((146, 213), "⋮", font=F(SANS, 16), fill=(150, 150, 150), anchor="mm")
+    d.text((180, 213), "✕", font=F(SANS, 16), fill=(120, 120, 120) if st["edit"] else (200, 200, 200), anchor="mm")
+    d.text((208, 213), "✓", font=F(SANS, 16), fill=(120, 120, 120) if st["edit"] else (200, 200, 200), anchor="mm")
+    d.text((240, 213), "fx", font=F("crosextra/Carlito-Italic.ttf", 21), fill=(80, 80, 80), anchor="mm")
+    d.line([262, 199, 262, 227], fill=(214, 214, 214))
     if st["edit"]: ftxt = st["edit"][2]
     else:
         cell = cells.get((ar, ac), {})
         ftxt = cell.get("f") or ("" if cell.get("v") is None else str(cell.get("v")))
-    d.text((246, 181), ftxt, font=f_fbar, fill="black", anchor="lm")
+    d.text((274, 213), ftxt, font=f_fbar, fill="black", anchor="lm")
     if st["edit"]:
-        cx = 246 + f_fbar.getlength(ftxt) + 1; d.line([cx, 170, cx, 192], fill="black", width=2)
+        cx = 274 + f_fbar.getlength(ftxt) + 1; d.line([cx, 202, cx, 224], fill="black", width=2)
+    d.line([(W - 26, 211), (W - 21, 216), (W - 16, 211)], fill=(110, 110, 110), width=2)
     # headers
     d.rectangle([0, TOP_COLHDR, W, ROW0], fill=HDRBG)
     d.rectangle([0, ROW0, RH_W, TABS_Y], fill=HDRBG)
@@ -310,17 +317,18 @@ def draw_screen(st):
         x0 = col_x(sh, c); x1 = x0 + col_w(sh, c)
         if x0 > W: break
         if sc1 <= c <= sc2:
-            d.rectangle([x0, TOP_COLHDR, x1, ROW0], fill=(210, 210, 210)); d.line([x0, ROW0 - 2, x1, ROW0 - 2], fill=GREEN, width=3)
-        d.text(((x0 + x1) / 2, TOP_COLHDR + 14), L(c), font=f_hdr, fill=(70, 70, 70), anchor="mm")
+            d.rectangle([x0, TOP_COLHDR, x1, ROW0], fill=(220, 236, 226)); d.line([x0, ROW0 - 2, x1, ROW0 - 2], fill=GREEN, width=3)
+        d.text(((x0 + x1) / 2, TOP_COLHDR + 13), L(c), font=f_cellb if sc1 <= c <= sc2 else f_hdr, fill=GREEN if sc1 <= c <= sc2 else (90, 90, 90), anchor="mm")
         d.line([x1, TOP_COLHDR, x1, TABS_Y], fill=GRID)
     nrows = (TABS_Y - ROW0) // ROW_H + 1
     for r in range(1, nrows + 1):
         y0 = row_y(r); y1 = y0 + ROW_H
         if sr1 <= r <= sr2:
-            d.rectangle([0, y0, RH_W, y1], fill=(210, 210, 210)); d.line([RH_W - 2, y0, RH_W - 2, y1], fill=GREEN, width=3)
-        d.text((RH_W / 2, y0 + ROW_H / 2), str(r), font=f_hdr, fill=(70, 70, 70), anchor="mm")
+            d.rectangle([0, y0, RH_W, y1], fill=(220, 236, 226)); d.line([RH_W - 2, y0, RH_W - 2, y1], fill=GREEN, width=3)
+        d.text((RH_W / 2, y0 + ROW_H / 2), str(r), font=f_cellb if sr1 <= r <= sr2 else f_hdr, fill=GREEN if sr1 <= r <= sr2 else (90, 90, 90), anchor="mm")
         d.line([0, y1, W, y1], fill=GRID)
-    d.line([RH_W, TOP_COLHDR, RH_W, TABS_Y], fill=(190, 190, 190)); d.line([0, ROW0, W, ROW0], fill=(190, 190, 190))
+    d.line([RH_W, TOP_COLHDR, RH_W, TABS_Y], fill=(200, 200, 200)); d.line([0, ROW0, W, ROW0], fill=(200, 200, 200))
+    d.polygon([(RH_W - 6, ROW0 - 6), (RH_W - 6, TOP_COLHDR + 8), (RH_W - 20, ROW0 - 6)], fill=(190, 190, 190))
     # cell backgrounds / formatting
     def fill_rect(r1, c1, r2, c2, color):
         x0, y0, x1, y1 = cell_rect(sh, r1, c1, r2, c2); d.rectangle([x0 + 1, y0 + 1, x1 - 1, y1 - 1], fill=color)
@@ -329,7 +337,7 @@ def draw_screen(st):
             for c in range(c1, c2 + 1):
                 x0, y0, x1, y1 = cell_rect(sh, r, c); d.rectangle([x0, y0, x1, y1], outline=color)
     hdr_white = set()
-    if sh == "Old Data":
+    if sh == "All Data":
         last = max(r for (r, c) in cells) if cells else 1
         if st["table"]:
             fill_rect(1, 1, 1, 6, (68, 114, 196)); hdr_white = {(1, c) for c in range(1, 7)}
@@ -366,7 +374,7 @@ def draw_screen(st):
         if isinstance(v, (int, float)): d.text((x1 - 8, ym), txt, font=fnt, fill=color, anchor="rm")
         elif (r, c) in hdr_white: d.text(((x0 + x1) / 2, ym), txt, font=fnt, fill=color, anchor="mm")
         else: d.text((x0 + 7, ym), txt, font=fnt, fill=color, anchor="lm")
-        if sh == "Old Data" and st["table"] and r == 1:
+        if sh == "All Data" and st["table"] and r == 1:
             d.rectangle([x1 - 24, y0 + 6, x1 - 4, y1 - 6], fill="white", outline=(150, 150, 150))
             d.polygon([(x1 - 19, ym - 2), (x1 - 9, ym - 2), (x1 - 14, ym + 4)], fill=(80, 80, 80))
     # highlight borders
@@ -403,30 +411,42 @@ def draw_screen(st):
                 p0 = (a[0] + (b[0] - a[0]) * i / n, a[1] + (b[1] - a[1]) * i / n)
                 p1 = (a[0] + (b[0] - a[0]) * (i + 1) / n, a[1] + (b[1] - a[1]) * (i + 1) / n)
                 d.line([p0, p1], fill=col, width=3)
-    # sheet tabs
-    d.rectangle([0, TABS_Y, W, STATUS_Y], fill=(240, 240, 240)); d.line([0, TABS_Y, W, TABS_Y], fill=(200, 200, 200))
-    d.text((24, TABS_Y + 19), "◀  ▶", font=F(SANS, 14), fill=(150, 150, 150), anchor="lm")
+    # sheet tabs (Microsoft 365 style)
+    d.rectangle([0, TABS_Y, W, STATUS_Y], fill=(243, 242, 241)); d.line([0, TABS_Y, W, TABS_Y], fill=(214, 214, 214))
+    d.text((22, TABS_Y + 19), "◀", font=F(SANS, 12), fill=(160, 160, 160), anchor="mm"); d.text((50, TABS_Y + 19), "▶", font=F(SANS, 12), fill=(160, 160, 160), anchor="mm")
     tabs, endx = tab_layout(st)
     for name, x, w, txt in tabs:
         act = name == st["active"]
-        d.rectangle([x, TABS_Y, x + w, STATUS_Y - 2], fill="white" if act else (240, 240, 240), outline=(200, 200, 200))
-        if act: d.line([x + 4, STATUS_Y - 4, x + w - 4, STATUS_Y - 4], fill=GREEN, width=3)
+        if act:
+            d.rectangle([x, TABS_Y, x + w, STATUS_Y - 1], fill="white")
+            d.rounded_rectangle([x + 12, STATUS_Y - 6, x + w - 12, STATUS_Y - 3], radius=2, fill=GREEN)
+        else: d.line([x + w, TABS_Y + 10, x + w, STATUS_Y - 10], fill=(200, 200, 200))
         if st["tabedit"] and st["tabedit"][0] == name:
-            tw = f_tabb.getlength(txt); d.rectangle([x + 18, TABS_Y + 7, x + 24 + tw, STATUS_Y - 9], fill=(200, 220, 240))
+            tw = f_tabb.getlength(txt); d.rectangle([x + 18, TABS_Y + 7, x + 24 + tw, STATUS_Y - 9], fill=(200, 225, 210))
         d.text((x + 22, TABS_Y + 19), txt, font=f_tabb if act else f_tab, fill=GREEN if act else (60, 60, 60), anchor="lm")
     px, py = plus_pos(st)
-    d.ellipse([px - 13, py - 13, px + 13, py + 13], outline=(120, 120, 120), width=2)
-    d.text((px, py - 1), "+", font=f_uib, fill=(80, 80, 80), anchor="mm")
+    d.text((px, py), "+", font=F(SANS, 22), fill=(90, 90, 90), anchor="mm")
+    d.text((px + 40, py), "⋮", font=F(SANS, 16), fill=(150, 150, 150), anchor="mm")
+    d.rounded_rectangle([1240, TABS_Y + 15, 1880, TABS_Y + 23], radius=4, fill=(225, 225, 225)); d.rounded_rectangle([1250, TABS_Y + 15, 1560, TABS_Y + 23], radius=4, fill=(200, 200, 200))
     # status bar
-    d.rectangle([0, STATUS_Y, W, H], fill=(243, 243, 243))
-    d.text((16, STATUS_Y + 18), "Edit" if edit else "Ready", font=f_ui, fill=(80, 80, 80), anchor="lm")
+    d.rectangle([0, STATUS_Y, W, H], fill=(243, 242, 241)); d.line([0, STATUS_Y, W, STATUS_Y], fill=(225, 225, 225))
+    d.text((16, STATUS_Y + 18), "Edit" if edit else "Ready", font=f_ui, fill=(70, 70, 70), anchor="lm")
+    d.text((90, STATUS_Y + 18), "♿", font=F(SANS, 15), fill=(90, 90, 90), anchor="lm")
+    d.text((112, STATUS_Y + 18), "Accessibility: Good to go", font=f_ui, fill=(70, 70, 70), anchor="lm")
     if (sr1, sc1) != (sr2, sc2):
         vals = [value(st, sh, r, c) for r in range(sr1, sr2 + 1) for c in range(sc1, sc2 + 1)]
         nums = [v for v in vals if isinstance(v, (int, float))]
         if nums:
             s = f"Average: {sum(nums)/len(nums):,.0f}     Count: {len([v for v in vals if v is not None])}     Sum: {sum(nums):,}"
-            d.text((W - 300, STATUS_Y + 18), s, font=f_ui, fill=(60, 60, 60), anchor="rm")
-    d.text((W - 30, STATUS_Y + 18), "100%", font=f_ui, fill=(80, 80, 80), anchor="rm")
+            d.text((W - 430, STATUS_Y + 18), s, font=f_ui, fill=(50, 50, 50), anchor="rm")
+    vx = W - 400
+    d.rectangle([vx, STATUS_Y + 10, vx + 18, STATUS_Y + 26], outline=GREEN, width=2); d.line([vx, STATUS_Y + 18, vx + 18, STATUS_Y + 18], fill=GREEN)
+    d.rectangle([vx + 34, STATUS_Y + 10, vx + 50, STATUS_Y + 26], outline=(110, 110, 110)); d.line([vx + 38, STATUS_Y + 14, vx + 46, STATUS_Y + 14], fill=(110, 110, 110))
+    d.rectangle([vx + 66, STATUS_Y + 10, vx + 84, STATUS_Y + 26], outline=(110, 110, 110)); d.line([vx + 75, STATUS_Y + 10, vx + 75, STATUS_Y + 26], fill=(110, 110, 110))
+    d.text((W - 290, STATUS_Y + 17), "−", font=F(SANS, 16), fill=(90, 90, 90), anchor="mm")
+    d.line([W - 272, STATUS_Y + 18, W - 112, STATUS_Y + 18], fill=(150, 150, 150), width=2); d.rectangle([W - 195, STATUS_Y + 10, W - 189, STATUS_Y + 26], fill=(70, 70, 70))
+    d.text((W - 96, STATUS_Y + 17), "+", font=F(SANS, 16), fill=(90, 90, 90), anchor="mm")
+    d.text((W - 24, STATUS_Y + 18), "100%", font=f_ui, fill=(70, 70, 70), anchor="rm")
     # dialog
     if st["dialog"] == "table":
         bx, by = 760, 330
@@ -490,9 +510,9 @@ def draw_overlays(img, st, sub):
             if done: d.line([(x + 31, yy), (x + 40, yy + 9), (x + 54, yy - 10)], fill="white", width=4)
             d.text((x + 80, yy), it, font=F(SANS, 25), fill=(25, 25, 25) if done or i == n else (150, 150, 150), anchor="lm")
     if st["banner"]:
-        d = ImageDraw.Draw(img); tw = f_banner.getlength(st["banner"]) + 40
-        blend(img, [W - tw - 30, 76, W - 30, 120], (33, 115, 70), 240, radius=22)
-        d = ImageDraw.Draw(img); d.text((W - 30 - tw / 2, 98), st["banner"], font=f_banner, fill="white", anchor="mm")
+        fb = F(SANSB, 19); tw = fb.getlength(st["banner"]) + 36; cx = 1230
+        blend(img, [cx - tw / 2, 45, cx + tw / 2, 75], (16, 124, 65), 245, radius=15)
+        d = ImageDraw.Draw(img); d.text((cx, 60), st["banner"], font=fb, fill="white", anchor="mm")
     if st["title"]:
         lines, al, subl = st["title"]
         ov = Image.new("RGBA", img.size); od = ImageDraw.Draw(ov)

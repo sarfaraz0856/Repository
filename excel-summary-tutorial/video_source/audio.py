@@ -37,7 +37,11 @@ def music(total):
 def mix(voice, sfx, total, out):
     N = int((total + 1) * SR); vo = np.zeros(N); fx = np.zeros(N)
     for t, path in voice:
-        a, sr = sf.read(path); assert sr == SR; a = a / (np.max(np.abs(a)) + 1e-9) * 0.85
+        a, sr = sf.read(path); assert sr == SR
+        # even loudness line-to-line: normalise speech RMS, then cap peaks; short fades avoid clicks
+        rms = np.sqrt(np.mean(a[np.abs(a) > 0.01] ** 2)) if np.any(np.abs(a) > 0.01) else 1
+        a = a * (0.16 / rms); a = np.tanh(a * 1.1) / np.tanh(1.1)
+        f = int(0.01 * SR); a[:f] *= np.linspace(0, 1, f); a[-f:] *= np.linspace(1, 0, f)
         s = int(t * SR); vo[s:s + len(a)] += a[: N - s]
     gens = {"key": key, "click": click, "whoosh": whoosh, "chime": chime, "tick": tick}
     for t, k in sfx:
