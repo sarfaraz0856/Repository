@@ -2,11 +2,11 @@
 
 **For the human narrator and the screen-recording editor.** Read each scene's voiceover aloud while (or after) the Excel actions are recorded. Timings match `subtitles_hinglish.srt` and add up to 11:00.
 
-Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary, all values formula-calculated).
+Workbook to record from: `Raw_Data_to_Summary.xlsx` (All Data + finished Summary, all values formula-calculated).
 
 ## Recording notes
 
-- **Voice:** natural Indian Hindi/Hinglish male trainer, medium pace, ~1 s pause after each formula and each result. Explain, don't just read symbols. When reading a formula, say e.g. *"bracket, single quote Old Data single quote, exclamation, dollar D colon dollar D…"* only once (Scene 6); afterwards say *"sum range column E, baaki same"*.
+- **Voice:** natural Indian Hindi/Hinglish male trainer, medium pace, ~1 s pause after each formula and each result. Explain, don't just read symbols. When reading a formula, say e.g. *"bracket, single quote All Data single quote, exclamation, dollar D colon dollar D…"* only once (Scene 6); afterwards say *"sum range column E, baaki same"*.
 
 - **Mic:** record WAV 48 kHz/24-bit in a quiet, soft-furnished room; −18 to −12 dBFS peaks; one take per scene so retakes are easy.
 
@@ -14,7 +14,7 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary
 
 - **Mix:** VO −14 LUFS integrated; music bed −32 to −28 LUFS (duck under VO); key/click SFX only on real on-screen actions; soft confirmation chime only on 190, the fill-down, and the Grand Totals.
 
-- **Ctrl+T note (Scene 12):** the supplied Old Data is already an Excel Table. For the live demo, either record Part A with plain formatting and convert in Scene 12, or show Table Design ▸ Convert to Range first and then Ctrl+T.
+- **Ctrl+T note (Scene 12):** the supplied All Data is already an Excel Table. For the live demo, either record Part A with plain formatting and convert in Scene 12, or show Table Design ▸ Convert to Range first and then Ctrl+T.
 
 ## Verified results (recalculated from the workbook)
 
@@ -36,7 +36,7 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary
 
 ## Scene 1 — Powerful Introduction (00:00–00:35)
 
-**On screen:** Old Data tab: zoom on repeated Rahul Sharma / Tea Bags rows → zoom out → click + to reveal blank sheet. Title card: RAW DATA → AUTOMATIC SUMMARY.
+**On screen:** All Data tab: zoom on repeated Rahul Sharma / Tea Bags rows → zoom out → click + to reveal blank sheet. Title card: RAW DATA → AUTOMATIC SUMMARY.
 
 **Text overlay:** EXCEL RAW DATA TO SUMMARY | FORMULA-BASED AUTOMATIC REPORT
 
@@ -44,7 +44,7 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary
 
 > Namaskar dosto! Aaj ki video mein hum Excel ka ek bahut hi useful practical kaam seekhne wale hain.
 >
-> Maan lijiye aapke paas Old Data naam ki ek sheet hai, jismein employees ke naam, stock items, In Quantity, Out Quantity aur Amount ka bahut saara data diya hua hai.
+> Maan lijiye aapke paas All Data naam ki ek sheet hai, jismein employees ke naam, stock items, In Quantity, Out Quantity aur Amount ka bahut saara data diya hua hai.
 >
 > Ab aapko ek alag Summary sheet banani hai, jahan har employee aur har stock item ka total automatically calculate ho.
 >
@@ -53,15 +53,15 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary
 > Chaliye, isko actual Excel mein step by step karte hain.
 >
 
-## Scene 2 — Understand the Old Data (00:35–01:20)
+## Scene 2 — Understand the All Data (00:35–01:20)
 
-**On screen:** Highlight columns B, C, D, E, F one at a time. Circle rows 2, 4, 7, 10 (all Rahul Sharma entries).
+**On screen:** Highlight columns B, C, D, E, F one at a time. Circle rows 2, 4, 10 (Rahul Sharma).
 
 **Text overlay:** OLD DATA = ORIGINAL TRANSACTIONS | SUMMARY = TOTALS AND REPORTING
 
 **Voiceover:**
 
-> Sabse pehle hamare paas Old Data sheet hai.
+> Sabse pehle hamare paas All Data sheet hai.
 >
 > Column A mein Date hai, column B mein Employee Name, column C mein Stock Item, column D mein In Quantity, column E mein Out Quantity aur column F mein Amount hai.
 >
@@ -90,7 +90,7 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary
 >
 > Yahan hum sirf un employee aur stock combinations ko rakhenge jinka total humein chahiye.
 >
-> Dhyan rahe, Old Data original data ke liye hai, aur Summary hamari final report ke liye hai.
+> Dhyan rahe, All Data original data ke liye hai, aur Summary hamari final report ke liye hai.
 >
 
 ## Scene 4 — Enter Employee and Stock Combinations (02:00–02:45)
@@ -115,12 +115,12 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary
 >
 > Ye hamari summary report ke lookup combinations hain.
 >
-> Ab agle steps mein Excel in combinations ke hisaab se Old Data se totals automatically calculate karega.
+> Ab agle steps mein Excel in combinations ke hisaab se All Data se totals automatically calculate karega.
 >
 
 ## Scene 5 — Understand SUMIFS (02:45–03:35)
 
-**On screen:** Old Data: highlight rows 2, 4, 10 (Rahul Sharma + Tea Bags); grey out row 7 (Rahul Sharma + Coffee). Animate 3 rows → 1 summary row.
+**On screen:** All Data: highlight rows 2, 4, 10 (Rahul Sharma + Tea Bags); grey out row 7 (Rahul Sharma + Coffee). Animate 3 rows → 1 summary row.
 
 **Text overlay:** SUMIFS = SUM A VALUE WHEN MULTIPLE CONDITIONS MATCH | EMPLOYEE NAME + STOCK ITEM
 
@@ -143,9 +143,9 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary
 
 ## Scene 6 — Calculate Total In Quantity (03:35–04:40)
 
-**On screen:** Select Summary!C3, type =SUMIFS('Old Data'!$D:$D,'Old Data'!$B:$B,$A3,'Old Data'!$C:$C,$B3), Enter → 190. Cut to Old Data D2, D4, D10: 100 + 50 + 40 = 190.
+**On screen:** Select Summary!C3, type =SUMIFS('All Data'!$D:$D,'All Data'!$B:$B,$A3,'All Data'!$C:$C,$B3), Enter → 190. Cut to All Data D2, D4, D10: 100 + 50 + 40 = 190.
 
-**Text overlay:** Sum Range: Old Data column D | Condition 1: Employee Name | Condition 2: Stock Item | RESULT: 190
+**Text overlay:** Sum Range: All Data column D | Condition 1: Employee Name | Condition 2: Stock Item | RESULT: 190
 
 **Voiceover:**
 
@@ -155,15 +155,15 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary
 >
 > Ab ye formula enter kijiye:
 >
-    =SUMIFS('Old Data'!$D:$D,'Old Data'!$B:$B,$A3,'Old Data'!$C:$C,$B3)
+    =SUMIFS('All Data'!$D:$D,'All Data'!$B:$B,$A3,'All Data'!$C:$C,$B3)
 
 > Chaliye, isko samajhte hain.
 >
-> Sabse pehle humne Old Data sheet ka column D select kiya hai, kyunki isi column mein In Quantity hai. Ye values add hongi.
+> Sabse pehle humne All Data sheet ka column D select kiya hai, kyunki isi column mein In Quantity hai. Ye values add hongi.
 >
-> Uske baad Old Data ka column B hai, jismein Employee Name hai. Excel isko Summary sheet ke A3 wale employee name se match karega.
+> Uske baad All Data ka column B hai, jismein Employee Name hai. Excel isko Summary sheet ke A3 wale employee name se match karega.
 >
-> Phir Old Data ka column C hai, jismein Stock Item hai. Excel isko Summary sheet ke B3 wale stock item se match karega.
+> Phir All Data ka column C hai, jismein Stock Item hai. Excel isko Summary sheet ke B3 wale stock item se match karega.
 >
 > A3 mein Rahul Sharma hai aur B3 mein Tea Bags hai.
 >
@@ -178,7 +178,7 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary
 
 ## Scene 7 — Calculate Total Out Quantity (04:40–05:25)
 
-**On screen:** Select D3, type =SUMIFS('Old Data'!$E:$E,'Old Data'!$B:$B,$A3,'Old Data'!$C:$C,$B3), Enter → 45. Show Old Data E2, E4, E10: 20 + 15 + 10 = 45.
+**On screen:** Select D3, type =SUMIFS('All Data'!$E:$E,'All Data'!$B:$B,$A3,'All Data'!$C:$C,$B3), Enter → 45. Show All Data E2, E4, E10: 20 + 15 + 10 = 45.
 
 **Text overlay:** TOTAL OUT QUANTITY = 45
 
@@ -188,11 +188,11 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary
 >
 > Pichhle formula mein hum column D ki In Quantity add kar rahe the.
 >
-> Ab Out Quantity ke liye Old Data ka column E use karenge.
+> Ab Out Quantity ke liye All Data ka column E use karenge.
 >
 > Formula hai:
 >
-    =SUMIFS('Old Data'!$E:$E,'Old Data'!$B:$B,$A3,'Old Data'!$C:$C,$B3)
+    =SUMIFS('All Data'!$E:$E,'All Data'!$B:$B,$A3,'All Data'!$C:$C,$B3)
 
 > Conditions wahi rahengi. Employee Name bhi same rahega aur Stock Item bhi same rahega.
 >
@@ -205,7 +205,7 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary
 
 ## Scene 8 — Calculate Total Amount (05:25–06:10)
 
-**On screen:** Select E3, type =SUMIFS('Old Data'!$F:$F,'Old Data'!$B:$B,$A3,'Old Data'!$C:$C,$B3), Enter → 9500. Show Old Data F2, F4, F10: 5000 + 2500 + 2000 = 9500.
+**On screen:** Select E3, type =SUMIFS('All Data'!$F:$F,'All Data'!$B:$B,$A3,'All Data'!$C:$C,$B3), Enter → 9500. Show All Data F2, F4, F10: 5000 + 2500 + 2000 = 9500.
 
 **Text overlay:** TOTAL AMOUNT = 9500
 
@@ -213,11 +213,11 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary
 
 > Ab teesra total hai Amount.
 >
-> Amount Old Data sheet ke column F mein hai. Isliye hum Sum Range mein column F use karenge.
+> Amount All Data sheet ke column F mein hai. Isliye hum Sum Range mein column F use karenge.
 >
 > Formula hai:
 >
-    =SUMIFS('Old Data'!$F:$F,'Old Data'!$B:$B,$A3,'Old Data'!$C:$C,$B3)
+    =SUMIFS('All Data'!$F:$F,'All Data'!$B:$B,$A3,'All Data'!$C:$C,$B3)
 
 > Dono conditions wahi hain. Employee Name aur Stock Item.
 >
@@ -286,7 +286,7 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary
 
 ## Scene 11 — Employee-wise Summary Using SUMIF (07:35–08:40)
 
-**On screen:** G2:J2 headings; G3:G5 names; G6 GRAND TOTAL. H3 =SUMIF('Old Data'!$B:$B,$G3,'Old Data'!$D:$D); I3 and J3 same with $E:$E and $F:$F. Fill H3:J3 to row 5; H6:J6 =SUM(...).
+**On screen:** G2:J2 headings; G3:G5 names; G6 GRAND TOTAL. H3 =SUMIF('All Data'!$B:$B,$G3,'All Data'!$D:$D); I3 and J3 same with $E:$E and $F:$F. Fill H3:J3 to row 5; H6:J6 =SUM(...).
 
 **Text overlay:** SUMIF = ONE CONDITION | SUMIFS = MULTIPLE CONDITIONS
 
@@ -300,7 +300,7 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary
 >
 > H3 mein formula likhiye:
 >
-    =SUMIF('Old Data'!$B:$B,$G3,'Old Data'!$D:$D)
+    =SUMIF('All Data'!$B:$B,$G3,'All Data'!$D:$D)
 
 > Yahan pehla range Employee Name ka hai, doosra criteria cell G3 hai, aur last range In Quantity ka hai.
 >
@@ -319,7 +319,7 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary
 
 ## Scene 12 — Professional Formatting and Dynamic Data Tip (08:40–09:45)
 
-**On screen:** Bold headers, header fill, #,##0, borders, bold totals, freeze panes. Old Data: Ctrl+T demo (see note).
+**On screen:** Bold headers, header fill, #,##0, borders, bold totals, freeze panes. All Data: Ctrl+T demo (see note).
 
 **Text overlay:** CLEAN REPORT | FORMULA-BASED TOTALS | CHECK NEW EMPLOYEES AND NEW STOCK ITEMS
 
@@ -329,9 +329,9 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary
 >
 > Headings ko bold karte hain, columns ki width adjust karte hain, Amount ko number format dete hain, aur Grand Total row ko highlight karte hain.
 >
-> Ab ek useful baat samajhiye. Hamare formulas Old Data ke poore columns ko reference kar rahe hain. Isliye agar aap neeche koi naya transaction add karte hain, toh woh bhi calculation mein include ho sakta hai, jab tak data sahi columns mein enter kiya gaya ho.
+> Ab ek useful baat samajhiye. Hamare formulas All Data ke poore columns ko reference kar rahe hain. Isliye agar aap neeche koi naya transaction add karte hain, toh woh bhi calculation mein include ho sakta hai, jab tak data sahi columns mein enter kiya gaya ho.
 >
-> Bade aur regularly update hone wale datasets ke liye aap Old Data ko Excel Table mein convert kar sakte hain. Data select karke Ctrl plus T press kijiye aur confirm kijiye ki table mein headers hain.
+> Bade aur regularly update hone wale datasets ke liye aap All Data ko Excel Table mein convert kar sakte hain. Data select karke Ctrl plus T press kijiye aur confirm kijiye ki table mein headers hain.
 >
 > Excel Table se data manage karna aur naye records add karna aasaan ho sakta hai.
 >
@@ -348,7 +348,7 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary
 
 > Final report save karne se pehle kuch important checks zaroor kariye.
 >
-> Pehla, sheet ka naam formula mein sahi hona chahiye. Hamare formulas mein sheet ka naam Old Data hai.
+> Pehla, sheet ka naam formula mein sahi hona chahiye. Hamare formulas mein sheet ka naam All Data hai.
 >
 > Doosra, Employee Name aur Stock Item ki spelling source data aur summary dono mein match honi chahiye.
 >
@@ -369,7 +369,7 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (Old Data + finished Summary
 
 **Voiceover:**
 
-> Toh dosto, aaj humne seekha ki Excel mein Old Data sheet se doosri Summary sheet kaise banate hain.
+> Toh dosto, aaj humne seekha ki Excel mein All Data sheet se doosri Summary sheet kaise banate hain.
 >
 > Humne SUMIFS se employee aur stock item ke combination ka total nikala, SUMIF se employee-wise summary banayi, formulas ko copy kiya aur Grand Total calculate kiya.
 >
