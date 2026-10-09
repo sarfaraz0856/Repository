@@ -1,0 +1,439 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>10 Mind-Blowing Facts About Mars</title>
+<style>
+  :root{
+    --cream-1:#FCF3DC; --cream-2:#F3E2B8; --cream-3:#EAD29A;
+    --ink:#2A1D10; --ink-2:#5A4428; --gold:#B07F22; --gold-2:#D3A23A; --gold-3:#E9C46A;
+  }
+  html,body{margin:0;padding:0;background:var(--cream-2);}
+  #stage{position:relative;width:1920px;height:1080px;overflow:hidden;
+    background:radial-gradient(ellipse 1300px 900px at 50% 42%, var(--cream-1) 0%, var(--cream-2) 62%, var(--cream-3) 100%);
+    font-family:'Inter Display','Inter',sans-serif;color:var(--ink);}
+  .layer{position:absolute;inset:0;}
+  .dots{background-image:radial-gradient(rgba(176,127,34,.16) 1.6px, transparent 1.8px);background-size:44px 44px;
+    -webkit-mask-image:radial-gradient(ellipse at 50% 50%, transparent 35%, #000 95%);mask-image:radial-gradient(ellipse at 50% 50%, transparent 35%, #000 95%);}
+  .frame{position:absolute;inset:28px;border:2px solid rgba(176,127,34,.35);border-radius:28px;}
+  .scene{position:absolute;inset:0;display:none;}
+  svg .ln{fill:none;stroke:var(--gold);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;}
+  svg .lt{fill:none;stroke:var(--gold);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;}
+  svg .soft{fill:rgba(211,162,58,.16);}
+  svg text{font-family:'Inter Display','Inter',sans-serif;}
+  /* top bar */
+  #topbar{position:absolute;left:84px;right:84px;top:62px;height:50px;display:flex;align-items:center;justify-content:space-between;}
+  #brand{font-weight:800;letter-spacing:.22em;font-size:22px;color:var(--gold);}
+  #counter{font-weight:900;font-size:30px;color:var(--ink);letter-spacing:.06em;}
+  #counter span{color:var(--gold);}
+  #progress{position:absolute;left:84px;right:84px;bottom:66px;height:12px;display:flex;gap:12px;}
+  #progress .seg{flex:1;border-radius:6px;background:rgba(176,127,34,.18);overflow:hidden;}
+  #progress .seg i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-2));border-radius:6px;}
+  /* fact slide */
+  .fact .art{position:absolute;left:110px;top:190px;width:700px;height:700px;}
+  .fact .txt{position:absolute;left:900px;top:205px;width:930px;}
+  .fact .num{font-weight:900;font-size:230px;line-height:.9;color:transparent;-webkit-text-stroke:5px var(--gold);
+    display:inline-block;transform-origin:20% 70%;letter-spacing:-.02em;}
+  .fact .lab{display:inline-block;vertical-align:top;margin:22px 0 0 26px;font-weight:800;font-size:26px;letter-spacing:.3em;color:var(--gold);}
+  .fact h2{margin:28px 0 0;font-weight:900;font-size:86px;line-height:1.02;letter-spacing:-.015em;color:var(--ink);}
+  .fact h2 .w{display:inline-block;white-space:pre;}
+  .fact .ul{height:10px;width:260px;margin-top:30px;border-radius:5px;background:linear-gradient(90deg,var(--gold),var(--gold-3));transform-origin:0 50%;}
+  .fact p{margin:30px 0 0;font-family:'Inter',sans-serif;font-weight:500;font-size:44px;line-height:1.3;color:var(--ink-2);}
+  .fact p b{color:var(--gold);font-weight:800;}
+  /* sweep */
+  #sweep{position:absolute;top:-200px;height:1480px;width:220px;left:0;background:linear-gradient(90deg,rgba(211,162,58,0),var(--gold-2) 40%,var(--gold-3) 60%,rgba(233,196,106,0));transform:translateX(-600px) rotate(14deg);}
+  #sweep2{position:absolute;top:-200px;height:1480px;width:40px;left:0;background:var(--gold);transform:translateX(-600px) rotate(14deg);}
+  /* intro */
+  #intro .kicker{position:absolute;left:150px;top:230px;font-weight:800;font-size:28px;letter-spacing:.32em;color:var(--gold);}
+  #intro .ten{position:absolute;left:140px;top:270px;font-weight:900;font-size:330px;line-height:1;color:var(--gold);letter-spacing:-.03em;transform-origin:30% 70%;
+    text-shadow:6px 6px 0 rgba(42,29,16,.12);}
+  #intro .t1{position:absolute;left:150px;top:610px;font-weight:900;font-size:112px;line-height:1;letter-spacing:-.02em;}
+  #intro .t2{position:absolute;left:150px;top:735px;font-weight:900;font-size:112px;line-height:1;letter-spacing:-.02em;}
+  #intro .t2 span{color:var(--gold);}
+  #intro .bar{position:absolute;left:150px;top:875px;width:420px;height:12px;border-radius:6px;background:linear-gradient(90deg,var(--gold),var(--gold-3));transform-origin:0 50%;}
+  #intro svg.big{position:absolute;left:1190px;top:170px;width:690px;height:690px;}
+  /* outro */
+  #outro .q{position:absolute;left:0;right:0;top:200px;text-align:center;font-weight:900;font-size:104px;letter-spacing:-.02em;line-height:1.05;}
+  #outro .q span{color:var(--gold);}
+  #outro .s{position:absolute;left:0;right:0;top:440px;text-align:center;font-family:'Inter',sans-serif;font-weight:600;font-size:48px;color:var(--ink-2);}
+  #outro .btn{position:absolute;left:50%;top:560px;width:600px;height:140px;margin-left:-300px;border-radius:70px;
+    background:linear-gradient(180deg,var(--gold-2),var(--gold));display:flex;align-items:center;justify-content:center;gap:28px;
+    box-shadow:0 14px 0 rgba(122,86,18,.45),0 26px 50px rgba(122,86,18,.25);}
+  #outro .btn b{font-weight:900;font-size:62px;letter-spacing:.08em;color:#FFF8E6;}
+  #outro .thanks{position:absolute;left:0;right:0;top:770px;text-align:center;font-weight:800;font-size:30px;letter-spacing:.3em;color:var(--gold);}
+  #outro svg.ground{position:absolute;left:0;top:820px;width:1920px;height:260px;}
+  #outro svg.heli{position:absolute;width:260px;height:260px;left:0;top:0;}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="layer dots"></div>
+  <svg class="layer" id="motes" width="1920" height="1080"></svg>
+  <div class="frame"></div>
+
+  <!-- INTRO -->
+  <div class="scene" id="intro">
+    <div class="kicker">A QUICK SPACE EXPLAINER</div>
+    <div class="ten">10</div>
+    <div class="t1">Mind-Blowing Facts</div>
+    <div class="t2">About <span>Mars</span></div>
+    <div class="bar"></div>
+    <svg class="big" viewBox="0 0 600 600" id="introArt"></svg>
+  </div>
+
+  <!-- FACTS get injected here -->
+  <div id="facts"></div>
+
+  <!-- OUTRO -->
+  <div class="scene" id="outro">
+    <div class="q">Which fact <span>blew your mind?</span></div>
+    <div class="s">Comment your favourite fact number below!</div>
+    <div class="btn" id="subbtn">
+      <svg width="74" height="74" viewBox="0 0 64 64" id="bell"><g fill="none" stroke="#FFF8E6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 44 V30 a16 16 0 0 1 32 0 V44 l5 5 H11 z"/><path d="M26 54 a6 6 0 0 0 12 0"/><path d="M32 8 v6"/></g></svg>
+      <b>SUBSCRIBE</b>
+    </div>
+    <div class="thanks">THANKS FOR WATCHING</div>
+    <svg class="ground" viewBox="0 0 1920 260" id="outroGround"></svg>
+    <svg class="heli" viewBox="0 0 300 300" id="outroHeli"></svg>
+  </div>
+
+  <div id="topbar"><div id="brand">10 MIND-BLOWING FACTS ABOUT MARS</div><div id="counter"></div></div>
+  <div id="progress"></div>
+  <div id="sweep"></div><div id="sweep2"></div>
+</div>
+
+<script>
+// ---------- helpers ----------
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const lerp=(a,b,p)=>a+(b-a)*p;
+const eOut=p=>1-Math.pow(1-clamp(p),3);
+const eIn=p=>Math.pow(clamp(p),3);
+const eIO=p=>{p=clamp(p);return p<.5?4*p*p*p:1-Math.pow(-2*p+2,3)/2;};
+const eBack=p=>{p=clamp(p);const c1=1.9,c3=c1+1;return 1+c3*Math.pow(p-1,3)+c1*Math.pow(p-1,2);};
+const seg=(t,a,d)=>clamp((t-a)/d);
+const TAU=Math.PI*2;
+
+// ---------- timeline ----------
+const FPS=30, DUR=90, T_INTRO=7, T_SLIDE=7.4, N=10;
+const T_OUT=T_INTRO+N*T_SLIDE; // 81
+
+// ---------- shared drawings ----------
+function marsSVG(cx,cy,r,id){
+  // planet outline + craters + a couple of surface bands
+  return `<g id="${id||''}">
+    <circle class="ln draw" cx="${cx}" cy="${cy}" r="${r}"/>
+    <path class="lt draw" d="M${cx-r*.92} ${cy-r*.25} Q ${cx-r*.3} ${cy-r*.42} ${cx+r*.2} ${cy-r*.2} T ${cx+r*.93} ${cy-r*.18}"/>
+    <path class="lt draw" d="M${cx-r*.85} ${cy+r*.42} Q ${cx-r*.2} ${cy+r*.25} ${cx+r*.3} ${cy+r*.45} T ${cx+r*.82} ${cy+r*.5}"/>
+    <circle class="lt draw" cx="${cx-r*.35}" cy="${cy+r*.05}" r="${r*.16}"/>
+    <circle class="lt draw" cx="${cx+r*.42}" cy="${cy+r*.12}" r="${r*.1}"/>
+    <circle class="lt draw" cx="${cx+r*.05}" cy="${cy-r*.6}" r="${r*.08}"/>
+    <circle class="lt draw" cx="${cx-r*.05}" cy="${cy+r*.7}" r="${r*.07}"/>
+  </g>`;
+}
+function roverSVG(id){
+  // rover facing right, origin at ground below centre; wheels have ids for spinning
+  const wheel=(x,k)=>`<g class="wheel" data-x="${x}" data-y="-26"><circle class="ln draw" cx="0" cy="0" r="24"/>
+      <path class="lt draw" d="M-24 0 H24 M0 -24 V24"/><circle class="lt draw" cx="0" cy="0" r="6"/></g>`;
+  return `<g id="${id}">
+    ${wheel(-70)}${wheel(0)}${wheel(70)}
+    <path class="ln draw" d="M-70 -26 L-40 -62 H40 L70 -26"/>
+    <path class="ln draw" d="M-92 -62 H92 V-100 H-92 Z"/>
+    <path class="lt draw" d="M-80 -112 H80"/>
+    <path class="ln draw" d="M60 -100 V-170"/>
+    <path class="ln draw" d="M42 -170 H86 V-196 H42 Z"/>
+    <circle class="lt draw" cx="74" cy="-183" r="6"/>
+    <path class="ln draw" d="M92 -80 L130 -96 L150 -60"/>
+    <path class="lt draw" d="M-60 -100 V-140 M-60 -140 l-14 -10 M-60 -140 l14 -10"/>
+  </g>`;
+}
+function heliSVG(id){
+  // Ingenuity: body, legs, mast, two rotors (ellipses that scale to fake spin), solar panel
+  return `<g id="${id}">
+    <path class="ln draw" d="M-40 -60 H40 V0 H-40 Z"/>
+    <path class="lt draw" d="M-40 -30 H40"/>
+    <path class="ln draw" d="M-36 0 L-80 60 M36 0 L80 60 M-14 0 L-34 64 M14 0 L34 64"/>
+    <path class="lt draw" d="M-92 60 H-68 M68 60 H92"/>
+    <path class="ln draw" d="M0 -60 V-150"/>
+    <ellipse class="ln rotor1" cx="0" cy="-100" rx="150" ry="9"/>
+    <ellipse class="ln rotor2" cx="0" cy="-128" rx="150" ry="9"/>
+    <path class="ln draw" d="M-34 -150 H34 V-166 H-34 Z"/>
+  </g>`;
+}
+
+// ---------- the ten facts ----------
+const FACTS=[
+ {h:"The Red Planet Is Rusty", d:"Its soil and dust are full of <b>iron oxide</b>, the same stuff as ordinary rust.", art:"rust"},
+ {h:"A Moon That Rises in the West", d:"Speedy <b>Phobos</b> rises in the west and sets in the east <b>twice</b> every Martian day.", art:"moons"},
+ {h:"A Canyon as Long as a Country", d:"<b>Valles Marineris</b> runs over <b>4,000 km</b>, long enough to stretch across the whole USA.", art:"canyon"},
+ {h:"A Day Almost Like Ours", d:"One Martian day lasts <b>24 hours and 37 minutes</b>, remarkably close to ours.", art:"clock"},
+ {h:"A Very Long Year", d:"A Mars year takes about <b>687 Earth days</b>, almost twice as long as ours.", art:"orbit"},
+ {h:"Jump Three Times Higher", d:"Gravity is only about <b>38%</b> of Earth's, so you could jump <b>nearly 3x higher</b>.", art:"jump"},
+ {h:"Planet-Wide Dust Storms", d:"Dust storms can <b>wrap the entire planet</b> and last for weeks or even months.", art:"storm"},
+ {h:"First Flight on Another World", d:"In <b>2021</b>, the <b>Ingenuity</b> helicopter made the first powered, controlled flight beyond Earth.", art:"heli"},
+ {h:"Ice Caps at Both Poles", d:"They are made of <b>frozen water</b> and <b>frozen carbon dioxide</b>, better known as dry ice.", art:"ice"},
+ {h:"Pieces of Mars on Earth", d:"Impacts blasted rocks off Mars, and some landed here as <b>meteorites</b>.", art:"meteor"},
+];
+
+const ARTS={
+ rust:{svg:()=>`
+   ${marsSVG(260,250,180,'m')}
+   <g id="mag"><circle class="ln draw" cx="420" cy="410" r="96"/><circle class="soft" cx="420" cy="410" r="92"/>
+     <path class="ln draw" d="M488 478 L570 560" style="stroke-width:14"/>
+     <text x="420" y="402" text-anchor="middle" font-size="52" font-weight="900" fill="#B07F22">Fe<tspan font-size="30" dy="12">2</tspan><tspan dy="-12">O</tspan><tspan font-size="30" dy="12">3</tspan></text>
+     <text x="420" y="448" text-anchor="middle" font-size="22" font-weight="800" letter-spacing="4" fill="#5A4428">= RUST</text></g>
+   <g id="specks"></g>`,
+   init(g){let s='';for(let i=0;i<14;i++)s+=`<circle class="sp" r="${3+(i%3)*2}" fill="#B07F22"/>`;g.querySelector('#specks').innerHTML=s;},
+   update(g,u){
+     const m=g.querySelector('#mag'); const p=eBack(seg(u,1.2,.7));
+     const wob=Math.sin(u*2.2)*10;
+     m.setAttribute('transform',`translate(${420+wob} ${410+Math.cos(u*1.7)*6}) scale(${p}) translate(-420 -410)`);
+     g.querySelectorAll('.sp').forEach((c,i)=>{const ph=(u*.35+i/14)%1;const a=i*2.39;
+       c.setAttribute('cx',260+Math.cos(a)*(190+ph*120));c.setAttribute('cy',250+Math.sin(a)*(190+ph*80)-ph*40);
+       c.setAttribute('opacity',(Math.sin(ph*Math.PI)*.8*seg(u,1.5,.6)).toFixed(3));});
+   }},
+ moons:{svg:()=>`
+   ${marsSVG(300,300,110,'m')}
+   <ellipse class="lt draw" cx="300" cy="300" rx="190" ry="70" transform="rotate(-14 300 300)" stroke-dasharray="1"/>
+   <ellipse class="lt draw" cx="300" cy="300" rx="270" ry="105" transform="rotate(-14 300 300)"/>
+   <g id="pho"><circle class="ln" r="18" fill="#FCF3DC"/><text y="-30" text-anchor="middle" font-size="22" font-weight="900" letter-spacing="3" fill="#2A1D10">PHOBOS</text></g>
+   <g id="dei"><circle class="ln" r="12" fill="#FCF3DC"/><text y="-24" text-anchor="middle" font-size="20" font-weight="800" letter-spacing="3" fill="#5A4428">DEIMOS</text></g>
+   <g id="we"><text x="40" y="560" font-size="30" font-weight="900" fill="#B07F22">W</text><text x="540" y="560" font-size="30" font-weight="900" fill="#B07F22">E</text>
+     <path class="ln draw" d="M90 550 H520"/><path class="ln draw" d="M500 535 L522 550 L500 565"/></g>`,
+   update(g,u){
+     const pos=(rx,ry,a)=>{const x=Math.cos(a)*rx,y=Math.sin(a)*ry;const r=-14*Math.PI/180;
+       return [300+x*Math.cos(r)-y*Math.sin(r),300+x*Math.sin(r)+y*Math.cos(r)];};
+     const vis=seg(u,1,.5);
+     const a1=u*2.6, a2=-u*0.55+1;
+     const [x1,y1]=pos(190,70,a1),[x2,y2]=pos(270,105,a2);
+     const p=g.querySelector('#pho'),d=g.querySelector('#dei');
+     p.setAttribute('transform',`translate(${x1} ${y1}) scale(${vis})`);
+     d.setAttribute('transform',`translate(${x2} ${y2}) scale(${vis})`);
+     // keep moon in front only when lower half
+     g.appendChild(Math.sin(a1)>0?p:p);
+   }},
+ canyon:{svg:()=>`
+   <path class="ln draw" d="M20 300 H140 L170 330 L200 330 L222 380 L250 380 L268 450 L332 450 L350 390 L380 390 L400 340 L432 340 L455 300 H580"/>
+   <path class="lt draw" d="M150 340 H190 M210 360 H232 M240 400 H262 M270 470 H330 M340 410 H362 M392 360 H420 M420 320 H448"/>
+   <path class="lt draw" d="M20 340 H120 M40 380 H160 M470 340 H580 M450 380 H560 M20 420 H200 M400 420 H580"/>
+   <path class="lt draw" d="M20 500 H580"/>
+   <g id="meas"><path class="ln" id="arrow" d="M60 190 H540"/><path class="ln" id="ahL" d="M60 170 V210"/><path class="ln" id="ahR" d="M540 170 V210"/></g>
+   <text id="km" x="300" y="150" text-anchor="middle" font-size="64" font-weight="900" fill="#B07F22">4,000+ km</text>
+   <text id="usa" x="300" y="570" text-anchor="middle" font-size="26" font-weight="800" letter-spacing="5" fill="#5A4428">COAST TO COAST, USA</text>`,
+   update(g,u){
+     const p=eIO(seg(u,1.2,1.4));
+     g.querySelector('#arrow').setAttribute('d',`M${300-240*p} 190 H${300+240*p}`);
+     g.querySelector('#ahL').setAttribute('transform',`translate(${-240*(1-p)+0} 0)`);
+     g.querySelector('#ahR').setAttribute('transform',`translate(${240*(1-p)} 0)`);
+     g.querySelector('#meas').setAttribute('opacity',seg(u,1.1,.2));
+     const k=g.querySelector('#km'); k.setAttribute('opacity',seg(u,2.2,.4)); k.setAttribute('transform',`translate(300 150) scale(${eBack(seg(u,2.2,.6))}) translate(-300 -150)`);
+     g.querySelector('#usa').setAttribute('opacity',seg(u,2.8,.5));
+   }},
+ clock:{svg:()=>{let ticks='';for(let i=0;i<24;i++){const a=i/24*TAU,r1=i%6==0?190:205,r2=222;
+     ticks+=`<path class="${i%6==0?'ln':'lt'} draw" d="M${300+Math.cos(a)*r1} ${280+Math.sin(a)*r1} L${300+Math.cos(a)*r2} ${280+Math.sin(a)*r2}"/>`;}
+   return `<circle class="ln draw" cx="300" cy="280" r="240"/><circle class="soft" cx="300" cy="280" r="236"/>${ticks}
+   <path class="ln" id="hh" d="M300 280 V170" style="stroke-width:10"/><path class="ln" id="mh" d="M300 280 V110" style="stroke-width:6"/>
+   <circle cx="300" cy="280" r="12" fill="#B07F22"/>
+   <g id="lbl"><rect x="150" y="535" width="300" height="64" rx="32" fill="#2A1D10"/>
+   <text x="300" y="580" text-anchor="middle" font-size="38" font-weight="900" fill="#E9C46A">24h 37m</text></g>`;},
+   update(g,u){const s=eOut(seg(u,.8,2.5));const turns=s*6+Math.max(0,u-3.3)*.15;
+     g.querySelector('#mh').setAttribute('transform',`rotate(${turns*360} 300 280)`);
+     g.querySelector('#hh').setAttribute('transform',`rotate(${turns*30} 300 280)`);
+     const l=g.querySelector('#lbl');l.setAttribute('opacity',seg(u,2.2,.3));
+     l.setAttribute('transform',`translate(300 567) scale(${eBack(seg(u,2.2,.6))}) translate(-300 -567)`);}},
+ orbit:{svg:()=>{let rays='';for(let i=0;i<12;i++){const a=i/12*TAU;rays+=`<path class="lt draw" d="M${300+Math.cos(a)*56} ${290+Math.sin(a)*56} L${300+Math.cos(a)*74} ${290+Math.sin(a)*74}"/>`;}
+   return `<circle class="ln draw" cx="300" cy="290" r="42"/><circle class="soft" cx="300" cy="290" r="40"/>${rays}
+   <circle class="lt draw" cx="300" cy="290" r="140"/><circle class="lt draw" cx="300" cy="290" r="240"/>
+   <g id="earth"><circle class="ln" r="18" fill="#FCF3DC"/><text y="-28" text-anchor="middle" font-size="22" font-weight="900" letter-spacing="2" fill="#5A4428">EARTH</text></g>
+   <g id="mars"><circle class="ln" r="24" fill="#FCF3DC"/><circle r="9" fill="#B07F22"/><text y="-36" text-anchor="middle" font-size="24" font-weight="900" letter-spacing="2" fill="#2A1D10">MARS</text></g>
+   <g id="yl"><text x="80" y="582" font-size="30" font-weight="800" fill="#5A4428">365 days</text><text x="520" y="582" text-anchor="end" font-size="40" font-weight="900" fill="#B07F22">687 days</text></g>`;},
+   update(g,u){const v=seg(u,1,.4);const tt=Math.max(0,u-1);
+     const ae=-tt*TAU/2.2-1.2, am=-tt*TAU/(2.2*1.88)-.5;
+     g.querySelector('#earth').setAttribute('transform',`translate(${300+Math.cos(ae)*140} ${290+Math.sin(ae)*140}) scale(${v})`);
+     g.querySelector('#mars').setAttribute('transform',`translate(${300+Math.cos(am)*240} ${290+Math.sin(am)*240}) scale(${v})`);
+     g.querySelector('#yl').setAttribute('opacity',seg(u,1.8,.5));}},
+ jump:{svg:()=>{const fig=(id)=>`<g id="${id}"><circle class="ln" cx="0" cy="-92" r="16" fill="#FCF3DC"/><path class="ln" d="M0 -76 V-36 M0 -36 L-16 0 M0 -36 L16 0 M0 -64 L-22 -46 M0 -64 L22 -46"/></g>`;
+   return `<path class="ln draw" d="M40 520 H270"/><path class="ln draw" d="M330 520 H560"/>
+   <path class="lt draw" d="M300 60 V540" stroke-dasharray="1"/>
+   <path class="lt draw" d="M40 420 H95"/><path class="lt draw" d="M325 250 H380"/>
+   <text x="67" y="408" text-anchor="middle" font-size="26" font-weight="900" fill="#5A4428">1x</text>
+   <text x="352" y="236" text-anchor="middle" font-size="34" font-weight="900" fill="#B07F22">~3x</text>
+   ${fig('fe')}${fig('fm')}
+   <text x="155" y="570" text-anchor="middle" font-size="28" font-weight="900" letter-spacing="4" fill="#5A4428">EARTH</text>
+   <text x="445" y="570" text-anchor="middle" font-size="28" font-weight="900" letter-spacing="4" fill="#B07F22">MARS</text>
+   <g id="pct"><rect x="230" y="18" width="140" height="56" rx="28" fill="#2A1D10"/><text x="300" y="58" text-anchor="middle" font-size="32" font-weight="900" fill="#E9C46A">38% g</text></g>`;},
+   update(g,u){const tt=Math.max(0,u-1.1);
+     // Earth: short quick hops (height 100); Mars: floaty tall hops (height 270), period scaled
+     const hop=(t,P,H)=>{const ph=(t%P)/P;return 4*H*ph*(1-ph);};
+     const ye=520-hop(tt,.9,100), ym=520-hop(tt,1.55,270);
+     const v=seg(u,.9,.3);
+     g.querySelector('#fe').setAttribute('transform',`translate(155 ${ye}) scale(${v})`);
+     g.querySelector('#fm').setAttribute('transform',`translate(445 ${ym}) scale(${v})`);
+     g.querySelector('#pct').setAttribute('opacity',seg(u,2,.4));}},
+ storm:{svg:()=>{let sw='';for(let i=0;i<4;i++){const r=200+i*22;sw+=`<g class="swirl" data-k="${i}"><path class="${i%2?'lt':'ln'} draw" d="M${300+r} 300 A${r} ${r*0.92} 0 0 1 ${300-r*0.5} ${300+r*0.8}"/><path class="lt draw" d="M${300-r} 300 A${r} ${r*0.92} 0 0 1 ${300+r*0.4} ${300-r*0.85}"/></g>`;}
+   return `${marsSVG(300,300,150,'m')}${sw}<g id="grains"></g>`;},
+   init(g){let s='';for(let i=0;i<30;i++)s+=`<circle class="gr" r="${2+(i%4)}" fill="#B07F22"/>`;g.querySelector('#grains').innerHTML=s;},
+   update(g,u){g.querySelectorAll('.swirl').forEach(s=>{const k=+s.dataset.k;s.setAttribute('transform',`rotate(${u*(70+k*35)*(k%2?-1:1)+k*40} 300 300)`);});
+     const v=seg(u,1.2,.6);
+     g.querySelectorAll('.gr').forEach((c,i)=>{const a=i*.7+u*(1.2+(i%5)*.25);const r=175+(i*37)%110;
+       c.setAttribute('cx',300+Math.cos(a)*r);c.setAttribute('cy',300+Math.sin(a)*r*.92);c.setAttribute('opacity',(v*(.4+.6*((i*13)%7)/7)).toFixed(3));});}},
+ heli:{svg:()=>`
+   <path class="ln draw" d="M30 520 Q 160 500 300 520 T 570 515"/>
+   <path class="lt draw" d="M90 550 L120 540 M420 548 L460 536 M250 560 H290"/>
+   <g id="hwrap" transform="translate(300 380)">${heliSVG('h')}</g>
+   <g id="puffs"></g>
+   <g id="yr"><rect x="420" y="410" width="150" height="62" rx="31" fill="#2A1D10"/><text x="495" y="454" text-anchor="middle" font-size="36" font-weight="900" fill="#E9C46A">2021</text></g>`,
+   init(g){let s='';for(let i=0;i<6;i++)s+=`<circle class="pf lt" r="10"/>`;g.querySelector('#puffs').innerHTML=s;},
+   update(g,u){const lift=eIO(seg(u,1.4,1.6));const y=380-lift*150+Math.sin(u*3)*8*lift;const x=300+Math.sin(u*1.1)*20*lift;
+     g.querySelector('#hwrap').setAttribute('transform',`translate(${x} ${y}) rotate(${Math.sin(u*1.1)*4*lift})`);
+     const sp=seg(u,.9,.4);
+     g.querySelector('.rotor1').setAttribute('rx',(150*Math.abs(Math.cos(u*22))+8)*sp);
+     g.querySelector('.rotor2').setAttribute('rx',(150*Math.abs(Math.sin(u*22))+8)*sp);
+     g.querySelectorAll('.pf').forEach((c,i)=>{const ph=(u*.8+i/6)%1;const side=i%2?1:-1;
+       c.setAttribute('cx',x+side*(40+ph*150));c.setAttribute('cy',505-ph*30);c.setAttribute('r',6+ph*18);
+       c.setAttribute('opacity',((1-ph)*.9*seg(u,1.2,.4)*(1-lift*.6)).toFixed(3));});
+     g.querySelector('#yr').setAttribute('opacity',seg(u,1.8,.4));}},
+ ice:{svg:()=>{const flake=(id)=>`<g id="${id}"><path class="lt" d="M0 -26 V26 M-22.5 -13 L22.5 13 M-22.5 13 L22.5 -13 M-8 -20 L0 -12 L8 -20 M-8 20 L0 12 L8 20"/></g>`;
+   return `${marsSVG(300,300,190,'m')}
+   <path class="soft" d="M185 150 Q300 85 415 150 Q300 190 185 150 Z"/><path class="ln draw" d="M185 150 Q300 85 415 150 Q300 190 185 150 Z"/>
+   <path class="soft" d="M210 460 Q300 520 390 460 Q300 430 210 460 Z"/><path class="ln draw" d="M210 460 Q300 520 390 460 Q300 430 210 460 Z"/>
+   ${flake('f1')}${flake('f2')}
+   <g id="l1"><text x="300" y="58" text-anchor="middle" font-size="28" font-weight="900" letter-spacing="3" fill="#2A1D10">WATER ICE</text></g>
+   <g id="l2"><text x="300" y="560" text-anchor="middle" font-size="28" font-weight="900" letter-spacing="3" fill="#B07F22">DRY ICE (CO<tspan font-size="18" dy="6">2</tspan><tspan dy="-6">)</tspan></text></g>`;},
+   update(g,u){const v=eBack(seg(u,1.3,.6));
+     g.querySelector('#f1').setAttribute('transform',`translate(480 110) rotate(${u*40}) scale(${v})`);
+     g.querySelector('#f2').setAttribute('transform',`translate(120 490) rotate(${-u*40}) scale(${v})`);
+     g.querySelector('#l1').setAttribute('opacity',seg(u,1.6,.4));g.querySelector('#l2').setAttribute('opacity',seg(u,1.9,.4));}},
+ meteor:{svg:()=>`
+   ${marsSVG(140,150,95,'m')}
+   <g><circle class="ln draw" cx="450" cy="440" r="115"/>
+     <path class="lt draw" d="M380 400 q30 -30 60 -10 q20 20 -10 40 q-30 10 -50 -30 Z M470 470 q30 -20 50 10 q-10 30 -40 20 Z M455 360 q20 -10 40 0"/></g>
+   <path class="lt" id="trail" d="M215 210 C 330 140 400 220 400 330" stroke-dasharray="10 14"/>
+   <g id="rock"><path class="ln" d="M-16 -10 L-4 -18 L14 -12 L18 4 L6 16 L-12 12 Z" fill="#FCF3DC"/></g>
+   <g id="flash"><path class="ln" d="M0 -30 V-14 M0 14 V30 M-30 0 H-14 M14 0 H30 M-20 -20 L-10 -10 M10 10 L20 20 M-20 20 L-10 10 M10 -10 L20 -20"/></g>
+   <text x="140" y="300" text-anchor="middle" font-size="28" font-weight="900" letter-spacing="4" fill="#B07F22">MARS</text>
+   <text x="450" y="600" text-anchor="middle" font-size="28" font-weight="900" letter-spacing="4" fill="#5A4428">EARTH</text>`,
+   update(g,u){const tr=g.querySelector('#trail');const L=tr.getTotalLength();
+     tr.setAttribute('opacity',seg(u,.9,.4)*.9);
+     const P=2.2;const tt=Math.max(0,u-1.2);const ph=(tt%P)/P;const p=eIO(clamp(ph/0.8));
+     const pt=tr.getPointAtLength(L*p);
+     const r=g.querySelector('#rock');r.setAttribute('transform',`translate(${pt.x} ${pt.y}) rotate(${u*240}) scale(${u>1.2?1:0})`);
+     r.setAttribute('opacity',ph<.85?1:Math.max(0,1-(ph-.85)/.1));
+     const f=g.querySelector('#flash');const fp=ph<.12?ph/.12:0; // flash at launch from Mars
+     f.setAttribute('transform',`translate(215 210) scale(${u>1.2?.4+fp*1.1:0})`);f.setAttribute('opacity',u>1.2?(ph<.12?1-fp*.6:0):0);
+   }},
+};
+
+// ---------- build DOM ----------
+const factsEl=document.getElementById('facts');
+FACTS.forEach((f,i)=>{
+  const d=document.createElement('div');d.className='scene fact';d.id='f'+i;
+  const words=f.h.split(' ').map(w=>`<span class="w">${w} </span>`).join('');
+  d.innerHTML=`<svg class="art" viewBox="0 0 600 600"><g class="artg">${ARTS[f.art].svg()}</g></svg>
+    <div class="txt"><span class="num">${String(i+1).padStart(2,'0')}</span><span class="lab">FACT</span>
+    <h2>${words}</h2><div class="ul"></div><p>${f.d}</p></div>`;
+  factsEl.appendChild(d);
+  const g=d.querySelector('.artg'); if(ARTS[f.art].init)ARTS[f.art].init(g);
+});
+document.getElementById('introArt').innerHTML=`
+  <ellipse class="lt draw" cx="300" cy="240" rx="285" ry="95" transform="rotate(-12 300 240)"/>
+  ${marsSVG(300,240,170,'im')}
+  <g id="imoon"><circle class="ln" r="16" fill="#FCF3DC"/></g>
+  <path class="ln draw" d="M0 585 H600"/>
+  <g id="irov">${roverSVG('r1')}</g>`;
+document.getElementById('outroGround').innerHTML=`<path class="ln" d="M60 200 Q 480 170 960 200 T 1860 196"/><g id="orov">${roverSVG('r2')}</g>`;
+document.getElementById('outroHeli').innerHTML=`<g transform="translate(150 175) scale(.75)">${heliSVG('h2')}</g>`;
+document.getElementById('progress').innerHTML=Array.from({length:N},()=>'<div class="seg"><i></i></div>').join('');
+// motes
+const motes=document.getElementById('motes');
+motes.innerHTML=Array.from({length:26},(_,i)=>`<circle r="${2+(i%4)*1.2}" fill="#C79A3A"/>`).join('');
+// pathLength on all draw-able strokes
+document.querySelectorAll('.draw').forEach(e=>{e.setAttribute('pathLength','1');
+  if(!e.getAttribute('stroke-dasharray'))e.style.strokeDasharray='1 1';});
+
+function drawStrokes(root,u,start=.2,dur=1.1,step=.05){
+  root.querySelectorAll('.draw').forEach((e,k)=>{const p=eOut(seg(u,start+k*step,dur));
+    if(e.getAttribute('stroke-dasharray')==='1'){ // dashed style: fade instead
+      e.style.strokeDasharray='0.012 0.02';e.style.opacity=p;return;}
+    e.style.strokeDashoffset=(1-p).toFixed(4);});
+}
+function wheels(root,dist){root.querySelectorAll('.wheel').forEach(w=>{w.setAttribute('transform',`translate(${w.dataset.x} ${w.dataset.y}) rotate(${dist/24*57.3})`);});}
+
+const $=s=>document.querySelector(s);
+const scenes=[...document.querySelectorAll('.scene')];
+function show(el,on){el.style.display=on?'block':'none';}
+
+function render(t){
+  // motes drift
+  [...motes.children].forEach((c,i)=>{const sx=(i*197)%1920,sy=(i*311)%1080;
+    c.setAttribute('cx',(sx+Math.sin(t*.3+i)*40+t*(8+i%5*3))%1980-30);
+    c.setAttribute('cy',(sy-t*(12+i%7*4)+2160)%1140-30);c.setAttribute('opacity',.25+.25*Math.sin(t*.8+i));});
+
+  scenes.forEach(s=>show(s,false));
+  // ---- top UI visibility
+  const inFacts=t>=T_INTRO&&t<T_OUT;
+  const ui=inFacts?1:0;
+  $('#topbar').style.opacity=t<T_INTRO?seg(t,T_INTRO-.3,.3):(t<T_OUT?1:1-seg(t,T_OUT,.4));
+  $('#progress').style.opacity=$('#topbar').style.opacity;
+  const idx=inFacts?Math.floor((t-T_INTRO)/T_SLIDE):(t>=T_OUT?N-1:0);
+  $('#counter').innerHTML=`<span>${String(idx+1).padStart(2,'0')}</span> / 10`;
+  document.querySelectorAll('#progress i').forEach((b,i)=>{
+    const f=t<T_INTRO?0:i<idx?1:i>idx?0:(t>=T_OUT?1:(t-T_INTRO-idx*T_SLIDE)/T_SLIDE);b.style.width=(f*100).toFixed(2)+'%';});
+
+  // ---- sweep transitions at every boundary
+  const bounds=[T_INTRO];for(let i=1;i<=N;i++)bounds.push(T_INTRO+i*T_SLIDE);
+  let sx=-700;for(const b of bounds){const p=seg(t,b-.35,.7);if(p>0&&p<1){sx=lerp(-500,2300,eIO(p));}}
+  $('#sweep').style.transform=`translateX(${sx}px) rotate(14deg)`;
+  $('#sweep2').style.transform=`translateX(${sx+260}px) rotate(14deg)`;
+
+  // ---- INTRO
+  if(t<T_INTRO){const el=$('#intro');show(el,true);const u=t;
+    const out=seg(u,T_INTRO-.45,.45);el.style.opacity=1-out;el.style.transform=`translateX(${-80*eIn(out)}px)`;
+    const k=el.querySelector('.kicker');k.style.opacity=seg(u,.2,.5);k.style.transform=`translateY(${20*(1-eOut(seg(u,.2,.5)))}px)`;
+    const ten=el.querySelector('.ten');ten.style.opacity=seg(u,.35,.2);ten.style.transform=`scale(${eBack(seg(u,.35,.7))}) rotate(${-8*(1-eOut(seg(u,.35,.8)))}deg)`;
+    [['.t1',.8],['.t2',1.05]].forEach(([s,d])=>{const e=el.querySelector(s);e.style.opacity=seg(u,d,.4);e.style.transform=`translateY(${60*(1-eOut(seg(u,d,.6)))}px)`;});
+    el.querySelector('.bar').style.transform=`scaleX(${eOut(seg(u,1.5,.8))})`;
+    const art=$('#introArt');drawStrokes(art,u,.4,1.4,.08);
+    art.querySelector('#im').setAttribute('transform',`rotate(${Math.sin(u*.8)*3} 300 240)`);
+    const ma=u*1.4;const mx=Math.cos(ma)*285,my=Math.sin(ma)*95,rr=-12*Math.PI/180;
+    art.querySelector('#imoon').setAttribute('transform',`translate(${300+mx*Math.cos(rr)-my*Math.sin(rr)} ${240+mx*Math.sin(rr)+my*Math.cos(rr)}) scale(${seg(u,1.5,.4)})`);
+    const rx=lerp(-160,360,eOut(seg(u,1.4,3.2)));const bump=Math.abs(Math.sin(u*9))*2*(1-seg(u,4.4,.3));
+    art.querySelector('#irov').setAttribute('transform',`translate(${rx} ${585-bump}) scale(.65)`);wheels(art.querySelector('#irov'),rx);
+  }
+
+  // ---- FACTS
+  if(inFacts){const i=idx;const el=$('#f'+i);show(el,true);const u=t-T_INTRO-i*T_SLIDE;
+    const out=seg(u,T_SLIDE-.4,.4);el.style.opacity=1-out;el.style.transform=`translateY(${-40*eIn(out)}px)`;
+    const num=el.querySelector('.num');num.style.opacity=seg(u,.05,.15);num.style.transform=`scale(${eBack(seg(u,.05,.6))}) rotate(${-10*(1-eOut(seg(u,.05,.7)))}deg)`;
+    const lab=el.querySelector('.lab');lab.style.opacity=seg(u,.35,.3);lab.style.transform=`translateX(${-30*(1-eOut(seg(u,.35,.5)))}px)`;
+    el.querySelectorAll('h2 .w').forEach((w,k)=>{const p=seg(u,.3+k*.07,.5);w.style.opacity=clamp(p*2);w.style.transform=`translateY(${50*(1-eBack(p))}px)`;});
+    el.querySelector('.ul').style.transform=`scaleX(${eOut(seg(u,.8,.7))})`;
+    const p=el.querySelector('p');p.style.opacity=seg(u,1.1,.6);p.style.transform=`translateY(${30*(1-eOut(seg(u,1.1,.7)))}px)`;
+    const art=el.querySelector('.art');const sc=.85+.15*eBack(seg(u,0,.7));
+    art.style.transform=`scale(${sc}) translateY(${Math.sin(u*1.6)*6}px)`;
+    const g=el.querySelector('.artg');drawStrokes(g,u,.15,1.0,.045);ARTS[FACTS[i].art].update(g,u);
+  }
+
+  // ---- OUTRO
+  if(t>=T_OUT){const el=$('#outro');show(el,true);const u=t-T_OUT;
+    el.style.opacity=seg(u,0,.3);
+    const q=el.querySelector('.q');q.style.opacity=seg(u,.15,.4);q.style.transform=`scale(${eBack(seg(u,.15,.7))})`;
+    const s=el.querySelector('.s');s.style.opacity=seg(u,.8,.5);s.style.transform=`translateY(${30*(1-eOut(seg(u,.8,.6)))}px)`;
+    const b=el.querySelector('.btn');const pulse=1+.045*Math.sin(Math.max(0,u-2)*5)*seg(u,2,.3);
+    b.style.opacity=seg(u,1.3,.3);b.style.transform=`scale(${eBack(seg(u,1.3,.7))*pulse})`;
+    const bell=$('#bell');const ring=Math.max(0,u-2.4)%2.2;bell.style.transform=`rotate(${ring<.8?Math.sin(ring*30)*22*(1-ring/.8):0}deg)`;bell.style.transformOrigin='50% 10%';
+    el.querySelector('.thanks').style.opacity=seg(u,2.4,.6);
+    const gr=$('#outroGround');drawStrokes(gr,u,.2,1.2,.03);gr.querySelector('path').style.strokeDasharray='none';
+    const rx=lerp(-200,2150,seg(u,.6,8.2));gr.querySelector('#orov').setAttribute('transform',`translate(${rx} ${198-Math.abs(Math.sin(u*9))*2}) scale(.75)`);wheels(gr,rx);
+    const h=$('#outroHeli');const hx=1440+Math.sin(u*.9)*60, hy=470+Math.sin(u*1.7)*30+120*(1-eOut(seg(u,.3,1.5)));
+    h.style.left=hx+'px';h.style.top=hy+'px';h.style.opacity=seg(u,.3,.5);
+    h.querySelector('.rotor1').setAttribute('rx',150*Math.abs(Math.cos(u*22))+8);h.querySelector('.rotor2').setAttribute('rx',150*Math.abs(Math.sin(u*22))+8);
+    h.style.transform=`rotate(${Math.sin(u*.9+1.2)*6}deg)`;
+    el.style.opacity=seg(u,0,.3)*(1-seg(t,DUR-.5,.5)*.0);
+  }
+}
+window.render=render;window.DUR=DUR;window.FPS=FPS;
+render(0);
+</script>
+</body>
+</html>
