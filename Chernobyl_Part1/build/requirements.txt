@@ -1,0 +1,8 @@
+# pip install -r requirements.txt
+edge-tts
+numpy
+scipy
+soundfile
+pillow
+# optional: offline Hindi voice used only if edge-tts cannot reach Microsoft's server
+# kokoro-onnx

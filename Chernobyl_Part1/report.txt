@@ -1,0 +1,108 @@
+CHERNOBYL - PART 1 "SOVIET SAPNA" - BUILD REPORT
+====================================================
+Output file : Part1_Soviet_Sapna.mp4
+Length      : 88.47 s   (1920x1080, 30/1 fps, H.264 yuv420p, AAC 48000 Hz stereo, 320kbps setting)
+File size   : 90.7 MB
+
+1. VOICE
+   Engine: Kokoro offline neural TTS, Hindi voice hm_omega (speed 0.94)
+   NOTE: This is NOT the Madhur voice. edge-tts could not reach Microsoft's server
+   when this build ran, so the offline fallback voice was used. Run
+   build/make_part1.py again on a PC with normal internet and it will
+   automatically use hi-IN-MadhurNeural (rate -6%, pitch -2Hz).
+   (edge could not be used: edge-tts failed: SkewAdjustmentError: No server date in headers.)
+   Each line starts 0.4 s after its scene starts and ends at least 0.4 s before
+   the scene ends. Voice normalised to -16 LUFS (the 100% reference level).
+   S10: 8.34 s of speech
+   S11: 9.18 s of speech - sped up x1.018 (atempo)
+   S12: 9.18 s of speech - sped up x1.038 (atempo)
+   S13: 9.18 s of speech - sped up x1.099 (atempo)
+   S14: 7.95 s of speech
+   S15: 9.66 s of speech - sped up x1.100 (atempo), scene extended by 0.47 s
+   S16: 8.95 s of speech
+   S17: 7.22 s of speech
+   S18: 4.80 s of speech
+
+2. TIMING
+   Some lines were too long even at 1.10x speed, so these scenes were extended
+   and everything after them moved later. NEW TIMINGS:
+   S10:   0.00 -  10.00 s
+   S11:  10.00 -  20.00 s
+   S12:  20.00 -  30.00 s
+   S13:  30.00 -  40.00 s
+   S14:  40.00 -  50.00 s
+   S15:  50.00 -  60.47 s
+   S16:  60.47 -  70.47 s
+   S17:  70.47 -  80.47 s
+   S18:  80.47 -  88.47 s
+   Total: 88.47 s
+
+3. PICTURES (your clip > your image > placeholder)
+   S10: PLACEHOLDER (generated, Ken Burns: tilt_up)
+   S11: PLACEHOLDER (generated, Ken Burns: push_center)
+   S12: PLACEHOLDER (generated, Ken Burns: glide_lr)
+   S13: PLACEHOLDER (generated, Ken Burns: push_gentle)
+   S14: PLACEHOLDER (generated, Ken Burns: push_top_right)
+   S15: PLACEHOLDER (generated, Ken Burns: pan_rl)
+   S16: PLACEHOLDER (generated, Ken Burns: drift_down)
+   S17: PLACEHOLDER (generated, Ken Burns: push_center_slow)
+   S18: PLACEHOLDER (generated, Ken Burns: push_flicker)
+   Look: S10-S15 warm/soft (sat 0.85), S16 neutral-cool, S17-S18 cold/dark (sat 0.6);
+   light film grain + vignette on everything; 0.5 s crossfades S10..S17; straight cut
+   S17->S18; fade in from black 0-0.5 s; fade to black in S18 (84.6-85.3 s), black to the end.
+   Screen text font: Oswald (Google Fonts) (rendered as transparent PNGs with Pillow).
+
+4. SOUNDS (file from sfx/ or music/ if found, otherwise synthesized in Python)
+   wind bed                           synthesized
+   flags at 0.0 s (12%)               synthesized
+   crowd_far at 2.0 s (8%)            synthesized
+   construction at 9.8 s (12%)        synthesized
+   crane at 14.0 s (10%)              synthesized
+   city at 19.8 s (10%)               synthesized
+   car at 24.0 s (12%)                synthesized
+   square at 29.8 s (10%)             synthesized
+   swing at 40.0 s (12%)              synthesized
+   gust at 47.0 s (15%)               synthesized
+   hum_plant at 49.8 s (12%)          synthesized
+   powerline at 52.0 s (8%)           synthesized
+   reactor_hall at 60.2 s (15%)       synthesized
+   footsteps at 62.5 s (15%)          synthesized
+   clock at 70.5 s (10%)              synthesized
+   paper at 73.5 s (15%)              synthesized
+   key at 82.5 s (30%)                synthesized
+   drawer at 85.5 s (35%)             synthesized
+   room_tone at 70.5 s (6%)           synthesized
+   music nostalgic                    synthesized (piano Am-F-C-G + strings)
+   music dark                         synthesized (55/82 Hz drone)
+   Levels are % of the voice (35% = -9 dB ... 6% = -24 dB): each sound is first brought
+   to the voice loudness (-16 LUFS), then that gain is applied. Music is ducked by 4 dB
+   under the voice (150 ms attack / 400 ms release). Ambiences that last a whole scene
+   start 0.25 s early / end 0.25 s late so they crossfade together with the picture.
+   Voice protection: where an effect came too close to the narration, effects+wind
+   were lowered automatically just there - by up to 5.6 dB (biggest at 85.2 s).
+
+5. FINAL LOUDNESS
+   Integrated loudness : -14.0 LUFS   (target -14)
+   True peak           : -1.7 dBTP  (limit -1.0)
+   Loudness range      : 3.5 LU
+   ffmpeg loudnorm two-pass, mode: linear (mix was -16.0 LUFS before mastering)
+   Voice on top check  : while the narrator speaks, the voice is at least 6.7 dB
+                         louder than wind+effects+music together (median 15.9 dB).
+                         Loudest non-voice moment is -9.0 dB vs the voice level.
+
+6. FILES
+   Part1_Soviet_Sapna.mp4        final video
+   build/voice_only.wav          narration only (same level as in the final mix)
+   build/sfx_music_only.wav      everything except the narration
+   build/stems/                  01_voice, 02_wind_and_room_tone, 03_sfx, 04_music_ducked
+                                 (the 4 stems add up to the final mix)
+   build/previews/               frames at 5, 25, 55, 75 s
+   build/*.py                    the scripts - run build/make_part1.py to rebuild
+
+7. HOW TO REBUILD WITH YOUR OWN MATERIAL
+   Put clips in clips/ (e.g. scene12.mp4) or images in images/ (e.g. scene12.png),
+   real sounds in sfx/ (e.g. crowd.wav, kids_laughing.wav, car.wav) and music in
+   music/ (music_nostalgic.mp3, music_dark.mp3), then run:
+       python build/make_part1.py
+
+(Build took 5.0 minutes.)

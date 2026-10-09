@@ -1,0 +1,6 @@
+build/work/
+build/tts_models/
+build/fonts/
+build/previews/stills/
+__pycache__/
+*.pyc
