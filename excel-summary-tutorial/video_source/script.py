@@ -268,7 +268,7 @@ SCENES = [
   [("call", "f", ["Bold + header colour"], "note", P(560)), ("move", "E2", 0.6), ("move", (1032, 248), 0.5), ("move", (1032, 248), 0.6),
    ("clickcell", "C3"), ("drag", "J8", 0.8), ("move", ("btn", "comma"), 0.7), ("click",), ("set", "fmt", 2), ("call", "f", ["Number format: 9,500 / 37,800"], "note", P(560)),
    ("move", ("btn", "format"), 0.6), ("click",), ("set", "fmt", 3), ("call", "f", ["Borders around tables"], "note", P(560)),
-   ("clickcell", "A8"), ("drag", "E8", 0.5), ("move", ("btn", "cellstyles"), 0.6), ("click",), ("set", "fmt", 4), ("call", "f", ["Bold, highlighted Grand Total"], "note", P(560)), ("clickcell", "L12")]),
+   ("clickcell", "A8"), ("drag", "E8", 0.5), ("move", ("btn", "cellstyles"), 0.6), ("click",), ("set", "fmt", 4), ("call", "f", ["Grand Total: Cell Style \"Good\""], "note", P(560)), ("clickcell", "L12")]),
  ("Ab ek useful baat samajhiye. Hamare formulas All Data ke poore columns ko reference kar rahe hain. Isliye agar aap neeche koi naya transaction add karte hain, toh woh bhi calculation mein include ho sakta hai, jab tak data sahi columns mein enter kiya gaya ho.",
   "अब एक यूज़फ़ुल बात समझिए। हमारे फ़ॉर्मूलाज़ ऑल डेटा के पूरे कॉलम्स को रेफ़रेंस कर रहे हैं। इसलिए अगर आप नीचे कोई नया ट्रांज़ैक्शन ऐड करते हैं, तो वो भी कैलकुलेशन में इन्क्लूड हो सकता है, जब तक डेटा सही कॉलम्स में एंटर किया गया हो।",
   [("uncall", "all"), ("clickcell", "C5"), ("call", "w", ["'All Data'!$D:$D  =  whole column"], "note", P(560)), ("wait", 2.0),

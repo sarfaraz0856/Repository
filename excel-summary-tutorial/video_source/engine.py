@@ -351,7 +351,7 @@ def draw_screen(st):
         for (r1, c1, r2, c2) in tables:
             if f >= 1 and (r1, c1) in cells:
                 fill_rect(r1, c1, r1, c2, (31, 78, 120)); hdr_white |= {(r1, c) for c in range(c1, c2 + 1)}
-            if f >= 4 and (r2, c1) in cells: fill_rect(r2, c1, r2, c2, (221, 235, 247))
+            if f >= 4 and (r2, c1) in cells: fill_rect(r2, c1, r2, c2, (198, 239, 206))
             if f >= 3 and (r1, c1) in cells: border(r1, c1, r2, c2)
     # highlights (under text)
     for hid, (hs, r1, c1, r2, c2, color, al) in st["hl"].items():
