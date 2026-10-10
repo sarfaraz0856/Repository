@@ -20,11 +20,11 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (All Data + finished Summary
 
 | Employee | Stock | In | Out | Amount |
 |---|---|--:|--:|--:|
-| Rahul Sharma | Tea Bags | 190 | 45 | 9,500 |
-| Rahul Sharma | Coffee | 30 | 8 | 3,600 |
-| Priya Das | Green Tea | 145 | 21 | 11,600 |
-| Aman Khan | Coffee | 80 | 17 | 9,600 |
-| Aman Khan | Tea Bags | 70 | 20 | 3,500 |
+| Rahul Sharma | Laptop | 190 | 45 | 9,500 |
+| Rahul Sharma | Tablet | 30 | 8 | 3,600 |
+| Priya Das | Mobile | 145 | 21 | 11,600 |
+| Aman Khan | Tablet | 80 | 17 | 9,600 |
+| Aman Khan | Laptop | 70 | 20 | 3,500 |
 | **GRAND TOTAL** | | **515** | **111** | **37,800** |
 
 | Employee (SUMIF) | In | Out | Amount |
@@ -36,7 +36,7 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (All Data + finished Summary
 
 ## Scene 1 — Powerful Introduction (00:00–00:35)
 
-**On screen:** All Data tab: zoom on repeated Rahul Sharma / Tea Bags rows → zoom out → click + to reveal blank sheet. Title card: RAW DATA → AUTOMATIC SUMMARY.
+**On screen:** All Data tab: zoom on repeated Rahul Sharma / Laptop rows → zoom out → click + to reveal blank sheet. Title card: RAW DATA → AUTOMATIC SUMMARY.
 
 **Text overlay:** EXCEL RAW DATA TO SUMMARY | FORMULA-BASED AUTOMATIC REPORT
 
@@ -95,7 +95,7 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (All Data + finished Summary
 
 ## Scene 4 — Enter Employee and Stock Combinations (02:00–02:45)
 
-**On screen:** Type A3:B7 one row at a time (Rahul Sharma/Tea Bags, Rahul Sharma/Coffee, Priya Das/Green Tea, Aman Khan/Coffee, Aman Khan/Tea Bags).
+**On screen:** Type A3:B7 one row at a time (Rahul Sharma/Laptop, Rahul Sharma/Tablet, Priya Das/Mobile, Aman Khan/Tablet, Aman Khan/Laptop).
 
 **Text overlay:** STEP 2: DEFINE THE SUMMARY ROWS
 
@@ -103,15 +103,15 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (All Data + finished Summary
 
 > Ab Summary sheet mein hum employee aur stock item ke combinations enter karenge.
 >
-> Pehli row mein Rahul Sharma aur Tea Bags.
+> Pehli row mein Rahul Sharma aur Laptop.
 >
-> Doosri row mein Rahul Sharma aur Coffee.
+> Doosri row mein Rahul Sharma aur Tablet.
 >
-> Teesri row mein Priya Das aur Green Tea.
+> Teesri row mein Priya Das aur Mobile.
 >
-> Chauthi row mein Aman Khan aur Coffee.
+> Chauthi row mein Aman Khan aur Tablet.
 >
-> Aur paanchvi row mein Aman Khan aur Tea Bags.
+> Aur paanchvi row mein Aman Khan aur Laptop.
 >
 > Ye hamari summary report ke lookup combinations hain.
 >
@@ -120,7 +120,7 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (All Data + finished Summary
 
 ## Scene 5 — Understand SUMIFS (02:45–03:35)
 
-**On screen:** All Data: highlight rows 2, 4, 10 (Rahul Sharma + Tea Bags); grey out row 7 (Rahul Sharma + Coffee). Animate 3 rows → 1 summary row.
+**On screen:** All Data: highlight rows 2, 4, 10 (Rahul Sharma + Laptop); grey out row 7 (Rahul Sharma + Tablet). Animate 3 rows → 1 summary row.
 
 **Text overlay:** SUMIFS = SUM A VALUE WHEN MULTIPLE CONDITIONS MATCH | EMPLOYEE NAME + STOCK ITEM
 
@@ -128,13 +128,13 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (All Data + finished Summary
 
 > Ab samajhte hain ki hum SUMIFS formula kyun use kar rahe hain.
 >
-> Hamare example mein Rahul Sharma ke naam par Tea Bags ki teen entries hain.
+> Hamare example mein Rahul Sharma ke naam par Laptop ki teen entries hain.
 >
-> In teeno entries ki In Quantity ko add karna hai, lekin Rahul Sharma ke Coffee records ko include nahi karna.
+> In teeno entries ki In Quantity ko add karna hai, lekin Rahul Sharma ke Tablet records ko include nahi karna.
 >
 > Isi tarah humein sirf usi employee aur usi stock item ki entries select karni hain.
 >
-> SUMIFS formula mein hum pehle batate hain ki kaunsi values add karni hain. Phir hum pehli condition dete hain, jaise Employee Name Rahul Sharma. Uske baad doosri condition dete hain, jaise Stock Item Tea Bags.
+> SUMIFS formula mein hum pehle batate hain ki kaunsi values add karni hain. Phir hum pehli condition dete hain, jaise Employee Name Rahul Sharma. Uske baad doosri condition dete hain, jaise Stock Item Laptop.
 >
 > Excel dono conditions match karne wali rows ka total nikal deta hai.
 >
@@ -165,9 +165,9 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (All Data + finished Summary
 >
 > Phir All Data ka column C hai, jismein Stock Item hai. Excel isko Summary sheet ke B3 wale stock item se match karega.
 >
-> A3 mein Rahul Sharma hai aur B3 mein Tea Bags hai.
+> A3 mein Rahul Sharma hai aur B3 mein Laptop hai.
 >
-> Ab Excel sirf Rahul Sharma aur Tea Bags wali entries ki In Quantity add karega.
+> Ab Excel sirf Rahul Sharma aur Laptop wali entries ki In Quantity add karega.
 >
 > Result aaya 190.
 >
@@ -200,7 +200,7 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (All Data + finished Summary
 >
 > Enter press karne ke baad result 45 aata hai.
 >
-> Yaani Rahul Sharma ke Tea Bags ki total Out Quantity 45 hai.
+> Yaani Rahul Sharma ke Laptop ki total Out Quantity 45 hai.
 >
 
 ## Scene 8 — Calculate Total Amount (05:25–06:10)
@@ -248,7 +248,7 @@ Workbook to record from: `Raw_Data_to_Summary.xlsx` (All Data + finished Summary
 >
 > Excel har row ke employee name aur stock item ko read karke corresponding totals calculate kar dega.
 >
-> Ab dekhiye, Rahul Sharma ke Coffee ka total alag aa gaya. Priya Das ke Green Tea ka total alag aa gaya. Aman Khan ki Coffee aur Tea Bags ki entries bhi alag calculate ho gayi hain.
+> Ab dekhiye, Rahul Sharma ke Tablet ka total alag aa gaya. Priya Das ke Mobile ka total alag aa gaya. Aman Khan ki Tablet aur Laptop ki entries bhi alag calculate ho gayi hain.
 >
 > Is tarah humne five rows ki summary report formulas se complete kar li.
 >
