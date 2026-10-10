@@ -5,6 +5,6 @@ durs = {}
 for si, (_, lines) in enumerate(script.SCENES):
     for li, (sub, sp, acts) in enumerate(lines):
         a, sr = k.create(sp, voice="hm_omega", speed=1.15, lang="hi")
-        sf.write(f"vo3/{si:02d}_{li:02d}.wav", a, sr); durs[f"{si}_{li}"] = len(a) / sr
+        sf.write(f"vo3/{si:02d}_{li:02d}.wav", a, sr, subtype="FLOAT"); durs[f"{si}_{li}"] = len(a) / sr
 json.dump(durs, open("vo3/durs.json", "w"))
 print(sum(durs.values()))

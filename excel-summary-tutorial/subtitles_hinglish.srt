@@ -4,13 +4,13 @@ Namaskar dosto! Aaj ki video mein hum Excel ka ek bahut hi useful practical
 kaam seekhne wale hain.
 
 2
-00:00:07,672 --> 00:00:18,018
-Maan lijiye aapke paas All Data naam ki ek sheet hai, jismein employees ke
-naam, stock items, In Quantity, Out Quantity aur Amount ka bahut saara data
+00:00:07,672 --> 00:00:13,604
+Maan lijiye aapke paas All Data naam ki ek
+sheet hai, jismein employees ke naam, stock
 
 3
-00:00:18,018 --> 00:00:18,915
-diya hua hai.
+00:00:13,604 --> 00:00:18,915
+items, In Quantity, Out Quantity aur Amount ka bahut saara data diya hua hai.
 
 4
 00:00:19,480 --> 00:00:27,544
@@ -31,13 +31,13 @@ Chaliye, isko actual Excel mein step by step karte hain.
 Sabse pehle hamare paas All Data sheet hai.
 
 8
-00:00:46,668 --> 00:00:56,010
-Column A mein Date hai, column B mein Employee Name, column C mein Stock
-Item, column D mein In Quantity, column E mein Out Quantity aur column F mein
+00:00:46,668 --> 00:00:52,086
+Column A mein Date hai, column B mein Employee
+Name, column C mein Stock Item, column D
 
 9
-00:00:56,010 --> 00:00:56,695
-Amount hai.
+00:00:52,086 --> 00:00:56,695
+mein In Quantity, column E mein Out Quantity aur column F mein Amount hai.
 
 10
 00:00:57,260 --> 00:01:06,988
@@ -66,13 +66,14 @@ Is sheet ka naam Summary rakhiye.
 Ab hum ismein apni final report ka structure banayenge.
 
 16
-00:01:35,619 --> 00:01:45,484
-Column A mein Employee Name, column B mein Stock Item, column C mein Total
-In Quantity, column D mein Total Out Quantity aur column E mein Total Amount
+00:01:35,619 --> 00:01:40,649
+Column A mein Employee Name, column B
+mein Stock Item, column C mein Total In
 
 17
-00:01:45,484 --> 00:01:46,072
-rakhenge.
+00:01:40,649 --> 00:01:46,072
+Quantity, column D mein Total Out Quantity
+aur column E mein Total Amount rakhenge.
 
 18
 00:01:46,637 --> 00:01:52,610
@@ -136,13 +137,14 @@ records ko include nahi karna.
 Isi tarah humein sirf usi employee aur usi stock item ki entries select karni hain.
 
 32
-00:02:58,356 --> 00:03:07,923
-SUMIFS formula mein hum pehle batate hain ki kaunsi values add karni hain.
-Phir hum pehli condition dete hain, jaise Employee Name Rahul Sharma. Uske
+00:02:58,356 --> 00:03:05,419
+SUMIFS formula mein hum pehle batate hain ki kaunsi values
+add karni hain. Phir hum pehli condition dete hain,
 
 33
-00:03:07,923 --> 00:03:11,583
-baad doosri condition dete hain, jaise Stock Item Laptop.
+00:03:05,419 --> 00:03:11,583
+jaise Employee Name Rahul Sharma. Uske baad doosri
+condition dete hain, jaise Stock Item Laptop.
 
 34
 00:03:12,148 --> 00:03:17,098
@@ -306,13 +308,13 @@ Excel har row ke employee name aur stock item ko read karke corresponding
 totals calculate kar dega.
 
 72
-00:06:28,202 --> 00:06:38,459
-Ab dekhiye, Rahul Sharma ke Tablet ka total alag aa gaya. Priya Das ke Mobile
-ka total alag aa gaya. Aman Khan ki Tablet aur Laptop ki entries bhi alag
+00:06:28,202 --> 00:06:34,587
+Ab dekhiye, Rahul Sharma ke Tablet ka total alag
+aa gaya. Priya Das ke Mobile ka total alag aa
 
 73
-00:06:38,459 --> 00:06:40,021
-calculate ho gayi hain.
+00:06:34,587 --> 00:06:40,021
+gaya. Aman Khan ki Tablet aur Laptop ki entries bhi alag calculate ho gayi hain.
 
 74
 00:06:40,586 --> 00:06:45,429
@@ -426,23 +428,24 @@ Headings ko bold karte hain, columns ki width adjust karte hain, Amount ko
 number format dete hain, aur Grand Total row ko highlight karte hain.
 
 100
-00:09:02,632 --> 00:09:12,160
-Ab ek useful baat samajhiye. Hamare formulas All Data ke poore columns ko
-reference kar rahe hain. Isliye agar aap neeche koi naya transaction add karte
+00:09:02,632 --> 00:09:10,781
+Ab ek useful baat samajhiye. Hamare formulas All Data ke poore
+columns ko reference kar rahe hain. Isliye agar aap neeche koi naya
 
 101
-00:09:12,160 --> 00:09:18,867
-hain, toh woh bhi calculation mein include ho sakta hai, jab tak data sahi
-columns mein enter kiya gaya ho.
+00:09:10,781 --> 00:09:18,867
+transaction add karte hain, toh woh bhi calculation mein include
+ho sakta hai, jab tak data sahi columns mein enter kiya gaya ho.
 
 102
-00:09:19,432 --> 00:09:30,374
-Bade aur regularly update hone wale datasets ke liye aap All Data ko Excel Table
-mein convert kar sakte hain. Data select karke Ctrl plus T press kijiye aur
+00:09:19,432 --> 00:09:26,656
+Bade aur regularly update hone wale datasets ke liye
+aap All Data ko Excel Table mein convert kar sakte
 
 103
-00:09:30,374 --> 00:09:33,320
-confirm kijiye ki table mein headers hain.
+00:09:26,656 --> 00:09:33,320
+hain. Data select karke Ctrl plus T press kijiye
+aur confirm kijiye ki table mein headers hain.
 
 104
 00:09:33,885 --> 00:09:39,901
@@ -493,13 +496,14 @@ Toh dosto, aaj humne seekha ki Excel mein All Data sheet se doosri Summary
 sheet kaise banate hain.
 
 114
-00:10:46,799 --> 00:10:57,104
-Humne SUMIFS se employee aur stock item ke combination ka total nikala,
-SUMIF se employee-wise summary banayi, formulas ko copy kiya aur Grand Total
+00:10:46,799 --> 00:10:52,370
+Humne SUMIFS se employee aur stock item
+ke combination ka total nikala, SUMIF se
 
 115
-00:10:57,104 --> 00:10:58,149
-calculate kiya.
+00:10:52,370 --> 00:10:58,149
+employee-wise summary banayi, formulas ko
+copy kiya aur Grand Total calculate kiya.
 
 116
 00:10:58,714 --> 00:11:07,162

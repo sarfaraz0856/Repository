@@ -9,6 +9,28 @@ def wrap(text, maxw=1560):
         else: cur = t
     lines.append(cur); return lines
 
+def balanced_cues(text):
+    """Split a line into cues of at most two subtitle rows, with words spread evenly so no cue is a tiny leftover."""
+    import math
+    n = math.ceil(len(wrap(text)) / 2)
+    words = text.split(" ")
+    if n <= 1: return ["\n".join(wrap(text))]
+    target = len(text) / n; groups, cur = [], []
+    for w in words:
+        if cur and len(" ".join(cur + [w])) > target * 1.08 and len(groups) < n - 1: groups.append(cur); cur = [w]
+        else: cur.append(w)
+    groups.append(cur)
+    out = []
+    for g in groups:
+        wl = wrap(" ".join(g))
+        if len(wl) == 2:   # split two-row cues near the middle so both rows have similar length
+            t = " ".join(g); mid = len(t) / 2
+            cut = min((i for i, ch in enumerate(t) if ch == " "), key=lambda i: abs(i - mid))
+            if f_sub.getlength(t[:cut]) <= 1560 and f_sub.getlength(t[cut + 1:]) <= 1560: wl = [t[:cut], t[cut + 1:]]
+        if len(wl) > 2: return ["\n".join(wrap(text)[i:i + 2]) for i in range(0, len(wrap(text)), 2)]
+        out.append("\n".join(wl))
+    return out
+
 def build(durs):
     ops, sfx, voice, subs, scene_marks = [], [], [], [], []
     t = 0.0
@@ -77,7 +99,7 @@ def build(durs):
             vs = t0 + 0.2
             voice.append((vs, f"vo/{si:02d}_{li:02d}.wav"))
             # subtitles: wrap, two lines per cue, timed proportionally to characters
-            wl = wrap(sub); cues = ["\n".join(wl[i:i + 2]) for i in range(0, len(wl), 2)]
+            cues = balanced_cues(sub)
             tot = sum(len(c) for c in cues); ct = vs
             for c in cues:
                 cd = adur * len(c) / tot; subs.append((ct, ct + cd, c)); ct += cd
