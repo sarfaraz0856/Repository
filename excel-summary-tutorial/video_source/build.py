@@ -42,7 +42,7 @@ def build(durs):
                     text, opt, d = act[1], act[2], act[3]
                     add(start, d, "type", text=text, **opt)
                     n = max(1, len(text))
-                    for i in range(n): sfx.append((start + d * i / n, "key"))
+                    for i in range(0, n, 2): sfx.append((start + d * i / n, "key"))
                     if not opt.get("hold"): sfx.append((start + d, "key"))
                     adv = d + 0.15
                 elif name == "enter": add(start, 0, "enter"); sfx.append((start, "key")); adv = 0.2

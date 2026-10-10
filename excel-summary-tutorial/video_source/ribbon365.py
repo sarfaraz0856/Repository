@@ -92,14 +92,22 @@ def chrome():
     # Alignment
     x0 = x
     for i, k in enumerate(["top", "mid", "bot"]):
-        cx = x + 6 + i * 30; d.line([(cx, r1 - 8 + (0 if k == "top" else 8 if k == "mid" else 16)), (cx + 18, r1 - 8 + (0 if k == "top" else 8 if k == "mid" else 16))], fill=TXT, width=2)
-        d.rectangle([cx + 5, r1 - 6 + (0 if k == "top" else 3 if k == "mid" else 6), cx + 13, r1 + 2 + (0 if k == "top" else 3 if k == "mid" else 6)], fill=(120, 120, 120))
-    d.text((x + 106, r1), "ab↗", font=sym14, fill=TXT, anchor="mm"); chev(d, x + 128, r1)
-    small(d, x + 140, r1, "Wrap Text", icon=lambda d_, a, b: d_.text((a + 8, b), "↵", font=sym14, fill=TXT, anchor="mm"))
-    for i, k in enumerate(["left", "center", "right"]): lines_icon(d, x + 6 + i * 30, r2 - 6, k)
-    d.text((x + 104, r2), "⇤", font=sym14, fill=TXT, anchor="mm"); d.text((x + 126, r2), "⇥", font=sym14, fill=TXT, anchor="mm")
-    small(d, x + 140, r2, "Merge & Center", icon=lambda d_, a, b: d_.rectangle([a, b - 7, a + 16, b + 7], outline=TXT), drop=True)
-    x += 310; label(x0, x, "Alignment"); x += 18
+        cx = x + 4 + i * 32; gy = {"top": r1 - 8, "mid": r1, "bot": r1 + 8}[k]
+        d.line([(cx, gy), (cx + 20, gy)], fill=(16, 124, 65) if k == "mid" else TXT, width=2) if k != "mid" else None
+        ty = {"top": [r1 - 4, r1 + 0], "mid": [r1 - 2, r1 + 2], "bot": [r1 + 0, r1 + 4]}[k]
+        for yy in ty: d.line([(cx + 5, yy), (cx + 15, yy)], fill=(90, 90, 90), width=2)
+        if k == "mid":
+            d.line([(cx, r1 - 8), (cx + 20, r1 - 8)], fill=(170, 170, 170)); d.line([(cx, r1 + 8), (cx + 20, r1 + 8)], fill=(170, 170, 170))
+    d.text((x + 120, r1), "ab↗", font=sym14, fill=TXT, anchor="mm"); chev(d, x + 142, r1)
+    small(d, x + 156, r1, "Wrap Text", icon=lambda d_, a, b: d_.text((a + 8, b), "↵", font=sym14, fill=TXT, anchor="mm"))
+    for i, k in enumerate(["left", "center", "right"]):
+        cx = x + 4 + i * 32
+        for j, w in enumerate([20, 13, 20, 13]):
+            x0 = cx if k == "left" else cx + (20 - w) / 2 if k == "center" else cx + 20 - w
+            d.line([(x0, r2 - 7 + j * 5), (x0 + w, r2 - 7 + j * 5)], fill=TXT, width=2)
+    d.text((x + 116, r2), "⇤", font=sym14, fill=TXT, anchor="mm"); d.text((x + 138, r2), "⇥", font=sym14, fill=TXT, anchor="mm")
+    small(d, x + 156, r2, "Merge & Center", icon=lambda d_, a, b: d_.rectangle([a, b - 7, a + 16, b + 7], outline=TXT), drop=True)
+    x += 326; label(x0, x, "Alignment"); x += 18
     # Number
     x0 = x
     d.rounded_rectangle([x, r1 - 12, x + 150, r1 + 12], radius=3, outline=(190, 190, 190)); d.text((x + 8, r1), "General", font=f15, fill=TXT, anchor="lm"); chev(d, x + 138, r1)

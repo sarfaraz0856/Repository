@@ -97,11 +97,11 @@ def shift_formula(f, dr):
 def initial_state():
     od = {}
     hdr = ["Date", "Employee Name", "Stock Item", "In Qty", "Out Qty", "Amount"]
-    data = [("01-Oct-2026","Rahul Sharma","Tea Bags",100,20,5000),("01-Oct-2026","Priya Das","Green Tea",80,10,6400),
-            ("02-Oct-2026","Rahul Sharma","Tea Bags",50,15,2500),("02-Oct-2026","Aman Khan","Coffee",60,12,7200),
-            ("03-Oct-2026","Priya Das","Green Tea",40,5,3200),("03-Oct-2026","Rahul Sharma","Coffee",30,8,3600),
-            ("04-Oct-2026","Aman Khan","Tea Bags",70,20,3500),("04-Oct-2026","Priya Das","Green Tea",25,6,2000),
-            ("05-Oct-2026","Rahul Sharma","Tea Bags",40,10,2000),("05-Oct-2026","Aman Khan","Coffee",20,5,2400)]
+    data = [("01-Oct-2026","Rahul Sharma","Laptop",100,20,5000),("01-Oct-2026","Priya Das","Mobile",80,10,6400),
+            ("02-Oct-2026","Rahul Sharma","Laptop",50,15,2500),("02-Oct-2026","Aman Khan","Tablet",60,12,7200),
+            ("03-Oct-2026","Priya Das","Mobile",40,5,3200),("03-Oct-2026","Rahul Sharma","Tablet",30,8,3600),
+            ("04-Oct-2026","Aman Khan","Laptop",70,20,3500),("04-Oct-2026","Priya Das","Mobile",25,6,2000),
+            ("05-Oct-2026","Rahul Sharma","Laptop",40,10,2000),("05-Oct-2026","Aman Khan","Tablet",20,5,2400)]
     for c, h in enumerate(hdr, 1): od[(1, c)] = {"v": h, "b": True}
     for r, row in enumerate(data, 2):
         for c, v in enumerate(row, 1): od[(r, c)] = {"v": v}
@@ -509,7 +509,7 @@ def draw_overlays(img, st, sub):
             d.rounded_rectangle([x + 24, yy - 18, x + 60, yy + 18], radius=6, outline=(33, 115, 70), width=3, fill=(33, 115, 70) if done else None)
             if done: d.line([(x + 31, yy), (x + 40, yy + 9), (x + 54, yy - 10)], fill="white", width=4)
             d.text((x + 80, yy), it, font=F(SANS, 25), fill=(25, 25, 25) if done or i == n else (150, 150, 150), anchor="lm")
-    if st["banner"]:
+    if False and st["banner"]:
         fb = F(SANSB, 19); tw = fb.getlength(st["banner"]) + 36; cx = 1230
         blend(img, [cx - tw / 2, 45, cx + tw / 2, 75], (16, 124, 65), 245, radius=15)
         d = ImageDraw.Draw(img); d.text((cx, 60), st["banner"], font=fb, fill="white", anchor="mm")
