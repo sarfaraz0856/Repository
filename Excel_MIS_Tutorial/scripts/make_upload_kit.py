@@ -98,13 +98,24 @@ HASHTAGS = ["#MISReport", "#ExcelDashboard", "#ExcelTutorial"]
 PINNED = ("📥 Free practice file + solution: PASTE-YOUR-LINK-HERE  |  Which part should I explain in more detail next: monthly MIS automation, a Power Query version, "
           "or an XLOOKUP dashboard? Comment below 👇")
 
+# The voiced video (mis_tutorial_animated.mp4) has the same timing, so chapters and SRTs fit it too;
+# only the CC line and the closing note change.
+DESCRIPTION_VOICE = DESCRIPTION.replace(
+    "Turn on CC for English or Hinglish subtitles. (Hinglish subtitles available: CC on karein.)",
+    "Hinglish captions are on screen. Turn on CC for English subtitles.").replace(
+    "Note: this video is an animated walkthrough of Microsoft Excel 365 with background music and sound effects "
+    "(no voiceover). The sample data is fictional.",
+    "Note: this video is an animated walkthrough of Microsoft Excel 365. The Hindi voiceover is AI-generated "
+    "(text-to-speech), not a human narrator. The sample data is fictional.")
+assert DESCRIPTION_VOICE != DESCRIPTION and DESCRIPTION_VOICE.count("AI-generated") == 1
+
 # ---------------------------------------------------------------- checks
 tags_csv = ", ".join(TAGS)
-for label, text in [("title", TITLE), ("description", DESCRIPTION), ("tags", tags_csv)] + \
+for label, text in [("title", TITLE), ("description", DESCRIPTION), ("voice description", DESCRIPTION_VOICE), ("tags", tags_csv)] + \
                    [(f"alt title {i}", t) for i, t in enumerate(ALT_TITLES, 1)]:
     assert "<" not in text and ">" not in text, f"YouTube rejects < or > in the {label}"
 assert len(TITLE) <= 100 and all(len(t) <= 100 for t in ALT_TITLES)
-assert len(DESCRIPTION) <= 5000
+assert len(DESCRIPTION) <= 5000 and len(DESCRIPTION_VOICE) <= 5000
 assert len(tags_csv) <= 500, len(tags_csv)
 
 # ---------------------------------------------------------------- PDF
@@ -211,5 +222,18 @@ subprocess.run([bv.CHROME, "--headless", "--no-sandbox", "--disable-gpu", "--no-
                 "--virtual-time-budget=2000", f"--print-to-pdf={pdf}", f"file://{hp}"],
                capture_output=True, check=True)
 print(pdf, os.path.getsize(pdf) // 1024, "KB")
+
+# plain-text copy of everything that gets pasted into YouTube Studio
+RULE = "=" * 72
+txt = f"{OUTDIR}/YouTube_Copy_Paste.txt"
+open(txt, "w", encoding="utf-8").write("\n".join([
+    RULE, "TITLE", RULE, TITLE, "", "Alternative titles:", *[f"- {t}" for t in ALT_TITLES], "",
+    RULE, "DESCRIPTION  (video WITHOUT voice: mis_tutorial_no_voice.mp4)", RULE, DESCRIPTION, "",
+    RULE, "DESCRIPTION  (video WITH voice: mis_tutorial_animated.mp4)", RULE, DESCRIPTION_VOICE, "",
+    RULE, "TAGS  (paste into the Tags box)", RULE, tags_csv, "",
+    RULE, "HASHTAGS", RULE, " ".join(HASHTAGS), "",
+    RULE, "PINNED COMMENT", RULE, PINNED, "",
+    "Replace PASTE-YOUR-LINK-HERE with your Google Drive link before publishing.", ""]))
+print(txt)
 print("TITLE:", TITLE, len(TITLE))
 print("TAGS:", len(tags_csv), "chars")

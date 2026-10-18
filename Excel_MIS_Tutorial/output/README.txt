@@ -78,3 +78,11 @@ REBUILD / CHANGE THINGS
 REAL-RECORDING VERSION (optional)
   For a version made from genuine Excel screen captures and a human voice,
   follow scripts/recording_guide.md and scripts/editing_guide.md.
+
+FINAL PACKAGE
+  output/Final_Guide.pdf (A4, Hinglish) - what every file is, which video to upload,
+    the YouTube Studio upload order, notes to read before publishing, answer values.
+  output/youtube/YouTube_Copy_Paste.txt - title, both descriptions (with / without
+    voice), tags, hashtags, pinned comment as plain text.
+  python3 scripts/make_final_package.py also zips everything into
+    Sales_MIS_Final_Package.zip (in the scratchpad, not committed: it repeats the videos).

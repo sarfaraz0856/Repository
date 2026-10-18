@@ -1,0 +1,121 @@
+========================================================================
+TITLE
+========================================================================
+MIS Report in Excel | Sales Dashboard Step by Step (Pivot + Slicer)
+
+Alternative titles:
+- How to Make MIS Report in Excel | Sales Dashboard from Raw Data
+- Excel MIS Report for Beginners | SUMIFS, COUNTIFS, Pivot Table & Slicers
+- Sales Dashboard in Excel | MIS Executive Skills | Raw Data to Report
+- MIS Report in Excel: Pivot Table + Slicer Dashboard (Step by Step)
+
+========================================================================
+DESCRIPTION  (video WITHOUT voice: mis_tutorial_no_voice.mp4)
+========================================================================
+Learn how to build a complete Sales MIS Report in Excel, step by step: from 180 rows of raw sales data to a clean, interactive MIS dashboard with KPIs, Pivot Tables, Pivot Charts and Slicers.
+Turn on CC for English or Hinglish subtitles. (Hinglish subtitles available: CC on karein.)
+
+📥 FREE practice file (Excel): PASTE-YOUR-LINK-HERE
+Same 180-row sales data as the video. Yellow cells to fill, step-by-step tasks with video times, and a self-check sheet that scores your answers out of 16. The finished solution file is included.
+
+In this tutorial:
+✔ Convert raw data into an Excel Table (Ctrl + T) and name it SalesData
+✔ Sales Amount with a structured reference: =[@Qty]*[@[Unit Price]]
+✔ KPI cards with SUMIFS, COUNTIFS and IFERROR: Total Sales, Total Orders, Units Sold, Average Sales per Order, Pending Sales Amount
+✔ Region-wise and product-wise summary with % of total
+✔ Pivot Tables and Pivot Charts (clustered column + pie)
+✔ Slicers with Report Connections: one click filters every pivot and chart
+✔ Dashboard formatting, Refresh All (Ctrl + Alt + F5) and a 3-way validation of the totals
+
+Chapters
+0:00 Introduction
+0:46 Understanding the raw data
+1:46 Convert data to an Excel Table (Ctrl + T)
+2:33 Sales Amount with structured references
+3:27 KPI cards: SUMIFS, COUNTIFS, IFERROR
+5:08 Region-wise & product-wise analysis
+6:10 Create a Pivot Table
+7:15 Pivot Charts (column + pie)
+7:53 Slicers & Report Connections
+8:41 Dashboard formatting
+9:16 Refresh & validate the report
+9:59 Summary
+
+Formulas used
+• Sales Amount: =[@Qty]*[@[Unit Price]]
+• Total Sales: SUMIFS on SalesData[Sales Amount] with an October 2026 date range built using DATE()
+• Total Orders: COUNTIFS on non-blank SalesData[Invoice No] in the same date range
+• Average Sales per Order: =IFERROR(B6/D6,0)
+• Pending Sales Amount: SUMIFS with Payment Status = "Pending"
+
+How to practise: download the files, open Sales_MIS_Practice.xlsx in Excel 365, start on the Start_Here sheet and pause the video at each chapter. Stuck? Open Sales_MIS_Solution.xlsx.
+
+Useful for MIS executives, accounts and sales teams, Excel beginners and office job interview preparation.
+
+Note: this video is an animated walkthrough of Microsoft Excel 365 with background music and sound effects (no voiceover). The sample data is fictional.
+
+#MISReport #ExcelDashboard #ExcelTutorial
+
+========================================================================
+DESCRIPTION  (video WITH voice: mis_tutorial_animated.mp4)
+========================================================================
+Learn how to build a complete Sales MIS Report in Excel, step by step: from 180 rows of raw sales data to a clean, interactive MIS dashboard with KPIs, Pivot Tables, Pivot Charts and Slicers.
+Hinglish captions are on screen. Turn on CC for English subtitles.
+
+📥 FREE practice file (Excel): PASTE-YOUR-LINK-HERE
+Same 180-row sales data as the video. Yellow cells to fill, step-by-step tasks with video times, and a self-check sheet that scores your answers out of 16. The finished solution file is included.
+
+In this tutorial:
+✔ Convert raw data into an Excel Table (Ctrl + T) and name it SalesData
+✔ Sales Amount with a structured reference: =[@Qty]*[@[Unit Price]]
+✔ KPI cards with SUMIFS, COUNTIFS and IFERROR: Total Sales, Total Orders, Units Sold, Average Sales per Order, Pending Sales Amount
+✔ Region-wise and product-wise summary with % of total
+✔ Pivot Tables and Pivot Charts (clustered column + pie)
+✔ Slicers with Report Connections: one click filters every pivot and chart
+✔ Dashboard formatting, Refresh All (Ctrl + Alt + F5) and a 3-way validation of the totals
+
+Chapters
+0:00 Introduction
+0:46 Understanding the raw data
+1:46 Convert data to an Excel Table (Ctrl + T)
+2:33 Sales Amount with structured references
+3:27 KPI cards: SUMIFS, COUNTIFS, IFERROR
+5:08 Region-wise & product-wise analysis
+6:10 Create a Pivot Table
+7:15 Pivot Charts (column + pie)
+7:53 Slicers & Report Connections
+8:41 Dashboard formatting
+9:16 Refresh & validate the report
+9:59 Summary
+
+Formulas used
+• Sales Amount: =[@Qty]*[@[Unit Price]]
+• Total Sales: SUMIFS on SalesData[Sales Amount] with an October 2026 date range built using DATE()
+• Total Orders: COUNTIFS on non-blank SalesData[Invoice No] in the same date range
+• Average Sales per Order: =IFERROR(B6/D6,0)
+• Pending Sales Amount: SUMIFS with Payment Status = "Pending"
+
+How to practise: download the files, open Sales_MIS_Practice.xlsx in Excel 365, start on the Start_Here sheet and pause the video at each chapter. Stuck? Open Sales_MIS_Solution.xlsx.
+
+Useful for MIS executives, accounts and sales teams, Excel beginners and office job interview preparation.
+
+Note: this video is an animated walkthrough of Microsoft Excel 365. The Hindi voiceover is AI-generated (text-to-speech), not a human narrator. The sample data is fictional.
+
+#MISReport #ExcelDashboard #ExcelTutorial
+
+========================================================================
+TAGS  (paste into the Tags box)
+========================================================================
+mis report in excel, sales mis report, mis report, mis report kaise banaye, excel dashboard, sales dashboard in excel, excel mis report, mis report format in excel, mis executive, excel sales report, pivot table in excel, slicer in excel, sumifs formula in excel, countifs in excel, excel table, structured references excel, pivot chart, kpi dashboard excel, excel for beginners, advanced excel, excel tutorial, excel 365, data analysis in excel, excel practice file
+
+========================================================================
+HASHTAGS
+========================================================================
+#MISReport #ExcelDashboard #ExcelTutorial
+
+========================================================================
+PINNED COMMENT
+========================================================================
+📥 Free practice file + solution: PASTE-YOUR-LINK-HERE  |  Which part should I explain in more detail next: monthly MIS automation, a Power Query version, or an XLOOKUP dashboard? Comment below 👇
+
+Replace PASTE-YOUR-LINK-HERE with your Google Drive link before publishing.
