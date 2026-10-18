@@ -1,0 +1,47 @@
+1
+00:00:00,000 --> 00:00:50,000
+[DRAFT — NOT SYNCHRONIZED] Namaskaar doston! Aaj hum banayenge ek complete professional Sales MIS Report in Excel 365. MIS = Management Information System.
+
+2
+00:00:50,000 --> 00:01:50,000
+[DRAFT] Raw_Data sheet: October 2026 ki 180 transactions. Columns: Date, Invoice No, Region, Salesperson, Product, Qty, Unit Price, Sales Amount, Payment Status. Ek row = ek unique invoice.
+
+3
+00:01:50,000 --> 00:03:05,000
+[DRAFT] Data ko Excel Table banaiye: Ctrl+T, headers tick, OK. Table Design tab mein naam rakhiye SalesData.
+
+4
+00:03:05,000 --> 00:04:15,000
+[DRAFT] Sales Amount: =[@Qty]*[@[Unit Price]]. Structured reference poore column mein auto-fill ho jaata hai.
+
+5
+00:04:15,000 --> 00:05:55,000
+[DRAFT] KPI cards (SUMIFS/COUNTIFS): Total Sales 14,28,190; Total Orders 180; Total Units 11,834; Avg/Order ~7,934; Pending Sales Amount 3,72,985 (NOT Outstanding Receivables).
+
+6
+00:05:55,000 --> 00:07:15,000
+[DRAFT] Region-wise SUMIFS: East 3,51,030; West 3,83,675; North 3,55,130; South 3,38,355. Total = 14,28,190.
+
+7
+00:07:15,000 --> 00:08:55,000
+[DRAFT] Native Pivot Table: Insert > PivotTable from SalesData. Region to Rows, Sales Amount to Values as SUM (not Count), Date to Filters = October 2026.
+
+8
+00:08:55,000 --> 00:10:00,000
+[DRAFT] Charts: Region PivotChart = Clustered Column; Product = Pie/Bar. Add Data Labels, meaningful titles.
+
+9
+00:10:00,000 --> 00:11:10,000
+[DRAFT] Slicers: Insert Slicer (Region, Product). Report Connections se dono pivots connect. Ek click se sab filter.
+
+10
+00:11:10,000 --> 00:12:15,000
+[DRAFT] Formatting: bold title, consistent colours, thousands separator, gridlines off. Clarity over decoration.
+
+11
+00:12:15,000 --> 00:13:25,000
+[DRAFT] Refresh & validate: Ctrl+Alt+F5 Refresh All. Region total = Product total = Pivot total = Total Sales.
+
+12
+00:13:25,000 --> 00:14:10,000
+[DRAFT] Conclusion: Table, formulas, KPIs, pivots, charts, slicers — sab validated. Like, Subscribe, comment karein. Happy Excel-ing!
