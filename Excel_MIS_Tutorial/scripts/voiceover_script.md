@@ -2,7 +2,9 @@
 
 **How to use this file:** Record with a real human voice. Natural, clear, professional, conversational — the way an Excel trainer actually speaks to learners. Do **not** use a synthesized/AI voice and present it as a human recording. Keep a relaxed pace (~130–150 words/min). Pause briefly at each `/` marker. Save takes into `audio/` as `vo_sceneNN.wav` (48 kHz, mono, 24-bit).
 
-> Audio production status: **PENDING** — no human recording exists yet. Once recorded, note each scene's real start/end timecodes so `subtitles/subtitles.srt` can be synchronized (see the subtitle file header).
+> Audio production status:
+> - **Animated video (`output/mis_tutorial_animated.mp4`): done with an AI voice.** It uses Kokoro-82M TTS, Hindi voice `hm_psi`, generated offline. The narration it speaks is in the `BEATS` section of `scripts/build_video.py` (same content as this script, slightly condensed per screen action).
+> - **Human voiceover for a real Excel screen-recording version: still pending.** Record from this script if you make that version.
 
 ---
 

@@ -69,3 +69,23 @@ The following cannot be verified in this Linux environment and **must be confirm
 
 ## Known environment limitation
 Excel formula recalculation cannot be performed natively here (no Excel on Linux). The numbers above are proven by independent Python computation and by LibreOffice recalculation of an equivalent-reference copy. To confirm the **displayed** results in the delivered file, open `workbook/Sales_MIS_Report.xlsx` in Microsoft Excel 365.
+
+## Animated tutorial video QA (`output/mis_tutorial_animated.mp4`)
+
+Measured on the final file with ffprobe / ffmpeg `ebur128`:
+
+| Check | Result |
+|---|---|
+| Video stream | H.264 High, 1920×1080, 30 fps, yuv420p |
+| Audio stream | AAC-LC, 48 kHz, stereo |
+| Duration | 754.8 s (12.58 min). Video and audio durations match to 6 ms |
+| Integrated loudness | −14.8 LUFS (YouTube target −14 ±1) |
+| True peak | −2.2 dBFS |
+| Music bed under narration | about 23 dB below the voice (stems: voice −20.0 LUFS, ducked music −43.3 LUFS) |
+| Title / end cards (music only) | −21.7 / −22.6 LUFS |
+| Subtitles | 66 cues, monotonic and non-overlapping, timed from the real voice-clip lengths |
+| Voice intelligibility | All 66 clips back-translated by Whisper from audio alone. See `scripts/voice_qa.md` |
+| On-screen numbers | Sheets are rendered from the workbook. Pivot, chart and slicer figures are aggregated from the same rows (e.g. West = 142,320 + 87,305 + 154,050 = 383,675) |
+| Cursor / clicks | Verified on extracted frames: halo and click ring land on the dialog OK button and on the slicer item at click time |
+
+Scope: this video is an **animated recreation** of Excel 365 with an **AI voice**. The frames say so, and so does `output/README.txt`. It does not verify the native Excel features listed above under "Features requiring manual testing". Those still need a real Excel 365 session.

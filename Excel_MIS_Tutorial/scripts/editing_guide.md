@@ -9,7 +9,12 @@
 | Output format | MP4 (H.264 video, AAC audio) |
 | Target duration | 12–15 minutes |
 
-## Status of source media
+## Two versions
+
+1. **Animated version (built):** `output/mis_tutorial_animated.mp4` is produced by `scripts/build_video.py`. It has an animated Excel 365 recreation, an AI voice, synthesized SFX and music, and burned-in plus `.srt` captions. Rebuild it with `python3 scripts/build_video.py`. See `output/README.txt`.
+2. **Real-recording version (manual):** the rest of this guide covers editing genuine Excel 365 screen captures with a human voice.
+
+## Status of source media (real-recording version)
 - **Screen recordings:** NONE yet. `recordings/` is empty. Real Excel 365 clips must be recorded first (see `recording_guide.md`). Do **not** render a video from placeholders or fake Excel UI.
 - **Audio:** PENDING. Human voiceover not yet recorded (see `voiceover_script.md`).
 - Because both are missing, **the final video cannot be rendered yet.** This guide prepares the workflow so that once real clips + audio exist, assembly is straightforward.
