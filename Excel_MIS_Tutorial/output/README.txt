@@ -3,7 +3,7 @@ OUTPUT FOLDER
 
 mis_tutorial_no_voice.mp4   (UPLOAD THIS ONE)
   Same video with NO voiceover and NO burned-in subtitles: background music + sound
-  effects (mouse clicks, key presses, whoosh, chime) only. 1920x1080, 30 fps, 10:54,
+  effects (mouse clicks, key presses, whoosh, chime) only. 1920x1080, 30 fps, 10:45,
   -16 LUFS, true peak -3 dBFS. Title bar watermark: "Animated recreation".
   Build: MIS_MODE=novoice python3 scripts/build_video.py
 
@@ -31,7 +31,7 @@ mis_tutorial_animated.mp4   (earlier version, kept)
 mis_tutorial_animated.mp4
   Video : 1920x1080, 30 fps, 16:9, H.264
   Audio : AAC 48 kHz stereo, loudness-normalised to about -14 LUFS (YouTube level)
-  Length: 10 min 54 s (654 s) - played 1.15x faster than the first AI-voice build;
+  Length: 10 min 45 s (645 s) - played 1.15x faster than the first AI-voice build;
           the opening title card is 2 seconds
 
 WHAT IT IS - PLEASE READ BEFORE PUBLISHING

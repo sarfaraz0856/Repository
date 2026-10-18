@@ -53,271 +53,266 @@ Important: ek row = ek unique invoice. Har Invoice
 No bhara hua hai aur kabhi repeat nahi hota.
 
 12
-00:01:46,432 --> 00:01:54,971
-Yeh assumption humne Read_Me sheet mein likh
-rakhi hai — aage Total Orders isi par based hoga.
-
-13
-00:01:55,221 --> 00:02:06,620
+00:01:46,432 --> 00:01:57,831
 Ab is data ko Excel Table mein convert karte hain — formulas
 readable bante hain aur range apne aap expand hoti hai.
 
-14
-00:02:06,870 --> 00:02:11,953
+13
+00:01:58,081 --> 00:02:03,164
 Data ke kisi bhi cell par click karke Ctrl + T dabaiye.
 
-15
-00:02:12,203 --> 00:02:23,433
+14
+00:02:03,414 --> 00:02:14,644
 Create Table mein range =$A$2:$I$182 aa gayi. 'My
 table has headers' tick hona chahiye — phir OK.
 
-16
-00:02:23,683 --> 00:02:33,461
+15
+00:02:14,894 --> 00:02:24,672
 Table ban gaya — banded rows, har header par
 filter button, aur ribbon mein Table Design tab.
 
-17
-00:02:33,711 --> 00:02:42,166
+16
+00:02:24,922 --> 00:02:33,377
 Table Name box mein likhiye SalesData aur Enter.
 Yahi naam aage har formula mein use hoga.
 
-18
-00:02:42,416 --> 00:02:52,471
+17
+00:02:33,627 --> 00:02:43,682
 Ab Sales Amount. Table ke andar formulas structured references
 use karte hain — cell address nahi, column ka naam.
 
-19
-00:02:52,721 --> 00:03:03,735
+18
+00:02:43,932 --> 00:02:54,946
 H3 mein type kijiye: =[@Qty]*[@[Unit Price]]
 
-20
-00:03:03,985 --> 00:03:13,507
+19
+00:02:55,196 --> 00:03:04,718
 @ ka matlab — isi row ki value. Unit Price do shabdon
 ka naam hai, isliye uske around double brackets.
 
-21
-00:03:13,757 --> 00:03:22,275
+20
+00:03:04,968 --> 00:03:13,486
 Enter dabaate hi formula poore column mein
 apne aap fill — saari 180 rows ek saath.
 
-22
-00:03:22,525 --> 00:03:36,441
+21
+00:03:13,736 --> 00:03:27,652
 Check: row 3 mein 55 × 120.00 = 6,600.00 ✔. Column
 select karein toh status bar mein Sum: 1,428,190.00.
 
-23
-00:03:36,691 --> 00:03:45,338
+22
+00:03:27,902 --> 00:03:36,549
 Ab dashboard ka dil — KPI cards. Yaad rakhiye,
 final values kabhi haath se type nahi karte.
 
-24
-00:03:45,588 --> 00:03:52,292
+23
+00:03:36,799 --> 00:03:43,503
 Sab kuch formula se aata hai — data
 badla, toh number apne aap update.
 
-25
-00:03:52,542 --> 00:04:08,486
+24
+00:03:43,753 --> 00:03:59,697
 Total Sales (B6): SUMIFS sirf October ka Sales
 Amount jodta hai — date range DATE() se di hai.
 
-26
-00:04:08,736 --> 00:04:13,712
+25
+00:03:59,947 --> 00:04:04,923
 Result: 1,428,190.00 — yaani chaudah
 lakh, atthais hazaar, ek sau nabbe.
 
-27
-00:04:13,962 --> 00:04:25,021
+26
+00:04:05,173 --> 00:04:16,232
 Total Orders (D6): ek row = ek invoice, isliye
 COUNTIFS se October ke non-blank invoices — 180.
 
-28
-00:04:25,271 --> 00:04:34,794
+27
+00:04:16,482 --> 00:04:26,005
 Total Units Sold (F6): wahi date
 condition, Qty ka SUMIFS — 11,834.
 
-29
-00:04:35,044 --> 00:04:50,626
+28
+00:04:26,255 --> 00:04:41,837
 Average Sales / Order (H6): =IFERROR(B6/D6,0) —
 orders zero hon toh bhi error nahi. Result 7,934.39.
 
-30
-00:04:50,876 --> 00:05:03,962
+29
+00:04:42,087 --> 00:04:55,173
 Pending Sales Amount (B9): Payment Status
 = "Pending" wala SUMIFS — 372,985.00.
 
-31
-00:05:04,212 --> 00:05:17,211
+30
+00:04:55,423 --> 00:05:08,422
 Naam jaan-boojhkar Pending Sales Amount rakha hai, 'Outstanding Receivables'
 nahi — data mein payment received ya balance ki field hi nahi hai.
 
-32
-00:05:17,461 --> 00:05:24,999
+31
+00:05:08,672 --> 00:05:16,210
 Ab region-wise analysis — management
 dekhna chahta hai kaunsa region aage hai.
 
-33
-00:05:25,249 --> 00:05:37,821
+32
+00:05:16,460 --> 00:05:29,032
 C13 mein wahi SUMIFS + ek condition: SalesData[Region] = B13.
 Region cell se aata hai, isliye formula neeche copy ho jaata hai.
 
-34
-00:05:38,071 --> 00:05:56,662
+33
+00:05:29,282 --> 00:05:47,873
 East 351,030 • West 383,675 (sabse
 strong) • North 355,130 • South 338,355.
 
-35
-00:05:56,912 --> 00:06:07,095
+34
+00:05:48,123 --> 00:05:58,306
 Total (C17) = 1,428,190.00 — bilkul Total
 Sales ke barabar. Yahi hamara cross-check hai ✔
 
-36
-00:06:07,345 --> 00:06:18,979
+35
+00:05:58,556 --> 00:06:10,190
 Isi tarah Product-wise: Tea A 385,320 • Tea B 432,820
 • Tea C 610,050 — total phir se 1,428,190.00 ✔
 
-37
-00:06:19,229 --> 00:06:25,891
+36
+00:06:10,440 --> 00:06:17,102
 Formulas ke saath Pivot Table bhi seekhte
 hain — drag-and-drop se instant summary.
 
-38
-00:06:26,141 --> 00:06:33,891
+37
+00:06:17,352 --> 00:06:25,102
 SalesData ke kisi cell par click →
 Insert → PivotTable → From Table/Range.
 
-39
-00:06:34,141 --> 00:06:41,551
+38
+00:06:25,352 --> 00:06:32,762
 Table/Range mein SalesData already aa
 gaya. New Worksheet choose karke OK.
 
-40
-00:06:41,801 --> 00:06:53,349
+39
+00:06:33,012 --> 00:06:44,560
 Nayi sheet bani — right side PivotTable Fields. Region
 ko Rows mein, Sales Amount ko Values mein drag kijiye.
 
-41
-00:06:53,599 --> 00:07:04,593
+40
+00:06:44,810 --> 00:06:55,804
 Dhyaan: Values mein Sum of Sales Amount hona chahiye.
 'Count of' dikhe toh → Value Field Settings → Sum.
 
-42
-00:07:04,843 --> 00:07:16,797
+41
+00:06:56,054 --> 00:07:08,008
 Date ko Filters mein daaliye, October 2026 rakhiye.
 Grand Total = 1428190 — dashboard se match ✔
 
-43
-00:07:17,047 --> 00:07:24,157
+42
+00:07:08,258 --> 00:07:15,368
 Isi tarah doosra pivot — Product
 Rows mein, Sales Amount Values mein.
 
-44
-00:07:24,407 --> 00:07:30,898
+43
+00:07:15,618 --> 00:07:22,109
 Ab charts — visuals se management
 ko baat turant samajh aati hai.
 
-45
-00:07:31,148 --> 00:07:39,516
+44
+00:07:22,359 --> 00:07:30,727
 Region pivot select → PivotTable Analyze
 → PivotChart → Clustered Column → OK.
 
-46
-00:07:39,766 --> 00:07:51,614
+45
+00:07:30,977 --> 00:07:42,825
 Chart aa gaya. Right-click → Add Data Labels — har bar
 par exact value. Title: Region-wise Sales Performance.
 
-47
-00:07:51,864 --> 00:08:02,048
+46
+00:07:43,075 --> 00:07:53,259
 Product pivot ke liye Pie chart — Product-wise
 Sales Analysis. Tea C ka share sabse bada.
 
-48
-00:08:02,298 --> 00:08:07,402
+47
+00:07:53,509 --> 00:07:58,613
 Ab report ko interactive banate hain — slicers se.
 
-49
-00:08:07,652 --> 00:08:15,679
+48
+00:07:58,863 --> 00:08:06,890
 Pivot select → PivotTable Analyze → Insert
 Slicer → Region aur Product tick → OK.
 
-50
-00:08:15,929 --> 00:08:27,327
+49
+00:08:07,140 --> 00:08:18,538
 Ek slicer se dono pivots: slicer par right-click
 → Report Connections → dono PivotTables tick.
 
-51
-00:08:27,577 --> 00:08:35,668
+50
+00:08:18,788 --> 00:08:26,879
 Yaad rakhiye: slicer sirf same data source
 (SalesData) wale pivots ko jod sakta hai.
 
-52
-00:08:35,918 --> 00:08:42,964
+51
+00:08:27,129 --> 00:08:34,175
 Ab West par click — dono pivots aur charts
 turant West ke liye filter ho gaye!
 
-53
-00:08:43,214 --> 00:08:50,601
+52
+00:08:34,425 --> 00:08:41,812
 Filter hatane ke liye slicer ka Clear
 Filter button — totals wapas poore.
 
-54
-00:08:50,851 --> 00:08:59,135
+53
+00:08:42,062 --> 00:08:50,346
 Ab finishing — professional dashboard
 ka matlab decoration nahi, clarity.
 
-55
-00:08:59,385 --> 00:09:09,311
+54
+00:08:50,596 --> 00:09:00,522
 Bold title, KPI cards ka consistent colour, aur
 numbers par thousands separator — Ctrl + Shift + 1.
 
-56
-00:09:09,561 --> 00:09:15,881
+55
+00:09:00,772 --> 00:09:07,092
 View tab → Gridlines untick — look ekdum clean.
 
-57
-00:09:16,131 --> 00:09:24,757
+56
+00:09:07,342 --> 00:09:15,968
 Ek font, consistent spacing, do-teen colours —
 report manager ke liye hai, readability sabse upar.
 
-58
-00:09:25,007 --> 00:09:32,735
+57
+00:09:16,218 --> 00:09:23,946
 Report tab tak bharosemand nahi jab
 tak refresh aur validation na ho.
 
-59
-00:09:32,985 --> 00:09:42,143
+58
+00:09:24,196 --> 00:09:33,354
 Raw_Data mein nayi row aaye — Table hone se
 SUMIFS / COUNTIFS use apne aap pakad lete hain.
 
-60
-00:09:42,393 --> 00:09:51,849
+59
+00:09:33,604 --> 00:09:43,060
 Pivot Tables ko refresh karna padta hai:
 Data → Refresh All — ya Ctrl + Alt + F5.
 
-61
-00:09:52,099 --> 00:10:02,153
+60
+00:09:43,310 --> 00:09:53,364
 Teen cross-check: Region total = Product total
 = Pivot Grand Total = Total Sales 1,428,190.
 
-62
-00:10:02,403 --> 00:10:08,105
+61
+00:09:53,614 --> 00:09:59,316
 Teeno match ✔ — report reconciled.
 
-63
-00:10:08,355 --> 00:10:14,355
+62
+00:09:59,566 --> 00:10:05,566
 Toh doston, aaj humne zero se ek
 complete Sales MIS Report banayi.
 
-64
-00:10:14,605 --> 00:10:25,597
+63
+00:10:05,816 --> 00:10:16,808
 Excel Table, structured formula, SUMIFS / COUNTIFS KPIs,
 region-product analysis, Pivot, charts aur slicers.
 
-65
-00:10:25,847 --> 00:10:35,305
+64
+00:10:17,058 --> 00:10:26,516
 Aur sabse zaroori — har number ko validate kiya.
 Yahi aapko professional MIS executive banata hai.
 
-66
-00:10:35,555 --> 00:10:48,191
+65
+00:10:26,766 --> 00:10:39,402
 Video achhi lagi toh Like, Subscribe aur comment
 mein agla topic bataiye. Happy Excel-ing!
