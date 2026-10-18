@@ -1,0 +1,3 @@
+# Python bytecode cache produced when build_video.py imports excel_ui
+__pycache__/
+*.py[cod]
