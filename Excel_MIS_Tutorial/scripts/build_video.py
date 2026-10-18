@@ -37,9 +37,10 @@ for d in ("html", "png", "clips", "audio", "tts", "assets"):
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 FPS = 30
 RENDER_H = 1180          # headless Chromium under-paints a 1080 viewport; render taller, crop
-LEAD, TAIL = 0.45, 0.85
+SPEED = 1.15         # whole video plays 1.15x faster than the original 0.92-speed build
+LEAD, TAIL = 0.45 / SPEED, 0.85 / SPEED
 VOICE = os.environ.get("MIS_VOICE", "hm_psi")
-VOICE_SPEED = 0.92   # slightly slower than default: clearer for learners
+VOICE_SPEED = 1.135   # calibrated: narration = 1/1.15 of the 0.92-speed build (Kokoro speed is not linear)
 OUT = f"{ROOT}/output/mis_tutorial_animated.mp4"
 SRT = f"{ROOT}/subtitles/subtitles.srt"
 
@@ -466,6 +467,7 @@ B("<b>Total Sales (B6)</b>: <b>SUMIFS</b> sirf October ka Sales Amount jodta hai
 B("Result: <b>1,428,190.00</b> — yaani chaudah lakh, atthais hazaar, ek sau nabbe.",
   "Result आता है — चौदह लाख, अट्ठाईस हज़ार, एक सौ नब्बे।",
   [(0.0, dash("B6", edit=F_B6, blank=B6_BLANK)), (0.05, dash("B6", hls=("B6",)))],
+  cursor=[(0.15, "cell:B6", False)],          # after Enter, move off the value so it stays readable
   sfx=[(0.03, "key"), (0.4, "chime")])
 B("<b>Total Orders (D6)</b>: ek row = ek invoice, isliye <b>COUNTIFS</b> se October ke non-blank invoices — <b>180</b>.",
   "दूसरा — Total Orders। क्योंकि एक row एक unique invoice है, हम count ifs से October के non blank invoices गिनते हैं। Total — एक सौ अस्सी।",
@@ -477,7 +479,7 @@ B("<b>Average Sales / Order (H6)</b>: <b>=IFERROR(B6/D6,0)</b> — orders zero h
   "चौथा — Average Sales per Order। Total Sales को Total Orders से divide किया, और if error में लपेट दिया, ताकि कभी orders zero हों तो error न आए। जवाब — लगभग सेवन थाउज़ंड नाइन हंड्रेड थर्टी फ़ोर।",
   dash("H6", hls=("H6",)), cursor=[(0.1, "cell:H6", True)])
 B("<b>Pending Sales Amount (B9)</b>: Payment Status = \"Pending\" wala SUMIFS — <b>372,985.00</b>.",
-  "पांचवां — Pending Sales Amount। इसमें sum ifs की एक extra condition है — Payment Status, Pending। Pending Sales Amount है — थ्री लाख सेवेंटी टू थाउज़ंड नाइन हंड्रेड एटी फ़ाइव।",
+  "पांचवां — Pending Sales Amount। इसमें sum ifs की एक extra condition है — Payment Status, Pending। Pending Sales Amount है — थ्री लाख, सेवेंटी टू थाउज़ंड, नाइन हंड्रेड एटी फ़ाइव।",
   dash("B9", hls=("B9",)), cursor=[(0.1, "cell:B9", True)])
 B("Naam jaan-boojhkar <b>Pending Sales Amount</b> rakha hai, 'Outstanding Receivables' nahi — data mein payment received ya balance ki field hi nahi hai.",
   "ध्यान दीजिए — इसका नाम हमने जान-बूझकर Pending Sales Amount रखा है, Outstanding Receivables नहीं। क्योंकि इस data में payment received या balance की कोई field ही नहीं है।",
@@ -493,7 +495,7 @@ B("<b>C13</b> mein wahi SUMIFS + ek condition: <b>SalesData[Region] = B13</b>. R
   [(0.0, dash("C13")), (0.72, dash("C13", rng="C13:C16"))],
   cursor=[(0.08, "cell:C13", True), (0.7, "cell:C16", False)], sfx=[(0.74, "key"), (0.77, "key")])
 B("East <b>351,030</b> • West <b>383,675</b> (sabse strong) • North <b>355,130</b> • South <b>338,355</b>.",
-  "East — थ्री लाख फ़िफ़्टी वन थाउज़ंड थर्टी। West — थ्री लाख एटी थ्री थाउज़ंड सिक्स हंड्रेड सेवेंटी फ़ाइव, यह सबसे strong region है। North — थ्री लाख फ़िफ़्टी फ़ाइव थाउज़ंड वन हंड्रेड थर्टी। और South — थ्री लाख थर्टी एट थाउज़ंड थ्री हंड्रेड फ़िफ़्टी फ़ाइव।",
+  "East — थ्री लाख, फ़िफ़्टी वन थाउज़ंड, थर्टी। West — थ्री लाख, एटी थ्री थाउज़ंड, सिक्स हंड्रेड सेवेंटी फ़ाइव, यह सबसे strong region है। North — थ्री लाख, फ़िफ़्टी फ़ाइव थाउज़ंड, वन हंड्रेड थर्टी। और South — थ्री लाख, थर्टी एट थाउज़ंड, थ्री हंड्रेड फ़िफ़्टी फ़ाइव।",
   [(0.0, dash("C13", hls=("B13:C13",))), (0.24, dash("C14", hls=("B14:C14",))),
    (0.6, dash("C15", hls=("B15:C15",))), (0.8, dash("C16", hls=("B16:C16",)))],
   cursor=[(0.02, "cell:C13", True), (0.24, "cell:C14", True), (0.6, "cell:C15", True), (0.8, "cell:C16", True)])
@@ -681,11 +683,11 @@ INTRO = ('<!doctype html><html><head><meta charset="utf-8"><style>' + CARD_CSS +
          '</div></body></html>')
 OUTRO = ('<!doctype html><html><head><meta charset="utf-8"><style>' + CARD_CSS + '</style></head><body>'
          '<div class="hero" style="background:linear-gradient(135deg,#107C41,#1F3864 60%,#102a43)">'
-         '<h1>Ho Gaya! &#10003;</h1><div class="list">Excel Table &bull; Structured formulas &bull; KPIs &bull; Region / Product analysis<br>'
-         'Pivot Tables &bull; Charts &bull; Slicers &mdash; sab <b>validated</b></div>'
+         '<h1>Done! &#10003;</h1><div class="list">Excel Table &bull; Structured formulas &bull; KPIs &bull; Region / Product analysis<br>'
+         'Pivot Tables &bull; Charts &bull; Slicers &mdash; every number <b>validated</b></div>'
          '<div class="cta">Like &bull; Subscribe &bull; Comment</div>'
-         '<div class="sub">Happy Excel-ing! &mdash; milte hain agli video mein</div></div></body></html>')
-INTRO_DUR, OUTRO_DUR = 5.0, 7.0
+         '<div class="sub">Happy Excel-ing! &mdash; see you in the next video</div></div></body></html>')
+INTRO_DUR, OUTRO_DUR = 2.0, round(7.0 / SPEED, 2)   # title card: 2 seconds
 
 # ================================================================== rendering helpers
 def h(s):
@@ -733,7 +735,16 @@ def resolve(target, frame, html):
         return target
     kind, ref = target.split(":", 1)
     if kind == "cell":
-        return frame.v.center(ref)
+        x, y, w, hh = frame.v.rect(ref)
+        r, c = ui.parse_ref(ref.split(":")[0])
+        inf = frame.v.src.info(r, c)
+        blank = frame.vkw.get("blank") or set()
+        text = "" if (r, c) in blank else inf["text"]
+        if ":" in ref or not text:
+            return int(x + w / 2), int(y + hh / 2)
+        hal = inf["h"] or ("right" if inf["num"] else "left")
+        fx = 0.06 if hal == "right" else 0.90          # right-aligned value -> point left, else right
+        return int(x + w * fx), int(y + hh * 0.55)
     rects = probe(html)
     if ref not in rects:
         raise KeyError(f"target {ref} not found in frame")
@@ -755,7 +766,7 @@ def main():
         sp = b["speech"]
         fr = [f for f, _ in b["frames"]] + [f for f, _, _ in b["cursor"]] + [f for f, _ in b["sfx"]]
         last = max(fr + [0.0])
-        b["dur"] = round(max(LEAD + sp + TAIL, LEAD + last * sp + 0.9) + b["extra"], 3)
+        b["dur"] = round(max(LEAD + sp + TAIL, LEAD + last * sp + 0.9 / SPEED) + b["extra"], 3)
         b["start"] = t
         t += b["dur"]
     total = t + OUTRO_DUR
@@ -870,11 +881,11 @@ def make_cursor_assets():
     S4 = 4
     def canvas():
         return Image.new("RGBA", (96 * S4, 96 * S4), (0, 0, 0, 0))
-    cur = f"{WORK}/assets/cursor_v2.png"
+    cur = f"{WORK}/assets/cursor_v3.png"
     im = canvas()
     d = ImageDraw.Draw(im)
     c = 48 * S4
-    d.ellipse([c - 27 * S4, c - 27 * S4, c + 27 * S4, c + 27 * S4], fill=(255, 214, 0, 105))
+    d.ellipse([c - 23 * S4, c - 23 * S4, c + 23 * S4, c + 23 * S4], fill=(255, 214, 0, 80))
     arrow = [(48, 48), (48, 82), (56, 74), (62, 88), (68, 85), (62, 71), (74, 71)]
     pts = [(x * S4, y * S4) for x, y in arrow]
     d.polygon(pts, fill=(255, 255, 255, 255))
@@ -898,7 +909,7 @@ def _pw(way, idx):
     for k in range(len(way) - 1, 0, -1):
         t0, t1 = way[k - 1][0], way[k][0]
         a, b = way[k - 1][idx], way[k][idx]
-        ms = max(t0, t1 - min(0.85, max(0.25, t1 - t0)))
+        ms = max(t0, t1 - min(0.85 / SPEED, max(0.25, t1 - t0)))
         span = max(t1 - ms, 1e-3)
         p = f"((t-{ms:.3f})/{span:.3f})"
         moving = f"{a}+({b - a})*{p}*{p}*(3-2*{p})"

@@ -4,7 +4,8 @@ OUTPUT FOLDER
 mis_tutorial_animated.mp4
   Video : 1920x1080, 30 fps, 16:9, H.264
   Audio : AAC 48 kHz stereo, loudness-normalised to about -14 LUFS (YouTube level)
-  Length: about 12-13 minutes (exact value: see the QA checklist / ffprobe)
+  Length: 10 min 54 s (654 s) - played 1.15x faster than the first AI-voice build;
+          the opening title card is 2 seconds
 
 WHAT IT IS - PLEASE READ BEFORE PUBLISHING
   * ANIMATED RECREATION of Microsoft Excel 365, NOT a live screen recording.
@@ -16,9 +17,11 @@ WHAT IT IS - PLEASE READ BEFORE PUBLISHING
     product, pivot and slicer numbers all come from the workbook data and match
     scripts/qa_checklist.md.
   * VOICE IS AI-GENERATED: Kokoro-82M text-to-speech (open source, Apache-2.0),
-    Hindi male voice "hm_psi", run offline. It is not a human narrator. Say so
+    Hindi male voice "hm_psi", run offline (speed 1.135). It is not a human narrator. Say so
     in the YouTube description (and tick YouTube's "altered or synthetic
     content" disclosure if it applies to your upload).
+  * On-screen text (cards, labels, dialogs) is English; the captions/subtitles are
+    Hinglish (romanised).
   * Sound effects (mouse clicks, key presses, whoosh, chime) and the background
     music are synthesised from scratch by scripts/audio_fx.py - no third-party
     samples or tracks. Music ducks automatically under the voice.

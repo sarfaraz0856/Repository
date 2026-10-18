@@ -71,7 +71,7 @@ WORDS = {
     "price": "प्राइस", "product": "प्रोडक्ट", "professional": "प्रोफ़ेशनल", "quantity": "क्वांटिटी",
     "range": "रेंज", "raw": "रॉ", "readability": "रीडेबिलिटी", "readable": "रीडेबल", "received": "रिसीव्ड",
     "reconcile": "रिकंसाइल", "refresh": "रिफ़्रेश", "region": "रीजन", "repeat": "रिपीट", "report": "रिपोर्ट",
-    "result": "रिज़ल्ट", "ribbon": "रिबन", "right": "राइट", "row": "रो", "rows": "रोज़", "sales": "सेल्स",
+    "result": "रिज़ल्ट", "ribbon": "रिबन", "right": "राइट", "row": "रो",   # "rows" stays English: Devanagari "रोज़" reads as the Hindi word for "daily" "sales": "सेल्स",
     "salesperson": "सेल्सपर्सन", "same": "सेम", "select": "सिलेक्ट", "separator": "सेपरेटर",
     "settings": "सेटिंग्स", "share": "शेयर", "sheet": "शीट", "shift": "शिफ़्ट", "shortcut": "शॉर्टकट",
     "side": "साइड", "slicer": "स्लाइसर", "slicers": "स्लाइसर्स", "sold": "सोल्ड", "source": "सोर्स",

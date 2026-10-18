@@ -129,7 +129,7 @@ body{width:1920px;height:1080px;overflow:hidden;background:#fff;position:relativ
 .farr{position:absolute;right:3px;bottom:3px;width:17px;height:17px;border:1px solid #ababab;
   background:#fff;color:#555;font-size:10px;display:flex;align-items:center;justify-content:center;border-radius:2px}
 .edit{background:#fff !important;z-index:22;box-shadow:0 0 0 2px #107C41}
-.hl{position:absolute;border:3px solid #E8A200;border-radius:4px;background:rgba(232,162,0,.12);z-index:30}
+.hl{position:absolute;border:3px solid #E8A200;border-radius:4px;background:rgba(232,162,0,.05);z-index:30}
 
 /* floating objects */
 .obj{position:absolute;background:#fff;z-index:40}
@@ -740,7 +740,10 @@ class SheetView:
                                    f'box-shadow:inset 0 0 0 {w}px rgba(255,255,255,.0);z-index:19"></div>')
                     out.append(f'<div class="acell" style="left:{x-1}px;top:{y-1}px;width:{w+2}px;height:{h+2}px"><i></i></div>')
         for ref in hls:
-            rc = self._rect(*parse_range(ref))
+            r1, c1, r2, c2 = parse_range(ref)
+            if (r1, c1) == (r2, c2) and (r1, c1) in self.merge_at:   # a merged cell: box the whole merge
+                r2, c2 = self.merge_at[(r1, c1)]
+            rc = self._rect(r1, c1, r2, c2)
             if rc:
                 x, y, w, h = rc
                 out.append(f'<div class="hl" style="left:{x-2}px;top:{y-2}px;width:{w+4}px;height:{h+4}px"></div>')

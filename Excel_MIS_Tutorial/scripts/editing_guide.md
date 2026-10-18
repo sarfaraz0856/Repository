@@ -7,7 +7,7 @@
 | Frame rate | 30 fps |
 | Aspect ratio | 16:9 |
 | Output format | MP4 (H.264 video, AAC audio) |
-| Target duration | 12–15 minutes |
+| Target duration | 12–15 minutes (animated version: 10:54 after the requested 1.15x speed-up) |
 
 ## Two versions
 

@@ -78,14 +78,15 @@ Measured on the final file with ffprobe / ffmpeg `ebur128`:
 |---|---|
 | Video stream | H.264 High, 1920×1080, 30 fps, yuv420p |
 | Audio stream | AAC-LC, 48 kHz, stereo |
-| Duration | 754.8 s (12.58 min). Video and audio durations match to 6 ms |
-| Integrated loudness | −14.8 LUFS (YouTube target −14 ±1) |
+| Duration | 654.3 s (10.91 min): 1.15x the earlier pace, 2 s title card. Video and audio durations match to 20 ms |
+| Integrated loudness | −14.9 LUFS (YouTube target −14 ±1) |
 | True peak | −2.2 dBFS |
 | Music bed under narration | about 23 dB below the voice (stems: voice −20.0 LUFS, ducked music −43.3 LUFS) |
 | Title / end cards (music only) | −21.7 / −22.6 LUFS |
 | Subtitles | 66 cues, monotonic and non-overlapping, timed from the real voice-clip lengths |
 | Voice intelligibility | All 66 clips back-translated by Whisper from audio alone. See `scripts/voice_qa.md` |
 | On-screen numbers | Sheets are rendered from the workbook. Pivot, chart and slicer figures are aggregated from the same rows (e.g. West = 142,320 + 87,305 + 154,050 = 383,675) |
-| Cursor / clicks | Verified on extracted frames: halo and click ring land on the dialog OK button and on the slicer item at click time |
+| Cursor / clicks | Verified on extracted frames. The halo and click ring land on the dialog OK button and the slicer item at click time. On cells, the pointer sits in the empty part of the cell (left of right-aligned numbers, right of other text), so the value stays readable |
+| Highlights on merged cells | The box covers the whole merge (B6:C6, D6:E6, F6:G6, H6:I6, B9:C9), checked on frames |
 
 Scope: this video is an **animated recreation** of Excel 365 with an **AI voice**. The frames say so, and so does `output/README.txt`. It does not verify the native Excel features listed above under "Features requiring manual testing". Those still need a real Excel 365 session.
