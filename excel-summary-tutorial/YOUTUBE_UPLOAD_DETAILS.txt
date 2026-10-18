@@ -1,0 +1,175 @@
+﻿======================================================================
+   YOUTUBE UPLOAD DETAILS
+   Excel SUMIF & SUMIFS Tutorial (Hindi)
+======================================================================
+
+Keyword data: vidIQ research (India, Oct 2026).
+Jo bhi "COPY" likha hai, wo hissa jaisa hai waisa copy kar lijiye.
+
+
+======================================================================
+1. TITLE  -- COPY THIS
+======================================================================
+
+SUMIF & SUMIFS Formula in Excel in Hindi | Raw Data से Automatic Summary Report बनाएं
+
+   (Length: 85 characters -- YouTube limit 100)
+
+   Is title mein teen sabse zyada search hone wale phrases hain:
+     - sumif formula in excel          16,918 searches/month
+     - sumifs formula in excel          7,161 searches/month
+     - sumifs formula in excel in hindi 5,067 searches/month (competition sirf 34)
+
+   BACKUP TITLES (agar doosra chahiye to):
+
+   A) SUMIF Formula in Excel in Hindi | SUMIFS से Automatic Summary Report | Excel Tutorial
+
+   B) Excel SUMIF & SUMIFS in Hindi | एक Formula से पूरी Summary Report | Step by Step
+
+
+======================================================================
+2. DESCRIPTION  -- COPY THIS
+======================================================================
+
+NOTE: Sirf EK jagah badalni hai --> PASTE_YOUR_LINK_HERE
+      Wahan apni practice file ka link daal dijiye.
+      (Google Drive par upload karke "Anyone with the link" kar dein.)
+
+----------------------------------------------------------------------
+Excel में Raw Data से Automatic Summary Report बनाना सीखिए — सिर्फ़ SUMIF और SUMIFS formula से!
+
+इस वीडियो में हम एक "All Data" sheet (Employee Name, Stock Item, In Qty, Out Qty, Amount) से
+एक अलग "Summary" sheet बनाते हैं, जहाँ हर employee और हर stock item का total अपने आप calculate होता है।
+बार-बार filter लगाकर जोड़ने की ज़रूरत नहीं — formula एक बार लगाइए, report हमेशा अपने आप update होगी।
+
+📥 FREE PRACTICE FILE (Excel) डाउनलोड करें:
+👉 PASTE_YOUR_LINK_HERE
+
+(Practice file में 3 sheets हैं: All Data, Summary (Practice) और Summary (Solution) —
+पहले खुद try कीजिए, फिर answer मिला लीजिए।)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⏱️ VIDEO TIMESTAMPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+00:00  Introduction — Raw Data से Automatic Summary
+00:43  All Data sheet को समझिए
+01:23  नई Summary sheet बनाना
+02:00  Employee + Stock combinations डालना
+02:34  SUMIFS formula क्यों? (2 conditions)
+03:23  Total In Qty निकालना — SUMIFS
+04:39  Total Out Qty निकालना — SUMIFS
+05:19  Total Amount निकालना — SUMIFS
+06:02  Fill Handle से formula copy करना
+06:46  GRAND TOTAL — SUM formula
+07:34  Employee-wise Summary — SUMIF formula
+08:49  Professional Formatting + Dynamic Data Tip
+09:51  Common Mistakes & Final Checklist
+10:39  Conclusion
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📘 इस वीडियो में क्या सीखेंगे
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✔ SUMIF formula in Excel — एक condition पर total
+✔ SUMIFS formula in Excel — दो या ज़्यादा conditions पर total
+✔ SUMIF vs SUMIFS — क्या फ़र्क़ है और कब कौन सा use करें
+✔ दूसरी sheet से data लेकर total निकालना ('All Data'!$D:$D)
+✔ $ sign (absolute reference) का सही इस्तेमाल
+✔ Fill Handle से formula नीचे copy करना
+✔ GRAND TOTAL निकालना
+✔ Report को professional look देना (Bold, Number Format, Borders, Cell Styles)
+✔ Ctrl + T से Excel Table बनाना
+✔ Common mistakes — spelling mismatch, गलत column, numbers stored as text
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🧮 वीडियो में इस्तेमाल हुए FORMULAS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Total In Qty:
+=SUMIFS('All Data'!$D:$D,'All Data'!$B:$B,$A3,'All Data'!$C:$C,$B3)
+
+Total Out Qty:
+=SUMIFS('All Data'!$E:$E,'All Data'!$B:$B,$A3,'All Data'!$C:$C,$B3)
+
+Total Amount:
+=SUMIFS('All Data'!$F:$F,'All Data'!$B:$B,$A3,'All Data'!$C:$C,$B3)
+
+Employee-wise (एक condition):
+=SUMIF('All Data'!$B:$B,$G3,'All Data'!$D:$D)
+
+Grand Total:
+=SUM(C3:C7)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+👨‍💼 ये वीडियो किनके लिए है
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Office employees • Accountants • MIS Executives • Stock/Inventory Managers •
+Data Entry Operators • Students • और हर वो इंसान जो Excel सीखना चाहता है।
+
+अगर वीडियो helpful लगा तो LIKE कीजिए 👍, दोस्तों के साथ SHARE कीजिए
+और ऐसे ही practical Excel tutorials के लिए चैनल SUBSCRIBE कर लीजिए 🔔
+
+#Excel #SUMIF #SUMIFS #ExcelInHindi #ExcelTutorial
+----------------------------------------------------------------------
+
+
+======================================================================
+3. TAGS  -- COPY THIS (poori line, commas ke saath)
+======================================================================
+
+sumif formula in excel, sumifs formula in excel, sumif excel, excel sumif, sumifs formula in excel in hindi, excel sumifs, sumifs in excel, how to use sumif in excel, excel in hindi, sumif function in excel, sumifs function in excel, sumif formula in excel in hindi, how to use sumifs function in excel, excel tutorial in hindi, sumif vs sumifs, sumif and sumifs in excel, excel formulas in hindi, automatic summary report in excel, excel summary report, advance excel in hindi, ms excel tutorial
+
+   (Length: 496 characters -- YouTube limit 500)
+   Sabse zyada search hone wale keywords pehle rakhe gaye hain.
+
+
+======================================================================
+4. KEYWORD DATA (vidIQ, India)
+======================================================================
+
+  sumif formula in excel                16,918 /month   comp 40
+  sumif excel                           10,347 /month   comp 35  rising +161%
+  excel sumif                            9,821 /month   comp 39
+  sumifs formula in excel                7,161 /month   comp 38
+  excel tutorial in hindi                6,329 /month   comp 46
+  sumifs excel                           5,113 /month   comp 36
+  sumifs formula in excel in hindi       5,067 /month   comp 34  * low competition
+  how to use sumif in excel              4,847 /month   comp 39
+  excel in hindi                         4,804 /month   comp 40
+  sumif function in excel                4,571 /month   comp 47
+  sumifs function in excel               4,365 /month   comp 44
+  sumif formula in excel in hindi        3,335 /month   comp 35  * low competition
+  how to use sumifs function in excel    3,285 /month   comp 26  * low competition
+
+   *  = kam competition, rank hone ka achha mauka.
+
+
+======================================================================
+5. UPLOAD KARTE SAMAY
+======================================================================
+
+  THUMBNAIL
+     File: thumbnail.png  (1280 x 720)
+
+  SUBTITLES
+     YouTube mein: Subtitles > Add > Upload file
+       subtitles_hinglish.srt  ->  language: Hindi (Latin / Hinglish)
+       subtitles_english.srt   ->  language: English
+
+  PRACTICE FILE
+     File: SUMIF_SUMIFS_Practice_File.xlsx
+     3 sheets: All Data | Summary (Practice) | Summary (Solution)
+     Google Drive par upload karke link description mein daal dijiye.
+
+  SETTINGS
+     Category : Education
+     Language : Hindi
+
+  VIDEO FILES (jo bhi chahiye use kijiye)
+     Excel_SUMIF_SUMIFS_Tutorial_Hindi.mp4            (Hinglish subtitles + voice)
+     Excel_SUMIF_SUMIFS_Tutorial_Hindi_DualSub.mp4    (English + Hinglish dono)
+     Excel_SUMIF_SUMIFS_Tutorial_Hindi_NoSub.mp4      (bina subtitle, voice ke saath)
+     Excel_SUMIF_SUMIFS_Tutorial_NoVoice_NoSub.mp4    (bina voice, bina subtitle)
+
+
+======================================================================
+END
+======================================================================
