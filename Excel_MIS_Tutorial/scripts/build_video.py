@@ -55,7 +55,6 @@ WBS = openpyxl.load_workbook(f"{ROOT}/workbook/Sales_MIS_Report.xlsx")
 WBV = openpyxl.load_workbook(RECALC, data_only=True)
 RAW = ui.XlsxSource(WBS["Raw_Data"], WBV["Raw_Data"])
 DSH = ui.XlsxSource(WBS["MIS_Dashboard"], WBV["MIS_Dashboard"])
-RDM = ui.XlsxSource(WBS["Read_Me"], WBV["Read_Me"])
 
 rows = []
 r = 3
@@ -81,9 +80,9 @@ assert abs(TOTAL - 1428190) < 0.01 and abs(sum(REG.values()) - TOTAL) < 0.01
 REG_ORDER = sorted(REG)                       # PivotTable sorts row labels A-Z
 PRO_ORDER = sorted(PRO)
 
-SHEETS0 = ["Read_Me", "Raw_Data", "MIS_Dashboard", "Pivot_Analysis"]
-SHEETS1 = ["Read_Me", "Sheet1", "Raw_Data", "MIS_Dashboard", "Pivot_Analysis"]
-Z_RAW, Z_DSH, Z_RDM, Z_PIV = 1.25, 1.45, 1.15, 1.3
+SHEETS0 = ["Raw_Data", "MIS_Dashboard", "Pivot_Analysis"]
+SHEETS1 = ["Sheet1", "Raw_Data", "MIS_Dashboard", "Pivot_Analysis"]
+Z_RAW, Z_DSH, Z_PIV = 1.25, 1.45, 1.3
 TABLE = {"ref": f"A2:I{LAST}", "banded": True, "arrows": True}
 H_BLANK = {(rr, 8) for rr in range(3, LAST + 1)}
 NUMFMT_NAME = {"#,##0.00": "Number", "#,##0": "Number", "0.0%": "Percentage", "General": "General"}
@@ -142,14 +141,6 @@ def dash(sel="A1", rng=None, hls=(), grid=False, tab="Home", ctx=None, rib=None,
     vkw = dict(sel=sel, rng=rng, gridlines=grid, edit=edit, blank=blank, hls=tuple(hls))
     return Frame(v, vkw, _common("MIS_Dashboard", sheets, tab, ctx, rib, rib_hl, rib_kw,
                                  nb or sel, fx, edit, mode, info, int(Z_DSH * 100)), dlg)
-
-
-def readme(sel="B14", hls=(), sheets=SHEETS0):
-    v = view(RDM, "readme", zoom=Z_RDM)
-    rr, cc = ui.parse_ref(sel)
-    return Frame(v, dict(sel=sel, gridlines=False, hls=tuple(hls)),
-                 _common("Read_Me", sheets, "Home", None, None, None, None, sel,
-                         RDM.formula(rr, cc), None, None, "", int(Z_RDM * 100)))
 
 
 # ---------------------------------------------------------------- pivot sheet
@@ -399,18 +390,13 @@ B("Important: <b>ek row = ek unique invoice</b>. Har Invoice No bhara hua hai au
   "एक बहुत important बात — इस data में एक row का मतलब है एक unique invoice। हर Invoice number भरा हुआ है, और कभी repeat नहीं होता।",
   [(0.0, raw("B3", hls=("B3:B29",), **RPRE))], cursor=[(0.05, "cell:B3", True), (0.7, "cell:B20", False)],
   sfx=[(0.02, "key"), (0.04, "key")])
-B("Yeh assumption humne <b>Read_Me</b> sheet mein likh rakhi hai — aage Total Orders isi par based hoga.",
-  "यह assumption हमने Read Me sheet में लिख रखी है, और आगे Total Orders का calculation इसी पर based होगा।",
-  [(0.0, raw("B3", **RPRE)), (0.15, readme("B16", hls=("B14:B19",)))],
-  cursor=[(0.1, "id:sheet-Read_Me", True), (0.6, "cell:B16", False)])
 
 # -------------------------------- Scene 3 : Excel Table
 scene(3, "Scene 3 &bull; Excel Table")
 CT = dlg_create_table()
 B("Ab is data ko <b>Excel Table</b> mein convert karte hain — formulas readable bante hain aur range apne aap expand hoti hai.",
   "अब इस data को एक Excel Table में convert करते हैं। इससे formulas readable बनते हैं, और नया data आने पर range अपने आप expand हो जाती है।",
-  [(0.0, readme("B16")), (0.1, raw("A3", **RPRE))],
-  cursor=[(0.06, "id:sheet-Raw_Data", True), (0.6, "cell:C5", True)])
+  raw("A3", **RPRE), cursor=[(0.6, "cell:C5", True)])
 B("Data ke kisi bhi cell par click karke <b>Ctrl + T</b> dabaiye.",
   "Data के किसी भी cell पर click करके, control plus T दबाइए।",
   [(0.0, raw("C5", **RPRE)), (0.75, raw("C5", rng=f"A2:I{LAST}", ants=f"A2:I{LAST}", dlg=CT, **RPRE))],

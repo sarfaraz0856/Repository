@@ -14,7 +14,7 @@ on Start_Here are the workbook's own validated results (scripts/qa_checklist.md)
 
 Usage: python3 scripts/make_practice_file.py
 """
-import os
+import json, os, sys
 import openpyxl
 from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
 
@@ -23,6 +23,14 @@ ROOT = os.path.dirname(HERE)
 SRC = f"{ROOT}/workbook/Sales_MIS_Report.xlsx"
 OUTDIR = f"{ROOT}/practice"
 os.makedirs(OUTDIR, exist_ok=True)
+
+# Task times = chapter starts of the no-voice video (same timeline as the upload kit)
+os.environ["MIS_MODE"] = "novoice"
+sys.path.insert(0, HERE)
+import build_video as bv              # noqa: E402
+_starts = {}
+for _row in json.load(open(f"{bv.WORK}/timeline_novoice.json", encoding="utf-8")):
+    _starts.setdefault(_row["scene"], _row["start"])
 
 FONT = "Calibri"                      # same font as the video workbook
 NAVY, BLUE, GREEN, GREY = "1F3864", "2E5496", "107C41", "595959"
@@ -57,32 +65,33 @@ CHECKS = [
     ("Product total", "MIS_Dashboard!G16", "MIS_Dashboard!G16", 1428190),
 ]
 
+# (video scene, step, what to do); the scene becomes its m:ss start time below
 TASKS = [
-    ("0:46", "Look at the data",
+    (2, "Look at the data",
      "Raw_Data has 180 sales rows for October 2026. One row = one unique invoice."),
-    ("1:55", "Make it an Excel Table",
+    (3, "Make it an Excel Table",
      "Click any cell in A3:I182, press Ctrl + T, keep 'My table has headers' ticked, OK. "
      "Then Table Design → Table Name: SalesData → Enter."),
-    ("2:42", "Sales Amount (column H)",
+    (4, "Sales Amount (column H)",
      "In H3 type  =[@Qty]*[@[Unit Price]]  and press Enter. The Table fills all 180 rows. "
      "Example: H3 must show 6,600.00 (55 × 120)."),
-    ("3:36", "KPI cards (MIS_Dashboard)",
+    (5, "KPI cards (MIS_Dashboard)",
      "B6 Total Sales: SUMIFS(SalesData[Sales Amount], SalesData[Date], \">=\"&DATE(2026,10,1), "
      "SalesData[Date], \"<\"&DATE(2026,11,1)).  D6 Total Orders: COUNTIFS on the same dates with "
      "SalesData[Invoice No], \"<>\".  F6 Units: SUMIFS on SalesData[Qty].  H6 Average: IFERROR(B6/D6,0).  "
      "B9 Pending: SUMIFS with SalesData[Payment Status], \"Pending\"."),
-    ("5:17", "Region-wise and product-wise",
+    (6, "Region-wise and product-wise",
      "C13: SUMIFS(SalesData[Sales Amount], SalesData[Region], B13, + the two date conditions), copy to C16. "
      "C17: SUM(C13:C16). D13: IFERROR(C13/$B$6,0), copy to D17. Same idea for Product in G13:G16 and H13:H16."),
-    ("6:19", "Pivot Table",
+    (7, "Pivot Table",
      "Click inside SalesData → Insert → PivotTable → From Table/Range → New Worksheet. "
      "Region → Rows, Sales Amount → Values (Sum, not Count), Date → Filters. Make a second one with Product."),
-    ("7:24", "Pivot Charts",
+    (8, "Pivot Charts",
      "Region pivot → PivotChart → Clustered Column; Product pivot → Pie. Right-click → Add Data Labels."),
-    ("8:02", "Slicers",
+    (9, "Slicers",
      "PivotTable Analyze → Insert Slicer → Region and Product. Right-click a slicer → Report Connections → "
      "tick both PivotTables."),
-    ("9:24", "Refresh and validate",
+    (11, "Refresh and validate",
      "Data → Refresh All (Ctrl + Alt + F5). Region total = Product total = Pivot Grand Total = Total Sales."),
 ]
 
@@ -168,7 +177,8 @@ def build_start_here(ws):
         c.fill = PatternFill("solid", fgColor=BLUE)
         c.border = BOX
     ws.merge_cells(f"D{r}:G{r}")
-    for t, step, what in TASKS:
+    for scn, step, what in TASKS:
+        t = f"{int(_starts[scn] // 60)}:{int(_starts[scn] % 60):02d}"
         r += 1
         ws[f"B{r}"] = t
         ws[f"C{r}"] = step

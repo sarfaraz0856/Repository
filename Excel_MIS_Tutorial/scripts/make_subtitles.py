@@ -33,7 +33,6 @@ ENGLISH = [
     "Sales Amount is empty for now — we'll fill it with a formula. Payment Status shows Paid or Pending.",
     "Shortcut: Ctrl + ↓ — the cursor jumps straight to the last row, 182. So there are 180 data rows below the header.",
     "Important: one row = one unique invoice. Every Invoice No is filled in and never repeats.",
-    "This assumption is written in the Read_Me sheet — Total Orders will be based on it later.",
     "Now let's convert this data into an Excel Table — formulas become readable and the range expands automatically.",
     "Click any cell in the data and press Ctrl + T.",
     "Create Table picks up the range =$A$2:$I$182. 'My table has headers' must be ticked — then OK.",

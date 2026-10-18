@@ -34,6 +34,8 @@ starts = {}
 for row in timeline:
     starts.setdefault(row["scene"], row["start"])
 starts[1] = 0.0                      # YouTube requires the first chapter at 0:00
+_len = timeline[-1]["start"] + timeline[-1]["dur"] + bv.OUTRO_DUR
+LENGTH = f"{int(_len // 60)}:{int(_len % 60):02d}"
 chapters = [f"{int(t // 60)}:{int(t % 60):02d} {CHAPTER_NAMES[s]}" for s, t in sorted(starts.items())]
 
 # ---------------------------------------------------------------- copy
@@ -138,7 +140,7 @@ ul{{margin:1mm 0 1mm 5mm;padding-left:3mm}} li{{margin:1mm 0}}
 code{{font-family:'DejaVu Sans Mono',monospace;font-size:8.6pt}}
 </style></head><body>
 <h1>YouTube Upload Kit: Sales MIS Report in Excel</h1>
-<div class="sub">For <code>output/mis_tutorial_no_voice.mp4</code> · 1920×1080 · 30 fps · 10:54 · no voiceover, no burned-in subtitles · music + sound effects</div>
+<div class="sub">For <code>output/mis_tutorial_no_voice.mp4</code> · 1920×1080 · 30 fps · {LENGTH} · no voiceover, no burned-in subtitles · music + sound effects</div>
 
 <h2>1. Files to upload</h2>
 <table><tr><th>What</th><th>File</th><th>Where in YouTube Studio</th></tr>
