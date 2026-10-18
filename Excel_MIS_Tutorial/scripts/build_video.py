@@ -683,9 +683,8 @@ body{font-family:'Carlito','Calibri',sans-serif}
 .hero .cta{margin-top:36px;font-size:34px;background:#e8373a;padding:15px 44px;border-radius:50px;font-weight:800}"""
 INTRO = ('<!doctype html><html><head><meta charset="utf-8"><style>' + CARD_CSS + '</style></head><body>'
          '<div class="hero" style="background:linear-gradient(135deg,#102a43,#1F3864 55%,#107C41)">'
-         '<h1>SALES MIS REPORT</h1><h2>Microsoft Excel 365 &mdash; Complete Tutorial (Hinglish)</h2>'
+         '<h1>SALES MIS REPORT</h1><h2>Microsoft Excel, Complete Tutorial</h2>'
          '<div class="pill">Excel Table &bull; SUMIFS / COUNTIFS &bull; Pivot &bull; Charts &bull; Slicers</div>'
-         '<div class="sub">Animated recreation of Excel 365 &bull; ' + ('' if NO_VOICE else 'AI voiceover &bull; ') + 'numbers verified from the workbook</div>'
          '</div></body></html>')
 OUTRO = ('<!doctype html><html><head><meta charset="utf-8"><style>' + CARD_CSS + '</style></head><body>'
          '<div class="hero" style="background:linear-gradient(135deg,#107C41,#1F3864 60%,#102a43)">'
