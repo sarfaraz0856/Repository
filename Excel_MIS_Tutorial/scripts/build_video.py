@@ -43,6 +43,12 @@ VOICE = os.environ.get("MIS_VOICE", "hm_psi")
 VOICE_SPEED = 1.135   # calibrated: narration = 1/1.15 of the 0.92-speed build (Kokoro speed is not linear)
 OUT = f"{ROOT}/output/mis_tutorial_animated.mp4"
 SRT = f"{ROOT}/subtitles/subtitles.srt"
+# MIS_MODE=novoice -> same video with no narration and no captions: sound effects + music only
+NO_VOICE = os.environ.get("MIS_MODE") == "novoice"
+TAG = "_novoice" if NO_VOICE else ""
+if NO_VOICE:
+    OUT = f"{ROOT}/output/mis_tutorial_no_voice.mp4"
+    ui.WATERMARK = "Animated recreation"
 
 # ================================================================== workbook
 WBS = openpyxl.load_workbook(f"{ROOT}/workbook/Sales_MIS_Report.xlsx")
@@ -679,7 +685,7 @@ INTRO = ('<!doctype html><html><head><meta charset="utf-8"><style>' + CARD_CSS +
          '<div class="hero" style="background:linear-gradient(135deg,#102a43,#1F3864 55%,#107C41)">'
          '<h1>SALES MIS REPORT</h1><h2>Microsoft Excel 365 &mdash; Complete Tutorial (Hinglish)</h2>'
          '<div class="pill">Excel Table &bull; SUMIFS / COUNTIFS &bull; Pivot &bull; Charts &bull; Slicers</div>'
-         '<div class="sub">Animated recreation of Excel 365 &bull; AI voiceover &bull; numbers verified from the workbook</div>'
+         '<div class="sub">Animated recreation of Excel 365 &bull; ' + ('' if NO_VOICE else 'AI voiceover &bull; ') + 'numbers verified from the workbook</div>'
          '</div></body></html>')
 OUTRO = ('<!doctype html><html><head><meta charset="utf-8"><style>' + CARD_CSS + '</style></head><body>'
          '<div class="hero" style="background:linear-gradient(135deg,#107C41,#1F3864 60%,#102a43)">'
@@ -782,7 +788,7 @@ def main():
     for bi, b in enumerate(BEATS):
         sp = b["speech"]
         T = lambda f: LEAD + f * sp
-        htmls = [(T(f) if f > 0 else 0.0, fr, fr.html(b["caption"], b["badge"])) for f, fr in b["frames"]]
+        htmls = [(T(f) if f > 0 else 0.0, fr, fr.html("" if NO_VOICE else b["caption"], b["badge"])) for f, fr in b["frames"]]
         htmls.sort(key=lambda x: x[0])
         pngs = [(tt, render_png(hh)) for tt, _, hh in htmls]
         for tt, _, hh in htmls:
@@ -821,9 +827,9 @@ def main():
     for i, p in enumerate(plans):
         clips.append(beat_clip(i, p, cursor_png, rings))
     clips.append(card_clip(OUTRO, OUTRO_DUR, "outro"))
-    lst = f"{WORK}/clips/list.txt"
+    lst = f"{WORK}/clips/list{TAG}.txt"
     open(lst, "w").write("".join(f"file '{c}'\n" for c in clips))
-    silent = f"{WORK}/video_silent.mp4"
+    silent = f"{WORK}/video_silent{TAG}.mp4"
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", silent], check=True)
 
     # ---------- 5. audio
@@ -838,24 +844,33 @@ def main():
     sfx_events.append((total - OUTRO_DUR + 0.1, "whoosh"))
     sf.write(f"{WORK}/audio/sfx.wav", A.render_sfx(sfx_events, total), A.SR)
     sf.write(f"{WORK}/audio/music.wav", A.render_music(total), A.SR)
-    mix = f"{WORK}/audio/mix.wav"
+    mix = f"{WORK}/audio/mix{TAG}.wav"
+    if NO_VOICE:
+        # no narration: music is the bed throughout (a bit louder on the title/end cards), SFX on top
+        fc = ("[0:a]pan=stereo|c0=c0|c1=c0,volume=0.35[s];"
+              f"[1:a]volume='0.60*if(lt(t,{INTRO_DUR}),1.4,if(gt(t,{total - OUTRO_DUR:.2f}),1.4,1))':eval=frame[m];"
+              "[s][m]amix=inputs=2:normalize=0:duration=first[a]")
+        subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", f"{WORK}/audio/sfx.wav", "-i", f"{WORK}/audio/music.wav",
+                        "-filter_complex", fc, "-map", "[a]", "-ar", "48000", mix], check=True)
     fc = ("[0:a]aresample=48000:resampler=soxr,pan=stereo|c0=c0|c1=c0,asplit=2[v][key];"
           "[1:a]pan=stereo|c0=c0|c1=c0,volume=0.55[s];"
           # bed ~20 dB under the voice; lifted only on the title/end cards where nobody speaks
           f"[2:a]volume='0.10*if(lt(t,{INTRO_DUR}),4.0,if(gt(t,{total - OUTRO_DUR:.2f}),4.0,1))':eval=frame[m];"
           "[m][key]sidechaincompress=threshold=0.01:ratio=10:attack=15:release=700:makeup=1[md];"
           "[v][s][md]amix=inputs=3:normalize=0:duration=first[a]")
-    subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", f"{WORK}/audio/voice.wav", "-i", f"{WORK}/audio/sfx.wav",
-                    "-i", f"{WORK}/audio/music.wav", "-filter_complex", fc.replace("[md];", "[md0];[md0]asplit=2[md][mdq];"),
-                    "-map", "[a]", "-ar", "48000", mix, "-map", "[mdq]", "-ar", "48000", f"{WORK}/audio/music_ducked.wav"],
-                   check=True)
+    if not NO_VOICE:
+        subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", f"{WORK}/audio/voice.wav", "-i", f"{WORK}/audio/sfx.wav",
+                        "-i", f"{WORK}/audio/music.wav", "-filter_complex", fc.replace("[md];", "[md0];[md0]asplit=2[md][mdq];"),
+                        "-map", "[a]", "-ar", "48000", mix, "-map", "[mdq]", "-ar", "48000", f"{WORK}/audio/music_ducked.wav"],
+                       check=True)
     # Fixed-gain normalisation to -14 LUFS + peak limiter. (loudnorm can silently fall back
     # to dynamic mode, which pumps the music-only intro up to speech level.)
     meas = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", mix, "-af", "ebur128", "-f", "null", "-"],
                           capture_output=True, text=True).stderr
     integ = float(re.findall(r"I:\s+(-?[0-9.]+) LUFS", meas)[-1])
-    gain_db = -14.0 - integ
-    ln = f"volume={gain_db:.2f}dB,alimiter=limit=0.70:attack=5:release=60:level=false"
+    gain_db = (-16.0 if NO_VOICE else -14.0) - integ   # music-only cut sits a little lower
+    # short attack so click/key transients cannot overshoot the ceiling after the gain
+    ln = f"volume={gain_db:.2f}dB,alimiter=limit=0.70:attack=0.3:release=60:level=false"
     print(f"      mix {integ:.1f} LUFS -> gain {gain_db:+.2f} dB", flush=True)
 
     # ---------- 6. mux + subtitles
@@ -864,10 +879,11 @@ def main():
                     "-c:v", "copy", "-af", ln, "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
                     "-movflags", "+faststart", "-shortest", OUT], check=True)
     print("[6/6] writing synced subtitles ...", flush=True)
-    write_srt(BEATS)
+    if not NO_VOICE:
+        write_srt(BEATS)
     json.dump([dict(i=i + 1, scene=b["scene"], start=round(b["start"], 3), dur=b["dur"], speech=round(b["speech"], 3),
                     wav=b["wav"], caption=re.sub(r"<[^>]+>", "", b["caption"]), tts=b["tts"])
-               for i, b in enumerate(BEATS)], open(f"{WORK}/timeline.json", "w"), ensure_ascii=False, indent=1)
+               for i, b in enumerate(BEATS)], open(f"{WORK}/timeline{TAG}.json", "w"), ensure_ascii=False, indent=1)
     d = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=noprint_wrappers=1:nokey=1", OUT],
                        capture_output=True, text=True).stdout.strip()
     print(f"DONE: {OUT}  ({float(d or 0):.1f}s = {float(d or 0)/60:.2f} min)", flush=True)

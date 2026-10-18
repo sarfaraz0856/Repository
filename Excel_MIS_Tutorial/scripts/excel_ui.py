@@ -211,6 +211,9 @@ CONTEXT = {
 }
 
 
+WATERMARK = "Animated recreation &bull; AI voice"   # build_video changes this for the no-voice cut
+
+
 def title_bar(badge=""):
     return ('<div class="tbar"><div class="xicon">X</div>'
             '<div class="autosave">AutoSave<div class="toggle"><i></i></div>Off</div>'
@@ -220,7 +223,7 @@ def title_bar(badge=""):
             '<div class="search">&#128269; Search</div>'
             '<div class="scene">'
             + (f'<span class="sb">{badge}</span>' if badge else '')
-            + '<span class="wm">Animated recreation &bull; AI voice</span></div>'
+            + f'<span class="wm">{WATERMARK}</span></div>'
             '<div class="tright"><div class="acct">&#128100;</div>'
             '<div class="wctl"><span>&#8212;</span><span>&#9633;</span><span>&#10005;</span></div></div></div>')
 

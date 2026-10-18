@@ -1,0 +1,323 @@
+1
+00:00:02,150 --> 00:00:06,444
+Hello friends, and welcome to the channel.
+
+2
+00:00:06,694 --> 00:00:17,729
+Today we'll build a complete, professional Sales MIS Report
+— exactly the way MIS executives build it in companies.
+
+3
+00:00:17,979 --> 00:00:29,185
+MIS means Management Information System — summarising
+raw data so management can make a decision at a glance.
+
+4
+00:00:29,435 --> 00:00:39,915
+By the end of this video you'll have a live dashboard — KPIs,
+region and product analysis, Pivot Tables, charts and slicers.
+
+5
+00:00:40,165 --> 00:00:46,401
+I won't just show it — every formula
+is explained too. Let's get started!
+
+6
+00:00:46,651 --> 00:00:56,642
+First, let's understand the data. This is the Raw_Data
+sheet — it holds 180 transactions for October 2026.
+
+7
+00:00:56,892 --> 00:01:05,090
+Date is the invoice date, Invoice No is each bill's
+unique number, and Region is East, West, North or South.
+
+8
+00:01:05,340 --> 00:01:13,047
+Then Salesperson, Product — Tea A, Tea B
+or Tea C, Qty (units sold) and Unit Price.
+
+9
+00:01:13,297 --> 00:01:22,072
+Sales Amount is empty for now — we'll fill it with
+a formula. Payment Status shows Paid or Pending.
+
+10
+00:01:22,322 --> 00:01:35,408
+Shortcut: Ctrl + ↓ — the cursor jumps straight to the last
+row, 182. So there are 180 data rows below the header.
+
+11
+00:01:35,658 --> 00:01:46,182
+Important: one row = one unique invoice. Every
+Invoice No is filled in and never repeats.
+
+12
+00:01:46,432 --> 00:01:54,971
+This assumption is written in the Read_Me
+sheet — Total Orders will be based on it later.
+
+13
+00:01:55,221 --> 00:02:06,620
+Now let's convert this data into an Excel Table — formulas
+become readable and the range expands automatically.
+
+14
+00:02:06,870 --> 00:02:11,953
+Click any cell in the data and press Ctrl + T.
+
+15
+00:02:12,203 --> 00:02:23,433
+Create Table picks up the range =$A$2:$I$182.
+'My table has headers' must be ticked — then OK.
+
+16
+00:02:23,683 --> 00:02:33,461
+The table is ready — banded rows, a filter button on
+every header, and a Table Design tab in the ribbon.
+
+17
+00:02:33,711 --> 00:02:42,166
+In the Table Name box type SalesData and press
+Enter. Every formula from here on uses this name.
+
+18
+00:02:42,416 --> 00:02:52,471
+Now Sales Amount. Inside a table, formulas use structured
+references — the column name, not the cell address.
+
+19
+00:02:52,721 --> 00:03:03,735
+In H3 type: =[@Qty]*[@[Unit Price]]
+
+20
+00:03:03,985 --> 00:03:13,507
+@ means the value from this same row. Unit
+Price is two words, so it needs double brackets.
+
+21
+00:03:13,757 --> 00:03:22,275
+Press Enter and the formula fills the whole
+column automatically — all 180 rows at once.
+
+22
+00:03:22,525 --> 00:03:36,441
+Check: row 3 is 55 × 120.00 = 6,600.00 ✔. Select the
+column and the status bar shows Sum: 1,428,190.00.
+
+23
+00:03:36,691 --> 00:03:45,338
+Now the heart of the dashboard — KPI cards.
+Remember: never type final values by hand.
+
+24
+00:03:45,588 --> 00:03:52,292
+Everything comes from formulas — when the data
+changes, the numbers update by themselves.
+
+25
+00:03:52,542 --> 00:04:08,486
+Total Sales (B6): SUMIFS adds only October's
+Sales Amount — the date range comes from DATE().
+
+26
+00:04:08,736 --> 00:04:13,712
+Result: 1,428,190.00 — that's 14 lakh 28 thousand 190.
+
+27
+00:04:13,962 --> 00:04:25,021
+Total Orders (D6): one row = one invoice, so
+COUNTIFS counts October's non-blank invoices — 180.
+
+28
+00:04:25,271 --> 00:04:34,794
+Total Units Sold (F6): same date
+condition, SUMIFS on Qty — 11,834.
+
+29
+00:04:35,044 --> 00:04:50,626
+Average Sales / Order (H6): =IFERROR(B6/D6,0) — no
+error even if orders are zero. Result 7,934.39.
+
+30
+00:04:50,876 --> 00:05:03,962
+Pending Sales Amount (B9): SUMIFS where
+Payment Status = "Pending" — 372,985.00.
+
+31
+00:05:04,212 --> 00:05:17,211
+It's deliberately called Pending Sales Amount, not 'Outstanding
+Receivables' — the data has no payment-received or balance field.
+
+32
+00:05:17,461 --> 00:05:24,999
+Now region-wise analysis — management
+wants to see which region is ahead.
+
+33
+00:05:25,249 --> 00:05:37,821
+C13 has the same SUMIFS plus one condition: SalesData[Region] =
+B13. The region comes from a cell, so the formula copies down.
+
+34
+00:05:38,071 --> 00:05:56,662
+East 351,030 • West 383,675 (strongest)
+• North 355,130 • South 338,355.
+
+35
+00:05:56,912 --> 00:06:07,095
+Total (C17) = 1,428,190.00 — exactly equal
+to Total Sales. That's our cross-check ✔
+
+36
+00:06:07,345 --> 00:06:18,979
+Same for Product-wise: Tea A 385,320 • Tea B 432,820
+• Tea C 610,050 — the total is again 1,428,190.00 ✔
+
+37
+00:06:19,229 --> 00:06:25,891
+Along with formulas, let's learn Pivot Tables
+— an instant summary with drag-and-drop.
+
+38
+00:06:26,141 --> 00:06:33,891
+Click any cell in SalesData → Insert
+→ PivotTable → From Table/Range.
+
+39
+00:06:34,141 --> 00:06:41,551
+Table/Range already shows SalesData.
+Choose New Worksheet and click OK.
+
+40
+00:06:41,801 --> 00:06:53,349
+A new sheet appears with PivotTable Fields on the
+right. Drag Region to Rows and Sales Amount to Values.
+
+41
+00:06:53,599 --> 00:07:04,593
+Note: Values should say Sum of Sales Amount. If
+you see 'Count of' → Value Field Settings → Sum.
+
+42
+00:07:04,843 --> 00:07:16,797
+Put Date in Filters and keep October 2026.
+Grand Total = 1428190 — matches the dashboard ✔
+
+43
+00:07:17,047 --> 00:07:24,157
+Build a second pivot the same way —
+Product in Rows, Sales Amount in Values.
+
+44
+00:07:24,407 --> 00:07:30,898
+Now charts — visuals make the
+point to management instantly.
+
+45
+00:07:31,148 --> 00:07:39,516
+Select the Region pivot → PivotTable Analyze
+→ PivotChart → Clustered Column → OK.
+
+46
+00:07:39,766 --> 00:07:51,614
+The chart is in. Right-click → Add Data Labels — the exact
+value on every bar. Title: Region-wise Sales Performance.
+
+47
+00:07:51,864 --> 00:08:02,048
+For the Product pivot, a Pie chart — Product-wise
+Sales Analysis. Tea C has the biggest share.
+
+48
+00:08:02,298 --> 00:08:07,402
+Now let's make the report interactive — with slicers.
+
+49
+00:08:07,652 --> 00:08:15,679
+Select a pivot → PivotTable Analyze → Insert
+Slicer → tick Region and Product → OK.
+
+50
+00:08:15,929 --> 00:08:27,327
+One slicer for both pivots: right-click the slicer
+→ Report Connections → tick both PivotTables.
+
+51
+00:08:27,577 --> 00:08:35,668
+Remember: a slicer can only connect pivots
+built from the same data source (SalesData).
+
+52
+00:08:35,918 --> 00:08:42,964
+Now click West — both pivots and both
+charts filter to West instantly!
+
+53
+00:08:43,214 --> 00:08:50,601
+To remove the filter, use the slicer's Clear
+Filter button — the totals are back in full.
+
+54
+00:08:50,851 --> 00:08:59,135
+Now the finishing — a professional
+dashboard means clarity, not decoration.
+
+55
+00:08:59,385 --> 00:09:09,311
+Bold title, consistent colour for the KPI cards, and
+a thousands separator on numbers — Ctrl + Shift + 1.
+
+56
+00:09:09,561 --> 00:09:15,881
+View tab → untick Gridlines —
+the look becomes perfectly clean.
+
+57
+00:09:16,131 --> 00:09:24,757
+One font, consistent spacing, two or three colours —
+the report is for a manager, so readability comes first.
+
+58
+00:09:25,007 --> 00:09:32,735
+A report isn't trustworthy until
+it's refreshed and validated.
+
+59
+00:09:32,985 --> 00:09:42,143
+When a new row lands in Raw_Data, the Table
+makes SUMIFS / COUNTIFS pick it up automatically.
+
+60
+00:09:42,393 --> 00:09:51,849
+Pivot Tables must be refreshed: Data
+→ Refresh All — or Ctrl + Alt + F5.
+
+61
+00:09:52,099 --> 00:10:02,153
+Three cross-checks: Region total = Product total
+= Pivot Grand Total = Total Sales 1,428,190.
+
+62
+00:10:02,403 --> 00:10:08,105
+All three match ✔ — the report is reconciled.
+
+63
+00:10:08,355 --> 00:10:14,355
+So friends, today we built a complete
+Sales MIS Report from scratch.
+
+64
+00:10:14,605 --> 00:10:25,597
+Excel Table, structured formula, SUMIFS / COUNTIFS KPIs,
+region and product analysis, Pivot, charts and slicers.
+
+65
+00:10:25,847 --> 00:10:35,305
+And most important — we validated every number.
+That's what makes you a professional MIS executive.
+
+66
+00:10:35,555 --> 00:10:48,191
+Enjoyed the video? Like, Subscribe, and tell us
+your next topic in the comments. Happy Excel-ing!
