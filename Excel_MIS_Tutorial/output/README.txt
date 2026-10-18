@@ -15,7 +15,15 @@ mis_tutorial_no_voice.mp4   (UPLOAD THIS ONE)
   thumbnails/thumbnail_A_raw_to_dashboard.jpg, _B_kpi_dashboard.jpg, _C_pivot_slicer.jpg
     1280x720 for YouTube "Test & compare". Build: python3 scripts/make_thumbnails.py
   youtube/YouTube_Upload_Kit.pdf (A4) - title, description with chapters, tags,
-    hashtags, upload settings. Build: python3 scripts/make_upload_kit.py
+    hashtags, upload settings, practice-file sharing steps.
+    Build: python3 scripts/make_upload_kit.py
+
+  Practice files for viewers (share via Google Drive, link goes in the description):
+    practice/Sales_MIS_Practice.xlsx - same 180 rows and dashboard layout as the video,
+      results removed. Start_Here sheet: 9 tasks with video times + a 16-point
+      self-check (Correct / Check again, score out of 16). Yellow cells = fill in.
+    practice/Sales_MIS_Solution.xlsx - the finished workbook shown in the video.
+    Build: python3 scripts/make_practice_file.py
 
 mis_tutorial_animated.mp4   (earlier version, kept)
   With AI voice and burned-in Hinglish captions; subtitles/subtitles.srt belongs to it.

@@ -50,6 +50,10 @@ DESCRIPTION = "\n".join([
     "to a clean, interactive MIS dashboard with KPIs, Pivot Tables, Pivot Charts and Slicers.",
     "Turn on CC for English or Hinglish subtitles. (Hinglish subtitles available: CC on karein.)",
     "",
+    "📥 FREE practice file (Excel): PASTE-YOUR-LINK-HERE",
+    "Same 180-row sales data as the video. Yellow cells to fill, step-by-step tasks with video times, "
+    "and a self-check sheet that scores your answers out of 16. The finished solution file is included.",
+    "",
     "In this tutorial:",
     "✔ Convert raw data into an Excel Table (Ctrl + T) and name it SalesData",
     "✔ Sales Amount with a structured reference: =[@Qty]*[@[Unit Price]]",
@@ -69,6 +73,9 @@ DESCRIPTION = "\n".join([
     "• Average Sales per Order: =IFERROR(B6/D6,0)",
     "• Pending Sales Amount: SUMIFS with Payment Status = \"Pending\"",
     "",
+    "How to practise: download the files, open Sales_MIS_Practice.xlsx in Excel 365, start on the Start_Here sheet "
+    "and pause the video at each chapter. Stuck? Open Sales_MIS_Solution.xlsx.",
+    "",
     "Useful for MIS executives, accounts and sales teams, Excel beginners and office job interview preparation.",
     "",
     "Note: this video is an animated walkthrough of Microsoft Excel 365 with background music and sound effects "
@@ -83,9 +90,10 @@ TAGS = [
     "excel sales report", "pivot table in excel", "slicer in excel", "sumifs formula in excel",
     "countifs in excel", "excel table", "structured references excel", "pivot chart", "kpi dashboard excel",
     "excel for beginners", "advanced excel", "excel tutorial", "excel 365", "data analysis in excel",
+    "excel practice file",
 ]
 HASHTAGS = ["#MISReport", "#ExcelDashboard", "#ExcelTutorial"]
-PINNED = ("Which part should I explain in more detail next: monthly MIS automation, a Power Query version, "
+PINNED = ("📥 Free practice file + solution: PASTE-YOUR-LINK-HERE  |  Which part should I explain in more detail next: monthly MIS automation, a Power Query version, "
           "or an XLOOKUP dashboard? Comment below 👇")
 
 # ---------------------------------------------------------------- checks
@@ -138,24 +146,41 @@ code{{font-family:'DejaVu Sans Mono',monospace;font-size:8.6pt}}
 <tr><td>Thumbnails (3)</td><td><code>output/thumbnails/thumbnail_A/B/C_*.jpg</code></td><td>Details → Thumbnail → <b>Test &amp; compare</b> (upload all three)</td></tr>
 <tr><td>English subtitles</td><td><code>subtitles/youtube_english.srt</code></td><td>Subtitles → Add language: <b>English</b> → Upload file → With timing</td></tr>
 <tr><td>Hinglish subtitles</td><td><code>subtitles/youtube_hinglish.srt</code></td><td>Subtitles → Add language: <b>Hindi (Latin)</b> if listed, otherwise <b>Hindi</b> → Upload file → With timing</td></tr>
+<tr><td>Practice file</td><td><code>practice/Sales_MIS_Practice.xlsx</code></td><td rowspan="2">Not uploaded to YouTube. Share both from Google Drive (steps in section 2) and paste the link where the description and pinned comment say PASTE-YOUR-LINK-HERE</td></tr>
+<tr><td>Solution file</td><td><code>practice/Sales_MIS_Solution.xlsx</code></td></tr>
 </table>
 
-<h2>2. Title</h2>
+<h2>2. Practice files (new)</h2>
+<table>
+<tr><th>File</th><th>What the viewer gets</th></tr>
+<tr><td><code>Sales_MIS_Practice.xlsx</code></td><td>The same workbook as the video with the work removed. <b>Start_Here</b>: 9 tasks in video order, each with its chapter time. <b>Raw_Data</b>: the same 180 rows, not yet a Table, column H (Sales Amount) empty. <b>MIS_Dashboard</b>: same layout, every result cell empty. Light-yellow cells are the ones to fill. A <b>self-check</b> marks each answer ✔ Correct or ✘ Check again and shows a score out of 16.</td></tr>
+<tr><td><code>Sales_MIS_Solution.xlsx</code></td><td>The finished workbook from the video: Table <i>SalesData</i>, all formulas, the dashboard. Excel 365 calculates everything when the file opens.</td></tr>
+</table>
+<p style="margin:2mm 0 1mm"><b>Share them for free with Google Drive</b></p>
+<ul>
+<li>drive.google.com → New → Folder "Sales MIS Practice Files" → upload both .xlsx files into it.</li>
+<li>Right-click the folder → Share → General access: <b>Anyone with the link</b> → role <b>Viewer</b> → Copy link.</li>
+<li>Paste the link in place of <b>PASTE-YOUR-LINK-HERE</b> in the description and in the pinned comment.</li>
+<li>Open the link in a private/incognito window once, to confirm it opens without asking for access.</li>
+</ul>
+<div class="note">Tested here: on the blank practice file the score shows 0 / 16. With every answer filled correctly it shows 16 / 16. With one deliberate mistake (Units Sold counted as rows instead of summing Qty) it flags just that line and shows 15 / 16. Formula check: 0 errors. The solution file's data and formulas are identical to the video workbook.</div>
+
+<h2>3. Title</h2>
 <div class="title">{e(TITLE)}</div><div class="n">{len(TITLE)} characters. The main search phrase "MIS Report in Excel" comes first, so it survives truncation in search results.</div>
 <p style="margin:2mm 0 0">Alternatives (rotate later, or keep for the next video in the series):</p><ul>{alt_html}</ul>
 
-<h2>3. Tags</h2>
+<h2>4. Tags</h2>
 <div class="copy">{e(tags_csv)}</div><div class="n">{len(tags_csv)} / 500 characters. Paste as-is into the Tags box. YouTube splits on commas.</div>
 
-<h2>4. Hashtags</h2>
+<h2>5. Hashtags</h2>
 <div class="copy">{e(" ".join(HASHTAGS))}</div><div class="n">Already at the end of the description. YouTube shows the first three above the title.</div>
 
-<h2 class="pb">5. Description (copy everything in the box)</h2>
+<h2 class="pb">6. Description (copy everything in the box)</h2>
 <div class="copy">{e(DESCRIPTION)}</div>
 <div class="n">{len(DESCRIPTION)} / 5000 characters. Chapters start at 0:00 and each is longer than 10 s, so YouTube will create them automatically.
 YouTube rejects "&lt;" and "&gt;" in descriptions, so the SUMIFS date range is written in words.</div>
 
-<h2>6. Upload settings</h2>
+<h2>7. Upload settings</h2>
 <table>
 <tr><th>Setting</th><th>Value</th></tr>
 <tr><td>Audience</td><td>No, it's not made for kids</td></tr>
@@ -167,12 +192,12 @@ YouTube rejects "&lt;" and "&gt;" in descriptions, so the SUMIFS date range is w
 <tr><td>End screen</td><td>Subscribe element + "Best for viewer" video, last 20 s (the closing card runs about 6 s, so the end screen overlaps the summary too)</td></tr>
 </table>
 
-<h2>7. How good is this SEO? (please read)</h2>
+<h2>8. How good is this SEO? (please read)</h2>
 <div class="note">The title, tags and description follow standard YouTube SEO practice: the exact search phrase first, matching chapter titles, and related phrases people use for this topic ("sales dashboard in excel", "pivot table", "slicer", "mis report kaise banaye").
 <b>They are not checked against live search-volume data.</b> vidIQ keyword research needs 5 credits and the account has 4 until 31 Oct 2026, and YouTube's search-suggestion service is blocked from this build machine.
 Before publishing, type "mis report in excel" into the YouTube search box: if a different phrasing shows up first in the suggestions, swap it into the title. No title can guarantee ranking; click-through rate and watch time decide most of it, which is why the Test &amp; compare thumbnails matter.</div>
 
-<h2>8. Thumbnails</h2>
+<h2>9. Thumbnails</h2>
 <div class="thumbs">{thumb_html}</div>
 <p class="n">1280×720 JPG, each under 2 MB (YouTube's limit). Fonts: Anton and Montserrat (SIL Open Font License, included in <code>assets/fonts/</code>). The screenshots inside are rendered from the same workbook as the video.</p>
 </body></html>"""
