@@ -1,0 +1,163 @@
+1
+00:00:00,000 --> 00:00:04,000
+Namaste doston! Is video mein hum seekhenge TallyPrime.
+
+2
+00:00:04,000 --> 00:00:09,000
+Ekdum shuru se — A to Z — kaise download aur install karte hain.
+
+3
+00:00:09,000 --> 00:00:14,000
+Agar aapne Tally kabhi use nahi kiya, bilkul tension mat lijiye.
+
+4
+00:00:14,000 --> 00:00:20,000
+Main har step simple Hindi mein, screen par dikhate hue samjhaaunga.
+
+5
+00:00:45,000 --> 00:00:51,000
+Pehle samajhte hain TallyPrime hai kya — ye ek accounting software hai.
+
+6
+00:00:51,000 --> 00:00:58,000
+Ye business ke paise ka hisaab-kitaab rakhta hai: accounting, sales, purchase.
+
+7
+00:00:58,000 --> 00:01:05,000
+Inventory aur GST ke kaam ke liye bhi. Isi liye students ise seekhte hain.
+
+8
+00:01:05,000 --> 00:01:13,000
+Yaad rahe: features version aur license par depend karte hain.
+
+9
+00:02:00,000 --> 00:02:07,000
+TallyPrime sirf Windows par chalta hai — Windows 7 ya upar, 64-bit.
+
+10
+00:02:07,000 --> 00:02:14,000
+Version check karne ke liye Windows+R dabaiye, winver type karke Enter.
+
+11
+00:02:14,000 --> 00:02:20,000
+Install se pehle apna kaam save kijiye aur extra apps band kijiye.
+
+12
+00:03:15,000 --> 00:03:22,000
+Ab important baat — Tally hamesha official site tallysolutions.com se download kijiye.
+
+13
+00:03:22,000 --> 00:03:29,000
+Cracked ya unofficial site se kabhi mat kijiye — virus aur legal risk hota hai.
+
+14
+00:03:29,000 --> 00:03:35,000
+Address bar mein domain aur lock icon check kijiye.
+
+15
+00:04:15,000 --> 00:04:22,000
+Download page par current version dikhega — jo screen par likha ho wahi dekhiye.
+
+16
+00:04:22,000 --> 00:04:29,000
+Download button dabaiye; ye ek setup file download karega.
+
+17
+00:04:29,000 --> 00:04:36,000
+Complete hone par file Downloads folder mein jaati hai (Windows+E).
+
+18
+00:05:45,000 --> 00:05:52,000
+Security ke liye setup file ka SHA-256 checksum verify kijiye.
+
+19
+00:05:52,000 --> 00:06:00,000
+PowerShell mein Get-FileHash -Algorithm SHA256 command chalaiye.
+
+20
+00:06:00,000 --> 00:06:07,000
+Value ko official value se match kijiye; Properties se publisher bhi dekhein.
+
+21
+00:07:00,000 --> 00:07:07,000
+Ab setup file par double-click kijiye.
+
+22
+00:07:07,000 --> 00:07:14,000
+Windows permission maangega — User Account Control prompt par Yes dabaiye.
+
+23
+00:07:14,000 --> 00:07:21,000
+Naye user ke liye "Install New" option choose kijiye.
+
+24
+00:07:21,000 --> 00:07:29,000
+Application Path default C:\Program Files\TallyPrime — zyada tar ke liye theek hai.
+
+25
+00:07:29,000 --> 00:07:37,000
+"Install" dabaiye, progress complete hone dijiye, phir "Start TallyPrime".
+
+26
+00:07:37,000 --> 00:07:43,000
+Antivirus ya Windows security band mat kijiye.
+
+27
+00:09:30,000 --> 00:09:38,000
+Tally pehli baar kholte hain. Install karna aur license activate karna alag hai.
+
+28
+00:09:38,000 --> 00:09:45,000
+Startup par jo options actually dikhein unhi ki baat karenge — koi bypass nahi.
+
+29
+00:10:45,000 --> 00:10:52,000
+Educational Mode — ek free, bina-license tareeka Tally seekhne ka.
+
+30
+00:10:52,000 --> 00:11:00,000
+Limitation: aam taur par sirf 1, 2, 31 tareekh par vouchers (version se confirm karein).
+
+31
+00:11:00,000 --> 00:11:07,000
+Ye payment bypass karne ka tareeka nahi — sirf practice ke liye.
+
+32
+00:12:30,000 --> 00:12:38,000
+Tally khulne par Gateway of Tally dikhता hai aur company banane ka option.
+
+33
+00:12:38,000 --> 00:12:46,000
+Practice ke liye sample company banaiye — real bank/tax details mat daaliye.
+
+34
+00:14:00,000 --> 00:14:08,000
+Agar Gateway of Tally dikh raha hai to installation successful hai.
+
+35
+00:14:08,000 --> 00:14:16,000
+Problem aaye to: dobara official download, Run as administrator, ya PC restart.
+
+36
+00:14:16,000 --> 00:14:22,000
+Fixes ke liye help.tallysolutions.com dekhiye.
+
+37
+00:15:15,000 --> 00:15:23,000
+Common mistakes: unofficial download, galat version, install ko activation samajhna.
+
+38
+00:15:23,000 --> 00:15:31,000
+Education mode ki limits ignore karna, aur backup na rakhna — in se bachiye.
+
+39
+00:16:15,000 --> 00:16:23,000
+Humne seekha download, verify, install, launch aur education mode.
+
+40
+00:16:23,000 --> 00:16:31,000
+Aage seekhiye: company, ledgers, vouchers, inventory, GST aur backup.
+
+41
+00:16:31,000 --> 00:16:38,000
+Video pasand aaye to Like aur Subscribe kijiye. Happy learning!
