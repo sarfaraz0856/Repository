@@ -233,29 +233,39 @@ total = sum(s[0] for s in scenes)
 print(f"{len(scenes)} scenes, total {total}s ({total//60}:{total%60:02d})")
 assert total == 720, f"duration must be 720s, got {total}"
 
+# Phase 1: write HTML + screenshot all PNGs (sequential, fast)
+for i,(dur,grad,html) in enumerate(scenes):
+    sid = f"s{i:02d}"
+    htmlpath = os.path.join(SCN, sid+".html")
+    with open(htmlpath,"w") as f:
+        f.write(HEAD + f'<div class="stage" style="{grad}">' + html + "</div></body></html>")
+    png = os.path.join(FRM, sid+".png")
+    subprocess.run([CHROME,"--headless","--no-sandbox","--disable-gpu","--hide-scrollbars",
+        "--force-device-scale-factor=1","--window-size=1920,1080",
+        f"--screenshot={png}", "file://"+htmlpath], check=True,
+        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    print(f"  shot {sid}", flush=True)
+
+# Phase 2: encode clips in parallel (ultrafast + light zoom)
+def encode(i):
+    dur = scenes[i][0]; sid = f"s{i:02d}"
+    png = os.path.join(FRM, sid+".png"); clip = os.path.join(CLP, sid+".mp4")
+    zexpr = "min(zoom+0.0003,1.08)" if i%2==0 else "if(lte(zoom,1.0),1.08,max(1.001,zoom-0.0003))"
+    vf = (f"scale=2112:-2,zoompan=z='{zexpr}':d={dur*30}:"
+          f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1920x1080:fps=30,"
+          f"fade=t=in:st=0:d=0.5,fade=t=out:st={dur-0.5}:d=0.5,format=yuv420p")
+    subprocess.run(["ffmpeg","-y","-loop","1","-framerate","30","-t",str(dur),
+        "-i",png,"-vf",vf,"-c:v","libx264","-preset","ultrafast","-crf","23","-r","30",
+        clip], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    print(f"  clip {sid} ({dur}s)", flush=True); return i
+
+from multiprocessing import Pool
+with Pool(4) as p: p.map(encode, range(len(scenes)))
+
 clip_list = os.path.join(ROOT, "video_build", "clips.txt")
 with open(clip_list, "w") as cf:
-    for i,(dur,grad,html) in enumerate(scenes):
-        sid = f"s{i:02d}"
-        htmlpath = os.path.join(SCN, sid+".html")
-        with open(htmlpath,"w") as f:
-            f.write(HEAD + f'<div class="stage" style="{grad}">' + html + "</div></body></html>")
-        png = os.path.join(FRM, sid+".png")
-        subprocess.run([CHROME,"--headless","--no-sandbox","--disable-gpu","--hide-scrollbars",
-            "--force-device-scale-factor=1","--window-size=1920,1080",
-            f"--screenshot={png}", "file://"+htmlpath], check=True,
-            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        # zoom direction alternates
-        zexpr = "min(zoom+0.00035,1.09)" if i%2==0 else "if(lte(zoom,1.0),1.09,max(1.001,zoom-0.00035))"
-        clip = os.path.join(CLP, sid+".mp4")
-        vf = (f"scale=2400:-2,zoompan=z='{zexpr}':d={dur*30}:"
-              f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s=1920x1080:fps=30,"
-              f"fade=t=in:st=0:d=0.5,fade=t=out:st={dur-0.5}:d=0.5,format=yuv420p")
-        subprocess.run(["ffmpeg","-y","-loop","1","-framerate","30","-t",str(dur),
-            "-i",png,"-vf",vf,"-c:v","libx264","-preset","medium","-crf","20","-r","30",
-            clip], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        cf.write(f"file '{clip}'\n")
-        print(f"  {sid}: {dur}s rendered")
+    for i in range(len(scenes)):
+        cf.write(f"file '{os.path.join(CLP, f's{i:02d}.mp4')}'\n")
 
 # ---- Concat video + add silent audio track ----
 silent_concat = os.path.join(ROOT, "video_build", "video_noaudio.mp4")
