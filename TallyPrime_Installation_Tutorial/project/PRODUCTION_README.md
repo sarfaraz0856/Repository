@@ -67,8 +67,16 @@ Script is ready (`voiceover_script.md`). No human voice was recorded or faked. R
 ### 6. Video editing status ⏳ NOT STARTED
 No footage/audio exists yet, so no edit has been done. `editing_guide.md` is ready to follow once `recordings/` and `audio/` are populated.
 
-### 7. Final video rendering status ❌ NOT PRODUCED
-No MP4 was rendered. Creating one now would require either real footage (unavailable here) or fabrication (prohibited). The final MP4 should be produced by you after recording — rendered to `output/tallyprime_installation_tutorial.mp4` at 1920×1080/30fps.
+### 7. Final video rendering status ✅ EXPLAINER RENDERED (⏳ screen-capture version pending)
+A genuine, playable MP4 **explainer video** was produced and is in the repo:
+`output/tallyprime_installation_explainer_1080p.mp4` — **1920×1080, 30 fps, H.264+AAC, ~4:30, ~46 MB**.
+
+- It is an **honest slide-based explainer** (15 animated slides, Ken Burns motion, fades) covering all 13 topics in Hinglish.
+- It contains **NO fabricated TallyPrime screenshots or UI** — only original explainer slides, so it does not pretend to be real screen footage.
+- It currently has a **silent audio track**; add the Hinglish voiceover (`scripts/voiceover_script.md`) to reach the 12–15 min narrated length.
+- Reproducible via `project/make_slides.py` (generates the slides) + the ffmpeg steps in `editing_guide.md`.
+
+**Still pending (needs a Windows PC):** the real screen-recorded installation footage (scenes 3–11). The explainer can be used as-is, or the real captures can be edited in to replace the slide placeholders for those scenes.
 
 ### 8. Remaining actions before YouTube upload
 1. On a Windows PC, open tallysolutions.com/download and note the live version, file name/size, SHA-256 ([VERIFY LIVE] items).
