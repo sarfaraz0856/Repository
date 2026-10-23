@@ -282,6 +282,7 @@ extra_css = r'''
 #pb{margin-top:10px}
 #cap{font-size:31px !important}
 .ptitle{font-size:58px !important}
+.cell.vid{background:linear-gradient(135deg,#b39ddb,#4527a0) !important}.cell.vid>div{display:none}
 '''
 
 # panel: dynamic

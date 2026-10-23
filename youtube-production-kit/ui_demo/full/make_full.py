@@ -299,10 +299,12 @@ B("मेरी सलाह — पहली बार वीडियो क�
   [("tap", "e-0.6", 206, 594), ("set", "e-0.5", "visSel", "Public"), ("set", "e+0.2", "vis", 0)], pad=1.0)
 B("अब 'नेक्स्ट' दबाइए, और ऑडियंस में सच-सच चुनिए। मेरी वीडियो बच्चों के लिए नहीं है, इसलिए मैं 'नो' चुनूँगा।",
   "Tap “Next” and choose the audience honestly. My video isn't for kids, so I'll pick “No”.",
-  tapgo(0.9, 363, 53, to="audience", box=(330, 38, 66, 30)) + tapgo(("e", -0.4), 40, 334, box=(16, 306, 380, 56), extra=[("set", ("e", -0.3), "aud", "no")]), pad=1.2)
+  tapgo(0.9, 363, 53, to="audience", box=(330, 38, 66, 30)) + tapgo(("e", -0.4), 40, 334, box=(16, 306, 380, 56), extra=[("set", ("e", -0.3), "aud", "no")]),
+  panel=P("AUDIENCE", f"Made for kids? {Y('Be honest')}"), pad=1.2)
 B("आख़िर में 'अपलोड वीडियो' पर टैप कीजिए — और आपकी पहली वीडियो अपलोड होना शुरू हो जाएगी।",
   "Finally, tap “Upload video” — and your first video starts uploading.",
-  press(0.8, 206, 840, z=1.5, ox=206, oy=840, box=(24, 820, 364, 42), to="uploads") + [("tw", 3.4, "upl", 0, 100, 4.0), ("tw", 7.4, "proc", 0, 1, 1.2), ("sfx", 8.6, "chime")], pad=4.0)
+  press(0.8, 206, 840, z=1.5, ox=206, oy=840, box=(24, 820, 364, 42), to="uploads") + [("tw", 3.4, "upl", 0, 100, 4.0), ("tw", 7.4, "proc", 0, 1, 1.2), ("sfx", 8.6, "chime")],
+  panel=P("UPLOAD", f"Tap {Y('“Upload video”')}", "Your first video goes live"), pad=4.0)
 B("एक बात और — कस्टम थंबनेल के लिए फ़ोन वेरिफ़िकेशन ज़रूरी है, जो हमने पहले ही कर लिया है। और अच्छा थंबनेल ही सबसे ज़्यादा क्लिक दिलाता है।",
   "One more thing: custom thumbnails need phone verification — which we've already done. A good thumbnail drives most clicks.", b="Thumbnail = more clicks", pad=1.0)
 
@@ -344,7 +346,13 @@ def main():
     from kokoro_onnx import Kokoro
     kd = os.environ["KOKORO_DIR"]
     k = Kokoro(os.path.join(kd, "kokoro-v1.0.int8.onnx"), os.path.join(kd, "voices-v1.0.bin"))
+    import hashlib
+    cache = os.path.join(OUT, "tts_cache"); os.makedirs(cache, exist_ok=True)
     def tts(text):
+        cf = os.path.join(cache, hashlib.md5(f"{VOICE}|{SPEED}|{text}".encode()).hexdigest() + ".npy")
+        if os.path.exists(cf): return np.load(cf)
+        b = _tts(text); np.save(cf, b); return b
+    def _tts(text):
         a, sr = k.create(text, voice=VOICE, speed=SPEED, lang="hi")
         raw, out = os.path.join(OUT, "_in.wav"), os.path.join(OUT, "_out.wav")
         sf.write(raw, a, sr); subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", raw, "-ar", str(SR), "-ac", "1", out], check=True)

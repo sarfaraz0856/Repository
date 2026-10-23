@@ -120,7 +120,7 @@ window.render = function (t) {
   $('ebanner').className = 'ebanner' + (banner ? ' on' : '');
   $('edesc').textContent = desc ? 'Namaste! Smart Learning Hindi par aapko…' : 'Add description'; $('edesc').className = desc ? '' : 'grey';
   const gm = S('galMode', t); document.querySelectorAll('.gdur').forEach(e => e.style.display = gm === 'video' ? 'block' : 'none');
-  $('cell1').style.visibility = gm === 'video' ? 'hidden' : 'visible'; $('cell3').style.visibility = gm === 'video' ? 'hidden' : 'visible';
+  for (const c of ['cell1','cell3']) { const el = $(c); el.classList.toggle('vid', gm === 'video'); }
   $('cropimg').style.transform = `scale(${TW('cropS', t, 1)})`;
   // description
   const dv = TV('desc', t); $('v_desc').textContent = dv; $('dcnt').textContent = dv.length + '/1000'; caret('desc');
@@ -140,7 +140,7 @@ window.render = function (t) {
   // panel
   const pi = lastIdx(TL.panels, t, x => x.t);
   if (pi >= 0) { const P = TL.panels[pi];
-    if (builtPanel !== pi) { builtPanel = pi; $('pk').textContent = P.kick; $('pk').style.background = P.kc || ''; $('pt').innerHTML = P.title; $('ps').innerHTML = P.sub || '';
+    if (builtPanel !== pi) { builtPanel = pi; $('pk').innerHTML = P.kick; $('pk').style.background = P.kc || ''; $('pt').innerHTML = P.title; $('ps').innerHTML = P.sub || '';
       $('pb').innerHTML = TL.bullets.filter(b => b.p === pi).map(b => `<div class="bul${b.neg ? ' neg' : ''}" data-t="${b.t}"><i>${b.neg ? '✕' : '✓'}</i><span>${b.text}</span></div>`).join(''); }
     const o = ease(seg(t, P.t, P.t + .45)); $('pwrap').style.opacity = o; $('pwrap').style.transform = `translateY(${(1 - o) * 26}px)`;
     $('pb').querySelectorAll('.bul').forEach(b => { const bt = +b.dataset.t, k = ease(seg(t, bt, bt + .4)); b.style.opacity = k; b.style.transform = `translateX(${(1 - k) * 30}px)`; });
