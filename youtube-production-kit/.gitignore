@@ -1,3 +1,4 @@
 # Large/intermediate video build artifacts (delivered to user directly, not stored in git)
 video_build/
 *.mp4
+ui_demo/full/timeline.js
