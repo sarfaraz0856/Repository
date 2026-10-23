@@ -261,14 +261,14 @@ const seg=(t,a,b)=>clamp((t-a)/(b-a));
 function win(t,a,b,f=.3){ if(t<a||t>b) return 0; const up=a<=0?1:seg(t,a,a+f), dn=1-seg(t,b-f,b); return Math.min(up,dn); }
 
 const screens={home:[0,10.5],splash:[10.3,12.6],feed:[12.4,21.6],you:[21.4,28.8],sheet:[28.6,48.8],channel:[48.6,61]};
-const taps=[{t:9.0,x:157,y:527},{t:20.0,x:370.8,y:868},{t:27.0,x:158,y:133},{t:30.6,x:206,y:328},{t:36.6,x:206,y:412},{t:46.0,x:316,y:840}];
+const taps=[{t:9.0,x:157,y:527},{t:20.0,x:370.8,y:868},{t:27.0,x:168,y:133},{t:30.6,x:206,y:328},{t:36.6,x:206,y:412},{t:46.0,x:316,y:840}];
 // zoom: a->b up, hold b->c, c->d down
 const zooms=[{a:7,b:8,c:9.5,d:10.3,ox:157,oy:527,z:1.65},{a:16.5,b:17.5,c:20.5,d:21.3,ox:370,oy:868,z:1.75},
  {a:24,b:25,c:27.5,d:28.3,ox:158,oy:133,z:1.85},{a:29.6,b:30.4,c:35.6,d:36.3,ox:30,oy:330,z:1.5},
  {a:36.3,b:37.0,c:41.2,d:42,ox:30,oy:420,z:1.5},{a:43.2,b:44.2,c:46.4,d:47.2,ox:398,oy:840,z:1.7},
  {a:50.2,b:51.2,c:54.8,d:55.8,ox:0,oy:150,z:1.15}];
 // highlight boxes (screen coords) shown during holds
-const hls=[{a:8,b:9.4,x:119,y:490,w:76,h:76},{a:17.5,b:20.3,x:340,y:846,w:62,h:46},{a:25,b:27.3,x:98,y:118,w:122,h:30},{a:44.2,b:46.3,x:236,y:818,w:162,h:44}];
+const hls=[{a:8,b:9.4,x:119,y:490,w:76,h:76},{a:17.5,b:20.3,x:340,y:846,w:62,h:46},{a:25,b:27.3,x:98,y:118,w:142,h:30},{a:44.2,b:46.3,x:236,y:818,w:162,h:44}];
 taps.forEach(p=>p.y+=18); zooms.forEach(z=>z.oy+=18); hls.forEach(h=>h.y+=18);
 const NAME="Smart Learning Hindi", HANDLE="@SmartLearningHindi";
 const T_NAME=[31.2,34.8], T_HANDLE=[37.4,40.2], T_AVAIL=40.6;
