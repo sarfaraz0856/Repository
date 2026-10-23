@@ -1,0 +1,474 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{--bg:#F7E7CE}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);
+ font-family:Roboto,"Segoe UI",Inter,system-ui,Arial,"Noto Color Emoji",sans-serif;}
+#bg{position:absolute;inset:0;background:
+ radial-gradient(circle at 88% 10%,rgba(196,148,40,.20),transparent 40%),
+ radial-gradient(circle at 70% 96%,rgba(255,0,51,.06),transparent 42%),
+ linear-gradient(135deg,color-mix(in srgb,var(--bg) 40%,#ffffff) 0%,var(--bg) 70%);}
+#dots_bg{position:absolute;inset:0;background-image:radial-gradient(rgba(120,85,20,.09) 1.2px,transparent 1.3px);background-size:28px 28px;}
+#glow{position:absolute;left:65px;top:140px;width:800px;height:800px;border-radius:50%;
+ background:radial-gradient(circle,rgba(201,150,40,.30) 0,rgba(201,150,40,.10) 40%,transparent 68%);}
+#brand{position:absolute;left:863px;top:64px;display:flex;align-items:center;gap:12px;color:#14141c;font-weight:800;font-size:24px;opacity:.9}
+#brand .lg{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#d31027,#6c2bd9);display:flex;align-items:center;justify-content:center;font-size:18px}
+/* phone */
+#frame{position:absolute;left:217px;top:6px;width:496px;height:1068px;border-radius:84px;padding:6px;
+ background:linear-gradient(145deg,#e4e4e9 0%,#77777e 22%,#d2d2d8 48%,#66666d 74%,#c9c9cf 100%);
+ box-shadow:0 30px 70px rgba(25,25,60,.35),0 6px 18px rgba(25,25,60,.18);}
+.btn{position:absolute;width:5px;border-radius:3px;background:linear-gradient(90deg,#55555c,#c8c8ce);}
+#phone{position:relative;width:484px;height:1056px;border-radius:78px;background:#050506;padding:14px;
+ box-shadow:inset 0 0 0 1.5px #2a2a30;}
+#screen{position:relative;width:456px;height:1028px;border-radius:64px;overflow:hidden;background:#fff;}
+#scaler{position:absolute;left:0;top:0;width:412px;height:930px;transform:scale(1.10538);transform-origin:0 0;}
+#content{position:absolute;inset:0;}
+#island{position:absolute;left:50%;top:13px;width:126px;height:37px;margin-left:-63px;border-radius:20px;background:#000;z-index:60;}
+#island:after{content:"";position:absolute;right:13px;top:12px;width:12px;height:12px;border-radius:50%;
+ background:radial-gradient(circle at 35% 35%,#3b4a7a,#0b0d1a 60%);}
+.scr>:not(.sb):not(#loading){transform:translateY(18px);}
+.scr{position:absolute;inset:0;opacity:0;}
+.sb{position:absolute;top:0;left:0;right:0;height:46px;display:flex;justify-content:space-between;align-items:center;padding:8px 30px 0 44px;font-size:15.5px;font-weight:600;z-index:5;letter-spacing:.2px}
+.sb .ic{display:flex;gap:6px;align-items:center}
+.bat{width:20px;height:10px;border:1.6px solid currentColor;border-radius:3px;position:relative}
+.bat:after{content:"";position:absolute;inset:1.5px;right:4px;background:currentColor;border-radius:1px}
+
+/* home */
+#home{background:linear-gradient(170deg,#2b5876 0%,#4e4376 45%,#c0587e 80%,#f0a07a 100%);color:#fff}
+.wdg{position:absolute;border-radius:24px;padding:16px;color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.18)}
+.srch{position:absolute;left:50%;margin-left:-48px;top:770px;width:96px;height:30px;border-radius:15px;background:rgba(255,255,255,.28);font-size:13px;display:flex;align-items:center;justify-content:center}
+.dock{position:absolute;left:12px;right:12px;top:810px;height:92px;border-radius:34px;background:rgba(255,255,255,.28)}
+.clock{position:absolute;top:110px;width:100%;text-align:center;font-size:76px;font-weight:300}
+.date{position:absolute;top:200px;width:100%;text-align:center;font-size:16px;opacity:.9}
+.app{position:absolute;width:84px;margin-left:-42px;text-align:center;font-size:11.5px;font-weight:500;text-shadow:0 1px 3px rgba(0,0,0,.35)}
+.app .i{width:62px;height:62px;border-radius:15px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 10px rgba(0,0,0,.25)}
+.gsearch{position:absolute;left:24px;right:24px;top:740px;height:48px;border-radius:24px;background:rgba(255,255,255,.92);color:#555;display:flex;align-items:center;padding:0 18px;font-size:15px;justify-content:space-between}
+.ytlogo{display:inline-flex;align-items:center;justify-content:center;background:#ff0000;border-radius:7px}
+.ytlogo:after{content:"";border-left:10px solid #fff;border-top:6.5px solid transparent;border-bottom:6.5px solid transparent;margin-left:2px}
+/* splash */
+#splash{background:#fff;display:flex;align-items:center;justify-content:center}
+/* youtube common */
+.top{position:absolute;top:28px;left:0;right:0;height:50px;display:flex;align-items:center;padding:0 14px;justify-content:space-between}
+.word{display:flex;align-items:center;gap:4px;font-weight:700;font-size:20px;letter-spacing:-1px;color:#0f0f0f}
+.icons{display:flex;gap:22px;align-items:center}
+svg{display:block}
+.chips{position:absolute;top:82px;left:12px;right:0;display:flex;gap:8px;white-space:nowrap}
+.chip{background:#f2f2f2;border-radius:8px;padding:7px 12px;font-size:14px;font-weight:500;color:#0f0f0f}
+.chip.on{background:#0f0f0f;color:#fff}
+.card{position:absolute;left:0;right:0}
+.thumb{height:232px;display:flex;align-items:flex-end;justify-content:flex-end;padding:8px}
+.dur{background:rgba(0,0,0,.8);color:#fff;font-size:12px;font-weight:600;padding:1px 5px;border-radius:4px}
+.meta{display:flex;gap:12px;padding:12px}
+.av{width:36px;height:36px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:15px}
+.tt{font-size:15px;color:#0f0f0f;line-height:1.3}
+.st{font-size:12px;color:#606060;margin-top:3px}
+.nav{position:absolute;left:0;right:0;top:842px;height:52px;background:#fff;border-top:1px solid #e5e5e5;display:flex}
+.nav div{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;color:#0f0f0f;gap:3px}
+.gest{position:absolute;left:50%;margin-left:-68px;width:136px;height:5px;border-radius:3px;background:#111;top:902px}
+/* you page */
+.bigav{position:absolute;left:16px;top:84px;width:72px;height:72px;border-radius:50%;background:#7b1fa2;color:#fff;font-size:34px;display:flex;align-items:center;justify-content:center}
+.uname{position:absolute;left:104px;top:90px;font-size:24px;font-weight:700;color:#0f0f0f}
+.clink{position:absolute;left:104px;top:124px;font-size:14px;font-weight:500;color:#065fd4}
+.pills{position:absolute;left:16px;top:176px;display:flex;gap:8px}
+.pill{background:#f2f2f2;border-radius:18px;padding:8px 14px;font-size:13px;font-weight:500;color:#0f0f0f}
+.sec{position:absolute;left:16px;right:16px;font-size:18px;font-weight:700;color:#0f0f0f;display:flex;justify-content:space-between;align-items:center}
+.sec span{font-size:13px;font-weight:500;border:1px solid #ddd;border-radius:16px;padding:4px 12px}
+.row{position:absolute;left:16px;display:flex;gap:10px}
+.mini{width:150px;height:84px;border-radius:10px}
+.li{position:absolute;left:16px;right:16px;display:flex;align-items:center;gap:22px;font-size:15px;color:#0f0f0f}
+.li i{width:22px;height:22px;border-radius:6px;border:2px solid #0f0f0f;display:block}
+/* sheet */
+#sheet{background:#fff}
+.shtitle{position:absolute;top:44px;width:100%;text-align:center;font-size:20px;font-weight:700;color:#0f0f0f}
+.shx{position:absolute;left:18px;top:44px;font-size:22px;color:#0f0f0f}
+.pick{position:absolute;left:146px;top:110px;width:120px;height:120px;border-radius:50%;background:#7b1fa2;color:#fff;font-size:54px;display:flex;align-items:center;justify-content:center}
+.cam{position:absolute;right:-2px;bottom:4px;width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid #ddd;font-size:16px;display:flex;align-items:center;justify-content:center}
+.selpic{position:absolute;top:244px;width:100%;text-align:center;color:#065fd4;font-size:15px;font-weight:500}
+.fld{position:absolute;left:24px;right:24px;height:56px;border:1px solid #9e9e9e;border-radius:8px;padding:0 14px;display:flex;align-items:center;font-size:17px;color:#0f0f0f}
+.fld.focus{border:2px solid #065fd4}
+.lab{position:absolute;left:12px;padding:0 4px;background:#fff;color:#606060;transition:none}
+.lab.up{top:-9px;font-size:12px}
+.lab.dn{top:17px;font-size:17px}
+.fld.focus .lab{color:#065fd4}
+.caret{display:inline-block;width:2px;height:22px;background:#065fd4;margin-left:1px;vertical-align:middle}
+.help{position:absolute;left:38px;font-size:12.5px}
+.info{position:absolute;left:24px;right:24px;top:540px;font-size:12.5px;color:#606060;line-height:1.5}
+.btns{position:absolute;left:24px;right:20px;top:820px;height:40px;display:flex;justify-content:flex-end;gap:12px;align-items:center}
+.cancel{font-size:15px;font-weight:500;color:#065fd4;padding:10px 16px}
+.create{height:40px;border-radius:20px;padding:0 20px;display:flex;align-items:center;font-size:15px;font-weight:500}
+.spin{width:22px;height:22px;border-radius:50%;border:3px solid #cfd8f5;border-top-color:#065fd4}
+#loading{position:absolute;inset:0;background:rgba(255,255,255,.75);display:flex;align-items:center;justify-content:center;opacity:0;z-index:8}
+/* channel page */
+.chav{position:absolute;left:16px;top:96px;width:84px;height:84px;border-radius:50%;background:#00897b;color:#fff;font-size:40px;display:flex;align-items:center;justify-content:center}
+.chname{position:absolute;left:116px;top:98px;font-size:22px;font-weight:700;color:#0f0f0f}
+.chsub{position:absolute;left:116px;top:130px;font-size:12.5px;color:#606060;width:280px;line-height:1.45}
+.mng{position:absolute;left:16px;right:16px;top:212px;display:flex;gap:8px}
+.mng div{flex:1;background:#f2f2f2;border-radius:18px;height:36px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:#0f0f0f}
+.mng .ed{flex:none;width:36px}
+.tabs{position:absolute;left:0;right:0;top:272px;display:flex;gap:26px;padding:0 16px;border-bottom:1px solid #e5e5e5;font-size:15px;font-weight:500;color:#606060}
+.tabs div{padding:12px 0}
+.tabs .on{color:#0f0f0f;border-bottom:2px solid #0f0f0f}
+.empty{position:absolute;left:30px;right:30px;top:400px;text-align:center;color:#0f0f0f}
+.empty .ill{width:110px;height:110px;border-radius:50%;background:#f2f2f2;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;font-size:44px}
+.empty h4{font-size:17px;margin-bottom:8px}
+.empty p{font-size:13px;color:#606060;line-height:1.5}
+.empty .cb{display:inline-block;margin-top:16px;background:#065fd4;color:#fff;border-radius:18px;padding:9px 20px;font-size:14px;font-weight:500}
+/* taps */
+.touch{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:rgba(120,120,120,.45);border:2px solid rgba(255,255,255,.9);opacity:0;z-index:20}
+.ripple{position:absolute;border-radius:50%;border:3px solid #ffd400;opacity:0;z-index:19}
+.hl{position:absolute;border:3px solid #ffd400;border-radius:12px;box-shadow:0 0 0 4px rgba(255,212,0,.25);opacity:0;z-index:18}
+/* right panel */
+#panel{position:absolute;left:863px;top:0;width:840px;height:820px;color:#14141c}
+.pst{position:absolute;left:0;right:0;top:250px;opacity:0}
+.kick{display:inline-block;font-size:26px;font-weight:900;letter-spacing:3px;background:#ff0033;color:#fff;padding:6px 18px;border-radius:10px}
+.ptitle{font-size:68px;font-weight:900;line-height:1.08;margin-top:24px}
+.psub{font-size:32px;font-weight:500;color:#45455a;margin-top:20px;line-height:1.35}
+.y{color:#e0002b}
+#dots{position:absolute;left:0;top:720px;display:flex;gap:14px;align-items:center}
+#dots div{width:16px;height:16px;border-radius:50%;background:rgba(20,20,40,.15)}
+#dots div.on{background:#ff0033;width:44px;border-radius:8px}
+#dots div.done{background:#1fb866}
+#cap{position:absolute;left:863px;top:850px;width:840px;min-height:120px;background:#14141c;border:none;box-shadow:0 14px 34px rgba(20,20,40,.25);border-radius:20px;padding:22px 30px;color:#fff;font-size:34px;font-weight:600;line-height:1.35;display:flex;align-items:center}
+#note{position:absolute;left:863px;width:840px;top:1006px;text-align:left;color:#7a7a8c;font-size:18px}
+.conf{position:absolute;width:14px;height:22px;border-radius:3px;opacity:0}
+#fade{position:absolute;inset:0;background:#000;opacity:1;z-index:100}
+
+.scr>:not(.sb):not(#loading):not(.full){transform:translateY(18px);}
+.full{position:absolute;inset:0;}
+.ov{opacity:0;z-index:30}
+.ov .dim{position:absolute;inset:0;background:rgba(0,0,0,.45)}
+.bsheet{position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:18px 18px 0 0}
+.grab{width:40px;height:4px;border-radius:2px;background:#ccc;margin:10px auto 0}
+.bst{position:absolute;left:24px;top:24px;font-size:18px;font-weight:700;color:#0f0f0f}
+.arow{position:absolute;left:20px;right:20px;height:56px;display:flex;align-items:center;gap:14px;font-size:15px;color:#0f0f0f}
+.arow small{color:#606060;font-size:12.5px}
+.aav{width:38px;height:38px;border-radius:50%;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+.aav.sm{width:28px;height:28px;font-size:13px}
+.tick{margin-left:auto;color:#065fd4;font-weight:800;font-size:18px}
+.mrow{position:absolute;left:24px;right:24px;height:44px;display:flex;align-items:center;gap:18px;font-size:16px;color:#0f0f0f}
+.mic{width:36px;height:36px;border-radius:50%;background:#f2f2f2;display:flex;align-items:center;justify-content:center;font-size:15px}
+.tb{justify-content:flex-start;gap:16px}
+.back{font-size:22px;color:#0f0f0f;min-width:22px}
+.tbt{font-size:18px;font-weight:700;color:#0f0f0f}
+.tbr{margin-left:auto;display:flex;align-items:center}
+.sv{color:#3ea6ff;font-weight:700;font-size:16px}
+.sv2{color:#065fd4;font-weight:700;font-size:16px}
+.sbox{flex:1;margin:0 12px;height:38px;border-radius:19px;background:#f2f2f2;display:flex;align-items:center;padding:0 16px;font-size:15px;color:#0f0f0f;position:relative}
+.ph{color:#909090}
+.crow{position:absolute;left:16px;right:16px;height:70px;display:flex;align-items:center;gap:14px}
+.cav{width:64px;height:64px;border-radius:50%;color:#fff;font-weight:700;font-size:26px;display:flex;align-items:center;justify-content:center;flex:none}
+.cinfo{display:flex;flex-direction:column;font-size:16px;color:#0f0f0f;gap:3px}.cinfo small{font-size:12.5px;color:#606060}
+.subb{margin-left:auto;background:#0f0f0f;color:#fff;border-radius:18px;padding:8px 14px;font-size:13px;font-weight:600}
+.obanner{position:absolute;left:12px;right:12px;top:58px;height:88px;border-radius:12px;background:linear-gradient(120deg,#b71c1c,#e53935 60%,#ff7043);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.obanner b{font-size:22px;letter-spacing:1px}.obanner span{font-size:11px;opacity:.9}
+.ohandle{position:absolute;left:116px;top:190px;font-size:14px;font-weight:600;color:#0f0f0f}
+.osub{position:absolute;left:16px;right:16px;top:252px;height:36px;border-radius:18px;background:#0f0f0f;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600}
+.ebanner{position:absolute;left:0;right:0;top:80px;height:120px;background:#e9e9ee;overflow:hidden}
+.ebanner.on{background:linear-gradient(120deg,#1f3a93,#4a1d8f 55%,#6c2bd9)}
+.ebanner.on:before{content:"SMART LEARNING HINDI";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:22px;letter-spacing:1px}
+.ecam{position:absolute;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.eav{position:absolute;left:156px;top:156px;width:100px;height:100px;border-radius:50%;background:#7b1fa2;color:#fff;font-size:44px;display:flex;align-items:center;justify-content:center;border:4px solid #fff}
+.erow{position:absolute;left:0;right:0;height:64px;border-bottom:1px solid #eee;padding:10px 56px 0 20px;display:flex;flex-direction:column;font-size:16px;color:#0f0f0f;overflow:hidden;white-space:nowrap}
+.erow small{font-size:12px;color:#606060;margin-bottom:3px}.erow i{position:absolute;right:20px;top:22px;font-style:normal;color:#606060}
+.grey{color:#909090}
+.cell{position:absolute;width:136px;height:136px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.cell .dur{position:absolute;right:6px;bottom:6px}
+.logo{border-radius:50%;background:linear-gradient(135deg,#d31027,#8a0b1c);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;border:3px solid #fff;box-shadow:0 0 0 1px #ddd}
+.logo small{color:#ffd400;font-weight:800;letter-spacing:2px}
+.logo.big{width:330px;height:330px;font-size:150px;line-height:.85;border-width:8px}.logo.big small{font-size:28px}
+.logo.sm{width:80px;height:80px;font-size:34px;line-height:.85}.logo.sm small{font-size:9px;letter-spacing:1px}
+.logo.md{width:100px;height:100px;font-size:42px;line-height:.85}.logo.md small{font-size:10px}
+.cropimg{position:absolute;left:41px;top:250px;width:330px;height:330px;display:flex;align-items:center;justify-content:center}
+.cropmask{position:absolute;left:0;right:0;top:160px;height:510px;background:radial-gradient(circle at 50% 50%,transparent 0,transparent 160px,rgba(0,0,0,.6) 161px);pointer-events:none}
+.cropmask:after{content:"";position:absolute;left:46px;top:95px;width:320px;height:320px;border-radius:50%;border:2px solid rgba(255,255,255,.9)}
+.top.dark{background:transparent}
+.bprev{position:absolute;left:0;right:0;top:250px;height:232px}
+.bimg{position:absolute;inset:0;background:linear-gradient(120deg,#1f3a93,#4a1d8f 55%,#6c2bd9);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.bimg b{font-size:21px;letter-spacing:1px}.bimg span{font-size:10px;opacity:.9;margin-top:3px}
+.safe{position:absolute;left:81px;top:82px;width:249px;height:68px;border:2px dashed #ffd400;border-radius:4px}
+.safe em{position:absolute;top:-22px;left:0;right:0;text-align:center;color:#ffd400;font-size:11px;font-style:normal;font-weight:700}
+.devs{position:absolute;left:0;right:0;top:520px;display:flex;justify-content:center;gap:22px;color:#ddd;font-size:14px}
+.tarea{position:absolute;left:16px;right:16px;top:84px;height:300px;border:2px solid #065fd4;border-radius:10px;padding:14px;font-size:15px;line-height:1.5;color:#0f0f0f;white-space:pre-wrap}
+.cnt{position:absolute;right:20px;top:392px;font-size:12px;color:#606060}
+.kbd{position:absolute;left:0;right:0;top:620px;height:292px;background:#d1d4db;padding:10px 4px}
+.kr{display:flex;justify-content:center;gap:6px;margin:8px 0}.kr span{height:42px;flex:0 0 33px;background:#fff;border-radius:6px;box-shadow:0 1px 0 #999;display:flex;align-items:center;justify-content:center;font-size:18px;color:#111}
+.kr span.w{flex:0 0 190px}.kr span.g{background:#adb2bc;flex:0 0 44px;font-size:13px}
+.cbanner{position:absolute;left:12px;right:12px;top:62px;height:110px;border-radius:12px;background:linear-gradient(120deg,#1f3a93,#4a1d8f 55%,#6c2bd9);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.cbanner b{font-size:21px;letter-spacing:1px}.cbanner span{font-size:10px;opacity:.9;margin-top:3px}
+.c2desc{position:absolute;left:16px;right:16px;top:284px;font-size:13px;color:#606060;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.c2desc b{color:#0f0f0f}
+.c2link{position:absolute;left:16px;top:306px;font-size:13px;color:#065fd4;font-weight:500}
+.gtabs{position:absolute;left:0;right:0;top:84px;display:flex;gap:22px;padding:0 20px;border-bottom:1px solid #e0e0e0;font-size:14px;color:#5f6368;font-weight:500}
+.gtabs span{padding:10px 0}.gtabs .on{color:#1a73e8;border-bottom:3px solid #1a73e8}
+.gh{position:absolute;left:20px;top:146px;font-size:20px;color:#202124}
+.gcard{position:absolute;left:16px;right:16px;top:186px;border:1px solid #dadce0;border-radius:12px;overflow:hidden}
+.grow{display:flex;align-items:center;gap:14px;padding:14px 16px;border-bottom:1px solid #eee;font-size:15px;color:#202124}
+.grow div{display:flex;flex-direction:column}.grow small{font-size:13px;color:#5f6368;margin-top:2px}.grow i{margin-left:auto;font-style:normal;color:#5f6368;font-size:20px}
+.grow small.on{color:#188038;font-weight:600}
+.toast{position:absolute;left:24px;right:24px;top:800px;background:#323232;color:#fff;border-radius:10px;padding:13px 16px;font-size:14px;opacity:0}
+.fcard{position:absolute;left:16px;right:16px;height:96px;background:#fff;border-radius:12px;border:1px solid #e5e5e5;padding:14px 16px}
+.fcard b{font-size:16px;color:#0f0f0f;display:block}.fcard p{font-size:12.5px;color:#606060;margin-top:6px}
+.fcard span{font-size:13px;font-weight:600;display:block;margin-top:4px}
+.ok{color:#188038}.pend{color:#b06000}
+.vbtn{position:absolute;left:16px;top:116px;background:#065fd4;color:#fff;border-radius:18px;padding:8px 18px;font-size:14px;font-weight:600}
+.nextb{background:#065fd4;color:#fff;border-radius:16px;padding:6px 16px;font-size:14px;font-weight:600}
+.vprev{position:absolute;left:0;right:0;top:80px;height:206px;background:linear-gradient(135deg,#ef5350,#880e4f);display:flex;align-items:center;justify-content:center;color:#fff;font-size:44px}
+.dfld{position:absolute;left:16px;right:16px;height:54px;border:1px solid #ccc;border-radius:8px;padding:6px 12px;font-size:15px;color:#0f0f0f;overflow:hidden;line-height:1.35}
+.dfld small{display:block;font-size:11px;color:#606060}
+.drow{position:absolute;left:0;right:0;height:50px;border-bottom:1px solid #eee;display:flex;align-items:center;gap:16px;padding:0 20px;font-size:15px;color:#0f0f0f}
+.drow b{margin-left:auto;font-weight:500;color:#606060}
+.vrow{position:absolute;left:20px;right:20px;height:56px;display:flex;align-items:center;gap:16px;font-size:15px;color:#0f0f0f}
+.vrow small{display:block;font-size:12.5px;color:#606060;margin-top:2px}
+.vrow i{width:20px;height:20px;border-radius:50%;border:2px solid #606060;flex:none;position:relative}
+.vrow.sel i{border-color:#065fd4}.vrow.sel i:after{content:"";position:absolute;inset:3px;border-radius:50%;background:#065fd4}
+.aq{position:absolute;left:20px;right:20px;top:96px;font-size:17px;font-weight:700;color:#0f0f0f}
+.atx{position:absolute;left:20px;right:20px;top:130px;font-size:13px;color:#606060;line-height:1.5}
+.upb{position:absolute;left:24px;right:24px;top:820px;height:42px;border-radius:21px;background:#065fd4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600}
+.uprow{position:absolute;left:16px;right:16px;top:92px;display:flex;gap:12px}
+.upth{width:150px;height:84px;border-radius:8px;background:linear-gradient(135deg,#ef5350,#880e4f);color:#fff;display:flex;align-items:center;justify-content:center;font-size:24px;flex:none}
+.upinfo{display:flex;flex-direction:column;gap:6px;font-size:14px;color:#0f0f0f}.upinfo small{font-size:12.5px;color:#606060}
+.pbar{height:4px;background:#e5e5e5;border-radius:2px;width:200px}#pfill{height:4px;background:#065fd4;border-radius:2px;width:0}
+#pwrap{position:absolute;left:0;right:0;top:150px}
+.bul{display:flex;gap:14px;align-items:flex-start;font-size:29px;font-weight:600;margin-top:16px;color:#14141c;opacity:0}
+.bul i{flex:none;width:34px;height:34px;border-radius:50%;background:#1fb866;color:#fff;font-style:normal;font-size:20px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.bul.neg i{background:#e0002b}
+.bul code{font-family:Consolas,monospace;background:rgba(255,255,255,.7);padding:0 8px;border-radius:6px;font-size:27px}
+#pb{margin-top:10px}
+#cap{font-size:31px !important}
+.ptitle{font-size:58px !important}
+.cell.vid{background:linear-gradient(135deg,#b39ddb,#4527a0) !important}.cell.vid>div{display:none}
+</style></head><body>
+<div id="bg"></div><div id="dots_bg"></div><div id="glow"></div>
+<div id="brand"><div class="lg">SL</div>Smart Learning Hindi</div>
+
+<div id="frame"><div class="btn" style="left:-3px;top:196px;height:34px"></div><div class="btn" style="left:-3px;top:262px;height:66px"></div><div class="btn" style="left:-3px;top:342px;height:66px"></div><div class="btn" style="right:-3px;top:300px;height:104px"></div><div id="phone"><div id="screen"><div id="island"></div><div id="scaler"><div id="content">
+<div class="scr" id="home">
+  <div class="sb" style="color:#fff"><span>10:30</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4z"/><path d="M8 5.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.3 6.7 5.8 8 5.8z"/><circle cx="8" cy="10" r="1.8"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2.5" y="2.5" width="17" height="8" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill="currentColor" fill-opacity=".45"/></svg></span></div>
+  <div class="wdg" style="left:22px;top:74px;width:176px;height:176px;background:linear-gradient(160deg,#4aa3ff,#1f6fd1)">
+   <div style="font-size:15px;font-weight:600">New Delhi</div><div style="font-size:46px;font-weight:300;line-height:1.1">28°</div>
+   <div style="margin-top:34px;font-size:22px">☀️</div><div style="font-size:13px;font-weight:600">Sunny · H:32° L:21°</div></div>
+  <div class="wdg" style="left:214px;top:74px;width:176px;height:176px;background:rgba(255,255,255,.95);color:#1c1c1e">
+   <div style="font-size:13px;font-weight:700;color:#ff3b30">FRIDAY</div><div style="font-size:50px;font-weight:300;line-height:1.05">23</div>
+   <div style="margin-top:22px;font-size:13px;color:#8e8e93">No events today</div></div>
+  <div class="app" style="left:59px;top:292px"><div class="i" style="background:#fff">🌸</div>Photos</div><div class="app" style="left:157px;top:292px"><div class="i" style="background:#3a3a3c">📷</div>Camera</div><div class="app" style="left:255px;top:292px"><div class="i" style="background:#000">⏰</div>Clock</div><div class="app" style="left:353px;top:292px"><div class="i" style="background:#fff">📅</div>Calendar</div><div class="app" style="left:59px;top:394px"><div class="i" style="background:#ffd60a">📝</div>Notes</div><div class="app" style="left:157px;top:394px"><div class="i" style="background:#1c1c1e">🧮</div>Calculator</div><div class="app" style="left:255px;top:394px"><div class="i" style="background:#8e8e93">⚙️</div>Settings</div><div class="app" style="left:353px;top:394px"><div class="i" style="background:#0a84ff">📁</div>Files</div><div class="app" style="left:59px;top:496px"><div class="i" style="background:#34c759">🗺️</div>Maps</div><div class="app" style="left:157px;top:496px"><div class="i" style="background:#fff"><span class="ytlogo" style="width:40px;height:28px"></span></div>YouTube</div><div class="app" style="left:255px;top:496px"><div class="i" style="background:#ff375f">🎵</div>Music</div><div class="app" style="left:353px;top:496px"><div class="i" style="background:#0a84ff">✉️</div>Mail</div>
+  <div class="srch">🔍 Search</div>
+  <div class="dock"></div><div class="app" style="left:59px;top:821px"><div class="i" style="background:#34c759">📞</div></div><div class="app" style="left:157px;top:821px"><div class="i" style="background:#34c759">💬</div></div><div class="app" style="left:255px;top:821px"><div class="i" style="background:#0a84ff">🧭</div></div><div class="app" style="left:353px;top:821px"><div class="i" style="background:#8e8e93">👤</div></div>
+  <div class="gest" style="background:#fff"></div>
+ </div>
+<div class="scr" id="splash"><span class="ytlogo" id="splogo" style="width:96px;height:68px;border-radius:18px"></span></div>
+<div class="scr" id="feed" style="background:#fff">
+  <div class="sb" style="color:#0f0f0f"><span>10:31</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4z"/><path d="M8 5.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.3 6.7 5.8 8 5.8z"/><circle cx="8" cy="10" r="1.8"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2.5" y="2.5" width="17" height="8" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill="currentColor" fill-opacity=".45"/></svg></span></div>
+  <div class="top"><div class="word"><span class="ytlogo" style="width:30px;height:21px;border-radius:6px"></span>YouTube</div>
+   <div class="icons" id="topicons"></div></div>
+  <div class="chips"><div class="chip">🧭</div><div class="chip on">All</div><div class="chip">Music</div><div class="chip">Learning</div><div class="chip">Gaming</div><div class="chip">News</div></div>
+  <div class="card" style="top:126px"><div class="thumb" style="background:linear-gradient(135deg,#ff8a65,#d84315)"><span class="dur">12:45</span></div>
+   <div class="meta"><div class="av" style="background:#1976d2">L</div><div><div class="tt">Basic English Speaking Practice for Beginners | Day 1</div><div class="st">Learn Daily · 2.1L views · 3 days ago</div></div></div></div>
+  <div class="card" style="top:438px"><div class="thumb" style="background:linear-gradient(135deg,#81c784,#2e7d32)"><span class="dur">8:10</span></div>
+   <div class="meta"><div class="av" style="background:#f57c00">G</div><div><div class="tt">Easy Paneer Recipe at Home in 10 Minutes</div><div class="st">Ghar Ka Khana · 85K views · 1 week ago</div></div></div></div>
+  <div class="card" style="top:750px"><div class="thumb" style="background:linear-gradient(135deg,#9575cd,#4527a0)"></div></div>
+  <div class="nav" id="nav1"></div>
+  <div class="full ov" id="cmenuov"><div class="dim"></div><div class="bsheet" style="top:578px">
+   <div class="grab"></div><div class="bst">Create</div>
+   <div class="mrow" style="top:58px"><span class="mic">▶</span>Create a Short</div>
+   <div class="mrow" style="top:116px"><span class="mic">⬆</span>Upload a video</div>
+   <div class="mrow" style="top:174px"><span class="mic">◉</span>Go live</div>
+   <div class="mrow" style="top:232px"><span class="mic">✎</span>Create a post</div>
+  </div></div><div class="gest"></div>
+ </div>
+<div class="scr" id="you" style="background:#fff">
+  <div class="sb" style="color:#0f0f0f"><span>10:31</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4z"/><path d="M8 5.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.3 6.7 5.8 8 5.8z"/><circle cx="8" cy="10" r="1.8"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2.5" y="2.5" width="17" height="8" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill="currentColor" fill-opacity=".45"/></svg></span></div>
+  <div class="top" style="justify-content:flex-end"><div class="icons" id="youicons"></div></div>
+  <div class="bigav">R</div><div class="uname">Rahul Sharma</div>
+  <div class="clink">Create a channel ›</div>
+  <div class="pills"><div class="pill">⇄ Switch account</div><div class="pill">Google Account</div></div>
+  <div class="sec" style="top:236px">History<span>View all</span></div>
+  <div class="row" style="top:272px"><div class="mini" style="background:linear-gradient(135deg,#ff8a65,#d84315)"></div><div class="mini" style="background:linear-gradient(135deg,#4fc3f7,#0277bd)"></div><div class="mini" style="background:linear-gradient(135deg,#aed581,#558b2f)"></div></div>
+  <div class="sec" style="top:386px">Playlists<span>View all</span></div>
+  <div class="row" style="top:422px"><div class="mini" style="background:linear-gradient(135deg,#ce93d8,#6a1b9a)"></div><div class="mini" style="background:linear-gradient(135deg,#ffcc80,#ef6c00)"></div><div class="mini" style="background:#e0e0e0"></div></div>
+  <div class="li" style="top:546px"><i></i>Downloads</div>
+  <div class="li" style="top:596px"><i></i>Your movies</div>
+  <div class="li" style="top:646px"><i></i>Time watched</div>
+  <div class="li" style="top:696px"><i></i>Help &amp; feedback</div>
+  <div class="nav" id="nav2"></div>
+  <div class="full ov" id="acctov"><div class="dim"></div><div class="bsheet" id="acctsheet" style="top:488px">
+   <div class="grab"></div><div class="bst">Accounts</div>
+   <div class="arow" style="top:60px"><span class="aav" style="background:#7b1fa2">R</span><div><b>Rahul Sharma</b><br><small>rahul.sharma•••@gmail.com</small></div><span class="tick">✓</span></div>
+   <div class="arow" style="top:130px"><span class="aav" style="background:#00897b">P</span><div><b>Priya Studio</b><br><small>priya•••@gmail.com</small></div></div>
+   <div class="arow" style="top:200px"><span class="aav" style="background:#e8eaed;color:#444">+</span><div>Add account</div></div>
+   <div class="arow" style="top:262px"><span class="aav" style="background:#e8eaed;color:#444">⎋</span><div>Use YouTube signed out</div></div>
+  </div></div><div class="gest"></div>
+ </div>
+<div class="scr" id="sheet">
+  <div class="sb" style="color:#0f0f0f"><span>10:32</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4z"/><path d="M8 5.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.3 6.7 5.8 8 5.8z"/><circle cx="8" cy="10" r="1.8"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2.5" y="2.5" width="17" height="8" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill="currentColor" fill-opacity=".45"/></svg></span></div>
+  <div class="shx">✕</div><div class="shtitle">Create your channel</div>
+  <div class="pick">R<div class="cam">📷</div></div>
+  <div class="selpic">Select picture</div>
+  <div class="fld" id="fname" style="top:300px"><span class="lab" id="lname">Name</span><span id="v_name"></span><span class="caret" id="cname"></span></div>
+  <div class="fld" id="fhandle" style="top:384px"><span class="lab" id="lhandle">Handle</span><span id="v_handle"></span><span class="caret" id="chandle"></span></div>
+  <div class="help" id="hhelp" style="top:446px"></div>
+  <div class="info">Your channel name and handle will be visible on YouTube.<br>You can change them later in your channel settings.</div>
+  <div class="btns"><div class="cancel">Cancel</div><div class="create" id="cbtn">Create channel</div></div>
+  <div id="loading"><div class="spin" id="spin2" style="width:44px;height:44px;border-width:4px"></div></div>
+ </div>
+<div class="scr" id="channel" style="background:#fff">
+  <div class="sb" style="color:#0f0f0f"><span>10:32</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4z"/><path d="M8 5.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.3 6.7 5.8 8 5.8z"/><circle cx="8" cy="10" r="1.8"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2.5" y="2.5" width="17" height="8" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill="currentColor" fill-opacity=".45"/></svg></span></div>
+  <div class="top"><div style="font-size:24px;color:#0f0f0f">←</div><div class="icons" id="chicons"></div></div>
+  <div class="chav" style="background:#7b1fa2">R</div><div class="chname">Smart Learning Hindi</div>
+  <div class="chsub">@SmartLearningHindi · No subscribers · No videos<br>More about this channel ›</div>
+  <div class="mng"><div>Manage videos</div><div class="ed">✏️</div></div>
+  <div class="tabs"><div class="on">Home</div><div>Videos</div><div>Shorts</div><div>Playlists</div><div>Posts</div></div>
+  <div class="empty"><div class="ill">🎬</div><h4>Create content on any device</h4>
+   <p>Upload and record at home or on the go. Everything you make public will appear here.</p><div class="cb">Create</div></div>
+  <div class="nav" id="nav3"></div><div class="gest"></div>
+ </div>
+ <!-- SEARCH -->
+ <div class="scr" id="search" style="background:#fff"><div class="sb" style="color:#0f0f0f"><span>10:30</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4z"/><path d="M8 5.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.3 6.7 5.8 8 5.8z"/><circle cx="8" cy="10" r="1.8"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2.5" y="2.5" width="17" height="8" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill="currentColor" fill-opacity=".45"/></svg></span></div>
+  <div class="top"><span class="back">←</span><div class="sbox"><span id="v_q"></span><span class="caret" id="c_q"></span><span class="ph" id="ph_q">Search YouTube</span></div><span style="font-size:20px">🎙️</span></div>
+  <div id="sres" style="position:absolute;left:0;right:0;top:0;bottom:0">
+   <div class="crow" style="top:106px"><span class="cav" style="background:#e53935">T</span><div class="cinfo"><b>Tech Tips Hindi</b><small>@TechTipsHindi · 85K subscribers</small></div><span class="subb">Subscribe</span></div>
+   <div class="card" style="top:190px"><div class="thumb" style="background:linear-gradient(135deg,#29b6f6,#1565c0)"><span class="dur">9:42</span></div>
+    <div class="meta"><div class="av" style="background:#6d4c41">S</div><div><div class="tt">5 Phone Settings Every Student Should Change</div><div class="st">Smart Tech Guru · 1.2L views · 2 weeks ago</div></div></div></div>
+   <div class="crow" style="top:520px"><span class="cav" style="background:#3949ab">L</span><div class="cinfo"><b>Learn Tech Hindi</b><small>@LearnTechHindi · 22K subscribers</small></div><span class="subb">Subscribe</span></div>
+   <div class="card" style="top:604px"><div class="thumb" style="background:linear-gradient(135deg,#ffb74d,#e65100)"></div></div>
+  </div>
+ </div>
+
+ <!-- OTHER CHANNEL -->
+ <div class="scr" id="otherch" style="background:#fff"><div class="sb" style="color:#0f0f0f"><span>10:30</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4z"/><path d="M8 5.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.3 6.7 5.8 8 5.8z"/><circle cx="8" cy="10" r="1.8"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2.5" y="2.5" width="17" height="8" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill="currentColor" fill-opacity=".45"/></svg></span></div>
+  <div class="top"><span class="back">←</span><div class="icons" id="ocicons"></div></div>
+  <div class="obanner"><b>TECH TIPS HINDI</b><span>New videos every Monday</span></div>
+  <div class="chav" style="top:158px;background:#e53935">T</div>
+  <div class="chname" style="top:160px">Tech Tips Hindi</div>
+  <div class="ohandle">@TechTipsHindi</div>
+  <div class="chsub" style="top:214px">85K subscribers · 320 videos</div>
+  <div class="osub">Subscribe</div>
+  <div class="tabs" style="top:300px"><div class="on">Home</div><div>Videos</div><div>Shorts</div><div>Playlists</div><div>Posts</div></div>
+  <div class="card" style="top:352px"><div class="thumb" style="background:linear-gradient(135deg,#66bb6a,#1b5e20)"><span class="dur">11:05</span></div></div>
+ </div>
+
+ <!-- EDIT CHANNEL -->
+ <div class="scr" id="edit" style="background:#fff"><div class="sb" style="color:#0f0f0f"><span>10:33</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4z"/><path d="M8 5.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.3 6.7 5.8 8 5.8z"/><circle cx="8" cy="10" r="1.8"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2.5" y="2.5" width="17" height="8" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill="currentColor" fill-opacity=".45"/></svg></span></div>
+  <div class="top tb"><span class="back">←</span><span class="tbt">Edit channel</span><span class="tbr"></span></div>
+  <div class="ebanner" id="ebanner"><span class="ecam" style="right:16px;top:12px">📷</span></div>
+  <div class="eav" id="eav"><span id="eavtxt">R</span><span class="ecam" style="right:-4px;bottom:0">📷</span></div>
+  <div class="erow" style="top:290px"><small>Name</small><span>Smart Learning Hindi</span><i>✎</i></div>
+  <div class="erow" style="top:354px"><small>Handle</small><span>@SmartLearningHindi</span><i>✎</i></div>
+  <div class="erow" style="top:418px"><small>Description</small><span id="edesc" class="grey">Add description</span><i>✎</i></div>
+  <div class="erow" style="top:482px"><small>Links</small><span class="grey">Add links</span><i>✎</i></div>
+  <div class="erow" style="top:546px"><small>Contact info</small><span class="grey">Add a business email</span><i>✎</i></div>
+ </div>
+
+ <!-- GALLERY -->
+ <div class="scr" id="gallery" style="background:#fff"><div class="sb" style="color:#0f0f0f"><span>10:33</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4z"/><path d="M8 5.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.3 6.7 5.8 8 5.8z"/><circle cx="8" cy="10" r="1.8"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2.5" y="2.5" width="17" height="8" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill="currentColor" fill-opacity=".45"/></svg></span></div>
+  <div class="top tb"><span class="back">✕</span><span class="tbt">Recents ▾</span><span class="tbr"></span></div>
+  <div id="ggrid"></div>
+ </div>
+
+ <!-- CROP PROFILE -->
+ <div class="scr" id="crop" style="background:#000"><div class="sb" style="color:#fff"><span>10:34</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4z"/><path d="M8 5.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.3 6.7 5.8 8 5.8z"/><circle cx="8" cy="10" r="1.8"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2.5" y="2.5" width="17" height="8" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill="currentColor" fill-opacity=".45"/></svg></span></div>
+  <div class="top tb dark"><span class="back" style="color:#fff">Cancel</span><span class="tbt" style="color:#fff">Move and scale</span><span class="tbr sv">Save</span></div>
+  <div class="cropimg" id="cropimg"><div class="logo big">SL<small>HINDI</small></div></div>
+  <div class="cropmask"></div>
+ </div>
+
+ <!-- CROP BANNER -->
+ <div class="scr" id="bcrop" style="background:#111"><div class="sb" style="color:#fff"><span>10:34</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4z"/><path d="M8 5.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.3 6.7 5.8 8 5.8z"/><circle cx="8" cy="10" r="1.8"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2.5" y="2.5" width="17" height="8" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill="currentColor" fill-opacity=".45"/></svg></span></div>
+  <div class="top tb dark"><span class="back" style="color:#fff">Cancel</span><span class="tbt" style="color:#fff">Preview</span><span class="tbr sv">Save</span></div>
+  <div class="bprev"><div class="bimg"><b>SMART LEARNING HINDI</b><span>Tech · YouTube · Online Earning</span></div><div class="safe"><em>Visible on all devices</em></div></div>
+  <div class="devs"><span>📺 TV</span><span>💻 Desktop</span><span>📱 Mobile</span></div>
+ </div>
+
+ <!-- DESCRIPTION -->
+ <div class="scr" id="desc" style="background:#fff"><div class="sb" style="color:#0f0f0f"><span>10:35</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4z"/><path d="M8 5.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.3 6.7 5.8 8 5.8z"/><circle cx="8" cy="10" r="1.8"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2.5" y="2.5" width="17" height="8" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill="currentColor" fill-opacity=".45"/></svg></span></div>
+  <div class="top tb"><span class="back">←</span><span class="tbt">Description</span><span class="tbr sv2">Save</span></div>
+  <div class="tarea"><span id="v_desc"></span><span class="caret" id="c_desc"></span></div>
+  <div class="cnt" id="dcnt">0/1000</div>
+  <div class="kbd" id="kbd"></div>
+ </div>
+
+ <!-- CHANNEL CUSTOMIZED -->
+ <div class="scr" id="channel2" style="background:#fff"><div class="sb" style="color:#0f0f0f"><span>10:36</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4z"/><path d="M8 5.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.3 6.7 5.8 8 5.8z"/><circle cx="8" cy="10" r="1.8"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2.5" y="2.5" width="17" height="8" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill="currentColor" fill-opacity=".45"/></svg></span></div>
+  <div class="top"><div style="font-size:24px;color:#0f0f0f">←</div><div class="icons" id="ch2icons"></div></div>
+  <div class="cbanner"><b>SMART LEARNING HINDI</b><span>Tech · YouTube · Online Earning</span></div>
+  <div class="logo sm" style="position:absolute;left:16px;top:196px">SL<small>HINDI</small></div>
+  <div class="chname" style="top:198px;left:110px">Smart Learning Hindi</div>
+  <div class="chsub" style="top:228px;left:110px">@SmartLearningHindi<br>No subscribers · No videos</div>
+  <div class="c2desc">Namaste! Smart Learning Hindi par aapko technology aur YouTube ke… <b>more</b></div>
+  <div class="c2link">instagram.com/smartlearninghindi</div>
+  <div class="mng" style="top:340px"><div>Manage videos</div><div class="ed">✏️</div></div>
+  <div class="tabs" style="top:390px"><div class="on">Home</div><div>Videos</div><div>Shorts</div><div>Playlists</div><div>Posts</div></div>
+  <div class="empty" style="top:470px"><div class="ill">🎬</div><h4>Create content on any device</h4><p>Upload and record at home or on the go.</p></div>
+  <div class="nav" id="nav4"></div><div class="gest"></div>
+ </div>
+
+ <!-- GOOGLE SECURITY -->
+ <div class="scr" id="security" style="background:#fff"><div class="sb" style="color:#0f0f0f"><span>10:37</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4z"/><path d="M8 5.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.3 6.7 5.8 8 5.8z"/><circle cx="8" cy="10" r="1.8"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2.5" y="2.5" width="17" height="8" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill="currentColor" fill-opacity=".45"/></svg></span></div>
+  <div class="top tb"><span class="back">✕</span><span class="tbt">Google Account</span><span class="tbr"><span class="aav sm" style="background:#7b1fa2">R</span></span></div>
+  <div class="gtabs"><span>Home</span><span>Personal info</span><span class="on">Security</span><span>Data</span></div>
+  <div class="gh">How you sign in to Google</div>
+  <div class="gcard">
+   <div class="grow"><span>🛡️</span><div><b>2-Step Verification</b><small id="svst">Off</small></div><i>›</i></div>
+   <div class="grow"><span>🔑</span><div><b>Password</b><small>Last changed Jan 12</small></div><i>›</i></div>
+   <div class="grow"><span>📱</span><div><b>Recovery phone</b><small>+91 ••••• ••321</small></div><i>›</i></div>
+  </div>
+  <div class="toast" id="svtoast">✓ 2-Step Verification is on</div>
+ </div>
+
+ <!-- STUDIO FEATURE ELIGIBILITY -->
+ <div class="scr" id="studio" style="background:#f9f9f9"><div class="sb" style="color:#0f0f0f"><span>10:38</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4z"/><path d="M8 5.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.3 6.7 5.8 8 5.8z"/><circle cx="8" cy="10" r="1.8"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2.5" y="2.5" width="17" height="8" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill="currentColor" fill-opacity=".45"/></svg></span></div>
+  <div class="top tb" style="background:#fff"><span class="back">←</span><span class="tbt">Feature eligibility</span><span class="tbr"></span></div>
+  <div class="fcard" style="top:92px"><b>Standard features</b><span class="ok">✓ Enabled</span><p>Upload videos, create playlists, add Shorts</p></div>
+  <div class="fcard" style="top:200px;height:170px"><b>Intermediate features</b><span id="imst" class="pend">Requires phone verification</span>
+   <p>Videos longer than 15 minutes · Custom thumbnails · Live streaming</p><div class="vbtn" id="vbtn">Verify phone number</div></div>
+  <div class="fcard" style="top:386px"><b>Advanced features</b><span class="pend">Requires more verification</span><p>Higher daily limits, extra features</p></div>
+  <div class="toast" id="vtoast">✓ Phone number verified</div>
+ </div>
+
+ <!-- ADD DETAILS -->
+ <div class="scr" id="details" style="background:#fff"><div class="sb" style="color:#0f0f0f"><span>10:39</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4z"/><path d="M8 5.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.3 6.7 5.8 8 5.8z"/><circle cx="8" cy="10" r="1.8"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2.5" y="2.5" width="17" height="8" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill="currentColor" fill-opacity=".45"/></svg></span></div>
+  <div class="top tb"><span class="back">←</span><span class="tbt">Add details</span><span class="tbr"><span class="nextb">Next</span></span></div>
+  <div class="vprev"><span>▶</span></div>
+  <div class="dfld" style="top:306px"><small>Title</small><span id="v_vtitle"></span><span class="caret" id="c_vtitle"></span><span class="ph" id="ph_vtitle">Create a title</span></div>
+  <div class="dfld" style="top:376px;height:62px"><small>Description</small><span id="v_vdesc"></span><span class="caret" id="c_vdesc"></span><span class="ph" id="ph_vdesc">Add description</span></div>
+  <div class="drow" style="top:458px"><span>👁️</span>Visibility<b id="visval">Public</b></div>
+  <div class="drow" style="top:510px"><span>📍</span>Location<b></b></div>
+  <div class="drow" style="top:562px"><span>☰</span>Add to playlists<b></b></div>
+  <div class="drow" style="top:614px"><span>💬</span>Comments<b>On</b></div>
+  <div class="full ov" id="visov"><div class="dim"></div><div class="bsheet" style="top:538px">
+   <div class="grab"></div><div class="bst">Visibility</div>
+   <div class="vrow" style="top:56px" id="vr_Public"><i></i><div><b>Public</b><small>Everyone can watch your video</small></div></div>
+   <div class="vrow" style="top:126px" id="vr_Unlisted"><i></i><div><b>Unlisted</b><small>Anyone with the video link can watch</small></div></div>
+   <div class="vrow" style="top:196px" id="vr_Private"><i></i><div><b>Private</b><small>Only you can watch</small></div></div>
+  </div></div>
+ </div>
+
+ <!-- AUDIENCE -->
+ <div class="scr" id="audience" style="background:#fff"><div class="sb" style="color:#0f0f0f"><span>10:39</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4z"/><path d="M8 5.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.3 6.7 5.8 8 5.8z"/><circle cx="8" cy="10" r="1.8"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2.5" y="2.5" width="17" height="8" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill="currentColor" fill-opacity=".45"/></svg></span></div>
+  <div class="top tb"><span class="back">←</span><span class="tbt">Select audience</span><span class="tbr"></span></div>
+  <div class="aq">Is this video made for kids? (required)</div>
+  <div class="atx">You're legally required to tell us whether your videos are made for kids, no matter where you're located.</div>
+  <div class="vrow plain" style="top:250px" id="ar_yes"><i></i><div><b>Yes, it's made for kids</b></div></div>
+  <div class="vrow plain" style="top:306px" id="ar_no"><i></i><div><b>No, it's not made for kids</b></div></div>
+  <div class="upb">Upload video</div>
+ </div>
+
+ <!-- YOUR VIDEOS / UPLOADING -->
+ <div class="scr" id="uploads" style="background:#fff"><div class="sb" style="color:#0f0f0f"><span>10:40</span><span class="ic"><svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.6 10.6 0 0 0 8 .3 10.6 10.6 0 0 0 .7 3.2L2 4.6a8.6 8.6 0 0 1 6-2.4z"/><path d="M8 5.8c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 3.9a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.3 6.7 5.8 8 5.8z"/><circle cx="8" cy="10" r="1.8"/></svg><svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-opacity=".4"/><rect x="2.5" y="2.5" width="17" height="8" rx="2" fill="currentColor"/><path d="M25 4.5v4c.8-.3 1.4-1.1 1.4-2s-.6-1.7-1.4-2z" fill="currentColor" fill-opacity=".45"/></svg></span></div>
+  <div class="top tb"><span class="back">←</span><span class="tbt">Your videos</span><span class="tbr"></span></div>
+  <div class="uprow"><div class="upth">▶</div><div class="upinfo"><b>Mobile Se YouTube Channel Kaise Banaye 2026</b><small id="upst">Uploading… 0%</small><div class="pbar"><div id="pfill"></div></div></div></div>
+ </div>
+
+ <div class="hl" id="hl"></div>
+ <div id="taps"></div>
+</div></div></div></div></div>
+<div id="note">Note: The app layout may look slightly different on your phone.</div>
+
+<div id="panel">
+ <div id="pwrap"><span class="kick" id="pk"></span><div class="ptitle" id="pt"></div><div class="psub" id="ps"></div><div id="pb"></div></div>
+ <div id="dots"></div>
+ <div id="confw"></div>
+</div>
+<div id="cap"><span id="captxt"></span></div>
+<div id="fade"></div>
+
+<script src="timeline.js"></script>
+<script src="engine.js"></script></body></html>

@@ -1,0 +1,327 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#0d0e1c;
+ font-family:Roboto,"Segoe UI",Inter,system-ui,Arial,"Noto Color Emoji",sans-serif;}
+#bg{position:absolute;inset:0;background:radial-gradient(circle at 25% 30%,#2a2f6b 0,transparent 45%),
+ radial-gradient(circle at 85% 80%,#5a1d4a 0,transparent 45%),linear-gradient(135deg,#0d0e1c,#16183a);}
+#brand{position:absolute;left:40px;top:34px;display:flex;align-items:center;gap:12px;color:#fff;font-weight:800;font-size:24px;opacity:.9}
+#brand .lg{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#d31027,#6c2bd9);display:flex;align-items:center;justify-content:center;font-size:18px}
+/* phone */
+#phone{position:absolute;left:400px;top:70px;width:440px;height:940px;border-radius:56px;background:#111;
+ box-shadow:0 0 0 3px #3a3a48,0 40px 90px rgba(0,0,0,.6);padding:14px;}
+#screen{position:relative;width:412px;height:912px;border-radius:42px;overflow:hidden;background:#fff;}
+#content{position:absolute;inset:0;}
+.scr{position:absolute;inset:0;opacity:0;}
+.sb{position:absolute;top:0;left:0;right:0;height:28px;display:flex;justify-content:space-between;align-items:center;padding:0 22px;font-size:13px;font-weight:600;z-index:5}
+.sb .ic{display:flex;gap:6px;align-items:center}
+.bat{width:20px;height:10px;border:1.6px solid currentColor;border-radius:3px;position:relative}
+.bat:after{content:"";position:absolute;inset:1.5px;right:4px;background:currentColor;border-radius:1px}
+.punch{position:absolute;top:9px;left:50%;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#111;z-index:6}
+/* home */
+#home{background:linear-gradient(160deg,#355c7d,#6c5b7b 55%,#c06c84);color:#fff}
+.clock{position:absolute;top:110px;width:100%;text-align:center;font-size:76px;font-weight:300}
+.date{position:absolute;top:200px;width:100%;text-align:center;font-size:16px;opacity:.9}
+.app{position:absolute;width:80px;margin-left:-40px;text-align:center;font-size:12px}
+.app .i{width:58px;height:58px;border-radius:18px;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 4px 10px rgba(0,0,0,.25)}
+.gsearch{position:absolute;left:24px;right:24px;top:740px;height:48px;border-radius:24px;background:rgba(255,255,255,.92);color:#555;display:flex;align-items:center;padding:0 18px;font-size:15px;justify-content:space-between}
+.ytlogo{display:inline-flex;align-items:center;justify-content:center;background:#ff0000;border-radius:7px}
+.ytlogo:after{content:"";border-left:10px solid #fff;border-top:6.5px solid transparent;border-bottom:6.5px solid transparent;margin-left:2px}
+/* splash */
+#splash{background:#fff;display:flex;align-items:center;justify-content:center}
+/* youtube common */
+.top{position:absolute;top:28px;left:0;right:0;height:50px;display:flex;align-items:center;padding:0 14px;justify-content:space-between}
+.word{display:flex;align-items:center;gap:4px;font-weight:700;font-size:20px;letter-spacing:-1px;color:#0f0f0f}
+.icons{display:flex;gap:22px;align-items:center}
+svg{display:block}
+.chips{position:absolute;top:82px;left:12px;right:0;display:flex;gap:8px;white-space:nowrap}
+.chip{background:#f2f2f2;border-radius:8px;padding:7px 12px;font-size:14px;font-weight:500;color:#0f0f0f}
+.chip.on{background:#0f0f0f;color:#fff}
+.card{position:absolute;left:0;right:0}
+.thumb{height:232px;display:flex;align-items:flex-end;justify-content:flex-end;padding:8px}
+.dur{background:rgba(0,0,0,.8);color:#fff;font-size:12px;font-weight:600;padding:1px 5px;border-radius:4px}
+.meta{display:flex;gap:12px;padding:12px}
+.av{width:36px;height:36px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:15px}
+.tt{font-size:15px;color:#0f0f0f;line-height:1.3}
+.st{font-size:12px;color:#606060;margin-top:3px}
+.nav{position:absolute;left:0;right:0;top:852px;height:52px;background:#fff;border-top:1px solid #e5e5e5;display:flex}
+.nav div{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;color:#0f0f0f;gap:3px}
+.gest{position:absolute;left:50%;margin-left:-55px;width:110px;height:4px;border-radius:2px;background:#222;top:905px}
+/* you page */
+.bigav{position:absolute;left:16px;top:84px;width:72px;height:72px;border-radius:50%;background:#7b1fa2;color:#fff;font-size:34px;display:flex;align-items:center;justify-content:center}
+.uname{position:absolute;left:104px;top:90px;font-size:24px;font-weight:700;color:#0f0f0f}
+.clink{position:absolute;left:104px;top:124px;font-size:14px;font-weight:500;color:#065fd4}
+.pills{position:absolute;left:16px;top:176px;display:flex;gap:8px}
+.pill{background:#f2f2f2;border-radius:18px;padding:8px 14px;font-size:13px;font-weight:500;color:#0f0f0f}
+.sec{position:absolute;left:16px;right:16px;font-size:18px;font-weight:700;color:#0f0f0f;display:flex;justify-content:space-between;align-items:center}
+.sec span{font-size:13px;font-weight:500;border:1px solid #ddd;border-radius:16px;padding:4px 12px}
+.row{position:absolute;left:16px;display:flex;gap:10px}
+.mini{width:150px;height:84px;border-radius:10px}
+.li{position:absolute;left:16px;right:16px;display:flex;align-items:center;gap:22px;font-size:15px;color:#0f0f0f}
+.li i{width:22px;height:22px;border-radius:6px;border:2px solid #0f0f0f;display:block}
+/* sheet */
+#sheet{background:#fff}
+.shtitle{position:absolute;top:44px;width:100%;text-align:center;font-size:20px;font-weight:700;color:#0f0f0f}
+.shx{position:absolute;left:18px;top:44px;font-size:22px;color:#0f0f0f}
+.pick{position:absolute;left:146px;top:110px;width:120px;height:120px;border-radius:50%;background:#7b1fa2;color:#fff;font-size:54px;display:flex;align-items:center;justify-content:center}
+.cam{position:absolute;right:-2px;bottom:4px;width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid #ddd;font-size:16px;display:flex;align-items:center;justify-content:center}
+.selpic{position:absolute;top:244px;width:100%;text-align:center;color:#065fd4;font-size:15px;font-weight:500}
+.fld{position:absolute;left:24px;right:24px;height:56px;border:1px solid #9e9e9e;border-radius:8px;padding:0 14px;display:flex;align-items:center;font-size:17px;color:#0f0f0f}
+.fld.focus{border:2px solid #065fd4}
+.lab{position:absolute;left:12px;padding:0 4px;background:#fff;color:#606060;transition:none}
+.lab.up{top:-9px;font-size:12px}
+.lab.dn{top:17px;font-size:17px}
+.fld.focus .lab{color:#065fd4}
+.caret{display:inline-block;width:2px;height:22px;background:#065fd4;margin-left:1px;vertical-align:middle}
+.help{position:absolute;left:38px;font-size:12.5px}
+.info{position:absolute;left:24px;right:24px;top:540px;font-size:12.5px;color:#606060;line-height:1.5}
+.btns{position:absolute;left:24px;right:20px;top:820px;height:40px;display:flex;justify-content:flex-end;gap:12px;align-items:center}
+.cancel{font-size:15px;font-weight:500;color:#065fd4;padding:10px 16px}
+.create{height:40px;border-radius:20px;padding:0 20px;display:flex;align-items:center;font-size:15px;font-weight:500}
+.spin{width:22px;height:22px;border-radius:50%;border:3px solid #cfd8f5;border-top-color:#065fd4}
+#loading{position:absolute;inset:0;background:rgba(255,255,255,.75);display:flex;align-items:center;justify-content:center;opacity:0;z-index:8}
+/* channel page */
+.chav{position:absolute;left:16px;top:96px;width:84px;height:84px;border-radius:50%;background:#00897b;color:#fff;font-size:40px;display:flex;align-items:center;justify-content:center}
+.chname{position:absolute;left:116px;top:98px;font-size:22px;font-weight:700;color:#0f0f0f}
+.chsub{position:absolute;left:116px;top:130px;font-size:12.5px;color:#606060;width:280px;line-height:1.45}
+.mng{position:absolute;left:16px;right:16px;top:212px;display:flex;gap:8px}
+.mng div{flex:1;background:#f2f2f2;border-radius:18px;height:36px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:#0f0f0f}
+.mng .ed{flex:none;width:36px}
+.tabs{position:absolute;left:0;right:0;top:272px;display:flex;gap:26px;padding:0 16px;border-bottom:1px solid #e5e5e5;font-size:15px;font-weight:500;color:#606060}
+.tabs div{padding:12px 0}
+.tabs .on{color:#0f0f0f;border-bottom:2px solid #0f0f0f}
+.empty{position:absolute;left:30px;right:30px;top:400px;text-align:center;color:#0f0f0f}
+.empty .ill{width:110px;height:110px;border-radius:50%;background:#f2f2f2;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;font-size:44px}
+.empty h4{font-size:17px;margin-bottom:8px}
+.empty p{font-size:13px;color:#606060;line-height:1.5}
+.empty .cb{display:inline-block;margin-top:16px;background:#065fd4;color:#fff;border-radius:18px;padding:9px 20px;font-size:14px;font-weight:500}
+/* taps */
+.touch{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:rgba(120,120,120,.45);border:2px solid rgba(255,255,255,.9);opacity:0;z-index:20}
+.ripple{position:absolute;border-radius:50%;border:3px solid #ffd400;opacity:0;z-index:19}
+.hl{position:absolute;border:3px solid #ffd400;border-radius:12px;box-shadow:0 0 0 4px rgba(255,212,0,.25);opacity:0;z-index:18}
+/* right panel */
+#panel{position:absolute;left:1000px;top:0;width:840px;height:820px;color:#fff}
+.pst{position:absolute;left:0;right:0;top:250px;opacity:0}
+.kick{display:inline-block;font-size:26px;font-weight:900;letter-spacing:3px;background:#ffd400;color:#13131f;padding:6px 18px;border-radius:10px}
+.ptitle{font-size:68px;font-weight:900;line-height:1.08;margin-top:24px}
+.psub{font-size:32px;font-weight:500;opacity:.88;margin-top:20px;line-height:1.35}
+.y{color:#ffd400}
+#dots{position:absolute;left:0;top:720px;display:flex;gap:14px;align-items:center}
+#dots div{width:16px;height:16px;border-radius:50%;background:rgba(255,255,255,.25)}
+#dots div.on{background:#ffd400;width:44px;border-radius:8px}
+#dots div.done{background:#39d98a}
+#cap{position:absolute;left:1000px;top:850px;width:840px;min-height:120px;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:22px 30px;color:#fff;font-size:34px;font-weight:600;line-height:1.35;display:flex;align-items:center}
+#note{position:absolute;left:270px;width:700px;top:1028px;text-align:center;color:rgba(255,255,255,.55);font-size:17px}
+.conf{position:absolute;width:14px;height:22px;border-radius:3px;opacity:0}
+#fade{position:absolute;inset:0;background:#000;opacity:1;z-index:100}
+</style></head><body>
+<div id="bg"></div>
+<div id="brand"><div class="lg">SL</div>Smart Learning Hindi</div>
+
+<div id="phone"><div id="screen"><div class="punch"></div><div id="content">
+
+ <!-- HOME SCREEN -->
+ <div class="scr" id="home">
+  <div class="sb" style="color:#fff"><span>10:30</span><span class="ic">▂▄▆ ᯤ <span class="bat"></span></span></div>
+  <div class="clock">10:30</div><div class="date">Thursday, 23 October</div>
+  <div class="app" style="left:51.5px;top:531px"><div class="i" style="background:#fff;color:#01875f">▶</div>Play Store</div>
+  <div class="app" style="left:154.5px;top:531px"><div class="i" style="background:#fff"><span class="ytlogo" style="width:38px;height:27px"></span></div>YouTube</div>
+  <div class="app" style="left:257.5px;top:531px"><div class="i" style="background:#fbbc04">🖼️</div>Gallery</div>
+  <div class="app" style="left:360.5px;top:531px"><div class="i" style="background:#37474f">📷</div>Camera</div>
+  <div class="app" style="left:51.5px;top:636px"><div class="i" style="background:#1565c0">⏰</div>Clock</div>
+  <div class="app" style="left:154.5px;top:636px"><div class="i" style="background:#00897b">🧮</div>Calculator</div>
+  <div class="app" style="left:257.5px;top:636px"><div class="i" style="background:#546e7a">⚙️</div>Settings</div>
+  <div class="app" style="left:360.5px;top:636px"><div class="i" style="background:#5e35b1">📁</div>Files</div>
+  <div class="gsearch"><span>🔍 &nbsp;Search</span><span>🎙️</span></div>
+  <div class="app" style="left:51.5px;top:812px"><div class="i" style="background:#2e7d32">📞</div></div>
+  <div class="app" style="left:154.5px;top:812px"><div class="i" style="background:#1e88e5">💬</div></div>
+  <div class="app" style="left:257.5px;top:812px"><div class="i" style="background:#f4511e">🌐</div></div>
+  <div class="app" style="left:360.5px;top:812px"><div class="i" style="background:#6d4c41">👤</div></div>
+ </div>
+
+ <!-- SPLASH -->
+ <div class="scr" id="splash"><span class="ytlogo" id="splogo" style="width:96px;height:68px;border-radius:18px"></span></div>
+
+ <!-- FEED -->
+ <div class="scr" id="feed" style="background:#fff">
+  <div class="sb" style="color:#0f0f0f"><span>10:31</span><span class="ic">▂▄▆ ᯤ <span class="bat"></span></span></div>
+  <div class="top"><div class="word"><span class="ytlogo" style="width:30px;height:21px;border-radius:6px"></span>YouTube</div>
+   <div class="icons" id="topicons"></div></div>
+  <div class="chips"><div class="chip">🧭</div><div class="chip on">All</div><div class="chip">Music</div><div class="chip">Learning</div><div class="chip">Gaming</div><div class="chip">News</div></div>
+  <div class="card" style="top:126px"><div class="thumb" style="background:linear-gradient(135deg,#ff8a65,#d84315)"><span class="dur">12:45</span></div>
+   <div class="meta"><div class="av" style="background:#1976d2">L</div><div><div class="tt">Basic English Speaking Practice for Beginners | Day 1</div><div class="st">Learn Daily · 2.1L views · 3 days ago</div></div></div></div>
+  <div class="card" style="top:438px"><div class="thumb" style="background:linear-gradient(135deg,#81c784,#2e7d32)"><span class="dur">8:10</span></div>
+   <div class="meta"><div class="av" style="background:#f57c00">G</div><div><div class="tt">Easy Paneer Recipe at Home in 10 Minutes</div><div class="st">Ghar Ka Khana · 85K views · 1 week ago</div></div></div></div>
+  <div class="card" style="top:750px"><div class="thumb" style="background:linear-gradient(135deg,#9575cd,#4527a0)"></div></div>
+  <div class="nav" id="nav1"></div><div class="gest"></div>
+ </div>
+
+ <!-- YOU PAGE -->
+ <div class="scr" id="you" style="background:#fff">
+  <div class="sb" style="color:#0f0f0f"><span>10:31</span><span class="ic">▂▄▆ ᯤ <span class="bat"></span></span></div>
+  <div class="top" style="justify-content:flex-end"><div class="icons" id="youicons"></div></div>
+  <div class="bigav">D</div><div class="uname">Demo User</div>
+  <div class="clink">Create channel ›</div>
+  <div class="pills"><div class="pill">⇄ Switch account</div><div class="pill">Google Account</div></div>
+  <div class="sec" style="top:236px">History<span>View all</span></div>
+  <div class="row" style="top:272px"><div class="mini" style="background:linear-gradient(135deg,#ff8a65,#d84315)"></div><div class="mini" style="background:linear-gradient(135deg,#4fc3f7,#0277bd)"></div><div class="mini" style="background:linear-gradient(135deg,#aed581,#558b2f)"></div></div>
+  <div class="sec" style="top:386px">Playlists<span>View all</span></div>
+  <div class="row" style="top:422px"><div class="mini" style="background:linear-gradient(135deg,#ce93d8,#6a1b9a)"></div><div class="mini" style="background:linear-gradient(135deg,#ffcc80,#ef6c00)"></div><div class="mini" style="background:#e0e0e0"></div></div>
+  <div class="li" style="top:546px"><i></i>Downloads</div>
+  <div class="li" style="top:596px"><i></i>Your movies</div>
+  <div class="li" style="top:646px"><i></i>Time watched</div>
+  <div class="li" style="top:696px"><i></i>Help &amp; feedback</div>
+  <div class="nav" id="nav2"></div><div class="gest"></div>
+ </div>
+
+ <!-- CREATE CHANNEL -->
+ <div class="scr" id="sheet">
+  <div class="sb" style="color:#0f0f0f"><span>10:32</span><span class="ic">▂▄▆ ᯤ <span class="bat"></span></span></div>
+  <div class="shx">✕</div><div class="shtitle">Create your channel</div>
+  <div class="pick">D<div class="cam">📷</div></div>
+  <div class="selpic">Select picture</div>
+  <div class="fld" id="fname" style="top:300px"><span class="lab" id="lname">Name</span><span id="vname"></span><span class="caret" id="cname"></span></div>
+  <div class="fld" id="fhandle" style="top:384px"><span class="lab" id="lhandle">Handle</span><span id="vhandle"></span><span class="caret" id="chandle"></span></div>
+  <div class="help" id="hhelp" style="top:446px"></div>
+  <div class="info">Your channel name and handle will be visible on YouTube.<br>You can change them later in your channel settings.</div>
+  <div class="btns"><div class="cancel">Cancel</div><div class="create" id="cbtn">Create channel</div></div>
+  <div id="loading"><div class="spin" id="spin2" style="width:44px;height:44px;border-width:4px"></div></div>
+ </div>
+
+ <!-- CHANNEL PAGE -->
+ <div class="scr" id="channel" style="background:#fff">
+  <div class="sb" style="color:#0f0f0f"><span>10:32</span><span class="ic">▂▄▆ ᯤ <span class="bat"></span></span></div>
+  <div class="top"><div style="font-size:24px;color:#0f0f0f">←</div><div class="icons" id="chicons"></div></div>
+  <div class="chav">S</div><div class="chname">Smart Learning Hindi</div>
+  <div class="chsub">@SmartLearningHindi · No subscribers · No videos<br>More about this channel ›</div>
+  <div class="mng"><div>Manage videos</div><div class="ed">✏️</div></div>
+  <div class="tabs"><div class="on">Home</div><div>Videos</div><div>Shorts</div><div>Playlists</div><div>Posts</div></div>
+  <div class="empty"><div class="ill">🎬</div><h4>Create content on any device</h4>
+   <p>Upload and record at home or on the go. Everything you make public will appear here.</p><div class="cb">Create</div></div>
+  <div class="nav" id="nav3"></div><div class="gest"></div>
+ </div>
+
+ <div class="hl" id="hl"></div>
+ <div id="taps"></div>
+</div></div></div>
+<div id="note">Demo UI · aapke phone mein design thoda alag dikh sakta hai</div>
+
+<div id="panel">
+ <div class="pst" id="p0"><span class="kick">LIVE DEMO</span><div class="ptitle">Mobile se <span class="y">YouTube Channel</span> kaise banayein</div><div class="psub">Step by step — bilkul app jaisa</div></div>
+ <div class="pst" id="p1"><span class="kick">STEP 1</span><div class="ptitle">YouTube app <span class="y">kholiye</span></div><div class="psub">Home screen par YouTube icon par tap kijiye</div></div>
+ <div class="pst" id="p2"><span class="kick">STEP 2</span><div class="ptitle"><span class="y">'You'</span> par tap kijiye</div><div class="psub">Neeche right corner mein — aapki profile photo</div></div>
+ <div class="pst" id="p3"><span class="kick">STEP 3</span><div class="ptitle"><span class="y">'Create channel'</span> chuniye</div><div class="psub">Aapke naam ke theek neeche milega</div></div>
+ <div class="pst" id="p4"><span class="kick">STEP 4</span><div class="ptitle">Channel ka <span class="y">naam</span> likhiye</div><div class="psub">Example: Smart Learning Hindi</div></div>
+ <div class="pst" id="p5"><span class="kick">STEP 5</span><div class="ptitle">Apna <span class="y">@handle</span> chuniye</div><div class="psub">Handle = channel ka unique address.<br>"Available" dikhna chahiye ✅</div></div>
+ <div class="pst" id="p6"><span class="kick">STEP 6</span><div class="ptitle"><span class="y">'Create channel'</span> dabaaiye</div><div class="psub">Bas ek tap — aur kaam ho gaya</div></div>
+ <div class="pst" id="p7"><span class="kick" style="background:#39d98a">DONE 🎉</span><div class="ptitle">Aapka channel <span class="y">ban gaya!</span></div><div class="psub">Agla step: profile photo, banner aur description</div></div>
+ <div class="pst" id="p8"><span class="kick">FULL VIDEO MEIN</span><div class="ptitle" style="font-size:56px">Profile Photo · Banner<br>Settings · First Upload</div><div class="psub" style="font-size:40px;font-weight:800;margin-top:34px">👍 Like &nbsp; 🔔 Subscribe &nbsp; ↗️ Share</div></div>
+ <div id="dots"><div></div><div></div><div></div><div></div><div></div><div></div></div>
+ <div id="confw"></div>
+</div>
+<div id="cap"><span id="captxt"></span></div>
+<div id="fade"></div>
+
+<script>
+// ---------- icons ----------
+const S='stroke="#0f0f0f" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"';
+const I={
+ cast:`<svg width="24" height="24" viewBox="0 0 24 24" ${S}><path d="M3 8V6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-6"/><path d="M3 12a7 7 0 0 1 7 7M3 16a3 3 0 0 1 3 3"/></svg>`,
+ bell:`<svg width="24" height="24" viewBox="0 0 24 24" ${S}><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"/><path d="M10 21h4"/></svg>`,
+ search:`<svg width="24" height="24" viewBox="0 0 24 24" ${S}><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></svg>`,
+ gear:`<svg width="24" height="24" viewBox="0 0 24 24" ${S}><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>`,
+ more:`<svg width="24" height="24" viewBox="0 0 24 24" fill="#0f0f0f"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>`,
+ home:(f)=>`<svg width="24" height="24" viewBox="0 0 24 24" ${S} ${f?'fill="#0f0f0f"':''}><path d="M4 11l8-7 8 7v9h-5v-6H9v6H4z"/></svg>`,
+ shorts:`<svg width="24" height="24" viewBox="0 0 24 24" ${S}><rect x="6" y="3" width="12" height="18" rx="5"/><path d="M10.5 9.5l4 2.5-4 2.5z"/></svg>`,
+ plus:`<svg width="38" height="38" viewBox="0 0 38 38" ${S}><circle cx="19" cy="19" r="16"/><path d="M19 12v14M12 19h14"/></svg>`,
+ subs:`<svg width="24" height="24" viewBox="0 0 24 24" ${S}><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M6 5h12M8 2h8"/><path d="M10.5 12l4 2.5-4 2.5z"/></svg>`,
+};
+const navHTML=(youOn,homeOn)=>`<div>${I.home(homeOn)}Home</div><div>${I.shorts}Shorts</div><div style="gap:0">${I.plus}</div><div>${I.subs}Subscriptions</div>
+ <div><span style="width:26px;height:26px;border-radius:50%;background:#7b1fa2;color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center;${youOn?'box-shadow:0 0 0 2px #fff,0 0 0 4px #0f0f0f;':''}">D</span><b style="font-weight:${youOn?700:400}">You</b></div>`;
+nav1.innerHTML=navHTML(false,true); nav2.innerHTML=navHTML(true,false); nav3.innerHTML=navHTML(true,false);
+topicons.innerHTML=I.cast+I.bell+I.search; youicons.innerHTML=I.cast+I.search+I.gear; chicons.innerHTML=I.cast+I.search+I.more;
+
+// ---------- timeline data ----------
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const ease=x=>{x=clamp(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
+const seg=(t,a,b)=>clamp((t-a)/(b-a));
+function win(t,a,b,f=.3){ if(t<a||t>b) return 0; const up=a<=0?1:seg(t,a,a+f), dn=1-seg(t,b-f,b); return Math.min(up,dn); }
+
+const screens={home:[0,10.5],splash:[10.3,12.6],feed:[12.4,21.6],you:[21.4,28.8],sheet:[28.6,48.8],channel:[48.6,61]};
+const taps=[{t:9.0,x:154.5,y:560},{t:20.0,x:370.8,y:878},{t:27.0,x:158,y:133},{t:30.6,x:206,y:328},{t:36.6,x:206,y:412},{t:46.0,x:316,y:840}];
+// zoom: a->b up, hold b->c, c->d down
+const zooms=[{a:7,b:8,c:9.5,d:10.3,ox:154.5,oy:560,z:1.65},{a:16.5,b:17.5,c:20.5,d:21.3,ox:370,oy:878,z:1.75},
+ {a:24,b:25,c:27.5,d:28.3,ox:158,oy:133,z:1.85},{a:29.6,b:30.4,c:35.6,d:36.3,ox:30,oy:330,z:1.5},
+ {a:36.3,b:37.0,c:41.2,d:42,ox:30,oy:420,z:1.5},{a:43.2,b:44.2,c:46.4,d:47.2,ox:398,oy:840,z:1.7},
+ {a:50.2,b:51.2,c:54.8,d:55.8,ox:0,oy:150,z:1.15}];
+// highlight boxes (screen coords) shown during holds
+const hls=[{a:8,b:9.4,x:120,y:524,w:70,h:72},{a:17.5,b:20.3,x:340,y:856,w:62,h:46},{a:25,b:27.3,x:98,y:118,w:122,h:30},{a:44.2,b:46.3,x:236,y:818,w:162,h:44}];
+const NAME="Smart Learning Hindi", HANDLE="@SmartLearningHindi";
+const T_NAME=[31.2,34.8], T_HANDLE=[37.4,40.2], T_AVAIL=40.6;
+const panels=[[0,5.2],[5,12.6],[12.4,21.6],[21.4,28.8],[28.6,36.4],[36.2,43.2],[43,48.8],[48.6,56.2],[56,61]];
+const caps=[[0,5.2,"Aaj hum sirf mobile phone se YouTube channel banana seekhenge."],
+ [5,12.6,"Sabse pehle apne phone mein YouTube app kholiye."],
+ [12.4,21.6,"App khulne ke baad, neeche right side mein 'You' par tap kijiye."],
+ [21.4,28.8,"Yahaan aapke naam ke neeche 'Create channel' ka option hai — us par tap kijiye."],
+ [28.6,36.4,"Ab apne channel ka naam likhiye — jaise 'Smart Learning Hindi'."],
+ [36.2,43.2,"Phir ek unique handle chuniye. 'Available' dikhe, toh woh handle aap le sakte hain."],
+ [43,48.8,"Sab sahi hai? Toh 'Create channel' par tap kijiye."],
+ [48.6,56.2,"Badhaai ho! Aapka YouTube channel ban gaya hai. 🎉"],
+ [56,61,"Poori video mein profile photo, banner aur settings bhi seekhenge."]];
+
+// build tap elements
+const tapEls=taps.map(tp=>{const d=document.createElement('div');d.className='touch';d.style.left=tp.x+'px';d.style.top=tp.y+'px';
+ const r=document.createElement("div");r.className="ripple";document.getElementById("taps").appendChild(d);document.getElementById("taps").appendChild(r);return {d,r,tp};});
+// confetti
+const conf=[];let seed=7;const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280;};
+const cols=['#ffd400','#39d98a','#ff5a5a','#4fc3f7','#ce93d8','#ffffff'];
+for(let k=0;k<46;k++){const c=document.createElement('div');c.className='conf';c.style.background=cols[k%cols.length];confw.appendChild(c);
+ conf.push({el:c,x:rnd()*820,y0:-40-rnd()*300,v:260+rnd()*260,rot:rnd()*360,vr:(rnd()-.5)*720,sway:rnd()*40});}
+
+window.render=function(t){
+ // global fades
+ fade.style.opacity = Math.max(1-seg(t,0,.6), seg(t,59.2,60));
+ // phone entrance
+ const pe=ease(seg(t,.4,1.6)); phone.style.opacity=pe; phone.style.transform=`translateY(${(1-pe)*60}px)`;
+ // screens
+ for(const [id,[a,b]] of Object.entries(screens)) document.getElementById(id).style.opacity=win(t,a,b,.25);
+ splogo.style.transform=`scale(${.7+.3*ease(seg(t,10.4,11.2))})`;
+ // feed scroll slight
+ // zoom
+ let s=1,ox=206,oy=456;
+ for(const z of zooms){ if(t>=z.a&&t<=z.d){ ox=z.ox;oy=z.oy; s= t<z.b?1+(z.z-1)*ease(seg(t,z.a,z.b)) : t<=z.c?z.z : 1+(z.z-1)*(1-ease(seg(t,z.c,z.d))); } }
+ content.style.transformOrigin=`${ox}px ${oy}px`; content.style.transform=`scale(${s})`;
+ // highlight
+ let hlOn=0; for(const h of hls){const o=win(t,h.a,h.b,.25); if(o>0){hlOn=o;Object.assign(hl.style,{left:h.x+'px',top:h.y+'px',width:h.w+'px',height:h.h+'px'});}}
+ hl.style.opacity=hlOn*(.75+.25*Math.sin(t*8));
+ // taps
+ for(const {d,r,tp} of tapEls){ const dt=t-tp.t;
+  d.style.opacity = (dt>-.35&&dt<.25)? (dt<0?clamp((dt+.35)/.15):1-clamp(dt/.25)) : 0;
+  if(dt>=0&&dt<.6){const p=dt/.6, R=10+40*p; Object.assign(r.style,{left:(tp.x-R)+'px',top:(tp.y-R)+'px',width:2*R+'px',height:2*R+'px',opacity:(1-p)});} else r.style.opacity=0; }
+ // name field
+ const nN=Math.floor(seg(t,...T_NAME)*NAME.length), nH=Math.floor(seg(t,...T_HANDLE)*HANDLE.length);
+ vname.textContent=NAME.slice(0,nN); vhandle.textContent=HANDLE.slice(0,nH);
+ const fN=t>=30.6&&t<36.6, fH=t>=36.6&&t<43.4, blink=Math.floor(t*2.2)%2===0;
+ fname.classList.toggle('focus',fN); fhandle.classList.toggle('focus',fH);
+ lname.className='lab '+((fN||nN>0)?'up':'dn'); lhandle.className='lab '+((fH||nH>0)?'up':'dn');
+ cname.style.display=fN&&(blink||(t>T_NAME[0]&&t<T_NAME[1]))?'inline-block':'none';
+ chandle.style.display=fH&&(blink||(t>T_HANDLE[0]&&t<T_HANDLE[1]))?'inline-block':'none';
+ if(t>=T_HANDLE[1]&&t<T_AVAIL) hhelp.innerHTML=`<span style="display:inline-flex;gap:8px;align-items:center;color:#606060"><span class="spin" style="width:14px;height:14px;border-width:2px;transform:rotate(${t*720}deg)"></span>Checking availability…</span>`;
+ else if(t>=T_AVAIL) hhelp.innerHTML='<span style="color:#1e8e3e;font-weight:600">✓ Handle available</span>';
+ else hhelp.innerHTML='';
+ const ready=t>=T_AVAIL; cbtn.style.background=ready?'#065fd4':'#e5e5e5'; cbtn.style.color=ready?'#fff':'#909090';
+ loading.style.opacity=win(t,46.3,48.7,.2); spin2.style.transform=`rotate(${t*540}deg)`;
+ // panels
+ panels.forEach(([a,b],k)=>{const o=win(t,a,b,.35);const el=document.getElementById('p'+k);el.style.opacity=o;el.style.transform=`translateY(${(1-o)*24}px)`;});
+ const stepT=[5,12.4,21.4,28.6,36.2,43,48.6];
+ [...dots.children].forEach((d,k)=>{ d.className = t>=stepT[k+1]?'done':(t>=stepT[k]?'on':''); });
+ dots.style.opacity = (t>4.8&&t<56)?1:0;
+ // captions
+ let ct='',co=0; for(const [a,b,x] of caps){const o=win(t,a,b,.3); if(o>co){co=o;ct=x;}}
+ captxt.textContent=ct; cap.style.opacity=co;
+ // confetti
+ for(const c of conf){const dt=t-48.8; if(dt<0||dt>6){c.el.style.opacity=0;continue;}
+  const y=c.y0+c.v*dt, x=c.x+Math.sin(dt*3+c.rot)*c.sway; c.el.style.opacity=dt>5?1-(dt-5):1;
+  c.el.style.transform=`translate(${x}px,${y}px) rotate(${c.rot+c.vr*dt}deg)`;}
+};
+render(0);
+</script></body></html>
