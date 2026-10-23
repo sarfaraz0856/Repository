@@ -8,6 +8,7 @@ const FPS = 30, DUR = Number(process.env.DUR || 60), START = Number(process.env.
   const errs = []; page.on('pageerror', e => errs.push(String(e)));
   await page.goto('file://' + path.join(__dirname, process.env.PAGE || 'ui_sample.html'));
   await page.evaluate(() => document.fonts.ready);
+  if (process.env.BG) await page.evaluate(c => document.documentElement.style.setProperty('--bg', c), process.env.BG);
   if (errs.length) { console.error('PAGE ERRORS:', errs); process.exit(1); }
   const shots = process.env.SHOTS ? process.env.SHOTS.split(',').map(Number) : null;
   if (shots) {
