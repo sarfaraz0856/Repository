@@ -10,6 +10,7 @@ Scene 01 aur Scene 02 ki saari files inhi scripts se bani hain. Inhe agle scenes
 | `render.py` | Scene 01 placeholder visual: foggy Soviet avenue, slow forward dolly, 1080p30 |
 | `scene02_audio.py` | Scene 02: room tone (12%), page flutter at 0:08 (20%), voice, aur 0:05 se continue hota wind/drone bed |
 | `render_s02.py` | Scene 02 placeholder visual: abandoned classroom, floor par khuli kitaab, push-in, panna 0:08 par uthta hai |
+| `ai_clip_s02.py` | Scene 02 final: ChatGPT still se 5 s clip (push-in, panna 0:08 par uthta hai, dhool, same grade) |
 
 ```bash
 pip install kokoro-onnx soundfile scipy pyloudnorm
@@ -24,4 +25,5 @@ ffmpeg -framerate 30 -i frames/f_%04d.png -i out/Scene01_mix_WITH_VOICE.wav -c:v
 python3 voice.py MODELS_DIR work/voice_raw_s02.wav "स्कूल में बच्चों की किताबें... आज भी खुली पड़ी हैं।" 0.97 0.5   # + same ffmpeg chain -> work/voice_proc_s02.wav
 python3 scene02_audio.py work out02
 python3 render_s02.py frames02 0 150
+python3 ai_clip_s02.py Scene02_source_chatgpt.png frames02ai 0 150   # final clip from the ChatGPT image
 ```

@@ -4,12 +4,29 @@
 
 **Format:** 1920×1080 (16:9), 30 fps, 5.0 s, H.264 + AAC 48 kHz. Mix at −14.1 LUFS, peak −1.5 dBFS. Look and grade same as Scene 01.
 
-## Files
+## Final clip (ChatGPT image se)
 
 | File | Kya hai |
 |---|---|
-| `Scene02_preview_WITH_VOICE.mp4` | Poora scene: visual, voice, room tone, page flutter, wind aur drone |
-| `Scene02_preview_NO_VOICE.mp4` | Same, bina voice ke |
+| `Scene02_FINAL_WITH_VOICE.mp4` | **Final Scene 02**: aapki ChatGPT image, voice, room tone, page flutter, wind aur drone |
+| `Scene02_FINAL_NO_VOICE.mp4` | Same, bina voice ke (apni awaaz record karne ke liye) |
+| `Scene02_FINAL_video_only.mp4` | Sirf video, bina audio. Editor mein V1 par lagao aur neeche stems |
+| `Scene02_source_chatgpt.png` | Original ChatGPT image (1672×941) |
+
+Aapki ChatGPT image ko is tarah 5 sec ke clip mein badla gaya hai:
+- Chalkboard ki taraf 7.5% ka slow push-in
+- Kitaab ka right panna 0:07.95 par halka sa uthta hai, 0:08.43 par sabse upar hota hai, aur 0:08.9 tak wapas baith jaata hai. Ye page flutter ki awaaz ke saath sync hai.
+- Window ki roshni mein dhool udti hai, aur halki haze dheere-dheere chalti hai
+- Scene 01/02 jaisa thanda grey-green grade, vignette aur film grain
+
+Upload ke waqt YouTube par **"Altered or synthetic content" = Yes** chunna, kyunki ye AI image hai (script ke Notes, point 8).
+
+## Placeholder aur audio files
+
+| File | Kya hai |
+|---|---|
+| `Scene02_preview_WITH_VOICE.mp4` | Pehle wala code se bana placeholder: visual, voice, room tone, page flutter, wind aur drone |
+| `Scene02_preview_NO_VOICE.mp4` | Same placeholder, bina voice ke |
 | `Scene02_mix_WITH_VOICE.wav` | Scene 02 ka final audio (apne Clip 2 ke neeche, 0:05 par) |
 | `Scene02_mix_NO_VOICE.wav` | Same mix, voice ke bina |
 | `stems/Scene02_voice_at_0.30s.wav` | Sirf voice (5 s file, voice 0.30 s par) |
@@ -54,13 +71,13 @@ Poore shot mein chalkboard ki taraf slow push-in hota hai (0.15 m), aur window k
 
 ## Zaroori notes
 
-- **Visual sirf placeholder hai.** Code se render kiya gaya classroom hai, photoreal nahi. Isme:
+- **`Scene02_preview_*` wala visual sirf placeholder hai.** Code se render kiya gaya classroom hai, photoreal nahi. Isme:
   - Floor ke paas se 28mm low angle, aur foreground mein floor par khuli textbook (sharp)
   - Ulti-padi desks aur kursiyan, aur bikhre kaagaz aur kitaabein
   - Peeche soft green chalkboard, aur jahan portrait tanga tha wahan halka nishaan
   - Peeling green paint, aur floorboards ke beech ghaas
   - Left ki gandi windows se roshni ki shafts, aur hawa mein dhool
 
-  Final ke liye apna Clip 2 (aapke card wala ChatGPT prompt + motion prompt) iski jagah lagao.
+  Final video ke liye upar wale `Scene02_FINAL_*` files use karo, jo aapki ChatGPT image se bane hain.
 - **Room tone aur page flutter** dono code se synthesize kiye gaye hain, isliye copyright-free hain. Library wali awaaz lagani ho to keywords `abandoned building room tone` aur `book page flutter` hain, aur level wahi 12% aur 20% rakho.
 - **Voice** wahi Kokoro `hm_omega` hai jo Scene 01 mein thi, same speed aur processing ke saath.
