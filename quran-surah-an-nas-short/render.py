@@ -1,5 +1,11 @@
-"""Surah An-Nas vertical short: 1080x1920, text synced per ayah to the recitation."""
-import math, os, subprocess, sys, random
+"""Surah An-Nas vertical short: 1080x1920, text synced per ayah to the recitation.
+
+Background: Sheikh Zayed Grand Mosque, Abu Dhabi, at sunset (Adobe Stock #203084543,
+free licence; not committed, download it to bg/szgm_sunset.jpg) with a very slow push-in;
+verses sit on a frosted-glass panel. Fonts go in fonts/ (Amiri Quran, Amiri, Cinzel, Poppins).
+
+Usage: python3 render.py recitation.mp3 out.mp4 [preview_seconds ...]"""
+import math, os, subprocess, sys
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
@@ -17,8 +23,6 @@ def font(name, size, raqm=True):
     return ImageFont.truetype(os.path.join(HERE, 'fonts', name), size,
                               layout_engine=ImageFont.Layout.RAQM if raqm else ImageFont.Layout.BASIC)
 
-F_QURAN = font('AmiriQuran-Regular.ttf', 100)
-F_QURAN_S = font('AmiriQuran-Regular.ttf', 88)
 F_TITLE = font('Amiri-Bold.ttf', 84)
 F_LATIN = font('Cinzel[wght].ttf', 34)
 F_LATIN_S = font('Cinzel[wght].ttf', 28)
@@ -48,33 +52,64 @@ def ease(t):
     t = min(1, max(0, t))
     return t * t * (3 - 2 * t)
 
-# --- audio envelope for the glow pulse ---------------------------------------
 raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', AUDIO, '-ac', '1', '-ar', '16000', '-f', 's16le', '-'],
                      capture_output=True, check=True).stdout
-pcm = np.frombuffer(raw, np.int16).astype(np.float32) / 32768
-DUR = len(pcm) / 16000
+DUR = len(raw) / 2 / 16000
 NFR = int(math.ceil(DUR * FPS))
-hop = 16000 // FPS
-rms = np.array([np.sqrt(np.mean(pcm[i * hop:(i + 1) * hop] ** 2) + 1e-12) for i in range(NFR)])
-rms = rms / (np.percentile(rms, 95) + 1e-9)
-sm = np.zeros_like(rms)
-for i in range(NFR):  # attack/release smoothing
-    prev = sm[i - 1] if i else 0
-    k = 0.35 if rms[i] > prev else 0.06
-    sm[i] = prev + k * (rms[i] - prev)
-ENV = np.clip(sm, 0, 1.2)
 
 # --- static layers ------------------------------------------------------------
-def gradient_bg():
+SS = 1.25          # background canvas supersampling, leaves room for the push-in
+PHOTO_TOP = 770    # where the photo starts on the 1080x1920 frame
+PHOTO_W = 1500     # photo width on the frame (both minarets just fit)
+
+def load_photo():
+    """Wide mosque panorama placed low in the frame; sky extended upward, floor fades to dark."""
+    cw, chh = int(W * SS), int(H * SS)
+    src = Image.open(os.path.join(HERE, 'bg', 'szgm_sunset.jpg')).convert('RGB')
+    pw = int(PHOTO_W * SS)
+    ph = round(src.height * pw / src.width)
+    ph_img = src.resize((pw, ph), Image.LANCZOS).crop(((pw - cw) // 2, 0, (pw - cw) // 2 + cw, ph))
+    a = np.asarray(ph_img, np.float32)
+    top = int(PHOTO_TOP * SS)
+    canvas = np.zeros((chh, cw, 3), np.float32)
+    # sky above the photo: continue the photo's own sky colours, deepening toward the top
+    sky = a[:40].mean(0)
+    k = np.ones(81) / 81
+    sky = np.stack([np.convolve(np.pad(sky[:, c], 40, mode='edge'), k, 'valid') for c in range(3)], 1)
+    yy = np.linspace(0, 1, top)[:, None, None]
+    deep = np.array([28, 26, 58], np.float32)
+    canvas[:top] = deep + (sky[None] - deep) * (yy ** 0.8)
+    canvas[top:top + ph] = a
+    # seam blend over the first rows of the photo
+    blend = 90
+    ramp = np.linspace(0, 1, blend)[:, None, None]
+    canvas[top:top + blend] = sky[None] * (1 - ramp) + a[:blend] * ramp
+    # below the photo: floor colour fading to near black
+    rest = chh - (top + ph)
+    if rest > 0:
+        floor = a[-30:].mean(0)
+        yy = np.linspace(0, 1, rest)[:, None, None]
+        canvas[top + ph:] = floor[None] * (1 - yy) * 0.6 + np.array([6, 6, 12]) * yy
+        fade = 120
+        r = np.linspace(0, 1, fade)[:, None, None]
+        canvas[top + ph - fade:top + ph] = a[-fade:] * (1 - r * 0.4)
+    c = canvas / 255
+    c = np.clip((c - 0.5) * 1.06 + 0.5, 0, 1) * 0.84
+    c = c + np.random.default_rng(114).normal(0, 0.006, c.shape)   # fine grain, avoids banding
+    return Image.fromarray((np.clip(c, 0, 1) * 255).astype(np.uint8))
+
+def shade_layer():
+    """Darken top (title) and bottom (Shorts UI) bands plus a soft vignette."""
     y = np.linspace(0, 1, H)[:, None]
-    top = np.array([5, 14, 26]); mid = np.array([9, 38, 44]); bot = np.array([3, 8, 15])
-    c = np.where(y < 0.55, top + (mid - top) * (y / 0.55), mid + (bot - mid) * ((y - 0.55) / 0.45))
-    img = np.repeat(c[:, None, :], W, axis=1)
-    # radial vignette
+    top = np.clip(1 - y / 0.30, 0, 1) ** 1.6 * 0.55
+    bot = np.clip((y - 0.70) / 0.30, 0, 1) ** 1.4 * 0.75
     yy, xx = np.mgrid[0:H, 0:W]
-    r = np.sqrt(((xx - W / 2) / (W * 0.75)) ** 2 + ((yy - H * 0.45) / (H * 0.6)) ** 2)
-    img = img * np.clip(1.15 - 0.55 * r, 0.35, 1.1)[..., None]
-    return Image.fromarray(np.clip(img, 0, 255).astype(np.uint8)).convert('RGBA')
+    r = np.sqrt(((xx - W / 2) / (W * 0.62)) ** 2 + ((yy - H / 2) / (H * 0.62)) ** 2)
+    vig = np.clip((r - 0.65) / 0.6, 0, 1) * 0.5
+    a = 1 - (1 - top) * (1 - bot) * (1 - vig)
+    arr = np.zeros((H, W, 4), np.uint8)
+    arr[..., 3] = (np.clip(a, 0, 1) * 255).astype(np.uint8)
+    return Image.fromarray(arr, 'RGBA')
 
 def star_points(cx, cy, r_out, r_in, n=8, rot=0):
     pts = []
@@ -83,71 +118,6 @@ def star_points(cx, cy, r_out, r_in, n=8, rot=0):
         a = rot + math.pi * i / n
         pts.append((cx + r * math.cos(a), cy + r * math.sin(a)))
     return pts
-
-def pattern_tile(height):
-    """Islamic 8-point star lattice, thin gold lines, transparent."""
-    lay = Image.new('RGBA', (W, height), (0, 0, 0, 0))
-    d = ImageDraw.Draw(lay)
-    s = 180
-    col = GOLD + (26,)
-    for gy in range(-1, height // s + 2):
-        for gx in range(-1, W // s + 2):
-            cx, cy = gx * s + (s / 2 if gy % 2 else 0), gy * s
-            d.polygon(star_points(cx, cy, 62, 40, 8, math.pi / 8), outline=col, width=2)
-            d.polygon(star_points(cx, cy, 30, 21, 8, 0), outline=GOLD + (18,), width=1)
-            d.line([(cx + 62, cy), (cx + s / 2 - 62 + s / 2 - 62, cy)], fill=GOLD + (10,), width=1)
-    # fade pattern toward the middle so text stays clean
-    return lay
-
-def radial(size, color, power=2.2):
-    yy, xx = np.mgrid[0:size, 0:size]
-    r = np.sqrt((xx - size / 2) ** 2 + (yy - size / 2) ** 2) / (size / 2)
-    a = np.clip(1 - r, 0, 1) ** power
-    arr = np.zeros((size, size, 4), np.uint8)
-    arr[..., :3] = color
-    arr[..., 3] = (a * 255).astype(np.uint8)
-    return Image.fromarray(arr, 'RGBA')
-
-def mosque_layer():
-    m = Image.new('L', (W, H), 0)
-    d = ImageDraw.Draw(m)
-    base = 1862
-    def dome(cx, w, h, top):
-        d.rectangle([cx - w / 2, top + h * 0.55, cx + w / 2, base], fill=255)
-        d.ellipse([cx - w / 2, top, cx + w / 2, top + h * 1.1], fill=255)
-        d.polygon([(cx - w * 0.16, top + h * 0.12), (cx, top - h * 0.35), (cx + w * 0.16, top + h * 0.12)], fill=255)
-        d.line([(cx, top - h * 0.35), (cx, top - h * 0.62)], fill=255, width=5)
-        d.ellipse([cx - 9, top - h * 0.72, cx + 9, top - h * 0.54], fill=255)
-    def minaret(cx, w, top):
-        d.rectangle([cx - w / 2, top, cx + w / 2, base], fill=255)
-        for k, yb in enumerate([top + 50, top + 150]):
-            d.rectangle([cx - w / 2 - 10, yb, cx + w / 2 + 10, yb + 13], fill=255)
-        d.polygon([(cx - w / 2 - 3, top + 2), (cx, top - 95), (cx + w / 2 + 3, top + 2)], fill=255)
-        d.line([(cx, top - 95), (cx, top - 125)], fill=255, width=4)
-    dome(540, 300, 170, 1660)
-    dome(318, 160, 100, 1745)
-    dome(762, 160, 100, 1745)
-    d.rectangle([170, 1790, 910, base], fill=255)
-    minaret(110, 38, 1620)
-    minaret(970, 38, 1620)
-    d.rectangle([0, base, W, H], fill=255)
-    # arches (cut-outs) along the base
-    for x in range(222, 860, 64):
-        d.rounded_rectangle([x, 1812, x + 28, 1862], radius=14, fill=0)
-    lay = Image.new('RGBA', (W, H), (0, 0, 0, 0))
-    edge = m.filter(ImageFilter.MaxFilter(7))
-    glow = edge.filter(ImageFilter.GaussianBlur(10))
-    g = Image.new('RGBA', (W, H), GOLD + (0,)); g.putalpha(glow.point(lambda v: int(v * 0.45)))
-    lay.alpha_composite(g)
-    rim = Image.new('RGBA', (W, H), GOLD + (0,)); rim.putalpha(Image.fromarray(
-        np.clip(np.asarray(edge, np.int16) - np.asarray(m, np.int16), 0, 255).astype(np.uint8)).point(lambda v: int(v * 0.85)))
-    lay.alpha_composite(rim)
-    body = Image.new('RGBA', (W, H), (3, 9, 16, 0))
-    # body slightly lighter at top for depth
-    grad = np.linspace(0.92, 1.0, H)[:, None] * np.ones((1, W))
-    body.putalpha(Image.fromarray((np.asarray(m, np.float32) * grad).astype(np.uint8)))
-    lay.alpha_composite(body)
-    return lay
 
 def header_layer():
     lay = Image.new('RGBA', (W, H), (0, 0, 0, 0))
@@ -181,17 +151,21 @@ def text_block(ar, en, ayah):
     d = ImageDraw.Draw(lay)
     if ayah:
         ar = ar + "\u00A0\u06DD" + DIGITS[ayah]
-    fnt = F_QURAN if len(ar) < 40 else F_QURAN_S
-    lines = wrap(d, ar, fnt, 940, True)
+    # largest size (100..76) that keeps the verse on one line, else wrap at 76
+    for size in range(100, 74, -4):
+        fnt = font('AmiriQuran-Regular.ttf', size)
+        if d.textlength(ar, font=fnt, direction='rtl') <= 900:
+            break
+    lines = wrap(d, ar, fnt, 900, True)
     lh = int(fnt.size * 1.75)
-    y = 60
+    y = 36
     shadow = Image.new('RGBA', lay.size, (0, 0, 0, 0)); sd = ImageDraw.Draw(shadow)
     for ln in lines:
         sd.text((W // 2, y + 6), ln, font=fnt, fill=(0, 0, 0, 200), anchor='ma', direction='rtl', language='ar')
         d.text((W // 2, y), ln, font=fnt, fill=GOLD_LIGHT, anchor='ma', direction='rtl', language='ar')
         y += lh
     bottom = max(d.textbbox((W // 2, yy), ln, font=fnt, anchor='ma', direction='rtl', language='ar')[3]
-                 for yy, ln in zip(range(60, y, lh), lines))
+                 for yy, ln in zip(range(36, y, lh), lines))
     y = bottom + 40
     # divider
     d.line([(W / 2 - 170, y), (W / 2 - 22, y)], fill=GOLD + (170,), width=2)
@@ -222,22 +196,35 @@ def with_alpha(img, k):
     out.putalpha(img.getchannel('A').point(lambda v: int(v * k)))
     return out
 
-BG = gradient_bg()
-PAT = pattern_tile(H + 400)
-# soften pattern behind the text zone
-mask = np.ones((H + 400, W), np.float32)
-yy = np.arange(H + 400)[:, None]
-PAT_FADE = None
-GLOW = radial(1100, GOLD, 2.4)
-MOSQUE = mosque_layer()
+PHOTO = load_photo()
+SHADE = shade_layer()
 HEADER = header_layer()
 OUTRO = outro_layer()
 CARDS = [text_block(a, e, n) for (_, _, a, e, n) in SEGS]
-SPARK = radial(36, GOLD_LIGHT, 1.6)
 
-rnd = random.Random(114)
-PARTS = [dict(x=rnd.uniform(0, W), y=rnd.uniform(0, H), v=rnd.uniform(10, 34), s=rnd.uniform(0.25, 1.0),
-              ph=rnd.uniform(0, 6.28), f=rnd.uniform(0.6, 1.6), dx=rnd.uniform(-6, 6)) for _ in range(70)]
+# frosted-glass panel that holds the verse
+PANEL_H = max(c.height for c in CARDS) + 16
+PANEL_CY = 530 + PANEL_H // 2
+PANEL_BOX = (40, PANEL_CY - PANEL_H // 2, W - 40, PANEL_CY + PANEL_H // 2)
+PANEL_MASK = Image.new('L', (PANEL_BOX[2] - PANEL_BOX[0], PANEL_BOX[3] - PANEL_BOX[1]), 0)
+ImageDraw.Draw(PANEL_MASK).rounded_rectangle([0, 0, PANEL_MASK.width - 1, PANEL_MASK.height - 1], radius=44, fill=255)
+PANEL_TINT = Image.new('RGBA', PANEL_MASK.size, (6, 10, 24, 0))
+PANEL_TINT.putalpha(PANEL_MASK.point(lambda v: int(v * 0.52)))
+PANEL_EDGE = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+_d = ImageDraw.Draw(PANEL_EDGE)
+_d.rounded_rectangle(PANEL_BOX, radius=44, outline=GOLD + (150,), width=2)
+_d.rounded_rectangle([PANEL_BOX[0] + 10, PANEL_BOX[1] + 10, PANEL_BOX[2] - 10, PANEL_BOX[3] - 10],
+                     radius=36, outline=GOLD + (55,), width=1)
+
+def camera(t):
+    """Very slow push-in toward the main dome."""
+    sw, sh = PHOTO.size
+    z = 1.0 - 0.045 * ease(t / DUR)                        # fraction of the canvas shown
+    cw, ch = sw * z, sh * z
+    cx, cy = sw / 2, sh * 0.62
+    cy = min(max(cy, ch / 2), sh - ch / 2)
+    box = (cx - cw / 2, cy - ch / 2, cx + cw / 2, cy + ch / 2)
+    return PHOTO.resize((W, H), Image.BICUBIC, box=box, reducing_gap=2.0).convert('RGBA')
 
 def card_alpha_offset(i, t):
     s, e = SEGS[i][0], SEGS[i][1]
@@ -258,45 +245,37 @@ def active_ayah(t):
 
 def frame(fi):
     t = fi / FPS
-    img = BG.copy()
-    # drifting pattern
-    off = int((t * 7) % 360)
-    img.alpha_composite(PAT.crop((0, 400 - off, W, 400 - off + H)))
-    # audio-reactive glow behind the text
-    g = with_alpha(GLOW, 0.18 + 0.30 * float(ENV[min(fi, NFR - 1)]))
-    img.alpha_composite(g, (W // 2 - 550, 940 - 550))
-    # particles
-    for p in PARTS:
-        y = (p['y'] - p['v'] * t) % (H + 60) - 30
-        x = p['x'] + p['dx'] * math.sin(t * 0.5 + p['ph']) * 4
-        tw = 0.45 + 0.55 * (0.5 + 0.5 * math.sin(t * p['f'] * 2 + p['ph']))
-        sz = int(10 + 26 * p['s'])
-        sp = with_alpha(SPARK.resize((sz, sz)), tw * (0.35 + 0.5 * p['s']))
-        img.alpha_composite(sp, (int(x - sz / 2), int(y - sz / 2)))
-    img.alpha_composite(MOSQUE)
-    # header fades in at start
-    img.alpha_composite(with_alpha(HEADER, ease(t / 0.8)))
+    img = camera(t)
+    img.alpha_composite(SHADE)
+    # frosted panel: blur what is behind it, tint it, gold rim
+    k = ease(t / 0.8)
+    glass = img.crop(PANEL_BOX).filter(ImageFilter.GaussianBlur(22))
+    glass.alpha_composite(PANEL_TINT)
+    glass.putalpha(PANEL_MASK.point(lambda v: int(v * k)))
+    img.alpha_composite(glass, PANEL_BOX[:2])
+    img.alpha_composite(with_alpha(PANEL_EDGE, k))
+    img.alpha_composite(with_alpha(HEADER, k))
     # verse cards
     for i, card in enumerate(CARDS):
         a, dy = card_alpha_offset(i, t)
         if a <= 0.003:
             continue
-        top = int(960 - card.height / 2 + dy)
+        top = int(PANEL_CY - card.height / 2 + dy)
         img.alpha_composite(with_alpha(card, a), (0, max(0, top)))
     # ayah progress dots
     d = ImageDraw.Draw(img)
     cur = active_ayah(t)
-    for k in range(1, 7):
-        x = W / 2 + (k - 3.5) * 44
+    for n in range(1, 7):
+        x = W / 2 + (n - 3.5) * 44
         y = 470
-        if k <= cur:
+        if n <= cur:
             d.ellipse([x - 8, y - 8, x + 8, y + 8], fill=GOLD + (255,))
         else:
-            d.ellipse([x - 7, y - 7, x + 7, y + 7], outline=GOLD + (150,), width=2)
+            d.ellipse([x - 7, y - 7, x + 7, y + 7], outline=GOLD + (170,), width=2)
     # outro
     if t > SEGS[-1][1] + 0.1:
         a = ease((t - SEGS[-1][1] - 0.1) / 0.6)
-        img.alpha_composite(with_alpha(OUTRO, a), (0, int(1330 + (1 - a) * 30)))
+        img.alpha_composite(with_alpha(OUTRO, a), (0, int(PANEL_BOX[3] + 40 + (1 - a) * 30)))
     return img.convert('RGB')
 
 def render_bytes(fi):

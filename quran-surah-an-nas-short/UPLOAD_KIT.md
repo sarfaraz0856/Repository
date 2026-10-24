@@ -2,6 +2,7 @@
 
 **Format:** 1080×1920 vertical, 30 fps, 67.6 s, H.264 + AAC 48 kHz (loudness −14 LUFS, YouTube/Instagram standard)
 **Audio:** the original recitation only, with no music or SFX added.
+**Background:** real photo of Sheikh Zayed Grand Mosque, Abu Dhabi, at sunset (Adobe Stock #203084543, free licence, no on-screen credit required). Verses sit on a frosted-glass panel above the mosque.
 
 | File | Use |
 |---|---|
