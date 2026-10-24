@@ -10,7 +10,6 @@ import soundfile as sf
 from scipy import signal
 
 SR = 48000
-OUT = sys.argv[1]
 rng = np.random.default_rng(1986)
 
 
@@ -189,5 +188,5 @@ if __name__ == "__main__":
     jobs = {"crow": crow, "wind_hook": wind, "music_hook": music}
     for name, fn in ((k, jobs[k]) for k in (sys.argv[2:] or jobs)):
         y = fn()
-        sf.write(f"{OUT}/{name}.wav", y.astype(np.float32), SR, subtype="FLOAT")
+        sf.write(f"{sys.argv[1]}/{name}.wav", y.astype(np.float32), SR, subtype="FLOAT")
         print(name, "%.2fs" % (len(y) / SR))

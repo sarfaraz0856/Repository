@@ -1,5 +1,5 @@
 # Generate a Hindi narration line with Kokoro (hm_omega), set the "..." pause length, trim edges.
-# Usage: voice.py MODELS_DIR OUT.wav [DEVANAGARI_TEXT] [SPEED] [PAUSE_SECONDS]
+# Usage: voice.py MODELS_DIR OUT.wav [DEVANAGARI_TEXT] [SPEED] [PAUSE_SECONDS]  (pause < 0 keeps the natural pauses)
 import sys, numpy as np, soundfile as sf
 from kokoro_onnx import Kokoro
 models, out = sys.argv[1], sys.argv[2]
@@ -24,14 +24,17 @@ for i in range(start, end):
     else:
         cur = 0
 print("speech %.2fs, pause %.2fs" % ((end - start) * w / sr, best * w / sr))
-keep_pause = int(pause * sr)
-p0, p1 = best_rng[0] * w, best_rng[1] * w
-pre = a[max(0, start * w - int(0.03 * sr)):p0]
-post = a[p1:min(len(a), end * w + int(0.12 * sr))]
-mid = np.zeros(keep_pause)
-fade = int(0.015 * sr)
-pre[-fade:] *= np.linspace(1, 0, fade); post[:fade] *= np.linspace(0, 1, fade)
-y = np.concatenate([pre, mid, post])
+if pause < 0 or best_rng is None:
+    y = a[max(0, start * w - int(0.03 * sr)):min(len(a), end * w + int(0.12 * sr))].copy()
+else:
+    keep_pause = int(pause * sr)
+    p0, p1 = best_rng[0] * w, best_rng[1] * w
+    pre = a[max(0, start * w - int(0.03 * sr)):p0]
+    post = a[p1:min(len(a), end * w + int(0.12 * sr))]
+    mid = np.zeros(keep_pause)
+    fade = int(0.015 * sr)
+    pre[-fade:] *= np.linspace(1, 0, fade); post[:fade] *= np.linspace(0, 1, fade)
+    y = np.concatenate([pre, mid, post])
 y[-int(0.05 * sr):] *= np.linspace(1, 0, int(0.05 * sr))
 sf.write(out, y.astype(np.float32), sr)
 print("final %.2fs" % (len(y) / sr))

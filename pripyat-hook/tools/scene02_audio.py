@@ -12,7 +12,6 @@ from scipy import ndimage, signal
 
 from audio_synth import SR, reverb_ir, convolve_stereo, smooth_random  # noqa: E402
 
-work, out = sys.argv[1], sys.argv[2]
 rng = np.random.default_rng(502)
 meter = pyln.Meter(SR)
 REF = -16.0
@@ -80,62 +79,60 @@ def page_flutter():
     return y / np.max(np.abs(y)) * 0.89
 
 
-def load(name):
-    y, sr = sf.read(f"{work}/{name}", always_2d=True)
-    assert sr == SR, (name, sr)
-    return y if y.shape[1] == 2 else np.repeat(y, 2, 1)
+def main(work, out):
+    def load(name):
+        y, sr = sf.read(f"{work}/{name}", always_2d=True)
+        assert sr == SR, (name, sr)
+        return y if y.shape[1] == 2 else np.repeat(y, 2, 1)
+
+    def match(y, active=None):
+        seg = y if active is None else y[: int(active * SR)]
+        return y * 10 ** ((REF - meter.integrated_loudness(seg)) / 20)
+
+    def place(y, at):
+        buf = np.zeros((int(SCENE * SR), 2))
+        s = int(at * SR)
+        k = min(len(y), len(buf) - s)
+        buf[s:s + k] = y[:k]
+        return buf
+
+    n = int(SCENE * SR)
+    s0 = int(START * SR)
+    voice = place(match(load("voice_proc_s02.wav")), VOICE_AT)
+    room = match(room_tone(SCENE)) * 0.12
+    flutter = place(match(page_flutter()), FLUTTER_AT) * 0.20
+    wind = match(load("wind_hook.wav"))[s0:s0 + n] * 0.15
+    music = match(load("music_hook.wav"), active=42.0)[s0:s0 + n] * 0.10
+
+    master = 10 ** (MASTER_DB / 20)
+    sfx = room + flutter
+    bed = wind + music
+
+    def limit(y, ceiling):
+        # transparent peak limiter: 5 ms look-ahead, gain never above what each peak needs
+        need = np.minimum(1, ceiling / np.maximum(np.max(np.abs(y), 1), 1e-9))
+        need = ndimage.minimum_filter1d(need, 481)
+        return y * ndimage.uniform_filter1d(need, 241)[:, None]
+
+    raw_voice = voice
+    ceiling = np.max(np.abs(raw_voice))
+    while np.max(np.abs((voice + sfx + bed) * master)) > 0.84:   # peak <= -1.5 dBFS
+        ceiling *= 0.97
+        voice = limit(raw_voice, ceiling)
+    with_voice = (voice + sfx + bed) * master
+    peak = np.max(np.abs(with_voice))
+    print("Scene 02: %.1f LUFS, peak %.2f dBFS" % (meter.integrated_loudness(with_voice), 20 * np.log10(peak)))
+    assert peak < 0.89
+
+    def write(name, y):
+        sf.write(f"{out}/{name}", (y * master).astype(np.float32), SR, subtype="PCM_24")
+
+    write("Scene02_mix_WITH_VOICE.wav", voice + sfx + bed)
+    write("Scene02_mix_NO_VOICE.wav", sfx + bed)
+    write("stems/Scene02_voice_at_0.30s.wav", voice)
+    write("stems/Scene02_room_tone_12pct.wav", room)
+    write("stems/Scene02_page_flutter_at_3.00s.wav", flutter)
 
 
-def match(y, active=None):
-    seg = y if active is None else y[: int(active * SR)]
-    return y * 10 ** ((REF - meter.integrated_loudness(seg)) / 20)
-
-
-def place(y, at):
-    buf = np.zeros((int(SCENE * SR), 2))
-    s = int(at * SR)
-    k = min(len(y), len(buf) - s)
-    buf[s:s + k] = y[:k]
-    return buf
-
-
-n = int(SCENE * SR)
-s0 = int(START * SR)
-voice = place(match(load("voice_proc_s02.wav")), VOICE_AT)
-room = match(room_tone(SCENE)) * 0.12
-flutter = place(match(page_flutter()), FLUTTER_AT) * 0.20
-wind = match(load("wind_hook.wav"))[s0:s0 + n] * 0.15
-music = match(load("music_hook.wav"), active=42.0)[s0:s0 + n] * 0.10
-
-master = 10 ** (MASTER_DB / 20)
-sfx = room + flutter
-bed = wind + music
-
-
-def limit(y, ceiling):
-    # transparent peak limiter: 5 ms look-ahead, gain never above what each peak needs
-    need = np.minimum(1, ceiling / np.maximum(np.max(np.abs(y), 1), 1e-9))
-    need = ndimage.minimum_filter1d(need, 481)
-    return y * ndimage.uniform_filter1d(need, 241)[:, None]
-
-
-raw_voice = voice
-ceiling = np.max(np.abs(raw_voice))
-while np.max(np.abs((voice + sfx + bed) * master)) > 0.84:   # peak <= -1.5 dBFS
-    ceiling *= 0.97
-    voice = limit(raw_voice, ceiling)
-with_voice = (voice + sfx + bed) * master
-peak = np.max(np.abs(with_voice))
-print("Scene 02: %.1f LUFS, peak %.2f dBFS" % (meter.integrated_loudness(with_voice), 20 * np.log10(peak)))
-assert peak < 0.89
-
-
-def write(name, y):
-    sf.write(f"{out}/{name}", (y * master).astype(np.float32), SR, subtype="PCM_24")
-
-
-write("Scene02_mix_WITH_VOICE.wav", voice + sfx + bed)
-write("Scene02_mix_NO_VOICE.wav", sfx + bed)
-write("stems/Scene02_voice_at_0.30s.wav", voice)
-write("stems/Scene02_room_tone_12pct.wav", room)
-write("stems/Scene02_page_flutter_at_3.00s.wav", flutter)
+if __name__ == "__main__":
+    main(sys.argv[1], sys.argv[2])
