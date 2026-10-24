@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="hi-Latn">
+<head>
+<meta charset="utf-8">
+<title>Claude Tutorial Sample v2 – Scene Renderer</title>
+<!--
+  v2: built on the user's REAL Claude home screen (their screenshot, prepared by scripts/prepare_screenshot_plate.py:
+  Pro plan label and Opus 5.5 model label per the user's request). Scene 4 uses the GENUINE Claude Code CLI recording.
+  window.render(t) draws the frame for time t (seconds); scripts/render_frames.js screenshots it at 30 fps.
+-->
+<style>
+  @font-face{font-family:"Newsreader";src:url(fonts/newsreader-latin-400-normal.woff2) format("woff2");font-weight:400}
+  @font-face{font-family:"Newsreader";src:url(fonts/newsreader-latin-500-normal.woff2) format("woff2");font-weight:500}
+  :root{--bg:#191919;--panel:#232322;--line:#3a3936;--text:#F0EEE6;--mute:#A8A49B;--accent:#D97757}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}
+  #stage{position:absolute;inset:0;overflow:hidden;background:var(--bg)}
+  .layer{position:absolute;inset:0}
+  .serif{font-family:Newsreader,serif}
+  /* ---------- real UI plate ---------- */
+  #cam{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0}
+  #plate{position:absolute;left:0;top:0;width:1920px;height:1080px}
+  .hover{position:absolute;left:8px;width:269px;height:32px;border-radius:8px;background:rgba(255,255,255,.06);opacity:0}
+  .hl{position:absolute;border:2px solid var(--accent);border-radius:10px;box-shadow:0 0 0 4px rgba(217,119,87,.18);opacity:0}
+  .tag{position:absolute;white-space:nowrap;background:#2A2A28;border:1px solid #45433f;color:var(--text);font:600 17px Inter;padding:7px 12px 7px 26px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.45)}
+  .tag::before{content:"";position:absolute;left:11px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--accent)}
+  .tag small{color:var(--mute);font-weight:500;margin-left:6px}
+  #cursor{position:absolute;left:0;top:0;width:24px;height:36px;opacity:0;filter:drop-shadow(0 2px 3px rgba(0,0,0,.5))}
+  .ripple{position:absolute;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;border:2px solid rgba(240,238,230,.9);opacity:0}
+  /* title (S1) */
+  #title{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0}
+  #title .t{font:400 100px Newsreader;color:var(--text);letter-spacing:-.01em}
+  #title .s{margin-top:22px;font:600 21px Inter;color:var(--accent);letter-spacing:.34em}
+  #title .r{width:64px;height:2px;background:var(--accent);margin-top:26px;opacity:.8}
+  /* section tag */
+  #sect{position:absolute;right:40px;top:30px;display:flex;align-items:center;gap:10px;background:rgba(35,35,34,.94);border:1px solid var(--line);padding:9px 16px;border-radius:10px;color:var(--text);font:600 17px Inter;opacity:0}
+  #sect b{color:var(--accent);font-weight:700}
+  #sect .live{display:none;align-items:center;gap:7px;color:var(--mute);font-weight:500;padding-left:12px;border-left:1px solid var(--line)}
+  #sect .live i{width:8px;height:8px;border-radius:50%;background:#4ADE80;display:block}
+  /* ---------- terminal ---------- */
+  #termScene{opacity:0}
+  #tWin{position:absolute;left:181px;top:132px;width:1558px;height:788px;border-radius:12px;overflow:hidden;background:#0f1419;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.55);transform-origin:50% 40%}
+  #tBar{height:42px;background:#262624;display:flex;align-items:center;gap:8px;padding-left:16px;position:relative}
+  #tBar .dot{width:12px;height:12px;border-radius:50%}
+  #tBar .lbl{position:absolute;left:0;right:0;text-align:center;font:500 15px Inter;color:var(--mute)}
+  #term{position:absolute;left:20px;top:56px;width:1518px;height:700px}
+  #tHl{position:absolute;border:2px solid var(--accent);border-radius:10px;box-shadow:0 0 0 4px rgba(217,119,87,.18);opacity:0}
+  #tHl .tag{right:-2px;bottom:-50px}
+  #pills{position:absolute;left:181px;top:72px;display:flex;gap:12px}
+  .pill{padding:8px 14px 8px 30px;border-radius:8px;background:var(--panel);border:1px solid var(--line);color:var(--text);font:600 17px Inter;opacity:0;position:relative}
+  .pill::before{content:"✓";position:absolute;left:11px;top:7px;color:var(--accent);font-weight:800}
+  #ff{position:absolute;right:220px;top:196px;padding:10px 16px;border-radius:8px;background:#2A2A28;border:1px solid var(--accent);color:var(--text);font:600 17px Inter;opacity:0}
+  #ff span{color:var(--mute);font-weight:500;margin-left:6px}
+  /* ---------- S5 ---------- */
+  #cmpScene{opacity:0}
+  #cmpTitle{position:absolute;left:0;right:0;top:110px;text-align:center;font:400 62px Newsreader;color:var(--text)}
+  #cmpSub{position:absolute;left:0;right:0;top:196px;text-align:center;font:600 18px Inter;color:var(--accent);letter-spacing:.3em}
+  .col{position:absolute;top:290px;width:760px}
+  #colL{left:170px} #colR{left:990px}
+  .col h3{font:700 20px Inter;letter-spacing:.2em;color:var(--mute);padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:26px}
+  .col h3 b{color:var(--accent)}
+  .it{display:flex;gap:18px;margin-bottom:30px;opacity:0}
+  .it .n{flex:none;width:40px;height:40px;border-radius:10px;background:var(--panel);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font:700 18px Inter;color:var(--accent)}
+  .it .tx{font:600 30px Inter;color:var(--text);line-height:1.25}
+  .it .tx small{display:block;font:400 21px Inter;color:var(--mute);margin-top:5px}
+  #vline{position:absolute;left:959px;top:290px;width:1px;height:470px;background:var(--line);opacity:0}
+  /* ---------- S6 ---------- */
+  #endScene{opacity:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  #endScene .t{font:400 104px Newsreader;color:var(--text);letter-spacing:-.01em}
+  #endScene .t em{font-style:normal;color:var(--accent)}
+  #endScene .s{margin-top:20px;font:600 21px Inter;color:var(--accent);letter-spacing:.34em}
+  #eps{display:flex;gap:10px;margin-top:44px;flex-wrap:wrap;justify-content:center;width:1400px}
+  .ep{padding:8px 15px;border-radius:8px;background:var(--panel);border:1px solid var(--line);color:var(--mute);font:500 19px Inter;opacity:0}
+  #subBtn{margin-top:48px;display:flex;align-items:center;gap:12px;background:#CC0000;color:#fff;font:700 24px Inter;padding:13px 28px;border-radius:10px;opacity:0}
+  /* ---------- captions ---------- */
+  #cap{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);white-space:nowrap;padding:9px 22px;border-radius:8px;background:rgba(0,0,0,.74);color:#fff;font:600 33px Inter;opacity:0}
+</style>
+</head>
+<body>
+<div id="stage">
+  <!-- ===== real UI (S1–S4a) ===== -->
+  <div id="uiScene" class="layer">
+    <div id="cam">
+      <img id="plate" src="claude_home_pro_plate.png" alt="">
+      <div class="hover" id="hvSearch" style="top:83px"></div>
+      <div class="hover" id="hvProj" style="top:117px"></div>
+      <div class="hover" id="hvArt" style="top:151px"></div>
+      <div class="hover" id="hvCode" style="top:185px"></div>
+      <div class="hover" id="hvChats" style="top:307px"></div>
+      <div class="hover" id="hvAcct" style="top:1040px;height:32px"></div>
+      <div class="hl" id="hlSide"><div class="tag" style="left:290px;top:10px">Sidebar</div></div>
+      <div class="hl" id="hlModel1"><div class="tag" style="left:-6px;top:-50px">Model selector</div></div>
+      <div class="hl" id="hlNew"><div class="tag" style="left:288px;top:-2px">New <small>nayi chat</small></div></div>
+      <div class="hl" id="hlSearch"><div class="tag" style="left:288px;top:-2px">Search <small>purani chats</small></div></div>
+      <div class="hl" id="hlHist"><div class="tag" style="left:288px;top:14px">Chats and tasks <small>history</small></div></div>
+      <div class="hl" id="hlGroup"><div class="tag" style="left:288px;top:32px">Projects · Artifacts · Code</div></div>
+      <div class="hl" id="hlAcct"><div class="tag" style="left:0px;top:-52px">Naam par click → Settings</div></div>
+      <div class="hl" id="hlInput"><div class="tag" style="left:-4px;top:-50px">Message box</div></div>
+      <div class="hl" id="hlPlus"><div class="tag" style="left:-4px;top:44px">Files &amp; photos add karein</div></div>
+      <div class="hl" id="hlMode"><div class="tag" style="left:-4px;top:44px">Chat · Cowork</div></div>
+      <div class="hl" id="hlModel"><div class="tag" style="left:-40px;top:44px">Model: Opus 5.5 <small>· effort: Medium</small></div></div>
+      <div class="hl" id="hlCode"><div class="tag" style="left:288px;top:-2px">Claude Code <small>paid plans (Pro)</small></div></div>
+      <div class="ripple" id="rip"></div>
+      <svg id="cursor" viewBox="0 0 24 36"><path d="M1.5 1.5 L1.5 27 L7.6 21.2 L11.6 31.2 L15.6 29.5 L11.7 19.8 L19.8 19.8 Z" fill="#fff" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    </div>
+    <div id="title"><div class="t">Claude AI Complete Guide</div><div class="s">BEGINNER TO ADVANCED</div><div class="r"></div></div>
+  </div>
+
+  <!-- ===== S4b genuine terminal recording ===== -->
+  <div id="termScene" class="layer">
+    <div id="pills"><div class="pill" id="p1">Project files samajhna</div><div class="pill" id="p2">Code likhna</div><div class="pill" id="p3">Debugging</div></div>
+    <div id="tWin"><div id="tBar"><div class="dot" style="background:#FF5F57"></div><div class="dot" style="background:#FEBC2E"></div><div class="dot" style="background:#28C840"></div><div class="lbl">Terminal — ~/todo-app (demo project)</div></div>
+      <img id="term" alt=""><div id="tHl"><div class="tag">Claude Code ka jawab</div></div></div>
+    <div id="ff">⏩ Fast-forward<span>Claude Code files padh raha hai</span></div>
+  </div>
+
+  <!-- ===== S5 ===== -->
+  <div id="cmpScene" class="layer">
+    <div id="cmpTitle">Kya kar sakta hai, kya dhyaan rakhein</div>
+    <div id="cmpSub">CLAUDE CODE</div>
+    <div id="vline"></div>
+    <div class="col" id="colL"><h3><b>✓</b>&nbsp; CAN HELP WITH</h3>
+      <div class="it" id="l1"><div class="n">1</div><div class="tx">Writing and explaining code<small>Code likhna aur samjhana</small></div></div>
+      <div class="it" id="l2"><div class="n">2</div><div class="tx">Understanding project files<small>Project ka structure samajhna</small></div></div>
+      <div class="it" id="l3"><div class="n">3</div><div class="tx">Debugging and development tasks<small>Bugs dhoondhna aur fix karna</small></div></div></div>
+    <div class="col" id="colR"><h3><b>!</b>&nbsp; LIMITATIONS</h3>
+      <div class="it" id="r1"><div class="n">1</div><div class="tx">Results can contain mistakes<small>Output hamesha verify kijiye</small></div></div>
+      <div class="it" id="r2"><div class="n">2</div><div class="tx">Access depends on permissions and setup<small>File access aur commands</small></div></div>
+      <div class="it" id="r3"><div class="n">3</div><div class="tx">Review changes before execution<small>Run karne se pehle review</small></div></div></div>
+  </div>
+
+  <!-- ===== S6 ===== -->
+  <div id="endScene" class="layer">
+    <div class="t">Claude AI <em>+</em> Claude Code</div>
+    <div class="s">FULL STEP-BY-STEP SERIES</div>
+    <div id="eps"><div class="ep">Interface</div><div class="ep">Projects</div><div class="ep">Artifacts</div><div class="ep">Files</div><div class="ep">Chat vs Cowork</div><div class="ep">Models &amp; effort</div><div class="ep">Settings</div><div class="ep">Claude Code setup</div><div class="ep">Terminal commands</div><div class="ep">Debugging</div><div class="ep">Permissions</div></div>
+    <div id="subBtn"><svg width="30" height="22" viewBox="0 0 30 22"><rect width="30" height="22" rx="6" fill="#fff"/><path d="M12 6l8 5-8 5z" fill="#CC0000"/></svg>SUBSCRIBE<svg id="bell" width="22" height="22" viewBox="0 0 24 24"><path d="M12 3a6 6 0 00-6 6v4l-2 3h16l-2-3V9a6 6 0 00-6-6zM10 19a2 2 0 004 0" fill="#fff"/></svg></div>
+  </div>
+
+  <div id="sect"><span id="sectTx"></span><span class="live"><i></i>Real recording · Claude Code CLI v2.1.310</span></div>
+  <div id="cap"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const ease=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const easeOut=x=>1-Math.pow(1-x,3);
+function win(t,a,b,d=.22){if(t<a-d||t>b+d)return 0;if(t<a)return easeOut((t-(a-d))/d);if(t>b)return 1-easeOut((t-b)/d);return 1}
+function ramp(t,a,b){return ease(clamp((t-a)/(b-a),0,1))}
+function kf(K,t){if(t<=K[0][0])return K[0].slice(1);for(let i=0;i<K.length-1;i++){const A=K[i],B=K[i+1];if(t<=B[0]){const u=ease((t-A[0])/(B[0]-A[0]));return A.slice(1).map((v,j)=>v+(B[j+1]-v)*u)}}return K[K.length-1].slice(1)}
+function lin(K,x){if(x<=K[0][0])return K[0][1];for(let i=0;i<K.length-1;i++){const a=K[i],b=K[i+1];if(x<=b[0])return a[1]+(b[1]-a[1])*(x-a[0])/(b[0]-a[0])}return K[K.length-1][1]}
+function hl(id,t,a,b,x,y,w,h){const e=$(id),o=win(t,a,b);e.style.opacity=o;Object.assign(e.style,{left:x+'px',top:y+'px',width:w+'px',height:h+'px'})}
+function hov(id,on,t){ $(id).style.opacity = on?1:0 }
+
+/* camera keys: [t, scale, focusX, focusY] in plate coords; focus is clamped so the view never leaves the plate
+   (focusX 0 = view pinned to the left edge, i.e. the sidebar) */
+const CAM=[[0,1.14,1104,400],[3.2,1.04,1060,470],[3.6,1,960,540],[6.0,1,960,540],[6.9,1.5,0,360],[9.6,1.6,0,340],[15.0,1.64,0,340],[15.7,1.5,0,720],
+           [18.9,1.62,0,740],[19.9,1.7,1104,425],[21.3,1.72,1104,425],[24.7,1.8,1060,430],[27.0,1.8,1060,430],[30.7,1.9,1190,440],[31.6,1.5,0,360],[34.4,1.56,0,350]];
+const CUR=[[6.2,760,640],[7.7,60,65],[9.5,60,65],[10.2,66,99],[10.9,66,99],[11.5,70,323],[12.2,70,323],[12.8,70,133],[13.6,70,167],[14.4,62,201],[15.0,62,201],
+           [15.9,70,1056],[18.9,70,1056],[19.8,980,395],[21.2,980,395],[21.9,798,451],[24.6,798,451],[25.2,846,451],[25.9,908,451],[26.7,908,451],
+           [27.4,1228,451],[30.6,1228,451],[31.7,300,300],[32.6,62,201],[34.6,62,201]];
+const CLICKS=[8.25];
+function renderUI(t){
+  const vis=t<34.9; $('uiScene').style.display=vis?'block':'none'; if(!vis)return;
+  const out=ramp(t,34.3,34.75); $('uiScene').style.opacity=1-out;
+  let [s,fx,fy]=kf(CAM,t); const hw=960/s,hh=540/s; fx=clamp(fx,hw,1920-hw); fy=clamp(fy,hh,1080-hh);
+  $('cam').style.transform=`translate(${960-fx*s}px,${540-fy*s}px) scale(${s*(1+0.04*out)})`;
+  const dim = 1-ramp(t,2.9,3.5);
+  $('cam').style.filter = dim>0.01 ? `brightness(${1-0.68*dim}) blur(${9*dim}px)` : 'none';
+  $('title').style.opacity=win(t,0.25,3.0,0.4);
+  $('title').querySelector('.t').style.transform=`translateY(${(1-easeOut(clamp(t/1.1,0,1)))*14}px)`;
+  hl('hlSide',t,3.7,4.6,4,44,280,330);
+  hl('hlModel1',t,4.85,5.85,1186,433,152,34);
+  hl('hlNew',t,6.9,9.4,6,47,273,36);
+  hl('hlSearch',t,9.7,11.0,6,81,273,36);
+  hl('hlHist',t,11.3,12.2,6,307,273,64);
+  hl('hlGroup',t,12.5,15.1,6,115,273,104);
+  hl('hlAcct',t,15.8,18.8,6,1038,276,36);
+  hl('hlInput',t,19.6,21.1,772,366,664,119);
+  hl('hlPlus',t,21.5,24.6,782,435,32,32);
+  hl('hlMode',t,25.0,26.8,817,434,132,34);
+  hl('hlModel',t,27.2,30.6,1186,433,152,34);
+  hl('hlCode',t,32.4,34.4,6,183,273,36);
+  const [cx,cy]=kf(CUR,t);
+  const inRow=y0=>cx>8&&cx<277&&cy>=y0&&cy<y0+32;
+  hov('hvSearch',inRow(83)); hov('hvProj',inRow(117)); hov('hvArt',inRow(151)); hov('hvCode',inRow(185)); hov('hvChats',inRow(307)); hov('hvAcct',inRow(1040));
+  $('cursor').style.opacity=win(t,6.3,34.3,.3);
+  let r=0,rs=0; for(const c of CLICKS){const d=t-c;if(d>=0&&d<.4){r=1-d/.4;rs=.5+d/.4*.8}}
+  $('cursor').style.transform=`translate(${cx-1}px,${cy-1}px)`+(r>.6?' scale(.9)':'');
+  Object.assign($('rip').style,{left:cx+'px',top:cy+'px',opacity:r,transform:`scale(${rs})`});
+}
+/* terminal: output time u = t-34.4 -> source time in recordings/claude_code_terminal_raw.mp4 */
+const TMAP=[[0,5.6],[0.4,5.6],[4.3,9.4],[5.2,21.1],[8.6,24.5]];
+let lastSrc=null;
+async function renderTerm(t){
+  const vis=t>=34.3&&t<43.4; $('termScene').style.display=vis?'block':'none'; if(!vis)return;
+  const u=t-34.4, inn=ramp(t,34.35,34.85), out=ramp(t,42.8,43.3);
+  $('termScene').style.opacity=inn*(1-out);
+  $('tWin').style.transform=`translateY(${(1-inn)*30}px) scale(${(0.97+0.03*inn)*(1+0.035*ramp(t,39.6,43))})`;
+  const f=clamp(Math.round(lin(TMAP,u)*30)+1,1,765), p=window.TERM_DIR+'/f'+String(f).padStart(4,'0')+'.jpg';
+  if(p!==lastSrc){$('term').src=p;lastSrc=p;await $('term').decode().catch(()=>{})}
+  [['p1',37.1],['p2',38.6],['p3',40.1]].forEach(([id,a])=>{const o=ramp(t,a,a+.35);$(id).style.opacity=o;$(id).style.transform=`translateY(${(1-o)*8}px)`});
+  $('ff').style.opacity=win(t,38.8,39.6,.12);
+  Object.assign($('tHl').style,{left:'12px',top:(56+255)+'px',width:'1534px',height:'362px',opacity:win(t,39.9,42.8,.25)});
+}
+function renderCmp(t){
+  const vis=t>=42.8&&t<53.4; $('cmpScene').style.display=vis?'block':'none'; if(!vis)return;
+  $('cmpScene').style.opacity=ramp(t,42.8,43.3)*(1-ramp(t,52.8,53.3));
+  $('cmpScene').style.transform=`scale(${1+0.03*clamp((t-43)/10,0,1)})`;
+  $('vline').style.opacity=ramp(t,43.2,43.8);
+  [['l1',43.5],['l2',43.8],['l3',44.1],['r1',45.0],['r2',47.9],['r3',49.6]].forEach(([id,a])=>{const o=ramp(t,a,a+.4);$(id).style.opacity=o;$(id).style.transform=`translateY(${(1-o)*12}px)`});
+}
+function renderEnd(t){
+  const vis=t>=52.8; $('endScene').style.display=vis?'flex':'none'; if(!vis)return;
+  $('endScene').style.opacity=ramp(t,52.8,53.4);
+  $('endScene').querySelector('.t').style.transform=`translateY(${(1-easeOut(clamp((t-52.9)/1,0,1)))*16}px) scale(${1+0.02*ramp(t,54,60)})`;
+  $('endScene').querySelector('.s').style.opacity=ramp(t,53.6,54.1);
+  document.querySelectorAll('.ep').forEach((e,i)=>{const a=54.1+i*.11,q=ramp(t,a,a+.35);e.style.opacity=q;e.style.transform=`translateY(${(1-q)*10}px)`});
+  const sb=ramp(t,56.6,57.0); $('subBtn').style.opacity=sb;
+  const pulse=t>57.1?1+.04*Math.sin((t-57.1)*9)*Math.exp(-(t-57.1)*1.5):1;
+  $('subBtn').style.transform=`scale(${(.92+.08*sb)*pulse})`;
+  $('bell').style.transform=t>57.3?`rotate(${18*Math.sin((t-57.3)*16)*Math.exp(-(t-57.3)*2.2)}deg)`:'none';
+}
+function renderOverlays(t){
+  const S=[[6.3,18.9,'01','Sidebar',0],[19.2,30.8,'02','Message box',0],[31.2,34.2,'03','Claude Code',0],[34.8,42.8,'03','Claude Code · Terminal',1]];
+  let o=0; for(const [a,b,n,l,live] of S){const w=win(t,a,b,.25); if(w>0){o=w;$('sectTx').innerHTML=`<b>${n}</b>&nbsp; ${l}`;document.querySelector('#sect .live').style.display=live?'flex':'none'}}
+  $('sect').style.opacity=o;
+}
+function renderCaps(t){
+  const c=$('cap'); if(!window.SHOW_CAPS||!window.CAPS){c.style.opacity=0;return}
+  let cur=null; for(const k of window.CAPS){if(t>=k.start-.08&&t<k.hold)cur=k}
+  if(!cur){c.style.opacity=0;return}
+  c.textContent=cur.text; c.style.opacity=Math.min(1,(t-(cur.start-.08))/.12,(cur.hold-t)/.12);
+}
+window.render=async function(t){renderUI(t);await renderTerm(t);renderCmp(t);renderEnd(t);renderOverlays(t);renderCaps(t);return true};
+</script>
+</body>
+</html>

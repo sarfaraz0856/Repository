@@ -1,13 +1,17 @@
 """Original procedural music bed + UI sound effects + narration mix (numpy only, no samples or stock audio).
 Music is ducked under the voice (envelope follower on the narration), then the final mix is loudness-normalised
 with FFmpeg (EBU R128, -14 LUFS integrated, -1.5 dBTP) by assemble_video.sh.
-Usage: python3 make_audio.py <narration_48k_mono.wav> <out_dir>
+Usage: python3 make_audio.py <narration_48k_mono.wav> <out_dir> [cues.json] [name_suffix]
+cues.json (optional) sets the SFX/arrangement times for a given edit; defaults are the v1 edit.
 """
-import sys, numpy as np, soundfile as sf
+import sys, json, numpy as np, soundfile as sf
 
 SR = 48000; DUR = 60.0; N = int(SR * DUR)
 rng = np.random.default_rng(7)
 t_all = np.arange(N) / SR
+CUES = {"terminal": [29.5, 43.0], "whooshes": [29.85, 42.75, 52.75], "clicks": [10.5, 17.3, 20.15, 25.3], "end_shimmer": 53.0, "ding": 58.2}
+if len(sys.argv) > 3: CUES.update(json.load(open(sys.argv[3])))
+SUFFIX = sys.argv[4] if len(sys.argv) > 4 else ""
 
 def fft_filter(x, lo=None, hi=None, slope=0.15):
     """Smooth band-limit in the frequency domain (soft edges avoid ringing)."""
@@ -62,7 +66,8 @@ for b in range(nbars):
 pad = fft_filter(pad, hi=2200); pluck = fft_filter(pluck, hi=3500); perc[:] = perc
 music = 0.55 * pad + 0.32 * pluck + 0.55 * bass + 0.35 * perc
 # arrangement: soft intro, drop percussion under the terminal demo for focus, outro fade
-lvl = np.interp(t_all, [0, 1.0, 29.5, 30.5, 42.5, 43.5, 58.0, 59.85, 60], [0, 1, 1, 0.8, 0.8, 1, 1, 0.0, 0])
+ta, tb = CUES["terminal"]
+lvl = np.interp(t_all, [0, 1.0, ta, ta + 1, tb - 0.5, tb + 0.5, 58.0, 59.85, 60], [0, 1, 1, 0.8, 0.8, 1, 1, 0.0, 0])
 music *= lvl
 music /= np.max(np.abs(music)) + 1e-9
 
@@ -89,12 +94,12 @@ def ding():
     return (np.sin(2 * np.pi * 1318.5 * tt) + 0.4 * np.sin(2 * np.pi * 2637 * tt)) * np.exp(-tt * 4)
 w = whoosh(); place(sfx, w / np.max(np.abs(w)), 0.0, 0.35)
 place(sfx, shimmer(), 0.25, 0.9)
-for at in (29.85, 42.75, 52.75):
+for at in CUES["whooshes"]:
     w = whoosh(0.65); place(sfx, w / np.max(np.abs(w)), at, 0.32)
-for at in (10.5, 17.3, 20.15, 25.3):   # cursor clicks in the demo UI (same times as graphics/scenes.html CLICKS)
+for at in CUES["clicks"]:   # cursor clicks (same times as CLICKS in the scene file)
     place(sfx, click(), at, 0.35)
-place(sfx, shimmer(1.2), 53.0, 0.7)
-place(sfx, ding(), 58.2, 0.22)
+place(sfx, shimmer(1.2), CUES["end_shimmer"], 0.7)
+place(sfx, ding(), CUES["ding"], 0.22)
 
 # ---------------- mix with ducking ----------------
 voice, vsr = sf.read(sys.argv[1]); assert vsr == SR, "narration must be 48 kHz"
@@ -112,9 +117,9 @@ stereo = np.stack([mix, mix], axis=1)
 # subtle stereo width on music only
 stereo[:, 0] += 0.06 * np.roll(mix_m, 240); stereo[:, 1] -= 0.06 * np.roll(mix_m, 240)
 out = sys.argv[2]
-sf.write(f"{out}/mix_premaster.flac", stereo.astype(np.float32), SR, subtype="PCM_24")
-sf.write(f"{out}/music_bed_original.flac", np.stack([music, music], 1).astype(np.float32) * 0.5, SR, subtype="PCM_16")
-sf.write(f"{out}/sfx_only.flac", np.stack([sfx, sfx], 1).astype(np.float32) * 0.5, SR, subtype="PCM_16")
+sf.write(f"{out}/mix_premaster{SUFFIX}.flac", stereo.astype(np.float32), SR, subtype="PCM_24")
+sf.write(f"{out}/music_bed_original{SUFFIX}.flac", np.stack([music, music], 1).astype(np.float32) * 0.5, SR, subtype="PCM_16")
+sf.write(f"{out}/sfx_only{SUFFIX}.flac", np.stack([sfx, sfx], 1).astype(np.float32) * 0.5, SR, subtype="PCM_16")
 # report voice vs music level while speaking
 sp = speaking > 0.8
 v_rms = 20 * np.log10(np.sqrt(np.mean(voice[sp] ** 2)) + 1e-9); m_rms = 20 * np.log10(np.sqrt(np.mean(mix_m[sp] ** 2)) + 1e-9)

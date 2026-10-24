@@ -1,0 +1,29 @@
+{
+ "voice": "hm_omega",
+ "scenes": [
+  {"id": "S1", "start": 0.0, "end": 6.0, "lead": 0.3, "phrases": [
+   ["Claude AI ka har important option samajhna hai?", "क्लॉड ए-आई का हर इम्पॉर्टेंट ऑप्शन समझना है?"],
+   ["Toh ye video aapke liye hai!", "तो ये वीडियो आपके लिए है!"]]},
+  {"id": "S2", "start": 6.0, "end": 19.0, "lead": 0.35, "phrases": [
+   ["Left sidebar mein New se nayi chat shuru hoti hai,", "लेफ़्ट साइडबार में न्यू से नई चैट शुरू होती है,"],
+   ["aur Search se purani chats dhoondh sakte hain.", "और सर्च से पुरानी चैट्स ढूँढ सकते हैं।"],
+   ["Projects, Artifacts aur Code bhi yahin milte hain.", "प्रोजेक्ट्स, आर्टिफ़ैक्ट्स और कोड भी यहीं मिलते हैं।"],
+   ["Neeche apne naam par click karke Settings milti hai.", "नीचे अपने नाम पर क्लिक करके सेटिंग्स मिलती है।"]]},
+  {"id": "S3", "start": 19.0, "end": 31.0, "lead": 0.35, "phrases": [
+   ["Beech mein message box hai.", "बीच में मैसेज बॉक्स है।"],
+   ["Plus button se files aur photos add kar sakte hain.", "प्लस बटन से फ़ाइल्स और फ़ोटोज़ ऐड कर सकते हैं।"],
+   ["Yahan Chat aur Cowork mode hai,", "यहाँ चैट और कोवर्क मोड है,"],
+   ["aur yahan se model chuniye, jaise Opus 5.5.", "और यहाँ से मॉडल चुनिए, जैसे ओपस फ़ाइव पॉइंट फ़ाइव।"]]},
+  {"id": "S4", "start": 31.0, "end": 43.0, "lead": 0.3, "phrases": [
+   ["Sidebar ka Code option Claude Code ke liye hai.", "साइडबार का कोड ऑप्शन क्लॉड कोड के लिए है।"],
+   ["Claude Code terminal mein bhi chalta hai.", "क्लॉड कोड टर्मिनल में भी चलता है।"],
+   ["Ye project files samajhta hai, code likhta hai", "ये प्रोजेक्ट फ़ाइल्स समझता है, कोड लिखता है"],
+   ["aur bugs debug karne mein help karta hai.", "और बग्स डीबग करने में हेल्प करता है।"]]},
+  {"id": "S5", "start": 43.0, "end": 53.0, "lead": 0.35, "phrases": [
+   ["Lekin yaad rakhiye, AI ka code hamesha verify kijiye.", "लेकिन याद रखिए, ए-आई का कोड हमेशा वेरिफ़ाई कीजिए।"],
+   ["File access aur commands permissions par depend karte hain.", "फ़ाइल एक्सेस और कमांड्स परमिशन्स पर डिपेंड करते हैं।"]]},
+  {"id": "S6", "start": 53.0, "end": 60.0, "lead": 0.3, "phrases": [
+   ["Agli videos mein har option step by step.", "अगली वीडियोज़ में हर ऑप्शन स्टेप बाय स्टेप।"],
+   ["Channel subscribe kar lijiye!", "चैनल सब्सक्राइब कर लीजिए!"]]}
+ ]
+}

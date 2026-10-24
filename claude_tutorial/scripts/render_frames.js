@@ -1,5 +1,6 @@
 // Renders graphics/scenes.html at 30 fps with Playwright (pre-installed Chromium) and pipes PNG frames
 // into FFmpeg. Produces two silent masters in one pass: with burned-in captions and without.
+// Scene file: graphics/$SCENES_HTML (default scenes.html).
 // Usage: node render_frames.js <captions.json> <terminal_frames_dir> <out_with_caps.mp4> <out_clean.mp4> [t0 t1]
 const { chromium } = require('playwright');
 const { spawn } = require('child_process');
@@ -13,7 +14,7 @@ const write = (p, buf) => new Promise(r => p.stdin.write(buf) ? r() : p.stdin.on
 (async () => {
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
-  await page.goto('file://' + path.resolve(__dirname, '../graphics/scenes.html'));
+  await page.goto('file://' + path.resolve(__dirname, '../graphics', process.env.SCENES_HTML || 'scenes.html'));
   await page.evaluate(([caps, dir]) => { window.CAPS = caps; window.TERM_DIR = 'file://' + dir; }, [JSON.parse(fs.readFileSync(capsFile)), path.resolve(termDir)]);
   await page.evaluate(() => document.fonts.ready);
   const a = ff(outCaps), b = ff(outClean);

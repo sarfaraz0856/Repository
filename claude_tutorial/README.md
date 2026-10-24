@@ -2,6 +2,26 @@
 
 Sample episode: **"Claude AI Interface Explained: Where to Find Every Important Option"** (Hindi / Hinglish).
 
+## v2 (current): built on your real Claude screen
+
+| Path | What |
+|---|---|
+| `output/claude_ai_interface_sample_60s_v2.mp4` | **v2 sample**: your real Claude home screen (shown as Pro, model Opus 5.5) + genuine Claude Code recording; 1920×1080, 30 fps, 60.0 s, burned-in Hinglish captions |
+| `output/claude_ai_interface_sample_60s_v2_clean_softsub.mp4` | Same, captions as a selectable SRT track |
+| `output/claude_ai_interface_sample_60s_v2_music_sfx_only.mp4` | No narration, for your own voice-over |
+| `output/QC_report_v2_A4.pdf` | v2 production + QC report (A4) |
+| `voiceover/narration_v2.md`, `subtitles/claude_ai_interface_sample_60s_v2.hinglish.srt` | v2 narration and subtitles |
+| `storyboard_v2.md` | v2 shot list |
+| `assets/user_screenshots/claude_home_user_original.png` | Your original screenshot (unchanged) |
+| `graphics/claude_home_pro_plate.png` | 1080p plate made from it (Pro label, Opus 5.5): `scripts/prepare_screenshot_plate.py` |
+| `graphics/scenes_v2.html`, `graphics/thumbnail_concept_v2_1280x720.png` | v2 scene renderer and thumbnail |
+
+v2 rebuild: `prepare_screenshot_plate.py` → `make_voiceover.py … narration_lines_v2.json voiceover --max_speed 1.18 --tag _v2`
+→ `make_captions.py` → `SCENES_HTML=scenes_v2.html node render_frames.js …` → `make_audio.py … audio_cues_v2.json _v2`
+→ `VERSION=_v2 RENDER_DIR=… assemble_video.sh` → `qc_check.py` → `make_report_v2.py`.
+
+## v1 (first sample, illustrative demo UI)
+
 | Path | What |
 |---|---|
 | `output/claude_ai_interface_sample_60s.mp4` | **The sample**: 1920×1080, 30 fps, 60.0 s, H.264 + AAC, burned-in Hinglish captions |

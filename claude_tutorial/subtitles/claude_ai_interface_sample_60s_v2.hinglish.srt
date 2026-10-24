@@ -1,0 +1,72 @@
+1
+00:00:00,300 --> 00:00:03,729
+Claude AI ka har important option samajhna hai?
+
+2
+00:00:03,789 --> 00:00:06,082
+Toh ye video aapke liye hai!
+
+3
+00:00:06,350 --> 00:00:09,497
+Left sidebar mein New se nayi chat shuru hoti hai,
+
+4
+00:00:09,557 --> 00:00:12,224
+aur Search se purani chats dhoondh sakte hain.
+
+5
+00:00:12,284 --> 00:00:15,335
+Projects, Artifacts aur Code bhi yahin milte hain.
+
+6
+00:00:15,395 --> 00:00:18,940
+Neeche apne naam par click karke Settings milti hai.
+
+7
+00:00:19,350 --> 00:00:21,183
+Beech mein message box hai.
+
+8
+00:00:21,243 --> 00:00:24,703
+Plus button se files aur photos add kar sakte hain.
+
+9
+00:00:24,763 --> 00:00:26,871
+Yahan Chat aur Cowork mode hai,
+
+10
+00:00:26,931 --> 00:00:30,849
+aur yahan se model chuniye, jaise Opus 5.5.
+
+11
+00:00:31,300 --> 00:00:34,504
+Sidebar ka Code option Claude Code ke liye hai.
+
+12
+00:00:34,564 --> 00:00:37,045
+Claude Code terminal mein bhi chalta hai.
+
+13
+00:00:37,105 --> 00:00:40,053
+Ye project files samajhta hai, code likhta hai
+
+14
+00:00:40,113 --> 00:00:43,134
+aur bugs debug karne mein help karta hai.
+
+15
+00:00:43,350 --> 00:00:47,764
+Lekin yaad rakhiye, AI ka code hamesha verify kijiye.
+
+16
+00:00:47,824 --> 00:00:52,105
+File access aur commands permissions par depend karte hain.
+
+17
+00:00:53,300 --> 00:00:56,617
+Agli videos mein har option step by step.
+
+18
+00:00:56,677 --> 00:00:59,141
+Channel subscribe kar lijiye!
+

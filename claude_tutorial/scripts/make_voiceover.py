@@ -8,7 +8,7 @@ from kokoro_onnx import Kokoro
 
 ap = argparse.ArgumentParser()
 ap.add_argument("model_dir"); ap.add_argument("lines"); ap.add_argument("out_dir")
-ap.add_argument("--voice"); ap.add_argument("--max_speed", type=float, default=1.28)
+ap.add_argument("--voice"); ap.add_argument("--max_speed", type=float, default=1.28); ap.add_argument("--tag", default="")
 a = ap.parse_args()
 cfg = json.load(open(a.lines)); voice = a.voice or cfg["voice"]
 k = Kokoro(f"{a.model_dir}/kokoro-v1.0.onnx", f"{a.model_dir}/voices-v1.0.bin")
@@ -47,6 +47,6 @@ for s in cfg["scenes"]:
     report.append({"scene": s["id"], "speed": round(speed, 3), "speech_end": round(end, 2), "window_end": s["end"], "fits": end <= s["end"] - 0.05})
 
 peak = np.max(np.abs(track)); track = track / peak * 0.89
-sf.write(f"{a.out_dir}/narration_{voice}.wav", track, SR, subtype="PCM_16")
-json.dump({"voice": voice, "timings": timings, "scenes": report}, open(f"{a.out_dir}/narration_timings_{voice}.json", "w"), indent=1, ensure_ascii=False)
+sf.write(f"{a.out_dir}/narration{a.tag}_{voice}.wav", track, SR, subtype="PCM_16")
+json.dump({"voice": voice, "timings": timings, "scenes": report}, open(f"{a.out_dir}/narration_timings{a.tag}_{voice}.json", "w"), indent=1, ensure_ascii=False)
 for r in report: print(r)

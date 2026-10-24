@@ -69,7 +69,7 @@ Captions are burned into a reserved bottom band. The demo-UI zooms and the termi
 <img src="{ROOT}/graphics/thumbnail_concept_1280x720.png" style="width:62%">
 
 <h2 class="pb">4. Narration &amp; subtitles (Hinglish)</h2>
-<p>21 caption lines = 21 narration phrases. TTS speed per scene: {speeds}. Full Devanagari TTS script and wording changes: <code>voiceover/narration.md</code>. SRT: <code>subtitles/claude_ai_interface_sample_60s.hinglish.srt</code>.</p>
+<p>{len(tim['timings'])} caption lines = {len(tim['timings'])} narration phrases. TTS speed per scene: {speeds}. Full Devanagari TTS script and wording changes: <code>voiceover/narration.md</code>. SRT: <code>subtitles/claude_ai_interface_sample_60s.hinglish.srt</code>.</p>
 <table><tr><th>#</th><th>Scene</th><th>Time</th><th>Line</th></tr>{nar_rows}</table>
 <div class="box"><b>Wording changes from the brief.</b> The brief's lines need about 69 s of natural speech for a 60 s video, so the hook (S1), S3, S5 and S6 lines were shortened
 without changing their meaning (e.g. S1 → “Claude AI aur Claude Code ka har option samajhna hai? Toh ye tutorial aapke liye hai!”). Before/after table in <code>narration.md</code>.</div>
