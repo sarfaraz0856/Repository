@@ -1,0 +1,175 @@
+{
+ "voice": "hm_omega",
+ "timings": [
+  {
+   "scene": "S1",
+   "start": 0.25,
+   "end": 3.421,
+   "text": "Claude AI aur Claude Code ka har option samajhna hai?"
+  },
+  {
+   "scene": "S1",
+   "start": 3.641,
+   "end": 5.577,
+   "text": "Toh ye tutorial aapke liye hai!"
+  },
+  {
+   "scene": "S2",
+   "start": 6.4,
+   "end": 9.294,
+   "text": "Sabse pehle Claude AI ka home screen samajhiye."
+  },
+  {
+   "scene": "S2",
+   "start": 9.514,
+   "end": 11.868,
+   "text": "Yahan se aap nayi chat shuru kar sakte hain,"
+  },
+  {
+   "scene": "S2",
+   "start": 12.008,
+   "end": 14.283,
+   "text": "purani conversations dekh sakte hain"
+  },
+  {
+   "scene": "S2",
+   "start": 14.423,
+   "end": 17.575,
+   "text": "aur available tools ke through apna kaam kar sakte hain."
+  },
+  {
+   "scene": "S3",
+   "start": 18.4,
+   "end": 21.953,
+   "text": "Message box ke options se aap files attach kar sakte hain"
+  },
+  {
+   "scene": "S3",
+   "start": 22.093,
+   "end": 24.314,
+   "text": "aur supported tools use kar sakte hain."
+  },
+  {
+   "scene": "S3",
+   "start": 24.534,
+   "end": 27.092,
+   "text": "Kaun sa option milega, ye aapke account"
+  },
+  {
+   "scene": "S3",
+   "start": 27.232,
+   "end": 29.428,
+   "text": "aur interface par depend karta hai."
+  },
+  {
+   "scene": "S4",
+   "start": 30.5,
+   "end": 33.075,
+   "text": "Claude Code ek alag coding workflow hai."
+  },
+  {
+   "scene": "S4",
+   "start": 33.295,
+   "end": 36.078,
+   "text": "Isse aap project files samajh sakte hain,"
+  },
+  {
+   "scene": "S4",
+   "start": 36.218,
+   "end": 37.637,
+   "text": "code likhwa sakte hain,"
+  },
+  {
+   "scene": "S4",
+   "start": 37.777,
+   "end": 39.54,
+   "text": "bugs debug kar sakte hain"
+  },
+  {
+   "scene": "S4",
+   "start": 39.68,
+   "end": 42.712,
+   "text": "aur development tasks mein help le sakte hain."
+  },
+  {
+   "scene": "S5",
+   "start": 43.4,
+   "end": 47.05,
+   "text": "Lekin yaad rakhiye, AI ka code hamesha verify kijiye."
+  },
+  {
+   "scene": "S5",
+   "start": 47.27,
+   "end": 49.79,
+   "text": "File access, commands aur advanced features"
+  },
+  {
+   "scene": "S5",
+   "start": 49.93,
+   "end": 52.553,
+   "text": "permissions aur setup par depend karte hain."
+  },
+  {
+   "scene": "S6",
+   "start": 53.25,
+   "end": 56.051,
+   "text": "Agli videos mein har option step by step,"
+  },
+  {
+   "scene": "S6",
+   "start": 56.191,
+   "end": 57.621,
+   "text": "basic se advanced tak."
+  },
+  {
+   "scene": "S6",
+   "start": 57.841,
+   "end": 59.678,
+   "text": "Channel subscribe kar lijiye!"
+  }
+ ],
+ "scenes": [
+  {
+   "scene": "S1",
+   "speed": 1.199,
+   "speech_end": 5.58,
+   "window_end": 6.0,
+   "fits": true
+  },
+  {
+   "scene": "S2",
+   "speed": 1.22,
+   "speech_end": 17.57,
+   "window_end": 18.0,
+   "fits": true
+  },
+  {
+   "scene": "S3",
+   "speed": 1.208,
+   "speech_end": 29.43,
+   "window_end": 30.0,
+   "fits": true
+  },
+  {
+   "scene": "S4",
+   "speed": 1.054,
+   "speech_end": 42.71,
+   "window_end": 43.0,
+   "fits": true
+  },
+  {
+   "scene": "S5",
+   "speed": 1.201,
+   "speech_end": 52.55,
+   "window_end": 53.0,
+   "fits": true
+  },
+  {
+   "scene": "S6",
+   "speed": 1.21,
+   "speech_end": 59.68,
+   "window_end": 60.0,
+   "fits": true
+  }
+ ]
+}

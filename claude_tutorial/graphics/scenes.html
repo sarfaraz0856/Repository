@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="hi-Latn">
+<head>
+<meta charset="utf-8">
+<title>Claude Tutorial Sample – Scene Renderer</title>
+<!--
+  Deterministic 60 s scene renderer. The page draws one frame for any time t (seconds) via window.render(t);
+  scripts/render_frames.js screenshots it at 30 fps.
+  Scenes 1–3 use an ILLUSTRATIVE DEMO UI (claude.ai could not be opened from the production machine).
+  Its layout follows Anthropic's help-centre descriptions; it is labelled on screen and must be replaced
+  with real screen recordings before publishing (see recording_checklist.md).
+  Scene 4 shows frames from a GENUINE screen recording of the Claude Code CLI.
+-->
+<style>
+  :root{
+    --ink:#14161a; --ui-bg:#FAF9F6; --ui-side:#F1EFEA; --ui-line:#E2DED5; --ui-text:#2A2925; --ui-mute:#7A766C;
+    --accent:#FF6A3D; --accent2:#FFB547; --ok:#22C55E; --warn:#F59E0B; --navy:#0B1020;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1920px;height:1080px;overflow:hidden;background:var(--navy);font-family:Inter,"DejaVu Sans",sans-serif;-webkit-font-smoothing:antialiased}
+  #stage{position:absolute;inset:0;overflow:hidden;background:radial-gradient(1200px 700px at 30% 20%,#1b2340 0%,#0B1020 60%,#070a14 100%)}
+  .layer{position:absolute;inset:0}
+  /* ---------- DEMO UI ---------- */
+  #uiCam{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0}
+  #win{position:absolute;left:40px;top:36px;width:1840px;height:1008px;border-radius:18px;overflow:hidden;background:var(--ui-bg);box-shadow:0 30px 80px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.06)}
+  #titlebar{position:absolute;left:0;top:0;right:0;height:44px;background:#ECE9E2;border-bottom:1px solid var(--ui-line);display:flex;align-items:center;padding-left:18px;gap:9px}
+  .dot{width:13px;height:13px;border-radius:50%}
+  #titlebar .lbl{position:absolute;left:0;right:0;text-align:center;font:600 15px Inter;color:#8a8478;letter-spacing:.02em}
+  #side{position:absolute;left:0;top:44px;width:300px;bottom:0;background:var(--ui-side);border-right:1px solid var(--ui-line)}
+  .brand{position:absolute;left:26px;top:22px;font:700 26px Inter;color:var(--ui-text);letter-spacing:-.01em}
+  .brand small{font:600 12px Inter;color:#a49d8f;margin-left:8px;letter-spacing:.06em}
+  .sbtn{position:absolute;left:16px;width:268px;height:44px;border-radius:10px;display:flex;align-items:center;gap:12px;padding-left:14px;font:500 18px Inter;color:var(--ui-text)}
+  .sbtn svg{flex:none}
+  #newchat{top:80px;background:#fff;border:1px solid var(--ui-line)}
+  #chats{top:134px}
+  .divider{position:absolute;left:20px;right:20px;height:1px;background:var(--ui-line)}
+  .conv{position:absolute;left:16px;width:268px;height:40px;border-radius:9px;padding-left:16px;display:flex;align-items:center;font:400 16.5px Inter;color:#4a463e;white-space:nowrap;overflow:hidden}
+  .conv.hover{background:#E5E1D8}
+  #me{position:absolute;left:16px;right:16px;bottom:16px;height:56px;border-radius:12px;display:flex;align-items:center;gap:12px;padding-left:10px}
+  #me .av{width:36px;height:36px;border-radius:50%;background:#5B5BD6;color:#fff;font:700 15px Inter;display:flex;align-items:center;justify-content:center}
+  #me .nm{font:600 16px Inter;color:var(--ui-text)}
+  #settingsPop{position:absolute;left:16px;bottom:82px;width:220px;background:#fff;border:1px solid var(--ui-line);border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.12);padding:6px;opacity:0}
+  .mi{height:42px;border-radius:8px;display:flex;align-items:center;gap:12px;padding:0 12px;font:500 17px Inter;color:var(--ui-text)}
+  .mi.hover{background:#F1EEE7}
+  .mi .note{margin-left:auto;font:500 12px Inter;color:#a49d8f}
+  #main{position:absolute;left:300px;top:44px;right:0;bottom:0}
+  #greet{position:absolute;left:0;right:0;top:300px;text-align:center;font:500 44px Inter;color:#3b3832;letter-spacing:-.015em}
+  #greet span{color:#b4ad9f;font-size:18px;display:block;font-weight:500;letter-spacing:.04em;margin-top:10px}
+  #input{position:absolute;left:320px;top:420px;width:900px;height:150px;background:#fff;border:1px solid #DAD5CA;border-radius:22px;box-shadow:0 6px 24px rgba(40,30,10,.06)}
+  #input .ph{position:absolute;left:28px;top:26px;font:400 21px Inter;color:#a29b8c}
+  #plus{position:absolute;left:18px;bottom:16px;width:44px;height:44px;border-radius:12px;border:1px solid #DAD5CA;display:flex;align-items:center;justify-content:center;background:#fff}
+  #plus.active{background:#F1EEE7}
+  #model{position:absolute;right:76px;bottom:20px;height:36px;padding:0 14px;border-radius:10px;display:flex;align-items:center;gap:8px;font:500 17px Inter;color:#4a463e}
+  #model.active{background:#F1EEE7}
+  #send{position:absolute;right:18px;bottom:16px;width:44px;height:44px;border-radius:12px;background:#D97757;display:flex;align-items:center;justify-content:center}
+  #plusMenu{position:absolute;left:320px;top:580px;width:400px;background:#fff;border:1px solid var(--ui-line);border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,.14);padding:8px;opacity:0;transform-origin:20px 0}
+  #modelMenu{position:absolute;left:880px;top:580px;width:300px;background:#fff;border:1px solid var(--ui-line);border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,.14);padding:8px;opacity:0;transform-origin:250px 0}
+  .menuFoot{font:500 13px Inter;color:#9b9486;padding:8px 12px 4px;border-top:1px solid #EEEAE2;margin-top:6px}
+  /* highlights live inside the UI so they zoom with the camera */
+  .hl{position:absolute;border:4px solid var(--accent);border-radius:14px;box-shadow:0 0 0 6px rgba(255,106,61,.18),0 0 30px rgba(255,106,61,.35);opacity:0;pointer-events:none}
+  .hl .tag{position:absolute;white-space:nowrap;background:var(--accent);color:#fff;font:700 19px Inter;padding:7px 14px;border-radius:9px;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+  #cursor{position:absolute;left:0;top:0;width:34px;height:44px;opacity:0;filter:drop-shadow(0 3px 4px rgba(0,0,0,.35))}
+  .ripple{position:absolute;width:70px;height:70px;margin:-35px 0 0 -35px;border-radius:50%;border:4px solid var(--accent);opacity:0}
+  /* ---------- screen-space overlays ---------- */
+  #badge{position:absolute;right:56px;top:52px;padding:10px 18px;border-radius:999px;font:800 17px Inter;letter-spacing:.05em;display:flex;gap:10px;align-items:center;opacity:0;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+  #badge .sub{font:600 14px Inter;letter-spacing:.01em;opacity:.85}
+  #s1title{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;opacity:0}
+  #s1title .k{font:700 22px Inter;color:var(--accent2);letter-spacing:.32em;margin-bottom:22px}
+  #s1title .t{font:900 118px "Inter Display",Inter;color:#fff;letter-spacing:-.025em;line-height:1;text-shadow:0 8px 40px rgba(0,0,0,.5)}
+  #s1title .t em{font-style:normal;background:linear-gradient(90deg,#FF6A3D,#FFB547);-webkit-background-clip:text;color:transparent}
+  #s1title .s{margin-top:30px;font:800 34px Inter;color:#0B1020;background:#fff;padding:12px 30px;border-radius:12px;letter-spacing:.14em}
+  #s1chip{position:absolute;left:56px;top:52px;padding:10px 18px;border-radius:12px;background:rgba(11,16,32,.88);color:#fff;font:800 18px Inter;letter-spacing:.12em;opacity:0;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+  #s1chip b{color:var(--accent2)}
+  #sceneTag{position:absolute;left:56px;top:52px;padding:10px 18px;border-radius:12px;background:rgba(11,16,32,.88);color:#fff;font:700 19px Inter;opacity:0;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+  #sceneTag b{color:var(--accent2);font-weight:800;margin-right:8px}
+  #note{position:absolute;left:50%;top:132px;transform:translateX(-50%);width:1120px;padding:20px 28px;border-radius:16px;background:rgba(11,16,32,.93);border:2px solid var(--warn);color:#fff;font:600 27px Inter;display:flex;gap:18px;align-items:center;opacity:0;box-shadow:0 18px 40px rgba(0,0,0,.4)}
+  #note .ic{flex:none;width:46px;height:46px;border-radius:50%;background:var(--warn);color:#0B1020;font:900 30px Inter;display:flex;align-items:center;justify-content:center}
+  #note small{display:block;font:500 19px Inter;color:#cbd2e4;margin-top:4px}
+  /* ---------- Scene 4: terminal ---------- */
+  #termScene{opacity:0}
+  #tWin{transform-origin:50% 40%;position:absolute;left:181px;top:156px;width:1558px;height:788px;border-radius:16px;overflow:hidden;background:#0f1419;box-shadow:0 30px 90px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08)}
+  #tBar{height:44px;background:#1c222b;display:flex;align-items:center;gap:9px;padding-left:18px;position:relative}
+  #tBar .lbl{position:absolute;left:0;right:0;text-align:center;font:600 16px "JetBrains Mono",monospace;color:#8b95a7}
+  #term{position:absolute;left:20px;top:58px;width:1518px;height:700px}
+  #tHl{position:absolute;border:4px solid var(--accent);border-radius:12px;box-shadow:0 0 0 6px rgba(255,106,61,.18),0 0 30px rgba(255,106,61,.35);opacity:0}
+  #tHl .tag{position:absolute;white-space:nowrap;background:var(--accent);color:#fff;font:700 19px Inter;padding:7px 14px;border-radius:9px;right:-4px;bottom:-48px}
+  #pills{position:absolute;left:181px;top:84px;display:flex;gap:14px}
+  .pill{padding:10px 18px;border-radius:999px;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.18);color:#e8ecf5;font:700 19px Inter;opacity:0;display:flex;align-items:center;gap:10px}
+  .pill i{width:10px;height:10px;border-radius:50%;background:var(--accent2);display:inline-block}
+  #ff{position:absolute;right:220px;top:220px;padding:12px 20px;border-radius:12px;background:var(--accent2);color:#0B1020;font:800 20px Inter;opacity:0;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+  #ff span{font-weight:600;font-size:16px;display:block}
+  /* ---------- Scene 5: comparison ---------- */
+  #cmpScene{opacity:0}
+  #cmpTitle{position:absolute;left:0;right:0;top:92px;text-align:center;color:#fff;font:800 50px "Inter Display",Inter;letter-spacing:-.01em}
+  #cmpTitle small{display:block;font:600 22px Inter;color:#9fb0d0;letter-spacing:.08em;margin-top:10px}
+  .card{position:absolute;top:268px;width:820px;height:520px;border-radius:24px;padding:40px 44px;background:rgba(255,255,255,.05);border:2px solid rgba(255,255,255,.1)}
+  #cardL{left:120px;border-color:rgba(34,197,94,.55)}
+  #cardR{left:980px;border-color:rgba(245,158,11,.6)}
+  .card h3{font:900 38px Inter;letter-spacing:.08em;margin-bottom:34px;display:flex;align-items:center;gap:16px}
+  #cardL h3{color:#4ADE80} #cardR h3{color:#FBBF24}
+  .card h3 .ic{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font:900 32px Inter;color:#0B1020}
+  #cardL h3 .ic{background:#4ADE80} #cardR h3 .ic{background:#FBBF24}
+  .item{display:flex;gap:18px;align-items:flex-start;margin-bottom:34px;opacity:0}
+  .item .b{flex:none;width:14px;height:14px;border-radius:50%;margin-top:14px}
+  #cardL .b{background:#4ADE80} #cardR .b{background:#FBBF24}
+  .item .tx{font:700 33px Inter;color:#fff;line-height:1.25}
+  .item .tx small{display:block;font:500 23px Inter;color:#aab6cf;margin-top:6px}
+  /* ---------- Scene 6: end card ---------- */
+  #endScene{opacity:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  #endScene .k{font:700 22px Inter;color:var(--accent2);letter-spacing:.32em;margin-bottom:26px}
+  #endScene .t{font:900 112px "Inter Display",Inter;color:#fff;letter-spacing:-.025em;line-height:1}
+  #endScene .t em{font-style:normal;background:linear-gradient(90deg,#FF6A3D,#FFB547);-webkit-background-clip:text;color:transparent}
+  #endScene .s{margin-top:30px;font:800 34px Inter;color:#0B1020;background:#fff;padding:12px 30px;border-radius:12px;letter-spacing:.14em}
+  #eps{display:flex;gap:14px;margin-top:46px;flex-wrap:wrap;justify-content:center;width:1500px}
+  .ep{padding:10px 18px;border-radius:999px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.16);color:#dfe5f2;font:600 20px Inter;opacity:0}
+  #sub{position:absolute;left:50%;top:612px;transform:translateX(-50%);display:none}
+  #subBtn{position:absolute;left:50%;top:796px;transform:translateX(-50%);display:flex;align-items:center;gap:14px;background:#E8322B;color:#fff;font:800 28px Inter;padding:16px 34px;border-radius:14px;opacity:0;box-shadow:0 14px 40px rgba(232,50,43,.45)}
+  /* ---------- captions ---------- */
+  #cap{position:absolute;left:50%;bottom:30px;transform:translateX(-50%);max-width:1560px;white-space:nowrap;text-align:center;padding:11px 26px;border-radius:12px;background:rgba(8,10,18,.84);color:#fff;font:600 35px Inter;line-height:1.25;opacity:0;letter-spacing:.005em}
+  #cap .hi{color:var(--accent2)}
+  #fade{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none}
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <!-- ===================== DEMO UI (Scenes 1–3) ===================== -->
+  <div id="uiScene" class="layer">
+    <div id="uiCam">
+      <div id="win">
+        <div id="titlebar"><div class="dot" style="background:#FF5F57"></div><div class="dot" style="background:#FEBC2E"></div><div class="dot" style="background:#28C840"></div>
+          <div class="lbl">DEMO UI · illustrative layout based on Claude Help Center · not a screen recording</div></div>
+        <div id="side">
+          <div class="brand">Claude<small>DEMO</small></div>
+          <div class="sbtn" id="newchat"><svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#D97757"/><path d="M12 7v10M7 12h10" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>New chat</div>
+          <div class="sbtn" id="chats"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6b665c" stroke-width="2"><path d="M4 5h16v11H9l-5 4z" stroke-linejoin="round"/></svg>Chats and tasks</div>
+          <div class="divider" style="top:196px"></div>
+          <div class="conv" style="top:212px">Python loop samjhao</div>
+          <div class="conv" style="top:256px">Leave application draft</div>
+          <div class="conv" style="top:300px">Excel VLOOKUP help</div>
+          <div class="conv" style="top:344px">Resume summary likho</div>
+          <div class="conv" style="top:388px">Jaipur trip plan</div>
+          <div class="conv" style="top:432px">Physics notes – Class 12</div>
+          <div id="settingsPop"><div class="mi hover"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a463e" stroke-width="2"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.2 5.2l2.1 2.1M16.7 16.7l2.1 2.1M5.2 18.8l2.1-2.1M16.7 7.3l2.1-2.1"/></svg>Settings</div></div>
+          <div id="me"><div class="av">DU</div><div class="nm">Demo User</div></div>
+        </div>
+        <div id="main">
+          <div id="greet">Aaj kis kaam mein madad chahiye?<span>DEMO WORKSPACE</span></div>
+          <div id="input">
+            <div class="ph">Apna message yahan likhiye…</div>
+            <div id="plus"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="#4a463e" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+            <div id="model">Sonnet 5.5 <svg width="14" height="14" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" stroke="#4a463e" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg></div>
+            <div id="send"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+          <div id="plusMenu">
+            <div class="mi" id="miFiles"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4a463e" stroke-width="2"><path d="M20 11.5l-8 8a5 5 0 01-7-7l8.5-8.5a3.3 3.3 0 014.7 4.7L9.7 17a1.7 1.7 0 01-2.4-2.4L15 7" stroke-linecap="round"/></svg>Add files or photos</div>
+            <div class="mi" id="miWeb"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4a463e" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>Web search<span class="note">plan / setting</span></div>
+            <div class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="#4a463e"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>Aur options<span class="note">account par depend</span></div>
+            <div class="menuFoot">Menu items account aur interface version ke hisaab se badal sakte hain</div>
+          </div>
+          <div id="modelMenu">
+            <div class="mi">Opus 5.5</div>
+            <div class="mi hover">Sonnet 5.5<span class="note" style="color:#D97757;font-size:18px">✓</span></div>
+            <div class="mi">Haiku 5.5</div>
+            <div class="mi" style="color:#7A766C">More models</div>
+            <div class="menuFoot">Available models plan / admin settings par depend</div>
+          </div>
+        </div>
+        <!-- highlight boxes (UI coordinates relative to #win) -->
+        <div class="hl" id="hlSide"><div class="tag" style="left:310px;top:150px">Sidebar &amp; chat history</div></div>
+        <div class="hl" id="hlModel"><div class="tag" style="left:-10px;top:-50px">Model selector</div></div>
+        <div class="hl" id="hlNew"><div class="tag" style="left:288px;top:4px">New chat</div></div>
+        <div class="hl" id="hlConv"><div class="tag" style="left:288px;top:8px">Purani conversations</div></div>
+        <div class="hl" id="hlInput"><div class="tag" style="left:-4px;top:-52px">Message box</div></div>
+        <div class="hl" id="hlPlus"><div class="tag" style="left:-4px;top:-52px">Attachments &amp; tools ( + )</div></div>
+        <div class="hl" id="hlMe"><div class="tag" style="left:300px;top:-58px">Initials par click → Settings</div></div>
+        <div class="hl" id="hlFiles"><div class="tag" style="left:430px;top:2px">Files attach</div></div>
+        <div class="hl" id="hlWeb"><div class="tag" style="left:430px;top:2px">Supported tools</div></div>
+        <div class="hl" id="hlMM"><div class="tag" style="left:-196px;top:10px">Model selector</div></div>
+        <div class="ripple" id="rip"></div>
+        <svg id="cursor" viewBox="0 0 34 44"><path d="M3 2 L3 34 L11 26.5 L16.5 39 L22 36.6 L16.6 24.4 L27.5 24.4 Z" fill="#111" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+    <div id="s1title"><div class="k">EPISODE 01 · SAMPLE</div><div class="t">CLAUDE AI <em>COMPLETE GUIDE</em></div><div class="s">BEGINNER TO ADVANCED</div></div>
+    <div id="s1chip"><b>CLAUDE AI COMPLETE GUIDE</b> · BEGINNER TO ADVANCED</div>
+    <div id="note"><div class="ic">!</div><div>Options aapke plan, account permissions aur product updates par depend karte hain<small>Platform (web / desktop / mobile) ke hisaab se interface alag dikh sakta hai</small></div></div>
+  </div>
+
+  <!-- ===================== Scene 4: genuine Claude Code recording ===================== -->
+  <div id="termScene" class="layer">
+    <div id="pills"><div class="pill" id="p1"><i></i>Project files samjho</div><div class="pill" id="p2"><i></i>Code likhwao</div><div class="pill" id="p3"><i></i>Bugs debug karo</div><div class="pill" id="p4"><i></i>Development tasks</div></div>
+    <div id="tWin"><div id="tBar"><div class="dot" style="background:#FF5F57"></div><div class="dot" style="background:#FEBC2E"></div><div class="dot" style="background:#28C840"></div><div class="lbl">Terminal — ~/todo-app (fictional demo project)</div></div>
+      <img id="term" alt="">
+      <div id="tHl"><div class="tag">Claude Code ka jawab</div></div>
+    </div>
+    <div id="ff">⏩ Fast-forward<span>Claude Code files padh raha hai…</span></div>
+  </div>
+
+  <!-- ===================== Scene 5: can / limitations ===================== -->
+  <div id="cmpScene" class="layer">
+    <div id="cmpTitle">Claude Code: kya kar sakta hai, kya dhyaan rakhein<small>VERIFY · REVIEW · THEN RUN</small></div>
+    <div class="card" id="cardL"><h3><span class="ic">✓</span>CAN HELP WITH</h3>
+      <div class="item" id="l1"><div class="b"></div><div class="tx">Writing and explaining code<small>Code likhna aur samjhana</small></div></div>
+      <div class="item" id="l2"><div class="b"></div><div class="tx">Understanding project files<small>Project ka structure samajhna</small></div></div>
+      <div class="item" id="l3"><div class="b"></div><div class="tx">Debugging and development tasks<small>Bugs dhoondhna aur fix karna</small></div></div>
+    </div>
+    <div class="card" id="cardR"><h3><span class="ic">!</span>LIMITATIONS</h3>
+      <div class="item" id="r1"><div class="b"></div><div class="tx">Results can contain mistakes<small>Output hamesha verify kijiye</small></div></div>
+      <div class="item" id="r2"><div class="b"></div><div class="tx">Access depends on permissions and setup<small>File access aur commands setup par depend</small></div></div>
+      <div class="item" id="r3"><div class="b"></div><div class="tx">Changes should be reviewed before execution<small>Run karne se pehle review zaroori</small></div></div>
+    </div>
+  </div>
+
+  <!-- ===================== Scene 6: series end card ===================== -->
+  <div id="endScene" class="layer">
+    <div class="k">COMING NEXT</div>
+    <div class="t">CLAUDE AI <em>+</em> CLAUDE CODE</div>
+    <div class="s">FULL STEP-BY-STEP SERIES</div>
+    <div id="eps">
+      <div class="ep">Interface</div><div class="ep">Projects</div><div class="ep">Files</div><div class="ep">Artifacts</div><div class="ep">Research &amp; tools</div><div class="ep">Settings</div>
+      <div class="ep">Claude Code install</div><div class="ep">Terminal commands</div><div class="ep">Debugging</div><div class="ep">Permissions</div><div class="ep">Safe practices</div>
+    </div>
+    <div id="subBtn"><svg width="34" height="34" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4" fill="#fff"/><path d="M10 9l5 3-5 3z" fill="#E8322B"/></svg>SUBSCRIBE<svg id="bell" width="30" height="30" viewBox="0 0 24 24"><path d="M12 3a6 6 0 00-6 6v4l-2 3h16l-2-3V9a6 6 0 00-6-6zM10 19a2 2 0 004 0" fill="#fff"/></svg></div>
+  </div>
+
+  <div id="badge"></div>
+  <div id="sceneTag"></div>
+  <div id="cap"></div>
+  <div id="fade"></div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+const ease = x => x<.5 ? 4*x*x*x : 1-Math.pow(-2*x+2,3)/2;
+const easeOut = x => 1-Math.pow(1-x,3);
+// window between a..b with fade d
+function win(t,a,b,d=0.25){ if(t<a-d||t>b+d) return 0; if(t<a) return easeOut((t-(a-d))/d); if(t>b) return 1-easeOut((t-b)/d); return 1; }
+function ramp(t,a,b){ return ease(clamp((t-a)/(b-a),0,1)); }
+// keyframe interpolation: keys = [[t, v0, v1, ...], ...]
+function kf(keys,t){
+  if(t<=keys[0][0]) return keys[0].slice(1);
+  for(let i=0;i<keys.length-1;i++){ const A=keys[i],B=keys[i+1];
+    if(t<=B[0]){ const u=ease((t-A[0])/(B[0]-A[0])); return A.slice(1).map((v,j)=>v+(B[j+1]-v)*u); } }
+  return keys[keys.length-1].slice(1);
+}
+function setHL(id,t,a,b,x,y,w,h){ const e=$(id), o=win(t,a,b,.22); e.style.opacity=o;
+  const s=0.94+0.06*o; Object.assign(e.style,{left:x+'px',top:y+'px',width:w+'px',height:h+'px',transform:`scale(${s})`}); }
+
+/* ---------------- timeline data (seconds) ---------------- */
+// UI coordinates are relative to #win (window origin at stage 40,36). Key points:
+const P = { newchat:[150,146], me:[110,964], plus:[660,576], model:[1374,576], files:[930,653], web:[930,695] };
+// camera: [t, scale, focusX, focusY] in STAGE coordinates
+const CAM = [[0,1.0,960,540],[3.3,1.16,1180,560],[4.6,1.22,520,420],[5.6,1.22,1330,620],[6.6,1.0,960,540],[9.4,1.08,780,500],
+             [12.0,1.08,780,500],[12.6,1.32,420,380],[14.2,1.32,420,380],[14.8,1.0,960,540],
+             [18.0,1.0,960,540],[18.8,1.5,1000,620],[24.2,1.5,1000,620],[24.9,1.5,1230,640],[29.4,1.5,1230,640],[30.0,1.3,1230,640]];
+// cursor path (win coordinates)
+const CUR = [[6.3,1300,860],[7.3,160,560],[8.6,170,420],[9.6,170,420],[10.4,P.newchat[0],P.newchat[1]],[11.9,P.newchat[0],P.newchat[1]],
+             [12.6,150,276],[13.4,150,364],[14.2,150,452],[15.0,960,520],[15.8,960,520],[16.3,P.plus[0],P.plus[1]],[16.9,P.plus[0],P.plus[1]],
+             [17.5,P.me[0],P.me[1]],[18.6,P.me[0],P.me[1]],[19.9,P.plus[0],P.plus[1]],[20.5,P.plus[0],P.plus[1]],
+             [21.0,P.files[0],P.files[1]],[22.2,P.files[0],P.files[1]],[22.7,P.web[0],P.web[1]],[24.3,P.web[0],P.web[1]],
+             [25.1,P.model[0],P.model[1]],[25.6,P.model[0],P.model[1]],[26.3,1290,700],[27.2,1290,700],[30,1290,700]];
+const CLICKS = [10.5, 17.3, 20.15, 25.3];
+
+function renderUI(t){
+  const vis = t < 30.7;
+  $('uiScene').style.display = vis ? 'block' : 'none';
+  if(!vis) return;
+  // scene transition to terminal: slide left & fade
+  const out = ramp(t,29.95,30.35);
+  $('uiScene').style.opacity = 1-out;
+  const [s,fx,fy] = kf(CAM,t);
+  $('uiCam').style.transform = `translate(${960-fx*s - out*260}px,${540-fy*s}px) scale(${s*(1-0.06*out)})`;
+  // S1 title blur
+  const blur = t<3.4 ? 16*(1-ramp(t,2.9,3.4)) : 0;
+  $('uiCam').style.filter = blur>0.05 ? `blur(${blur}px) brightness(${0.38+0.62*ramp(t,2.9,3.4)})` : 'none';
+  $('s1title').style.opacity = win(t,0.2,3.0,0.35);
+  $('s1title').style.transform = `scale(${0.92+0.08*easeOut(clamp(t/1.2,0,1))+0.02*ramp(t,1.2,3.0)})`;
+  $('s1chip').style.opacity = win(t,3.4,5.8,0.25);
+  // highlights
+  setHL('hlModel',t,4.75,5.8,1294,548,160,56);
+  setHL('hlSide',t, t<6?3.6:6.7, t<6?4.55:9.15, 6,50,296,948);
+  setHL('hlNew',t,9.6,11.9,12,116,280,56);
+  setHL('hlConv',t,12.5,14.25,12,250,280,272);
+  setHL('hlInput',t,14.6,15.6,612,456,916,166);
+  setHL('hlPlus',t,15.9,16.75,629,545,62,62);
+  setHL('hlMe',t,16.9,18.1,8,930,288,68);
+  setHL('hlFiles',t,20.7,22.05,612,628,416,50);
+  setHL('hlWeb',t,22.3,24.25,612,670,416,50);
+  setHL('hlMM',t,25.7,27.2,1172,616,316,262);
+  // hover / active states
+  const [cx,cy] = kf(CUR,t);
+  document.querySelectorAll('.conv').forEach(e=>{ const top=parseFloat(e.style.top)+44, y0=top, y1=top+40;
+    e.classList.toggle('hover', t>12 && t<14.6 && cx>16+0 && cx<300 && cy>=y0 && cy<y1); });
+  $('newchat').style.background = (t>10.2&&t<12)? '#F7F5F0':'#fff';
+  // menus
+  const pm = win(t,20.3,24.35,0.18); $('plusMenu').style.opacity = pm; $('plusMenu').style.transform=`scale(${0.96+0.04*pm})`;
+  $('plus').classList.toggle('active', pm>0.5);
+  $('miFiles').classList.toggle('hover', t>20.8&&t<22.4); $('miWeb').classList.toggle('hover', t>22.5&&t<24.4);
+  const mm = win(t,25.4,29.6,0.18); $('modelMenu').style.opacity = mm; $('modelMenu').style.transform=`scale(${0.96+0.04*mm})`;
+  $('model').classList.toggle('active', mm>0.5);
+  $('settingsPop').style.opacity = win(t,17.45,18.25,0.15);
+  // cursor
+  const cOp = win(t,6.35,29.9,0.3);
+  $('cursor').style.opacity = cOp;
+  $('cursor').style.transform = `translate(${cx-3}px,${cy-2}px)`;
+  let r=0, rs=0; for(const c of CLICKS){ const d=t-c; if(d>=0&&d<0.45){ r=1-d/0.45; rs=0.4+d/0.45*0.9; } }
+  Object.assign($('rip').style,{left:cx+'px',top:cy+'px',opacity:r,transform:`scale(${rs})`});
+  $('cursor').style.transform += r>0.6 ? ' scale(0.88)' : '';
+  // caution note
+  $('note').style.opacity = win(t,26.9,29.7,0.3);
+  $('note').style.transform = `translateX(-50%) translateY(${(1-win(t,26.9,29.7,0.3))*-14}px)`;
+}
+
+/* ---------------- Scene 4: terminal ---------------- */
+// output time u (0..13) -> source time in the raw recording (see storyboard.md)
+const TMAP = [[0,1.2],[0.6,1.2],[7.6,9.4],[8.6,21.1],[13.0,25.4]];
+function lin(keys,x){ if(x<=keys[0][0]) return keys[0][1]; for(let i=0;i<keys.length-1;i++){const a=keys[i],b=keys[i+1]; if(x<=b[0]) return a[1]+(b[1]-a[1])*(x-a[0])/(b[0]-a[0]);} return keys[keys.length-1][1]; }
+let lastTermSrc=null;
+async function renderTerm(t){
+  const vis = t>=29.95 && t<43.4;
+  $('termScene').style.display = vis?'block':'none';
+  if(!vis) return;
+  const u = t-30, inn = ramp(t,30.15,30.65), out = ramp(t,42.8,43.3);
+  $('termScene').style.opacity = inn*(1-out);
+  $('tWin').style.transform = `translateX(${(1-inn)*420}px) scale(${(1-0.03*out)*(1+0.04*ramp(t,38.6,43.0))})`;
+  const src = lin(TMAP,u), f = clamp(Math.round(src*30)+1,1,765);
+  const path = window.TERM_DIR + '/f' + String(f).padStart(4,'0') + '.jpg';
+  if(path!==lastTermSrc){ $('term').src = path; lastTermSrc = path; await $('term').decode().catch(()=>{}); }
+  [['p1',33.3],['p2',36.2],['p3',37.75],['p4',39.65]].forEach(([id,a])=>{ const o=ramp(t,a,a+0.35); $(id).style.opacity=o; $(id).style.transform=`translateY(${(1-o)*10}px)`; });
+  $('ff').style.opacity = win(t,37.55,38.6,0.12);
+  Object.assign($('tHl').style,{left:'12px',top:(58+255)+'px',width:'1534px',height:'362px',opacity:win(t,39.2,42.7,0.25)});
+}
+
+/* ---------------- Scene 5 ---------------- */
+function renderCmp(t){
+  const vis = t>=42.8 && t<53.4; $('cmpScene').style.display = vis?'block':'none'; if(!vis) return;
+  $('cmpScene').style.opacity = ramp(t,42.8,43.3)*(1-ramp(t,52.8,53.3));
+  $('cmpScene').style.transform = `scale(${1+0.035*clamp((t-43)/10,0,1)})`;
+  $('cardL').style.transform = `translateX(${(1-ramp(t,43.0,43.6))*-60}px)`;
+  $('cardR').style.transform = `translateX(${(1-ramp(t,43.1,43.7))*60}px)`;
+  [['l1',43.6],['l2',44.0],['l3',44.4],['r1',45.3],['r2',47.3],['r3',49.95]].forEach(([id,a])=>{ const o=ramp(t,a,a+0.4); $(id).style.opacity=o; $(id).style.transform=`translateY(${(1-o)*14}px)`; });
+}
+
+/* ---------------- Scene 6 ---------------- */
+function renderEnd(t){
+  const vis = t>=52.8; $('endScene').style.display = vis?'flex':'none'; if(!vis) return;
+  const o = ramp(t,52.8,53.4); $('endScene').style.opacity = o;
+  $('endScene').querySelector('.t').style.transform = `scale(${0.9+0.1*easeOut(clamp((t-52.9)/0.9,0,1))+0.015*ramp(t,54,60)})`;
+  $('endScene').querySelector('.s').style.opacity = ramp(t,53.6,54.1);
+  document.querySelectorAll('.ep').forEach((e,i)=>{ const a=54.2+i*0.12, q=ramp(t,a,a+0.35); e.style.opacity=q; e.style.transform=`translateY(${(1-q)*12}px)`; });
+  const sb = ramp(t,57.6,58.0); $('subBtn').style.opacity = sb;
+  const pulse = t>58.1 ? 1+0.04*Math.sin((t-58.1)*9)*Math.exp(-(t-58.1)*1.5) : 1;
+  $('subBtn').style.transform = `translateX(-50%) scale(${(0.9+0.1*sb)*pulse})`;
+  $('bell').style.transform = t>58.2 ? `rotate(${18*Math.sin((t-58.2)*16)*Math.exp(-(t-58.2)*2.2)}deg)` : 'none';
+}
+
+/* ---------------- overlays ---------------- */
+function renderOverlays(t){
+  const b = $('badge');
+  if(t<30.3){ b.style.background='#FFB547'; b.style.color='#0B1020'; b.innerHTML='DEMO UI <span class="sub">illustrative · real interface may differ</span>'; b.style.opacity = win(t,3.4,30.0,0.3); }
+  else if(t<43){ b.style.background='#16A34A'; b.style.color='#fff'; b.innerHTML='● REAL RECORDING <span class="sub">Claude Code CLI v2.1.310</span>'; b.style.opacity = win(t,30.6,42.8,0.3); }
+  else b.style.opacity = 0;
+  const tags = [[6.2,17.9,'Claude AI','Home screen'],[18.1,29.9,'Claude AI','Chat tools &amp; options'],[30.6,42.8,'Claude Code','Terminal demo']];
+  let o=0, html=''; for(const [a,z,k,v] of tags){ const w=win(t,a,z,0.25); if(w>0){o=w; html=`<b>${k}</b>${v}`;} }
+  $('sceneTag').style.opacity=o; if(html) $('sceneTag').innerHTML=html;
+  $('fade').style.opacity = 0;
+}
+function renderCaps(t){
+  const c = $('cap'); if(!window.SHOW_CAPS || !window.CAPS){ c.style.opacity=0; return; }
+  let cur=null; for(const k of window.CAPS){ if(t>=k.start-0.08 && t<k.hold) cur=k; }
+  if(!cur){ c.style.opacity=0; return; }
+  c.innerHTML = cur.text; c.style.opacity = Math.min(1,(t-(cur.start-0.08))/0.12, (cur.hold-t)/0.12);
+}
+
+window.render = async function(t){
+  renderUI(t); await renderTerm(t); renderCmp(t); renderEnd(t); renderOverlays(t); renderCaps(t);
+  return true;
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+{
+ "voice": "hm_omega",
+ "scenes": [
+  {
+   "id": "S1",
+   "start": 0.0,
+   "end": 6.0,
+   "lead": 0.25,
+   "phrases": [
+    [
+     "Claude AI aur Claude Code ka har option samajhna hai?",
+     "क्लॉड ए-आई और क्लॉड कोड का हर ऑप्शन समझना है?"
+    ],
+    [
+     "Toh ye tutorial aapke liye hai!",
+     "तो ये ट्यूटोरियल आपके लिए है!"
+    ]
+   ]
+  },
+  {
+   "id": "S2",
+   "start": 6.0,
+   "end": 18.0,
+   "lead": 0.4,
+   "phrases": [
+    [
+     "Sabse pehle Claude AI ka home screen samajhiye.",
+     "सबसे पहले क्लॉड ए-आई का होम स्क्रीन समझिए।"
+    ],
+    [
+     "Yahan se aap nayi chat shuru kar sakte hain,",
+     "यहाँ से आप नई चैट शुरू कर सकते हैं,"
+    ],
+    [
+     "purani conversations dekh sakte hain",
+     "पुरानी कन्वर्सेशन्स देख सकते हैं"
+    ],
+    [
+     "aur available tools ke through apna kaam kar sakte hain.",
+     "और अवेलेबल टूल्स के थ्रू अपना काम कर सकते हैं।"
+    ]
+   ]
+  },
+  {
+   "id": "S3",
+   "start": 18.0,
+   "end": 30.0,
+   "lead": 0.4,
+   "phrases": [
+    [
+     "Message box ke options se aap files attach kar sakte hain",
+     "मैसेज बॉक्स के ऑप्शन्स से आप फ़ाइल्स अटैच कर सकते हैं"
+    ],
+    [
+     "aur supported tools use kar sakte hain.",
+     "और सपोर्टेड टूल्स यूज़ कर सकते हैं।"
+    ],
+    [
+     "Kaun sa option milega, ye aapke account",
+     "कौन सा ऑप्शन मिलेगा, ये आपके अकाउंट"
+    ],
+    [
+     "aur interface par depend karta hai.",
+     "और इंटरफ़ेस पर डिपेंड करता है।"
+    ]
+   ]
+  },
+  {
+   "id": "S4",
+   "start": 30.0,
+   "end": 43.0,
+   "lead": 0.5,
+   "phrases": [
+    [
+     "Claude Code ek alag coding workflow hai.",
+     "क्लॉड कोड एक अलग कोडिंग वर्कफ़्लो है।"
+    ],
+    [
+     "Isse aap project files samajh sakte hain,",
+     "इससे आप प्रोजेक्ट फ़ाइल्स समझ सकते हैं,"
+    ],
+    [
+     "code likhwa sakte hain,",
+     "कोड लिखवा सकते हैं,"
+    ],
+    [
+     "bugs debug kar sakte hain",
+     "बग्स डीबग कर सकते हैं"
+    ],
+    [
+     "aur development tasks mein help le sakte hain.",
+     "और डेवलपमेंट टास्क्स में हेल्प ले सकते हैं।"
+    ]
+   ]
+  },
+  {
+   "id": "S5",
+   "start": 43.0,
+   "end": 53.0,
+   "lead": 0.4,
+   "phrases": [
+    [
+     "Lekin yaad rakhiye, AI ka code hamesha verify kijiye.",
+     "लेकिन याद रखिए, ए-आई का कोड हमेशा वेरिफ़ाई कीजिए।"
+    ],
+    [
+     "File access, commands aur advanced features",
+     "फ़ाइल एक्सेस, कमांड्स और एडवांस्ड फ़ीचर्स"
+    ],
+    [
+     "permissions aur setup par depend karte hain.",
+     "परमिशन्स और सेटअप पर डिपेंड करते हैं।"
+    ]
+   ]
+  },
+  {
+   "id": "S6",
+   "start": 53.0,
+   "end": 60.0,
+   "lead": 0.25,
+   "phrases": [
+    [
+     "Agli videos mein har option step by step,",
+     "अगली वीडियोज़ में हर ऑप्शन स्टेप बाय स्टेप,"
+    ],
+    [
+     "basic se advanced tak.",
+     "बेसिक से एडवांस्ड तक।"
+    ],
+    [
+     "Channel subscribe kar lijiye!",
+     "चैनल सब्सक्राइब कर लीजिए!"
+    ]
+   ]
+  }
+ ]
+}
