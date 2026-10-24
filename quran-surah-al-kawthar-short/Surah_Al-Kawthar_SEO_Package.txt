@@ -9,8 +9,8 @@ Video: 24 sec, starts with "إِنَّآ أَعْطَيْنَٰكَ ٱلْكَو
 Rules used in this package:
 - Everything to copy is in Arabic + English.
 - "Quran / القرآن" is in every title, the description, tags and hashtags.
-- "Noor Quran / نور القرآن" (= "The Light of the Quran") is in the description and
-  tags only, not in the title.
+- "Noor Quran TV / نور القرآن تي في" ("Noor Quran" = "The Light of the Quran") is in
+  the description and tags only, not in the title.
 - Titles are kept short (Shorts shows only ~40 characters).
 
 
@@ -38,14 +38,14 @@ Tip: If you know the reciter's name, a short form also works well:
 إِنَّآ أَعْطَيْنَٰكَ ٱلْكَوْثَرَ ۝ فَصَلِّ لِرَبِّكَ وَٱنْحَرْ ۝ إِنَّ شَانِئَكَ هُوَ ٱلْأَبْتَرُ
 
 أقصر سورة في القرآن الكريم، والكوثر نهرٌ في الجنة أعطاه الله لنبيه محمد ﷺ.
-نور القرآن — تلاوات قرآنية هادئة تملأ القلب نورًا وسكينة.
+Noor Quran TV | نور القرآن تي في — ومعنى «نور القرآن»: نور كلام الله الذي يملأ القلب سكينة.
 شارك الأجر واشترك ليصلك القرآن الكريم كل يوم 🤲
 
 Surah Al-Kawthar 🤍 Calm Holy Quran recitation
 "Indeed, We have granted you al-Kawthar. So pray to your Lord and sacrifice. Indeed, your enemy is the one cut off." (Quran 108:1-3)
 
 The shortest surah of the Quran. Al-Kawthar is a river in Paradise that Allah gave to Prophet Muhammad ﷺ.
-Noor Quran (نور القرآن) means "The Light of the Quran": calm Quran recitations that fill the heart with light and peace.
+Noor Quran TV | نور القرآن: "Noor Quran" means "The Light of the Quran", the light of Allah's words that fills the heart with peace.
 Share the reward and subscribe for daily Quran 🤲
 
 #سورة_الكوثر #القرآن_الكريم #قرآن #Quran #SurahKawthar #shorts
@@ -56,7 +56,7 @@ Share the reward and subscribe for daily Quran 🤲
    Length checked: under YouTube's 500-character limit
 --------------------------------------------------
 
-سورة الكوثر, القرآن الكريم, قرآن, قران كريم, نور القرآن, نور القران, تلاوة قرآن, سوره الكوثر, سورة الكوثر مكتوبة, انا اعطيناك الكوثر, اقصر سورة في القران, قصار السور, تلاوة خاشعة, quran, holy quran, noor quran, noor al quran, light of the quran, quran recitation, surah kawthar, surah al kawthar, surah kausar, quran shorts, quran with english translation, beautiful quran recitation, islamic shorts
+سورة الكوثر, القرآن الكريم, قرآن, قران كريم, نور القرآن, نور القران, نور القرآن تي في, نور القرآن tv, تلاوة قرآن, سوره الكوثر, سورة الكوثر مكتوبة, انا اعطيناك الكوثر, اقصر سورة في القران, قصار السور, تلاوة خاشعة, quran, holy quran, noor quran tv, noor quran, noor al quran, light of the quran, quran recitation, surah kawthar, surah al kawthar, surah kausar, quran shorts, quran with english translation, beautiful quran recitation, islamic shorts
 
 
 --------------------------------------------------
@@ -153,8 +153,9 @@ Text to add yourself in Canva / CapCut (don't let the AI write Arabic, it gets Q
 [ ] Shorts > Related video = Surah An-Nas short (keeps viewers in your series)
 [ ] Comments on + pin the comment from section 6
 
-NOTE on "Noor Quran": it is used here as the phrase "نور القرآن = The Light of the Quran".
-Don't write anything that says or suggests this video is from the "Noor Quran" channel.
+NOTE on "Noor Quran TV": it appears only in the description and tags, with the meaning
+of "نور القرآن = The Light of the Quran". Don't write anything that says or suggests
+this video is from the "Noor Quran TV" channel.
 YouTube removes metadata that misleads viewers about who made a video.
 
 ==================================================
