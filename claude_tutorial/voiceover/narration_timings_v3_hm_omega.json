@@ -1,0 +1,718 @@
+{
+ "voice": "hm_omega",
+ "speed": 1.06,
+ "total": 394.067,
+ "scenes": [
+  {
+   "id": "intro",
+   "start": 0.4,
+   "end": 15.786
+  },
+  {
+   "id": "home",
+   "start": 16.586,
+   "end": 34.437
+  },
+  {
+   "id": "new",
+   "start": 35.237,
+   "end": 46.168
+  },
+  {
+   "id": "search",
+   "start": 46.768,
+   "end": 56.478
+  },
+  {
+   "id": "projects",
+   "start": 57.078,
+   "end": 81.367
+  },
+  {
+   "id": "artifacts",
+   "start": 81.967,
+   "end": 101.258
+  },
+  {
+   "id": "code",
+   "start": 101.858,
+   "end": 123.074
+  },
+  {
+   "id": "customize",
+   "start": 123.674,
+   "end": 136.916
+  },
+  {
+   "id": "usage",
+   "start": 137.516,
+   "end": 149.128
+  },
+  {
+   "id": "history",
+   "start": 149.728,
+   "end": 162.187
+  },
+  {
+   "id": "account",
+   "start": 162.787,
+   "end": 171.61
+  },
+  {
+   "id": "incognito",
+   "start": 172.21,
+   "end": 184.946
+  },
+  {
+   "id": "msgbox",
+   "start": 185.846,
+   "end": 195.592
+  },
+  {
+   "id": "plus",
+   "start": 196.192,
+   "end": 215.478
+  },
+  {
+   "id": "cowork",
+   "start": 216.078,
+   "end": 237.903
+  },
+  {
+   "id": "model",
+   "start": 238.503,
+   "end": 271.351
+  },
+  {
+   "id": "voice",
+   "start": 271.951,
+   "end": 283.241
+  },
+  {
+   "id": "cc_intro",
+   "start": 284.241,
+   "end": 294.143
+  },
+  {
+   "id": "cc_explain",
+   "start": 294.943,
+   "end": 311.015
+  },
+  {
+   "id": "cc_fix",
+   "start": 312.015,
+   "end": 345.822
+  },
+  {
+   "id": "cc_modes",
+   "start": 346.622,
+   "end": 356.751
+  },
+  {
+   "id": "limits",
+   "start": 357.751,
+   "end": 378.315
+  },
+  {
+   "id": "outro",
+   "start": 379.315,
+   "end": 394.062
+  }
+ ],
+ "timings": [
+  {
+   "id": "i1",
+   "scene": "intro",
+   "start": 0.4,
+   "end": 6.4,
+   "text": "Namaste! Is video mein hum Claude AI ka poora interface step by step samjhenge.",
+   "en": "Hello! In this video, we'll understand the complete Claude AI interface, step by step."
+  },
+  {
+   "id": "i2",
+   "scene": "intro",
+   "start": 6.74,
+   "end": 11.389,
+   "text": "Har option kya hai, kaise use karte hain, aur uski limitations kya hain.",
+   "en": "What each option is, how to use it, and what its limits are."
+  },
+  {
+   "id": "i3",
+   "scene": "intro",
+   "start": 11.729,
+   "end": 15.046,
+   "text": "Aur end mein Claude Code ka real demo bhi dekhenge.",
+   "en": "And at the end, we'll watch a real Claude Code demo."
+  },
+  {
+   "id": "h1",
+   "scene": "home",
+   "start": 16.586,
+   "end": 20.524,
+   "text": "Ye Claude ka home screen hai. Main yahan Pro plan use kar raha hoon.",
+   "en": "This is Claude's home screen. I'm using the Pro plan here."
+  },
+  {
+   "id": "h2",
+   "scene": "home",
+   "start": 20.864,
+   "end": 22.662,
+   "text": "Screen ke teen main hisse hain:",
+   "en": "The screen has three main parts:"
+  },
+  {
+   "id": "h3",
+   "scene": "home",
+   "start": 23.002,
+   "end": 24.671,
+   "text": "left side mein sidebar,",
+   "en": "the sidebar on the left,"
+  },
+  {
+   "id": "h4",
+   "scene": "home",
+   "start": 24.831,
+   "end": 26.484,
+   "text": "beech mein message box,",
+   "en": "the message box in the middle,"
+  },
+  {
+   "id": "h5",
+   "scene": "home",
+   "start": 26.644,
+   "end": 28.413,
+   "text": "aur neeche aapka account.",
+   "en": "and your account at the bottom."
+  },
+  {
+   "id": "h6",
+   "scene": "home",
+   "start": 28.753,
+   "end": 33.697,
+   "text": "Kuch options aapke plan aur account ke hisaab se alag dikh sakte hain.",
+   "en": "Some options may look different depending on your plan and account."
+  },
+  {
+   "id": "n1",
+   "scene": "new",
+   "start": 35.237,
+   "end": 39.015,
+   "text": "Sabse upar New button hai. Isse nayi chat shuru hoti hai.",
+   "en": "At the top is the New button. It starts a new chat."
+  },
+  {
+   "id": "n2",
+   "scene": "new",
+   "start": 39.355,
+   "end": 45.428,
+   "text": "Har chat ki apni conversation hoti hai, isliye naye topic ke liye nayi chat shuru kijiye.",
+   "en": "Each chat is its own conversation, so start a new chat for a new topic."
+  },
+  {
+   "id": "s1",
+   "scene": "search",
+   "start": 46.768,
+   "end": 49.884,
+   "text": "Search se aap apni purani chats dhoondh sakte hain.",
+   "en": "With Search, you can find your old chats."
+  },
+  {
+   "id": "s2",
+   "scene": "search",
+   "start": 50.224,
+   "end": 55.738,
+   "text": "Pro plan mein aap Claude se bhi pooch sakte hain ki pichhli baar humne kya discuss kiya tha.",
+   "en": "On Pro, you can also ask Claude what you discussed last time."
+  },
+  {
+   "id": "p1",
+   "scene": "projects",
+   "start": 57.078,
+   "end": 62.461,
+   "text": "Projects ek workspace hai, jismein aap files aur instructions save kar sakte hain.",
+   "en": "Projects is a workspace where you save files and instructions."
+  },
+  {
+   "id": "p2",
+   "scene": "projects",
+   "start": 62.801,
+   "end": 67.329,
+   "text": "Project ki har chat in files ko context ki tarah use karti hai.",
+   "en": "Every chat in the project uses these files as context."
+  },
+  {
+   "id": "p3",
+   "scene": "projects",
+   "start": 67.669,
+   "end": 73.776,
+   "text": "Banane ke liye Projects kholiye, New Project dabaiye, naam likhiye, aur files add kijiye.",
+   "en": "To create one: open Projects, click New Project, add a name, then add files."
+  },
+  {
+   "id": "p4",
+   "scene": "projects",
+   "start": 74.116,
+   "end": 80.627,
+   "text": "Dhyaan rakhiye, project ki chats aapas mein baat share nahi karti, sirf project knowledge share hoti hai.",
+   "en": "Note: project chats don't share their conversations, only the project knowledge."
+  },
+  {
+   "id": "a1",
+   "scene": "artifacts",
+   "start": 81.967,
+   "end": 89.006,
+   "text": "Artifacts woh cheezein hain jo Claude aapke liye banata hai, jaise document, code, website ya diagram.",
+   "en": "Artifacts are things Claude makes for you: documents, code, websites or diagrams."
+  },
+  {
+   "id": "a2",
+   "scene": "artifacts",
+   "start": 89.346,
+   "end": 94.659,
+   "text": "Ye chat ke side panel mein khulte hain, aur sab Artifacts page par save rehte hain.",
+   "en": "They open in a side panel, and all of them are saved on the Artifacts page."
+  },
+  {
+   "id": "a3",
+   "scene": "artifacts",
+   "start": 94.999,
+   "end": 100.517,
+   "text": "Aap inhe edit, export aur share kar sakte hain. Shuru mein ye private hote hain.",
+   "en": "You can edit, export and share them. They start out private."
+  },
+  {
+   "id": "c1",
+   "scene": "code",
+   "start": 101.858,
+   "end": 106.154,
+   "text": "Code option Claude Code ke liye hai, jo coding ka agentic tool hai.",
+   "en": "The Code option opens Claude Code, an agentic coding tool."
+  },
+  {
+   "id": "c2",
+   "scene": "code",
+   "start": 106.494,
+   "end": 110.62,
+   "text": "Web par aap GitHub repository connect karke task dete hain.",
+   "en": "On the web, you connect a GitHub repository and give it a task."
+  },
+  {
+   "id": "c3",
+   "scene": "code",
+   "start": 110.96,
+   "end": 116.707,
+   "text": "Claude cloud mein kaam karta hai, aur aap changes review karke pull request bana sakte hain.",
+   "en": "Claude works in the cloud; you review the changes and create a pull request."
+  },
+  {
+   "id": "c4",
+   "scene": "code",
+   "start": 117.047,
+   "end": 122.334,
+   "text": "Ye Pro plan mein included hai, lekin aapki usage limit mein count hota hai.",
+   "en": "It's included in Pro, but it counts toward your usage limits."
+  },
+  {
+   "id": "u1",
+   "scene": "customize",
+   "start": 123.674,
+   "end": 127.194,
+   "text": "Customize mein Skills, Connectors aur Plugins milte hain.",
+   "en": "Customize is where you find Skills, Connectors and Plugins."
+  },
+  {
+   "id": "u2",
+   "scene": "customize",
+   "start": 127.534,
+   "end": 132.862,
+   "text": "Skills Claude ko naye kaam sikhati hain, Connectors bahar ki services se jodte hain,",
+   "en": "Skills teach Claude new tasks, Connectors link outside services,"
+  },
+  {
+   "id": "u3",
+   "scene": "customize",
+   "start": 133.022,
+   "end": 136.176,
+   "text": "aur Plugins skills aur commands ka bundle hote hain.",
+   "en": "and Plugins bundle skills and commands together."
+  },
+  {
+   "id": "g1",
+   "scene": "usage",
+   "start": 137.516,
+   "end": 141.572,
+   "text": "Usage mein aap dekh sakte hain ki aapne kitna use kiya hai.",
+   "en": "Under Usage, you can see how much you've used."
+  },
+  {
+   "id": "g2",
+   "scene": "usage",
+   "start": 141.912,
+   "end": 148.388,
+   "text": "Pro plan mein session limit har paanch ghante mein reset hoti hai, aur ek weekly limit bhi hoti hai.",
+   "en": "On Pro, the session limit resets every 5 hours, and there's a weekly limit too."
+  },
+  {
+   "id": "t1",
+   "scene": "history",
+   "start": 149.728,
+   "end": 155.601,
+   "text": "Chats and tasks mein aapki purani chats aur tasks hain. View all se poori list khulti hai.",
+   "en": "Chats and tasks holds your past chats and tasks. View all opens the full list."
+  },
+  {
+   "id": "t2",
+   "scene": "history",
+   "start": 155.941,
+   "end": 161.447,
+   "text": "Kisi chat par hover karke teen dots se aap use rename ya delete kar sakte hain.",
+   "en": "Hover over a chat and use the three-dot menu to rename or delete it."
+  },
+  {
+   "id": "ac1",
+   "scene": "account",
+   "start": 162.787,
+   "end": 166.335,
+   "text": "Neeche apne naam par click karke Settings khulti hai.",
+   "en": "Click your name at the bottom to open Settings."
+  },
+  {
+   "id": "ac2",
+   "scene": "account",
+   "start": 166.675,
+   "end": 170.87,
+   "text": "Yahan appearance, memory aur chat search jaisi settings milti hain.",
+   "en": "There you'll find settings like appearance, memory and chat search."
+  },
+  {
+   "id": "k1",
+   "scene": "incognito",
+   "start": 172.21,
+   "end": 176.875,
+   "text": "Upar right corner mein ye ghost icon incognito chat ke liye hai.",
+   "en": "The ghost icon in the top-right corner starts an incognito chat."
+  },
+  {
+   "id": "k2",
+   "scene": "incognito",
+   "start": 177.215,
+   "end": 184.206,
+   "text": "Incognito chat history aur memory mein save nahi hoti, aur band karne ke baad dobara nahi khulti.",
+   "en": "Incognito chats aren't saved to history or memory, and can't be reopened once closed."
+  },
+  {
+   "id": "m1",
+   "scene": "msgbox",
+   "start": 185.846,
+   "end": 190.616,
+   "text": "Ab message box dekhte hain. Yahan aap apna sawaal ya kaam likhte hain.",
+   "en": "Now the message box. This is where you type your question or task."
+  },
+  {
+   "id": "m2",
+   "scene": "msgbox",
+   "start": 190.956,
+   "end": 194.852,
+   "text": "Jitna clear prompt likhenge, utna accha jawab milega.",
+   "en": "The clearer your prompt, the better the answer."
+  },
+  {
+   "id": "x1",
+   "scene": "plus",
+   "start": 196.192,
+   "end": 200.745,
+   "text": "Plus button se Add files or photos chun kar files attach kijiye.",
+   "en": "Click the plus button, choose Add files or photos, and attach your files."
+  },
+  {
+   "id": "x2",
+   "scene": "plus",
+   "start": 201.085,
+   "end": 207.617,
+   "text": "PDF, Word, Excel, CSV, text aur images support hoti hain, ek chat mein bees files tak.",
+   "en": "PDF, Word, Excel, CSV, text and images are supported, up to 20 files per chat."
+  },
+  {
+   "id": "x3",
+   "scene": "plus",
+   "start": 207.957,
+   "end": 214.738,
+   "text": "Isi menu se aap ek chat ke liye memory bhi band kar sakte hain, pehla message bhejne se pehle.",
+   "en": "The same menu can turn memory off for a chat, before you send the first message."
+  },
+  {
+   "id": "w1",
+   "scene": "cowork",
+   "start": 216.078,
+   "end": 220.824,
+   "text": "Ye Chat aur Cowork ka option hai. Chat jaldi sawaal jawaab ke liye hai.",
+   "en": "This is the Chat / Cowork switch. Chat is for quick questions and answers."
+  },
+  {
+   "id": "w2",
+   "scene": "cowork",
+   "start": 221.164,
+   "end": 226.235,
+   "text": "Cowork mein aap poora task dete hain, aur Claude kai steps mein khud kaam karta hai,",
+   "en": "In Cowork, you hand over a whole task and Claude works through the steps itself,"
+  },
+  {
+   "id": "w3",
+   "scene": "cowork",
+   "start": 226.395,
+   "end": 231.515,
+   "text": "jaise research karna, files padhna, aur spreadsheet ya presentation banana.",
+   "en": "like researching, reading files, and making spreadsheets or presentations."
+  },
+  {
+   "id": "w4",
+   "scene": "cowork",
+   "start": 231.855,
+   "end": 237.163,
+   "text": "Cowork zyada usage leta hai, aur actions se pehle permissions ka dhyaan rakhiye.",
+   "en": "Cowork uses more of your usage, so check permissions before it takes actions."
+  },
+  {
+   "id": "md1",
+   "scene": "model",
+   "start": 238.503,
+   "end": 244.536,
+   "text": "Ab model selector. Yahan abhi Opus 5.5 aur Medium effort selected hai.",
+   "en": "Next, the model selector. Opus 5.5 with Medium effort is selected right now."
+  },
+  {
+   "id": "md2",
+   "scene": "model",
+   "start": 244.876,
+   "end": 250.942,
+   "text": "Model name par click karke aap model badal sakte hain, More models mein aur options milte hain.",
+   "en": "Click the model name to switch models; More models shows extra options."
+  },
+  {
+   "id": "md3",
+   "scene": "model",
+   "start": 251.282,
+   "end": 258.05,
+   "text": "Effort batata hai ki Claude kitna soch kar jawab dega: Low, Medium, High, Extra high aur Max.",
+   "en": "Effort sets how deeply Claude thinks: Low, Medium, High, Extra high and Max."
+  },
+  {
+   "id": "md4",
+   "scene": "model",
+   "start": 258.39,
+   "end": 263.974,
+   "text": "Zyada effort se jawab behtar hota hai, par time aur usage zyada lagta hai.",
+   "en": "Higher effort gives better answers, but takes more time and usage."
+  },
+  {
+   "id": "md5",
+   "scene": "model",
+   "start": 264.314,
+   "end": 270.611,
+   "text": "Rozana ke kaam ke liye Medium kaafi hai, mushkil coding ya planning ke liye effort badhaiye.",
+   "en": "Medium is fine for everyday tasks; raise it for hard coding or planning."
+  },
+  {
+   "id": "v1",
+   "scene": "voice",
+   "start": 271.951,
+   "end": 276.735,
+   "text": "Mic aur voice buttons se aap type karne ki jagah bol bhi sakte hain.",
+   "en": "With the mic and voice buttons, you can speak instead of typing."
+  },
+  {
+   "id": "v2",
+   "scene": "voice",
+   "start": 277.075,
+   "end": 282.501,
+   "text": "Aur neeche Write, Learn, Code jaise buttons se shuruaat ke liye ideas milte hain.",
+   "en": "And buttons like Write, Learn and Code below give you ideas to get started."
+  },
+  {
+   "id": "d1",
+   "scene": "cc_intro",
+   "start": 284.241,
+   "end": 287.759,
+   "text": "Ab Claude Code ka real demo dekhte hain, terminal mein.",
+   "en": "Now let's watch a real Claude Code demo, in the terminal."
+  },
+  {
+   "id": "d2",
+   "scene": "cc_intro",
+   "start": 288.099,
+   "end": 293.403,
+   "text": "Install karne ke liye official command chalaiye, phir claude version se check kijiye.",
+   "en": "To install, run the official command, then check it with claude --version."
+  },
+  {
+   "id": "e1",
+   "scene": "cc_explain",
+   "start": 294.943,
+   "end": 298.183,
+   "text": "Ye ek chhota sa demo project hai, ek todo app.",
+   "en": "This is a small demo project: a to-do app."
+  },
+  {
+   "id": "e2",
+   "scene": "cc_explain",
+   "start": 298.522,
+   "end": 302.973,
+   "text": "Main Claude Code se project ki files explain karne ko kehta hoon.",
+   "en": "I ask Claude Code to explain the project's files."
+  },
+  {
+   "id": "epause",
+   "scene": "cc_explain",
+   "start": 303.313,
+   "end": 304.913,
+   "text": "",
+   "en": "",
+   "pause": true
+  },
+  {
+   "id": "e3",
+   "scene": "cc_explain",
+   "start": 304.913,
+   "end": 310.275,
+   "text": "Claude ne files padh kar har file ka kaam samjhaya, aur ek bug bhi pakad liya!",
+   "en": "Claude read the files, explained each one, and even spotted a bug!"
+  },
+  {
+   "id": "f1",
+   "scene": "cc_fix",
+   "start": 312.015,
+   "end": 314.741,
+   "text": "Ab app chalate hain. Ye KeyError de raha hai.",
+   "en": "Now let's run the app. It crashes with a KeyError."
+  },
+  {
+   "id": "f2",
+   "scene": "cc_fix",
+   "start": 315.082,
+   "end": 319.223,
+   "text": "Main Claude Code ko error batata hoon aur fix karne ko kehta hoon.",
+   "en": "I tell Claude Code about the error and ask it to fix it."
+  },
+  {
+   "id": "f3",
+   "scene": "cc_fix",
+   "start": 319.563,
+   "end": 323.727,
+   "text": "Is command mein maine sirf file edit karne ki permission di hai.",
+   "en": "In this command, I've allowed file edits only."
+  },
+  {
+   "id": "fpause",
+   "scene": "cc_fix",
+   "start": 324.067,
+   "end": 325.667,
+   "text": "",
+   "en": "",
+   "pause": true
+  },
+  {
+   "id": "f4",
+   "scene": "cc_fix",
+   "start": 325.667,
+   "end": 332.171,
+   "text": "Claude ne bug fix kiya, aur bataya ki app chalane ke liye approval chahiye tha, jo maine nahi diya tha.",
+   "en": "Claude fixed the bug, and said running the app needed approval, which I hadn't given."
+  },
+  {
+   "id": "f5",
+   "scene": "cc_fix",
+   "start": 332.511,
+   "end": 338.05,
+   "text": "Yahi Claude Code ki safety hai: file badalne ya command chalane se pehle permission.",
+   "en": "That's Claude Code's safety: permission before changing files or running commands."
+  },
+  {
+   "id": "f6",
+   "scene": "cc_fix",
+   "start": 338.39,
+   "end": 342.849,
+   "text": "Ab git diff se exact change review karte hain: name ki jagah title.",
+   "en": "Now we review the exact change with git diff: 'name' became 'title'."
+  },
+  {
+   "id": "f7",
+   "scene": "cc_fix",
+   "start": 343.189,
+   "end": 345.082,
+   "text": "Aur ab app sahi chal raha hai.",
+   "en": "And now the app runs correctly."
+  },
+  {
+   "id": "pm1",
+   "scene": "cc_modes",
+   "start": 346.622,
+   "end": 351.898,
+   "text": "Claude Code mein permission modes hote hain: Manual, Accept edits, Plan aur Auto.",
+   "en": "Claude Code has permission modes: Manual, Accept edits, Plan and Auto."
+  },
+  {
+   "id": "pm2",
+   "scene": "cc_modes",
+   "start": 352.238,
+   "end": 356.011,
+   "text": "Shuruaat mein Manual ya Plan mode sabse safe rehta hai.",
+   "en": "When you're starting out, Manual or Plan mode is the safest choice."
+  },
+  {
+   "id": "l1",
+   "scene": "limits",
+   "start": 357.751,
+   "end": 359.392,
+   "text": "Ab kuch zaroori baatein.",
+   "en": "Now, a few important points."
+  },
+  {
+   "id": "l2",
+   "scene": "limits",
+   "start": 359.732,
+   "end": 364.83,
+   "text": "AI galti kar sakta hai, isliye jawab aur code hamesha verify kijiye.",
+   "en": "AI can make mistakes, so always verify answers and code."
+  },
+  {
+   "id": "l3",
+   "scene": "limits",
+   "start": 365.17,
+   "end": 370.0,
+   "text": "Passwords, API keys ya private data chat mein share mat kijiye.",
+   "en": "Don't share passwords, API keys or private data in chats."
+  },
+  {
+   "id": "l4",
+   "scene": "limits",
+   "start": 370.34,
+   "end": 373.433,
+   "text": "Changes ko run karne se pehle review kijiye.",
+   "en": "Review changes before you run them."
+  },
+  {
+   "id": "l5",
+   "scene": "limits",
+   "start": 373.773,
+   "end": 377.575,
+   "text": "Aur yaad rakhiye, Pro plan mein bhi usage limits hoti hain.",
+   "en": "And remember: even the Pro plan has usage limits."
+  },
+  {
+   "id": "o1",
+   "scene": "outro",
+   "start": 379.315,
+   "end": 385.344,
+   "text": "Agli videos mein hum Projects, Artifacts, Cowork aur Claude Code ko detail mein seekhenge.",
+   "en": "In the next videos, we'll learn Projects, Artifacts, Cowork and Claude Code in detail."
+  },
+  {
+   "id": "o2",
+   "scene": "outro",
+   "start": 385.684,
+   "end": 391.522,
+   "text": "Video accha laga ho to like kijiye, aur channel subscribe kar lijiye. Dhanyavaad!",
+   "en": "If you liked this video, hit like and subscribe. Thank you!"
+  }
+ ]
+}

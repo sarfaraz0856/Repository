@@ -1,0 +1,102 @@
+{
+ "voice": "hm_omega", "speed": 1.06,
+ "scenes": [
+  {"id": "intro", "pre": 0.4, "phrases": [
+   ["i1", "Namaste! Is video mein hum Claude AI ka poora interface step by step samjhenge.", "नमस्ते! इस वीडियो में हम क्लॉड ए-आई का पूरा इंटरफ़ेस स्टेप बाय स्टेप समझेंगे।", "Hello! In this video, we'll understand the complete Claude AI interface, step by step."],
+   ["i2", "Har option kya hai, kaise use karte hain, aur uski limitations kya hain.", "हर ऑप्शन क्या है, कैसे यूज़ करते हैं, और उसकी लिमिटेशन्स क्या हैं।", "What each option is, how to use it, and what its limits are."],
+   ["i3", "Aur end mein Claude Code ka real demo bhi dekhenge.", "और एंड में क्लॉड कोड का रियल डेमो भी देखेंगे।", "And at the end, we'll watch a real Claude Code demo."]]},
+  {"id": "home", "pre": 0.8, "phrases": [
+   ["h1", "Ye Claude ka home screen hai. Main yahan Pro plan use kar raha hoon.", "ये क्लॉड का होम स्क्रीन है। मैं यहाँ प्रो प्लान यूज़ कर रहा हूँ।", "This is Claude's home screen. I'm using the Pro plan here."],
+   ["h2", "Screen ke teen main hisse hain:", "स्क्रीन के तीन मेन हिस्से हैं:", "The screen has three main parts:"],
+   ["h3", "left side mein sidebar,", "लेफ़्ट साइड में साइडबार,", "the sidebar on the left,"],
+   ["h4", "beech mein message box,", "बीच में मैसेज बॉक्स,", "the message box in the middle,"],
+   ["h5", "aur neeche aapka account.", "और नीचे आपका अकाउंट।", "and your account at the bottom."],
+   ["h6", "Kuch options aapke plan aur account ke hisaab se alag dikh sakte hain.", "कुछ ऑप्शन्स आपके प्लान और अकाउंट के हिसाब से अलग दिख सकते हैं।", "Some options may look different depending on your plan and account."]]},
+  {"id": "new", "pre": 0.8, "phrases": [
+   ["n1", "Sabse upar New button hai. Isse nayi chat shuru hoti hai.", "सबसे ऊपर न्यू बटन है। इससे नई चैट शुरू होती है।", "At the top is the New button. It starts a new chat."],
+   ["n2", "Har chat ki apni conversation hoti hai, isliye naye topic ke liye nayi chat shuru kijiye.", "हर चैट की अपनी कन्वर्सेशन होती है, इसलिए नए टॉपिक के लिए नई चैट शुरू कीजिए।", "Each chat is its own conversation, so start a new chat for a new topic."]]},
+  {"id": "search", "pre": 0.6, "phrases": [
+   ["s1", "Search se aap apni purani chats dhoondh sakte hain.", "सर्च से आप अपनी पुरानी चैट्स ढूँढ सकते हैं।", "With Search, you can find your old chats."],
+   ["s2", "Pro plan mein aap Claude se bhi pooch sakte hain ki pichhli baar humne kya discuss kiya tha.", "प्रो प्लान में आप क्लॉड से भी पूछ सकते हैं कि पिछली बार हमने क्या डिस्कस किया था।", "On Pro, you can also ask Claude what you discussed last time."]]},
+  {"id": "projects", "pre": 0.6, "phrases": [
+   ["p1", "Projects ek workspace hai, jismein aap files aur instructions save kar sakte hain.", "प्रोजेक्ट्स एक वर्कस्पेस है, जिसमें आप फ़ाइल्स और इंस्ट्रक्शन्स सेव कर सकते हैं।", "Projects is a workspace where you save files and instructions."],
+   ["p2", "Project ki har chat in files ko context ki tarah use karti hai.", "प्रोजेक्ट की हर चैट इन फ़ाइल्स को कॉन्टेक्स्ट की तरह यूज़ करती है।", "Every chat in the project uses these files as context."],
+   ["p3", "Banane ke liye Projects kholiye, New Project dabaiye, naam likhiye, aur files add kijiye.", "बनाने के लिए प्रोजेक्ट्स खोलिए, न्यू प्रोजेक्ट दबाइए, नाम लिखिए, और फ़ाइल्स ऐड कीजिए।", "To create one: open Projects, click New Project, add a name, then add files."],
+   ["p4", "Dhyaan rakhiye, project ki chats aapas mein baat share nahi karti, sirf project knowledge share hoti hai.", "ध्यान रखिए, प्रोजेक्ट की चैट्स आपस में बात शेयर नहीं करतीं, सिर्फ़ प्रोजेक्ट नॉलेज शेयर होती है।", "Note: project chats don't share their conversations, only the project knowledge."]]},
+  {"id": "artifacts", "pre": 0.6, "phrases": [
+   ["a1", "Artifacts woh cheezein hain jo Claude aapke liye banata hai, jaise document, code, website ya diagram.", "आर्टिफ़ैक्ट्स वो चीज़ें हैं जो क्लॉड आपके लिए बनाता है, जैसे डॉक्यूमेंट, कोड, वेबसाइट या डायग्राम।", "Artifacts are things Claude makes for you: documents, code, websites or diagrams."],
+   ["a2", "Ye chat ke side panel mein khulte hain, aur sab Artifacts page par save rehte hain.", "ये चैट के साइड पैनल में खुलते हैं, और सब आर्टिफ़ैक्ट्स पेज पर सेव रहते हैं।", "They open in a side panel, and all of them are saved on the Artifacts page."],
+   ["a3", "Aap inhe edit, export aur share kar sakte hain. Shuru mein ye private hote hain.", "आप इन्हें एडिट, एक्सपोर्ट और शेयर कर सकते हैं। शुरू में ये प्राइवेट होते हैं।", "You can edit, export and share them. They start out private."]]},
+  {"id": "code", "pre": 0.6, "phrases": [
+   ["c1", "Code option Claude Code ke liye hai, jo coding ka agentic tool hai.", "कोड ऑप्शन क्लॉड कोड के लिए है, जो कोडिंग का एजेंटिक टूल है।", "The Code option opens Claude Code, an agentic coding tool."],
+   ["c2", "Web par aap GitHub repository connect karke task dete hain.", "वेब पर आप गिटहब रिपॉज़िटरी कनेक्ट करके टास्क देते हैं।", "On the web, you connect a GitHub repository and give it a task."],
+   ["c3", "Claude cloud mein kaam karta hai, aur aap changes review karke pull request bana sakte hain.", "क्लॉड क्लाउड में काम करता है, और आप चेंजेस रिव्यू करके पुल रिक्वेस्ट बना सकते हैं।", "Claude works in the cloud; you review the changes and create a pull request."],
+   ["c4", "Ye Pro plan mein included hai, lekin aapki usage limit mein count hota hai.", "ये प्रो प्लान में इन्क्लूडेड है, लेकिन आपकी यूज़ेज लिमिट में काउंट होता है।", "It's included in Pro, but it counts toward your usage limits."]]},
+  {"id": "customize", "pre": 0.6, "phrases": [
+   ["u1", "Customize mein Skills, Connectors aur Plugins milte hain.", "कस्टमाइज़ में स्किल्स, कनेक्टर्स और प्लगइन्स मिलते हैं।", "Customize is where you find Skills, Connectors and Plugins."],
+   ["u2", "Skills Claude ko naye kaam sikhati hain, Connectors bahar ki services se jodte hain,", "स्किल्स क्लॉड को नए काम सिखाती हैं, कनेक्टर्स बाहर की सर्विसेज़ से जोड़ते हैं,", "Skills teach Claude new tasks, Connectors link outside services,"],
+   ["u3", "aur Plugins skills aur commands ka bundle hote hain.", "और प्लगइन्स स्किल्स और कमांड्स का बंडल होते हैं।", "and Plugins bundle skills and commands together."]]},
+  {"id": "usage", "pre": 0.6, "phrases": [
+   ["g1", "Usage mein aap dekh sakte hain ki aapne kitna use kiya hai.", "यूज़ेज में आप देख सकते हैं कि आपने कितना यूज़ किया है।", "Under Usage, you can see how much you've used."],
+   ["g2", "Pro plan mein session limit har paanch ghante mein reset hoti hai, aur ek weekly limit bhi hoti hai.", "प्रो प्लान में सेशन लिमिट हर पाँच घंटे में रीसेट होती है, और एक वीकली लिमिट भी होती है।", "On Pro, the session limit resets every 5 hours, and there's a weekly limit too."]]},
+  {"id": "history", "pre": 0.6, "phrases": [
+   ["t1", "Chats and tasks mein aapki purani chats aur tasks hain. View all se poori list khulti hai.", "चैट्स एंड टास्क्स में आपकी पुरानी चैट्स और टास्क्स हैं। व्यू ऑल से पूरी लिस्ट खुलती है।", "Chats and tasks holds your past chats and tasks. View all opens the full list."],
+   ["t2", "Kisi chat par hover karke teen dots se aap use rename ya delete kar sakte hain.", "किसी चैट पर होवर करके तीन डॉट्स से आप उसे रीनेम या डिलीट कर सकते हैं।", "Hover over a chat and use the three-dot menu to rename or delete it."]]},
+  {"id": "account", "pre": 0.6, "phrases": [
+   ["ac1", "Neeche apne naam par click karke Settings khulti hai.", "नीचे अपने नाम पर क्लिक करके सेटिंग्स खुलती है।", "Click your name at the bottom to open Settings."],
+   ["ac2", "Yahan appearance, memory aur chat search jaisi settings milti hain.", "यहाँ अपीयरेंस, मेमोरी और चैट सर्च जैसी सेटिंग्स मिलती हैं।", "There you'll find settings like appearance, memory and chat search."]]},
+  {"id": "incognito", "pre": 0.6, "phrases": [
+   ["k1", "Upar right corner mein ye ghost icon incognito chat ke liye hai.", "ऊपर राइट कॉर्नर में ये घोस्ट आइकन इनकॉग्निटो चैट के लिए है।", "The ghost icon in the top-right corner starts an incognito chat."],
+   ["k2", "Incognito chat history aur memory mein save nahi hoti, aur band karne ke baad dobara nahi khulti.", "इनकॉग्निटो चैट हिस्ट्री और मेमोरी में सेव नहीं होती, और बंद करने के बाद दोबारा नहीं खुलती।", "Incognito chats aren't saved to history or memory, and can't be reopened once closed."]]},
+  {"id": "msgbox", "pre": 0.9, "phrases": [
+   ["m1", "Ab message box dekhte hain. Yahan aap apna sawaal ya kaam likhte hain.", "अब मैसेज बॉक्स देखते हैं। यहाँ आप अपना सवाल या काम लिखते हैं।", "Now the message box. This is where you type your question or task."],
+   ["m2", "Jitna clear prompt likhenge, utna accha jawab milega.", "जितना क्लियर प्रॉम्प्ट लिखेंगे, उतना अच्छा जवाब मिलेगा।", "The clearer your prompt, the better the answer."]]},
+  {"id": "plus", "pre": 0.6, "phrases": [
+   ["x1", "Plus button se Add files or photos chun kar files attach kijiye.", "प्लस बटन से ऐड फ़ाइल्स ऑर फ़ोटोज़ चुनकर फ़ाइल्स अटैच कीजिए।", "Click the plus button, choose Add files or photos, and attach your files."],
+   ["x2", "PDF, Word, Excel, CSV, text aur images support hoti hain, ek chat mein bees files tak.", "पीडीएफ़, वर्ड, एक्सेल, सीएसवी, टेक्स्ट और इमेजेज़ सपोर्ट होती हैं, एक चैट में बीस फ़ाइल्स तक।", "PDF, Word, Excel, CSV, text and images are supported, up to 20 files per chat."],
+   ["x3", "Isi menu se aap ek chat ke liye memory bhi band kar sakte hain, pehla message bhejne se pehle.", "इसी मेन्यू से आप एक चैट के लिए मेमोरी भी बंद कर सकते हैं, पहला मैसेज भेजने से पहले।", "The same menu can turn memory off for a chat, before you send the first message."]]},
+  {"id": "cowork", "pre": 0.6, "phrases": [
+   ["w1", "Ye Chat aur Cowork ka option hai. Chat jaldi sawaal jawaab ke liye hai.", "ये चैट और कोवर्क का ऑप्शन है। चैट जल्दी सवाल जवाब के लिए है।", "This is the Chat / Cowork switch. Chat is for quick questions and answers."],
+   ["w2", "Cowork mein aap poora task dete hain, aur Claude kai steps mein khud kaam karta hai,", "कोवर्क में आप पूरा टास्क देते हैं, और क्लॉड कई स्टेप्स में खुद काम करता है,", "In Cowork, you hand over a whole task and Claude works through the steps itself,"],
+   ["w3", "jaise research karna, files padhna, aur spreadsheet ya presentation banana.", "जैसे रिसर्च करना, फ़ाइल्स पढ़ना, और स्प्रेडशीट या प्रेज़ेंटेशन बनाना।", "like researching, reading files, and making spreadsheets or presentations."],
+   ["w4", "Cowork zyada usage leta hai, aur actions se pehle permissions ka dhyaan rakhiye.", "कोवर्क ज़्यादा यूज़ेज लेता है, और एक्शन्स से पहले परमिशन्स का ध्यान रखिए।", "Cowork uses more of your usage, so check permissions before it takes actions."]]},
+  {"id": "model", "pre": 0.6, "phrases": [
+   ["md1", "Ab model selector. Yahan abhi Opus 5.5 aur Medium effort selected hai.", "अब मॉडल सिलेक्टर। यहाँ अभी ओपस फ़ाइव पॉइंट फ़ाइव और मीडियम एफ़र्ट सिलेक्टेड है।", "Next, the model selector. Opus 5.5 with Medium effort is selected right now."],
+   ["md2", "Model name par click karke aap model badal sakte hain, More models mein aur options milte hain.", "मॉडल नेम पर क्लिक करके आप मॉडल बदल सकते हैं, मोर मॉडल्स में और ऑप्शन्स मिलते हैं।", "Click the model name to switch models; More models shows extra options."],
+   ["md3", "Effort batata hai ki Claude kitna soch kar jawab dega: Low, Medium, High, Extra high aur Max.", "एफ़र्ट बताता है कि क्लॉड कितना सोचकर जवाब देगा: लो, मीडियम, हाई, एक्स्ट्रा हाई और मैक्स।", "Effort sets how deeply Claude thinks: Low, Medium, High, Extra high and Max."],
+   ["md4", "Zyada effort se jawab behtar hota hai, par time aur usage zyada lagta hai.", "ज़्यादा एफ़र्ट से जवाब बेहतर होता है, पर टाइम और यूज़ेज ज़्यादा लगता है।", "Higher effort gives better answers, but takes more time and usage."],
+   ["md5", "Rozana ke kaam ke liye Medium kaafi hai, mushkil coding ya planning ke liye effort badhaiye.", "रोज़ाना के काम के लिए मीडियम काफ़ी है, मुश्किल कोडिंग या प्लानिंग के लिए एफ़र्ट बढ़ाइए।", "Medium is fine for everyday tasks; raise it for hard coding or planning."]]},
+  {"id": "voice", "pre": 0.6, "phrases": [
+   ["v1", "Mic aur voice buttons se aap type karne ki jagah bol bhi sakte hain.", "माइक और वॉइस बटन्स से आप टाइप करने की जगह बोल भी सकते हैं।", "With the mic and voice buttons, you can speak instead of typing."],
+   ["v2", "Aur neeche Write, Learn, Code jaise buttons se shuruaat ke liye ideas milte hain.", "और नीचे राइट, लर्न, कोड जैसे बटन्स से शुरुआत के लिए आइडियाज़ मिलते हैं।", "And buttons like Write, Learn and Code below give you ideas to get started."]]},
+  {"id": "cc_intro", "pre": 1.0, "phrases": [
+   ["d1", "Ab Claude Code ka real demo dekhte hain, terminal mein.", "अब क्लॉड कोड का रियल डेमो देखते हैं, टर्मिनल में।", "Now let's watch a real Claude Code demo, in the terminal."],
+   ["d2", "Install karne ke liye official command chalaiye, phir claude version se check kijiye.", "इंस्टॉल करने के लिए ऑफ़िशियल कमांड चलाइए, फिर क्लॉड वर्ज़न से चेक कीजिए।", "To install, run the official command, then check it with claude --version."]]},
+  {"id": "cc_explain", "pre": 0.8, "phrases": [
+   ["e1", "Ye ek chhota sa demo project hai, ek todo app.", "ये एक छोटा सा डेमो प्रोजेक्ट है, एक टूडू ऐप।", "This is a small demo project: a to-do app."],
+   ["e2", "Main Claude Code se project ki files explain karne ko kehta hoon.", "मैं क्लॉड कोड से प्रोजेक्ट की फ़ाइल्स एक्सप्लेन करने को कहता हूँ।", "I ask Claude Code to explain the project's files."],
+   ["epause", "", "", ""],
+   ["e3", "Claude ne files padh kar har file ka kaam samjhaya, aur ek bug bhi pakad liya!", "क्लॉड ने फ़ाइल्स पढ़कर हर फ़ाइल का काम समझाया, और एक बग भी पकड़ लिया!", "Claude read the files, explained each one, and even spotted a bug!"]]},
+  {"id": "cc_fix", "pre": 1.0, "phrases": [
+   ["f1", "Ab app chalate hain. Ye KeyError de raha hai.", "अब ऐप चलाते हैं। ये की-एरर दे रहा है।", "Now let's run the app. It crashes with a KeyError."],
+   ["f2", "Main Claude Code ko error batata hoon aur fix karne ko kehta hoon.", "मैं क्लॉड कोड को एरर बताता हूँ और फ़िक्स करने को कहता हूँ।", "I tell Claude Code about the error and ask it to fix it."],
+   ["f3", "Is command mein maine sirf file edit karne ki permission di hai.", "इस कमांड में मैंने सिर्फ़ फ़ाइल एडिट करने की परमिशन दी है।", "In this command, I've allowed file edits only."],
+   ["fpause", "", "", ""],
+   ["f4", "Claude ne bug fix kiya, aur bataya ki app chalane ke liye approval chahiye tha, jo maine nahi diya tha.", "क्लॉड ने बग फ़िक्स किया, और बताया कि ऐप चलाने के लिए अप्रूवल चाहिए था, जो मैंने नहीं दिया था।", "Claude fixed the bug, and said running the app needed approval, which I hadn't given."],
+   ["f5", "Yahi Claude Code ki safety hai: file badalne ya command chalane se pehle permission.", "यही क्लॉड कोड की सेफ़्टी है: फ़ाइल बदलने या कमांड चलाने से पहले परमिशन।", "That's Claude Code's safety: permission before changing files or running commands."],
+   ["f6", "Ab git diff se exact change review karte hain: name ki jagah title.", "अब गिट डिफ़ से एग्ज़ैक्ट चेंज रिव्यू करते हैं: नेम की जगह टाइटल।", "Now we review the exact change with git diff: 'name' became 'title'."],
+   ["f7", "Aur ab app sahi chal raha hai.", "और अब ऐप सही चल रहा है।", "And now the app runs correctly."]]},
+  {"id": "cc_modes", "pre": 0.8, "phrases": [
+   ["pm1", "Claude Code mein permission modes hote hain: Manual, Accept edits, Plan aur Auto.", "क्लॉड कोड में परमिशन मोड्स होते हैं: मैनुअल, एक्सेप्ट एडिट्स, प्लान और ऑटो।", "Claude Code has permission modes: Manual, Accept edits, Plan and Auto."],
+   ["pm2", "Shuruaat mein Manual ya Plan mode sabse safe rehta hai.", "शुरुआत में मैनुअल या प्लान मोड सबसे सेफ़ रहता है।", "When you're starting out, Manual or Plan mode is the safest choice."]]},
+  {"id": "limits", "pre": 1.0, "phrases": [
+   ["l1", "Ab kuch zaroori baatein.", "अब कुछ ज़रूरी बातें।", "Now, a few important points."],
+   ["l2", "AI galti kar sakta hai, isliye jawab aur code hamesha verify kijiye.", "ए-आई ग़लती कर सकता है, इसलिए जवाब और कोड हमेशा वेरिफ़ाई कीजिए।", "AI can make mistakes, so always verify answers and code."],
+   ["l3", "Passwords, API keys ya private data chat mein share mat kijiye.", "पासवर्ड्स, ए-पी-आई कीज़ या प्राइवेट डेटा चैट में शेयर मत कीजिए।", "Don't share passwords, API keys or private data in chats."],
+   ["l4", "Changes ko run karne se pehle review kijiye.", "चेंजेस को रन करने से पहले रिव्यू कीजिए।", "Review changes before you run them."],
+   ["l5", "Aur yaad rakhiye, Pro plan mein bhi usage limits hoti hain.", "और याद रखिए, प्रो प्लान में भी यूज़ेज लिमिट्स होती हैं।", "And remember: even the Pro plan has usage limits."]]},
+  {"id": "outro", "pre": 1.0, "post": 2.2, "phrases": [
+   ["o1", "Agli videos mein hum Projects, Artifacts, Cowork aur Claude Code ko detail mein seekhenge.", "अगली वीडियोज़ में हम प्रोजेक्ट्स, आर्टिफ़ैक्ट्स, कोवर्क और क्लॉड कोड को डिटेल में सीखेंगे।", "In the next videos, we'll learn Projects, Artifacts, Cowork and Claude Code in detail."],
+   ["o2", "Video accha laga ho to like kijiye, aur channel subscribe kar lijiye. Dhanyavaad!", "वीडियो अच्छा लगा हो तो लाइक कीजिए, और चैनल सब्सक्राइब कर लीजिए। धन्यवाद!", "If you liked this video, hit like and subscribe. Thank you!"]]}
+ ]
+}

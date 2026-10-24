@@ -6,12 +6,12 @@ cues.json (optional) sets the SFX/arrangement times for a given edit; defaults a
 """
 import sys, json, numpy as np, soundfile as sf
 
-SR = 48000; DUR = 60.0; N = int(SR * DUR)
-rng = np.random.default_rng(7)
-t_all = np.arange(N) / SR
 CUES = {"terminal": [29.5, 43.0], "whooshes": [29.85, 42.75, 52.75], "clicks": [10.5, 17.3, 20.15, 25.3], "end_shimmer": 53.0, "ding": 58.2}
 if len(sys.argv) > 3: CUES.update(json.load(open(sys.argv[3])))
 SUFFIX = sys.argv[4] if len(sys.argv) > 4 else ""
+SR = 48000; DUR = float(CUES.get("duration", 60.0)); N = int(SR * DUR)
+rng = np.random.default_rng(7)
+t_all = np.arange(N) / SR
 
 def fft_filter(x, lo=None, hi=None, slope=0.15):
     """Smooth band-limit in the frequency domain (soft edges avoid ringing)."""
@@ -67,7 +67,7 @@ pad = fft_filter(pad, hi=2200); pluck = fft_filter(pluck, hi=3500); perc[:] = pe
 music = 0.55 * pad + 0.32 * pluck + 0.55 * bass + 0.35 * perc
 # arrangement: soft intro, drop percussion under the terminal demo for focus, outro fade
 ta, tb = CUES["terminal"]
-lvl = np.interp(t_all, [0, 1.0, ta, ta + 1, tb - 0.5, tb + 0.5, 58.0, 59.85, 60], [0, 1, 1, 0.8, 0.8, 1, 1, 0.0, 0])
+lvl = np.interp(t_all, [0, 1.0, ta, ta + 1, tb - 0.5, tb + 0.5, DUR - 2.0, DUR - 0.15, DUR], [0, 1, 1, 0.8, 0.8, 1, 1, 0.0, 0])
 music *= lvl
 music /= np.max(np.abs(music)) + 1e-9
 

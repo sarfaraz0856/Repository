@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Claude Tutorial Ep 01 – Full Video Renderer (v3)</title>
+<!--
+  Full-length episode renderer. Everything is timed from the narration timing file (window.TIM, injected by
+  scripts/render_frames_v3.js): each scene starts/ends with its narration and each cue references a phrase id.
+  Base footage: the user's real Claude home screen (claude_home_pro_plate.png). Terminal scenes: genuine
+  Claude Code CLI recordings (recordings/claude_code_v3_*.mp4). All on-screen explanatory text is English.
+  Captions are NOT drawn here; they are burned in afterwards from the English SRT (ASS) by assemble_v3.sh.
+-->
+<style>
+  @font-face{font-family:"Newsreader";src:url(fonts/newsreader-latin-400-normal.woff2) format("woff2");font-weight:400}
+  @font-face{font-family:"Newsreader";src:url(fonts/newsreader-latin-500-normal.woff2) format("woff2");font-weight:500}
+  :root{--bg:#191919;--panel:#232322;--panel2:#2A2A28;--line:#3a3936;--text:#F0EEE6;--mute:#A8A49B;--accent:#D97757;--ok:#7BC48A;--warn:#E8B04B}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}
+  #stage{position:absolute;inset:0;overflow:hidden;background:var(--bg)}
+  .layer{position:absolute;inset:0}
+  /* real UI */
+  #cam{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0}
+  #plate{position:absolute;left:0;top:0;width:1920px;height:1080px}
+  .hover{position:absolute;border-radius:8px;background:rgba(255,255,255,.065);opacity:0}
+  .hl{position:absolute;border:2px solid var(--accent);border-radius:10px;box-shadow:0 0 0 4px rgba(217,119,87,.18);opacity:0;pointer-events:none}
+  .tag{position:absolute;white-space:nowrap;background:var(--panel2);border:1px solid #45433f;color:var(--text);font:600 17px Inter;padding:7px 12px 7px 26px;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.45)}
+  .tag::before{content:"";position:absolute;left:11px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--accent)}
+  #cursor{position:absolute;left:0;top:0;width:24px;height:36px;opacity:0;filter:drop-shadow(0 2px 3px rgba(0,0,0,.5))}
+  .ripple{position:absolute;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;border:2px solid rgba(240,238,230,.9);opacity:0}
+  /* info cards (screen space) */
+  .card{position:absolute;background:rgba(35,35,34,.97);border:1px solid var(--line);border-radius:16px;padding:26px 30px;color:var(--text);box-shadow:0 24px 60px rgba(0,0,0,.5);opacity:0}
+  .card .k{font:700 15px Inter;letter-spacing:.22em;color:var(--accent);margin-bottom:8px}
+  .card h2{font:500 44px Newsreader;letter-spacing:-.005em;margin-bottom:8px;line-height:1.05}
+  .card .lead{font:500 22px Inter;color:#DCD9D0;line-height:1.35;margin-bottom:16px}
+  .card h4{font:700 14px Inter;letter-spacing:.18em;color:var(--mute);margin:16px 0 8px}
+  .card ul{list-style:none}
+  .card li{font:400 20px Inter;color:var(--text);line-height:1.38;padding-left:22px;position:relative;margin:5px 0}
+  .card li::before{content:"";position:absolute;left:3px;top:11px;width:7px;height:7px;border-radius:2px;background:var(--accent)}
+  .card ol{list-style:none;counter-reset:s}
+  .card ol li{padding-left:40px}
+  .card ol li::before{counter-increment:s;content:counter(s);width:26px;height:26px;border-radius:7px;top:0;left:0;background:var(--panel2);border:1px solid var(--line);color:var(--accent);font:700 14px Inter;display:flex;align-items:center;justify-content:center}
+  .card .pill{display:inline-block;margin-top:14px;margin-right:6px;padding:6px 11px;border-radius:7px;font:600 15px Inter;background:var(--panel2);border:1px solid var(--line);color:var(--mute)}
+  .card .pill b{color:var(--accent)}
+  .card code{font:500 17px "JetBrains Mono",monospace;background:#151514;border:1px solid var(--line);border-radius:6px;padding:2px 7px;color:#ECEAE3}
+  .card .codeblk{font:500 17px "JetBrains Mono",monospace;background:#141413;border:1px solid var(--line);border-radius:10px;padding:12px 14px;color:#ECEAE3;margin:6px 0 10px;white-space:pre}
+  .card .codeblk .c{color:var(--mute)}
+  .two{display:flex;gap:16px}
+  .two > div{flex:1;background:#1d1d1c;border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .two h3{font:700 22px Inter;margin-bottom:6px}
+  .scale{display:flex;gap:6px;margin:8px 0 4px}
+  .scale span{flex:1;text-align:center;padding:8px 0;border-radius:7px;background:#1d1d1c;border:1px solid var(--line);font:600 16px Inter;color:var(--mute)}
+  .scale span.on{border-color:var(--accent);color:var(--text);background:rgba(217,119,87,.14)}
+  /* section tag */
+  #sect{position:absolute;left:50%;top:24px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;background:rgba(35,35,34,.95);border:1px solid var(--line);padding:8px 16px;border-radius:10px;color:var(--text);font:600 17px Inter;opacity:0;white-space:nowrap}
+  #sect b{color:var(--accent);font-weight:700}
+  #sect .live{display:none;align-items:center;gap:7px;color:var(--mute);font-weight:500;padding-left:12px;border-left:1px solid var(--line)}
+  #sect .live i{width:8px;height:8px;border-radius:50%;background:#4ADE80;display:block}
+  /* full-screen title layers */
+  .full{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0}
+  .full .t{font:400 104px Newsreader;color:var(--text);letter-spacing:-.01em;text-align:center}
+  .full .t em{font-style:normal;color:var(--accent)}
+  .full .s{margin-top:20px;font:600 21px Inter;color:var(--accent);letter-spacing:.34em}
+  .full .card li{font-size:27px;margin:9px 0}
+  .full .card li::before{top:15px;width:9px;height:9px}
+  .full .card h2{font-size:60px}
+  .full .card .lead{font-size:26px}
+  .full .card h3{font-size:27px}
+  .full .card .pill{font-size:19px}
+  .full .card .k{font-size:17px}
+  .full .card .codeblk{font-size:20px}
+  .full .card code{font-size:22px}
+  .backdrop{position:absolute;inset:0;background:radial-gradient(1100px 620px at 50% 45%,rgba(22,22,21,.9),rgba(22,22,21,.55))}
+  #chapters{display:grid;grid-template-columns:1fr 1fr;gap:12px 22px;margin-top:44px;width:1000px}
+  .ch{display:flex;align-items:center;gap:14px;padding:12px 16px;border-radius:10px;background:var(--panel);border:1px solid var(--line);font:600 22px Inter;color:var(--text);opacity:0}
+  .ch b{color:var(--accent);font:700 18px Inter;width:30px}
+  /* terminal */
+  #termScene{opacity:0}
+  #tWin{position:absolute;border-radius:12px;overflow:hidden;background:#141413;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.55);transform-origin:0 0}
+  #tBar{height:40px;background:#262624;display:flex;align-items:center;gap:8px;padding-left:16px;position:relative}
+  #tBar .dot{width:12px;height:12px;border-radius:50%}
+  #tBar .lbl{position:absolute;left:0;right:0;text-align:center;font:500 15px Inter;color:var(--mute)}
+  #tBody{position:absolute;left:0;top:40px;width:1532px;height:900px}
+  #termA,#termB{position:absolute;left:0;top:0;width:1532px;height:900px}
+  .thl{position:absolute;border:3px solid var(--accent);border-radius:10px;box-shadow:0 0 0 5px rgba(217,119,87,.2);opacity:0}
+  .thl .tag{font-size:22px}
+  #ff{position:absolute;padding:12px 18px;border-radius:10px;background:var(--panel2);border:1px solid var(--accent);color:var(--text);font:600 21px Inter;opacity:0}
+  #ff span{color:var(--mute);font-weight:500;margin-left:6px}
+  #dim{position:absolute;inset:0;background:rgba(10,10,10,.72);opacity:0}
+  /* end */
+  #eps{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap;justify-content:center;width:1300px}
+  .ep{padding:9px 16px;border-radius:8px;background:var(--panel);border:1px solid var(--line);color:var(--mute);font:500 20px Inter;opacity:0}
+  #btns{display:flex;gap:16px;margin-top:44px}
+  .btn{display:flex;align-items:center;gap:12px;font:700 25px Inter;padding:13px 28px;border-radius:10px;opacity:0}
+  #likeBtn{background:var(--panel2);border:1px solid var(--line);color:var(--text)}
+  #subBtn{background:#CC0000;color:#fff}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="uiScene" class="layer">
+    <div id="cam">
+      <img id="plate" src="claude_home_pro_plate.png" alt="">
+      <div id="hoverLayer"></div>
+      <div id="hlLayer"></div>
+      <div class="ripple" id="rip"></div>
+      <svg id="cursor" viewBox="0 0 24 36"><path d="M1.5 1.5 L1.5 27 L7.6 21.2 L11.6 31.2 L15.6 29.5 L11.7 19.8 L19.8 19.8 Z" fill="#fff" stroke="#000" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    </div>
+  </div>
+  <div id="termScene" class="layer">
+    <div id="tWin"><div id="tBar"><div class="dot" style="background:#FF5F57"></div><div class="dot" style="background:#FEBC2E"></div><div class="dot" style="background:#28C840"></div><div class="lbl">Terminal — ~/todo-app (demo project)</div></div>
+      <div id="tBody"><img id="termA" alt=""><img id="termB" alt=""><div id="thlLayer"></div></div></div>
+    <div id="dim"></div>
+    <div id="ff">⏩ Fast-forward<span>Claude Code is working…</span></div>
+  </div>
+  <div id="fullLayer"></div>
+  <div id="cardLayer"></div>
+  <div id="sect"><span id="sectTx"></span><span class="live"><i></i>Real recording · Claude Code CLI v2.1.310</span></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const ease=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const easeOut=x=>1-Math.pow(1-x,3);
+function win(t,a,b,d=.25){if(t<a-d||t>b+d)return 0;if(t<a)return easeOut((t-(a-d))/d);if(t>b)return 1-easeOut((t-b)/d);return 1}
+function ramp(t,a,b){return ease(clamp((t-a)/(b-a),0,1))}
+function kf(K,t){if(t<=K[0][0])return K[0].slice(1);for(let i=0;i<K.length-1;i++){const A=K[i],B=K[i+1];if(t<=B[0]){const u=B[0]>A[0]?ease((t-A[0])/(B[0]-A[0])):1;return A.slice(1).map((v,j)=>v+(B[j+1]-v)*u)}}return K[K.length-1].slice(1)}
+function lin(K,x){if(x<=K[0][0])return K[0][1];for(let i=0;i<K.length-1;i++){const a=K[i],b=K[i+1];if(x<=b[0])return a[1]+(b[1]-a[1])*(x-a[0])/(b[0]-a[0])}return K[K.length-1][1]}
+
+let PH={}, SC={};          // phrase id -> {start,end}; scene id -> {start,end}
+const S=id=>PH[id].start, E=id=>PH[id].end;
+
+/* ---------- plate geometry (plate px) ---------- */
+const R={ side:[4,42,280,370], newb:[6,47,273,36], search:[6,81,273,36], proj:[6,115,273,36], art:[6,149,273,36], code:[6,183,273,36],
+  cust:[6,217,273,36], usage:[6,255,273,34], hist:[6,307,273,66], acct:[6,1038,276,36], ghost:[1883,8,30,30],
+  input:[772,366,664,119], plus:[782,435,32,32], mode:[817,434,132,34], model:[1186,433,152,34], voice:[1343,436,84,30], chips:[857,517,494,36] };
+const ctr=r=>[r[0]+r[2]*0.42, r[1]+r[3]*0.55];
+
+/* ---------- English info cards ---------- */
+const CARDS={
+ new:{side:'R',k:'SIDEBAR',h:'New chat',lead:'Starts a fresh conversation.',body:`<ul><li>Each chat keeps its own conversation</li><li>Start a new chat for each new topic</li><li>Focused chats give more focused answers</li></ul>`},
+ search:{side:'R',k:'SIDEBAR',h:'Search',lead:'Find your past chats quickly.',body:`<ul><li><b>Chat search</b> (paid plans): ask Claude <i>“What did we discuss about…?”</i></li><li>On/off: Settings › Your Claude › <i>Search and reference chats</i></li><li>Incognito chats are never searched</li></ul>`},
+ projects:{side:'R',k:'SIDEBAR',h:'Projects',lead:'A workspace with its own files (knowledge) and instructions.',body:`<h4>HOW TO CREATE</h4><ol><li>Projects › <b>+ New Project</b></li><li>Add a name and description</li><li>Add files to project knowledge with <b>+</b></li><li><b>Set project instructions</b> › Save</li></ol><h4>GOOD TO KNOW</h4><ul><li>Chats share the project knowledge, not each other’s conversations</li><li>Paid plans: bigger knowledge with RAG (up to 10×)</li><li>Sharing projects: Team &amp; Enterprise only</li></ul>`},
+ artifacts:{side:'R',k:'SIDEBAR',h:'Artifacts',lead:'Work Claude creates in a side panel: docs, code, websites, diagrams, dashboards.',body:`<ul><li>All of them are saved on the <b>Artifacts</b> page</li><li>Edit them by chatting, or edit templates directly</li><li>Export Docs to Word, PDF, Markdown or Google Docs</li><li>Private by default; you choose when to share</li></ul><h4>REQUIREMENTS &amp; LIMITS</h4><ul><li>Settings: <i>Code execution and file creation</i> must be on</li><li>Storage: up to 20 MB per artifact</li></ul>`},
+ code:{side:'R',k:'SIDEBAR',h:'Claude Code',lead:'An agentic coding tool: reads your code, edits files and runs commands.',body:`<h4>ON THE WEB (claude.ai/code)</h4><ol><li>Connect your GitHub account</li><li>Pick a repository</li><li>Describe the task</li><li>Review the diff › <b>Create PR</b></li></ol><ul><li>Also available in the Terminal, VS Code, JetBrains and the Desktop app</li></ul><span class="pill"><b>Pro</b> · included</span><span class="pill">Counts toward usage limits</span>`},
+ customize:{side:'R',k:'SIDEBAR',h:'Customize',lead:'Add abilities and connections to Claude.',body:`<ul><li><b>Skills</b>: teach Claude how to do specific tasks</li><li><b>Connectors</b>: link outside services (click Connect, then sign in)</li><li><b>Plugins</b>: bundles of skills and commands</li><li>Browse everything in the <b>Discover</b> tab</li></ul>`},
+ usage:{side:'R',k:'SIDEBAR',h:'Usage',lead:'See how much of your plan you have used.',body:`<ul><li>Full dashboard: Settings › Usage</li><li>Session limit resets every <b>5 hours</b></li><li>There is also a <b>weekly</b> limit</li><li>Optional usage credits let you keep working</li><li>Tip: lower effort uses less</li></ul>`},
+ history:{side:'R',k:'SIDEBAR',h:'Chats and tasks',lead:'Your recent chats and tasks.',body:`<ul><li><b>View all</b> opens the full list</li><li>Hover a chat › <b>⋮</b> › Rename or Delete</li><li>Select several chats to delete them together</li></ul>`},
+ account:{side:'R',k:'SIDEBAR',h:'Account & Settings',lead:'Click your name (bottom-left) › Settings.',body:`<ul><li><b>Appearance</b>: theme and look</li><li><b>Your Claude</b>: memory and chat search</li><li><b>Usage</b>: limits and usage credits</li></ul><span class="pill">Shows your plan: <b>Pro</b></span>`},
+ incognito:{side:'L',k:'TOP-RIGHT',h:'Incognito chat',lead:'Click the ghost icon in a new chat.',body:`<ul><li>Not saved to history or memory</li><li>Not used for model training</li><li>Can’t be reopened once closed: save what you need</li><li>Not available inside projects</li></ul>`},
+ msgbox:{side:'R',k:'MESSAGE BOX',h:'Write a clear prompt',lead:'Type your question or task here.',body:`<ul><li>Say <b>what</b> you want, <b>for whom</b>, and in <b>what format</b></li></ul><div class="codeblk">“Explain Python lists to a beginner,
+with 3 short examples.”</div><span class="pill">Clear prompt = better answer</span>`},
+ plus:{side:'R',k:'MESSAGE BOX',h:'The + menu',lead:'Choose <b>Add files or photos</b> to attach files.',body:`<ul><li>Docs: PDF, DOCX, CSV, TXT, HTML, JSON, XLSX*</li><li>Images: JPEG, PNG, GIF, WebP</li><li>Up to 20 files per chat, 500 MB each</li><li>Drag &amp; drop or paste also work</li><li>Turn memory off for one chat (before the first message)</li></ul><span class="pill">*XLSX needs code execution enabled</span>`},
+ cowork:{side:'R',k:'MESSAGE BOX',h:'Chat vs Cowork',lead:'Pick how Claude should work.',body:`<div class="two"><div><h3>Chat</h3><ul><li>Quick questions and answers</li></ul></div><div><h3>Cowork</h3><ul><li>Hand over a whole task</li><li>Research, read files, make spreadsheets &amp; slides</li></ul></div></div><ul style="margin-top:12px"><li>Cowork: paid plans, uses more usage</li><li>Local files &amp; browser need the Claude Desktop app</li><li>Check its permission setting before it acts</li></ul>`},
+ model:{side:'R',k:'MESSAGE BOX',h:'Model & Effort',lead:'Click <b>Opus 5.5 · Medium</b> to change them.',body:`<ul><li>Switch models; <b>More models</b> shows extra options</li></ul><h4>EFFORT</h4><div class="scale"><span>Low</span><span class="on">Medium</span><span>High</span><span>Extra high</span><span>Max</span></div><ul><li>Higher effort: deeper answers, but slower and uses more</li><li>Medium: everyday tasks · High and above: hard coding &amp; planning</li><li>Opus 5.5 always thinks before it answers</li></ul>`},
+ voice:{side:'R',k:'MESSAGE BOX',h:'Voice & quick starts',lead:'More ways to begin.',body:`<ul><li><b>Mic / voice</b> buttons: speak instead of typing</li><li><b>Write · Learn · Code · Life stuff · Claude’s choice</b>: ideas to get started</li></ul>`},
+};
+
+/* ---------- per-scene setup ---------- */
+// camera: [scale, focusX, focusY] (focus clamped so the view never leaves the plate; 0 = left/top edge, 9999 = right/bottom edge)
+const SIDE_TOP=[1.45,0,0], SIDE_BOT=[1.45,0,9999], MSG=[1.25,1152,430];
+const SCN={
+ intro:{cam:[1.06,1104,420],chap:null},
+ home:{cam:[1,960,540],chap:['01','Home screen']},
+ new:{cam:SIDE_TOP,chap:['02','Sidebar · New'],cur:'newb',hl:['newb','New chat'],click:true},
+ search:{cam:SIDE_TOP,chap:['02','Sidebar · Search'],cur:'search',hl:['search','Search']},
+ projects:{cam:SIDE_TOP,chap:['02','Sidebar · Projects'],cur:'proj',hl:['proj','Projects']},
+ artifacts:{cam:SIDE_TOP,chap:['02','Sidebar · Artifacts'],cur:'art',hl:['art','Artifacts']},
+ code:{cam:SIDE_TOP,chap:['02','Sidebar · Code'],cur:'code',hl:['code','Claude Code']},
+ customize:{cam:SIDE_TOP,chap:['02','Sidebar · Customize'],cur:'cust',hl:['cust','Customize']},
+ usage:{cam:SIDE_TOP,chap:['02','Sidebar · Usage'],cur:'usage',hl:['usage','Usage']},
+ history:{cam:SIDE_TOP,chap:['02','Sidebar · Chats and tasks'],cur:'hist',hl:['hist','Chats and tasks']},
+ account:{cam:SIDE_BOT,chap:['02','Sidebar · Account'],cur:'acct',hl:['acct','Your name › Settings']},
+ incognito:{cam:[1.6,9999,0],chap:['02','Incognito chat'],cur:'ghost',hl:['ghost','Incognito']},
+ msgbox:{cam:MSG,chap:['03','Message box'],cur:'input',hl:['input','Message box']},
+ plus:{cam:MSG,chap:['03','Message box · + menu'],cur:'plus',hl:['plus','+ Add files or photos']},
+ cowork:{cam:MSG,chap:['03','Message box · Chat / Cowork'],cur:'mode',hl:['mode','Chat · Cowork']},
+ model:{cam:MSG,chap:['04','Model & effort'],cur:'model',hl:['model','Model · Effort']},
+ voice:{cam:MSG,chap:['03','Voice & quick starts'],cur:'voice',hl:['voice','Mic · Voice']},
+};
+const UI_SCENES=['intro','home','new','search','projects','artifacts','code','customize','usage','history','account','incognito','msgbox','plus','cowork','model','voice'];
+
+let CAM=[], CUR=[], CLICKS=[], HLS=[], HOVERS=[], CARDEL={};
+function addHL(rect,label,a,b,tagPos){
+  const d=document.createElement('div'); d.className='hl';
+  Object.assign(d.style,{left:rect[0]+'px',top:rect[1]+'px',width:rect[2]+'px',height:rect[3]+'px'});
+  if(label){const g=document.createElement('div');g.className='tag';g.textContent=label;
+    const p=tagPos||'right'; if(p==='right')Object.assign(g.style,{left:(rect[2]+12)+'px',top:'-2px'});
+    else if(p==='above')Object.assign(g.style,{left:'-4px',top:'-50px'}); else if(p==='below')Object.assign(g.style,{left:'-4px',top:(rect[3]+10)+'px'});
+    else if(p==='left')Object.assign(g.style,{right:(rect[2]+12)+'px',top:'-2px'});
+    d.appendChild(g)}
+  $('hlLayer').appendChild(d); HLS.push([d,a,b]);
+}
+function addHover(rect,a,b){const d=document.createElement('div');d.className='hover';Object.assign(d.style,{left:rect[0]+2+'px',top:rect[1]+'px',width:rect[2]-4+'px',height:rect[3]+'px'});$('hoverLayer').appendChild(d);HOVERS.push([d,a,b])}
+function addCard(id,a,b){
+  const c=CARDS[id]; const d=document.createElement('div'); d.className='card';
+  d.innerHTML=`<div class="k">${c.k}</div><h2>${c.h}</h2><div class="lead">${c.lead}</div>${c.body}`;
+  if(c.side==='R')Object.assign(d.style,{left:(SCN[id].cam===MSG?1372:1214)+'px',top:'118px',width:(SCN[id].cam===MSG?510:660)+'px'});
+  else Object.assign(d.style,{left:'70px',top:'170px',width:'640px'});
+  $('cardLayer').appendChild(d); CARDEL[id]=[d,a,b];
+}
+function fullLayer(html){const d=document.createElement('div');d.className='full';d.innerHTML=html;$('fullLayer').appendChild(d);return d}
+
+/* ---------- terminal timing (output time -> source seconds in each recording) ---------- */
+let TA=[], TB=[], THL=[], FULLS={}, TLAYOUT=[];
+function termHL(rec,rect,label,a,b,tagPos){
+  const d=document.createElement('div'); d.className='thl';
+  Object.assign(d.style,{left:rect[0]+'px',top:rect[1]+'px',width:rect[2]+'px',height:rect[3]+'px'});
+  const g=document.createElement('div'); g.className='tag'; g.textContent=label;
+  if(tagPos==='below')Object.assign(g.style,{right:'-3px',top:(rect[3]+10)+'px'}); else if(tagPos==='right')Object.assign(g.style,{left:(rect[2]+14)+'px',top:'0px'}); else Object.assign(g.style,{right:'-3px',top:'-52px'});
+  d.appendChild(g); $('thlLayer').appendChild(d); THL.push([d,a,b,rec]);
+}
+
+window.init=function(){
+  for(const p of TIM.timings) PH[p.id]=p; for(const s of TIM.scenes) SC[s.id]=s;
+  // camera + cursor + highlights + cards for UI scenes
+  CAM.push([0,1.06,1104,420]);
+  for(const id of UI_SCENES){
+    const s=SC[id], c=SCN[id];
+    CAM.push([s.start, ...c.cam]); CAM.push([s.end, c.cam[0]*1.07, c.cam[1], c.cam[2]]);
+    if(c.cur){ const [x,y]=ctr(R[c.cur]); CUR.push([s.start+0.15,x,y]); CUR.push([s.end-0.05,x+6,y+3]); addHover(R[c.cur],s.start+0.2,s.end); }
+    if(c.hl) addHL(R[c.hl[0]], c.hl[1], s.start+0.25, s.end-0.15, id==='incognito'?'left':(SCN[id].cam===MSG?(id==='voice'||id==='model'?'below':'above'):'right'));
+    if(c.click){ CLICKS.push(s.start+1.1); }
+    if(CARDS[id]) addCard(id, s.start+0.45, s.end-0.1);
+  }
+  // home: region tour
+  const h=SC.home;
+  CUR.unshift([h.start+0.3,1300,700]);
+  addHL(R.side,'Sidebar',S('h3')-0.05,E('h3')+0.25,'right');
+  addHL(R.input,'Message box',S('h4')-0.05,E('h4')+0.25,'above');
+  addHL(R.acct,'Account',S('h5')-0.05,E('h5')+0.5,'above');
+  CUR.push([S('h3')+0.2,150,200],[E('h3'),150,200],[S('h4')+0.3,1000,400],[E('h4'),1000,400],[S('h5')+0.3,70,1056],[S('h6')+0.3,70,1056],[h.end-0.2,700,800]);
+  // history: also View all
+  CUR.push([S('t1')+1.8,40,357]);
+  // incognito: extra camera already; message box: chips highlight during v2
+  addHL(R.chips,'Quick starts',S('v2'),E('v2')+0.2,'below');
+  CUR.push([S('v2')+0.2,900,535],[E('v2'),1290,535]);
+  CUR.sort((a,b)=>a[0]-b[0]);
+  // intro + home banner
+  FULLS.title=fullLayer(`<div class="backdrop"></div><div class="t" style="position:relative">Claude AI <em>Complete Guide</em></div><div class="s" style="position:relative">INTERFACE · TOOLS · CLAUDE CODE</div><div id="chapters" style="position:relative">
+    <div class="ch"><b>01</b>Home screen</div><div class="ch"><b>02</b>Sidebar options</div><div class="ch"><b>03</b>Message box &amp; tools</div>
+    <div class="ch"><b>04</b>Models &amp; effort</div><div class="ch"><b>05</b>Claude Code: real demo</div><div class="ch"><b>06</b>Limits &amp; safe use</div></div>`);
+  FULLS.note=fullLayer(`<div style="position:absolute;left:50%;top:120px;transform:translateX(-50%);background:rgba(35,35,34,.97);border:1px solid var(--warn);border-radius:12px;padding:14px 22px;font:600 22px Inter;color:var(--text);white-space:nowrap">⚠ Some options vary by <b style="color:var(--warn)">plan, account and app version</b></div>`);
+  FULLS.ccTitle=fullLayer(`<div class="t">Claude Code</div><div class="s">REAL TERMINAL DEMO</div>`);
+  FULLS.install=fullLayer(`<div class="card" style="opacity:1;left:70px;top:170px;width:820px"><div class="k">CLAUDE CODE</div><h2>Install (official)</h2><div class="lead">Run one command, then check the version.</div>
+    <h4>MACOS · LINUX · WSL</h4><div class="codeblk">curl -fsSL https://claude.ai/install.sh | bash</div>
+    <h4>WINDOWS POWERSHELL</h4><div class="codeblk">irm https://claude.ai/install.ps1 | iex</div>
+    <h4>CHECK</h4><div class="codeblk">claude --version</div><ul><li>First run asks you to log in</li><li>Needs a paid plan or a Console account</li></ul></div>`);
+  FULLS.safety=fullLayer(`<div class="card" style="opacity:1;position:relative;width:1060px"><div class="k">PERMISSIONS</div><h2>Claude Code asks before it acts</h2>
+    <ul><li><b>Reading files</b>: no approval needed (inside your project)</li><li><b>Editing files</b>: asks first in Manual mode</li><li><b>Running commands</b>: asks first, except read-only ones like <code>ls</code> or <code>cat</code></li><li><code>--allowedTools</code> pre-approves only the tools you list</li></ul></div>`);
+  FULLS.modes=fullLayer(`<div class="card" style="opacity:1;position:relative;width:1300px"><div class="k">CLAUDE CODE</div><h2>Permission modes</h2><div class="lead">Choose how much Claude Code may do without asking.</div>
+    <div class="two"><div><h3>Manual <span style="color:var(--mute);font-size:16px">(default)</span></h3><ul><li>Asks permission the first time each tool is used</li></ul></div><div><h3>Accept edits</h3><ul><li>Accepts file edits automatically; other commands still ask</li></ul></div></div>
+    <div class="two" style="margin-top:14px"><div><h3>Plan</h3><ul><li>Reads and explores, but doesn’t edit your files</li></ul></div><div><h3>Auto</h3><ul><li>A safety classifier reviews actions instead of you</li></ul></div></div>
+    <span class="pill">Beginners: start with <b>Manual</b> or <b>Plan</b></span></div>`);
+  FULLS.limits=fullLayer(`<div class="card" style="opacity:1;position:relative;width:1180px"><div class="k">BEFORE YOU RELY ON AI</div><h2>Limits &amp; safe use</h2>
+    <ul id="lim"><li id="li2"><b>AI can make mistakes</b>: always verify answers and code</li><li id="li3"><b>Never share</b> passwords, API keys or private data</li><li id="li4"><b>Review changes</b> before you run them</li><li id="li5"><b>Usage limits</b> apply, even on Pro</li></ul></div>`);
+  FULLS.end=fullLayer(`<div class="t">Claude AI <em>+</em> Claude Code</div><div class="s">FULL STEP-BY-STEP SERIES</div>
+    <div id="eps"><div class="ep">Projects</div><div class="ep">Artifacts</div><div class="ep">Cowork</div><div class="ep">Files &amp; research</div><div class="ep">Settings &amp; memory</div><div class="ep">Claude Code setup</div><div class="ep">Permissions</div><div class="ep">Debugging</div><div class="ep">Safe practices</div></div>
+    <div id="btns"><div class="btn" id="likeBtn">👍 LIKE</div><div class="btn" id="subBtn"><svg width="30" height="22" viewBox="0 0 30 22"><rect width="30" height="22" rx="6" fill="#fff"/><path d="M12 6l8 5-8 5z" fill="#CC0000"/></svg>SUBSCRIBE<svg id="bell" width="22" height="22" viewBox="0 0 24 24"><path d="M12 3a6 6 0 00-6 6v4l-2 3h16l-2-3V9a6 6 0 00-6-6zM10 19a2 2 0 004 0" fill="#fff"/></svg></div></div>`);
+  // terminal maps (source times measured from the recordings; see storyboard_v3.md)
+  const ci=SC.cc_intro, ce=SC.cc_explain, cf=SC.cc_fix;
+  TA=[[S('d2'),1.0],[S('d2')+0.5,1.0],[S('d2')+3.1,3.6],[S('e1')+0.2,3.6],[S('e1')+2.5,5.9],[S('e2')+0.1,5.9],[S('e2')+4.1,9.9],[S('epause'),9.95],[E('epause'),20.2],[E('epause')+1.7,21.9]];
+  TB=[[cf.start,1.2],[S('f1')+0.4,1.2],[S('f1')+2.4,3.2],[S('f2'),4.3],[S('f2')+4.65,8.95],[S('fpause'),9.3],[E('fpause'),20.85],[E('fpause')+1.7,22.6],
+      [S('f6'),23.6],[S('f6')+2.0,25.6],[S('f7')-0.2,26.4],[S('f7')+2.1,28.7]];
+  // terminal window layout: [t, x, y, scale]
+  TLAYOUT=[[ci.start,880,250,0.6],[S('e1')-0.2,880,250,0.6],[S('e1')+0.6,301,96,0.86]];
+  // terminal highlights (recording px)
+  termHL('A',[14,278,1504,426],'Claude Code’s answer',S('e3')+0.1,S('e3')+2.6,'below');
+  termHL('A',[14,320,1504,132],'It even spotted the bug!',S('e3')+2.7,ce.end-0.2,'below');
+  termHL('B',[14,370,340,44],'KeyError',S('f1')+2.4,E('f1')+0.6,'right');
+  termHL('B',[288,454,404,44],'Only file edits allowed',S('f3'),E('f3')+0.2,'below');
+  termHL('B',[14,496,1504,88],'Needed approval to run the app',S('f4')+0.3,E('f4')+0.1,'above');
+  termHL('B',[14,412,900,88],'The fix: name → title',S('f6')+2.1,E('f6')+0.3,'below');
+  termHL('B',[14,664,560,88],'The app works now',S('f7')+1.4,cf.end-0.1,'below');
+};
+
+function renderUI(t){
+  const last=SC.voice.end+0.6, vis=t<last; $('uiScene').style.display=vis?'block':'none'; if(!vis)return;
+  $('uiScene').style.opacity=1-ramp(t,SC.voice.end,last);
+  let [s,fx,fy]=kf(CAM,t); const hw=960/s,hh=540/s; fx=clamp(fx,hw,1920-hw); fy=clamp(fy,hh,1080-hh);
+  $('cam').style.transform=`translate(${960-fx*s}px,${540-fy*s}px) scale(${s})`;
+  const dim=1-ramp(t,SC.intro.end-0.6,SC.intro.end+0.4);
+  $('cam').style.filter=dim>0.01?`brightness(${1-0.22*dim}) blur(${12*dim}px)`:'none';
+  for(const [d,a,b] of HLS) d.style.opacity=win(t,a,b,.22);
+  for(const [d,a,b] of HOVERS) d.style.opacity=win(t,a,b,.12);
+  let [cx,cy]=kf(CUR,t); cx+=5*Math.sin(t*1.1)+2*Math.sin(t*2.3); cy+=4*Math.sin(t*0.8+1)+1.5*Math.sin(t*1.9);   // natural hand drift
+  $('cursor').style.opacity=win(t,SC.home.start+0.3,SC.voice.end-0.3,.3);
+  let r=0,rs=0; for(const c of CLICKS){const d=t-c;if(d>=0&&d<.4){r=1-d/.4;rs=.5+d/.4*.8}}
+  $('cursor').style.transform=`translate(${cx-1}px,${cy-1}px)`+(r>.6?' scale(.9)':'');
+  Object.assign($('rip').style,{left:cx+'px',top:cy+'px',opacity:r,transform:`scale(${rs})`});
+}
+function renderCards(t){
+  for(const id in CARDEL){const [d,a,b]=CARDEL[id]; const o=win(t,a,b,.3); d.style.opacity=o; d.style.display=o>0?'block':'none'; d.style.transform=`translateY(${(1-o)*12 - 10*clamp((t-a)/(b-a),0,1)}px)`}
+}
+function showFull(el,o,dy=0,t=0,a=0,b=1){el.style.opacity=o; el.style.display=o>0?'flex':'none'; const z=1+0.045*clamp((t-a)/Math.max(b-a,0.1),0,1); el.style.transform=`translateY(${(1-o)*dy}px) scale(${z})`}
+let lastA=null,lastB=null;
+async function renderTerm(t){
+  const ci=SC.cc_intro, ce=SC.cc_explain, cf=SC.cc_fix;
+  const vis=t>=S('d2')-0.4 && t<cf.end+0.6; $('termScene').style.display=vis?'block':'none'; if(!vis)return;
+  $('termScene').style.opacity=ramp(t,S('d2')-0.4,S('d2')+0.2)*(1-ramp(t,cf.end,cf.end+0.5));
+  const [x,y,sc]=kf(TLAYOUT,t); const drift=1+0.025*(t<cf.start?ramp(t,ce.start,ce.end):ramp(t,cf.start,cf.end));
+  Object.assign($('tWin').style,{left:x+'px',top:y+'px',width:'1532px',height:'940px',transform:`scale(${sc*drift})`});
+  const useB=t>=cf.start-0.3; const wB=ramp(t,cf.start-0.3,cf.start+0.2);
+  $('termA').style.opacity=1-wB; $('termB').style.opacity=wB;
+  if(!useB||wB<1){const f=clamp(Math.round(lin(TA,t)*30)+1,1,768),p=window.DIR_A+'/f'+String(f).padStart(4,'0')+'.jpg'; if(p!==lastA){$('termA').src=p;lastA=p;await $('termA').decode().catch(()=>{})}}
+  if(useB){const f=clamp(Math.round(lin(TB,t)*30)+1,1,975),p=window.DIR_B+'/f'+String(f).padStart(4,'0')+'.jpg'; if(p!==lastB){$('termB').src=p;lastB=p;await $('termB').decode().catch(()=>{})}}
+  for(const [d,a,b,rec] of THL) d.style.opacity=win(t,a,b,.2)*((rec==='A')?(1-wB):wB);
+  const ffA=win(t,S('epause'),E('epause'),.12), ffB=win(t,S('fpause'),E('fpause'),.12);
+  Object.assign($('ff').style,{opacity:Math.max(ffA,ffB),left:'1420px',top:'150px'});
+  $('dim').style.opacity=win(t,S('f5')-0.1,E('f5')+0.1,.3);
+}
+function renderFull(t){
+  const i=SC.intro;
+  showFull(FULLS.title,win(t,0.15,i.end-0.4,.45),0,t,0,i.end);
+  FULLS.title.querySelector('.t').style.transform=`translateY(${(1-easeOut(clamp(t/1.2,0,1)))*14}px)`;
+  document.querySelectorAll('.ch').forEach((e,k)=>{const a=S('i2')+k*0.28,q=ramp(t,a,a+.35);e.style.opacity=q;e.style.transform=`translateY(${(1-q)*10}px)`});
+  showFull(FULLS.note,win(t,S('h6'),E('h6')+0.4,.3),-10,t,S('h6'),E('h6')+0.4);
+  showFull(FULLS.ccTitle,win(t,SC.cc_intro.start-0.2,E('d1')+0.1,.35),14,t,SC.cc_intro.start,E('d1'));
+  showFull(FULLS.install,win(t,S('d2'),E('e1')-1.2,.35),0,t,S('d2'),E('e1'));
+  showFull(FULLS.safety,win(t,S('f5'),E('f5'),.3),16,t,S('f5'),E('f5'));
+  showFull(FULLS.modes,win(t,SC.cc_modes.start,SC.cc_modes.end,.4),16,t,SC.cc_modes.start,SC.cc_modes.end);
+  showFull(FULLS.limits,win(t,SC.limits.start,SC.limits.end,.4),16,t,SC.limits.start,SC.limits.end);
+  ['li2','li3','li4','li5'].forEach(id=>{const k=id.slice(2),o=ramp(t,S('l'+k)-0.1,S('l'+k)+0.3);$(id).style.opacity=0.25+0.75*o});
+  const o=SC.outro; showFull(FULLS.end,win(t,o.start,1e9,.5),0,t,o.start,o.end);
+  document.querySelectorAll('.ep').forEach((e,k)=>{const a=S('o1')+0.6+k*0.18,q=ramp(t,a,a+.35);e.style.opacity=q;e.style.transform=`translateY(${(1-q)*10}px)`});
+  const bl=ramp(t,S('o2'),S('o2')+0.4), bs=ramp(t,S('o2')+1.2,S('o2')+1.6); $('likeBtn').style.opacity=bl; $('subBtn').style.opacity=bs;
+  const t0=S('o2')+1.8; $('subBtn').style.transform=t>t0?`scale(${1+.04*Math.sin((t-t0)*9)*Math.exp(-(t-t0)*1.5)})`:'none';
+  $('bell').style.transform=t>t0?`rotate(${18*Math.sin((t-t0)*16)*Math.exp(-(t-t0)*2.2)}deg)`:'none';
+}
+function renderSect(t){
+  let o=0,html='',live=false;
+  for(const id of UI_SCENES){const c=SCN[id];if(!c.chap)continue;const s=SC[id];const w=win(t,s.start,s.end,.25);if(w>o){o=w;html=`<b>${c.chap[0]}</b>&nbsp; ${c.chap[1]}`}}
+  const tm=[['cc_explain','05','Claude Code · explain a project',1],['cc_fix','05','Claude Code · fix a bug',1],['cc_modes','05','Claude Code · permission modes',0],['limits','06','Limits & safe use',0]];
+  for(const [id,n,l,lv] of tm){const s=SC[id];const w=win(t,s.start,s.end,.25);if(w>o){o=w;html=`<b>${n}</b>&nbsp; ${l}`;live=!!lv}}
+  {const w=win(t,S('d2'),SC.cc_intro.end,.25); if(w>o){o=w;html=`<b>05</b>&nbsp; Claude Code · install`;live=true}}
+  $('sect').style.opacity=o; $('sectTx').innerHTML=html; document.querySelector('#sect .live').style.display=live?'flex':'none';
+}
+window.render=async function(t){renderUI(t);renderCards(t);await renderTerm(t);renderFull(t);renderSect(t);return true};
+</script>
+</body>
+</html>

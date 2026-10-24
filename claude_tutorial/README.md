@@ -1,8 +1,27 @@
-# Claude AI & Claude Code Complete Guide — 60-second sample
+# Claude AI & Claude Code Complete Guide — Episode 01
 
 Sample episode: **"Claude AI Interface Explained: Where to Find Every Important Option"** (Hindi / Hinglish).
 
-## v2 (current): built on your real Claude screen
+## v3 (FINAL, full episode, 6:34): every option explained, English on-screen text
+
+| Path | What |
+|---|---|
+| `output/claude_ai_full_episode01_v3.mp4` | **Final video**: 1920×1080, 30 fps, 6:34; real Claude screen (Pro, Opus 5.5) + 2 genuine Claude Code demos; Hindi narration; **English** info cards, labels and burned-in captions |
+| `output/claude_ai_full_episode01_v3_softsubs.mp4` | Same, captions as selectable tracks (English + Hinglish) |
+| `output/claude_ai_full_episode01_v3_music_sfx_only.mp4` | No narration, for a human voice-over |
+| `output/QC_report_v3_A4.pdf`, `output/qc_results_v3.json` | A4 production + QC report, raw QC |
+| `output/UPLOAD_KIT_v3.md` | YouTube title, description with chapters, tags |
+| `subtitles/claude_ai_full_episode01_v3.en.srt` / `.hinglish.srt` / `.en.ass` | Subtitles (ASS = burned-in style) |
+| `voiceover/narration_v3.md` | Full script: Hinglish, English, Devanagari, with timings |
+| `storyboard_v3.md` | Scene list and sources |
+| `recordings/claude_code_v3_explain.mp4`, `recordings/claude_code_v3_bugfix.mp4` | Genuine Claude Code CLI recordings (commands shown = commands run) |
+
+v3 rebuild: `record_terminal_v3.sh` (×2) → frames: `ffmpeg -i rec.mp4 -vf crop=1532:900:0:0 dir/f%04d.jpg`
+→ `make_voiceover_seq.py … narration_lines_v3.json voiceover --tag _v3` → `make_captions_v3.py`
+→ `make_audio.py … audio_cues_v3.json _v3` → `render_all_v3.sh` → `RENDER_DIR=… assemble_v3.sh`
+→ `qc_check.py … 394.067 en` → `make_report_v3.py`.
+
+## v2: 60 s sample on your real Claude screen
 
 | Path | What |
 |---|---|
