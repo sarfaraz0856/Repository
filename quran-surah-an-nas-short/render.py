@@ -4,7 +4,6 @@ Footage (Adobe Stock, free licence; not committed, put the files in clips/).
 BG=sunset (default):
   sunset_beach.mov #835719321 sunset over the sea, played at half speed (60 fps source)
 BG=montage:
-  haram.mov      #774469748  Masjid al-Haram, King Abdul Aziz gate, Makkah
   qiblatayn.mov  #1353238707 Masjid al-Qiblatayn courtyard, Madinah
   katara.mov     #475374010  Katara mosque, Doha
   aerial_v.mov   #536823962  aerial view of a mosque
@@ -58,6 +57,14 @@ SEGS = [
 ]
 DIGITS = "٠١٢٣٤٥٦٧٨٩"
 
+# the video opens on the basmala: cut the recitation in the pause after the ta'awwudh
+AUDIO_START = 6.30
+SEGS = [(s - AUDIO_START, e - AUDIO_START, ar, en, n) for (s, e, ar, en, n) in SEGS if s > AUDIO_START]
+TRIMMED = os.path.join(WORK, 'recitation.wav')
+subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', f'{AUDIO_START}', '-i', AUDIO, '-af', 'afade=t=in:d=0.05',
+                '-c:a', 'pcm_s16le', TRIMMED], check=True)
+AUDIO = TRIMMED
+
 raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', AUDIO, '-ac', '1', '-ar', '16000', '-f', 's16le', '-'],
                      capture_output=True, check=True).stdout
 DUR = len(raw) / 2 / 16000
@@ -72,20 +79,19 @@ BG = os.environ.get('BG', 'sunset')
 # clip, source start (s), horizontal crop position (0 = left, 1 = right), first segment index it covers, speed
 EDITS = {
     'sunset': [  # one real sunset clip in slow motion, re-entered at a few pauses
-        ('sunset_beach.mov', 0.0, 0.5, 0, 0.5),   # ta'awwudh .. ayah 1
-        ('sunset_beach.mov', 1.0, 0.5, 3, 0.5),   # ayat 2-4
-        ('sunset_beach.mov', 3.0, 0.5, 6, 0.5),   # ayat 5-6
-        ('sunset_beach.mov', 5.0, 0.5, 8, 0.5),   # sadaqa Allah
+        ('sunset_beach.mov', 0.0, 0.5, 0, 0.5),   # basmala .. ayah 1
+        ('sunset_beach.mov', 1.0, 0.5, 2, 0.5),   # ayat 2-4
+        ('sunset_beach.mov', 3.0, 0.5, 5, 0.5),   # ayat 5-6
+        ('sunset_beach.mov', 5.0, 0.5, 7, 0.5),   # sadaqa Allah
     ],
     'montage': [
-        ('haram.mov', 1.5, 0.72, 0, 1),      # ta'awwudh
-        ('qiblatayn.mov', 5.0, 0.5, 1, 1),   # basmala
-        ('katara.mov', 0.0, 0.5, 2, 1),      # ayah 1
-        ('aerial_v.mov', 0.5, 0.5, 3, 1),    # ayat 2-3
-        ('szgm_d2n.mov', 0.0, 0.5, 5, 1),    # ayah 4
-        ('szgm_tl.mov', 0.0, 0.5, 6, 1),     # ayah 5
-        ('szgm_lit.mov', 0.0, 0.5, 7, 1),    # ayah 6
-        ('moon.mov', 0.0, 0.72, 8, 1),       # sadaqa Allah
+        ('qiblatayn.mov', 5.0, 0.5, 0, 1),   # basmala
+        ('katara.mov', 0.0, 0.5, 1, 1),      # ayah 1
+        ('aerial_v.mov', 0.5, 0.5, 2, 1),    # ayat 2-3
+        ('szgm_d2n.mov', 0.0, 0.5, 4, 1),    # ayah 4
+        ('szgm_tl.mov', 0.0, 0.5, 5, 1),     # ayah 5
+        ('szgm_lit.mov', 0.0, 0.5, 6, 1),    # ayah 6
+        ('moon.mov', 0.0, 0.72, 7, 1),       # sadaqa Allah
     ],
 }
 SHOTS = EDITS[BG]
