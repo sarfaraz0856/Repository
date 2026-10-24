@@ -1,10 +1,13 @@
-# Generate the Scene 01 Hindi line with Kokoro (hm_omega), tighten the "..." pause, trim edges.
+# Generate a Hindi narration line with Kokoro (hm_omega), set the "..." pause length, trim edges.
+# Usage: voice.py MODELS_DIR OUT.wav [DEVANAGARI_TEXT] [SPEED] [PAUSE_SECONDS]
 import sys, numpy as np, soundfile as sf
 from kokoro_onnx import Kokoro
 models, out = sys.argv[1], sys.argv[2]
 k = Kokoro(models + "/kokoro-v1.0.onnx", models + "/voices-v1.0.bin")
-text = "यह एक ऐसा शहर है... जहाँ चालीस साल से कोई नहीं रहता।"
-a, sr = k.create(text, voice="hm_omega", speed=0.97, lang="hi")
+text = sys.argv[3] if len(sys.argv) > 3 else "यह एक ऐसा शहर है... जहाँ चालीस साल से कोई नहीं रहता।"
+speed = float(sys.argv[4]) if len(sys.argv) > 4 else 0.97
+pause = float(sys.argv[5]) if len(sys.argv) > 5 else 0.36
+a, sr = k.create(text, voice="hm_omega", speed=speed, lang="hi")
 a = a.astype(np.float64)
 w = int(0.01 * sr)
 env = np.array([np.sqrt(np.mean(a[i:i + w] ** 2)) for i in range(0, len(a) - w, w)])
@@ -21,7 +24,7 @@ for i in range(start, end):
     else:
         cur = 0
 print("speech %.2fs, pause %.2fs" % ((end - start) * w / sr, best * w / sr))
-keep_pause = int(0.36 * sr)
+keep_pause = int(pause * sr)
 p0, p1 = best_rng[0] * w, best_rng[1] * w
 pre = a[max(0, start * w - int(0.03 * sr)):p0]
 post = a[p1:min(len(a), end * w + int(0.12 * sr))]
