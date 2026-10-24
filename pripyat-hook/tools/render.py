@@ -470,5 +470,3 @@ if __name__ == "__main__":
         im = render(fi / FPS)
         Image.fromarray(im).save(f"{out}/f_{fi:04d}.png", compress_level=1)
         print("frame", fi, flush=True)
-    import resource
-    print("maxrss MB", resource.getrusage(resource.RUSAGE_SELF).ru_maxrss // 1024)
