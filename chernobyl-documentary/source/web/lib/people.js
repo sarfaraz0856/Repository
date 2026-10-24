@@ -16,12 +16,12 @@ export async function loadRig() {
   return RIG;
 }
 
-function mat(color, rough = 0.95, metal = 0, key = 'ff') {
+export function mat(color, rough = 0.95, metal = 0, key = 'ff') {
   return patchMaterial(new THREE.MeshStandardMaterial({ color, roughness: rough, metalness: metal }), { key });
 }
 
 // tapered capsule along +Y from 0 to len (meters), elliptical cross-section via sx/sz
-function segGeo(len, r0, r1, { sx = 1, sz = 1, seg = 10, caps = true } = {}) {
+export function segGeo(len, r0, r1, { sx = 1, sz = 1, seg = 10, caps = true } = {}) {
   const g = new THREE.CylinderGeometry(r1, r0, len, seg, 3, false);
   g.translate(0, len / 2, 0);
   g.scale(sx, 1, sz);

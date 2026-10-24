@@ -15,8 +15,10 @@ export function makeFacadeMaterial(noiseTex, opts = {}) {
     uWinGain: { value: opts.winGain ?? 1.0 },
     uEntrGain: { value: opts.entrGain ?? 1.0 },
     uBroken: { value: opts.broken ?? 0.0 },
+    uDay: { value: opts.day ?? 0.0 },
     uTimeF: ATM.uTime,
   };
+  mat.userData.u = uniforms;
   patchMaterial(mat, {
     key: 'facade',
     uniforms,
@@ -32,7 +34,7 @@ export function makeFacadeMaterial(noiseTex, opts = {}) {
       if (normal.z < -0.5) vFac.x = sc.x - vFac.x;`,
     fragmentHeader: `
       precision highp sampler3D;
-      uniform sampler3D tNoise; uniform float uWinGain, uEntrGain, uBroken, uTimeF;
+      uniform sampler3D tNoise; uniform float uWinGain, uEntrGain, uBroken, uTimeF, uDay;
       varying vec4 vFac; varying vec4 vB; varying float vFace;
       float hh(vec3 p){ ivec3 q = ivec3(floor(p + 0.5)) + ivec3(4096); uint h = uint(q.x) * 1597334677u ^ uint(q.y) * 3812015801u ^ uint(q.z) * 2741869493u; h = (h ^ (h >> 16u)) * 2246822519u; h ^= h >> 13u; h *= 3266489917u; h ^= h >> 16u; return float(h) * (1.0 / 4294967296.0); }
       vec3 gWinEmit; float gGlass; float gRough;
@@ -124,6 +126,16 @@ export function makeFacadeMaterial(noiseTex, opts = {}) {
                 float tulle = (hh(vec3(ci, flw, seed * 43.0)) > 0.4) ? 0.72 + 0.1 * sin(lx * 90.0) : 1.0;
                 float grad = 0.65 + 0.35 * smoothstep(0.0, wh, ly) * (1.0 - smoothstep(wh * 0.8, wh, ly) * 0.5);
                 gWinEmit += lc * inten * trans * tulle * grad * lit * uWinGain;
+                if (uDay > 0.0) {
+                  // by day the room is dark; tulle and drapes catch the light at the glass
+                  float dr = hh(vec3(ci, flw, seed * 47.0));
+                  vec3 drape = dr < 0.3 ? vec3(0.16, 0.05, 0.035) : (dr < 0.55 ? vec3(0.13, 0.1, 0.05) : (dr < 0.75 ? vec3(0.06, 0.09, 0.05) : vec3(0.15, 0.13, 0.1)));
+                  vec3 room = vec3(0.012, 0.011, 0.01) * grad;
+                  vec3 tl = vec3(0.2, 0.2, 0.19) * (0.75 + 0.25 * abs(sin(lx * 60.0 + wid * 7.0)));
+                  vec3 dc = mix(room, tl, (tulle < 0.99 ? 1.0 : 0.0) * 0.8);
+                  dc = mix(dc, drape * folds, clamp(cmask, 0.0, 1.0));
+                  col = mix(col, dc, uDay);
+                }
                 if (broken > 0.5) {
                   // empty frame, dark interior, a few shards
                   col = vec3(0.004);
@@ -145,7 +157,7 @@ export function makeFacadeMaterial(noiseTex, opts = {}) {
        {
          vec3 V = normalize(vWPos - cameraPosition); vec3 R = reflect(V, normalize(vWNrm));
          float fres = 0.04 + 0.96 * pow(1.0 - max(dot(-V, normalize(vWNrm)), 0.0), 5.0);
-         totalEmissiveRadiance += fogColorDir(R) * fres * gGlass * 2.2;
+         totalEmissiveRadiance += fogColorDir(R) * fres * gGlass * 2.2 * (1.0 - uDay);
        }`],
     ],
   });
@@ -370,6 +382,7 @@ export function buildCity(ctx, opts = {}) {
   const rnd = mulberry32(99);
   // buildings
   const facadeMat = makeFacadeMaterial(noiseTex, opts.facade || {});
+  const skipTree = opts.treeExclude ? (x, z) => opts.treeExclude.some(([ex, ez, er]) => Math.hypot(x - ex, z - ez) < er) : () => false;
   const boxGeo = new THREE.BoxGeometry(1, 1, 1); boxGeo.translate(0, 0.5, 0);
   const n = layout.buildings.length;
   const aB = new Float32Array(n * 4);
@@ -486,7 +499,8 @@ export function buildCity(ctx, opts = {}) {
     for (let s = 5; s < L; s += 9 + rnd() * 5) for (const side of [-1, 1]) {
       if (rnd() < 0.25) continue;
       const off = (r.w / 2 + 7 + rnd() * 3) * side;
-      trees[Math.floor(rnd() * 3)].push([r.a[0] + ux * s + nx * off, r.a[1] + uz * s + nz * off, 9 + rnd() * 8]);
+      const tx = r.a[0] + ux * s + nx * off, tz = r.a[1] + uz * s + nz * off, tk = Math.floor(rnd() * 3), th = 9 + rnd() * 8;
+      if (!skipTree(tx, tz)) trees[tk].push([tx, tz, th]);
     }
   }
   for (const b of layout.buildings) {
@@ -495,7 +509,8 @@ export function buildCity(ctx, opts = {}) {
       const lx = (k + 0.5) / cnt * b.w - b.w / 2 + (rnd() - 0.5) * 4;
       const lz = (b.d / 2 + 8 + rnd() * 18) * (rnd() < 0.5 ? -1 : 1);
       const x = b.x + Math.cos(b.rot) * lx + Math.sin(b.rot) * lz, z = b.z - Math.sin(b.rot) * lx + Math.cos(b.rot) * lz;
-      trees[Math.floor(rnd() * 3)].push([x, z, 8 + rnd() * 10]);
+      const tk = Math.floor(rnd() * 3), th = 8 + rnd() * 10;
+      if (!skipTree(x, z)) trees[tk].push([x, z, th]);
     }
   }
   for (let ti = 0; ti < 3; ti++) {

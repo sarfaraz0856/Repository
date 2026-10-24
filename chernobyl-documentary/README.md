@@ -1,5 +1,7 @@
 # CHERNOBYL — 26 April 1986 (cinematic documentary short)
 
+> **Series:** Part I (this film, 55 s) covers the night of the explosion. **Part II — The Morning After** (60 s) is in [`part2/`](part2/). It covers dawn, the normal Saturday, helicopters over the reactor, the evacuation and the empty city.
+
 **File:** `Chernobyl_26_April_1986_Documentary.mp4`
 **Format:** 1920×1080 (16:9), 24 fps, 55 s, H.264 High + AAC 320 kbps, 48 kHz stereo.
 

@@ -5,8 +5,10 @@ import { fovFromFocalH, fbm1, noise1, smoothstep, clamp, lerp, easeInOut, easeIn
 import { buildCity, buildForest } from './lib/city.js';
 import { buildPlant, PLANT } from './lib/plant.js';
 import { S2, S3, S4, S10 } from './shots_plant.js';
+import { PTEST } from './shots_people_test.js';
 import { S5, S6, S7 } from './shots_fire.js';
 import { S8, S9 } from './shots_after.js';
+import { P1, P2, P3, P4, P5, P6, P7 } from './part2.js';
 
 const V3 = (x, y, z) => new THREE.Vector3(x, y, z);
 const MOON_DIR = V3(0.615, 0.292, 0.733).normalize();
@@ -90,6 +92,7 @@ async function testShot(ctx) {
 
 export const SHOTS = {
   TEST: { duration: 2, build: testShot },
+  PTEST: { duration: 2, build: PTEST },
   S1: { duration: 9.5, build: S1, ss: 2, msaa: 0, volScale: 0.25 },
   S2: { duration: 4.5, build: S2, ss: 1, msaa: 4, volScale: 0.5 },
   S3: { duration: 6.0, build: S3, ss: 1, msaa: 4, volScale: 0.4 },
@@ -100,4 +103,11 @@ export const SHOTS = {
   S8: { duration: 5.0, build: S8, ss: 1, msaa: 4, volScale: 0.4 },
   S9: { duration: 5.0, build: S9, ss: 1, msaa: 4, volScale: 0.4 },
   S10: { duration: 8.0, build: S10, ss: 1, msaa: 4, volScale: 0.4 },
+  P1: { duration: 9.0, build: P1, ss: 2, msaa: 0, volScale: 0.35 },
+  P2: { duration: 8.0, build: P2, ss: 2, msaa: 0, volScale: 0.3 },
+  P3: { duration: 8.0, build: P3, ss: 2, msaa: 0, volScale: 0.4 },
+  P4: { duration: 8.0, build: P4, ss: 2, msaa: 0, volScale: 0.3 },
+  P5: { duration: 9.0, build: P5, ss: 2, msaa: 0, volScale: 0.3 },
+  P6: { duration: 8.0, build: P6, ss: 2, msaa: 0, volScale: 0.3 },
+  P7: { duration: 10.0, build: P7, ss: 2, msaa: 0, volScale: 0.3 },
 };
