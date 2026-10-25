@@ -25,7 +25,7 @@ function rotorTexture(blades = 5) {
   return t;
 }
 
-export function makeMi8({ sling = true, color = new THREE.Color(0.075, 0.085, 0.05) } = {}) {
+export function makeMi8({ sling = true, parked = false, color = new THREE.Color(0.075, 0.085, 0.05) } = {}) {
   const g = new THREE.Group();
   const paint = patchMaterial(new THREE.MeshStandardMaterial({ color, roughness: 0.62 }), { key: 'heli' });
   const belly = patchMaterial(new THREE.MeshStandardMaterial({ color: new THREE.Color(0.16, 0.2, 0.22), roughness: 0.6 }), { key: 'helibelly' });
@@ -79,7 +79,8 @@ export function makeMi8({ sling = true, color = new THREE.Color(0.075, 0.085, 0.
   // blades also exist as geometry so they cast a flickering shadow and catch the light
   const blades = new THREE.Group(); blades.position.copy(disc.position);
   for (let b = 0; b < 5; b++) { const bl = new THREE.Mesh(new THREE.BoxGeometry(10.2, 0.05, 0.52), dark); bl.position.x = 5.4; const arm = new THREE.Group(); arm.rotation.y = b * Math.PI * 2 / 5; arm.add(bl); blades.add(arm); }
-  blades.visible = false; g.add(blades);
+  blades.visible = parked; g.add(blades);
+  if (parked) { disc.visible = false; tdisc.visible = false; }
   // sling load: cable to a cargo net of sand bags
   let load = null;
   if (sling) {

@@ -20,11 +20,13 @@ const P = (x, y, z) => V3(x, y, z).add(PLANT);
 export function dayPlume(ctx, scene, { steps = 110, density = 1.0, wind = [0.1, -0.56] } = {}) {
   const vol = new VolumeFX({ noiseTex: ctx.noiseTex, post: ctx.post, boxMin: P(-260, 20, -640).toArray(), boxMax: P(420, 660, 200).toArray(), steps, shadowSteps: 3, albedo: 0.45 });
   scene.add(vol.mesh);
-  return (t, camera, { sun, sunCol, amb, fire = 1, h = 600 }) => {
-    vol.setPlumes([{ base: P(0, 46, 4).toArray(), r0: 16, spread: 0.32, height: h, density, rise: 6, wind, noiseScale: 1 / 65, fireH: 14, fireEmis: 5 * fire, seed: 0.2 }]);
+  const fn = (t, camera, { sun, sunCol, amb, fire = 1, h = 600, density: dens = density }) => {
+    vol.setPlumes([{ base: P(0, 46, 4).toArray(), r0: 16, spread: 0.32, height: h, density: dens, rise: 6, wind, noiseScale: 1 / 65, fireH: 14, fireEmis: 5 * fire, seed: 0.2 }]);
     vol.setLighting({ firePos: P(2, 50, 4).toArray(), fireCol: [5 * fire, 1.7 * fire, 0.45 * fire], fireR: 30, fireShadowLen: 140, moonDir: sun.toArray(), moonCol: sunCol, ambTop: amb[0], ambBot: amb[1], ext: 0.08, minStep: 3 });
     vol.update(t + 900, Math.round(t * 24), camera);
   };
+  fn.vol = vol;
+  return fn;
 }
 
 // ---------------- P1: dawn over Pripyat, the smoke on the horizon ----------------
@@ -87,7 +89,7 @@ const STREET_BLDG = [
   [-85, -31, 110, 12.5, 9, 1], [55, -31, 140, 12.5, 9, 1], [192, -38, 30, 18, 16, 3], [292, -31, 110, 12.5, 9, 1], [398, -30, 70, 12.5, 5, 2],
   [-60, 29, 70, 12.5, 5, 2], [30, 29, 80, 12.5, 5, 2], [142, 30, 120, 12.5, 5, 2], [262, 38, 30, 18, 16, 3], [360, 31, 100, 12.5, 9, 1],
 ];
-export async function streetWorld(ctx, { sun, sky: skyOpts, litFrac = 0, broken = 0, spring = 0.9, leafiness = 0.75, washing = true, plume = true, plumeOpts = {} }) {
+export async function streetWorld(ctx, { sun, sky: skyOpts, litFrac = 0, broken = 0, spring = 0.9, leafiness = 0.75, washing = true, plume = true, plumeOpts = {}, snow = 0 }) {
   const scene = new THREE.Scene();
   const st = streetSite();
   const { S, D, R, at, rot } = st;
@@ -107,11 +109,11 @@ export async function streetWorld(ctx, { sun, sky: skyOpts, litFrac = 0, broken 
   const a0 = at(-400, 0), a1 = at(900, 0);
   lay.roads.push({ a: [a0.x, a0.z], b: [a1.x, a1.z], w: 15 });
   const ex = []; for (let s = -260; s <= 620; s += 40) { const c = at(s, 0); ex.push([c.x, c.z, 60]); }
-  const city = buildCity(ctx, { layout: lay, litFrac, lampsOff: true, spring, treeExclude: ex, facade: { day: 1, broken, entrGain: 0 } });
+  const city = buildCity(ctx, { layout: lay, litFrac, lampsOff: true, spring, treeExclude: ex, snow, facade: { day: 1, broken, entrGain: 0, snow } });
   scene.add(city.group);
   const balc = buildBalconies(mine, { washing, laundryFrac: washing ? 0.14 : 0 });
   scene.add(balc.group);
-  const ground = streetGround(ctx, { o: S, d: D, length: [-300, 1000], width: 44 });
+  const ground = streetGround(ctx, { o: S, d: D, length: [-300, 1000], width: 44, snow });
   scene.add(ground.group);
   // trees: lindens on the verges, poplars and birches on the lawns
   const rnd = mulberry32(42);
@@ -140,7 +142,7 @@ export async function streetWorld(ctx, { sun, sky: skyOpts, litFrac = 0, broken 
 }
 
 // debug: ?dcam=s,l,y,ts,tl,ty,focal views the street set from anywhere
-function debugCam(ctx, camera, at) {
+export function debugCam(ctx, camera, at) {
   const v = ctx.params.get('dcam'); if (!v) return null;
   const [s, l, y, ts, tl, ty, f] = v.split(',').map(Number);
   camera.position.copy(at(s, l, y)); camera.up.set(0, 1, 0); camera.lookAt(at(ts, tl, ty));
@@ -148,7 +150,7 @@ function debugCam(ctx, camera, at) {
   return { dof: null };
 }
 
-function placeWalker(c, rig, { from, to, t, speed, clip = 'Walk', offset = 0, rate = 1 }) {
+export function placeWalker(c, rig, { from, to, t, speed, clip = 'Walk', offset = 0, rate = 1 }) {
   const d = to.clone().sub(from); const L = d.length(); d.normalize();
   const tt = Math.max(t, 0);
   const pos = from.clone().addScaledVector(d, Math.min(tt * speed * c.scale, L));
@@ -420,7 +422,7 @@ export async function P6(ctx) {
 }
 
 // a child's bicycle left lying on its side
-function bicycle() {
+export function bicycle() {
   const g = new THREE.Group();
   const frameM = patchMaterial(new THREE.MeshStandardMaterial({ color: new THREE.Color(0.32, 0.05, 0.04), roughness: 0.45, metalness: 0.3 }), { key: 'bike' });
   const steel = patchMaterial(new THREE.MeshStandardMaterial({ color: new THREE.Color(0.5, 0.5, 0.5), roughness: 0.3, metalness: 0.9 }), { key: 'bikesteel' });

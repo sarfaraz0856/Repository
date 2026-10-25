@@ -16,6 +16,7 @@ export function makeFacadeMaterial(noiseTex, opts = {}) {
     uEntrGain: { value: opts.entrGain ?? 1.0 },
     uBroken: { value: opts.broken ?? 0.0 },
     uDay: { value: opts.day ?? 0.0 },
+    uSnow: { value: opts.snow ?? 0.0 },
     uTimeF: ATM.uTime,
   };
   mat.userData.u = uniforms;
@@ -34,7 +35,7 @@ export function makeFacadeMaterial(noiseTex, opts = {}) {
       if (normal.z < -0.5) vFac.x = sc.x - vFac.x;`,
     fragmentHeader: `
       precision highp sampler3D;
-      uniform sampler3D tNoise; uniform float uWinGain, uEntrGain, uBroken, uTimeF, uDay;
+      uniform sampler3D tNoise; uniform float uWinGain, uEntrGain, uBroken, uTimeF, uDay, uSnow;
       varying vec4 vFac; varying vec4 vB; varying float vFace;
       float hh(vec3 p){ ivec3 q = ivec3(floor(p + 0.5)) + ivec3(4096); uint h = uint(q.x) * 1597334677u ^ uint(q.y) * 3812015801u ^ uint(q.z) * 2741869493u; h = (h ^ (h >> 16u)) * 2246822519u; h ^= h >> 13u; h *= 3266489917u; h ^= h >> 16u; return float(h) * (1.0 / 4294967296.0); }
       vec3 gWinEmit; float gGlass; float gRough;
@@ -48,7 +49,7 @@ export function makeFacadeMaterial(noiseTex, opts = {}) {
         if (vFace > 3.5) {
           // roof: bitumen with ponding
           float n = texture(tNoise, vec3(vWPos.xz * 0.013, vB.x)).r;
-          diffuseColor.rgb = vec3(0.045, 0.045, 0.047) * (0.75 + 0.5 * n);
+          diffuseColor.rgb = mix(vec3(0.045, 0.045, 0.047) * (0.75 + 0.5 * n), vec3(0.62, 0.63, 0.66) * (0.9 + 0.15 * n), uSnow);
           gRough = 0.75;
         } else {
           float floorH = 2.8;
@@ -432,8 +433,8 @@ export function buildCity(ctx, opts = {}) {
   const outer = new THREE.Color(0.03, 0.033, 0.026);
   patchMaterial(groundMat, {
     key: 'cityground',
-    uniforms: { tGround: { value: groundTex }, uB: { value: new THREE.Vector4(B.x0, B.z0, B.size, B.size) }, uOuter: { value: outer }, tNoise: { value: noiseTex } },
-    fragmentHeader: `precision highp sampler3D; uniform sampler2D tGround; uniform vec4 uB; uniform vec3 uOuter; uniform sampler3D tNoise;`,
+    uniforms: { tGround: { value: groundTex }, uB: { value: new THREE.Vector4(B.x0, B.z0, B.size, B.size) }, uOuter: { value: outer }, tNoise: { value: noiseTex }, uSnowG: { value: opts.snow ?? 0 } },
+    fragmentHeader: `precision highp sampler3D; uniform sampler2D tGround; uniform vec4 uB; uniform vec3 uOuter; uniform sampler3D tNoise; uniform float uSnowG;`,
     fragmentReplace: [['#include <color_fragment>', `#include <color_fragment>
       {
         vec2 uv = (vWPos.xz - uB.xy) / uB.zw;
@@ -442,6 +443,7 @@ export function buildCity(ctx, opts = {}) {
         float n = texture(tNoise, vec3(vWPos.xz * 0.004, 0.5)).r;
         vec3 fieldC = uOuter * (0.6 + 0.8 * n);
         diffuseColor.rgb = mix(fieldC, gc, inside);
+        diffuseColor.rgb = mix(diffuseColor.rgb, vec3(0.6, 0.61, 0.64) * (0.85 + 0.2 * n), uSnowG);
       }`]],
   });
   const ground = new THREE.Mesh(new THREE.PlaneGeometry(14000, 14000, 1, 1), groundMat);
@@ -528,11 +530,11 @@ export function buildCity(ctx, opts = {}) {
 }
 
 // ---------- forest (pines) for the countryside between Pripyat and the plant ----------
-export function buildForest(ctx, { center = [1000, 1000], radius = 2500, count = 16000, exclude = [], seed = 3 } = {}) {
+export function buildForest(ctx, { center = [1000, 1000], radius = 2500, count = 16000, exclude = [], seed = 3, tint = null } = {}) {
   const rnd = mulberry32(seed);
   const geo = new THREE.ConeGeometry(1, 1, 6, 1); geo.translate(0, 0.5, 0);
   const trunk = new THREE.CylinderGeometry(0.08, 0.1, 0.35, 4); trunk.translate(0, 0.0, 0);
-  const mat = patchMaterial(new THREE.MeshStandardMaterial({ color: 0x1a2318, roughness: 1.0, flatShading: true }), { key: 'pine' });
+  const mat = patchMaterial(new THREE.MeshStandardMaterial({ color: tint ? 0xffffff : 0x1a2318, roughness: 1.0, flatShading: true }), { key: 'pine' });
   const im = new THREE.InstancedMesh(geo, mat, count);
   const m = new THREE.Matrix4(), q = new THREE.Quaternion(), e = new THREE.Euler();
   let n = 0;
@@ -548,6 +550,7 @@ export function buildForest(ctx, { center = [1000, 1000], radius = 2500, count =
     const h = 14 + rnd() * 12;
     e.set(0, rnd() * 6, 0); q.setFromEuler(e);
     m.compose(new THREE.Vector3(x, 3 + rnd() * 2, z), q, new THREE.Vector3(h * 0.22, h, h * 0.22));
+    if (tint) im.setColorAt(n, tint(x, z, rnd()));
     im.setMatrixAt(n++, m);
   }
   im.count = n;

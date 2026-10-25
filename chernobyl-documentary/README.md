@@ -1,6 +1,6 @@
 # CHERNOBYL — 26 April 1986 (cinematic documentary short)
 
-> **Full film so far:** [`Chernobyl_1986_Full_Film.mp4`](Chernobyl_1986_Full_Film.mp4) (1:55): Part I (the night, below) followed directly by Part II, *The Morning After* (see [`part2/`](part2/)). This is the start of a planned 12–13 minute documentary.
+> **Full film so far:** [`Chernobyl_1986_Full_Film.mp4`](Chernobyl_1986_Full_Film.mp4) (2:55). It plays Part I (the night, below), then *The Morning After* ([`part2/`](part2/)) and *The Liquidators* ([`part3/`](part3/)) back to back. This is the start of a planned 12–13 minute documentary. `Chernobyl_1986_Hindi_Narration.mp4` is the earlier 1:55 cut with Hindi narration.
 
 **File:** `Chernobyl_26_April_1986_Documentary.mp4`
 **Format:** 1920×1080 (16:9), 24 fps, 55 s, H.264 High + AAC 320 kbps, 48 kHz stereo.

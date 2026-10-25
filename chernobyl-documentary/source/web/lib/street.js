@@ -238,7 +238,7 @@ export function makeTreeGeo(seed, { height = 11, species = 'linden', leafiness =
   const lean = V3((rnd() - 0.5) * 0.12, 1, (rnd() - 0.5) * 0.12).normalize();
   grow(V3(0, 0, 0), lean, trunkH, height * (sp.shape === 'weeping' ? 0.011 : 0.015), 0);
   const w = mergeGeometries(wood.map(g => g.index ? g.toNonIndexed() : g));
-  const l = mergeGeometries(leaves.map(g => g.index ? g.toNonIndexed() : g));
+  const l = leaves.length ? mergeGeometries(leaves.map(g => g.index ? g.toNonIndexed() : g)) : null;
   return { wood: w, leaves: l };
 }
 
@@ -289,7 +289,7 @@ export function buildTrees3D(list, { variants = 4, leafiness = 0.75, seed = 1 } 
       const sel = arr.filter((_, i) => i % variants === v);
       if (!sel.length) continue;
       const iw = new THREE.InstancedMesh(vs[v].wood, barkMat, sel.length);
-      const il = new THREE.InstancedMesh(vs[v].leaves, lm, sel.length);
+      const il = new THREE.InstancedMesh(vs[v].leaves || new THREE.BufferGeometry(), lm, sel.length); if (!vs[v].leaves) il.visible = false;
       sel.forEach(([x, z, h], i) => {
         q.setFromEuler(new THREE.Euler(0, (x * 12.9898 + z * 78.233) % 6.28, 0));
         m.compose(V3(x, 0, z), q, V3(h / 10, h / 10, h / 10));
@@ -309,15 +309,15 @@ export function buildTrees3D(list, { variants = 4, leafiness = 0.75, seed = 1 } 
 // A strip of road with curbs, tree verges, sidewalks and lawns, in a local frame:
 // origin o, along-street unit d, right r. Lateral profile (metres from the centreline):
 // road |l| < rw, verge to rw+vw, sidewalk to rw+vw+sw, then lawn.
-export function streetGround(ctx, { o, d, length = [-60, 500], width = 90, rw = 7.5, vw = 4.0, sw = 3.5, seed = 3 }) {
+export function streetGround(ctx, { o, d, length = [-60, 500], width = 90, rw = 7.5, vw = 4.0, sw = 3.5, seed = 3, snow = 0 }) {
   const r = V3(-d.z, 0, d.x);
   const L0 = length[0], L1 = length[1];
   const geo = new THREE.PlaneGeometry(L1 - L0, width * 2, 1, 1); geo.rotateX(-Math.PI / 2);
   const mat = new THREE.MeshPhysicalMaterial({ color: 0xffffff, roughness: 0.9, specularIntensity: 0.25, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -4 });
   patchMaterial(mat, {
     key: 'street',
-    uniforms: { tNoise: { value: ctx.noiseTex }, uO: { value: o.clone() }, uD: { value: d.clone() }, uR: { value: r }, uProf: { value: new THREE.Vector3(rw, rw + vw, rw + vw + sw) } },
-    fragmentHeader: `precision highp sampler3D; uniform sampler3D tNoise; uniform vec3 uO, uD, uR, uProf; float gRoughS;
+    uniforms: { tNoise: { value: ctx.noiseTex }, uO: { value: o.clone() }, uD: { value: d.clone() }, uR: { value: r }, uProf: { value: new THREE.Vector3(rw, rw + vw, rw + vw + sw) }, uSnow: { value: snow } },
+    fragmentHeader: `precision highp sampler3D; uniform sampler3D tNoise; uniform vec3 uO, uD, uR, uProf; uniform float uSnow; float gRoughS;
       float n2(vec2 p, float z){ return texture(tNoise, vec3(p, z)).r; }
       float hs(vec2 p){ return fract(sin(dot(floor(p), vec2(127.1, 311.7))) * 43758.5453); }`,
     fragmentReplace: [['#include <color_fragment>', `#include <color_fragment>
@@ -358,6 +358,13 @@ export function streetGround(ctx, { o, d, length = [-60, 500], width = 90, rw = 
           col = mix(vec3(0.075, 0.064, 0.048), grass, g) * (0.7 + 0.55 * fine) * (0.8 + 0.4 * n2(p * 0.17, 0.44));
           col = mix(col, vec3(0.6, 0.48, 0.06), step(0.86, n2(p * 2.7, 0.15)) * g * 0.8);
           col = mix(col, vec3(0.7, 0.7, 0.68), step(0.93, n2(p * 4.1, 0.65)) * g * 0.4);
+        }
+        if (uSnow > 0.0) {
+          // snow cover: drifts on lawns and verges, thinner and trodden on paths, tyre-free road
+          float onRoad = 1.0 - step(uProf.x, al);
+          float cov = mix(0.95, 0.55 + 0.4 * smoothstep(0.3, 0.7, mid), onRoad) * uSnow;
+          vec3 sc = vec3(0.62, 0.63, 0.66) * (0.88 + 0.16 * fine) * (0.92 + 0.1 * big);
+          col = mix(col, sc, cov); gRoughS = mix(gRoughS, 0.7, cov);
         }
         diffuseColor.rgb = col;
       }`],
@@ -663,28 +670,89 @@ export function clipSpeed(rig, clipName) {
     }
   }
   vs.sort((a, b) => a - b);
-  return vs.length ? vs[Math.floor(vs.length / 2)] : 1.3;
+  return vs.length ? Math.abs(vs[Math.floor(vs.length / 2)]) : 1.3;
 }
 
 // Dark canopy floor under the instanced pine forest, so gaps between cones read as forest
 // shade from the air. Same circle + exclusion zones as buildForest.
-export function forestFloor(ctx, { center, radius, exclude = [], y = 0.4 }) {
+export function forestFloor(ctx, { center, radius, exclude = [], y = 0.4, color = [0.022, 0.03, 0.018], redAt = null }) {
   const ex = exclude.slice(0, 8); while (ex.length < 8) ex.push([0, 0, 0]);
   const mat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 1.0 });
   patchMaterial(mat, {
     key: 'forestfloor',
-    uniforms: { tNoise: { value: ctx.noiseTex }, uC: { value: new THREE.Vector3(center[0], center[1], radius) }, uEx: { value: ex.map(e => new THREE.Vector3(...e)) } },
-    fragmentHeader: `precision highp sampler3D; uniform sampler3D tNoise; uniform vec3 uC; uniform vec3 uEx[8];`,
+    uniforms: { tNoise: { value: ctx.noiseTex }, uC: { value: new THREE.Vector3(center[0], center[1], radius) }, uEx: { value: ex.map(e => new THREE.Vector3(...e)) }, uCol: { value: new THREE.Vector3(...color) }, uRed: { value: new THREE.Vector3(...(redAt || [0, 0, -1])) } },
+    fragmentHeader: `precision highp sampler3D; uniform sampler3D tNoise; uniform vec3 uC; uniform vec3 uEx[8]; uniform vec3 uCol; uniform vec3 uRed;`,
     fragmentReplace: [['#include <color_fragment>', `#include <color_fragment>
       {
         vec2 p = vWPos.xz; float m = 1.0 - smoothstep(uC.z - 60.0, uC.z, length(p - uC.xy));
         for (int i = 0; i < 8; i++) if (uEx[i].z > 0.0) m *= smoothstep(uEx[i].z - 30.0, uEx[i].z + 25.0, length(p - uEx[i].xy));
         float n = texture(tNoise, vec3(p * 0.004, 0.37)).r, n2 = texture(tNoise, vec3(p * 0.05, 0.61)).g;
         if (m < 0.5 + (n2 - 0.5) * 0.4) discard;
-        diffuseColor.rgb = vec3(0.022, 0.03, 0.018) * (0.6 + 0.6 * n) * (0.75 + 0.5 * n2);
+        vec3 fc = uCol;
+        if (uRed.z > 0.0) fc = mix(vec3(0.075, 0.035, 0.015), uCol, smoothstep(uRed.z * 0.6, uRed.z * 1.1, length(p - uRed.xy) + (n - 0.5) * 300.0));
+        diffuseColor.rgb = fc * (0.6 + 0.6 * n) * (0.75 + 0.5 * n2);
       }`]],
   });
   const g = new THREE.Mesh(new THREE.PlaneGeometry(radius * 2.2, radius * 2.2), mat);
   g.rotation.x = -Math.PI / 2; g.position.set(center[0], y, center[1]); g.receiveShadow = true;
   return g;
+}
+
+// Liquidator, 1986: khaki work suit, lead apron front and back, cloth cap or hard hat, the white
+// "Lepestok" respirator over the face, rubber gloves and boots; carries a shovel.
+export function makeLiquidator(rig, { seed = 1, shovel = true, helmet = null } = {}) {
+  const rnd = mulberry32(seed * 104729 + 7);
+  const root = SkeletonUtils.clone(rig.scene);
+  root.traverse(o => { if (o.isMesh) o.visible = false; });
+  const bones = {}; root.traverse(o => { if (o.isBone) bones[o.name] = o; });
+  const sh = 0.85 + rnd() * 0.3;
+  const suitC = [[0.13, 0.13, 0.08], [0.1, 0.11, 0.08], [0.16, 0.15, 0.11], [0.2, 0.2, 0.19]][Math.floor(rnd() * 4)];
+  const suit = cmat(new THREE.Color(...suitC).multiplyScalar(sh), 0.95, 'liqsuit');
+  const lead = cmat(new THREE.Color(0.07, 0.075, 0.07), 0.6, 'liqlead');
+  const skin = cmat(new THREE.Color(0.42, 0.28, 0.22), 0.7, 'civskin');
+  const white = cmat(new THREE.Color(0.62, 0.62, 0.6), 0.9, 'liqresp');
+  const rubber = cmat(new THREE.Color(0.03, 0.03, 0.03), 0.5, 'liqrub');
+  const m = { top: suit, sleeve: suit, sleeveLo: suit, legUp: suit, legLo: suit, skin };
+  const add = (bone, mesh) => { mesh.scale.multiplyScalar(100); mesh.position.multiplyScalar(100); mesh.castShadow = true; bones[bone].add(mesh); return mesh; };
+  for (const [b, c, r0, r1, mk, o] of CSEG) {
+    const len = bones[c].position.length() / 100;
+    for (const gg of segGeo(len, r0 * 1.12, r1 * 1.12, o)) { const mesh = new THREE.Mesh(gg, m[mk]); mesh.quaternion.setFromUnitVectors(V3(0, 1, 0), bones[c].position.clone().normalize()); add(b, mesh); }
+  }
+  const len = ['mixamorigSpine1', 'mixamorigSpine2', 'mixamorigNeck'].reduce((a, n) => a + bones[n].position.length() / 100, 0);
+  const prof = [[0.0, 0.0], [0.14, 0.0], [0.145, 0.12], [0.155, 0.32], [0.165, 0.6], [0.165, 0.8], [0.15, 0.92], [0.1, 0.99], [0.05, 1.02], [0.0, 1.02]].map(([r, y]) => new THREE.Vector2(r, y * len));
+  const tg = new THREE.LatheGeometry(prof, 20); tg.scale(1.24, 1, 0.8);
+  const torso = new THREE.Mesh(tg, suit); torso.position.set(0, -0.02, 0); add('mixamorigSpine', torso);
+  // lead plates (apron) front and back, strapped over the shoulders
+  for (const z of [0.115, -0.115]) { const pl = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.5, 0.03), lead); pl.position.set(0, 0.24, z); add('mixamorigSpine1', pl); }
+  const pel = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.2, 0.26, 14), suit); pel.scale.set(1.12, 1, 0.84); add('mixamorigHips', pel);
+  for (const s2 of ['mixamorigLeftArm', 'mixamorigRightArm']) add(s2, new THREE.Mesh(new THREE.SphereGeometry(0.062, 12, 10), suit));
+  const head = new THREE.Mesh(new THREE.SphereGeometry(0.1, 18, 14), skin); head.scale.set(0.8, 1.06, 0.95); head.position.set(0, 0.095, 0.012); add('mixamorigHead', head);
+  // respirator: white petal over nose and mouth
+  const resp = new THREE.Mesh(new THREE.SphereGeometry(0.075, 14, 10, 0, Math.PI * 2, 0, Math.PI * 0.45), white); resp.rotation.x = Math.PI / 2; resp.scale.set(1, 1, 0.55); resp.position.set(0, 0.055, 0.075); add('mixamorigHead', resp);
+  helmet = helmet ?? (rnd() < 0.5 ? 'hat' : 'cap');
+  if (helmet === 'hat') {
+    const hm = cmat([new THREE.Color(0.45, 0.4, 0.1), new THREE.Color(0.5, 0.5, 0.48), new THREE.Color(0.4, 0.12, 0.05)][Math.floor(rnd() * 3)], 0.5, 'liqhat');
+    const dome = new THREE.Mesh(new THREE.SphereGeometry(0.115, 16, 10, 0, Math.PI * 2, 0, Math.PI * 0.5), hm); dome.position.set(0, 0.13, 0.0); dome.scale.set(1, 0.9, 1.1); add('mixamorigHead', dome);
+    const brim = new THREE.Mesh(new THREE.CylinderGeometry(0.135, 0.14, 0.012, 18), hm); brim.position.set(0, 0.13, 0.01); brim.scale.set(1, 1, 1.15); add('mixamorigHead', brim);
+  } else {
+    const cap = new THREE.Mesh(new THREE.SphereGeometry(0.105, 14, 10, 0, Math.PI * 2, 0, Math.PI * 0.55), suit); cap.position.set(0, 0.11, -0.005); cap.scale.set(1, 1, 1.08); add('mixamorigHead', cap);
+  }
+  for (const h of ['mixamorigLeftHand', 'mixamorigRightHand']) { const gl = new THREE.Mesh(new THREE.BoxGeometry(0.075, 0.12, 0.04), rubber); gl.position.set(0, 0.06, 0); add(h, gl); }
+  for (const [f, t] of [['mixamorigLeftFoot', 'mixamorigLeftToeBase'], ['mixamorigRightFoot', 'mixamorigRightToeBase']]) {
+    const dir = bones[t].position.clone(); const ln = dir.length() / 100; dir.normalize();
+    const bt = new THREE.Mesh(new THREE.BoxGeometry(0.1, ln + 0.08, 0.09), rubber); bt.geometry.translate(0, (ln + 0.08) / 2 - 0.04, 0);
+    bt.quaternion.setFromUnitVectors(V3(0, 1, 0), dir); add(f, bt);
+  }
+  if (shovel) {
+    const wood = cmat(new THREE.Color(0.2, 0.14, 0.08), 0.8, 'shovelw'); const steel = cmat(new THREE.Color(0.25, 0.25, 0.24), 0.5, 'shovels');
+    const g = new THREE.Group();
+    const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.018, 1.25, 6), wood); shaft.position.y = 0.0; g.add(shaft);
+    const blade = new THREE.Mesh(new THREE.BoxGeometry(0.24, 0.3, 0.02), steel); blade.position.y = -0.76; g.add(blade);
+    g.position.set(0, 0.08, 0.03); g.rotation.z = 0.25; add('mixamorigRightHand', g);
+  }
+  const mixer = new THREE.AnimationMixer(root);
+  const actions = {}; for (const [k, clip] of Object.entries(rig.clips)) actions[k] = mixer.clipAction(clip);
+  root.traverse(o => { o.frustumCulled = false; });
+  root.scale.setScalar(0.97 + rnd() * 0.06);
+  return { root, mixer, actions, bones, scale: root.scale.x, ao: contactShadow(0.9, 0.9, 0.5) };
 }

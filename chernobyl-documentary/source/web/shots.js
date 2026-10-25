@@ -9,6 +9,7 @@ import { PTEST } from './shots_people_test.js';
 import { S5, S6, S7 } from './shots_fire.js';
 import { S8, S9 } from './shots_after.js';
 import { P1, P2, P3, P4, P5, P6, P7 } from './part2.js';
+import { Q1, Q2, Q3, Q4, Q5 } from './part3.js';
 
 const V3 = (x, y, z) => new THREE.Vector3(x, y, z);
 const MOON_DIR = V3(0.615, 0.292, 0.733).normalize();
@@ -110,4 +111,9 @@ export const SHOTS = {
   P5: { duration: 9.0, build: P5, ss: 1, msaa: 4, volScale: 0.3 },
   P6: { duration: 8.0, build: P6, ss: 1, msaa: 4, volScale: 0.3 },
   P7: { duration: 10.0, build: P7, ss: 1, msaa: 4, volScale: 0.3 },
+  Q1: { duration: 11.0, build: Q1, ss: 1, msaa: 4, volScale: 0.4 },
+  Q2: { duration: 9.0, build: Q2, ss: 1, msaa: 4, volScale: 0.35 },
+  Q3: { duration: 13.0, build: Q3, ss: 1, msaa: 4, volScale: 0.3 },
+  Q4: { duration: 11.0, build: Q4, ss: 1, msaa: 4, volScale: 0.3 },
+  Q5: { duration: 15.0, build: Q5, ss: 1, msaa: 4, volScale: 0.3 },
 };
