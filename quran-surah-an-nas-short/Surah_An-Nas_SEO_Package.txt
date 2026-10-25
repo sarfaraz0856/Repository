@@ -1,82 +1,98 @@
 ﻿==================================================
-SURAH AN-NAS — SEO PACKAGE
+SURAH AN-NAS — SEO PACKAGE (Shorts / vertical)
+Arabic + English | سورة الناس — حزمة تحسين الظهور
 YouTube Shorts / Instagram Reels / TikTok / Snapchat
 Gulf audience (KSA, UAE, Kuwait, Qatar, Oman, Bahrain)
-Video: 61 sec, starts with Bismillah
+Video: 61 sec vertical, starts with the Bismillah
 ==================================================
 
-Note: No live search-volume numbers (vidIQ had 3 credits, keyword lookup costs 5).
-Keywords use the Arabic spellings people actually type.
-If you know the reciter's name, add it to the title ("سورة الناس + reciter name" is searched a lot).
+LEFT ALIGNMENT: every line below starts with English (or a Latin word), so YouTube
+shows it from the LEFT. If a line starts with an Arabic letter, YouTube flips the
+whole line to the right — that is why the Arabic always comes second here.
+
+Other rules used:
+- Everything to copy is in Arabic + English.
+- "Quran / القرآن" is in every title, the description, tags and hashtags.
+- "Noor Quran TV / نور القرآن تي في" ("Noor Quran" = "The Light of the Quran") is in
+  the description and tags only, not in the title.
+- Titles are kept short (Shorts shows only ~40 characters).
 
 
 --------------------------------------------------
-1. TITLE (pick one)
+1. TITLE (English first so it starts from the left; all under 40 characters)
 --------------------------------------------------
 
-1) سورة الناس | تلاوة هادئة قبل النوم 🌙      <-- RECOMMENDED
+1) Surah An-Nas | سورة الناس 🤍                 <-- RECOMMENDED (27 chars)
 
-2) قل أعوذ برب الناس 🤍 سورة الناس كاملة بصوت خاشع
+2) Quran | Surah An-Nas 🤍                      (24 chars)
 
-3) سورة الناس مكتوبة | حصّن نفسك كل ليلة
+3) Surah An-Nas — Read Before Sleep 🌙          (35 chars)
 
-4) Surah An-Nas | Calm Quran Recitation Before Sleep 🌙
+4) Quran: An-Nas | سورة الناس 🤍                (27 chars)
 
-Tip: Keep the Arabic keyword first. Shorts shows only ~40 characters of the title.
-
-
---------------------------------------------------
-2. DESCRIPTION (copy-paste)
---------------------------------------------------
-
-سورة الناس 🤍 تلاوة هادئة تريح القلب
-بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
-قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ ۝ مَلِكِ ٱلنَّاسِ ۝ إِلَـٰهِ ٱلنَّاسِ ۝ مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ ۝ ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ ۝ مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ
-
-اقرأها في الصباح والمساء وقبل النوم، فهي من المعوذات التي كان النبي ﷺ يحصّن بها نفسه.
-شارك الأجر — ولا تنسَ الاشتراك ليصلك القرآن كل يوم 🤲
-
-Surah An-Nas (114), recited with English translation. One of the Mu'awwidhat: recite it morning, evening and before sleep for protection. Share the reward and subscribe for daily Quran.
-
-#سورة_الناس #قرآن #تلاوة_خاشعة #QuranShorts #shorts
+Tip: If you know the reciter's name, a short form also works well:
+     Surah An-Nas | <reciter name> | Quran
 
 
 --------------------------------------------------
-3. TAGS (YouTube Studio > Tags field, paste as one line)
+2. DESCRIPTION (copy-paste; English first, Arabic after)
 --------------------------------------------------
 
-سورة الناس, سوره الناس, سورة الناس مكتوبة, قل اعوذ برب الناس, المعوذتين, المعوذات, سورة الفلق والناس, تلاوة هادئة, تلاوة خاشعة, قرآن قبل النوم, قران كريم, القرآن الكريم, رقية شرعية, اذكار النوم, surah an nas, surah nas, surat an nas, surah naas, quran recitation, quran before sleep, quran shorts, quran with english translation, islamic shorts
+Surah An-Nas 🤍 Calm Holy Quran recitation with English translation.
+
+Quran 114:1-6 | قُلۡ أَعُوذُ بِرَبِّ ٱلنَّاسِ ۝ مَلِكِ ٱلنَّاسِ ۝ إِلَٰهِ ٱلنَّاسِ ۝ مِن شَرِّ ٱلۡوَسۡوَاسِ ٱلۡخَنَّاسِ ۝ ٱلَّذِي يُوَسۡوِسُ فِي صُدُورِ ٱلنَّاسِ ۝ مِنَ ٱلۡجِنَّةِ وَٱلنَّاسِ
+
+"Say: I seek refuge in the Lord of mankind, the King of mankind, the God of mankind, from the evil of the retreating whisperer — who whispers into the hearts of mankind — from among the jinn and mankind."
+
+One of the Mu'awwidhat: recite it morning, evening and before sleep for protection.
+Arabic | من المعوذات التي كان النبي ﷺ يحصّن بها نفسه — اقرأها في الصباح والمساء وقبل النوم.
+
+Noor Quran TV | نور القرآن تي في — "Noor Quran" means "The Light of the Quran", the light of Allah's words that fills the heart with peace.
+Share the reward and subscribe for daily Quran 🤲
+Arabic | شارك الأجر واشترك ليصلك القرآن الكريم كل يوم 🤲
+
+#Quran #SurahAnNas #HolyQuran #سورة_الناس #القرآن_الكريم #shorts
 
 
 --------------------------------------------------
-4. HASHTAGS PER PLATFORM
+3. TAGS (YouTube Studio > Tags, paste as one line)
+   English first; length checked, under YouTube's 500-character limit
 --------------------------------------------------
 
-YouTube Shorts (3-5, at the end of the description):
-#سورة_الناس #قرآن #تلاوة_خاشعة #QuranShorts #shorts
+quran, holy quran, surah an nas, surah nas, surah naas, al muawwidhat, quran before sleep, quran recitation, quran shorts, quran with english translation, islamic shorts, noor quran tv, noor quran, light of the quran, سورة الناس, القرآن الكريم, قرآن, قران كريم, نور القرآن, نور القرآن تي في, سوره الناس, قل اعوذ برب الناس, المعوذتين, رقية شرعية, تلاوة خاشعة
 
-Instagram Reels (8-12, in the caption):
-#سورة_الناس #قرآن_كريم #تلاوة #تلاوة_خاشعة #قران #اذكار #راحة_نفسية #السعودية #الامارات #الكويت #quran #quranrecitation
 
-TikTok (4-6):
-#سورة_الناس #قران_كريم #تلاوة_خاشعة #اكسبلور #quran
+--------------------------------------------------
+4. HASHTAGS (English first, per platform)
+--------------------------------------------------
+
+YouTube Shorts (5-6, at the end of the description):
+#Quran #SurahAnNas #HolyQuran #سورة_الناس #القرآن_الكريم #shorts
+
+Instagram Reels (10-12, in the caption):
+#quran #holyquran #quranrecitation #surahannas #islam #سورة_الناس #القرآن_الكريم #قرآن #تلاوة_خاشعة #اذكار #السعودية #الامارات
+
+TikTok (5-6):
+#quran #holyquran #foryou #سورة_الناس #القرآن_الكريم #اكسبلور
 
 Snapchat Spotlight (2-3):
-#سورة_الناس #قرآن
+#Quran #سورة_الناس #القرآن_الكريم
 
 
 --------------------------------------------------
 5. SHORT CAPTION (Reels / TikTok)
 --------------------------------------------------
 
-قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ 🤍 اقرأها قبل أن تنام… وشارك الأجر
+"I seek refuge in the Lord of mankind" 🤍 Read it before you sleep. Share the reward.
+Arabic | قُلۡ أَعُوذُ بِرَبِّ ٱلنَّاسِ 🤍 اقرأها قبل أن تنام… وشارك الأجر
 
 
 --------------------------------------------------
 6. PINNED COMMENT (post and pin as the first comment)
 --------------------------------------------------
 
-اللهم احفظنا من شر الوسواس الخناس 🤲 اكتب «آمين» وشارك المقطع ليكون لك صدقة جارية
+O Allah, protect us from the evil of the retreating whisperer 🤲 Write "Ameen" and share this
+Arabic | اللهم احفظنا من شر الوسواس الخناس 🤲 اكتب «آمين» وشارك المقطع
 
 Tip: Reply to the first 20-30 comments in the first hour. Early replies help Shorts get shown to more people.
 
@@ -85,20 +101,21 @@ Tip: Reply to the first 20-30 comments in the first hour. Early replies help Sho
 7. WHEN TO POST
 --------------------------------------------------
 
-                          KSA/Kuwait/Qatar/Bahrain   UAE/Oman    India (IST)
-Daily, after Isha         9:30 PM                    10:30 PM    12:00 AM
-Thursday night            10:00 PM                   11:00 PM    12:30 AM
-Friday morning            10:00 AM                   11:00 AM    12:30 PM
+                                 KSA/Kuwait/Qatar/Bahrain   UAE/Oman    India (IST)
+Daily, after Isha / بعد العشاء    9:30 PM                    10:30 PM    12:00 AM
+Thursday night / ليلة الجمعة      10:00 PM                   11:00 PM    12:30 AM
+Friday morning / صباح الجمعة      10:00 AM                   11:00 AM    12:30 PM
 
-Surah An-Nas is recited before sleep, so the night slot fits best.
-Post at the same time every day.
+Surah An-Nas is recited before sleep, so the night slot fits it best.
+Keep a day between surahs so each video gets its own push.
 
 
 --------------------------------------------------
 8. THUMBNAIL / COVER
 --------------------------------------------------
 
-Use: thumbnail_cover.jpg (real frame from the video + "سورة الناس" + "اقرأها قبل النوم")
+Use: thumbnail_cover.jpg
+Text on it: "سورة الناس" + "SURAH AN-NAS" + "اقرأها قبل النوم" (= "Read it before sleep")
 
 - YouTube Shorts: YouTube app > Edit cover > Add from gallery > pick the image
 - Instagram: Edit cover > Add from camera roll (keep the title in the centre, the grid crops it)
@@ -106,7 +123,7 @@ Use: thumbnail_cover.jpg (real frame from the video + "سورة الناس" + "�
 
 
 --------------------------------------------------
-9. AI THUMBNAIL PROMPTS (if you want a new image)
+9. AI THUMBNAIL PROMPTS (keep prompts in English)
 --------------------------------------------------
 
 PROMPT A — Sunset over the sea (matches this video), 9:16:
@@ -121,23 +138,27 @@ NEGATIVE PROMPT (use with both):
 
 cartoon, illustration, anime, 3D render, CGI, fantasy, glowing particles, lanterns, neon, oversaturated colours, HDR halo, text, letters, Arabic script, watermark, logo, extra sun, distorted buildings, people, faces
 
-IMPORTANT: Don't let the AI write the Arabic. It gets Quranic words wrong.
-Make the image without text, then add "سورة الناس" yourself in Canva / CapCut
-(font: Amiri, Noto Naskh or Aref Ruqaa; white with a soft shadow).
-Prompt B keeps the Quran closed for the same reason (AI page text comes out as gibberish).
+Text to add yourself in Canva / CapCut (don't let the AI write Arabic, it gets Quranic words wrong):
+  English: SURAH AN-NAS        (font: Cormorant Garamond)
+  Arabic:  سورة الناس          (font: Aref Ruqaa)
+  Hook:    Read it before sleep | اقرأها قبل النوم
 
 
 --------------------------------------------------
 10. UPLOAD CHECKLIST
 --------------------------------------------------
 
-[ ] File name before upload: surat-an-nas-quran-recitation.mp4
+[ ] File name before upload: surah-an-nas-quran.mp4
 [ ] YouTube: Category = Education
 [ ] Video language = Arabic; Title & description language = Arabic
 [ ] Audience = Not made for kids
-[ ] Add to playlist: "المعوذات | Al-Mu'awwidhat" (next: Surah Al-Falaq, Al-Ikhlas in the same style)
-[ ] Shorts > Related video = your most-watched recitation
+[ ] Playlist: "Short Surahs of the Quran | قصار السور"
+[ ] Shorts > Related video = your best-performing Quran short
 [ ] Comments on + pin the comment from section 6
+
+NOTE on "Noor Quran TV": it appears only in the description and tags, with the meaning
+of "نور القرآن = The Light of the Quran". Don't write anything that says or suggests
+this video is from the "Noor Quran TV" channel.
 
 ==================================================
 Video: 1080x1920, 30 fps, 61 sec, recitation only (no music)

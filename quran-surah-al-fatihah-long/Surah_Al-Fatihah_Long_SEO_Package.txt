@@ -1,100 +1,102 @@
 ﻿==================================================
 SURAH AL-FATIHAH — LONG-FORM (HORIZONTAL) SEO PACKAGE
-سورة الفاتحة — حزمة تحسين الظهور للفيديو الأفقي (عربي + إنجليزي)
+Arabic + English | سورة الفاتحة — حزمة تحسين الظهور للفيديو الأفقي
 YouTube long-form (16:9) / Facebook
 Gulf audience (KSA, UAE, Kuwait, Qatar, Oman, Bahrain)
 Video: 1920x1080 horizontal, 69 sec, natural recitation speed
 ==================================================
 
-This is the HORIZONTAL long-form version. It is over 60 seconds and 16:9, so
-YouTube treats it as a normal video, not a Short. Do NOT add #shorts here.
+LEFT ALIGNMENT: every line below starts with English (or a Latin word), so YouTube
+shows it from the LEFT. If a line starts with an Arabic letter, YouTube flips the
+whole line to the right — that is why the Arabic always comes second here.
+Pure-Arabic lines (the ayat, the pinned comment) are given a short English label
+first, so they also start from the left.
 
-Rules used in this package:
+Other rules used:
 - Everything to copy is in Arabic + English.
 - "Quran / القرآن" is in every title, the description, tags and hashtags.
 - "Noor Quran TV / نور القرآن تي في" ("Noor Quran" = "The Light of the Quran") is in
   the description and tags only, not in the title.
-- Long-form titles can be longer than Shorts titles, but keep them under ~60
-  characters so nothing is cut off in search results.
+- This video is over 60 seconds and 16:9, so YouTube treats it as a normal video,
+  not a Short. Do NOT add #shorts here.
 
 
 --------------------------------------------------
-1. TITLE / العنوان (pick one)
+1. TITLE (English first so it starts from the left)
 --------------------------------------------------
 
-1) سورة الفاتحة كاملة | Surah Al-Fatihah Full Quran 🤍      <-- RECOMMENDED (50 chars)
+1) Surah Al-Fatihah Full Quran | سورة الفاتحة كاملة 🤍      <-- RECOMMENDED (50 chars)
 
-2) سورة الفاتحة بالصوت والنص | Quran with Translation       (52 chars)
+2) Surah Al-Fatihah with Translation | سورة الفاتحة         (51 chars)
 
-3) أعظم سورة في القرآن | سورة الفاتحة | Al-Fatihah          (47 chars)
+3) Quran: Surah Al-Fatihah Full | سورة الفاتحة كاملة        (50 chars)
 
-4) Surah Al-Fatihah Full | سورة الفاتحة كاملة 🤍            (46 chars)
+4) Al-Fatihah — The Greatest Surah of the Quran 🤍          (49 chars)
 
-Tip: "كاملة / Full" is worth keeping on a long-form video. People searching for a
-full surah use it, and it tells them this is not a clip.
+Tip: "Full / كاملة" is worth keeping on a long-form video. People searching for a
+whole surah use it, and it tells them this is not a clip.
 
 
 --------------------------------------------------
-2. DESCRIPTION / الوصف (copy-paste, Arabic first then English)
+2. DESCRIPTION (copy-paste; English first, Arabic after)
 --------------------------------------------------
 
-سورة الفاتحة كاملة 🤍 تلاوة هادئة من القرآن الكريم مع النص بالعربية والترجمة بالإنجليزية
-بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ ۝ ٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَٰلَمِينَ ۝ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ ۝ مَٰلِكِ يَوۡمِ ٱلدِّينِ ۝ إِيَّاكَ نَعۡبُدُ وَإِيَّاكَ نَسۡتَعِينُ ۝ ٱهۡدِنَا ٱلصِّرَٰطَ ٱلۡمُسۡتَقِيمَ ۝ صِرَٰطَ ٱلَّذِينَ أَنۡعَمۡتَ عَلَيۡهِمۡ غَيۡرِ ٱلۡمَغۡضُوبِ عَلَيۡهِمۡ وَلَا ٱلضَّآلِّينَ
+Surah Al-Fatihah (Full) 🤍 Calm Holy Quran recitation with Arabic text and English translation.
 
-سورة الفاتحة هي أعظم سورة في القرآن الكريم، وتُسمى أم الكتاب والسبع المثاني، ولا تصحّ الصلاة إلا بها.
-Noor Quran TV | نور القرآن تي في — ومعنى «نور القرآن»: نور كلام الله الذي يملأ القلب سكينة.
-شارك الأجر واشترك ليصلك القرآن الكريم كل يوم 🤲
+Quran 1:1-7 | بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ ۝ ٱلۡحَمۡدُ لِلَّهِ رَبِّ ٱلۡعَٰلَمِينَ ۝ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ ۝ مَٰلِكِ يَوۡمِ ٱلدِّينِ ۝ إِيَّاكَ نَعۡبُدُ وَإِيَّاكَ نَسۡتَعِينُ ۝ ٱهۡدِنَا ٱلصِّرَٰطَ ٱلۡمُسۡتَقِيمَ ۝ صِرَٰطَ ٱلَّذِينَ أَنۡعَمۡتَ عَلَيۡهِمۡ غَيۡرِ ٱلۡمَغۡضُوبِ عَلَيۡهِمۡ وَلَا ٱلضَّآلِّينَ
 
-Surah Al-Fatihah (Full) 🤍 Calm Holy Quran recitation with Arabic text and English translation
-"In the name of Allah, the Most Gracious, the Most Merciful. All praise is for Allah, Lord of all the worlds, the Most Gracious, the Most Merciful, Master of the Day of Judgement. You alone we worship, and You alone we ask for help. Guide us along the straight path, the path of those You have blessed — not those who earned Your anger, nor those who went astray." (Quran 1:1-7)
+"In the name of Allah, the Most Gracious, the Most Merciful. All praise is for Allah, Lord of all the worlds, the Most Gracious, the Most Merciful, Master of the Day of Judgement. You alone we worship, and You alone we ask for help. Guide us along the straight path, the path of those You have blessed — not those who earned Your anger, nor those who went astray."
 
 Al-Fatihah is the greatest surah of the Quran, also called Umm al-Kitab (the Mother of the Book) and the Seven Oft-Repeated Verses. No prayer is complete without it.
-Noor Quran TV | نور القرآن: "Noor Quran" means "The Light of the Quran", the light of Allah's words that fills the heart with peace.
+Arabic | سورة الفاتحة هي أعظم سورة في القرآن الكريم، وتُسمى أم الكتاب والسبع المثاني، ولا تصحّ الصلاة إلا بها.
+
+Noor Quran TV | نور القرآن تي في — "Noor Quran" means "The Light of the Quran", the light of Allah's words that fills the heart with peace.
 Share the reward and subscribe for daily Quran 🤲
+Arabic | شارك الأجر واشترك ليصلك القرآن الكريم كل يوم 🤲
 
-⏱ TIMESTAMPS / الفهرس
-0:00  المقدمة | Intro
-0:05  ١ بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ | In the name of Allah
-0:11  ٢ ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ | All praise is for Allah
-0:16  ٣ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ | The Most Gracious, the Most Merciful
-0:20  ٤ مَٰلِكِ يَوْمِ ٱلدِّينِ | Master of the Day of Judgement
-0:25  ٥ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ | You alone we worship
-0:30  ٦ ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ | Guide us along the straight path
-0:35  ٧ صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ | The path of those You have blessed
-0:53  صَدَقَ ٱللَّهُ ٱلْعَظِيمُ | Allah the Almighty has spoken the truth
+TIMESTAMPS / الفهرس
+0:00  Intro | المقدمة
+0:05  Ayah 1 — In the name of Allah | بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+0:11  Ayah 2 — All praise is for Allah | ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ
+0:16  Ayah 3 — The Most Gracious, the Most Merciful | ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+0:20  Ayah 4 — Master of the Day of Judgement | مَٰلِكِ يَوْمِ ٱلدِّينِ
+0:25  Ayah 5 — You alone we worship | إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
+0:30  Ayah 6 — Guide us along the straight path | ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ
+0:35  Ayah 7 — The path of those You have blessed | صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ
+0:53  Closing | صَدَقَ ٱللَّهُ ٱلْعَظِيمُ
 
-#سورة_الفاتحة #القرآن_الكريم #قرآن #Quran #SurahAlFatihah
-
-
---------------------------------------------------
-3. TAGS / الكلمات المفتاحية (YouTube Studio > Tags, paste as one line)
-   Length checked: under YouTube's 500-character limit
---------------------------------------------------
-
-سورة الفاتحة, سورة الفاتحة كاملة, القرآن الكريم, قرآن, قران كريم, نور القرآن, نور القرآن تي في, سوره الفاتحه, الفاتحة مكتوبة, ام الكتاب, اعظم سورة في القران, السبع المثاني, تلاوة خاشعة, quran, holy quran, noor quran tv, noor quran, light of the quran, surah al fatihah, surah al fatihah full, surah fatiha, al fatiha, quran recitation, quran with english translation, quran arabic and english
+#Quran #SurahAlFatihah #HolyQuran #سورة_الفاتحة #القرآن_الكريم
 
 
 --------------------------------------------------
-4. HASHTAGS / الهاشتاقات (Arabic + English)
+3. TAGS (YouTube Studio > Tags, paste as one line)
+   English first; length checked, under YouTube's 500-character limit
+--------------------------------------------------
+
+quran, holy quran, surah al fatihah, surah al fatihah full, surah fatiha, al fatiha, quran recitation, quran with english translation, quran arabic and english, noor quran tv, noor quran, light of the quran, سورة الفاتحة, سورة الفاتحة كاملة, القرآن الكريم, قرآن, قران كريم, نور القرآن, نور القرآن تي في, سوره الفاتحه, ام الكتاب, اعظم سورة في القران, السبع المثاني, تلاوة خاشعة
+
+
+--------------------------------------------------
+4. HASHTAGS (English first)
 --------------------------------------------------
 
 YouTube long-form (3-5, at the end of the description — NO #shorts):
-#سورة_الفاتحة #القرآن_الكريم #قرآن #Quran #SurahAlFatihah
+#Quran #SurahAlFatihah #HolyQuran #سورة_الفاتحة #القرآن_الكريم
 
 Facebook (5-8):
-#سورة_الفاتحة #القرآن_الكريم #قرآن #تلاوة_خاشعة #Quran #HolyQuran #SurahAlFatihah
+#Quran #HolyQuran #SurahAlFatihah #QuranRecitation #سورة_الفاتحة #القرآن_الكريم #تلاوة_خاشعة
 
 
 --------------------------------------------------
-5. PINNED COMMENT / تعليق مثبت (post and pin as the first comment)
+5. PINNED COMMENT (post and pin as the first comment)
 --------------------------------------------------
 
-اللهم اهدنا الصراط المستقيم وثبّت قلوبنا على دينك 🤲 اكتب «آمين»
 O Allah, guide us along the straight path and keep our hearts firm upon Your religion 🤲 Write "Ameen"
+Arabic | اللهم اهدنا الصراط المستقيم وثبّت قلوبنا على دينك 🤲 اكتب «آمين»
 
 
 --------------------------------------------------
-6. WHEN TO POST / أفضل وقت للنشر
+6. WHEN TO POST
 --------------------------------------------------
 
                                  KSA/Kuwait/Qatar/Bahrain   UAE/Oman    India (IST)
@@ -107,7 +109,7 @@ do not compete with each other in the same feed.
 
 
 --------------------------------------------------
-7. THUMBNAIL — صورة الغلاف (1280x720)
+7. THUMBNAIL (1280x720)
 --------------------------------------------------
 
 Use: thumbnail.jpg
@@ -133,22 +135,22 @@ NEGATIVE PROMPT (use with both):
 cartoon, illustration, anime, 3D render, CGI, fantasy, glowing particles, neon, oversaturated colours, HDR halo, text, letters, Arabic script, watermark, logo, people, faces, distorted architecture
 
 Text to add yourself in Canva / CapCut (don't let the AI write Arabic, it gets Quranic words wrong):
-  Arabic:  سورة الفاتحة        (font: Aref Ruqaa)
   English: SURAH AL-FATIHAH    (font: Cormorant Garamond)
-  Hook:    أعظم سورة في القرآن | The greatest surah
+  Arabic:  سورة الفاتحة        (font: Aref Ruqaa)
+  Hook:    The greatest surah | أعظم سورة في القرآن
 
 
 --------------------------------------------------
-9. UPLOAD CHECKLIST / قائمة الرفع
+9. UPLOAD CHECKLIST
 --------------------------------------------------
 
-[ ] File name before upload: surah-al-fatihah-full-quran-سورة-الفاتحة.mp4
+[ ] File name before upload: surah-al-fatihah-full-quran.mp4
 [ ] YouTube: Category = Education
 [ ] Video language = Arabic; Title & description language = Arabic
 [ ] Audience = Not made for kids
 [ ] Upload thumbnail.jpg as the custom thumbnail
 [ ] Paste the timestamps from section 2 into the description (they become chapters)
-[ ] Playlist: "القرآن الكريم | Holy Quran"
+[ ] Playlist: "Holy Quran | القرآن الكريم"
 [ ] Add an end screen linking to your Shorts version and to the channel
 [ ] Comments on + pin the comment from section 5
 [ ] Do NOT use #shorts on this video
