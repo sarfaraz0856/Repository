@@ -32,7 +32,7 @@ ffmpeg -hide_banner -loglevel warning -y \
     [a1][a2]xfade=transition=fade:duration=1.0:offset=8.0[b12];
     [b12][a3][a4][a5][a6]concat=n=5:v=1:a=0,settb=1/24,fps=24[b6];
     [b6][a7]xfade=transition=fade:duration=1.0:offset=48.0,tpad=stop_mode=add:stop_duration=2:color=black[base];
-    [base][7:v]overlay=0:0:eof_action=pass:format=auto[t0];
+    [base]null[t0];
     [t0][8:v]overlay=0:0:eof_action=pass:format=auto[t1];
     [t1][9:v]overlay=0:0:eof_action=pass:format=auto[t2];
     [t2][10:v]overlay=0:0:eof_action=pass:format=auto[t3];

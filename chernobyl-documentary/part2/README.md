@@ -21,7 +21,7 @@ Part I took place at night. Part II is mostly daylight, which shows far more det
 
 | Time | Shot | What you see |
 |---|---|---|
-| 0:00–0:09 | Dawn, 26 April | An aerial drift over Pripyat at first light. A few windows are still lit, mist lies over the forest, and on the horizon the smoke from Unit 4 leans north in the low sun. **PART II / THE MORNING AFTER** |
+| 0:00–0:09 | Dawn, 26 April | An aerial drift over Pripyat at first light. A few windows are still lit, mist lies over the forest, and on the horizon the smoke from Unit 4 leans north in the low sun. **THE MORNING AFTER** |
 | 0:08–0:16 | Saturday morning | A tree-lined avenue against the morning sun. Women and children walk to the shops and to school, a Zhiguli drives past, and there is washing on the balconies. **SATURDAY, 26 APRIL 1986 / LIFE IN PRIPYAT WENT ON AS USUAL** |
 | 0:16–0:24 | The ruin by day | A telephoto shot of the destroyed reactor building. Black smoke and white steam rise from the open core past the striped vent stack. A Mi-8 crosses the smoke with a load of sand hanging below. |
 | 0:24–0:32 | 13:10 | Street loudspeakers on a pole in front of an apartment block. A chime sounds, then the announcement echoes between the buildings. **27 APRIL 1986, 13:10 / THE EVACUATION IS ANNOUNCED** |
