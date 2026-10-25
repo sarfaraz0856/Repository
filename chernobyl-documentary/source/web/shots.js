@@ -106,8 +106,8 @@ export const SHOTS = {
   P1: { duration: 9.0, build: P1, ss: 2, msaa: 0, volScale: 0.35 },
   P2: { duration: 8.0, build: P2, ss: 2, msaa: 0, volScale: 0.3 },
   P3: { duration: 8.0, build: P3, ss: 2, msaa: 0, volScale: 0.4 },
-  P4: { duration: 8.0, build: P4, ss: 2, msaa: 0, volScale: 0.3 },
-  P5: { duration: 9.0, build: P5, ss: 2, msaa: 0, volScale: 0.3 },
-  P6: { duration: 8.0, build: P6, ss: 2, msaa: 0, volScale: 0.3 },
-  P7: { duration: 10.0, build: P7, ss: 2, msaa: 0, volScale: 0.3 },
+  P4: { duration: 8.0, build: P4, ss: 1, msaa: 4, volScale: 0.3 },
+  P5: { duration: 9.0, build: P5, ss: 1, msaa: 4, volScale: 0.3 },
+  P6: { duration: 8.0, build: P6, ss: 1, msaa: 4, volScale: 0.3 },
+  P7: { duration: 10.0, build: P7, ss: 1, msaa: 4, volScale: 0.3 },
 };

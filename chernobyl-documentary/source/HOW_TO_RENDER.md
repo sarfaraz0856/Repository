@@ -42,4 +42,4 @@ python3 audio2.py                               # score + sound -> out/part2/sou
 - `web/lib/daysky.js` provides the day and dawn sky (sun disk, Mie glow, self-shadowed clouds), sun and sky lights, and `envFromSky()` (a PMREM environment for image-based lighting).
 - `web/lib/street.js` holds the balconies (a JS port of the facade shader's cell hash, so the geometry lines up with the painted windows), washing lines, 3D spring trees with translucent leaves and per-tree colour, the textured road, kerbs, verges and lawns, the VAZ-2101 and LAZ-695, the civilians, and the forest floor.
 - `web/lib/heli.js` builds the Mi-8 with its rotor discs and sling load.
-- About 20–35 s per frame on 4 CPU cores at 2× supersampling. Background jobs should stay under 2 h, which is why shots are rendered in chunks.
+- P1–P3 render at 2× supersampling (about 6–25 s per frame on 4 CPU cores). P4–P7 use 4× MSAA with alpha-to-coverage on the leaves instead (about 5–13 s per frame), which looks nearly the same and is twice as fast. Background jobs should stay under 2 h, which is why shots are rendered in chunks.

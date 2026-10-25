@@ -125,7 +125,10 @@ export async function streetWorld(ctx, { sun, sky: skyOpts, litFrac = 0, broken 
     const s = -60 + rnd() * 500, side = rnd() < 0.5 ? -1 : 1, l = side * (16.5 + rnd() * 6);
     const c = at(s, l); trees.push([c.x, c.z, 10 + rnd() * 7, rnd() < 0.55 ? 'birch' : 'poplar']);
   }
-  scene.add(buildTrees3D(trees, { leafiness, seed: 3 }));
+  const tg = buildTrees3D(trees, { leafiness, seed: 3 });
+  // with MSAA, alpha-to-coverage gives the leaf cards smooth edges
+  if (ctx.msaa > 0) tg.traverse(o => { if (o.isMesh && o.material.map && o.material.alphaTest) o.material.alphaToCoverage = true; });
+  scene.add(tg);
   // the plant on the horizon and its smoke
   const plant = buildPlant(ctx, {}); plant.setState(0, { destroyed: true }); plant.glowMat.uniforms.uGain.value = 0.0; scene.add(plant.root);
   plant.root.traverse(o => { if (o.isLineSegments) o.visible = false; });
@@ -455,7 +458,7 @@ export async function P7(ctx) {
   ATM.uFogColor.value.setRGB(0.04, 0.038, 0.045); ATM.uFogDensity.value = 0.0005; ATM.uFogHeight.value = 120; ATM.uFogBase.value = 0;
   ATM.uGlowDir.value.set(SUN.x, 0, SUN.z).normalize(); ATM.uGlowCol.value.setRGB(1.2, 0.5, 0.16); ATM.uGlowPow.value = 9;
   ATM.uMoonHalo.value.setRGB(1.4, 0.6, 0.2); ATM.uFireFog.value.setRGB(0, 0, 0);
-  W.city.facadeMat.envMapIntensity = 0.3; W.city.facadeMat.userData.u.uDay.value = 0.45;
+  W.city.facadeMat.envMapIntensity = 0.1; W.city.facadeMat.userData.u.uDay.value = 0.2;
   // what was left behind
   const bike = bicycle(); bike.position.copy(at(154, -13.6, 0.0)); bike.rotation.set(0, Math.atan2(-R.z, R.x) + 0.35, 0); bike.rotateX(0.32); bike.position.y = 0.02;
   scene.add(bike);

@@ -1,6 +1,6 @@
 # Upload kit — "CHERNOBYL Part II: The Morning After"
 
-**File:** `Chernobyl_Part_II_The_Morning_After.mp4`: 1920×1080, 24 fps, 60 s, stereo AAC 320 kbps.
+**File:** `Chernobyl_Part_II_The_Morning_After.mp4`: 1920×1080, 24 fps, 60 s, stereo AAC 320 kbps, mastered to about −14.5 LUFS (true peak −2.2 dBFS).
 **Thumbnail:** `thumbnail_frame.jpg` (the Mi-8 crossing the smoke above the ruin of Unit 4).
 
 ## Title (pick one)

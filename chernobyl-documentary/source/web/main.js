@@ -38,7 +38,9 @@ async function init() {
   const def = SHOTS[shotName];
   if (!def) throw new Error('unknown shot ' + shotName);
   const ss = +(params.get('ss') || def.ss || 1);
-  post = new Post(renderer, W, H, { volScale: def.volScale ?? 0.5, samples: def.msaa ?? 4, dofSamples: def.dofSamples ?? 56, ss });
+  const msaa = params.get('msaa') !== null ? +params.get('msaa') : (def.msaa ?? 4);
+  post = new Post(renderer, W, H, { volScale: def.volScale ?? 0.5, samples: msaa, dofSamples: def.dofSamples ?? 56, ss });
+  ctx.msaa = msaa;
   ctx.post = post; ctx.ss = ss; ctx.RH = H * ss;
   shot = await def.build(ctx);
   shot.duration = def.duration;
