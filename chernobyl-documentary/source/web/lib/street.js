@@ -175,6 +175,8 @@ const SPECIES = {
   poplar: { palette: [[120, 150, 50], [105, 140, 45], [140, 160, 60], [95, 125, 40]], bark: new THREE.Color(0.2, 0.19, 0.16), shape: 'columnar' },
   birch: { palette: [[130, 160, 55], [115, 150, 50], [150, 170, 70]], bark: new THREE.Color(0.55, 0.54, 0.5), shape: 'weeping' },
   linden: { palette: [[105, 135, 45], [90, 120, 40], [125, 150, 55]], bark: new THREE.Color(0.14, 0.12, 0.1), shape: 'round' },
+  // apple and cherry in blossom in the village gardens (early May)
+  apple: { palette: [[238, 234, 228], [242, 222, 226], [232, 238, 222], [246, 238, 236], [130, 160, 70]], bark: new THREE.Color(0.12, 0.1, 0.08), shape: 'round' },
 };
 
 // Build one tree: tapered branch cylinders (wood) + leaf cards with crown-spherical normals.

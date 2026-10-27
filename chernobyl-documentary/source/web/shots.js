@@ -10,6 +10,7 @@ import { S5, S6, S7 } from './shots_fire.js';
 import { S8, S9 } from './shots_after.js';
 import { P1, P2, P3, P4, P5, P6, P7 } from './part2.js';
 import { Q1, Q2, Q3, Q4, Q5 } from './part3.js';
+import { R1, R2, R3, R4, R5 } from './part4.js';
 
 const V3 = (x, y, z) => new THREE.Vector3(x, y, z);
 const MOON_DIR = V3(0.615, 0.292, 0.733).normalize();
@@ -116,4 +117,9 @@ export const SHOTS = {
   Q3: { duration: 13.0, build: Q3, ss: 1, msaa: 4, volScale: 0.3 },
   Q4: { duration: 11.0, build: Q4, ss: 1, msaa: 4, volScale: 0.3 },
   Q5: { duration: 15.0, build: Q5, ss: 1, msaa: 4, volScale: 0.3 },
+  R1: { duration: 11.0, build: R1, ss: 1, msaa: 4, volScale: 0.35 },
+  R2: { duration: 12.0, build: R2, ss: 1, msaa: 4, volScale: 0.3 },
+  R3: { duration: 12.0, build: R3, ss: 1, msaa: 4, volScale: 0.5 },
+  R4: { duration: 12.0, build: R4, ss: 1, msaa: 4, volScale: 0.3 },
+  R5: { duration: 16.0, build: R5, ss: 1, msaa: 4, volScale: 0.4 },
 };
