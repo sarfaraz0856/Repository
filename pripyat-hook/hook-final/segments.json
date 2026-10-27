@@ -10,7 +10,8 @@
    5.4
   ],
   "dur": 5.4,
-  "speed": 1.0
+  "speed": 1.0,
+  "clip": "scene-01/Scene01_source_chatgpt.png via tools/ai_clip_s01.py"
  },
  {
   "key": "02",
