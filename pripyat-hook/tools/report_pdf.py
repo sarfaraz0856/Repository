@@ -106,11 +106,13 @@ story = []
 
 story += [P("Chernobyl Hook · Review &amp; Fix Report", h1),
           P(f"Aapka export.mp4 (0:00–0:45.5) script ke hisaab se check kiya aur theek kiya. "
-            f"24 October 2026 · Final: <b>HOOK_FINAL_WITH_VOICE.mp4</b> ({end:.1f} s)", muted), Spacer(1, 6)]
+            f"27 October 2026 · Final: <b>HOOK_FINAL_WITH_VOICE.mp4</b> ({end:.1f} s)", muted), Spacer(1, 6)]
 
 story += [P("Short mein", h2)]
 summary = [
-    "Aapke shots ka order script jaisa hi hai, aur saare shots achhe hain. Koi shot badla nahi gaya, sirf unki timing aur finishing theek ki hai.",
+    "Aapke shots ka order script jaisa hi hai, aur saare shots achhe hain. Sirf unki timing aur finishing theek ki hai. "
+    + ("Scene 01 mein ab aapki nayi ChatGPT image se bana clip hai: sadak par slow forward dolly (parallax ke saath), fog drift aur pattiyon ki halki hilchal. "
+       if "clip" in segs[0] else ""),
     "Export mein <b>audio bilkul nahi tha</b> (−91 dB, yaani khaali). Ab poora audio hai: 8 lines ki voice, music, hawa aur har scene ke SFX.",
     f"Script ki 140–150 wpm speed aur \"...\" ke aadhe second ke pause ke saath lines bolne par hook <b>{end:.1f} s</b> ka banta hai, 46 s ka nahi. "
     "Notes kehte hain \"voice ko tez mat karo, clip ko voice ke hisaab se khisko\", isliye shots khiske hain. Part 1 ab "
@@ -160,7 +162,8 @@ for k in ("01", "02", "03", "04", "05", "06", "07", "08"):
         note = f"Dhamaka + flash {fmt(ev['boom'])}, reactor ke laal peak par"
     if k in ("03", "04"):
         note = (note + "; " if note else "") + "70% se thoda kam speed"
-    src = f"{SHOT[k]} · src {fmt(s['src'][0])}–{fmt(s['src'][1])}"
+    src = (f"{SHOT[k]} · src {fmt(s['src'][0])}–{fmt(s['src'][1])}" if "clip" not in s
+           else "Avenue: nayi ChatGPT image se dolly clip (ai_clip_s01.py)")
     rows.append([k, f"0:{SCRIPT[k][0]:02d}–0:{SCRIPT[k][1]:02d}", f"{fmt(a)}–{fmt(b)}", src, f"{s['speed'] * 100:.0f}%", note])
 rows.append(["09", "0:42–0:46", f"{fmt(sc['09'])}–{fmt(end)}", "Black + CHERNOBYL title", "—", "Title hit, drone yahin khatam"])
 story += [table(rows, [7 * mm, 18 * mm, 31 * mm, 49 * mm, 14 * mm, 59 * mm])]

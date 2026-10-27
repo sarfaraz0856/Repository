@@ -3,7 +3,8 @@
 the scene 05 cut to the dosimeter in the "..." pause, a flash and shake on the reactor blast, the
 CHERNOBYL title card, one light cold grade + gentle vignette + grain, 1080p25 at 14 Mbps.
 
-Usage: hook_video.py EXPORT.mp4 TIMELINE.json FONT.ttf OUT_DIR
+Usage: hook_video.py EXPORT.mp4 TIMELINE.json FONT.ttf OUT_DIR [SCENE01_CLIP.mp4]
+With SCENE01_CLIP the export's first shot is replaced by that clip (e.g. from ai_clip_s01.py).
 Writes OUT_DIR/HOOK_FINAL_video_only.mp4 and OUT_DIR/title.png.
 """
 import json
@@ -56,18 +57,21 @@ def segments(tl):
     return out
 
 
-def main(export, tl_path, font, outdir):
+def main(export, tl_path, font, outdir, scene01=None):
     tl = json.load(open(tl_path))
     segs = segments(tl)
+    if scene01:
+        segs[0].update(src=(0.0, segs[0]["dur"]), speed=1.0, clip=scene01)
     title_at, end = tl["scenes"]["09"], tl["end"]
     tdur = round(end - title_at, 3)
     boom_rel = tl["events"]["boom"] - tl["scenes"]["06"]
     title_png(font, f"{outdir}/title.png")
 
-    parts = [f"[0:v]split={len(segs)}" + "".join(f"[v{i}]" for i in range(len(segs)))]
+    from_export = [i for i, s in enumerate(segs) if "clip" not in s]
+    parts = [f"[0:v]split={len(from_export)}" + "".join(f"[v{i}]" for i in from_export)]
     for i, s in enumerate(segs):
         a, b = s["src"]
-        f = f"[v{i}]trim=start={a:.3f}:end={b + 0.2:.3f},setpts=PTS-STARTPTS"
+        f = f"[{'2:v' if 'clip' in s else f'v{i}'}]trim=start={a:.3f}:end={b + 0.2:.3f},setpts=PTS-STARTPTS"
         if s["speed"] < 0.999:
             f += f",setpts=PTS/{s['speed']:.4f},framerate=fps={FPS}:interp_start=0:interp_end=255:scene=100"
         f += f",fps={FPS},trim=duration={s['dur']:.3f},setpts=PTS-STARTPTS"
@@ -87,7 +91,7 @@ def main(export, tl_path, font, outdir):
                  "vignette=angle=PI/6,noise=c0s=5:c0f=t,fade=t=in:st=0:d=0.5,format=yuv420p[out]")
     cmd = ["ffmpeg", "-nostdin", "-v", "error", "-y", "-i", export,
            "-loop", "1", "-framerate", str(FPS), "-t", f"{tdur:.3f}", "-i", f"{outdir}/title.png",
-           "-filter_complex", ";".join(parts), "-map", "[out]", "-an", "-r", str(FPS),
+           *(["-i", scene01] if scene01 else []), "-filter_complex", ";".join(parts), "-map", "[out]", "-an", "-r", str(FPS),
            "-c:v", "libx264", "-preset", "slow", "-profile:v", "high", "-b:v", "14M", "-maxrate", "16M",
            "-bufsize", "16M", "-g", "50", "-pix_fmt", "yuv420p", "-movflags", "+faststart",
            "-t", f"{end:.3f}", f"{outdir}/HOOK_FINAL_video_only.mp4"]
@@ -98,4 +102,4 @@ def main(export, tl_path, font, outdir):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:5])
+    main(*sys.argv[1:6])
