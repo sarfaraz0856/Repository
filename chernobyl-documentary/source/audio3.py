@@ -120,10 +120,6 @@ def birdsong(t0, t1, density, seed, gain=1.0, pan=0.0):
             tt += d + r.uniform(0.03, 0.1)
         tt += r.exponential(1.0 / density)
     add(filt(buf, 'high', 1800), pan, gain * 2.5, rev=0.35)
-birdsong(0.6, 8.6, 0.6, 1, 0.012, -0.5); birdsong(1.5, 8.4, 0.4, 2, 0.008, 0.6)
-birdsong(8.2, 16.0, 0.9, 3, 0.02, -0.3); birdsong(8.5, 16.0, 0.7, 4, 0.015, 0.5); birdsong(8.0, 16.0, 0.5, 5, 0.009, 0.0)
-birdsong(24.2, 31.5, 0.4, 6, 0.008, 0.4)
-birdsong(48.5, 58.0, 0.25, 7, 0.006, -0.4)
 
 
 VOW = [(730, 1090, 2440), (530, 1840, 2480), (270, 2290, 3010), (570, 840, 2410), (440, 1020, 2240), (300, 870, 2240)]
@@ -146,9 +142,6 @@ def crowd(t0, t1, nvoices, seed, dist_lp=2500):
         s = r.uniform(t0, t1 - 1.0); d = r.uniform(0.8, 2.6)
         buf += voice(s, min(d, t1 - s), f0=r.choice([110, 125, 140, 190, 210, 240, 280]) * r.uniform(0.9, 1.1), seed=seed * 1000 + k, syl=r.uniform(3.5, 5.5)) * r.uniform(0.3, 1.0)
     return filt(buf, 'low', dist_lp)
-add(crowd(8.6, 16.0, 14, 21, 1600), -0.2, 0.012, rev=0.5)       # far-off voices on the avenue
-add(crowd(32.2, 41.0, 60, 22, 2200), 0.1, 0.032, rev=0.45)        # the crowd at the buses
-add(crowd(32.2, 41.0, 40, 23, 1500), -0.3, 0.022, rev=0.5)
 
 
 def steps(t0, t1, period, gain, seed, bright=(1800, 7000)):
@@ -159,10 +152,6 @@ def steps(t0, t1, period, gain, seed, bright=(1800, 7000)):
         scuff = filt(x, 'bp', bright) * np.exp(-np.arange(n) / SR / 0.04) * 0.5
         place(buf, (thud + scuff) * r.uniform(0.6, 1.0), tt); tt += period * r.uniform(0.95, 1.05)
     return buf
-for k, (a, b, p, g) in enumerate([(9.0, 16.0, 0.55, 0.03), (9.3, 16.0, 0.52, 0.02), (10.0, 16.0, 0.6, 0.014)]):
-    add(steps(a, b, p, g, 30 + k), -0.2 + k * 0.25, g * 2.0, rev=0.3)
-for k in range(10):
-    add(steps(32.3 + k * 0.13, 41.0, 0.5 + k * 0.02, 1.0, 40 + k), -0.6 + k * 0.13, 0.04, rev=0.35)
 
 
 def engine(f_curve, rough=0.3, seed=0):
@@ -171,10 +160,6 @@ def engine(f_curve, rough=0.3, seed=0):
     x = sum(np.sin(h * ph + r.uniform(0, 6)) / h ** 0.8 for h in range(1, 12))
     x *= 1 + rough * smoothrand(18, seed=seed + 1)
     return x
-car_f = env([(0, 30), (60, 30)]) * (1 + 0.04 * smoothrand(1, seed=51))
-car = engine(car_f, 0.25, 52) + filt(noise(seed=53), 'bp', (200, 2500)) * 0.8
-car_env = env([(0, 0), (9.5, 0), (11.5, 0.2), (14.0, 0.8), (15.0, 1.0), (16.0, 0.0), (60, 0)])
-add_pan(filt(car, 'low', 2500) * car_env, env([(0, -0.6), (11, -0.6), (16, 0.1), (60, 0.1)]), 0.012, rev=0.3)
 
 
 def geiger(rate_env, seed=0):
@@ -182,7 +167,6 @@ def geiger(rate_env, seed=0):
     imp = (r.random(N) < rate_env / SR).astype(float) * r.uniform(0.6, 1.0, N)
     k = np.exp(-np.arange(int(0.004 * SR)) / SR / 0.0006) * np.sin(2 * np.pi * 3100 * np.arange(int(0.004 * SR)) / SR)
     return filt(signal.fftconvolve(imp, k)[:N], 'high', 900)
-add(geiger(env([(0, 0), (16.5, 0), (17, 2), (24, 3), (24.1, 0), (49, 0), (50, 1.5), (56, 4), (58.5, 1), (60, 0)]), seed=130), 0.2, 0.1, rev=0.05)
 
 def creak(t0, f0=300, d=0.9, seed=0):
     r = np.random.default_rng(seed); n = int(d * SR); tt = np.arange(n) / SR
@@ -190,8 +174,6 @@ def creak(t0, f0=300, d=0.9, seed=0):
     x = signal.sawtooth(2 * np.pi * np.cumsum(f) / SR) * (0.5 + 0.5 * r.random(n) ** 3)
     x = filt(x, 'bp', (400, 3000)) * np.sin(np.pi * tt / d) ** 2
     tmp = np.zeros(N); place(tmp, x, t0); return tmp
-add(creak(51.4, 290, 0.9, 141), -0.3, 0.024, rev=0.8)
-add(creak(54.8, 340, 0.8, 142), 0.4, 0.016, rev=0.8)
 
 
 def hit(t0, g, decay=3.0, seed=0):
@@ -199,8 +181,6 @@ def hit(t0, g, decay=3.0, seed=0):
     f = 30 + 18 * np.exp(-tt / 0.4)
     sub = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-tt / (decay * 0.35)) * np.minimum(tt / 0.01, 1)
     tmp = np.zeros(N); place(tmp, sub, t0); return tmp * g
-add(hit(2.2, 0.08), 0, rev=0.6)
-add(hit(51.0, 0.1, 4.0), 0, rev=0.7)
 
 
 def ir(sec, seed):
@@ -209,8 +189,6 @@ def ir(sec, seed):
     x = filt(x, 'low', 5000) * 0.6 + filt(x, 'low', 1200) * 0.4
     for d, g in [(0.023, 0.5), (0.041, 0.35), (0.067, 0.3), (0.093, 0.2)]: x[int(d * SR)] += g * 3
     return x / np.sqrt(np.sum(x ** 2))
-REV = filt(REV, 'high', 60)
-L += signal.fftconvolve(REV, ir(3.0, 1))[:N] * 0.5; R += signal.fftconvolve(REV, ir(3.0, 2))[:N] * 0.5
 
 # ================= THE LIQUIDATORS (60 s) =================
 #  0-11 Q1 Mi-8 drop | 11-20 Q2 vehicle graveyard | 20-33 Q3 roof | 33-44 Q4 sarcophagus | 43-58 Q5 winter

@@ -140,10 +140,24 @@ export function buildBalconies(buildings, { seed = 5, laundryFrac = 0.12, glazed
 }
 
 // ---------------- spring trees ----------------
-function leafCanvas(seed, palette) {
+function leafCanvas(seed, palette, needles = false) {
   const S = 256, c = document.createElement('canvas'); c.width = c.height = S;
   const g = c.getContext('2d'); const rnd = mulberry32(seed);
   g.clearRect(0, 0, S, S);
+  if (needles) {
+    // a pine shoot: a woody twig with tufts of paired needles along it
+    g.strokeStyle = 'rgba(70,45,30,1)'; g.lineWidth = 3;
+    g.beginPath(); g.moveTo(S * 0.5, S * 0.98); g.quadraticCurveTo(S * 0.47, S * 0.55, S * 0.5, S * 0.06); g.stroke();
+    for (let i = 0; i < 260; i++) {
+      const t = rnd(), bx = S * (0.5 + (rnd() - 0.5) * 0.06), by = S * (0.95 - t * 0.88);
+      const ang = -Math.PI / 2 + (rnd() < 0.5 ? -1 : 1) * (0.35 + rnd() * 0.9);
+      const L = S * (0.09 + rnd() * 0.1) * (1 - t * 0.3);
+      const p = palette[Math.floor(rnd() * palette.length)], j = 0.75 + rnd() * 0.45;
+      g.strokeStyle = `rgb(${p[0] * j | 0},${p[1] * j | 0},${p[2] * j | 0})`; g.lineWidth = 1.3 + rnd();
+      g.beginPath(); g.moveTo(bx, by); g.lineTo(bx + Math.cos(ang) * L, by + Math.sin(ang) * L); g.stroke();
+    }
+    return c;
+  }
   // a twig with young leaves: thin stems, ovate leaves with soft gradients
   g.strokeStyle = 'rgba(60,52,40,1)'; g.lineWidth = 2.5;
   g.beginPath(); g.moveTo(S * 0.5, S * 0.98); g.quadraticCurveTo(S * 0.45, S * 0.5, S * 0.52, S * 0.1); g.stroke();
@@ -177,6 +191,8 @@ const SPECIES = {
   linden: { palette: [[105, 135, 45], [90, 120, 40], [125, 150, 55]], bark: new THREE.Color(0.14, 0.12, 0.1), shape: 'round' },
   // apple and cherry in blossom in the village gardens (early May)
   apple: { palette: [[238, 234, 228], [242, 222, 226], [232, 238, 222], [246, 238, 236], [130, 160, 70]], bark: new THREE.Color(0.12, 0.1, 0.08), shape: 'round' },
+  // Scots pines of the Red Forest, killed by the fallout: needles turned ginger-brown
+  redpine: { palette: [[176, 86, 38], [160, 72, 32], [190, 104, 48], [140, 66, 30], [120, 84, 60]], bark: new THREE.Color(0.24, 0.13, 0.075), shape: 'pine', needles: true },
 };
 
 // Build one tree: tapered branch cylinders (wood) + leaf cards with crown-spherical normals.
@@ -185,8 +201,9 @@ export function makeTreeGeo(seed, { height = 11, species = 'linden', leafiness =
   const sp = SPECIES[species];
   const wood = [], leaves = [];
   const up = V3(0, 1, 0);
-  const crownC = V3(0, height * 0.62, 0);
-  const crownR = V3(height * (sp.shape === 'columnar' ? 0.2 : 0.36), height * 0.36, height * (sp.shape === 'columnar' ? 0.2 : 0.36));
+  const crownC = V3(0, height * (sp.shape === 'pine' ? 0.84 : 0.62), 0);
+  const cw = sp.shape === 'columnar' ? 0.2 : sp.shape === 'pine' ? 0.22 : 0.36;
+  const crownR = V3(height * cw, height * (sp.shape === 'pine' ? 0.17 : 0.36), height * cw);
   const seg = (a, b, r0, r1) => {
     const d = b.clone().sub(a), L = d.length();
     const g = new THREE.CylinderGeometry(r1, r0, L, r0 > 0.06 ? 7 : 4, 1, true); g.translate(0, L / 2, 0);
@@ -210,7 +227,8 @@ export function makeTreeGeo(seed, { height = 11, species = 'linden', leafiness =
     const n = 3;
     let p = a.clone(), d = dir.clone();
     for (let i = 0; i < n; i++) {
-      d.add(V3((rnd() - 0.5) * 0.35, (rnd() - 0.3) * 0.2, (rnd() - 0.5) * 0.35)).normalize();
+      const jit = sp.shape === 'pine' && depth === 0 ? 0.07 : 1;
+      d.add(V3((rnd() - 0.5) * 0.35 * jit, (rnd() - 0.3) * 0.2 * jit, (rnd() - 0.5) * 0.35 * jit)).normalize();
       if (sp.shape === 'columnar') d.lerp(up, 0.25).normalize();
       if (sp.shape === 'weeping' && depth >= 2) d.y -= 0.18, d.normalize();
       const q = p.clone().addScaledVector(d, len / n);
@@ -230,15 +248,16 @@ export function makeTreeGeo(seed, { height = 11, species = 'linden', leafiness =
     for (let k = 0; k < kids; k++) {
       const t = depth === 0 ? 1 : 0.45 + rnd() * 0.55;
       const az = rnd() * 6.28;
-      const tilt = depth === 0 ? 0.28 + rnd() * 0.3 : 0.45 + rnd() * 0.4;
+      const tilt = depth === 0 ? (sp.shape === 'pine' ? 0.45 + rnd() * 0.3 : 0.28 + rnd() * 0.3) : 0.45 + rnd() * 0.4;
       const nd = dir.clone().lerp(V3(Math.cos(az), 0, Math.sin(az)), tilt).normalize();
       if (sp.shape === 'columnar') nd.lerp(up, 0.5).normalize();
-      grow(a.clone().lerp(p, depth === 0 ? 0.55 + 0.45 * (k / kids) : t), nd, len * (depth === 0 ? 0.75 : 0.58) * (0.8 + rnd() * 0.4), r * 0.5, depth + 1);
+      const pine = sp.shape === 'pine' && depth === 0;
+      grow(a.clone().lerp(p, depth === 0 ? (pine ? 0.78 + 0.22 * (k / kids) : 0.55 + 0.45 * (k / kids)) : t), nd, len * (depth === 0 ? (pine ? 0.2 : 0.75) : 0.58) * (0.8 + rnd() * 0.4), r * 0.5, depth + 1);
     }
   };
-  const trunkH = height * (sp.shape === 'columnar' ? 0.5 : 0.42);
+  const trunkH = height * (sp.shape === 'columnar' ? 0.5 : sp.shape === 'pine' ? 0.86 : 0.42);
   const lean = V3((rnd() - 0.5) * 0.12, 1, (rnd() - 0.5) * 0.12).normalize();
-  grow(V3(0, 0, 0), lean, trunkH, height * (sp.shape === 'weeping' ? 0.011 : 0.015), 0);
+  grow(V3(0, 0, 0), lean, trunkH, height * (sp.shape === 'weeping' ? 0.011 : sp.shape === 'pine' ? 0.017 : 0.015), 0);
   const w = mergeGeometries(wood.map(g => g.index ? g.toNonIndexed() : g));
   const l = leaves.length ? mergeGeometries(leaves.map(g => g.index ? g.toNonIndexed() : g)) : null;
   return { wood: w, leaves: l };
@@ -254,7 +273,7 @@ const SWAY_GLSL = `#include <begin_vertex>
       float a = smoothstep(2.0, 7.0, position.y);
       transformed += vec3(sin(uSwayT * 1.9 + ph), sin(uSwayT * 2.6 + ph * 1.3) * 0.6, cos(uSwayT * 1.7 + ph * 0.8)) * 0.035 * a; }`;
 function leafMaterial(seed, species) {
-  const tex = new THREE.CanvasTexture(leafCanvas(seed, SPECIES[species].palette));
+  const tex = new THREE.CanvasTexture(leafCanvas(seed, SPECIES[species].palette, SPECIES[species].needles));
   tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 4;
   // Lambert + analytic sky ambient: foliage is mostly overdraw, so its shader must stay cheap
   const mat = new THREE.MeshLambertMaterial({ map: tex, alphaTest: 0.5, side: THREE.DoubleSide });

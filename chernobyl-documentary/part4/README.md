@@ -1,6 +1,6 @@
 # CHERNOBYL — The Silence (28 April – 10 May 1986)
 
-**File:** `Chernobyl_Part_IV_The_Silence.mp4`, 1920×1080, 24 fps, 65 s. The joined film with all four chapters is `../Chernobyl_1986_Full_Film.mp4` (4:00).
+**File:** `Chernobyl_Part_IV_The_Silence.mp4`, 1920×1080, 24 fps, 65 s. The joined film is `../Chernobyl_1986_Full_Film.mp4`.
 
 | Time | Shot | Caption |
 |---|---|---|

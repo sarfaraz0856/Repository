@@ -235,7 +235,7 @@ export async function Q3(ctx) {
 }
 
 // ---------------- Q4: the sarcophagus, completed, November dusk ----------------
-function sarcophagus() {
+export function sarcophagus() {
   const g = new THREE.Group();
   const conc = patchMaterial(new THREE.MeshStandardMaterial({ color: new THREE.Color(0.3, 0.3, 0.29), roughness: 0.95 }), { key: 'sarcconc' });
   const dark = patchMaterial(new THREE.MeshStandardMaterial({ color: new THREE.Color(0.15, 0.15, 0.15), roughness: 0.7, metalness: 0.5 }), { key: 'sarcsteel' });
@@ -254,7 +254,7 @@ function sarcophagus() {
   B(6, 66, 76, -36, 0, 3);
   return g;
 }
-function crawlerCrane(boomL, boomAng, mat) {
+export function crawlerCrane(boomL, boomAng, mat) {
   const g = new THREE.Group();
   const add = (geo, x, y, z) => { const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); m.castShadow = true; g.add(m); return m; };
   add(new THREE.BoxGeometry(14, 3, 9), 0, 1.5, 0);
