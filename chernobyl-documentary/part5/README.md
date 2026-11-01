@@ -1,6 +1,6 @@
 # CHERNOBYL — The Reckoning (autumn 1986 – July 1987)
 
-**File:** `Chernobyl_Part_V_The_Reckoning.mp4`, 1920×1080, 24 fps, 60 s. The joined film with all five chapters is `../Chernobyl_1986_Full_Film.mp4` (5:00).
+**File:** `Chernobyl_Part_V_The_Reckoning.mp4`, 1920×1080, 24 fps, 60 s. The joined film is `../Chernobyl_1986_Full_Film.mp4`.
 
 | Time | Shot | Caption |
 |---|---|---|
