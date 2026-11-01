@@ -30,7 +30,7 @@ function atmosphere({ sun, fog, density, height, glow, glowPow = 6, halo }) {
   ATM.uGlowDir.value.set(sun.x, 0, sun.z).normalize(); ATM.uGlowCol.value.setRGB(...glow); ATM.uGlowPow.value = glowPow;
   ATM.uMoonHalo.value.setRGB(...(halo || glow)); ATM.uFireFog.value.setRGB(0, 0, 0);
 }
-function plantSet(ctx, scene, { forest = 60000, tint = null, floorRed = null } = {}) {
+export function plantSet(ctx, scene, { forest = 60000, tint = null, floorRed = null } = {}) {
   const plant = buildPlant(ctx, {}); plant.setState(0, { destroyed: true }); plant.glowMat.uniforms.uGain.value = 0.0; scene.add(plant.root);
   plant.root.traverse(o => { if (o.isLineSegments) o.visible = false; });
   plant.ground.position.copy(PLANT).setY(0.02); scene.add(plant.ground);

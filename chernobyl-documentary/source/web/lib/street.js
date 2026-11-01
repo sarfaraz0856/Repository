@@ -191,6 +191,8 @@ const SPECIES = {
   linden: { palette: [[105, 135, 45], [90, 120, 40], [125, 150, 55]], bark: new THREE.Color(0.14, 0.12, 0.1), shape: 'round' },
   // apple and cherry in blossom in the village gardens (early May)
   apple: { palette: [[238, 234, 228], [242, 222, 226], [232, 238, 222], [246, 238, 236], [130, 160, 70]], bark: new THREE.Color(0.12, 0.1, 0.08), shape: 'round' },
+  // apple trees in late summer: dark leaves, a scatter of red fruit
+  orchard: { palette: [[80, 110, 40], [70, 100, 35], [95, 120, 45], [85, 112, 42], [170, 40, 28]], bark: new THREE.Color(0.12, 0.1, 0.08), shape: 'round' },
   // Scots pines of the Red Forest, killed by the fallout: needles turned ginger-brown
   redpine: { palette: [[176, 86, 38], [160, 72, 32], [190, 104, 48], [140, 66, 30], [120, 84, 60]], bark: new THREE.Color(0.24, 0.13, 0.075), shape: 'pine', needles: true },
 };

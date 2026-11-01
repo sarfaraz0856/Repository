@@ -12,6 +12,8 @@ import { P1, P2, P3, P4, P5, P6, P7 } from './part2.js';
 import { Q1, Q2, Q3, Q4, Q5 } from './part3.js';
 import { R1, R2, R3, R4, R5 } from './part4.js';
 import { T1, T2, T3, T4, T5 } from './part5.js';
+import { U1, U2, U3, U4 } from './part6.js';
+import { V1, V2, V3s, V4 } from './part7.js';
 
 const V3 = (x, y, z) => new THREE.Vector3(x, y, z);
 const MOON_DIR = V3(0.615, 0.292, 0.733).normalize();
@@ -128,4 +130,12 @@ export const SHOTS = {
   T3: { duration: 12.0, build: T3, ss: 1, msaa: 4, volScale: 0.4 },
   T4: { duration: 12.0, build: T4, ss: 1, msaa: 4, volScale: 0.3 },
   T5: { duration: 12.0, build: T5, ss: 1, msaa: 4, volScale: 0.3 },
+  U1: { duration: 15.0, build: U1, ss: 1, msaa: 4, volScale: 0.4 },
+  U2: { duration: 15.0, build: U2, ss: 1, msaa: 4, volScale: 0.4 },
+  U3: { duration: 15.0, build: U3, ss: 1, msaa: 4, volScale: 0.35 },
+  U4: { duration: 15.0, build: U4, ss: 1, msaa: 4, volScale: 0.3 },
+  V1: { duration: 15.0, build: V1, ss: 1, msaa: 4, volScale: 0.3 },
+  V2: { duration: 15.0, build: V2, ss: 1, msaa: 4, volScale: 0.3 },
+  V3: { duration: 15.0, build: V3s, ss: 1, msaa: 4, volScale: 0.3 },
+  V4: { duration: 15.0, build: V4, ss: 1, msaa: 4, volScale: 0.3 },
 };

@@ -11,8 +11,8 @@ import { placeCamera, MOON_DIR } from './shots_plant.js';
 const V3 = (x, y, z) => new THREE.Vector3(x, y, z);
 const P = (x, y, z) => V3(x, y, z).add(PLANT);
 
-function paint(c, rough = 0.7, metal = 0.3, key = 'pg') { return patchMaterial(new THREE.MeshStandardMaterial({ color: c, roughness: rough, metalness: metal }), { key }); }
-function tube(a, b, r, m) { const d = b.clone().sub(a); const L = d.length(); const g = new THREE.CylinderGeometry(r, r, L, 8); const mesh = new THREE.Mesh(g, m); mesh.position.copy(a).add(b).multiplyScalar(0.5); mesh.quaternion.setFromUnitVectors(V3(0, 1, 0), d.normalize()); mesh.castShadow = true; return mesh; }
+export function paint(c, rough = 0.7, metal = 0.3, key = 'pg') { return patchMaterial(new THREE.MeshStandardMaterial({ color: c, roughness: rough, metalness: metal }), { key }); }
+export function tube(a, b, r, m) { const d = b.clone().sub(a); const L = d.length(); const g = new THREE.CylinderGeometry(r, r, L, 8); const mesh = new THREE.Mesh(g, m); mesh.position.copy(a).add(b).multiplyScalar(0.5); mesh.quaternion.setFromUnitVectors(V3(0, 1, 0), d.normalize()); mesh.castShadow = true; return mesh; }
 
 // Soviet playground: swings, carousel, arched climbing ladder, sandbox with "mushroom" canopy, slide
 function playground(rnd) {
@@ -66,7 +66,7 @@ function playground(rnd) {
   return { group: g, seats };
 }
 
-function ferrisWheel() {
+export function ferrisWheel() {
   const g = new THREE.Group();
   const yel = paint(new THREE.Color(0.4, 0.28, 0.04), 0.7, 0.3, 'fwyel');
   const steel = paint(new THREE.Color(0.25, 0.25, 0.24), 0.6, 0.5, 'fwsteel');

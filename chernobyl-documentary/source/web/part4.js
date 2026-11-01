@@ -221,7 +221,7 @@ export async function R3(ctx) {
 }
 
 // ---------------- R4: an evacuated village in the 30 km zone, gardens in blossom ----------------
-function khata(rnd, mats) {
+export function khata(rnd, mats) {
   const g = new THREE.Group();
   const w = 7 + rnd() * 2.5, d = 5.5 + rnd() * 1.5, h = 2.7;
   const wallM = rnd() < 0.55 ? mats.lime : mats.log;
