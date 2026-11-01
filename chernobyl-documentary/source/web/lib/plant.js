@@ -10,11 +10,13 @@ import { mergeGeos } from './city.js';
 export const PLANT = new THREE.Vector3(2150, 0, 2250); // world position of unit 4 reactor centre
 
 // ---------- industrial facade ----------
+// lights in the plant's windows go out west of this x (world units); used for the shutdown in 2000
+export const PLANT_LIT = { cut: { value: 1e9 } };
 export function makeIndustrialMaterial(noiseTex) {
   const mat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.9 });
   patchMaterial(mat, {
     key: 'industrial',
-    uniforms: { tNoise: { value: noiseTex }, uTimeF: ATM.uTime },
+    uniforms: { tNoise: { value: noiseTex }, uTimeF: ATM.uTime, uLitCut: PLANT_LIT.cut },
     vertexHeader: `attribute vec4 aP; attribute vec4 aW; varying vec4 vFac; varying vec4 vP; varying vec4 vW; varying float vFace;`,
     vertexMain: `
       vec3 sc = vec3(length(instanceMatrix[0].xyz), length(instanceMatrix[1].xyz), length(instanceMatrix[2].xyz));
@@ -25,7 +27,7 @@ export function makeIndustrialMaterial(noiseTex) {
       else { vFac = vec4(lm.x, lm.z, 1.0, sc.y); vFace = 4.0; }
       vFac.y += aW.w;`,
     fragmentHeader: `
-      precision highp sampler3D; uniform sampler3D tNoise; uniform float uTimeF;
+      precision highp sampler3D; uniform sampler3D tNoise; uniform float uTimeF, uLitCut;
       varying vec4 vFac; varying vec4 vP; varying vec4 vW; varying float vFace;
       float hh(vec3 p){ ivec3 q = ivec3(floor(p + 0.5)) + ivec3(4096); uint h = uint(q.x) * 1597334677u ^ uint(q.y) * 3812015801u ^ uint(q.z) * 2741869493u; h = (h ^ (h >> 16u)) * 2246822519u; h ^= h >> 13u; h *= 3266489917u; h ^= h >> 16u; return float(h) * (1.0 / 4294967296.0); }
       vec3 gEm; float gR;`,
@@ -61,6 +63,7 @@ export function makeIndustrialMaterial(noiseTex) {
             bool fr = mx < 0.05 || mx > 0.95 || my < 0.06;
             float seg = floor(u / 12.0);
             float lit = step(hh(vec3(seg, floor((y - y0) / 6.0), seed * 3.0)), litF);
+            lit *= step(vWPos.x, uLitCut);
             if (fr) { c = vec3(0.18, 0.18, 0.17); }
             else {
               c = vec3(0.02, 0.022, 0.025); gR = 0.12;
@@ -77,7 +80,7 @@ export function makeIndustrialMaterial(noiseTex) {
             if (cx > 0.7 && cx < 2.3 && fy > 1.0 && fy < 2.5 && y > 3.0 && y < vFac.w + vW.w - 1.5) {
               c = vec3(0.02);
               float wid = hh(vec3(floor(u / cw), floor(y / fh), seed));
-              gEm += vec3(0.85, 0.95, 1.0) * step(wid, litF) * 0.6;
+              gEm += vec3(0.85, 0.95, 1.0) * step(wid, litF) * step(vWPos.x, uLitCut) * 0.6;
               gR = 0.12;
             }
           }

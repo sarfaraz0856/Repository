@@ -14,6 +14,12 @@ import { R1, R2, R3, R4, R5 } from './part4.js';
 import { T1, T2, T3, T4, T5 } from './part5.js';
 import { U1, U2, U3, U4 } from './part6.js';
 import { V1, V2, V3s, V4 } from './part7.js';
+import { W1, W2, W3, W4 } from './part8.js';
+import { X1, X2, X3, X4 } from './part9.js';
+import { Y1, Y2, Y3, Y4 } from './part10.js';
+import { Z1, Z2, Z3, Z4 } from './part11.js';
+import { AA1, AA2, AA3, AA4 } from './part12.js';
+import { AB1, AB2 } from './part13.js';
 
 const V3 = (x, y, z) => new THREE.Vector3(x, y, z);
 const MOON_DIR = V3(0.615, 0.292, 0.733).normalize();
@@ -138,4 +144,26 @@ export const SHOTS = {
   V2: { duration: 15.0, build: V2, ss: 1, msaa: 4, volScale: 0.3 },
   V3: { duration: 15.0, build: V3s, ss: 1, msaa: 4, volScale: 0.3 },
   V4: { duration: 15.0, build: V4, ss: 1, msaa: 4, volScale: 0.3 },
+  W1: { duration: 15.0, build: W1, ss: 1, msaa: 4, volScale: 0.3 },
+  W2: { duration: 15.0, build: W2, ss: 1, msaa: 4, volScale: 0.3 },
+  W3: { duration: 15.0, build: W3, ss: 1, msaa: 4, volScale: 0.3 },
+  W4: { duration: 15.0, build: W4, ss: 1, msaa: 4, volScale: 0.3 },
+  X1: { duration: 15.0, build: X1, ss: 1, msaa: 4, volScale: 0.3 },
+  X2: { duration: 15.0, build: X2, ss: 1, msaa: 4, volScale: 0.3 },
+  X3: { duration: 15.0, build: X3, ss: 1, msaa: 4, volScale: 0.3 },
+  X4: { duration: 15.0, build: X4, ss: 1, msaa: 4, volScale: 0.3 },
+  Y1: { duration: 15.0, build: Y1, ss: 1, msaa: 4, volScale: 0.3 },
+  Y2: { duration: 15.0, build: Y2, ss: 1, msaa: 4, volScale: 0.3 },
+  Y3: { duration: 15.0, build: Y3, ss: 1, msaa: 4, volScale: 0.3 },
+  Y4: { duration: 15.0, build: Y4, ss: 1, msaa: 4, volScale: 0.3 },
+  Z1: { duration: 15.0, build: Z1, ss: 1, msaa: 4, volScale: 0.3 },
+  Z2: { duration: 15.0, build: Z2, ss: 1, msaa: 4, volScale: 0.3 },
+  Z3: { duration: 15.0, build: Z3, ss: 1, msaa: 4, volScale: 0.3 },
+  Z4: { duration: 15.0, build: Z4, ss: 1, msaa: 4, volScale: 0.3 },
+  AA1: { duration: 15.0, build: AA1, ss: 1, msaa: 4, volScale: 0.3 },
+  AA2: { duration: 15.0, build: AA2, ss: 1, msaa: 4, volScale: 0.3 },
+  AA3: { duration: 15.0, build: AA3, ss: 1, msaa: 4, volScale: 0.4 },
+  AA4: { duration: 15.0, build: AA4, ss: 1, msaa: 4, volScale: 0.3 },
+  AB1: { duration: 15.0, build: AB1, ss: 1, msaa: 4, volScale: 0.3 },
+  AB2: { duration: 15.0, build: AB2, ss: 1, msaa: 4, volScale: 0.3 },
 };
