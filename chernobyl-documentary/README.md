@@ -1,6 +1,36 @@
 # CHERNOBYL — 26 April 1986 (cinematic documentary short)
 
-> **Full film so far:** [`Chernobyl_1986_Full_Film.mp4`](Chernobyl_1986_Full_Film.mp4) (7:00). It plays Part I (the night, below), then *The Morning After* ([`part2/`](part2/)), *The Liquidators* ([`part3/`](part3/)), *The Silence* ([`part4/`](part4/)), *The Reckoning* ([`part5/`](part5/)), *The Long Shadow* ([`part6/`](part6/)) and *The Zone* ([`part7/`](part7/)) back to back. This is the start of a planned 12–13 minute documentary. `Chernobyl_1986_Hindi_Narration.mp4` is the earlier 1:55 cut with Hindi narration.
+> **The finished film:** [`Chernobyl_1986_Full_Film.mp4`](Chernobyl_1986_Full_Film.mp4), 13:00, 1280×720. It ends with closing cards, **THE END** and the credits.
+>
+> For full 1080p quality, the same film is also split in two, because GitHub limits files to 100 MB:
+> - [`Chernobyl_1986_Full_Film_Part_A_1080p.mp4`](Chernobyl_1986_Full_Film_Part_A_1080p.mp4): chapters I–VII, 0:00–7:00
+> - [`Chernobyl_1986_Full_Film_Part_B_1080p.mp4`](Chernobyl_1986_Full_Film_Part_B_1080p.mp4): chapters VIII–XIII, 7:00–13:00
+>
+> `Chernobyl_1986_Hindi_Narration.mp4` is the earlier 1:55 cut with Hindi narration.
+
+## The thirteen chapters
+
+Each chapter is 60 s. Each folder has its own 1080p master and a shot list with historical notes.
+
+| # | Time | Chapter | Folder |
+|---|---|---|---|
+| I | 0:00 | The night of 26 April 1986 (described below) | this folder |
+| II | 1:00 | The Morning After | [`part2/`](part2/) |
+| III | 2:00 | The Liquidators | [`part3/`](part3/) |
+| IV | 3:00 | The Silence | [`part4/`](part4/) |
+| V | 4:00 | The Reckoning | [`part5/`](part5/) |
+| VI | 5:00 | The Long Shadow | [`part6/`](part6/) |
+| VII | 6:00 | The Zone | [`part7/`](part7/) |
+| VIII | 7:00 | The Last Reactor | [`part8/`](part8/) |
+| IX | 8:00 | Nature Returns | [`part9/`](part9/) |
+| X | 9:00 | The New Shelter | [`part10/`](part10/) |
+| XI | 10:00 | The Cost | [`part11/`](part11/) |
+| XII | 11:00 | The Zone Today | [`part12/`](part12/) |
+| XIII | 12:00 | Epilogue, THE END and credits | [`part13/`](part13/) |
+
+`source/final_join.sh` joins the chapter masters. It matches each chapter's loudness to about −15.5 LUFS and limits the peaks.
+
+## Chapter I
 
 **File:** `Chernobyl_26_April_1986_Documentary.mp4`
 **Format:** 1920×1080 (16:9), 24 fps, 55 s, H.264 High + AAC 320 kbps, 48 kHz stereo.
