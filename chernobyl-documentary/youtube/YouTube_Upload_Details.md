@@ -33,40 +33,40 @@ Chernobyl 1986: The Night That Changed the World | Hindi Documentary
 ## Description
 
 ```
-Chernobyl Disaster Documentary in Hindi | चेर्नोबिल परमाणु हादसे की पूरी कहानी
-26 April 1986 की उस रात से लेकर आज के Chernobyl Exclusion Zone तक, दुनिया के सबसे बड़े nuclear disaster की पूरी कहानी, आसान Hindi में।
+Chernobyl Disaster Documentary in Hindi – the full story of the 1986 Chernobyl nuclear disaster, from the night Reactor 4 exploded to the Chernobyl Exclusion Zone today.
+चेर्नोबिल परमाणु हादसे की पूरी कहानी, हिंदी में।
 
-🔴 उस रात क्या हुआ था?
-26 April 1986, रात 1 बजकर 23 मिनट। सोवियत यूक्रेन के Chernobyl Nuclear Power Plant में Reactor No. 4 पर एक safety test चल रहा था। कुछ ही सेकंड में reactor की power बेकाबू हो गई और दो ज़ोरदार धमाकों ने reactor की छत उड़ा दी। Reactor का core खुले आसमान के नीचे जलने लगा, और रेडियोधर्मी धुआँ हवा में फैल गया।
+🔴 What Happened on the Night of 26 April 1986?
+At 1:23 AM on 26 April 1986, a safety test was running on Reactor No. 4 of the Chernobyl Nuclear Power Plant in Soviet Ukraine. Within seconds the reactor's power surged out of control, and two massive explosions blew the roof off the reactor building. The core burned in the open air, sending radioactive smoke high into the sky.
 
-सबसे पहले firefighters पहुँचे। न उनके पास radiation से बचने के कपड़े थे, न उन्हें पता था कि वे किस चीज़ से लड़ रहे हैं। उनमें से कई कुछ ही हफ़्तों में radiation sickness से दम तोड़ गए।
+The first firefighters arrived within minutes. They had no radiation protection and no idea what they were fighting. Many of them died of acute radiation sickness within weeks.
 
-🏙️ Pripyat: वो शहर जो कभी वापस नहीं बसा
-Plant से सिर्फ़ 3 किलोमीटर दूर Pripyat शहर में 49,360 लोग रहते थे। धमाके के बाद भी पूरा दिन ज़िंदगी आम दिनों की तरह चलती रही। बच्चे स्कूल गए, शादियाँ हुईं। 36 घंटे बाद loudspeakers पर ऐलान हुआ कि शहर ख़ाली करना है। लगभग 1,200 बसों में पूरा शहर सिर्फ़ साढ़े तीन घंटे में ख़ाली हो गया। लोगों से कहा गया था कि वे तीन दिन में लौट आएँगे। वे कभी नहीं लौटे।
+🏙️ Pripyat: The City That Never Came Back
+Pripyat, just 3 km from the plant, was home to 49,360 people. For a whole day after the explosion, life went on as normal: children went to school and weddings took place. 36 hours later, loudspeakers announced the evacuation. Around 1,200 buses emptied the entire city in about three and a half hours. People were told they would return in three days. They never did.
 
-👷 Liquidators: जिन्होंने दुनिया को बचाया
-Helicopters ने जलते reactor में 5,000 टन रेत, सीसा और boron गिराया। जब machines भी radiation में फेल हो गईं, तो इंसानों को भेजा गया। Unit 3 की छत पर हर आदमी को सिर्फ़ 90 सेकंड मिलते थे। लगभग 6 लाख liquidators ने इस आपदा को रोकने में हिस्सा लिया, और नवंबर 1986 तक reactor के ऊपर concrete का sarcophagus बना दिया गया।
+👷 The Liquidators: The People Who Saved the World
+Helicopters dropped 5,000 tonnes of sand, lead and boron into the burning reactor. When machines failed in the extreme radiation, people were sent instead. On the roof of Unit 3, each man had just 90 seconds to work. About 600,000 liquidators took part in containing the disaster, and by November 1986 a concrete sarcophagus covered the ruined reactor.
 
-🤐 Soviet सरकार की ख़ामोशी
-दुनिया को सबसे पहले Sweden से पता चला, जहाँ एक nuclear plant पर radiation alarm बज उठे। Soviet TV ने इस ख़बर को सिर्फ़ 20 सेकंड दिए। 1 मई को Kyiv में May Day parade पहले की तरह निकली, जबकि हवा में radiation फैल चुका था। 30 km के इलाक़े से 1,16,000 लोगों को निकाला गया, और radioactive बादल पूरे Europe तक पहुँच गया।
+🤐 The Soviet Silence
+The world first found out from Sweden, where radiation alarms went off at a nuclear plant more than 1,000 km away. Soviet television gave the news just 20 seconds. On 1 May, the May Day parade in Kyiv went ahead while radiation was already in the air. 116,000 people were evacuated from the 30 km zone, and the radioactive cloud spread across Europe.
 
-⚖️ हिसाब और लंबी परछाईं
-Plant के पास का Red Forest radiation से लाल पड़कर मर गया। July 1987 में trial हुआ और plant के तीन अफ़सरों को 10 साल की सज़ा मिली। 1990s में हज़ारों बच्चों में thyroid cancer फैला। 1991 में Soviet Union टूट गया और Chernobyl अब independent Ukraine की ज़िम्मेदारी बन गया।
+⚖️ The Reckoning and the Long Shadow
+The pine forest next to the plant turned red and died, and became known as the Red Forest. In July 1987, three plant managers were sentenced to 10 years in prison. In the 1990s, thyroid cancer struck thousands of people who had been children in 1986. In 1991 the Soviet Union collapsed, and Chernobyl became the responsibility of an independent Ukraine.
 
-☢️ Exclusion Zone और आख़िरी reactor
-2,600 वर्ग किलोमीटर का Chernobyl Exclusion Zone आज भी checkpoints से बंद है। Pripyat को लूटा गया, और जंगल धीरे-धीरे शहर को निगलने लगा। Secret Soviet Duga radar आज भी जंगल में ख़ामोश खड़ा है। 15 December 2000 को Chernobyl का आख़िरी reactor, Unit 3, हमेशा के लिए बंद कर दिया गया।
+☢️ The Exclusion Zone and the Last Reactor
+The 2,600 square km Chernobyl Exclusion Zone is still closed behind checkpoints. Looters stripped Pripyat, and the forest slowly swallowed the city. The secret Soviet Duga radar still stands silent in the woods. On 15 December 2000, Chernobyl's last working reactor, Unit 3, was shut down for good.
 
-🐺 Nature Returns: इंसानों के बिना जंगल
-जहाँ इंसान चले गए, वहाँ प्रकृति लौट आई। आज Exclusion Zone में wolves, elk, deer, wild boar और दुर्लभ Przewalski's horses रहते हैं। Radiation अब भी है, फिर भी यह इलाक़ा एक अनोखा wildlife refuge बन गया है।
+🐺 Nature Returns
+Where people left, nature came back. Today the Exclusion Zone is home to wolves, elk, deer, wild boar and rare Przewalski's horses. Radiation remains, but without humans the zone has become an accidental wildlife refuge.
 
-🏗️ New Safe Confinement: दुनिया का सबसे बड़ा steel arch
-पुराना sarcophagus टूटने लगा था, इसलिए दुनिया के कई देशों ने मिलकर उसके ऊपर एक विशाल steel arch बनाया। यह 257 मीटर चौड़ा, 108 मीटर ऊँचा और 36,000 टन का है। November 2016 में इसे rails पर खिसकाकर reactor के ऊपर लगाया गया। इसे 100 साल तक चलने के लिए बनाया गया है।
+🏗️ The New Safe Confinement: The World's Largest Movable Structure
+The old sarcophagus was crumbling, so more than 40 countries funded a giant steel arch to cover it. It is 257 m wide, 108 m tall and weighs 36,000 tonnes. In November 2016 it was slid along rails over the reactor, and it is designed to last 100 years.
 
-🕯️ Chernobyl की असली कीमत
-पहले कुछ हफ़्तों में 31 लोगों की मौत हुई। लगभग 3,50,000 लोगों को अपना घर हमेशा के लिए छोड़ना पड़ा और सैकड़ों गाँव नक्शे से मिट गए। कुल कितनी जानें गईं, इस पर आज भी बहस है। अनुमान 4,000 से लेकर 60,000 से भी ज़्यादा तक हैं।
+🕯️ The Real Cost of Chernobyl
+31 people died in the first weeks. Around 350,000 people lost their homes forever, and hundreds of villages disappeared from the map. The total death toll is still debated, with estimates ranging from 4,000 to more than 60,000.
 
-📍 Chernobyl Today: 40 साल बाद
-2011 में Exclusion Zone को tourists के लिए खोला गया। आज लोग Pripyat का Ferris wheel, Azure swimming pool और Elephant's Foot की कहानी देखने आते हैं। 2019 में 1,24,000 लोग यहाँ आए। लेकिन इस ज़मीन के कुछ हिस्से हज़ारों साल तक radioactive रहेंगे।
+📍 Chernobyl Today: 40 Years Later
+In 2011 the Exclusion Zone opened to tourists. Visitors come to see Pripyat's Ferris wheel, the Azure swimming pool and the story of the Elephant's Foot. In 2019 alone, 124,000 people visited. But parts of this land will stay radioactive for thousands of years.
 
 ⏱️ Chapters
 0:00 The Night of the Explosion (26 April 1986)
@@ -86,21 +86,21 @@ Plant के पास का Red Forest radiation से लाल पड़क
 🔍 Your Queries
 chernobyl disaster in hindi
 chernobyl documentary in hindi
-chernobyl kya hai
-chernobyl ki kahani
-chernobyl hadsa kaise hua
 chernobyl explained in hindi
 chernobyl full story in hindi
+chernobyl kya hai
+chernobyl ki kahani
 what happened in chernobyl
 chernobyl nuclear disaster 1986
+chernobyl documentary
 pripyat ghost city
 elephant's foot chernobyl
 chernobyl today 2026
 
-यह documentary उन सबकी याद में है, जिन्होंने इसकी कीमत चुकाई। 🕯️
+This documentary is dedicated to everyone who paid the price. 🕯️
 
-अगर आपको यह documentary अच्छी लगी तो Like करें, अपने दोस्तों के साथ Share करें, और ऐसी ही history documentaries के लिए चैनल को Subscribe करें। 🔔
-Comment में बताइए: आपको Chernobyl की कौन-सी बात सबसे ज़्यादा हैरान करने वाली लगी?
+If you liked this documentary, please Like, Share it with your friends and Subscribe for more history documentaries in Hindi. 🔔
+Comment below: which part of the Chernobyl story surprised you the most?
 
 #Chernobyl #ChernobylDocumentary #HindiDocumentary
 ```
