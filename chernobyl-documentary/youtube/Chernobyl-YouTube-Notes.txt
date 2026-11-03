@@ -1,116 +1,33 @@
-CHERNOBYL – YOUTUBE UPLOAD NOTES
-================================
+CHERNOBYL – UPLOAD NOTES
+========================
+
+Title, tags, description और pinned comment: file 1_Chernobyl-YouTube-Text.txt में हैं।
+Subtitles: 6_Chernobyl-Hindi-Subtitles.srt (YouTube Studio > Subtitles > Add language: Hindi > Upload file > With timing)।
 
 FILES
 -----
-Video (upload this one, 1080p, 10:40):  Chernobyl-Disaster-Documentary-in-Hindi.mp4
-Thumbnail A (explosion, "1986")  - RECOMMENDED:  Chernobyl-Thumbnail-A.jpg
-Thumbnail B (burning reactor, "THE FULL STORY"):  Chernobyl-Thumbnail-B.jpg
-Thumbnail C (Ferris wheel, "40 YEARS LATER"):     Chernobyl-Thumbnail-C.jpg
-
-
-TITLE  (recommended, 71 characters)
------
-Chernobyl Disaster Documentary in Hindi | What Really Happened in 1986?
-
-Other options:
-- Chernobyl Disaster Explained in Hindi | The Full Story of the World's Worst Nuclear Disaster
-- Chernobyl 1986: The Night That Changed the World | Full Documentary in Hindi
-
-
-DESCRIPTION  (copy everything between the lines)
------------
-------------------------------------------------------------
-Chernobyl Disaster Documentary in Hindi – the full story of the 1986 Chernobyl nuclear disaster, from the night Reactor 4 exploded to the Chernobyl Exclusion Zone today.
-चेर्नोबिल परमाणु हादसे की पूरी कहानी, हिंदी में।
-
-🔴 What Happened on the Night of 26 April 1986?
-At 1:23 AM on 26 April 1986, a safety test was running on Reactor No. 4 of the Chernobyl Nuclear Power Plant in Soviet Ukraine. Within seconds the reactor's power surged out of control, and two massive explosions blew the roof off the reactor building. The core burned in the open air, sending radioactive smoke high into the sky.
-
-The first firefighters arrived within minutes. They had no radiation protection and no idea what they were fighting. Many of them died of acute radiation sickness within weeks.
-
-🏙️ Pripyat: The City That Never Came Back
-Pripyat, just 3 km from the plant, was home to 49,360 people. For a whole day after the explosion, life went on as normal: children went to school and weddings took place. 36 hours later, loudspeakers announced the evacuation. Around 1,200 buses emptied the entire city in about three and a half hours. People were told they would return in three days. They never did.
-
-👷 The Liquidators: The People Who Saved the World
-Helicopters dropped 5,000 tonnes of sand, lead and boron into the burning reactor. When machines failed in the extreme radiation, people were sent instead. On the roof of Unit 3, each man had just 90 seconds to work. About 600,000 liquidators took part in containing the disaster, and by November 1986 a concrete sarcophagus covered the ruined reactor.
-
-🤐 The Soviet Silence
-The world first found out from Sweden, where radiation alarms went off at a nuclear plant more than 1,000 km away. Soviet television gave the news just 20 seconds. On 1 May, the May Day parade in Kyiv went ahead while radiation was already in the air. 116,000 people were evacuated from the 30 km zone, and the radioactive cloud spread across Europe.
-
-⚖️ The Reckoning and the Long Shadow
-The pine forest next to the plant turned red and died, and became known as the Red Forest. In July 1987, three plant managers were sentenced to 10 years in prison. In the 1990s, thyroid cancer struck thousands of people who had been children in 1986. In 1991 the Soviet Union collapsed, and Chernobyl became the responsibility of an independent Ukraine.
-
-☢️ The Exclusion Zone and the Last Reactor
-The 2,600 square km Chernobyl Exclusion Zone is still closed behind checkpoints. Looters stripped Pripyat, and the forest slowly swallowed the city. The secret Soviet Duga radar still stands silent in the woods. On 15 December 2000, Chernobyl's last working reactor, Unit 3, was shut down for good.
-
-🐺 Nature Returns
-Where people left, nature came back. Today the Exclusion Zone is home to wolves, elk, deer, wild boar and rare Przewalski's horses. Radiation remains, but without humans the zone has become an accidental wildlife refuge.
-
-🏗️ The New Safe Confinement: The World's Largest Movable Structure
-The old sarcophagus was crumbling, so more than 40 countries funded a giant steel arch to cover it. It is 257 m wide, 108 m tall and weighs 36,000 tonnes. In November 2016 it was slid along rails over the reactor, and it is designed to last 100 years.
-
-🕯️ The Real Cost of Chernobyl
-31 people died in the first weeks. Around 350,000 people lost their homes forever, and hundreds of villages disappeared from the map. The total death toll is still debated, with estimates ranging from 4,000 to more than 60,000.
-
-📍 Chernobyl Today: 40 Years Later
-In 2011 the Exclusion Zone opened to tourists. Visitors come to see Pripyat's Ferris wheel, the Azure swimming pool and the story of the Elephant's Foot. In 2019 alone, 124,000 people visited. But parts of this land will stay radioactive for thousands of years.
-
-⏱️ Chapters
-0:00 The Night of the Explosion (26 April 1986)
-0:46 The Morning After & Pripyat Evacuation
-1:36 The Liquidators
-2:26 The Silence
-3:20 The Reckoning
-4:10 The Long Shadow
-5:00 The Exclusion Zone
-5:50 The Last Reactor
-6:40 Nature Returns
-7:30 The New Safe Confinement
-8:20 The Cost of Chernobyl
-9:10 Chernobyl Today
-10:00 Epilogue
-
-🔍 Your Queries
-chernobyl disaster in hindi
-chernobyl documentary in hindi
-chernobyl explained in hindi
-chernobyl full story in hindi
-chernobyl kya hai
-chernobyl ki kahani
-what happened in chernobyl
-chernobyl nuclear disaster 1986
-chernobyl documentary
-pripyat ghost city
-elephant's foot chernobyl
-chernobyl today 2026
-
-This documentary is dedicated to everyone who paid the price. 🕯️
-
-If you liked this documentary, please Like, Share it with your friends and Subscribe for more history documentaries in Hindi. 🔔
-Comment below: which part of the Chernobyl story surprised you the most?
-
-#Chernobyl #ChernobylDocumentary #HindiDocumentary
-------------------------------------------------------------
-
-
-TAGS  (460 of 500 characters)
-----
-chernobyl, chernobyl disaster, chernobyl documentary, chernobyl in hindi, chernobyl documentary in hindi, chernobyl disaster in hindi, chernobyl explained, chernobyl explained in hindi, chernobyl 1986, chernobyl full story, chernobyl nuclear disaster, chernobyl explosion, chernobyl today, chernobyl exclusion zone, pripyat, pripyat ghost city, elephant's foot, chernobyl liquidators, nuclear disaster, hindi documentary, documentary in hindi, history in hindi
+Video (upload this one, 1080p, 10:40):  4_Chernobyl-Disaster-Documentary-in-Hindi.mp4
+Thumbnail A (explosion, "1986")  - RECOMMENDED:  3A_Chernobyl-Thumbnail-A.jpg
+Thumbnail B (burning reactor, "THE FULL STORY"):  3B_Chernobyl-Thumbnail-B.jpg
+Thumbnail C (Ferris wheel, "40 YEARS LATER"):     3C_Chernobyl-Thumbnail-C.jpg
+Title, tags, description, pinned comment:          1_Chernobyl-YouTube-Text.txt
+Full Hindi narration script with timings:          5_Chernobyl-Narration-Script-Hindi.txt
+Hindi subtitles for YouTube:                       6_Chernobyl-Hindi-Subtitles.srt
 
 
 UPLOAD SETTINGS (YouTube Studio)
 --------------------------------
-1. Title, Description: paste from above.
+1. Title, Description: paste from file 1_Chernobyl-YouTube-Text.txt.
 2. Thumbnail: upload Thumbnail A. If "Test & compare" is shown, add A, B and C and YouTube will pick the best one.
 3. Audience: "No, it's not made for kids".
-4. Tags: open "Show more" and paste the tags.
+4. Tags: open "Show more" and paste the tags from file 1.
 5. Altered or synthetic content: choose YES (CGI visuals and an AI-cloned voice). This is YouTube's rule and protects the channel. It does not reduce reach.
 6. Video language: Hindi.   Title and description language: English.
 7. Category: Education.
-8. Chapters: they come from the timestamps in the description. Keep "Allow automatic chapters" on.
-9. End screen: use the last 10-20 seconds (over THE END): one Subscribe element and one video or playlist.
-10. Visibility: Public, or Schedule for a time when your audience is online (YouTube Studio > Analytics > Audience shows it).
+8. Subtitles: upload 6_Chernobyl-Hindi-Subtitles.srt as Hindi subtitles ("With timing"). Subtitles help search.
+9. Chapters: they come from the timestamps in the description. Keep "Allow automatic chapters" on.
+10. End screen: use the last 10-20 seconds (over THE END): one Subscribe element and one video or playlist.
+11. Visibility: Public, or Schedule for a time when your audience is online (YouTube Studio > Analytics > Audience shows it).
 
 
 NOTES (आपके लिए)

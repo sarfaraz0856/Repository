@@ -1,6 +1,11 @@
 # YouTube upload details
 
-All upload text is in [`Chernobyl-YouTube-Notes.txt`](Chernobyl-YouTube-Notes.txt): the title, description, tags, settings and notes.
+This folder holds the following files:
+
+- [`Chernobyl-YouTube-Text.txt`](Chernobyl-YouTube-Text.txt): the title, tags, description and pinned comment.
+- [`Chernobyl-YouTube-Notes.txt`](Chernobyl-YouTube-Notes.txt): the upload settings and tips.
+- [`Chernobyl-Narration-Script-Hindi.txt`](Chernobyl-Narration-Script-Hindi.txt): the full Hindi narration, with timings.
+- [`Chernobyl-Hindi-Subtitles.srt`](Chernobyl-Hindi-Subtitles.srt): Hindi subtitles timed to the final film.
 
 | What | File |
 |---|---|
