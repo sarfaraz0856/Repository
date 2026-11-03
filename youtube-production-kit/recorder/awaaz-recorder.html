@@ -62,6 +62,12 @@ ol.lines li.on .t{color:var(--rec)}
 audio{width:100%;max-width:100%}
 .empty{color:var(--muted);font-size:15px}
 ul.tips{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;color:var(--fg)}
+.hero{border:2px solid var(--rec)}
+.recbig{position:relative;display:flex;align-items:center;justify-content:center;gap:12px;background:var(--rec);color:#fff;font-size:22px;font-weight:800;border-radius:14px;padding:22px 18px;cursor:pointer;text-align:center}
+.recbig:focus-within{outline:3px solid var(--fg);outline-offset:3px}
+.recbig input{position:absolute;width:1px;height:1px;opacity:0}
+.recdot{width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 0 0 6px rgba(255,255,255,.3)}
+ol.how{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:4px}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -72,8 +78,19 @@ ul.tips{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;c
     <p class="lead">फ़ोन के voice recorder या कैमरे से 1–2 मिनट कुछ भी बोलिए, और फ़ाइल यहीं भेज दीजिए। इससे आपकी आवाज़ का clone बनेगा। चाहें तो नीचे दी गई script भी पढ़ सकते हैं।</p>
   </header>
 
+  <section aria-labelledby="h-rec" class="hero">
+    <h2 id="h-rec" style="font-size:22px">एक बटन: दबाइए, बोलिए, बस</h2>
+    <label class="recbig" for="cap"><span class="recdot"></span>🎙️ यहाँ दबाइए और बोलिए<input type="file" id="cap" accept="audio/*" capture></label>
+    <ol class="how">
+      <li>बटन दबाते ही फ़ोन का <b>recorder</b> खुलेगा। (न खुले तो "Voice recorder / Sound recorder" चुनिए।)</li>
+      <li>1–2 मिनट कुछ भी बोलिए, फिर <b>रोकिए</b> और <b>✓ / Save</b> दबाइए।</li>
+      <li>रिकॉर्डिंग <b>अपने आप</b> मुझे पहुँच जाएगी। कोई और बटन नहीं दबाना।</li>
+    </ol>
+    <div class="status info" id="hstatus">तैयार हैं? ऊपर वाला लाल बटन दबाइए।</div>
+  </section>
+
   <section aria-labelledby="h-free">
-    <h2 id="h-free"><span class="step">1</span>बस कुछ भी बोलिए (1–2 मिनट)</h2>
+    <h2 id="h-free"><span class="step">या</span>Timer के साथ बोलिए (1–2 मिनट)</h2>
     <p class="lead" style="font-size:16px">कोई script नहीं। अपने natural अंदाज़ में, जैसे किसी दोस्त से बात कर रहे हों। कुछ समझ न आए तो इनमें से किसी टॉपिक पर बोलिए:</p>
     <ul class="tips" id="topics">
       <li>अपना परिचय: नाम, शहर, और आप क्या काम करते हैं।</li>
@@ -184,7 +201,7 @@ $("fstop").onclick=()=>fEnd();
 
 /* ---------- upload ---------- */
 let assets=null, db=null, user=null, chosen=null;
-const say=(cls,msg)=>{ $("status").className="status "+cls; $("status").textContent=msg; };
+const say=(cls,msg,el=$("status"))=>{ el.className="status "+cls; el.textContent=msg; };
 const MB=n=>(n/1048576).toFixed(1)+" MB";
 $("file").addEventListener("change",()=>{
   chosen=$("file").files[0]||null;
@@ -193,7 +210,7 @@ $("file").addEventListener("change",()=>{
   if(chosen&&!assets) say("warn","इस पेज पर फ़ाइल भेजने की अनुमति नहीं मिली। पेज के मालिक (Editor/Owner) के खाते से खोलिए।");
 });
 const MP4=["m4a","mp4","3gp","3g2","mov"], WEBM=["webm"];
-async function toWebm(file){
+async function toWebm(file, put=say){
   if(!window.MediaRecorder) throw new Error("convert");
   const ctx=new (window.AudioContext||window.webkitAudioContext)();
   const buf=await ctx.decodeAudioData(await file.arrayBuffer());
@@ -203,38 +220,51 @@ async function toWebm(file){
   rec.ondataavailable=e=>{ if(e.data.size) parts.push(e.data); };
   const done=new Promise(r=>rec.onstop=r);
   rec.start(1000); src.start(); const t0=ctx.currentTime;
-  const iv=setInterval(()=>say("info",`फ़ाइल तैयार हो रही है… ${Math.min(99,Math.round((ctx.currentTime-t0)/buf.duration*100))}%  (जितनी लंबी रिकॉर्डिंग, उतना समय लगेगा)`),500);
+  const iv=setInterval(()=>put("info",`फ़ाइल तैयार हो रही है… ${Math.min(99,Math.round((ctx.currentTime-t0)/buf.duration*100))}%  (जितनी लंबी रिकॉर्डिंग, उतना समय लगेगा)`),500);
   await new Promise(r=>src.onended=r); rec.stop(); await done; clearInterval(iv); ctx.close();
   return {blob:new Blob(parts,{type:"video/webm"}),type:"video/webm",dur:buf.duration};
 }
-async function prepare(f){
+async function prepare(f, put=say){
   const ext=(f.name.split(".").pop()||"").toLowerCase(), small=f.size<=19.5*1048576;
   if(small&&(MP4.includes(ext)||/^(audio|video)\/(mp4|x-m4a|m4a|3gpp2?|quicktime)$/.test(f.type))) return {blob:f,type:"video/mp4",dur:null};
   if(small&&(WEBM.includes(ext)||/^(audio|video)\/webm$/.test(f.type))) return {blob:f,type:"video/webm",dur:null};
-  return toWebm(f);
+  return toWebm(f, put);
+}
+async function sendFile(file, kind, el){
+  const put=(c,m)=>say(c,m,el);
+  try{
+    put("info","फ़ाइल तैयार हो रही है…");
+    const p=await prepare(file, put);
+    put("info","भेज रहे हैं…");
+    const up=await assets.upload(p.blob,{type:p.type});
+    if(db){ let uid=null; try{uid=user?await user.id():null;}catch(e){}
+      await db.collection("recordings").add({assetId:up.id,kind,fileName:file.name,contentType:up.contentType,sizeBytes:up.sizeBytes,
+        durationSec:p.dur?Math.round(p.dur):null,converted:p.type==="video/webm"&&!/webm$/i.test(file.name),createdAt:new Date().toISOString(),uploader:uid,processed:false}); }
+    put("ok","✓ आपकी रिकॉर्डिंग मुझे मिल गई! कुछ ही मिनट में मैं इसे अपने आप उठा लूँगा। आप chat में \"भेज दी\" लिख दें तो और जल्दी।");
+    if(!db) addItem({assetId:up.id,fileName:file.name,sizeBytes:up.sizeBytes,createdAt:new Date().toISOString()},up.url);
+    return true;
+  }catch(e){
+    const c=e&&e.code, m=e&&e.message;
+    if(m==="convert"||e instanceof DOMException||e?.name==="EncodingError") put("err","यह फ़ाइल यहाँ नहीं खुल पाई। Recorder में m4a चुनकर दोबारा रिकॉर्ड कीजिए, या कैमरे से वीडियो बनाकर भेजिए।");
+    else if(c==="too_large") put("err","फ़ाइल 20 MB से बड़ी है। छोटी रिकॉर्डिंग भेजिए।");
+    else if(c==="rate_limited"||c==="store_unavailable") put("warn","अभी भेज नहीं पाए। थोड़ी देर बाद फिर से कोशिश कीजिए।");
+    else if(c==="not_granted"||c==="capability_disabled") put("warn","इस पेज पर फ़ाइल भेजने की अनुमति नहीं है। पेज के मालिक के खाते से खोलिए।");
+    else put("err","भेजने में दिक्कत आई ("+(c||"error")+")। दोबारा कोशिश कीजिए।");
+    return false;
+  }
 }
 $("send").onclick=async()=>{
   if(!chosen||!assets) return;
   $("send").disabled=true;
-  try{
-    say("info","फ़ाइल तैयार हो रही है…");
-    const p=await prepare(chosen);
-    say("info","भेज रहे हैं…");
-    const up=await assets.upload(p.blob,{type:p.type});
-    if(db){ let uid=null; try{uid=user?await user.id():null;}catch(e){}
-      await db.collection("recordings").add({assetId:up.id,kind:document.querySelector('input[name="kind"]:checked')?.value||"free",fileName:chosen.name,contentType:up.contentType,sizeBytes:up.sizeBytes,
-        durationSec:p.dur?Math.round(p.dur):null,converted:p.type==="video/webm"&&!/webm$/i.test(chosen.name),createdAt:new Date().toISOString(),uploader:uid}); }
-    say("ok","✓ रिकॉर्डिंग मिल गई! अब Claude को chat में बताइए कि रिकॉर्डिंग भेज दी है। आपकी आवाज़ में वीडियो बन जाएगा।");
-    if(!db) addItem({assetId:up.id,fileName:chosen.name,sizeBytes:up.sizeBytes,createdAt:new Date().toISOString()},up.url);
-  }catch(e){
-    const c=e&&e.code, m=e&&e.message;
-    if(m==="convert"||e instanceof DOMException||e?.name==="EncodingError") say("err","यह फ़ाइल यहाँ नहीं खुल पाई। फ़ोन के voice recorder में m4a चुनकर दोबारा रिकॉर्ड कीजिए, या कैमरे से वीडियो बनाकर भेजिए।");
-    else if(c==="too_large") say("err","फ़ाइल 20 MB से बड़ी है। छोटी रिकॉर्डिंग भेजिए, या सिर्फ़ ऑडियो रिकॉर्ड कीजिए।");
-    else if(c==="rate_limited"||c==="store_unavailable") say("warn","अभी भेज नहीं पाए। थोड़ी देर बाद फिर से 'भेजें' दबाइए।");
-    else if(c==="not_granted"||c==="capability_disabled") say("warn","इस पेज पर फ़ाइल भेजने की अनुमति नहीं है। पेज के मालिक के खाते से खोलिए।");
-    else say("err","भेजने में दिक्कत आई ("+(c||"error")+")। दोबारा कोशिश कीजिए।");
-  }finally{ $("send").disabled=!chosen||!assets; }
+  await sendFile(chosen, document.querySelector('input[name="kind"]:checked')?.value||"free", $("status"));
+  $("send").disabled=!chosen||!assets;
 };
+$("cap").addEventListener("change",async()=>{
+  const f=$("cap").files[0]; if(!f) return;
+  if(!assets){ say("warn","यहाँ से फ़ाइल सिर्फ़ इस पेज के मालिक भेज सकते हैं। अपने खाते से खुले पेज पर कोशिश कीजिए।",$("hstatus")); return; }
+  say("info",`रिकॉर्डिंग मिली: ${f.name} · ${MB(f.size)}`,$("hstatus"));
+  await sendFile(f,"free",$("hstatus")); $("cap").value="";
+});
 function addItem(r,url){
   $("empty").hidden=true;
   const d=document.createElement("div"); d.className="item";
