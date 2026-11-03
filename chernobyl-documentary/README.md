@@ -1,6 +1,6 @@
 # CHERNOBYL — 26 April 1986 (cinematic documentary short)
 
-> **With Hindi narration (final cut):** [`Chernobyl-Disaster-Documentary-in-Hindi-1986-Full-Story-720p.mp4`](Chernobyl-Disaster-Documentary-in-Hindi-1986-Full-Story-720p.mp4), 10:40, 1280×720. This is the whole film at 1.2x speed with Hindi narration in the director's cloned voice. It ends on THE END, without the credits. The 1080p version is split in two: [`Part A`](Chernobyl-Disaster-Documentary-in-Hindi-1986-Full-Story-1080p-Part-A.mp4) (0:00–5:50) and [`Part B`](Chernobyl-Disaster-Documentary-in-Hindi-1986-Full-Story-1080p-Part-B.mp4) (5:50–10:40). See `source/voiceover/full_film/`. Thumbnails and the YouTube title, description and tags are in [`youtube/`](youtube/).
+> **With Hindi narration (final cut):** [`Chernobyl-Disaster-Documentary-in-Hindi-720p.mp4`](Chernobyl-Disaster-Documentary-in-Hindi-720p.mp4), 10:40, 1280×720. This is the whole film at 1.2x speed with Hindi narration in the director's cloned voice. It ends on THE END, without the credits. The 1080p version is split in two: [`Part A`](Chernobyl-Disaster-Documentary-in-Hindi-1080p-Part-A.mp4) (0:00–5:50) and [`Part B`](Chernobyl-Disaster-Documentary-in-Hindi-1080p-Part-B.mp4) (5:50–10:40). See `source/voiceover/full_film/`. Thumbnails and the YouTube title, description and tags are in [`youtube/`](youtube/).
 >
 > **The finished film without narration:** [`Chernobyl_1986_Full_Film.mp4`](Chernobyl_1986_Full_Film.mp4), 13:00, 1280×720. It ends with closing cards, **THE END** and the credits.
 >

@@ -1,6 +1,6 @@
 # Hindi narration for the full film (1.2x cut)
 
-These files make `../../../Chernobyl-Disaster-Documentary-in-Hindi-1986-Full-Story-720p.mp4`: the whole 13-chapter film played at 1.2x speed (10:50), with Hindi narration in the director's own cloned voice.
+These files make `../../../Chernobyl-Disaster-Documentary-in-Hindi-720p.mp4`: the whole 13-chapter film played at 1.2x speed (10:50), with Hindi narration in the director's own cloned voice.
 
 ## How the voice is made
 
