@@ -69,11 +69,29 @@ ul.tips{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;c
   <header>
     <div class="eyebrow"><span class="dot"></span>AdSense वीडियो · आपकी आवाज़</div>
     <h1>अपनी आवाज़ रिकॉर्ड करके भेजिए</h1>
-    <p class="lead">नीचे की lines अपनी आवाज़ में पढ़िए, फ़ोन के voice recorder या कैमरे से रिकॉर्ड कीजिए, और फ़ाइल यहीं भेज दीजिए। आपकी रिकॉर्डिंग सीधे वीडियो में लग जाएगी।</p>
+    <p class="lead">फ़ोन के voice recorder या कैमरे से 1–2 मिनट कुछ भी बोलिए, और फ़ाइल यहीं भेज दीजिए। इससे आपकी आवाज़ का clone बनेगा। चाहें तो नीचे दी गई script भी पढ़ सकते हैं।</p>
   </header>
 
+  <section aria-labelledby="h-free">
+    <h2 id="h-free"><span class="step">1</span>बस कुछ भी बोलिए (1–2 मिनट)</h2>
+    <p class="lead" style="font-size:16px">कोई script नहीं। अपने natural अंदाज़ में, जैसे किसी दोस्त से बात कर रहे हों। कुछ समझ न आए तो इनमें से किसी टॉपिक पर बोलिए:</p>
+    <ul class="tips" id="topics">
+      <li>अपना परिचय: नाम, शहर, और आप क्या काम करते हैं।</li>
+      <li>आप YouTube चैनल क्यों बनाना चाहते हैं, और किस टॉपिक पर।</li>
+      <li>आज आपका दिन कैसा रहा, सुबह से अब तक क्या-क्या किया।</li>
+      <li>आपका पसंदीदा खाना, और उसे कैसे बनाते हैं।</li>
+      <li>कोई मज़ेदार किस्सा या याद, जो आपको अच्छी लगती है।</li>
+    </ul>
+    <div class="meter"><div class="bar"><i id="fbar"></i></div><span class="time" id="ftime">0:00 / 2:00</span></div>
+    <div class="row">
+      <button class="primary" id="fstart">⏱ टाइमर शुरू करें</button>
+      <button id="fstop" disabled>■ रोकें</button>
+    </div>
+    <p class="lead" style="font-size:15px" id="fhint">पहले फ़ोन में रिकॉर्डिंग चालू कीजिए, फिर टाइमर शुरू कीजिए। 1 मिनट से ज़्यादा बोलना अच्छा है, 2 मिनट सबसे बढ़िया।</p>
+  </section>
+
   <section aria-labelledby="h-prompt">
-    <h2 id="h-prompt"><span class="step">1</span>Teleprompter: ये lines पढ़िए</h2>
+    <h2 id="h-prompt"><span class="step">या</span>Script पढ़िए (AdSense वीडियो की lines)</h2>
     <div class="prompter" aria-live="polite">
       <div class="now" id="now"></div>
       <div class="next" id="next"></div>
@@ -96,6 +114,11 @@ ul.tips{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;c
       <label class="pick" for="file">🎙️ रिकॉर्डिंग चुनें<input type="file" id="file" accept="audio/*,video/*"></label>
       <span class="file" id="fname">कोई फ़ाइल नहीं चुनी</span>
     </div>
+    <fieldset class="row" style="border:0;padding:0;margin:0;gap:18px">
+      <legend class="lead" style="font-size:15px;margin-bottom:6px">आपने क्या रिकॉर्ड किया?</legend>
+      <label><input type="radio" name="kind" id="kfree" value="free" checked> कुछ भी बोला (voice clone के लिए)</label>
+      <label><input type="radio" name="kind" id="kscript" value="script"> AdSense की script पढ़ी</label>
+    </fieldset>
     <div class="row"><button class="primary" id="send" disabled>भेजें</button></div>
     <div class="status info" id="status">m4a, mp3, wav, ogg या फ़ोन से बना वीडियो, कोई भी फ़ाइल चलेगी।</div>
     <h2 style="font-size:17px">भेजी गई रिकॉर्डिंग</h2>
@@ -149,6 +172,16 @@ $("nextb").onclick=()=>jump(Math.min(LINES.length-1,idxAt(pos)+1));
 $("lines").addEventListener("click",e=>{const li=e.target.closest("li"); if(li) jump(+li.dataset.i);});
 show(0);
 
+/* ---------- free-speech timer ---------- */
+let fRun=false, fStart=0, fRaf=0, fWake=null; const FMAX=120;
+function fTick(){ const s=(performance.now()-fStart)/1000;
+  $("fbar").style.width=Math.min(100,s/FMAX*100)+"%"; $("ftime").textContent=fmt(s)+" / "+fmt(FMAX);
+  $("fhint").textContent= s<60 ? "बोलते रहिए… 1 मिनट तक पहुँचिए।" : s<FMAX ? "बढ़िया! 1 मिनट हो गया। 2 मिनट तक बोलें तो और अच्छा।" : "शानदार! 2 मिनट पूरे। अब रिकॉर्डिंग बंद करके नीचे फ़ाइल भेजिए।";
+  if(s>=FMAX){ fEnd(); return; } if(fRun) fRaf=requestAnimationFrame(fTick); }
+function fEnd(){ fRun=false; cancelAnimationFrame(fRaf); $("fstart").disabled=false; $("fstop").disabled=true; $("fstart").textContent="↺ फिर से शुरू करें"; try{fWake?.release();}catch(e){} fWake=null; }
+$("fstart").onclick=async()=>{ fRun=true; fStart=performance.now(); $("fstart").disabled=true; $("fstop").disabled=false; try{ fWake=await navigator.wakeLock?.request("screen"); }catch(e){} fRaf=requestAnimationFrame(fTick); };
+$("fstop").onclick=()=>fEnd();
+
 /* ---------- upload ---------- */
 let assets=null, db=null, user=null, chosen=null;
 const say=(cls,msg)=>{ $("status").className="status "+cls; $("status").textContent=msg; };
@@ -189,7 +222,7 @@ $("send").onclick=async()=>{
     say("info","भेज रहे हैं…");
     const up=await assets.upload(p.blob,{type:p.type});
     if(db){ let uid=null; try{uid=user?await user.id():null;}catch(e){}
-      await db.collection("recordings").add({assetId:up.id,fileName:chosen.name,contentType:up.contentType,sizeBytes:up.sizeBytes,
+      await db.collection("recordings").add({assetId:up.id,kind:document.querySelector('input[name="kind"]:checked')?.value||"free",fileName:chosen.name,contentType:up.contentType,sizeBytes:up.sizeBytes,
         durationSec:p.dur?Math.round(p.dur):null,converted:p.type==="video/webm"&&!/webm$/i.test(chosen.name),createdAt:new Date().toISOString(),uploader:uid}); }
     say("ok","✓ रिकॉर्डिंग मिल गई! अब Claude को chat में बताइए कि रिकॉर्डिंग भेज दी है। आपकी आवाज़ में वीडियो बन जाएगा।");
     if(!db) addItem({assetId:up.id,fileName:chosen.name,sizeBytes:up.sizeBytes,createdAt:new Date().toISOString()},up.url);
