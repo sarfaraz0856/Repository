@@ -25,7 +25,14 @@ for s, e in spans: act[int(max(0, s - 0.3) * SR):int((e + 0.25) * SR)] = 1.0
 env = np.zeros(N); y = 0.0; aa, ar = np.exp(-64 / (0.15 * SR)), np.exp(-64 / (0.8 * SR))
 for k in range(0, N, 64):
     tg = act[k]; c = aa if tg > y else ar; y = tg + (y - tg) * c; env[k:k + 64] = y
-g = 10 ** (-8.5 * env / 20)
+tt = np.arange(N) / SR
+B = os.environ.get('BOOST')   # "t_end,ramp,bed_db,duck_db": lift the music bed and duck it less up to t_end
+if B:
+    te, rp, bdb, ddb = map(float, B.split(','))
+    w = np.clip((te + rp - tt) / rp, 0, 1)
+    g = 10 ** ((-(8.5 - (8.5 - ddb) * w) * env + bdb * w) / 20)
+else:
+    g = 10 ** (-8.5 * env / 20)
 spk = act > 0.5
 v *= 10 ** (-14.5 / 20) / np.sqrt(np.mean(voice[spk] ** 2))
 mix = bed * g[:, None] + v[:, None]

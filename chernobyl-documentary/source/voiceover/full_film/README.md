@@ -16,6 +16,7 @@ These files make `../../../Chernobyl_1986_Hindi_Narrated_Film.mp4`: the whole 13
 4. **Mix:** `mix.py` places each line at its start time ÷ 1.2, with at least 0.36 s between lines.
    - It adds a small room and a soft long hall.
    - It ducks the music bed 8.5 dB under speech, using a 0.15 s attack and 0.8 s release.
+   - In the first 50 s, where the narration is nearly continuous, the music is lifted 2.5 dB and ducked only 5 dB (`BOOST=50,3,2.5,5.0`). It returns to normal over the next 3 s.
    - `fitcheck.py` checks that no line runs past its chapter, the explosion, the evacuation announcement or THE END.
 5. **Soundtrack:** the film's soundtrack is sped up 1.2x with Rubber Band at the same pitch.
 6. **Picture:** the picture is sped up 1.2x with every frame kept, at 28.8 fps. The master is −15 LUFS.
