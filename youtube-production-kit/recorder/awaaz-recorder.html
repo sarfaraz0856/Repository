@@ -3,7 +3,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;800&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
-/* Layout: one narrow studio column — teleprompter first, upload second, tips last. */
+/* Layout: one narrow column — the recorder card is the page; topics and sent list sit below it. */
 :root{
   --bg:#f4f4f7; --surface:#ffffff; --fg:#17161c; --muted:#5d5b66; --line:#e2e1e8;
   --rec:#e5143a; --rec-soft:#fde8ec; --ok:#12804a; --ok-soft:#e3f5ea; --warn:#8a5a00; --warn-soft:#fdf3dc;
@@ -17,274 +17,229 @@
   --rec:#ff4a64; --rec-soft:#3a1720; --ok:#4cd28a; --ok-soft:#14301f; --warn:#f0bf5a; --warn-soft:#33270c; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--fg);font-family:var(--display);font-size:17px;line-height:1.55;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 48px}
-.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
-header{display:flex;flex-direction:column;gap:6px}
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 48px}
+.wrap{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+header{display:flex;flex-direction:column;gap:4px}
 .eyebrow{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--rec)}
 .dot{width:10px;height:10px;border-radius:50%;background:var(--rec);box-shadow:0 0 0 4px var(--rec-soft)}
-h1{font-size:clamp(28px,6vw,40px);line-height:1.15;font-weight:800;margin:0;text-wrap:balance}
-.lead{color:var(--muted);margin:0;max-width:60ch}
-section{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
-h2{font-size:20px;margin:0;font-weight:800;display:flex;align-items:center;gap:10px}
-.step{font-family:var(--mono);font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:1px 7px}
-/* teleprompter */
-.prompter{position:relative;border-radius:12px;background:var(--bg);padding:22px 18px;min-height:190px;display:flex;flex-direction:column;justify-content:center;gap:12px}
-.now{font-size:clamp(22px,4.6vw,30px);font-weight:600;line-height:1.5;text-wrap:pretty}
-.next{color:var(--muted);font-size:16px}
-.next b{font-weight:600}
-.count{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:84px;font-weight:800;color:var(--rec);background:var(--bg);border-radius:12px}
-.meter{display:flex;align-items:center;gap:12px}
-.bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
-.bar i{display:block;height:100%;width:0;background:var(--rec)}
-.time{font-family:var(--mono);font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
-.row{display:flex;flex-wrap:wrap;gap:10px}
-button,.pick{font:inherit;font-size:16px;font-weight:600;border-radius:10px;padding:10px 18px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
-button.primary{background:var(--rec);border-color:var(--rec);color:#fff}
-button:disabled{opacity:.45;cursor:not-allowed}
-button:focus-visible,.pick:focus-within{outline:3px solid var(--rec);outline-offset:2px}
-ol.lines{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:2px}
-ol.lines li{display:grid;grid-template-columns:3.4em 1fr;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer}
-ol.lines li .t{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:3px;font-variant-numeric:tabular-nums}
-ol.lines li.on{background:var(--rec-soft)}
-ol.lines li.on .t{color:var(--rec)}
-/* upload */
-.pick input{position:absolute;width:1px;height:1px;opacity:0}
-.pick{position:relative}
-.file{font-size:15px;color:var(--muted);min-width:0;overflow-wrap:anywhere}
-.status{border-radius:10px;padding:10px 14px;font-size:15px}
+h1{font-size:clamp(28px,6.5vw,38px);line-height:1.15;font-weight:800;margin:0;text-wrap:balance}
+.lead{color:var(--muted);margin:0}
+section{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.rec{align-items:center;text-align:center;border:2px solid var(--rec)}
+.big{width:150px;height:150px;border-radius:50%;border:0;background:var(--rec);color:#fff;font:inherit;font-size:22px;font-weight:800;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;box-shadow:0 0 0 10px var(--rec-soft)}
+.big:focus-visible{outline:3px solid var(--fg);outline-offset:6px}
+.big .ico{width:30px;height:30px;border-radius:50%;background:#fff}
+.big.stop .ico{border-radius:6px}
+.big.pulse{animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 22px var(--rec-soft)}}
+.timer{font-family:var(--mono);font-size:34px;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.level{display:flex;gap:4px;align-items:flex-end;height:40px}
+.level i{width:8px;border-radius:4px;background:var(--rec);height:4px;transition:height .08s}
+.hint{color:var(--muted);font-size:16px;margin:0;max-width:44ch}
+.status{border-radius:10px;padding:10px 14px;font-size:15.5px;width:100%;text-align:left}
 .status.info{background:var(--bg)}
 .status.ok{background:var(--ok-soft);color:var(--ok)}
 .status.err{background:var(--rec-soft);color:var(--rec)}
 .status.warn{background:var(--warn-soft);color:var(--warn)}
-.sent{display:flex;flex-direction:column;gap:10px}
+.alt{display:flex;flex-direction:column;gap:10px;width:100%}
+.btn{position:relative;font:inherit;font-size:17px;font-weight:700;border-radius:12px;padding:14px 18px;border:2px solid var(--rec);background:var(--surface);color:var(--rec);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn.solid{background:var(--rec);color:#fff}
+.btn input{position:absolute;width:1px;height:1px;opacity:0}
+.btn:focus-within{outline:3px solid var(--fg);outline-offset:2px}
+.check{font-size:56px;line-height:1;color:var(--ok)}
+audio{width:100%;max-width:100%}
+h2{font-size:19px;margin:0;font-weight:800}
+ul.topics{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:5px}
 .item{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:10px}
 .item .meta{font-size:14px;color:var(--muted);font-family:var(--mono)}
-audio{width:100%;max-width:100%}
-.empty{color:var(--muted);font-size:15px}
-ul.tips{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;color:var(--fg)}
-.hero{border:2px solid var(--rec)}
-.recbig{position:relative;display:flex;align-items:center;justify-content:center;gap:12px;background:var(--rec);color:#fff;font-size:22px;font-weight:800;border-radius:14px;padding:22px 18px;cursor:pointer;text-align:center}
-.recbig:focus-within{outline:3px solid var(--fg);outline-offset:3px}
-.recbig input{position:absolute;width:1px;height:1px;opacity:0}
-.recdot{width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 0 0 6px rgba(255,255,255,.3)}
-ol.how{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:4px}
-@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+.empty{color:var(--muted);font-size:15px;margin:0}
+details summary{cursor:pointer;font-weight:700}
+details ol{padding-left:1.3em;margin:10px 0 0;display:flex;flex-direction:column;gap:8px}
+@media (prefers-reduced-motion: reduce){.big.pulse{animation:none}.level i{transition:none}}
 </style>
 
 <div class="wrap">
   <header>
-    <div class="eyebrow"><span class="dot"></span>AdSense वीडियो · आपकी आवाज़</div>
-    <h1>अपनी आवाज़ रिकॉर्ड करके भेजिए</h1>
-    <p class="lead">फ़ोन के voice recorder या कैमरे से 1–2 मिनट कुछ भी बोलिए, और फ़ाइल यहीं भेज दीजिए। इससे आपकी आवाज़ का clone बनेगा। चाहें तो नीचे दी गई script भी पढ़ सकते हैं।</p>
+    <div class="eyebrow"><span class="dot"></span>आपकी आवाज़ · voice sample</div>
+    <h1>बटन दबाइए, 1–2 मिनट बोलिए</h1>
+    <p class="lead">रोकते ही आपकी आवाज़ अपने आप मुझे पहुँच जाएगी। कोई script नहीं, जो मन हो वो बोलिए।</p>
   </header>
 
-  <section aria-labelledby="h-rec" class="hero">
-    <h2 id="h-rec" style="font-size:22px">एक बटन: दबाइए, बोलिए, बस</h2>
-    <label class="recbig" for="cap"><span class="recdot"></span>🎙️ यहाँ दबाइए और बोलिए<input type="file" id="cap" accept="audio/*" capture></label>
-    <ol class="how">
-      <li>बटन दबाते ही फ़ोन का <b>recorder</b> खुलेगा। (न खुले तो "Voice recorder / Sound recorder" चुनिए।)</li>
-      <li>1–2 मिनट कुछ भी बोलिए, फिर <b>रोकिए</b> और <b>✓ / Save</b> दबाइए।</li>
-      <li>रिकॉर्डिंग <b>अपने आप</b> मुझे पहुँच जाएगी। कोई और बटन नहीं दबाना।</li>
-    </ol>
-    <div class="status info" id="hstatus">तैयार हैं? ऊपर वाला लाल बटन दबाइए।</div>
+  <section class="rec" aria-live="polite">
+    <!-- idle / recording -->
+    <div id="vRec" style="display:flex;flex-direction:column;align-items:center;gap:14px;width:100%">
+      <button class="big" id="big" aria-label="रिकॉर्ड करें"><span class="ico"></span><span id="bigt">रिकॉर्ड करें</span></button>
+      <div class="timer" id="timer" hidden>0:00</div>
+      <div class="level" id="level" hidden></div>
+      <p class="hint" id="hint">दबाते ही रिकॉर्डिंग शुरू होगी। फ़ोन मुँह से एक हाथ की दूरी पर रखिए।</p>
+    </div>
+    <!-- fallback: phone recorder -->
+    <div class="alt" id="vAlt" hidden>
+      <label class="btn solid" for="cap">📱 फ़ोन का recorder खोलें<input type="file" id="cap" accept="audio/*" capture></label>
+      <label class="btn" for="pick">📎 पहले से बनी रिकॉर्डिंग चुनें<input type="file" id="pick" accept="audio/*,video/*"></label>
+      <p class="hint">Recorder में बोलिए, फिर ✓ / Save दबाइए। रिकॉर्डिंग अपने आप यहाँ आकर मुझे पहुँच जाएगी।</p>
+    </div>
+    <!-- done -->
+    <div id="vDone" hidden style="display:flex;flex-direction:column;align-items:center;gap:10px;width:100%">
+      <div class="check">✓</div>
+      <h2>आपकी आवाज़ मुझे मिल गई!</h2>
+      <p class="hint">नीचे सुनकर check कर लीजिए। मैं कुछ ही मिनट में इसे अपने आप उठा लूँगा।</p>
+      <audio id="mine" controls preload="metadata"></audio>
+      <button class="btn" id="again">↺ फिर से रिकॉर्ड करें</button>
+    </div>
+    <div class="status info" id="status" hidden></div>
   </section>
 
-  <section aria-labelledby="h-free">
-    <h2 id="h-free"><span class="step">या</span>Timer के साथ बोलिए (1–2 मिनट)</h2>
-    <p class="lead" style="font-size:16px">कोई script नहीं। अपने natural अंदाज़ में, जैसे किसी दोस्त से बात कर रहे हों। कुछ समझ न आए तो इनमें से किसी टॉपिक पर बोलिए:</p>
-    <ul class="tips" id="topics">
-      <li>अपना परिचय: नाम, शहर, और आप क्या काम करते हैं।</li>
-      <li>आप YouTube चैनल क्यों बनाना चाहते हैं, और किस टॉपिक पर।</li>
-      <li>आज आपका दिन कैसा रहा, सुबह से अब तक क्या-क्या किया।</li>
-      <li>आपका पसंदीदा खाना, और उसे कैसे बनाते हैं।</li>
-      <li>कोई मज़ेदार किस्सा या याद, जो आपको अच्छी लगती है।</li>
+  <section>
+    <h2>क्या बोलूँ? इनमें से कुछ भी</h2>
+    <ul class="topics">
+      <li>अपना परिचय: नाम, शहर, आप क्या करते हैं।</li>
+      <li>आप YouTube चैनल क्यों बनाना चाहते हैं, किस टॉपिक पर।</li>
+      <li>आज का दिन: सुबह से अब तक क्या-क्या किया।</li>
+      <li>पसंदीदा खाना, और उसे कैसे बनाते हैं।</li>
+      <li>कोई मज़ेदार किस्सा या याद।</li>
     </ul>
-    <div class="meter"><div class="bar"><i id="fbar"></i></div><span class="time" id="ftime">0:00 / 2:00</span></div>
-    <div class="row">
-      <button class="primary" id="fstart">⏱ टाइमर शुरू करें</button>
-      <button id="fstop" disabled>■ रोकें</button>
-    </div>
-    <p class="lead" style="font-size:15px" id="fhint">पहले फ़ोन में रिकॉर्डिंग चालू कीजिए, फिर टाइमर शुरू कीजिए। 1 मिनट से ज़्यादा बोलना अच्छा है, 2 मिनट सबसे बढ़िया।</p>
+    <details>
+      <summary>या AdSense वीडियो की lines पढ़िए</summary>
+      <ol id="lines"></ol>
+    </details>
   </section>
 
-  <section aria-labelledby="h-prompt">
-    <h2 id="h-prompt"><span class="step">या</span>Script पढ़िए (AdSense वीडियो की lines)</h2>
-    <div class="prompter" aria-live="polite">
-      <div class="now" id="now"></div>
-      <div class="next" id="next"></div>
-      <div class="count" id="count" hidden>3</div>
-    </div>
-    <div class="meter"><div class="bar"><i id="bar"></i></div><span class="time" id="time">0:00 / 1:07</span></div>
-    <div class="row">
-      <button class="primary" id="start">▶ पढ़ना शुरू करें</button>
-      <button id="pause" disabled>❚❚ रोकें</button>
-      <button id="prev">← पिछली</button>
-      <button id="nextb">अगली →</button>
-    </div>
-    <p class="lead" style="font-size:15px">पहले फ़ोन में रिकॉर्डिंग चालू कीजिए, फिर "पढ़ना शुरू करें" दबाइए। 3-2-1 के बाद lines वीडियो की timing पर अपने आप बदलेंगी। किसी line पर टैप करके वहाँ से भी शुरू कर सकते हैं।</p>
-    <ol class="lines" id="lines"></ol>
-  </section>
-
-  <section aria-labelledby="h-up">
-    <h2 id="h-up"><span class="step">2</span>रिकॉर्डिंग यहाँ भेजिए</h2>
-    <div class="row" style="align-items:center">
-      <label class="pick" for="file">🎙️ रिकॉर्डिंग चुनें<input type="file" id="file" accept="audio/*,video/*"></label>
-      <span class="file" id="fname">कोई फ़ाइल नहीं चुनी</span>
-    </div>
-    <fieldset class="row" style="border:0;padding:0;margin:0;gap:18px">
-      <legend class="lead" style="font-size:15px;margin-bottom:6px">आपने क्या रिकॉर्ड किया?</legend>
-      <label><input type="radio" name="kind" id="kfree" value="free" checked> कुछ भी बोला (voice clone के लिए)</label>
-      <label><input type="radio" name="kind" id="kscript" value="script"> AdSense की script पढ़ी</label>
-    </fieldset>
-    <div class="row"><button class="primary" id="send" disabled>भेजें</button></div>
-    <div class="status info" id="status">m4a, mp3, wav, ogg या फ़ोन से बना वीडियो, कोई भी फ़ाइल चलेगी।</div>
-    <h2 style="font-size:17px">भेजी गई रिकॉर्डिंग</h2>
-    <div class="sent" id="sent"><p class="empty" id="empty">अभी कोई रिकॉर्डिंग नहीं भेजी गई। भेजते ही यहाँ दिखेगी, और आप सुनकर check कर सकेंगे।</p></div>
-  </section>
-
-  <section aria-labelledby="h-tips">
-    <h2 id="h-tips"><span class="step">3</span>अच्छी रिकॉर्डिंग के लिए</h2>
-    <ul class="tips">
-      <li>शांत कमरे में रिकॉर्ड कीजिए। पंखा और AC बंद रखिए।</li>
-      <li>फ़ोन मुँह से करीब एक हाथ की दूरी पर, थोड़ा नीचे रखिए।</li>
-      <li>हर line के बाद 1 सेकंड रुकिए, ताकि मैं हर line सही जगह बैठा सकूँ।</li>
-      <li>गलती हो जाए तो वही line दोबारा बोल दीजिए। मैं सही वाली रख लूँगा।</li>
-      <li>आराम से, अपने natural अंदाज़ में बोलिए, जैसे किसी दोस्त को समझा रहे हों।</li>
-    </ul>
+  <section>
+    <h2>भेजी गई रिकॉर्डिंग</h2>
+    <div id="sent"><p class="empty" id="empty">अभी कोई रिकॉर्डिंग नहीं। रिकॉर्ड करते ही यहाँ दिखेगी।</p></div>
   </section>
 </div>
 
 <script>
-const LINES=[{"a":0.6,"b":10.3,"t":"यूट्यूब की कमाई पहले गूगल ऐडसेंस अकाउंट में आती है, फिर आपके बैंक में। और ऐडसेंस बनाने का सबसे आसान तरीका है — कंप्यूटर।"},{"a":10.3,"b":19.5,"t":"ब्राउज़र में यूट्यूब स्टूडियो खोलिए, और बाईं तरफ़ 'अर्न' पर क्लिक कीजिए। ऐडसेंस हमेशा यहीं से बनाइए, किसी बाहरी लिंक से नहीं।"},{"a":19.5,"b":27.4,"t":"चैनल एलिजिबल होते ही यहाँ 'साइन अप फ़ॉर ऐडसेंस' का स्टेप आता है। 'स्टार्ट' पर क्लिक कीजिए।"},{"a":27.4,"b":34.4,"t":"अपना गूगल अकाउंट चुनिए। याद रखिए — एक नाम पर सिर्फ़ एक ही ऐडसेंस अकाउंट बनता है।"},{"a":34.4,"b":42.5,"t":"चैनल अपने आप भरा होता है। देश में 'इंडिया' चुनिए, टर्म्स पर टिक कीजिए, और 'कंटिन्यू' पर क्लिक कीजिए।"},{"a":42.5,"b":49.4,"t":"अब नाम — बिल्कुल वैसा लिखिए, जैसा बैंक अकाउंट में है। वरना पेमेंट अटक सकता है।"},{"a":49.4,"b":57.5,"t":"पता और पिन कोड सही डालिए — गूगल इसी पते पर छह अंकों का पिन डाक से भेजता है।"},{"a":57.5,"b":66.2,"t":"बस! ऐडसेंस लिंक हो गया, अब यूट्यूब आपका चैनल रिव्यू करेगा। पिन और बैंक सेटअप — फ़ुल वीडियो में बताऊँगा।"}];
-const TOTAL=67.4, $=id=>document.getElementById(id);
+const $=id=>document.getElementById(id);
+const LINES=["यूट्यूब की कमाई पहले गूगल ऐडसेंस अकाउंट में आती है, फिर आपके बैंक में। और ऐडसेंस बनाने का सबसे आसान तरीका है — कंप्यूटर।","ब्राउज़र में यूट्यूब स्टूडियो खोलिए, और बाईं तरफ़ 'अर्न' पर क्लिक कीजिए। ऐडसेंस हमेशा यहीं से बनाइए, किसी बाहरी लिंक से नहीं।","चैनल एलिजिबल होते ही यहाँ 'साइन अप फ़ॉर ऐडसेंस' का स्टेप आता है। 'स्टार्ट' पर क्लिक कीजिए।","अपना गूगल अकाउंट चुनिए। याद रखिए — एक नाम पर सिर्फ़ एक ही ऐडसेंस अकाउंट बनता है।","चैनल अपने आप भरा होता है। देश में 'इंडिया' चुनिए, टर्म्स पर टिक कीजिए, और 'कंटिन्यू' पर क्लिक कीजिए।","अब नाम — बिल्कुल वैसा लिखिए, जैसा बैंक अकाउंट में है। वरना पेमेंट अटक सकता है।","पता और पिन कोड सही डालिए — गूगल इसी पते पर छह अंकों का पिन डाक से भेजता है।","बस! ऐडसेंस लिंक हो गया, अब यूट्यूब आपका चैनल रिव्यू करेगा। पिन और बैंक सेटअप — फ़ुल वीडियो में बताऊँगा।"];
+LINES.forEach(t=>{const li=document.createElement("li");li.textContent=t;$("lines").append(li);});
+for(let i=0;i<16;i++) $("level").append(document.createElement("i"));
 const fmt=s=>{s=Math.max(0,Math.floor(s));return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")};
-$("lines").innerHTML=LINES.map((l,i)=>`<li data-i="${i}"><span class="t">${fmt(l.a)}</span><span></span></li>`).join("");
-[...$("lines").children].forEach((li,i)=>{li.lastElementChild.textContent=LINES[i].t;});
+const MB=n=>(n/1048576).toFixed(1)+" MB";
+function say(cls,msg){ const el=$("status"); el.hidden=!msg; el.className="status "+cls; el.textContent=msg||""; }
+function view(v){ $("vRec").hidden=v!=="rec"; $("vAlt").hidden=v!=="alt"; $("vDone").hidden=v!=="done";
+  $("vRec").style.display=v==="rec"?"flex":"none"; $("vDone").style.display=v==="done"?"flex":"none"; }
 
-/* ---------- teleprompter ---------- */
-let pos=0, running=false, startedAt=0, raf=0, wake=null, countTimer=0;
-const idxAt=t=>{let k=0;for(let i=0;i<LINES.length;i++) if(t>=LINES[i].a-0.3) k=i; return k;};
-function show(t){
-  const i=idxAt(t);
-  $("now").textContent=LINES[i].t;
-  $("next").innerHTML=i+1<LINES.length?"<b>अगली:</b> ":"";
-  if(i+1<LINES.length) $("next").append(LINES[i+1].t); else $("next").textContent="आख़िरी line। इसके बाद रिकॉर्डिंग बंद कर दीजिए।";
-  [...$("lines").children].forEach((li,k)=>li.classList.toggle("on",k===i));
-  $("bar").style.width=Math.min(100,t/TOTAL*100)+"%";
-  $("time").textContent=fmt(t)+" / "+fmt(TOTAL);
-}
-function tick(){ pos=(performance.now()-startedAt)/1000; if(pos>=TOTAL){pos=TOTAL;stop();} show(pos); if(running) raf=requestAnimationFrame(tick); }
-async function holdScreen(){ try{ wake=await navigator.wakeLock?.request("screen"); }catch(e){ wake=null; } }
-function play(){ running=true; startedAt=performance.now()-pos*1000; $("pause").disabled=false; $("start").disabled=true; holdScreen(); raf=requestAnimationFrame(tick); }
-function stop(){ running=false; cancelAnimationFrame(raf); $("pause").disabled=true; $("start").disabled=false; $("start").textContent=pos>=TOTAL?"↺ फिर से शुरू करें":"▶ आगे पढ़ें"; try{wake?.release();}catch(e){} wake=null; }
-function countdown(then){
-  clearInterval(countTimer); let n=3; $("count").hidden=false; $("count").textContent=n;
-  countTimer=setInterval(()=>{ n--; if(n<=0){ clearInterval(countTimer); $("count").hidden=true; then(); } else $("count").textContent=n; },800);
-}
-$("start").onclick=()=>{ if(pos>=TOTAL) pos=0; countdown(play); };
-$("pause").onclick=()=>stop();
-const jump=i=>{ const was=running; stop(); pos=Math.max(0,LINES[i].a-0.2); show(pos); if(was) play(); };
-$("prev").onclick=()=>jump(Math.max(0,idxAt(pos)-1));
-$("nextb").onclick=()=>jump(Math.min(LINES.length-1,idxAt(pos)+1));
-$("lines").addEventListener("click",e=>{const li=e.target.closest("li"); if(li) jump(+li.dataset.i);});
-show(0);
+let assets=null, db=null, user=null, ready=false, altMode=false;
+async function logAttempt(stage, extra){ try{ if(db) await db.collection("attempts").add({stage, ...extra, at:new Date().toISOString(), ua:navigator.userAgent.slice(0,160), assets:!!assets}); }catch(e){} }
 
-/* ---------- free-speech timer ---------- */
-let fRun=false, fStart=0, fRaf=0, fWake=null; const FMAX=120;
-function fTick(){ const s=(performance.now()-fStart)/1000;
-  $("fbar").style.width=Math.min(100,s/FMAX*100)+"%"; $("ftime").textContent=fmt(s)+" / "+fmt(FMAX);
-  $("fhint").textContent= s<60 ? "बोलते रहिए… 1 मिनट तक पहुँचिए।" : s<FMAX ? "बढ़िया! 1 मिनट हो गया। 2 मिनट तक बोलें तो और अच्छा।" : "शानदार! 2 मिनट पूरे। अब रिकॉर्डिंग बंद करके नीचे फ़ाइल भेजिए।";
-  if(s>=FMAX){ fEnd(); return; } if(fRun) fRaf=requestAnimationFrame(fTick); }
-function fEnd(){ fRun=false; cancelAnimationFrame(fRaf); $("fstart").disabled=false; $("fstop").disabled=true; $("fstart").textContent="↺ फिर से शुरू करें"; try{fWake?.release();}catch(e){} fWake=null; }
-$("fstart").onclick=async()=>{ fRun=true; fStart=performance.now(); $("fstart").disabled=true; $("fstop").disabled=false; try{ fWake=await navigator.wakeLock?.request("screen"); }catch(e){} fRaf=requestAnimationFrame(fTick); };
-$("fstop").onclick=()=>fEnd();
+/* ---------- in-page recording ---------- */
+let stream=null, rec=null, parts=[], t0=0, tick=0, ctx=null, an=null, mime="";
+const MAX=180;
+function pickMime(){ const c=["audio/webm;codecs=opus","audio/webm","audio/mp4","audio/ogg;codecs=opus"]; for(const m of c){ try{ if(MediaRecorder.isTypeSupported(m)) return m; }catch(e){} } return ""; }
+async function startRec(){
+  say("","");
+  if(!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder){ return micBlocked("no_api"); }
+  try{ stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true}}); }
+  catch(e){ return micBlocked(e?.name||"denied"); }
+  mime=pickMime(); parts=[];
+  try{ rec=mime?new MediaRecorder(stream,{mimeType:mime,audioBitsPerSecond:128000}):new MediaRecorder(stream); }catch(e){ stream.getTracks().forEach(t=>t.stop()); return micBlocked("recorder"); }
+  rec.ondataavailable=e=>{ if(e.data&&e.data.size) parts.push(e.data); };
+  rec.onstop=onStopped;
+  rec.start(1000); t0=performance.now();
+  try{ ctx=new (window.AudioContext||window.webkitAudioContext)(); an=ctx.createAnalyser(); an.fftSize=256; ctx.createMediaStreamSource(stream).connect(an); }catch(e){ an=null; }
+  $("big").classList.add("stop","pulse"); $("bigt").textContent="रोकें और भेजें"; $("big").setAttribute("aria-label","रोकें और भेजें");
+  $("timer").hidden=false; $("level").hidden=false; $("hint").textContent="बोलते रहिए… 1 मिनट से ज़्यादा अच्छा है।";
+  logAttempt("mic_started",{mime});
+  loop();
+}
+function loop(){
+  const s=(performance.now()-t0)/1000; $("timer").textContent=fmt(s);
+  if(s>=60) $("hint").textContent=s<120?"बढ़िया! 1 मिनट हो गया। चाहें तो 2 मिनट तक बोलिए।":"शानदार! अब \"रोकें और भेजें\" दबाइए।";
+  if(an){ const d=new Uint8Array(an.frequencyBinCount); an.getByteFrequencyData(d); [...$("level").children].forEach((b,i)=>{ const v=d[2+i*3]||0; b.style.height=(4+v/255*36)+"px"; }); }
+  if(s>=MAX){ stopRec(); return; }
+  if(rec&&rec.state==="recording") tick=requestAnimationFrame(loop);
+}
+function stopRec(){ if(rec&&rec.state!=="inactive") rec.stop(); cancelAnimationFrame(tick); }
+async function onStopped(){
+  stream?.getTracks().forEach(t=>t.stop()); try{ctx?.close();}catch(e){}
+  const dur=(performance.now()-t0)/1000;
+  $("big").classList.remove("stop","pulse"); $("bigt").textContent="रिकॉर्ड करें"; $("timer").hidden=true; $("level").hidden=true;
+  if(dur<3){ say("warn","रिकॉर्डिंग बहुत छोटी थी। फिर से दबाकर कम से कम 1 मिनट बोलिए।"); return; }
+  const isMp4=/mp4/.test(mime||parts[0]?.type||"");
+  const blob=new Blob(parts,{type:isMp4?"video/mp4":"video/webm"});
+  await upload(blob, isMp4?"video/mp4":"video/webm", "in-page", Math.round(dur));
+}
+function micBlocked(reason){
+  logAttempt("mic_blocked",{reason:String(reason)});
+  altMode=true; view("alt");
+  say("warn","इस ऐप में पेज को microphone की अनुमति नहीं मिली, इसलिए फ़ोन का recorder इस्तेमाल करेंगे। ऊपर वाला लाल बटन दबाइए।");
+}
+$("big").onclick=()=>{ if(!ready){ say("info","एक सेकंड… पेज तैयार हो रहा है।"); return; }
+  if(!assets){ say("warn","यहाँ से रिकॉर्डिंग सिर्फ़ इस पेज के मालिक भेज सकते हैं। अपने claude.ai खाते से यह पेज खोलिए।"); logAttempt("no_assets",{}); return; }
+  if(rec&&rec.state==="recording") stopRec(); else startRec(); };
+
+/* ---------- phone recorder / file fallback ---------- */
+async function toWebm(file){
+  const c=new (window.AudioContext||window.webkitAudioContext)(); const buf=await c.decodeAudioData(await file.arrayBuffer());
+  const dest=c.createMediaStreamDestination(), src=c.createBufferSource(); src.buffer=buf; src.connect(dest);
+  const m=MediaRecorder.isTypeSupported("audio/webm;codecs=opus")?"audio/webm;codecs=opus":"audio/webm";
+  const r=new MediaRecorder(dest.stream,{mimeType:m,audioBitsPerSecond:128000}), ps=[]; r.ondataavailable=e=>{ if(e.data.size) ps.push(e.data); };
+  const done=new Promise(res=>r.onstop=res); r.start(1000); src.start(); const st=c.currentTime;
+  const iv=setInterval(()=>say("info",`फ़ाइल तैयार हो रही है… ${Math.min(99,Math.round((c.currentTime-st)/buf.duration*100))}%`),500);
+  await new Promise(res=>src.onended=res); r.stop(); await done; clearInterval(iv); c.close();
+  return {blob:new Blob(ps,{type:"video/webm"}),type:"video/webm",dur:Math.round(buf.duration)};
+}
+async function fromFile(f){
+  if(!f) return;
+  if(!assets){ say("warn","यहाँ से रिकॉर्डिंग सिर्फ़ इस पेज के मालिक भेज सकते हैं।"); return; }
+  say("info",`रिकॉर्डिंग मिली: ${f.name} · ${MB(f.size)}`);
+  const ext=(f.name.split(".").pop()||"").toLowerCase(), small=f.size<=19.5*1048576;
+  try{
+    if(small&&(["m4a","mp4","3gp","3g2","mov"].includes(ext)||/^(audio|video)\/(mp4|x-m4a|m4a|3gpp2?|quicktime)$/.test(f.type))) return upload(f,"video/mp4","file",null,f.name);
+    if(small&&(ext==="webm"||/^(audio|video)\/webm$/.test(f.type))) return upload(f,"video/webm","file",null,f.name);
+    if(!window.MediaRecorder) throw new Error("convert");
+    const p=await toWebm(f); return upload(p.blob,p.type,"file-converted",p.dur,f.name);
+  }catch(e){ logAttempt("convert_failed",{name:f.name,type:f.type,size:f.size,err:String(e?.name||e?.message||e)});
+    say("err","यह फ़ाइल यहाँ नहीं खुल पाई। Recorder की settings में m4a चुनकर फिर से रिकॉर्ड कीजिए।"); }
+}
+$("cap").addEventListener("change",()=>{ fromFile($("cap").files[0]); $("cap").value=""; });
+$("pick").addEventListener("change",()=>{ fromFile($("pick").files[0]); $("pick").value=""; });
 
 /* ---------- upload ---------- */
-let assets=null, db=null, user=null, chosen=null;
-const say=(cls,msg,el=$("status"))=>{ el.className="status "+cls; el.textContent=msg; };
-const MB=n=>(n/1048576).toFixed(1)+" MB";
-$("file").addEventListener("change",()=>{
-  chosen=$("file").files[0]||null;
-  $("fname").textContent=chosen?`${chosen.name} · ${MB(chosen.size)}`:"कोई फ़ाइल नहीं चुनी";
-  $("send").disabled=!chosen||!assets;
-  if(chosen&&!assets) say("warn","इस पेज पर फ़ाइल भेजने की अनुमति नहीं मिली। पेज के मालिक (Editor/Owner) के खाते से खोलिए।");
-});
-const MP4=["m4a","mp4","3gp","3g2","mov"], WEBM=["webm"];
-async function toWebm(file, put=say){
-  if(!window.MediaRecorder) throw new Error("convert");
-  const ctx=new (window.AudioContext||window.webkitAudioContext)();
-  const buf=await ctx.decodeAudioData(await file.arrayBuffer());
-  const dest=ctx.createMediaStreamDestination(), src=ctx.createBufferSource(); src.buffer=buf; src.connect(dest);
-  const mime=MediaRecorder.isTypeSupported("audio/webm;codecs=opus")?"audio/webm;codecs=opus":"audio/webm";
-  const rec=new MediaRecorder(dest.stream,{mimeType:mime,audioBitsPerSecond:96000}), parts=[];
-  rec.ondataavailable=e=>{ if(e.data.size) parts.push(e.data); };
-  const done=new Promise(r=>rec.onstop=r);
-  rec.start(1000); src.start(); const t0=ctx.currentTime;
-  const iv=setInterval(()=>put("info",`फ़ाइल तैयार हो रही है… ${Math.min(99,Math.round((ctx.currentTime-t0)/buf.duration*100))}%  (जितनी लंबी रिकॉर्डिंग, उतना समय लगेगा)`),500);
-  await new Promise(r=>src.onended=r); rec.stop(); await done; clearInterval(iv); ctx.close();
-  return {blob:new Blob(parts,{type:"video/webm"}),type:"video/webm",dur:buf.duration};
-}
-async function prepare(f, put=say){
-  const ext=(f.name.split(".").pop()||"").toLowerCase(), small=f.size<=19.5*1048576;
-  if(small&&(MP4.includes(ext)||/^(audio|video)\/(mp4|x-m4a|m4a|3gpp2?|quicktime)$/.test(f.type))) return {blob:f,type:"video/mp4",dur:null};
-  if(small&&(WEBM.includes(ext)||/^(audio|video)\/webm$/.test(f.type))) return {blob:f,type:"video/webm",dur:null};
-  return toWebm(f, put);
-}
-async function sendFile(file, kind, el){
-  const put=(c,m)=>say(c,m,el);
+async function upload(blob,type,source,dur,name){
+  say("info","आपकी आवाज़ भेज रहे हैं…");
   try{
-    put("info","फ़ाइल तैयार हो रही है…");
-    const p=await prepare(file, put);
-    put("info","भेज रहे हैं…");
-    const up=await assets.upload(p.blob,{type:p.type});
-    if(db){ let uid=null; try{uid=user?await user.id():null;}catch(e){}
-      await db.collection("recordings").add({assetId:up.id,kind,fileName:file.name,contentType:up.contentType,sizeBytes:up.sizeBytes,
-        durationSec:p.dur?Math.round(p.dur):null,converted:p.type==="video/webm"&&!/webm$/i.test(file.name),createdAt:new Date().toISOString(),uploader:uid,processed:false}); }
-    put("ok","✓ आपकी रिकॉर्डिंग मुझे मिल गई! कुछ ही मिनट में मैं इसे अपने आप उठा लूँगा। आप chat में \"भेज दी\" लिख दें तो और जल्दी।");
-    if(!db) addItem({assetId:up.id,fileName:file.name,sizeBytes:up.sizeBytes,createdAt:new Date().toISOString()},up.url);
-    return true;
+    const up=await assets.upload(blob,{type});
+    let uid=null; try{ uid=user?await user.id():null; }catch(e){}
+    if(db) await db.collection("recordings").add({assetId:up.id,kind:"free",source,fileName:name||("recording-"+Date.now()+(type==="video/mp4"?".m4a":".webm")),
+      contentType:up.contentType,sizeBytes:up.sizeBytes,durationSec:dur,createdAt:new Date().toISOString(),uploader:uid,processed:false});
+    logAttempt("uploaded",{source,sizeBytes:up.sizeBytes});
+    $("mine").src=up.url; view("done"); say("ok","✓ पहुँच गई। मुझे chat में बताने की ज़रूरत नहीं, फिर भी \"भेज दी\" लिख देंगे तो और जल्दी शुरू करूँगा।");
   }catch(e){
-    const c=e&&e.code, m=e&&e.message;
-    if(m==="convert"||e instanceof DOMException||e?.name==="EncodingError") put("err","यह फ़ाइल यहाँ नहीं खुल पाई। Recorder में m4a चुनकर दोबारा रिकॉर्ड कीजिए, या कैमरे से वीडियो बनाकर भेजिए।");
-    else if(c==="too_large") put("err","फ़ाइल 20 MB से बड़ी है। छोटी रिकॉर्डिंग भेजिए।");
-    else if(c==="rate_limited"||c==="store_unavailable") put("warn","अभी भेज नहीं पाए। थोड़ी देर बाद फिर से कोशिश कीजिए।");
-    else if(c==="not_granted"||c==="capability_disabled") put("warn","इस पेज पर फ़ाइल भेजने की अनुमति नहीं है। पेज के मालिक के खाते से खोलिए।");
-    else put("err","भेजने में दिक्कत आई ("+(c||"error")+")। दोबारा कोशिश कीजिए।");
-    return false;
+    const c=e&&e.code; logAttempt("upload_failed",{source,code:String(c||e?.name||"error"),size:blob.size,type});
+    say("err", c==="too_large"?"रिकॉर्डिंग 20 MB से बड़ी है। 2–3 मिनट से कम रिकॉर्ड कीजिए।"
+      : (c==="rate_limited"||c==="store_unavailable")?"अभी भेज नहीं पाए। 1 मिनट बाद \"फिर से रिकॉर्ड करें\" दबाइए।"
+      : "भेजने में दिक्कत आई ("+(c||"error")+")। यह गलती मुझे दिख जाएगी, मैं ठीक कर दूँगा।");
   }
 }
-$("send").onclick=async()=>{
-  if(!chosen||!assets) return;
-  $("send").disabled=true;
-  await sendFile(chosen, document.querySelector('input[name="kind"]:checked')?.value||"free", $("status"));
-  $("send").disabled=!chosen||!assets;
-};
-$("cap").addEventListener("change",async()=>{
-  const f=$("cap").files[0]; if(!f) return;
-  if(!assets){ say("warn","यहाँ से फ़ाइल सिर्फ़ इस पेज के मालिक भेज सकते हैं। अपने खाते से खुले पेज पर कोशिश कीजिए।",$("hstatus")); return; }
-  say("info",`रिकॉर्डिंग मिली: ${f.name} · ${MB(f.size)}`,$("hstatus"));
-  await sendFile(f,"free",$("hstatus")); $("cap").value="";
-});
-function addItem(r,url){
+$("again").onclick=()=>{ view(altMode?"alt":"rec"); say("",""); };
+
+/* ---------- sent list + capabilities ---------- */
+function addItem(r){
   $("empty").hidden=true;
   const d=document.createElement("div"); d.className="item";
   const m=document.createElement("div"); m.className="meta";
-  m.textContent=`${r.fileName||"recording"} · ${MB(r.sizeBytes||0)} · ${new Date(r.createdAt).toLocaleString("hi-IN",{dateStyle:"medium",timeStyle:"short"})}`;
-  const a=document.createElement("audio"); a.controls=true; a.preload="metadata"; a.src=url||("/_blob/"+r.assetId);
+  m.textContent=`${r.durationSec?fmt(r.durationSec)+" · ":""}${MB(r.sizeBytes||0)} · ${new Date(r.createdAt).toLocaleString("hi-IN",{dateStyle:"medium",timeStyle:"short"})}`;
+  const a=document.createElement("audio"); a.controls=true; a.preload="metadata"; a.src="/_blob/"+r.assetId;
   d.append(m,a); $("sent").append(d);
 }
+view("rec");
 (async()=>{
   const [a,d,u]=await Promise.all([claude.use("assets"),claude.use("db"),claude.use("user")]);
-  assets=a; db=d; user=u;
-  if(!assets){ say("warn","यहाँ से फ़ाइल सिर्फ़ इस पेज के मालिक भेज सकते हैं। आप अपने खाते से खुले पेज पर फ़ाइल भेजिए।"); }
-  $("send").disabled=!chosen||!assets;
+  assets=a; db=d; user=u; ready=true;
+  logAttempt("opened",{mic:!!navigator.mediaDevices?.getUserMedia});
+  if(!assets) say("warn","यहाँ से रिकॉर्डिंग सिर्फ़ इस पेज के मालिक भेज सकते हैं। अपने claude.ai खाते से यह पेज खोलिए।");
   if(!db) return;
-  let warned=setTimeout(()=>{ $("empty").textContent="भेजी गई रिकॉर्डिंग की सूची अभी लोड नहीं हो पाई। थोड़ी देर में अपने आप दिखेगी।"; },10000);
-  db.collection("recordings").orderBy("createdAt","desc").limit(20).onSnapshot(snap=>{
-    if(!snap.metadata?.fromCache){ clearTimeout(warned); }
+  const warn=setTimeout(()=>{ $("empty").textContent="सूची अभी लोड नहीं हो पाई। रिकॉर्डिंग भेजना फिर भी काम करेगा।"; },10000);
+  db.collection("recordings").orderBy("createdAt","desc").limit(10).onSnapshot(snap=>{
+    if(!snap.metadata.fromCache) clearTimeout(warn);
     [...$("sent").querySelectorAll(".item")].forEach(x=>x.remove());
-    if(snap.empty){ $("empty").hidden=false; $("empty").textContent="अभी कोई रिकॉर्डिंग नहीं भेजी गई। भेजते ही यहाँ दिखेगी, और आप सुनकर check कर सकेंगे।"; return; }
-    snap.docs.forEach(doc=>{ const r=doc.data?doc.data():doc.data; if(r&&r.assetId) addItem(r); });
-  },err=>{ clearTimeout(warned); $("empty").textContent="सूची लोड नहीं हो पाई, लेकिन फ़ाइल भेजना फिर भी काम करेगा।"; });
+    if(snap.empty){ $("empty").hidden=false; return; }
+    snap.docs.forEach(doc=>{ const r=doc.data(); if(r&&r.assetId) addItem(r); });
+  },()=>{ clearTimeout(warn); $("empty").textContent="सूची लोड नहीं हो पाई, लेकिन रिकॉर्डिंग भेजना फिर भी काम करेगा।"; });
 })();
 </script>
