@@ -1,33 +1,33 @@
 CHERNOBYL – UPLOAD NOTES
 ========================
 
-Title, tags, description और pinned comment: file 1_Chernobyl-YouTube-Text.txt में हैं।
-Subtitles: 6_Chernobyl-Hindi-Subtitles.srt (Hindi) और 7_Chernobyl-English-Subtitles.srt (English)।
+Title, tags, description और pinned comment: file Chernobyl-Title-Tags-Description.txt में हैं।
+Subtitles: Chernobyl-Subtitles-Hindi.srt (Hindi) और Chernobyl-Subtitles-English.srt (English)।
 YouTube Studio > Subtitles > Add language > Upload file > With timing।
 
 FILES
 -----
-Video (upload this one, 1080p, 10:40):  4_Chernobyl-Disaster-Documentary-in-Hindi.mp4
-Thumbnail A (explosion, "1986")  - RECOMMENDED:  3A_Chernobyl-Thumbnail-A.jpg
-Thumbnail B (burning reactor, "THE FULL STORY"):  3B_Chernobyl-Thumbnail-B.jpg
-Thumbnail C (Ferris wheel, "40 YEARS LATER"):     3C_Chernobyl-Thumbnail-C.jpg
-Title, tags, description, pinned comment:          1_Chernobyl-YouTube-Text.txt
-Full Hindi narration script with timings:          5_Chernobyl-Narration-Script-Hindi.txt
-Hindi subtitles for YouTube:                       6_Chernobyl-Hindi-Subtitles.srt
-English subtitles for YouTube:                     7_Chernobyl-English-Subtitles.srt
+Video (upload this one, 1080p, 10:40):  Chernobyl-Disaster-Documentary-in-Hindi.mp4
+Thumbnail A (explosion, "1986")  - RECOMMENDED:  Chernobyl-Documentary-Thumbnail-A.jpg
+Thumbnail B (burning reactor, "THE FULL STORY"):  Chernobyl-Documentary-Thumbnail-B.jpg
+Thumbnail C (Ferris wheel, "40 YEARS LATER"):     Chernobyl-Documentary-Thumbnail-C.jpg
+Title, tags, description, pinned comment:          Chernobyl-Title-Tags-Description.txt
+Full Hindi narration script with timings:          Chernobyl-Narration-Script-Hindi.txt
+Hindi subtitles for YouTube:                       Chernobyl-Subtitles-Hindi.srt
+English subtitles for YouTube:                     Chernobyl-Subtitles-English.srt
 
 
 UPLOAD SETTINGS (YouTube Studio)
 --------------------------------
-1. Title, Description: paste from file 1_Chernobyl-YouTube-Text.txt.
+1. Title, Description: paste from file Chernobyl-Title-Tags-Description.txt.
 2. Thumbnail: upload Thumbnail A. If "Test & compare" is shown, add A, B and C and YouTube will pick the best one.
 3. Audience: "No, it's not made for kids".
-4. Tags: open "Show more" and paste the tags from file 1.
+4. Tags: open "Show more" and paste the tags from file Chernobyl-Title-Tags-Description.txt.
 5. Altered or synthetic content: choose YES (CGI visuals and an AI-cloned voice). This is YouTube's rule and protects the channel. It does not reduce reach.
 6. Video language: Hindi.   Title and description language: English.
 7. Category: Education.
-8. Subtitles: Subtitles > Add language > Hindi > Upload file > "With timing" > 6_Chernobyl-Hindi-Subtitles.srt.
-   Then Add language > English > Upload file > "With timing" > 7_Chernobyl-English-Subtitles.srt.
+8. Subtitles: Subtitles > Add language > Hindi > Upload file > "With timing" > Chernobyl-Subtitles-Hindi.srt.
+   Then Add language > English > Upload file > "With timing" > Chernobyl-Subtitles-English.srt.
    Subtitles help search, and English subtitles let viewers outside India follow the video too.
 9. Chapters: they come from the timestamps in the description. Keep "Allow automatic chapters" on.
 10. End screen: use the last 10-20 seconds (over THE END): one Subscribe element and one video or playlist.
