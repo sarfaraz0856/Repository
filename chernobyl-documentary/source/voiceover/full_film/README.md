@@ -22,3 +22,7 @@ These files make `../../../Chernobyl_1986_Hindi_Narrated_Film.mp4`: the whole 13
 6. **Picture:** the picture is sped up 1.2x with every frame kept, at 28.8 fps. The master is −15 LUFS.
 7. **Encode:** `encode_final.sh` writes the 720p film and the two 1080p parts.
 8. **No credits:** `encode_v3.sh` ends the film on THE END. The picture is cut at 638.6 s and followed by 1.5 s of black, and the music fades out over 3.3 s. It re-encodes only the 720p film and Part B, because Part A is unchanged.
+
+9. **Announcement line and checkpoint fix:** `rebuild_v4.sh` rebuilds the film after two changes.
+   - At the loudspeaker shot, the narration now says the evacuation was announced: "छत्तीस घंटे बाद, लाउडस्पीकरों पर ऐलान हुआ। पूरे शहर को, ख़ाली करना है।"
+   - The striped boom pole was removed from the chapter IV checkpoint shot, because it flickered in the blue beacon light.

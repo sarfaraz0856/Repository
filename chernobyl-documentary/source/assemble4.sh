@@ -4,9 +4,9 @@
 set -e
 cd "$(dirname "$0")/out/part4"
 printf "file 'R5_000.mov'\nfile 'R5_264.mov'\n" > R5_list.txt
-ffmpeg -hide_banner -loglevel error -y -f concat -safe 0 -i R5_list.txt -c copy R5.mov
+[ -f R5.mov ] || ffmpeg -hide_banner -loglevel error -y -f concat -safe 0 -i R5_list.txt -c copy R5.mov
 printf "file 'R2_000.mov'\nfile 'R2_096.mov'\nfile 'R2_192.mov'\n" > R2_list.txt
-ffmpeg -hide_banner -loglevel error -y -f concat -safe 0 -i R2_list.txt -c copy R2.mov
+[ -f R2.mov ] || ffmpeg -hide_banner -loglevel error -y -f concat -safe 0 -i R2_list.txt -c copy R2.mov
 OUT=${1:-chernobyl_part4.mp4}
 T=titles
 ffmpeg -hide_banner -loglevel warning -y \

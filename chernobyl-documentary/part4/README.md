@@ -4,7 +4,7 @@
 
 | Time | Shot | Caption |
 |---|---|---|
-| 0:00–0:11 | Night. A militia checkpoint on the road to the plant: a striped boom gate, a sentry booth, a patrol car with its blue light turning. Behind them, the reactor still burns. | **THE SILENCE**, then **28 APRIL 1986, 21:00 / SOVIET TELEVISION GAVE THE NEWS 20 SECONDS** |
+| 0:00–0:11 | Night. A militia checkpoint on the road to the plant: a sentry booth, a patrol car with its blue light turning. Behind them, the reactor still burns. | **THE SILENCE**, then **28 APRIL 1986, 21:00 / SOVIET TELEVISION GAVE THE NEWS 20 SECONDS** |
 | 0:11–0:23 | A sunny spring avenue. Columns of marchers with red flags, banners and balloons walk under the young lime trees. | **1 MAY 1986 / MAY DAY PARADES WENT AHEAD UNDER THE FALLOUT** |
 | 0:23–0:35 | A flooded basement under the reactor. Three men in dark suits wade through the water by the light of their helmet lamps. Radiation flecks show on the film. | **MAY 1986 / THREE VOLUNTEERS WADED INTO THE FLOODED BASEMENT** |
 | 0:35–0:47 | An evacuated village under a grey sky. Wooden houses and fences line a dirt road, the apple trees are in blossom, and nobody is there. | **THE 30 KM ZONE / 116,000 PEOPLE WERE EVACUATED** |

@@ -45,7 +45,8 @@ export async function R1(ctx) {
   const road = new THREE.Mesh(new THREE.PlaneGeometry(900, 7), mat([0.035, 0.035, 0.037], 0.75, 0, 'r1road')); road.rotation.x = -Math.PI / 2; road.rotation.z = yaw;
   road.position.copy(C).addScaledVector(toPlant, 300).setY(0.06); road.receiveShadow = true; scene.add(road);
   // boom gate: striped pole on a post with counterweight; a sentry box
-  const gate = new THREE.Group(); gate.position.copy(C).addScaledVector(side, 4.2); gate.rotation.y = yaw + Math.PI / 2; scene.add(gate);
+  // (the striped boom pole was removed: it flickered in the blue beacon light in the foreground)
+  const gate = new THREE.Group(); gate.position.copy(C).addScaledVector(side, 4.2); gate.rotation.y = yaw + Math.PI / 2;
   const red = mat([0.4, 0.03, 0.02], 0.5, 0, 'gred'), white = mat([0.55, 0.55, 0.53], 0.5, 0, 'gwhite'), grey = mat([0.12, 0.12, 0.12], 0.8, 0, 'ggrey');
   const post = new THREE.Mesh(new THREE.BoxGeometry(0.3, 1.1, 0.3), grey); post.position.y = 0.55; gate.add(post);
   for (let k = 0; k < 8; k++) { const seg = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.12, 0.12), k % 2 ? red : white); seg.position.set(0.45 + k * 0.9, 1.05, 0); seg.castShadow = true; gate.add(seg); }
