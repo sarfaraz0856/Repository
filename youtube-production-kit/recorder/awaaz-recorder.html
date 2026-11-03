@@ -1,0 +1,227 @@
+<title>Awaaz Recorder</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;800&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one narrow studio column — teleprompter first, upload second, tips last. */
+:root{
+  --bg:#f4f4f7; --surface:#ffffff; --fg:#17161c; --muted:#5d5b66; --line:#e2e1e8;
+  --rec:#e5143a; --rec-soft:#fde8ec; --ok:#12804a; --ok-soft:#e3f5ea; --warn:#8a5a00; --warn-soft:#fdf3dc;
+  --display:"Mukta","Noto Sans Devanagari",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111015; --surface:#1b1a21; --fg:#f2f1f6; --muted:#a3a1ae; --line:#2d2b36;
+  --rec:#ff4a64; --rec-soft:#3a1720; --ok:#4cd28a; --ok-soft:#14301f; --warn:#f0bf5a; --warn-soft:#33270c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111015; --surface:#1b1a21; --fg:#f2f1f6; --muted:#a3a1ae; --line:#2d2b36;
+  --rec:#ff4a64; --rec-soft:#3a1720; --ok:#4cd28a; --ok-soft:#14301f; --warn:#f0bf5a; --warn-soft:#33270c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--display);font-size:17px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 48px}
+.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+header{display:flex;flex-direction:column;gap:6px}
+.eyebrow{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--rec)}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--rec);box-shadow:0 0 0 4px var(--rec-soft)}
+h1{font-size:clamp(28px,6vw,40px);line-height:1.15;font-weight:800;margin:0;text-wrap:balance}
+.lead{color:var(--muted);margin:0;max-width:60ch}
+section{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+h2{font-size:20px;margin:0;font-weight:800;display:flex;align-items:center;gap:10px}
+.step{font-family:var(--mono);font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:1px 7px}
+/* teleprompter */
+.prompter{position:relative;border-radius:12px;background:var(--bg);padding:22px 18px;min-height:190px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.now{font-size:clamp(22px,4.6vw,30px);font-weight:600;line-height:1.5;text-wrap:pretty}
+.next{color:var(--muted);font-size:16px}
+.next b{font-weight:600}
+.count{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:84px;font-weight:800;color:var(--rec);background:var(--bg);border-radius:12px}
+.meter{display:flex;align-items:center;gap:12px}
+.bar{flex:1;height:6px;border-radius:3px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--rec)}
+.time{font-family:var(--mono);font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+button,.pick{font:inherit;font-size:16px;font-weight:600;border-radius:10px;padding:10px 18px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+button.primary{background:var(--rec);border-color:var(--rec);color:#fff}
+button:disabled{opacity:.45;cursor:not-allowed}
+button:focus-visible,.pick:focus-within{outline:3px solid var(--rec);outline-offset:2px}
+ol.lines{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:2px}
+ol.lines li{display:grid;grid-template-columns:3.4em 1fr;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer}
+ol.lines li .t{font-family:var(--mono);font-size:13px;color:var(--muted);padding-top:3px;font-variant-numeric:tabular-nums}
+ol.lines li.on{background:var(--rec-soft)}
+ol.lines li.on .t{color:var(--rec)}
+/* upload */
+.pick input{position:absolute;width:1px;height:1px;opacity:0}
+.pick{position:relative}
+.file{font-size:15px;color:var(--muted);min-width:0;overflow-wrap:anywhere}
+.status{border-radius:10px;padding:10px 14px;font-size:15px}
+.status.info{background:var(--bg)}
+.status.ok{background:var(--ok-soft);color:var(--ok)}
+.status.err{background:var(--rec-soft);color:var(--rec)}
+.status.warn{background:var(--warn-soft);color:var(--warn)}
+.sent{display:flex;flex-direction:column;gap:10px}
+.item{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:10px}
+.item .meta{font-size:14px;color:var(--muted);font-family:var(--mono)}
+audio{width:100%;max-width:100%}
+.empty{color:var(--muted);font-size:15px}
+ul.tips{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px;color:var(--fg)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow"><span class="dot"></span>AdSense वीडियो · आपकी आवाज़</div>
+    <h1>अपनी आवाज़ रिकॉर्ड करके भेजिए</h1>
+    <p class="lead">नीचे की lines अपनी आवाज़ में पढ़िए, फ़ोन के voice recorder या कैमरे से रिकॉर्ड कीजिए, और फ़ाइल यहीं भेज दीजिए। आपकी रिकॉर्डिंग सीधे वीडियो में लग जाएगी।</p>
+  </header>
+
+  <section aria-labelledby="h-prompt">
+    <h2 id="h-prompt"><span class="step">1</span>Teleprompter: ये lines पढ़िए</h2>
+    <div class="prompter" aria-live="polite">
+      <div class="now" id="now"></div>
+      <div class="next" id="next"></div>
+      <div class="count" id="count" hidden>3</div>
+    </div>
+    <div class="meter"><div class="bar"><i id="bar"></i></div><span class="time" id="time">0:00 / 1:07</span></div>
+    <div class="row">
+      <button class="primary" id="start">▶ पढ़ना शुरू करें</button>
+      <button id="pause" disabled>❚❚ रोकें</button>
+      <button id="prev">← पिछली</button>
+      <button id="nextb">अगली →</button>
+    </div>
+    <p class="lead" style="font-size:15px">पहले फ़ोन में रिकॉर्डिंग चालू कीजिए, फिर "पढ़ना शुरू करें" दबाइए। 3-2-1 के बाद lines वीडियो की timing पर अपने आप बदलेंगी। किसी line पर टैप करके वहाँ से भी शुरू कर सकते हैं।</p>
+    <ol class="lines" id="lines"></ol>
+  </section>
+
+  <section aria-labelledby="h-up">
+    <h2 id="h-up"><span class="step">2</span>रिकॉर्डिंग यहाँ भेजिए</h2>
+    <div class="row" style="align-items:center">
+      <label class="pick" for="file">🎙️ रिकॉर्डिंग चुनें<input type="file" id="file" accept="audio/*,video/*"></label>
+      <span class="file" id="fname">कोई फ़ाइल नहीं चुनी</span>
+    </div>
+    <div class="row"><button class="primary" id="send" disabled>भेजें</button></div>
+    <div class="status info" id="status">m4a, mp3, wav, ogg या फ़ोन से बना वीडियो, कोई भी फ़ाइल चलेगी।</div>
+    <h2 style="font-size:17px">भेजी गई रिकॉर्डिंग</h2>
+    <div class="sent" id="sent"><p class="empty" id="empty">अभी कोई रिकॉर्डिंग नहीं भेजी गई। भेजते ही यहाँ दिखेगी, और आप सुनकर check कर सकेंगे।</p></div>
+  </section>
+
+  <section aria-labelledby="h-tips">
+    <h2 id="h-tips"><span class="step">3</span>अच्छी रिकॉर्डिंग के लिए</h2>
+    <ul class="tips">
+      <li>शांत कमरे में रिकॉर्ड कीजिए। पंखा और AC बंद रखिए।</li>
+      <li>फ़ोन मुँह से करीब एक हाथ की दूरी पर, थोड़ा नीचे रखिए।</li>
+      <li>हर line के बाद 1 सेकंड रुकिए, ताकि मैं हर line सही जगह बैठा सकूँ।</li>
+      <li>गलती हो जाए तो वही line दोबारा बोल दीजिए। मैं सही वाली रख लूँगा।</li>
+      <li>आराम से, अपने natural अंदाज़ में बोलिए, जैसे किसी दोस्त को समझा रहे हों।</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+const LINES=[{"a":0.6,"b":10.3,"t":"यूट्यूब की कमाई पहले गूगल ऐडसेंस अकाउंट में आती है, फिर आपके बैंक में। और ऐडसेंस बनाने का सबसे आसान तरीका है — कंप्यूटर।"},{"a":10.3,"b":19.5,"t":"ब्राउज़र में यूट्यूब स्टूडियो खोलिए, और बाईं तरफ़ 'अर्न' पर क्लिक कीजिए। ऐडसेंस हमेशा यहीं से बनाइए, किसी बाहरी लिंक से नहीं।"},{"a":19.5,"b":27.4,"t":"चैनल एलिजिबल होते ही यहाँ 'साइन अप फ़ॉर ऐडसेंस' का स्टेप आता है। 'स्टार्ट' पर क्लिक कीजिए।"},{"a":27.4,"b":34.4,"t":"अपना गूगल अकाउंट चुनिए। याद रखिए — एक नाम पर सिर्फ़ एक ही ऐडसेंस अकाउंट बनता है।"},{"a":34.4,"b":42.5,"t":"चैनल अपने आप भरा होता है। देश में 'इंडिया' चुनिए, टर्म्स पर टिक कीजिए, और 'कंटिन्यू' पर क्लिक कीजिए।"},{"a":42.5,"b":49.4,"t":"अब नाम — बिल्कुल वैसा लिखिए, जैसा बैंक अकाउंट में है। वरना पेमेंट अटक सकता है।"},{"a":49.4,"b":57.5,"t":"पता और पिन कोड सही डालिए — गूगल इसी पते पर छह अंकों का पिन डाक से भेजता है।"},{"a":57.5,"b":66.2,"t":"बस! ऐडसेंस लिंक हो गया, अब यूट्यूब आपका चैनल रिव्यू करेगा। पिन और बैंक सेटअप — फ़ुल वीडियो में बताऊँगा।"}];
+const TOTAL=67.4, $=id=>document.getElementById(id);
+const fmt=s=>{s=Math.max(0,Math.floor(s));return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")};
+$("lines").innerHTML=LINES.map((l,i)=>`<li data-i="${i}"><span class="t">${fmt(l.a)}</span><span></span></li>`).join("");
+[...$("lines").children].forEach((li,i)=>{li.lastElementChild.textContent=LINES[i].t;});
+
+/* ---------- teleprompter ---------- */
+let pos=0, running=false, startedAt=0, raf=0, wake=null, countTimer=0;
+const idxAt=t=>{let k=0;for(let i=0;i<LINES.length;i++) if(t>=LINES[i].a-0.3) k=i; return k;};
+function show(t){
+  const i=idxAt(t);
+  $("now").textContent=LINES[i].t;
+  $("next").innerHTML=i+1<LINES.length?"<b>अगली:</b> ":"";
+  if(i+1<LINES.length) $("next").append(LINES[i+1].t); else $("next").textContent="आख़िरी line। इसके बाद रिकॉर्डिंग बंद कर दीजिए।";
+  [...$("lines").children].forEach((li,k)=>li.classList.toggle("on",k===i));
+  $("bar").style.width=Math.min(100,t/TOTAL*100)+"%";
+  $("time").textContent=fmt(t)+" / "+fmt(TOTAL);
+}
+function tick(){ pos=(performance.now()-startedAt)/1000; if(pos>=TOTAL){pos=TOTAL;stop();} show(pos); if(running) raf=requestAnimationFrame(tick); }
+async function holdScreen(){ try{ wake=await navigator.wakeLock?.request("screen"); }catch(e){ wake=null; } }
+function play(){ running=true; startedAt=performance.now()-pos*1000; $("pause").disabled=false; $("start").disabled=true; holdScreen(); raf=requestAnimationFrame(tick); }
+function stop(){ running=false; cancelAnimationFrame(raf); $("pause").disabled=true; $("start").disabled=false; $("start").textContent=pos>=TOTAL?"↺ फिर से शुरू करें":"▶ आगे पढ़ें"; try{wake?.release();}catch(e){} wake=null; }
+function countdown(then){
+  clearInterval(countTimer); let n=3; $("count").hidden=false; $("count").textContent=n;
+  countTimer=setInterval(()=>{ n--; if(n<=0){ clearInterval(countTimer); $("count").hidden=true; then(); } else $("count").textContent=n; },800);
+}
+$("start").onclick=()=>{ if(pos>=TOTAL) pos=0; countdown(play); };
+$("pause").onclick=()=>stop();
+const jump=i=>{ const was=running; stop(); pos=Math.max(0,LINES[i].a-0.2); show(pos); if(was) play(); };
+$("prev").onclick=()=>jump(Math.max(0,idxAt(pos)-1));
+$("nextb").onclick=()=>jump(Math.min(LINES.length-1,idxAt(pos)+1));
+$("lines").addEventListener("click",e=>{const li=e.target.closest("li"); if(li) jump(+li.dataset.i);});
+show(0);
+
+/* ---------- upload ---------- */
+let assets=null, db=null, user=null, chosen=null;
+const say=(cls,msg)=>{ $("status").className="status "+cls; $("status").textContent=msg; };
+const MB=n=>(n/1048576).toFixed(1)+" MB";
+$("file").addEventListener("change",()=>{
+  chosen=$("file").files[0]||null;
+  $("fname").textContent=chosen?`${chosen.name} · ${MB(chosen.size)}`:"कोई फ़ाइल नहीं चुनी";
+  $("send").disabled=!chosen||!assets;
+  if(chosen&&!assets) say("warn","इस पेज पर फ़ाइल भेजने की अनुमति नहीं मिली। पेज के मालिक (Editor/Owner) के खाते से खोलिए।");
+});
+const MP4=["m4a","mp4","3gp","3g2","mov"], WEBM=["webm"];
+async function toWebm(file){
+  if(!window.MediaRecorder) throw new Error("convert");
+  const ctx=new (window.AudioContext||window.webkitAudioContext)();
+  const buf=await ctx.decodeAudioData(await file.arrayBuffer());
+  const dest=ctx.createMediaStreamDestination(), src=ctx.createBufferSource(); src.buffer=buf; src.connect(dest);
+  const mime=MediaRecorder.isTypeSupported("audio/webm;codecs=opus")?"audio/webm;codecs=opus":"audio/webm";
+  const rec=new MediaRecorder(dest.stream,{mimeType:mime,audioBitsPerSecond:96000}), parts=[];
+  rec.ondataavailable=e=>{ if(e.data.size) parts.push(e.data); };
+  const done=new Promise(r=>rec.onstop=r);
+  rec.start(1000); src.start(); const t0=ctx.currentTime;
+  const iv=setInterval(()=>say("info",`फ़ाइल तैयार हो रही है… ${Math.min(99,Math.round((ctx.currentTime-t0)/buf.duration*100))}%  (जितनी लंबी रिकॉर्डिंग, उतना समय लगेगा)`),500);
+  await new Promise(r=>src.onended=r); rec.stop(); await done; clearInterval(iv); ctx.close();
+  return {blob:new Blob(parts,{type:"video/webm"}),type:"video/webm",dur:buf.duration};
+}
+async function prepare(f){
+  const ext=(f.name.split(".").pop()||"").toLowerCase(), small=f.size<=19.5*1048576;
+  if(small&&(MP4.includes(ext)||/^(audio|video)\/(mp4|x-m4a|m4a|3gpp2?|quicktime)$/.test(f.type))) return {blob:f,type:"video/mp4",dur:null};
+  if(small&&(WEBM.includes(ext)||/^(audio|video)\/webm$/.test(f.type))) return {blob:f,type:"video/webm",dur:null};
+  return toWebm(f);
+}
+$("send").onclick=async()=>{
+  if(!chosen||!assets) return;
+  $("send").disabled=true;
+  try{
+    say("info","फ़ाइल तैयार हो रही है…");
+    const p=await prepare(chosen);
+    say("info","भेज रहे हैं…");
+    const up=await assets.upload(p.blob,{type:p.type});
+    if(db){ let uid=null; try{uid=user?await user.id():null;}catch(e){}
+      await db.collection("recordings").add({assetId:up.id,fileName:chosen.name,contentType:up.contentType,sizeBytes:up.sizeBytes,
+        durationSec:p.dur?Math.round(p.dur):null,converted:p.type==="video/webm"&&!/webm$/i.test(chosen.name),createdAt:new Date().toISOString(),uploader:uid}); }
+    say("ok","✓ रिकॉर्डिंग मिल गई! अब Claude को chat में बताइए कि रिकॉर्डिंग भेज दी है। आपकी आवाज़ में वीडियो बन जाएगा।");
+    if(!db) addItem({assetId:up.id,fileName:chosen.name,sizeBytes:up.sizeBytes,createdAt:new Date().toISOString()},up.url);
+  }catch(e){
+    const c=e&&e.code, m=e&&e.message;
+    if(m==="convert"||e instanceof DOMException||e?.name==="EncodingError") say("err","यह फ़ाइल यहाँ नहीं खुल पाई। फ़ोन के voice recorder में m4a चुनकर दोबारा रिकॉर्ड कीजिए, या कैमरे से वीडियो बनाकर भेजिए।");
+    else if(c==="too_large") say("err","फ़ाइल 20 MB से बड़ी है। छोटी रिकॉर्डिंग भेजिए, या सिर्फ़ ऑडियो रिकॉर्ड कीजिए।");
+    else if(c==="rate_limited"||c==="store_unavailable") say("warn","अभी भेज नहीं पाए। थोड़ी देर बाद फिर से 'भेजें' दबाइए।");
+    else if(c==="not_granted"||c==="capability_disabled") say("warn","इस पेज पर फ़ाइल भेजने की अनुमति नहीं है। पेज के मालिक के खाते से खोलिए।");
+    else say("err","भेजने में दिक्कत आई ("+(c||"error")+")। दोबारा कोशिश कीजिए।");
+  }finally{ $("send").disabled=!chosen||!assets; }
+};
+function addItem(r,url){
+  $("empty").hidden=true;
+  const d=document.createElement("div"); d.className="item";
+  const m=document.createElement("div"); m.className="meta";
+  m.textContent=`${r.fileName||"recording"} · ${MB(r.sizeBytes||0)} · ${new Date(r.createdAt).toLocaleString("hi-IN",{dateStyle:"medium",timeStyle:"short"})}`;
+  const a=document.createElement("audio"); a.controls=true; a.preload="metadata"; a.src=url||("/_blob/"+r.assetId);
+  d.append(m,a); $("sent").append(d);
+}
+(async()=>{
+  const [a,d,u]=await Promise.all([claude.use("assets"),claude.use("db"),claude.use("user")]);
+  assets=a; db=d; user=u;
+  if(!assets){ say("warn","यहाँ से फ़ाइल सिर्फ़ इस पेज के मालिक भेज सकते हैं। आप अपने खाते से खुले पेज पर फ़ाइल भेजिए।"); }
+  $("send").disabled=!chosen||!assets;
+  if(!db) return;
+  let warned=setTimeout(()=>{ $("empty").textContent="भेजी गई रिकॉर्डिंग की सूची अभी लोड नहीं हो पाई। थोड़ी देर में अपने आप दिखेगी।"; },10000);
+  db.collection("recordings").orderBy("createdAt","desc").limit(20).onSnapshot(snap=>{
+    if(!snap.metadata?.fromCache){ clearTimeout(warned); }
+    [...$("sent").querySelectorAll(".item")].forEach(x=>x.remove());
+    if(snap.empty){ $("empty").hidden=false; $("empty").textContent="अभी कोई रिकॉर्डिंग नहीं भेजी गई। भेजते ही यहाँ दिखेगी, और आप सुनकर check कर सकेंगे।"; return; }
+    snap.docs.forEach(doc=>{ const r=doc.data?doc.data():doc.data; if(r&&r.assetId) addItem(r); });
+  },err=>{ clearTimeout(warned); $("empty").textContent="सूची लोड नहीं हो पाई, लेकिन फ़ाइल भेजना फिर भी काम करेगा।"; });
+})();
+</script>
