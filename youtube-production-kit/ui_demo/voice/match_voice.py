@@ -18,6 +18,7 @@ r, rsr = sf.read(ref, dtype="float32"); r = r if r.ndim == 1 else r.mean(1)
 E = emb(to16k(r, rsr))
 kd = os.environ["KOKORO_DIR"]; k = Kokoro(os.path.join(kd, "kokoro-v1.0.int8.onnx"), os.path.join(kd, "voices-v1.0.bin"))
 V = dict(np.load(os.path.join(kd, "voices-v1.0.bin")))
+if os.environ.get("ONLY") == "male": V = {n: v for n, v in V.items() if len(n) > 1 and n[1] == "m"}
 TXT = "नमस्ते दोस्तों, आज मैं आपको एक बहुत काम की बात बताने वाला हूँ। इसे ध्यान से सुनिए, क्योंकि ये आपके चैनल के लिए बहुत ज़रूरी है।"
 def synth(style, shift=0.0):
     a, sr = k.create(TXT, voice=style, speed=1.0, lang="hi")
@@ -41,7 +42,7 @@ for it in range(70):
 style = sum(wi * V[n] for wi, n in zip(best_w, top)).astype(np.float32)
 # 3) pitch
 pbest, pshift = best, 0.0
-for sh in [-3, -2, -1, 1, 2, 3]:
+for sh in [-3, -2.5, -2, -1.5, -1, -0.5, 0.5, 1, 2]:
     s = score(style, sh)
     if s > pbest: pbest, pshift = s, float(sh)
 print(f"pitch {pshift:+} st -> {pbest:.3f}", flush=True)

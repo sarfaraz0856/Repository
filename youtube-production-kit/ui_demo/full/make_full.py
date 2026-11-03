@@ -8,7 +8,8 @@ import numpy as np, soundfile as sf
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "..", "..", "video_build", os.environ.get("OUT_SUB", "full")); os.makedirs(OUT, exist_ok=True)
 FIRST_SCREEN = os.environ.get("FIRST_SCREEN", "home")
-SR = 48000; SPEED = 1.15; VOICE = "hm_omega"; SHIFT = int(os.environ.get("SHIFT", "18"))   # status-bar shift used by the phone stage
+SR = 48000; SPEED = 1.15; VOICE = os.environ.get("VOICE", "hm_omega"); SHIFT = int(os.environ.get("SHIFT", "18"))
+PITCH = float(os.environ.get("PITCH", "0"))   # semitones applied to the voice (keeps duration)   # status-bar shift used by the phone stage
 
 # ---------------- helpers for the script ----------------
 def O(x):  # offset: number = seconds from beat start, "e+0.4" = from end of voice line
@@ -347,16 +348,19 @@ def main():
     from kokoro_onnx import Kokoro
     kd = os.environ["KOKORO_DIR"]
     k = Kokoro(os.path.join(kd, "kokoro-v1.0.int8.onnx"), os.path.join(kd, "voices-v1.0.bin"))
+    STYLE = np.load(os.environ["VOICE_NPY"]).astype(np.float32) if os.environ.get("VOICE_NPY") else None
     import hashlib
     cache = os.path.join(OUT, "tts_cache"); os.makedirs(cache, exist_ok=True)
     def tts(text):
-        cf = os.path.join(cache, hashlib.md5(f"{VOICE}|{SPEED}|{text}".encode()).hexdigest() + ".npy")
+        cf = os.path.join(cache, hashlib.md5(f"{VOICE}|{SPEED}|{PITCH}|{text}".encode()).hexdigest() + ".npy")
         if os.path.exists(cf): return np.load(cf)
         b = _tts(text); np.save(cf, b); return b
     def _tts(text):
-        a, sr = k.create(text, voice=VOICE, speed=SPEED, lang="hi")
+        a, sr = k.create(text, voice=STYLE if STYLE is not None else VOICE, speed=SPEED, lang="hi")
         raw, out = os.path.join(OUT, "_in.wav"), os.path.join(OUT, "_out.wav")
-        sf.write(raw, a, sr); subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", raw, "-ar", str(SR), "-ac", "1", out], check=True)
+        sf.write(raw, a, sr)
+        af = ["-af", f"asetrate={int(sr * 2 ** (PITCH / 12))},aresample={sr},atempo={1 / 2 ** (PITCH / 12):.5f}"] if PITCH else []
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", raw, *af, "-ar", str(SR), "-ac", "1", out], check=True)
         b, _ = sf.read(out, dtype="float32")
         # trim leading/trailing near-silence
         nz = np.where(np.abs(b) > 0.01)[0]
