@@ -1,6 +1,8 @@
 # CHERNOBYL — 26 April 1986 (cinematic documentary short)
 
-> **The finished film:** [`Chernobyl_1986_Full_Film.mp4`](Chernobyl_1986_Full_Film.mp4), 13:00, 1280×720. It ends with closing cards, **THE END** and the credits.
+> **With Hindi narration (final cut):** [`Chernobyl_1986_Hindi_Narrated_Film.mp4`](Chernobyl_1986_Hindi_Narrated_Film.mp4), 10:50, 1280×720. This is the whole film at 1.2x speed with Hindi narration in the director's cloned voice. The 1080p version is split in two: [`Part A`](Chernobyl_1986_Hindi_Narrated_Part_A_1080p.mp4) (0:00–5:50) and [`Part B`](Chernobyl_1986_Hindi_Narrated_Part_B_1080p.mp4) (5:50–10:50). See `source/voiceover/full_film/`.
+>
+> **The finished film without narration:** [`Chernobyl_1986_Full_Film.mp4`](Chernobyl_1986_Full_Film.mp4), 13:00, 1280×720. It ends with closing cards, **THE END** and the credits.
 >
 > For full 1080p quality, the same film is also split in two, because GitHub limits files to 100 MB:
 > - [`Chernobyl_1986_Full_Film_Part_A_1080p.mp4`](Chernobyl_1986_Full_Film_Part_A_1080p.mp4): chapters I–VII, 0:00–7:00
