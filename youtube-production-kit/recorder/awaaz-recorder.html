@@ -133,8 +133,17 @@ function pickMime(){ const c=["audio/webm;codecs=opus","audio/webm","audio/mp4",
 async function startRec(){
   say("","");
   if(!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder){ return micBlocked("no_api"); }
-  try{ stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true}}); }
-  catch(e){ return micBlocked(e?.name||"denied"); }
+  logAttempt("mic_click",{});
+  say("info","Microphone शुरू हो रहा है… अगर फ़ोन अनुमति माँगे तो \"Allow\" दबाइए।");
+  let timedOut=false;
+  const ask=navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true}});
+  try{
+    stream=await Promise.race([ask, new Promise((_,rej)=>setTimeout(()=>{ timedOut=true; rej({name:"timeout"}); },5000))]);
+  }catch(e){
+    if(timedOut) ask.then(st=>st.getTracks().forEach(t=>t.stop())).catch(()=>{});
+    return micBlocked(e?.name||"denied");
+  }
+  say("","");
   mime=pickMime(); parts=[];
   try{ rec=mime?new MediaRecorder(stream,{mimeType:mime,audioBitsPerSecond:128000}):new MediaRecorder(stream); }catch(e){ stream.getTracks().forEach(t=>t.stop()); return micBlocked("recorder"); }
   rec.ondataavailable=e=>{ if(e.data&&e.data.size) parts.push(e.data); };
