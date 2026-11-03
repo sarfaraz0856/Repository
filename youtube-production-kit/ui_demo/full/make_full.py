@@ -399,7 +399,7 @@ def main():
             elif kind == "conf": TL["confetti"].append(round(at, 3))
             elif kind == "sfx": sfx_ev.append((at, a[2]))
         bend = end + bt["pad"]
-        TL["caps"].append([round(t, 2), round(bend, 2), bt["cap"]])
+        TL["caps"].append([round(t, 2), round(bend, 2), bt["vo"] if os.environ.get("CAP_HI") else bt["cap"]])
         voice_clips.append((vs, clip))
         t = bend
     D = round(t + 1.2, 2); TL["duration"] = D
@@ -451,7 +451,7 @@ def main():
     ker = np.ones(int(.3 * SR)) / int(.3 * SR); vm = np.convolve(vmask, ker, mode="same")
     music *= (1 - .7 * np.clip(vm, 0, 1)).astype(np.float32)
     ta = np.arange(N) / SR; music *= (np.minimum(1, ta / 1.5) * np.minimum(1, (D - ta) / 2.0)).astype(np.float32)
-    mix = voice + sfx * .85 + music * .5; mix = mix / (np.abs(mix).max() + 1e-9) * .95
+    mix = (0 if os.environ.get("NOVOICE") else voice) + sfx * .85 + music * .5; mix = mix / (np.abs(mix).max() + 1e-9) * .95
     raw = os.path.join(OUT, "mix_raw.wav"); sf.write(raw, np.stack([mix, mix], 1), SR)
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", raw, "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-ar", str(SR), os.path.join(OUT, "mix.wav")], check=True)
     print(json.dumps({"duration": D, "mmss": f"{int(D//60)}:{int(D%60):02d}", "beats": len(BEATS), "chapters": TL["chapters"]}, ensure_ascii=False, indent=1))
