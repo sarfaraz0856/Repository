@@ -6,6 +6,7 @@ This folder holds the following files:
 - [`Chernobyl-YouTube-Notes.txt`](Chernobyl-YouTube-Notes.txt): the upload settings and tips.
 - [`Chernobyl-Narration-Script-Hindi.txt`](Chernobyl-Narration-Script-Hindi.txt): the full Hindi narration, with timings.
 - [`Chernobyl-Hindi-Subtitles.srt`](Chernobyl-Hindi-Subtitles.srt): Hindi subtitles timed to the final film.
+- [`Chernobyl-English-Subtitles.srt`](Chernobyl-English-Subtitles.srt): English subtitles, with the same timings.
 
 | What | File |
 |---|---|

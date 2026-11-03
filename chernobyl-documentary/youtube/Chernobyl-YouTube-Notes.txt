@@ -2,7 +2,8 @@ CHERNOBYL – UPLOAD NOTES
 ========================
 
 Title, tags, description और pinned comment: file 1_Chernobyl-YouTube-Text.txt में हैं।
-Subtitles: 6_Chernobyl-Hindi-Subtitles.srt (YouTube Studio > Subtitles > Add language: Hindi > Upload file > With timing)।
+Subtitles: 6_Chernobyl-Hindi-Subtitles.srt (Hindi) और 7_Chernobyl-English-Subtitles.srt (English)।
+YouTube Studio > Subtitles > Add language > Upload file > With timing।
 
 FILES
 -----
@@ -13,6 +14,7 @@ Thumbnail C (Ferris wheel, "40 YEARS LATER"):     3C_Chernobyl-Thumbnail-C.jpg
 Title, tags, description, pinned comment:          1_Chernobyl-YouTube-Text.txt
 Full Hindi narration script with timings:          5_Chernobyl-Narration-Script-Hindi.txt
 Hindi subtitles for YouTube:                       6_Chernobyl-Hindi-Subtitles.srt
+English subtitles for YouTube:                     7_Chernobyl-English-Subtitles.srt
 
 
 UPLOAD SETTINGS (YouTube Studio)
@@ -24,7 +26,9 @@ UPLOAD SETTINGS (YouTube Studio)
 5. Altered or synthetic content: choose YES (CGI visuals and an AI-cloned voice). This is YouTube's rule and protects the channel. It does not reduce reach.
 6. Video language: Hindi.   Title and description language: English.
 7. Category: Education.
-8. Subtitles: upload 6_Chernobyl-Hindi-Subtitles.srt as Hindi subtitles ("With timing"). Subtitles help search.
+8. Subtitles: Subtitles > Add language > Hindi > Upload file > "With timing" > 6_Chernobyl-Hindi-Subtitles.srt.
+   Then Add language > English > Upload file > "With timing" > 7_Chernobyl-English-Subtitles.srt.
+   Subtitles help search, and English subtitles let viewers outside India follow the video too.
 9. Chapters: they come from the timestamps in the description. Keep "Allow automatic chapters" on.
 10. End screen: use the last 10-20 seconds (over THE END): one Subscribe element and one video or playlist.
 11. Visibility: Public, or Schedule for a time when your audience is online (YouTube Studio > Analytics > Audience shows it).
