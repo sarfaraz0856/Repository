@@ -6,7 +6,8 @@ import os, json, subprocess
 import numpy as np, soundfile as sf
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "..", "..", "video_build", "full"); os.makedirs(OUT, exist_ok=True)
+OUT = os.path.join(HERE, "..", "..", "video_build", os.environ.get("OUT_SUB", "full")); os.makedirs(OUT, exist_ok=True)
+FIRST_SCREEN = os.environ.get("FIRST_SCREEN", "home")
 SR = 48000; SPEED = 1.15; VOICE = "hm_omega"; SHIFT = 18   # status-bar shift used by the stage
 
 # ---------------- helpers for the script ----------------
@@ -402,10 +403,10 @@ def main():
         voice_clips.append((vs, clip))
         t = bend
     D = round(t + 1.2, 2); TL["duration"] = D
-    TL["screens"].insert(0, [0, "home"]); TL["screens"].sort(key=lambda x: x[0])
+    TL["screens"].insert(0, [0, FIRST_SCREEN]); TL["screens"].sort(key=lambda x: x[0])
     for key in ("taps", "hls", "sets"): TL[key].sort(key=lambda x: x[0])
     TL["types"].sort(key=lambda x: x["a"]); TL["zooms"].sort(key=lambda x: x["a"])
-    open(os.path.join(HERE, "timeline.js"), "w", encoding="utf-8").write("window.TL=" + json.dumps(TL, ensure_ascii=False) + ";")
+    open(os.path.join(HERE, os.environ.get("TL_NAME", "timeline.js")), "w", encoding="utf-8").write("window.TL=" + json.dumps(TL, ensure_ascii=False) + ";")
     json.dump(TL["chapters"], open(os.path.join(OUT, "chapters.json"), "w"), ensure_ascii=False, indent=1)
 
     # ---------- audio ----------

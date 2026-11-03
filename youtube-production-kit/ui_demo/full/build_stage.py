@@ -176,6 +176,49 @@ new_screens = f'''
   {TOPB("Your videos")}
   <div class="uprow"><div class="upth">▶</div><div class="upinfo"><b>Mobile Se YouTube Channel Kaise Banaye 2026</b><small id="upst">Uploading… 0%</small><div class="pbar"><div id="pfill"></div></div></div></div>
  </div>
+ <!-- STUDIO EARN -->
+ <div class="scr" id="earn" style="background:#f9f9f9">{SB("10:41")}
+  <div class="top tb" style="background:#fff"><span class="back">←</span><span class="tbt">Earn</span><span class="tbr"></span></div>
+  <div class="fcard" style="top:88px;height:132px"><b>YouTube Partner Program</b><span class="ok">✓ You're eligible to apply</span>
+   <p style="font-size:13.5px;color:#0f0f0f;margin-top:10px">✓ 1,000 subscribers<br>✓ 4,000 public watch hours</p></div>
+  <div class="fcard" style="top:236px;height:300px;padding:0">
+   <div class="erow2" style="top:0"><span class="stc ok2">✓</span><div><b>Review Partner Program terms</b><small>Done</small></div></div>
+   <div class="erow2" style="top:84px;height:104px"><span class="stc" id="st2">2</span><div style="max-width:200px"><b>Sign up for AdSense for YouTube</b><small>Link an AdSense account to get paid</small></div><span class="startb" id="startb">Start</span></div>
+   <div class="erow2" style="top:196px;border:none"><span class="stc" id="st3">3</span><div><b>Get reviewed</b><small id="st3s">Complete the steps above first</small></div></div>
+  </div>
+  <div class="toast" id="astoast">✓ AdSense account linked</div>
+ </div>
+
+ <!-- GOOGLE ACCOUNT CHOOSER -->
+ <div class="scr" id="gchoose" style="background:#fff">{SB("10:41")}
+  <div class="gct">Choose an account</div><div class="gcs">to continue to AdSense for YouTube</div>
+  <div class="gcrow" style="top:190px"><span class="aav" style="background:#7b1fa2">R</span><div><b>Rahul Sharma</b><br><small>rahul.sharma•••@gmail.com</small></div></div>
+  <div class="gcrow" style="top:262px"><span class="aav" style="background:#e8eaed;color:#444">+</span><div>Use another account</div></div>
+ </div>
+
+ <!-- ADSENSE SIGN-UP -->
+ <div class="scr" id="as1" style="background:#fff">{SB("10:42")}
+  <div class="top tb asb"><span class="aslogo">AdSense</span><span class="tbt" style="font-size:15px;font-weight:500">for YouTube</span></div>
+  <div class="ash">Let's get started</div>
+  <div class="dfld ro" style="top:140px"><small>Your YouTube channel</small><span>youtube.com/@SmartLearningHindi</span></div>
+  <div class="dfld" style="top:216px" id="fcountry"><small>Country or territory</small><span id="v_country" class="grey">Select</span><i class="dd">▾</i></div>
+  <div class="chk" style="top:300px"><span class="box" id="agreebox"></span><span>I've read and agree to the AdSense for YouTube terms and conditions</span></div>
+  <div class="upb" style="top:400px" id="as1btn">Continue</div>
+ </div>
+
+ <!-- ADSENSE PAYEE INFO -->
+ <div class="scr" id="as2" style="background:#fff">{SB("10:43")}
+  <div class="top tb asb"><span class="aslogo">AdSense</span><span class="tbt" style="font-size:15px;font-weight:500">for YouTube</span></div>
+  <div class="ash" style="top:80px">Payee information</div>
+  <div class="asnote">Enter your name exactly as it appears on your bank account.</div>
+  <div class="dfld ro" style="top:176px"><small>Account type</small><span>Individual</span><i class="dd">▾</i></div>
+  <div class="dfld" style="top:242px" id="f_pname"><small>Name</small><span id="v_pname"></span><span class="caret" id="c_pname"></span><span class="ph" id="ph_pname">Full name</span></div>
+  <div class="dfld" style="top:308px" id="f_paddr"><small>Address</small><span id="v_paddr"></span><span class="caret" id="c_paddr"></span><span class="ph" id="ph_paddr">Street address</span></div>
+  <div class="dfld" style="top:374px" id="f_pcity"><small>City</small><span id="v_pcity"></span><span class="caret" id="c_pcity"></span><span class="ph" id="ph_pcity">City</span></div>
+  <div class="dfld" style="top:440px" id="f_ppin"><small>PIN code</small><span id="v_ppin"></span><span class="caret" id="c_ppin"></span><span class="ph" id="ph_ppin">PIN code</span></div>
+  <div class="upb" style="top:530px" id="as2btn">Submit</div>
+ </div>
+
 '''
 
 extra_css = r'''
@@ -280,6 +323,28 @@ extra_css = r'''
 .bul.neg i{background:#e0002b}
 .bul code{font-family:Consolas,monospace;background:rgba(255,255,255,.7);padding:0 8px;border-radius:6px;font-size:27px}
 #pb{margin-top:10px}
+.erow2{position:absolute;left:0;right:0;height:84px;border-bottom:1px solid #eee;display:flex;align-items:center;gap:14px;padding:0 16px;font-size:14.5px;color:#0f0f0f}
+.erow2 small{display:block;font-size:12.5px;color:#606060;margin-top:2px}
+.stc{width:30px;height:30px;border-radius:50%;border:2px solid #5f6368;color:#202124;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;line-height:1;flex:none;font-family:Inter,"Segoe UI",Arial,sans-serif}
+.fcard .stc{display:flex;margin-top:0}
+.fcard .startb{display:inline-block;margin-top:0}
+.stc.ok2{border-color:#188038;background:#188038;color:#fff}
+.startb{margin-left:auto;background:#065fd4;color:#fff;border-radius:18px;padding:8px 18px;font-size:14px;font-weight:600}
+.startb.done{background:#e6f4ea;color:#188038}
+.gct{position:absolute;left:0;right:0;top:92px;text-align:center;font-size:24px;color:#202124}
+.gcs{position:absolute;left:0;right:0;top:132px;text-align:center;font-size:14px;color:#5f6368}
+.gcrow{position:absolute;left:20px;right:20px;height:60px;border-bottom:1px solid #e8eaed;display:flex;align-items:center;gap:14px;font-size:15px;color:#202124}
+.gcrow small{color:#5f6368;font-size:12.5px}
+.asb{border-bottom:1px solid #eee;gap:8px}
+.aslogo{font-weight:800;font-size:20px;color:#1a73e8;letter-spacing:-.3px}
+.ash{position:absolute;left:20px;top:88px;font-size:22px;font-weight:700;color:#202124}
+.dfld.ro{background:#f6f8fc}
+.dfld .dd{position:absolute;right:14px;top:18px;font-style:normal;color:#5f6368}
+.dfld.focus{border:2px solid #1a73e8}
+.chk{position:absolute;left:20px;right:20px;display:flex;gap:12px;font-size:13.5px;color:#202124;line-height:1.45}
+.chk .box{width:22px;height:22px;border:2px solid #5f6368;border-radius:4px;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:800}
+.chk .box.on{background:#1a73e8;border-color:#1a73e8}
+.asnote{position:absolute;left:16px;right:16px;top:118px;background:#fef7e0;border-radius:8px;padding:9px 12px;font-size:12.5px;color:#5f4300}
 #cap{font-size:31px !important}
 .ptitle{font-size:58px !important}
 .cell.vid{background:linear-gradient(135deg,#b39ddb,#4527a0) !important}.cell.vid>div{display:none}
@@ -302,4 +367,5 @@ html = (v3[:v3.index("<style>")] + "<style>" + style + extra_css + "</style></he
         '<script src="timeline.js"></script>\n<script src="engine.js"></script></body></html>')
 html = html.replace("ui_sample", "full_stage")
 open(os.path.join(HERE, "full_stage.html"), "w", encoding="utf-8").write(html)
+open(os.path.join(HERE, "adsense_stage.html"), "w", encoding="utf-8").write(html.replace('src="timeline.js"', 'src="timeline_adsense.js"'))
 print("full_stage.html written", len(html))

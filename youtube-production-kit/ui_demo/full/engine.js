@@ -45,7 +45,7 @@ $('ch2icons').innerHTML = I.cast + I.search + I.more;
 // ---------- indexes ----------
 const states = {}; TL.sets.forEach(([t, k, v]) => (states[k] = states[k] || []).push([t, v]));
 for (const k in states) states[k].sort((a, b) => a[0] - b[0]);
-const DEF = { acct: 0, hstate: '', cmenu: 0, vis: 0, visSel: 'Public', aud: '', logo: 0, banner: 0, desc: 0, sv: 0,
+const DEF = { as2: 0, agree: 0, country: '', acct: 0, hstate: '', cmenu: 0, vis: 0, visSel: 'Public', aud: '', logo: 0, banner: 0, desc: 0, sv: 0,
   verified: 0, searchRes: 0, galMode: 'photo', loading: 0, focus: '' };
 function S(k, t) { const a = states[k]; if (!a) return DEF[k]; const i = lastIdx(a, t, x => x[0]); return i < 0 ? DEF[k] : a[i][1]; }
 function ST(k, t) { const a = states[k]; if (!a) return null; const i = lastIdx(a, t, x => x[0]); return i < 0 ? null : a[i][0]; }
@@ -137,6 +137,15 @@ window.render = function (t) {
   const au = S('aud', t); $('ar_yes').classList.toggle('sel', au === 'yes'); $('ar_no').classList.toggle('sel', au === 'no');
   const up = TW('upl', t, 0); $('pfill').style.width = (2 * up) + 'px';
   $('upst').textContent = up < 100 ? `Uploading… ${Math.round(up)}%` : (TW('proc', t, 0) < 1 ? 'Processing… (HD will be ready soon)' : '✓ Published · Public');
+  // adsense
+  const a2 = S('as2', t); $('st2').className = 'stc' + (a2 ? ' ok2' : ''); $('st2').textContent = a2 ? '✓' : '2';
+  $('startb').className = 'startb' + (a2 ? ' done' : ''); $('startb').textContent = a2 ? 'Done' : 'Start';
+  $('st3s').textContent = a2 ? 'In review · usually takes about a month' : 'Complete the steps above first';
+  const a2t = ST('as2', t); $('astoast').style.opacity = a2 && a2t !== null ? Math.min(seg(t, a2t, a2t + .3), 1 - seg(t, a2t + 3, a2t + 3.4)) : 0;
+  const cty = S('country', t); $('v_country').textContent = cty || 'Select'; $('v_country').className = cty ? '' : 'grey';
+  const ag = S('agree', t); $('agreebox').className = 'box' + (ag ? ' on' : ''); $('agreebox').textContent = ag ? '✓' : '';
+  $('as1btn').style.background = ag ? '#065fd4' : '#e5e5e5'; $('as1btn').style.color = ag ? '#fff' : '#909090';
+  for (const f of ['pname', 'paddr', 'pcity', 'ppin']) { const v = TV(f, t); $('v_' + f).textContent = v; $('ph_' + f).style.display = v ? 'none' : 'inline'; caret(f); $('f_' + f).classList.toggle('focus', focus === f); }
   // panel
   const pi = lastIdx(TL.panels, t, x => x.t);
   if (pi >= 0) { const P = TL.panels[pi];
