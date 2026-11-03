@@ -8,7 +8,7 @@ import numpy as np, soundfile as sf
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "..", "..", "video_build", os.environ.get("OUT_SUB", "full")); os.makedirs(OUT, exist_ok=True)
 FIRST_SCREEN = os.environ.get("FIRST_SCREEN", "home")
-SR = 48000; SPEED = 1.15; VOICE = "hm_omega"; SHIFT = 18   # status-bar shift used by the stage
+SR = 48000; SPEED = 1.15; VOICE = "hm_omega"; SHIFT = int(os.environ.get("SHIFT", "18"))   # status-bar shift used by the phone stage
 
 # ---------------- helpers for the script ----------------
 def O(x):  # offset: number = seconds from beat start, "e+0.4" = from end of voice line
