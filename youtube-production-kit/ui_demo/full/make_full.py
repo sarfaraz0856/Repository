@@ -402,7 +402,7 @@ def main():
             elif kind == "tw": TL["tweens"].append(dict(k=a[2], a=round(at, 3), b=round(at + a[5], 3), **{"from": a[3]}, to=a[4])); end = max(end, at + a[5])
             elif kind == "conf": TL["confetti"].append(round(at, 3))
             elif kind == "sfx": sfx_ev.append((at, a[2]))
-        bend = end + bt["pad"]
+        bend = end + bt["pad"] + float(os.environ.get("PAD_EXTRA", "0"))
         TL["caps"].append([round(t, 2), round(bend, 2), bt["vo"] if os.environ.get("CAP_HI") else bt["cap"]])
         voice_clips.append((vs, clip))
         t = bend

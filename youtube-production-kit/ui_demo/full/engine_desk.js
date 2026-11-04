@@ -17,11 +17,15 @@ const conf = []; let seed = 7; const rnd = () => { seed = (seed * 9301 + 49297) 
 const ccol = ['#ffd400', '#1fb866', '#ff3b5c', '#4fc3f7', '#ce93d8', '#ff7a00'];
 for (let k = 0; k < 40; k++) { const c = document.createElement('div'); c.className = 'conf'; c.style.background = ccol[k % 6]; $('confw').appendChild(c);
   conf.push({ el: c, x: rnd() * 480, y0: -40 - rnd() * 300, v: 260 + rnd() * 260, rot: rnd() * 360, vr: (rnd() - .5) * 720, sway: rnd() * 40 }); }
-const PAGES = ['studio', 'gacct', 'ads1', 'ads2'];
+const PAGES = [...document.querySelectorAll('.page')].map(p => p.id);
 const URL = { dash: ['studio.youtube.com/channel/UCxx/', 'Channel dashboard - YouTube Studio', ''], earn: ['studio.youtube.com/channel/UCxx/<b>monetization</b>', 'Earn - YouTube Studio', ''],
-  gacct: ['accounts.google.com/<b>v3/signin/accountchooser</b>', 'Sign in - Google Accounts', 'g'], ads1: ['adsense.google.com/<b>adsense/signup</b>', 'AdSense for YouTube', 'g'], ads2: ['adsense.google.com/<b>adsense/signup/payee</b>', 'AdSense for YouTube', 'g'] };
+  gacct: ['accounts.google.com/<b>v3/signin/accountchooser</b>', 'Sign in - Google Accounts', 'g'], ads1: ['adsense.google.com/<b>adsense/signup</b>', 'AdSense for YouTube', 'g'], ads2: ['adsense.google.com/<b>adsense/signup/payee</b>', 'AdSense for YouTube', 'g'],
+  adhome: ['adsense.google.com/adsense/<b>youtube/home</b>', 'Home - AdSense for YouTube', 'g'], adpay: ['adsense.google.com/adsense/<b>youtube/payments</b>', 'Payments - AdSense for YouTube', 'g'],
+  adtax: ['adsense.google.com/adsense/<b>youtube/payments/tax-info</b>', 'Tax info - AdSense for YouTube', 'g'] };
 const clicks = TL.taps.map(([t, x, y]) => ({ t, x, y })).sort((a, b) => a.t - b.t);
 let builtPanel = -1;
+const FIELDS = [...document.querySelectorAll('[id^="v_"]')].map(el => el.id.slice(2)).filter(f => f !== 'country');
+const IFS = [...document.querySelectorAll('[data-if]')], IFNOTS = [...document.querySelectorAll('[data-ifnot]')], ONS = [...document.querySelectorAll('[data-on]')];
 window.render = function (t) {
   const D = TL.duration; $('fade').style.opacity = Math.max(1 - seg(t, 0, .6), seg(t, D - .8, D));
   const pe = ease(seg(t, .3, 1.3)); $('lap').style.opacity = pe; $('lap').style.transform = `translateY(${(1 - pe) * 40}px)`;
@@ -30,7 +34,7 @@ window.render = function (t) {
   for (const id of PAGES) $(id).style.opacity = id === cur ? p : (id === prev && prev !== cur ? 1 - p : 0);
   const stab = S('stab', t); $('dash').style.display = stab === 'dash' ? 'block' : 'none'; $('earnv').style.display = stab === 'earn' ? 'block' : 'none';
   MENU.forEach((m, k) => $('mi' + k).className = 'mi' + ((stab === 'dash' && k === 0) || (stab === 'earn' && k === 6) ? ' on' : ''));
-  const u = URL[cur === 'studio' ? stab : cur]; $('urlt').innerHTML = u[0]; $('tabt').textContent = u[1]; $('fav').className = 'fav' + (u[2] ? ' g' : '');
+  const u = URL[cur === 'studio' ? stab : cur] || URL.dash; $('urlt').innerHTML = u[0]; $('tabt').textContent = u[1]; $('fav').className = 'fav' + (u[2] ? ' g' : '');
   // zoom
   let s = 1, ox = 640, oy = 400;
   for (const z of TL.zooms) { if (t >= z.a && t <= z.a + 1.2 + z.hold) { ox = z.ox; oy = z.oy;
@@ -57,8 +61,11 @@ window.render = function (t) {
   const ag = S('agree', t); $('agreebox').className = 'box' + (ag ? ' on' : ''); $('agreebox').textContent = ag ? '✓' : '';
   $('as1btn').style.background = ag ? '#065fd4' : '#e5e5e5'; $('as1btn').style.color = ag ? '#fff' : '#909090';
   const focus = S('focus', t), blink = Math.floor(t * 2.2) % 2 === 0;
-  for (const f of ['pname', 'paddr', 'pcity', 'ppin']) { const v = TV(f, t); $('v_' + f).textContent = v; $('ph_' + f).style.display = v ? 'none' : 'inline';
-    $('c_' + f).style.display = focus === f && (blink || isTyping(f, t)) ? 'inline-block' : 'none'; $('f_' + f).classList.toggle('focus', focus === f); }
+  for (const f of FIELDS) { const v = TV(f, t); $('v_' + f).textContent = v; const ph = $('ph_' + f); if (ph) ph.style.display = v ? 'none' : 'inline';
+    const c = $('c_' + f); if (c) c.style.display = focus === f && (blink || isTyping(f, t)) ? 'inline-block' : 'none'; const fe = $('f_' + f); if (fe) fe.classList.toggle('focus', focus === f); }
+  for (const el of IFS) { const k = el.dataset.if, [key, val] = k.split('='); const v = S(key, t); el.style.display = (val === undefined ? !!v : String(v) === val) ? '' : 'none'; }
+  for (const el of IFNOTS) el.style.display = S(el.dataset.ifnot, t) ? 'none' : '';
+  for (const el of ONS) { const on = !!S(el.dataset.on, t); el.classList.toggle('on', on); if (el.classList.contains('box')) el.textContent = on ? '✓' : ''; }
   // panel
   const pi = lastIdx(TL.panels, t, x => x.t);
   if (pi >= 0) { const P = TL.panels[pi];
