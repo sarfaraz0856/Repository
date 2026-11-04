@@ -36,10 +36,14 @@ window.render = function (t) {
   MENU.forEach((m, k) => $('mi' + k).className = 'mi' + ((stab === 'dash' && k === 0) || (stab === 'earn' && k === 6) ? ' on' : ''));
   const u = URL[cur === 'studio' ? stab : cur] || URL.dash; $('urlt').innerHTML = u[0]; $('tabt').textContent = u[1]; $('fav').className = 'fav' + (u[2] ? ' g' : '');
   // zoom
-  let s = 1, ox = 640, oy = 400;
+  // camera zoom: ease toward the target, bring it to the centre, never show empty edges
+  let s = 1, ox = 640, oy = 400, zp = 0;
   for (const z of TL.zooms) { if (t >= z.a && t <= z.a + 1.2 + z.hold) { ox = z.ox; oy = z.oy;
-    s = t < z.a + .6 ? 1 + (z.z - 1) * ease(seg(t, z.a, z.a + .6)) : t <= z.a + .6 + z.hold ? z.z : 1 + (z.z - 1) * (1 - ease(seg(t, z.a + .6 + z.hold, z.a + 1.2 + z.hold))); } }
-  $('content').style.transformOrigin = `${ox}px ${oy}px`; $('content').style.transform = `scale(${s})`;
+    zp = t < z.a + .6 ? ease(seg(t, z.a, z.a + .6)) : t <= z.a + .6 + z.hold ? 1 : 1 - ease(seg(t, z.a + .6 + z.hold, z.a + 1.2 + z.hold)); s = 1 + (z.z - 1) * zp; } }
+  const VW = $('scaler').offsetWidth || 1280, VH = $('scaler').offsetHeight || 800;
+  const cl = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+  const tx = cl(ox * (1 - s) * (1 - zp) + (VW / 2 - ox * s) * zp, VW - VW * s, 0), ty = cl(oy * (1 - s) * (1 - zp) + (VH / 2 - oy * s) * zp, VH - VH * s, 0);
+  $('content').style.transformOrigin = '0 0'; $('content').style.transform = `translate(${tx}px,${ty}px) scale(${s})`;
   let ho = 0; for (const [a, x, y, w, h, d] of TL.hls) { if (t >= a && t <= a + d) { ho = Math.min(seg(t, a, a + .25), 1 - seg(t, a + d - .25, a + d)); Object.assign($('hl').style, { left: x + 'px', top: y + 'px', width: w + 'px', height: h + 'px' }); } }
   $('hl').style.opacity = ho * (.75 + .25 * Math.sin(t * 8));
   // cursor: glide to each click target, rest after

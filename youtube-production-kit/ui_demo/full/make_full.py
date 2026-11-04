@@ -406,6 +406,34 @@ def main():
         TL["caps"].append([round(t, 2), round(bend, 2), bt["vo"] if os.environ.get("CAP_HI") else bt["cap"]])
         voice_clips.append((vs, clip))
         t = bend
+    if os.environ.get("AUTOZOOM"):
+        # Zoom in on every highlighted area and every typed field that has no zoom yet, then back out.
+        W, H = float(os.environ.get("VIEW_W", "1280")), float(os.environ.get("VIEW_H", "720"))
+        busy = [(z["a"], z["a"] + 1.2 + z["hold"]) for z in TL["zooms"]]
+        free = lambda a, b: all(b < x - 0.3 or a > y + 0.3 for x, y in busy)
+        cands = []
+        for (a, x, y, w, h, d) in TL["hls"]:
+            z = max(1.2, min(1.9, 0.95 * W / max(w, 1), 0.9 * H / max(h, 1), 0.62 * W / max(w, 1) if w < 300 else 9))
+            if d >= 1.0: cands.append((a - 0.35, x + w / 2, y + h / 2, round(z, 2), max(0.6, d - 0.5)))
+        taps = sorted(TL["taps"])
+        for ty in TL["types"]:
+            near = [tp for tp in taps if 0 <= ty["a"] - tp[0] <= 0.8]
+            if near:
+                _, x, y = near[-1]; cands.append((ty["a"] - 0.5, x, y, 1.55, max(0.8, ty["b"] - ty["a"] + 0.6)))
+        for a, ox, oy, z, hold in sorted(cands):
+            if a > 0.5 and free(a, a + 1.2 + hold):
+                TL["zooms"].append(dict(a=round(a, 3), ox=round(ox, 1), oy=round(oy, 1), z=z, hold=round(hold, 2)))
+                busy.append((a, a + 1.2 + hold)); sfx_ev.append((a, "swish"))
+        # gentle push-in wherever the screen would otherwise sit still for long
+        TL["zooms"].sort(key=lambda z: z["a"]); edges = [0.0] + [e for z in TL["zooms"] for e in (z["a"], z["a"] + 1.2 + z["hold"])] + [t]
+        for i in range(0, len(edges) - 1, 2):
+            g0, g1 = edges[i] + 1.0, edges[i + 1] - 1.0
+            while g1 - g0 >= 7.0:
+                hold = min(5.0, g1 - g0 - 1.2)
+                TL["zooms"].append(dict(a=round(g0, 3), ox=700, oy=330, z=1.1, hold=round(hold, 2))); g0 += 1.2 + hold + 2.5
+        TL["zooms"].sort(key=lambda z: z["a"])
+    if os.environ.get("ZMAX"):
+        for z in TL["zooms"]: z["z"] = min(z["z"], float(os.environ["ZMAX"]))
     D = round(t + 1.2, 2); TL["duration"] = D
     TL["screens"].insert(0, [0, FIRST_SCREEN]); TL["screens"].sort(key=lambda x: x[0])
     for key in ("taps", "hls", "sets"): TL[key].sort(key=lambda x: x[0])
