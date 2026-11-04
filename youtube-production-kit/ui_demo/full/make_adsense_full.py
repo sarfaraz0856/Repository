@@ -36,7 +36,7 @@ B("इसलिए ऐडसेंस को बस एक फ़ॉर्म �
 # ---- Ch2 eligibility ----
 B("अब सवाल — ऐडसेंस कब बनाएँ? जब आपका चैनल यूट्यूब पार्टनर प्रोग्राम, यानी वाई-पी-पी, के लिए एलिजिबल हो जाए। यूट्यूब स्टूडियो में बाईं तरफ़ 'अर्न' पर क्लिक कीजिए।",
   "When should you set up AdSense? Once your channel is eligible for the YouTube Partner Program (YPP). In YouTube Studio, click Earn on the left.",
-  [("zoom", "e-1.6", 120, 670, 1.6, 1.6), ("hl", "e-1.1", 8, 648, 224, 44, 1.2), ("tap", "e-0.2", 120, 670), ("set", "e-0.05", "stab", "earn")],
+  [("zoom", "e-1.6", 120, 594, 1.6, 1.6), ("hl", "e-1.1", 8, 572, 224, 44, 1.2), ("tap", "e-0.2", 120, 594), ("set", "e-0.05", "stab", "earn")],
   panel=P("CHAPTER 2", f"Are you {Y('eligible?')}", "YouTube Partner Program (YPP)"), ch="YPP Eligibility (2026)", pad=1.0)
 B("यहाँ आपको अपने चैनल की प्रोग्रेस दिखती है। अभी के नियमों में पार्टनर प्रोग्राम के दो लेवल हैं।",
   "Here you can see your channel's progress. Under current rules, the Partner Program has two levels.",
@@ -166,13 +166,13 @@ B("यहाँ 'हाउ यू गेट पेड' में 'ऐड पे�
   press(("e", -1.4), 857, 366, z=1.6, box=(757, 346, 200, 40), after=[("set", .1, "bankform", 1)]), pad=1.0)
 B("अकाउंट होल्डर का नाम — वही, जो ऐडसेंस में डाला था। फिर बैंक का नाम, और आई-एफ़-एस-सी कोड, जो आपकी पासबुक या चेकबुक पर लिखा होता है।",
   "Account holder name — the same as in AdSense. Then the bank name and IFSC code, found on your passbook or cheque book.",
-  [("tap", 0.4, 640, 253)] + typ(0.5, "bname", "Rahul Sharma", cps=8) + [("tap", 3.4, 640, 317)] + typ(3.5, "bbank", "State Bank of India", cps=10) +
-  [("tap", 6.4, 640, 381)] + typ(6.5, "bifsc", "SBIN0001234", cps=7), b="Same name as in AdSense")
+  [("tap", 0.4, 640, 203)] + typ(0.5, "bname", "Rahul Sharma", cps=8) + [("tap", 3.4, 640, 265)] + typ(3.5, "bbank", "State Bank of India", cps=10) +
+  [("tap", 6.4, 640, 327)] + typ(6.5, "bifsc", "SBIN0001234", cps=7), b="Same name as in AdSense")
 B("अब अकाउंट नंबर दो बार डालिए, 'सेट ऐज़ प्राइमरी' पर टिक कीजिए, और 'सेव' कर दीजिए।",
   "Enter the account number twice, tick Set as primary, and click Save.",
-  [("tap", 0.3, 640, 445)] + typ(0.4, "bacc", "30012345674321", cps=9) + [("tap", 2.3, 640, 509)] + typ(2.4, "bacc2", "30012345674321", cps=9) +
-  [("set", 4.2, "focus", ""), ("tap", 4.4, 391, 569), ("set", 4.5, "primary", 1)] +
-  press(("e", 0.1), 845, 698, z=1.5, box=(790, 678, 110, 40), after=[("set", .1, "bankform", 0), ("set", .1, "bankok", 1), ("sfx", .2, "ping")]),
+  [("tap", 0.3, 640, 389)] + typ(0.4, "bacc", "30012345674321", cps=9) + [("tap", 2.3, 640, 451)] + typ(2.4, "bacc2", "30012345674321", cps=9) +
+  [("set", 4.2, "focus", ""), ("tap", 4.4, 391, 507), ("set", 4.5, "primary", 1)] +
+  press(("e", 0.1), 845, 602, z=1.5, box=(790, 582, 110, 40), after=[("set", .1, "bankform", 0), ("set", .1, "bankok", 1), ("sfx", .2, "ping")]),
   b="IFSC + account number (twice)", pad=1.2)
 B("ध्यान रखिए — बैंक अकाउंट आपके अपने नाम पर होना चाहिए, वही नाम जो ऐडसेंस में है। किसी और के अकाउंट में पेमेंट मत मँगवाइए।",
   "Remember: the bank account must be in your own name — the same as in AdSense. Never use someone else's account.", b=("Someone else's bank account", True))
@@ -190,12 +190,12 @@ B("अगर ये जानकारी नहीं भरी, तो आप�
 bl(("Not submitted: up to 24% of ALL earnings", True), "Submitted: 15% on US-viewer earnings only", start=1.2, step=5.0)
 B("'ऐड टैक्स इन्फ़ो' पर क्लिक कीजिए। इंडिविजुअल चुनिए, यू-एस पर्सन में 'नो' — और आपका फ़ॉर्म होगा डब्ल्यू-एट-बी-ई-एन।",
   "Click Add tax info. Choose Individual, US person: No — your form is W-8BEN.",
-  [("tap", 0.6, 1173, 310), ("set", 0.8, "taxform", 1), ("tap", 2.6, 970, 404), ("set", 2.7, "t1", 1), ("tap", 4.4, 970, 456), ("set", 4.5, "t2", 1),
-   ("tap", "e-0.2", 970, 508), ("set", "e-0.1", "t3", 1)], b="Form: W-8BEN", pad=1.0)
+  [("tap", 0.6, 1173, 310), ("set", 0.8, "taxform", 1), ("tap", 2.6, 970, 373), ("set", 2.7, "t1", 1), ("tap", 4.4, 970, 419), ("set", 4.5, "t2", 1),
+   ("tap", "e-0.2", 970, 465), ("set", "e-0.1", "t3", 1)], b="Form: W-8BEN", pad=1.0)
 B("टैक्स ट्रीटी में 'इंडिया' और आर्टिकल बारह चुनिए, अपना पैन नंबर डालिए, और अपना नाम लिखकर सबमिट कर दीजिए।",
   "Claim treaty benefits for India, Article 12, enter your PAN, sign with your name and submit.",
-  [("tap", 1.0, 970, 560), ("set", 1.1, "t4", 1), ("tap", 3.0, 970, 612)] + typ(3.1, "pan", "ABCDE1234F", cps=7) + [("tap", 4.8, 970, 664)] + typ(4.9, "tsign", "Rahul Sharma", cps=8) +
-  [("set", 6.6, "focus", "")] + press(("e", 0.3), 1125, 726, z=1.5, box=(1060, 706, 130, 40), after=[("set", .1, "taxform", 0), ("set", .1, "taxok", 1), ("sfx", .2, "chime")]),
+  [("tap", 1.0, 970, 511), ("set", 1.1, "t4", 1), ("tap", 3.0, 970, 557)] + typ(3.1, "pan", "ABCDE1234F", cps=7) + [("tap", 4.8, 900, 603)] + typ(4.9, "tsign", "Rahul Sharma", cps=8) +
+  [("set", 6.6, "focus", "")] + press(("e", 0.3), 1125, 607, z=1.5, box=(1060, 587, 130, 40), after=[("set", .1, "taxform", 0), ("set", .1, "taxok", 1), ("sfx", .2, "chime")]),
   b="India · Article 12 · PAN", pad=1.2)
 B("बस — अब अमेरिका वाली कमाई पर सिर्फ़ पंद्रह प्रतिशत कटेगा। ये टैक्स आप भारत में अपने आई-टी-आर में क्रेडिट के रूप में ले सकते हैं — इसके लिए अपने सी-ए से बात कर लीजिए।",
   "Done — only 15% is now withheld on US earnings. You can claim it as a credit in your Indian tax return — ask your CA.",
