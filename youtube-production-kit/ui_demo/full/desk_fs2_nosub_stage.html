@@ -1,0 +1,278 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+html{--bg:#F7E7CE}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);font-family:Roboto,"Segoe UI",Inter,system-ui,Arial,"Noto Color Emoji",sans-serif}
+#bg{position:absolute;inset:0;background:radial-gradient(circle at 88% 10%,rgba(196,148,40,.20),transparent 40%),radial-gradient(circle at 40% 60%,rgba(201,150,40,.18),transparent 45%),linear-gradient(135deg,color-mix(in srgb,var(--bg) 40%,#fff) 0%,var(--bg) 70%)}
+#dots_bg{position:absolute;inset:0;background-image:radial-gradient(rgba(120,85,20,.09) 1.2px,transparent 1.3px);background-size:28px 28px}
+/* laptop */
+#lap{position:absolute;left:40px;top:34px;width:1292px}
+#lid{width:1292px;height:826px;border-radius:24px 24px 6px 6px;background:#0d0d10;padding:22px 16px 16px;box-shadow:0 0 0 2px #2b2b30,0 30px 70px rgba(40,30,10,.35)}
+#cam{position:absolute;left:646px;top:9px;width:7px;height:7px;margin-left:-3px;border-radius:50%;background:#2c3550}
+#screen{position:relative;width:1260px;height:788px;overflow:hidden;background:#fff;border-radius:3px}
+#scaler{position:absolute;left:0;top:0;width:1280px;height:800px;transform:scale(.984375);transform-origin:0 0}
+#content{position:absolute;inset:0}
+#base{position:relative;left:-60px;width:1412px;height:24px;border-radius:0 0 18px 18px;background:linear-gradient(180deg,#d9d9de,#9a9aa2);box-shadow:0 14px 30px rgba(40,30,10,.25)}
+#base:before{content:"";position:absolute;left:50%;top:0;width:180px;height:9px;margin-left:-90px;border-radius:0 0 10px 10px;background:#8a8a92}
+/* browser chrome */
+.tabs{position:absolute;left:0;right:0;top:0;height:40px;background:#dee3ea;display:flex;align-items:flex-end;padding-left:80px}
+.wbtn{position:absolute;left:16px;top:14px;display:flex;gap:8px}.wbtn i{width:12px;height:12px;border-radius:50%;display:block}
+.tab{height:32px;width:330px;white-space:nowrap;overflow:hidden;background:#fff;border-radius:10px 10px 0 0;display:flex;align-items:center;gap:8px;padding:0 12px;font-size:13px;color:#202124}
+.fav{width:16px;height:12px;border-radius:3px;background:#ff0000;flex:none;position:relative}.fav.g{background:#1a73e8}
+.toolbar{position:absolute;left:0;right:0;top:40px;height:44px;background:#fff;border-bottom:1px solid #e3e3e3;display:flex;align-items:center;gap:16px;padding:0 14px;color:#5f6368;font-size:17px}
+.url{flex:1;height:32px;border-radius:16px;background:#f1f3f4;display:flex;align-items:center;gap:10px;padding:0 16px;font-size:14px;color:#202124}
+.url b{font-weight:400;color:#5f6368}
+.pav{width:28px;height:28px;border-radius:50%;background:#7b1fa2;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.page{position:absolute;left:0;right:0;top:84px;bottom:0;opacity:0;overflow:hidden}
+/* studio */
+.shead{position:absolute;left:0;right:0;top:0;height:56px;border-bottom:1px solid #e5e5e5;display:flex;align-items:center;gap:18px;padding:0 20px;background:#fff}
+.slogo{display:flex;align-items:center;gap:6px;font-weight:700;font-size:20px;color:#0f0f0f;letter-spacing:-.5px}
+.ytl{width:30px;height:21px;border-radius:6px;background:#ff0000;display:inline-flex;align-items:center;justify-content:center}.ytl:after{content:"";border-left:8px solid #fff;border-top:5px solid transparent;border-bottom:5px solid transparent;margin-left:2px}
+.ssearch{margin-left:120px;width:520px;height:40px;border:1px solid #ccc;border-radius:4px;display:flex;align-items:center;padding:0 14px;color:#909090;font-size:14px}
+.createb{margin-left:auto;border:1px solid #ccc;border-radius:4px;padding:7px 14px;font-size:13px;font-weight:600;color:#0f0f0f;letter-spacing:.5px}
+.side{position:absolute;left:0;top:56px;bottom:0;width:240px;border-right:1px solid #e5e5e5;background:#fff}
+.slg{position:absolute;left:84px;top:24px;width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#d31027,#8a0b1c);color:#fff;font-weight:900;font-size:26px;display:flex;align-items:center;justify-content:center}
+.syc{position:absolute;left:0;right:0;top:108px;text-align:center;font-size:13px;color:#0f0f0f;font-weight:500}.syc small{display:block;color:#606060;font-weight:400;font-size:12px;margin-top:2px}
+.mi{position:absolute;left:0;right:0;height:44px;display:flex;align-items:center;gap:22px;padding-left:26px;font-size:15px;color:#0f0f0f}
+.mi i{font-style:normal;width:22px;text-align:center;color:#606060;font-size:17px}
+.mi.on{background:#f2f2f2;font-weight:600}.mi.on:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:#ff0000}.mi.on i{color:#ff0000}
+.main{position:absolute;left:240px;right:0;top:56px;bottom:0;background:#f9f9f9;padding:24px 40px}
+.mt{font-size:26px;font-weight:600;color:#0f0f0f}
+.card{position:absolute;left:40px;right:40px;background:#fff;border:1px solid #e5e5e5;border-radius:10px}
+.dcard{position:absolute;top:80px;width:300px;height:250px;background:#fff;border:1px solid #e5e5e5;border-radius:10px;padding:18px;font-size:15px;color:#0f0f0f;font-weight:600}
+.dcard p{font-weight:400;color:#606060;font-size:13px;margin-top:10px;line-height:1.6}.dcard .big{font-size:34px;color:#0f0f0f;font-weight:500;margin-top:8px}
+.ypp{top:80px;height:130px;padding:20px 24px}.ypp b{font-size:18px;color:#0f0f0f}.ypp .ok{color:#188038;font-weight:600;font-size:14px;margin-top:4px;display:block}
+.ypp p{font-size:14px;color:#0f0f0f;margin-top:10px;line-height:1.6}
+.steps{top:226px;height:290px}
+.row{position:absolute;left:0;right:0;height:96px;border-bottom:1px solid #eee;display:flex;align-items:center;gap:18px;padding:0 24px;font-size:16px;color:#0f0f0f}
+.row small{display:block;font-size:13.5px;color:#606060;margin-top:3px}
+.stc{width:34px;height:34px;border-radius:50%;border:2px solid #5f6368;color:#202124;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex:none}
+.stc.ok2{border-color:#188038;background:#188038;color:#fff}
+.startb{margin-left:auto;background:#065fd4;color:#fff;border-radius:4px;padding:9px 22px;font-size:14px;font-weight:600;letter-spacing:.5px}
+.startb.done{background:#e6f4ea;color:#188038}
+.toast{position:absolute;left:24px;bottom:24px;background:#323232;color:#fff;border-radius:6px;padding:14px 20px;font-size:14px;opacity:0}
+/* google chooser */
+.gpage{background:#f0f4f9}
+.gcard{position:absolute;left:290px;top:70px;width:700px;height:470px;background:#fff;border-radius:28px;padding:40px}
+.gG{font-size:30px;font-weight:700;color:#1a73e8}
+.gct{font-size:32px;color:#202124;margin-top:18px}.gcs{font-size:15px;color:#444;margin-top:8px}
+.gr{position:absolute;left:40px;right:40px;height:66px;border-bottom:1px solid #e8eaed;display:flex;align-items:center;gap:16px;font-size:15px;color:#202124}
+.gr small{color:#5f6368;font-size:13px}
+.aav{width:36px;height:36px;border-radius:50%;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+/* adsense */
+.ahead{position:absolute;left:0;right:0;top:0;height:60px;border-bottom:1px solid #e5e5e5;display:flex;align-items:center;gap:8px;padding:0 24px;background:#fff}
+.alg{font-weight:800;font-size:22px;color:#1a73e8;letter-spacing:-.3px}.alg2{font-size:16px;color:#5f6368}
+.ah{position:absolute;left:340px;top:96px;font-size:28px;font-weight:600;color:#202124}
+.fld{position:absolute;left:340px;width:600px;height:58px;border:1px solid #bbb;border-radius:6px;padding:8px 14px;font-size:16px;color:#202124}
+.fld small{display:block;font-size:12px;color:#5f6368;margin-bottom:2px}
+.fld.ro{background:#f6f8fc}.fld.focus{border:2px solid #1a73e8}
+.fld .dd{position:absolute;right:16px;top:18px;font-style:normal;color:#5f6368}
+.ph{color:#9aa0a6}.grey{color:#9aa0a6}
+.caret{display:inline-block;width:2px;height:20px;background:#1a73e8;margin-left:1px;vertical-align:middle}
+.chk{position:absolute;left:340px;width:600px;display:flex;gap:12px;font-size:14.5px;color:#202124;align-items:center}
+.box{width:22px;height:22px;border:2px solid #5f6368;border-radius:4px;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:800}
+.box.on{background:#1a73e8;border-color:#1a73e8}
+.btn{position:absolute;left:340px;width:180px;height:44px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600}
+.note{position:absolute;left:340px;width:600px;top:146px;background:#fef7e0;border-radius:6px;padding:10px 14px;font-size:14px;color:#5f4300}
+/* cursor & effects */
+
+.anav{position:absolute;left:0;top:60px;bottom:0;width:220px;border-right:1px solid #e5e5e5;background:#fff}
+.ani{position:absolute;left:12px;right:12px;height:40px;border-radius:20px;display:flex;align-items:center;gap:14px;padding-left:18px;font-size:15px;color:#202124}
+.ani.on{background:#e8f0fe;color:#1a56c4;font-weight:600}
+.amain{position:absolute;left:220px;right:0;top:60px;bottom:0;background:#f8f9fb}
+.at{position:absolute;left:40px;top:26px;font-size:26px;color:#202124}
+.acard{position:absolute;background:#fff;border:1px solid #e3e5ea;border-radius:12px;padding:18px 22px;font-size:15px;color:#202124}
+.acard small{display:block;color:#5f6368;font-size:13px;margin-bottom:6px}
+.acard .big{font-size:32px;font-weight:500;margin-top:4px}
+.banner{position:absolute;left:20px;right:20px;top:126px;height:80px;border-radius:12px;display:flex;align-items:center;gap:16px;padding:0 22px;font-size:15px}
+.banner.warn{background:#fef7e0;color:#5f4300}.banner.good{background:#e6f4ea;color:#137333}
+.banner b{display:block;font-size:16px}
+.abtn{margin-left:auto;background:#1a73e8;color:#fff;border-radius:6px;padding:9px 18px;font-size:14px;font-weight:600;letter-spacing:.3px;white-space:nowrap}
+.pbar2{height:8px;background:#e8eaed;border-radius:4px;margin-top:14px}.pbar2 i{display:block;height:8px;border-radius:4px;background:#1a73e8}
+.modal{position:absolute;inset:0;background:rgba(32,33,36,.45);z-index:20}
+.dlg{position:absolute;background:#fff;border-radius:16px;box-shadow:0 20px 50px rgba(0,0,0,.25);padding:26px 30px}
+.dlg h3{margin:0;font-size:22px;font-weight:500;color:#202124}
+.dlg p{font-size:14px;color:#5f6368;margin:8px 0 0}
+.gl{height:9px;border-radius:5px;background:#eceef1;margin-top:12px}
+.pinbox{position:absolute;left:30px;right:30px;top:124px;height:60px;border:2px solid #1a73e8;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:32px;letter-spacing:14px;font-family:Consolas,monospace;color:#202124}
+.dbtn{position:absolute;width:110px;height:40px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600}
+.dbtn.p{background:#1a73e8;color:#fff}.dbtn.s{color:#1a73e8}
+.trow{position:absolute;left:20px;right:20px;height:52px;border-bottom:1px solid #eee;display:flex;align-items:center;font-size:15px;color:#202124}
+.trow .chip{position:absolute;left:480px;right:0;height:36px;border:1px solid #c8ccd2;border-radius:8px;display:flex;align-items:center;padding:0 14px;color:#5f6368;font-size:14.5px}
+.trow .chip.on{border:2px solid #1a73e8;color:#202124;background:#f4f8fe;font-weight:600}
+.trow .chip.on:before{content:"●";color:#1a73e8;margin-right:10px;font-size:12px}
+.prow{display:flex;align-items:center;gap:10px;font-size:13.5px;margin-top:6px}
+.prow .pb{flex:1;height:7px;border-radius:4px;background:#e8eaed}.prow .pb i{display:block;height:7px;border-radius:4px;background:#188038}
+.prow b{min-width:120px;font-weight:600}
+.congrats{position:absolute;left:40px;right:40px;top:226px;height:290px;background:linear-gradient(135deg,#e6f4ea,#fff);border:1px solid #b7e1c3;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#137333}
+.congrats b{font-size:26px;color:#0f0f0f}.congrats span{font-size:16px;color:#3c4043}
+#cursor{position:absolute;left:0;top:0;width:26px;height:26px;z-index:50;pointer-events:none;filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))}
+.ripple{position:absolute;border-radius:50%;border:3px solid #ffb300;opacity:0;z-index:49}
+.hl{position:absolute;border:3px solid #ffd400;border-radius:10px;box-shadow:0 0 0 5px rgba(255,212,0,.25);opacity:0;z-index:40}
+/* panel */
+#brand{position:absolute;left:1390px;top:60px;display:flex;align-items:center;gap:12px;color:#14141c;font-weight:800;font-size:22px}
+#brand .lg{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#d31027,#6c2bd9);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px}
+#panel{position:absolute;left:1390px;top:0;width:500px;height:880px;color:#14141c}
+#pwrap{position:absolute;left:0;right:0;top:140px}
+.kick{display:inline-block;font-size:22px;font-weight:900;letter-spacing:2px;background:#ff0033;color:#fff;padding:5px 14px;border-radius:9px}
+.ptitle{font-size:46px;font-weight:900;line-height:1.08;margin-top:20px}
+.psub{font-size:26px;font-weight:500;color:#45455a;margin-top:16px;line-height:1.35}
+.y{color:#e0002b}
+.bul{display:flex;gap:12px;align-items:flex-start;font-size:24px;font-weight:600;margin-top:14px;opacity:0}
+.bul i{flex:none;width:30px;height:30px;border-radius:50%;background:#1fb866;color:#fff;font-style:normal;font-size:17px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.bul.neg i{background:#e0002b}
+#pb{margin-top:8px}
+#cap{position:absolute;left:40px;top:912px;width:1840px;min-height:96px;background:#14141c;border-radius:18px;padding:20px 34px;color:#fff;font-size:32px;font-weight:600;line-height:1.3;display:flex;align-items:center;box-shadow:0 14px 34px rgba(20,20,40,.25)}
+#note{position:absolute;left:44px;top:1032px;color:#7a7a8c;font-size:17px}
+.conf{position:absolute;width:14px;height:22px;border-radius:3px;opacity:0}
+#confw{position:absolute;left:0;top:0;width:500px;height:880px;overflow:hidden}
+#fade{position:absolute;inset:0;background:#000;opacity:1;z-index:100}
+
+/* ---- true full screen: browser fills 1920x1080 (1280x720 at 1.5x), captions float on top ---- */
+#lap{left:0 !important;top:0 !important;width:1920px !important}
+#lid{width:1920px !important;height:1080px !important;padding:0 !important;border-radius:0 !important;background:#fff !important;box-shadow:none !important}
+#cam,#base,#brand,#panel,#note,#bg,#dots_bg{display:none !important}
+#screen{width:1920px !important;height:1080px !important;border-radius:0 !important}
+#scaler{width:1280px !important;height:720px !important;transform:scale(1.5) !important}
+#cap{left:40px !important;top:auto !important;bottom:16px !important;width:1840px !important;min-height:0 !important;padding:12px 28px 14px !important;
+ background:rgba(17,17,24,.86) !important;border-radius:14px !important;flex-direction:column !important;align-items:flex-start !important;gap:4px !important;font-size:29px !important;line-height:1.28 !important;box-shadow:0 10px 26px rgba(0,0,0,.3) !important}
+#kickfs{display:inline-flex;align-items:center;gap:10px;font-size:17px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#fff}
+#kickfs i{font-style:normal;background:#ff0033;border-radius:7px;padding:2px 10px}
+#kickfs b{font-weight:700;letter-spacing:.3px;text-transform:none;color:#ffd9a0;font-size:19px}
+#tipfs{position:absolute;right:40px;top:150px;max-width:580px;background:#fff;border-radius:14px;box-shadow:0 14px 34px rgba(0,0,0,.28);
+ padding:14px 20px 14px 16px;display:flex;gap:12px;align-items:flex-start;font-size:26px;font-weight:700;color:#14141c;opacity:0;z-index:90;border-left:6px solid #1fb866}
+#tipfs.neg{border-left-color:#e0002b}
+#tipfs i{flex:none;width:32px;height:32px;border-radius:50%;background:#1fb866;color:#fff;font-style:normal;font-size:19px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+#tipfs.neg i{background:#e0002b}
+#confw{position:absolute !important;left:0 !important;top:0 !important;width:1920px !important;height:1080px !important;z-index:95}
+#fade{z-index:200 !important}
+#cap{display:none !important}
+</style></head><body>
+<div id="bg"></div><div id="dots_bg"></div>
+<div id="lap"><div id="lid"><span id="cam"></span><div id="screen"><div id="scaler"><div id="content">
+ <div class="tabs"><div class="wbtn"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+  <div class="tab"><span class="fav" id="fav"></span><span id="tabt">Channel dashboard - YouTube Studio</span></div></div>
+ <div class="toolbar"><span>←</span><span>→</span><span>↻</span><div class="url">🔒 <span id="urlt"></span></div><span class="pav">R</span></div>
+
+ <div class="page" id="studio">
+  <div class="shead"><span style="font-size:20px">☰</span><span class="slogo"><span class="ytl"></span>Studio</span><div class="ssearch">🔍 &nbsp;Search across your channel</div><span class="createb">⊕ CREATE</span><span class="pav">R</span></div>
+  <div class="side"><div class="slg">SL</div><div class="syc">Your channel<small>Smart Learning Hindi</small></div>
+   <div id="menu"></div></div>
+  <div class="main">
+   <div id="dash"><div class="mt">Channel dashboard</div>
+    <div class="dcard" style="left:40px">Channel analytics<p>Current subscribers</p><div class="big">1,024</div><p>Watch time (hours) · Last 365 days<br><b style="color:#0f0f0f;font-size:16px">4,210</b></p></div>
+    <div class="dcard" style="left:360px">Latest video performance<p>Mobile Se YouTube Channel Kaise Banaye 2026</p><p>Views · 12.4K<br>Avg. view duration · 6:48</p></div>
+    <div class="dcard" style="left:680px">News<p>Your channel is eligible for the YouTube Partner Program. Go to Earn to apply.</p></div>
+   </div>
+   <div id="earnv"><div class="mt">Earn</div>
+    <div class="card ypp" style="height:130px;padding:14px 24px"><b>YouTube Partner Program</b><span class="ok">✓ You're eligible to apply</span>
+     <div class="prow"><b>Subscribers</b><span class="pb"><i style="width:100%"></i></span><span>1,024 / 1,000</span></div>
+     <div class="prow"><b>Public watch hours</b><span class="pb"><i style="width:100%"></i></span><span>4,210 / 4,000 · last 365 days</span></div></div>
+    <div class="card steps" data-ifnot="approved">
+     <div class="row" style="top:0"><span class="stc ok2" data-if="s1">✓</span><span class="stc" data-ifnot="s1">1</span><div><b>Review Partner Program terms</b><small data-if="s1">Done</small><small data-ifnot="s1">Read and accept the YPP terms</small></div><span class="startb done" data-if="s1">DONE</span><span class="startb" data-ifnot="s1">START</span></div>
+     <div class="row" style="top:96px"><span class="stc" id="st2">2</span><div><b>Sign up for AdSense for YouTube</b><small>Link an AdSense account to get paid</small></div><span class="startb" id="startb">START</span></div>
+     <div class="row" style="top:192px;border:none"><span class="stc">3</span><div><b>Get reviewed</b><small id="st3s">Complete the steps above first</small></div></div>
+    </div></div>
+  </div>
+  <div class="toast" id="astoast">✓ AdSense account linked</div>
+  <div class="congrats" data-if="approved" style="left:280px;right:40px;top:356px;height:236px"><div style="font-size:46px">🎉</div><b>You're in the YouTube Partner Program!</b><span>Ads, memberships and other earning features are now on for your channel.</span></div>
+  <div class="modal" data-if="termsmodal"><div class="dlg" style="left:340px;top:76px;width:600px;height:480px"><h3>YouTube Partner Program terms</h3>
+   <p>How revenue is shared, payments, and the policies you agree to follow.</p>
+   <div class="gl"></div><div class="gl" style="width:92%"></div><div class="gl" style="width:96%"></div><div class="gl" style="width:80%"></div><div class="gl"></div><div class="gl" style="width:88%"></div><div class="gl" style="width:70%"></div><div class="gl" style="width:94%"></div><div class="gl" style="width:60%"></div>
+   <div class="dbtn s" style="right:150px;bottom:24px">Cancel</div><div class="dbtn p" style="right:30px;bottom:24px">ACCEPT</div></div></div>
+ </div>
+
+ <div class="page gpage" id="gacct"><div class="gcard"><div class="gG">Google</div><div class="gct">Choose an account</div><div class="gcs">to continue to AdSense for YouTube</div>
+  <div class="gr" style="top:230px"><span class="aav" style="background:#7b1fa2">R</span><div><b>Rahul Sharma</b><br><small>rahul.sharma•••@gmail.com</small></div></div>
+  <div class="gr" style="top:300px"><span class="aav" style="background:#e8eaed;color:#444">+</span><div>Use another account</div></div></div></div>
+
+ <div class="page" id="ads1"><div class="ahead"><span class="alg">AdSense</span><span class="alg2">for YouTube</span></div>
+  <div class="ah">Let's get started</div>
+  <div class="fld ro" style="top:156px"><small>Your YouTube channel</small>youtube.com/@SmartLearningHindi</div>
+  <div class="fld" style="top:236px"><small>Country or territory</small><span id="v_country" class="grey">Select</span><i class="dd">▾</i></div>
+  <div class="chk" style="top:322px"><span class="box" id="agreebox"></span><span>I've read and agree to the AdSense for YouTube terms and conditions</span></div>
+  <div class="btn" style="top:388px" id="as1btn">Continue</div></div>
+
+ <div class="page" id="ads2"><div class="ahead"><span class="alg">AdSense</span><span class="alg2">for YouTube</span></div>
+  <div class="ah">Payee information</div>
+  <div class="note">Enter your name exactly as it appears on your bank account.</div>
+  <div class="fld ro" style="top:200px"><small>Account type</small>Individual<i class="dd">▾</i></div>
+  <div class="fld" style="top:272px" id="f_pname"><small>Name</small><span id="v_pname"></span><span class="caret" id="c_pname"></span><span class="ph" id="ph_pname">Full name</span></div>
+  <div class="fld" style="top:344px" id="f_paddr"><small>Address</small><span id="v_paddr"></span><span class="caret" id="c_paddr"></span><span class="ph" id="ph_paddr">Street address</span></div>
+  <div class="fld" style="top:416px;width:290px" id="f_pcity"><small>City</small><span id="v_pcity"></span><span class="caret" id="c_pcity"></span><span class="ph" id="ph_pcity">City</span></div>
+  <div class="fld" style="top:416px;left:650px;width:290px" id="f_ppin"><small>PIN code</small><span id="v_ppin"></span><span class="caret" id="c_ppin"></span><span class="ph" id="ph_ppin">PIN code</span></div>
+  <div class="btn" style="top:500px;background:#065fd4;color:#fff">Submit</div></div>
+
+
+ <div class="page" id="adhome"><div class="ahead"><span class="alg">AdSense</span><span class="alg2">for YouTube</span></div><div class="anav"><div class="ani on" style="top:16px">⌂&nbsp; Home</div><div class="ani" style="top:60px">₹&nbsp; Payments</div><div class="ani" style="top:104px">⚙&nbsp; Account</div></div><div class="amain"><div class="at">Home</div>
+  <div class="banner warn" data-ifnot="pinok"><span style="font-size:26px">✉</span><div><b>Verify your address</b>We mailed a PIN to your payment address. Enter it to get paid.</div><span class="abtn">VERIFY ADDRESS</span></div>
+  <div class="banner good" data-if="pinok"><span style="font-size:26px">✓</span><div><b>Address verified</b>Thanks! Your payment address is confirmed.</div></div>
+  <div class="acard" style="left:20px;top:226px;width:480px;height:160px"><small>Estimated earnings · This month</small><div class="big">₹1,032.50</div><small style="margin-top:14px">Balance: ₹1,032.50</small></div>
+  <div class="acard" style="left:520px;top:226px;width:480px;height:160px"><small>Payments</small>Progress toward payment threshold<div class="pbar2"><i style="width:12%"></i></div><small style="margin-top:10px">12% reached</small></div>
+ </div>
+  <div class="modal" data-if="pinmodal"><div class="dlg" style="left:390px;top:166px;width:500px;height:300px"><h3>Verify your address</h3><p>Enter the 6-digit PIN from the letter we mailed you.</p>
+   <div class="pinbox"><span id="v_pin"></span><span class="caret" id="c_pin"></span><span class="ph" id="ph_pin" style="letter-spacing:6px">______</span></div><div id="f_pin"></div>
+   <div class="dbtn s" style="left:240px;bottom:24px">Cancel</div><div class="dbtn p" style="left:360px;bottom:24px">SUBMIT</div></div></div>
+ </div>
+
+ <div class="page" id="adpay"><div class="ahead"><span class="alg">AdSense</span><span class="alg2">for YouTube</span></div><div class="anav"><div class="ani" style="top:16px">⌂&nbsp; Home</div><div class="ani on" style="top:60px">₹&nbsp; Payments</div><div class="ani" style="top:104px">⚙&nbsp; Account</div></div><div class="amain"><div class="at">Payments</div>
+  <div class="acard" style="left:20px;top:126px;width:480px;height:150px"><small>Your balance</small><div class="big">₹8,940.00</div><div class="pbar2"><i style="width:100%;background:#188038"></i></div><small style="margin-top:8px;color:#137333">✓ Payment threshold reached</small></div>
+  <div class="acard" style="left:520px;top:126px;width:480px;height:150px"><small>How you get paid</small>
+   <div data-ifnot="bankok">No payment method added yet<div style="margin-top:18px"><span class="abtn" style="display:inline-block">ADD PAYMENT METHOD</span></div></div>
+   <div data-if="bankok"><b style="font-size:17px">🏦 Bank account ••••4321</b><div style="color:#137333;margin-top:6px">Primary payment method</div><div style="color:#5f6368;margin-top:6px;font-size:13.5px">Paid around the 21st–26th of the month</div></div></div>
+  <div class="acard" style="left:20px;top:296px;width:980px;height:80px;display:flex;align-items:center"><div><b>Settings</b><small style="margin:4px 0 0">Payment info, payments profile and United States tax info</small></div><span class="abtn">MANAGE TAX INFO</span></div>
+ </div>
+  <div class="modal" data-if="bankform"><div class="dlg" style="left:340px;top:20px;width:600px;height:540px"><h3>Add bank account</h3>
+   <div class="fld" style="left:40px;width:520px;top:70px" id="f_bname"><small>Name on bank account</small><span id="v_bname"></span><span class="caret" id="c_bname"></span><span class="ph" id="ph_bname">Account holder's name</span></div>
+   <div class="fld" style="left:40px;width:520px;top:132px" id="f_bbank"><small>Bank name</small><span id="v_bbank"></span><span class="caret" id="c_bbank"></span><span class="ph" id="ph_bbank">Bank name</span></div>
+   <div class="fld" style="left:40px;width:520px;top:194px" id="f_bifsc"><small>IFSC code</small><span id="v_bifsc"></span><span class="caret" id="c_bifsc"></span><span class="ph" id="ph_bifsc">IFSC code</span></div>
+   <div class="fld" style="left:40px;width:520px;top:256px" id="f_bacc"><small>Account number</small><span id="v_bacc"></span><span class="caret" id="c_bacc"></span><span class="ph" id="ph_bacc">Account number</span></div>
+   <div class="fld" style="left:40px;width:520px;top:318px" id="f_bacc2"><small>Re-enter account number</small><span id="v_bacc2"></span><span class="caret" id="c_bacc2"></span><span class="ph" id="ph_bacc2">Re-enter account number</span></div>
+   <div class="chk" style="left:40px;width:520px;top:392px"><span class="box" data-on="primary"></span><span>Set as primary payment method</span></div>
+   <div class="dbtn s" style="right:160px;bottom:22px">Cancel</div><div class="dbtn p" style="right:40px;bottom:22px">SAVE</div></div></div>
+ </div>
+
+ <div class="page" id="adtax"><div class="ahead"><span class="alg">AdSense</span><span class="alg2">for YouTube</span></div><div class="anav"><div class="ani" style="top:16px">⌂&nbsp; Home</div><div class="ani on" style="top:60px">₹&nbsp; Payments</div><div class="ani" style="top:104px">⚙&nbsp; Account</div></div><div class="amain"><div class="at">United States tax info</div>
+  <div class="banner warn" data-ifnot="taxok" style="height:64px"><span style="font-size:24px">⚠</span><div><b>Tax info not submitted</b>Up to 24% of your total earnings may be withheld.</div><span class="abtn">ADD TAX INFO</span></div>
+  <div class="banner good" data-if="taxok"><span style="font-size:24px">✓</span><div><b>Tax info submitted · W-8BEN</b>Withholding on earnings from US viewers: 15% (India tax treaty)</div></div>
+  <div class="acard" data-if="taxform" style="left:20px;top:200px;width:980px;height:292px;padding:6px 0">
+   <div class="trow" style="top:6px;height:46px">Individual or business?<span class="chip" data-on="t1">Individual</span></div>
+   <div class="trow" style="top:52px;height:46px">Are you a US person?<span class="chip" data-on="t2">No</span></div>
+   <div class="trow" style="top:98px;height:46px">Tax form<span class="chip" data-on="t3">W-8BEN (Individual)</span></div>
+   <div class="trow" style="top:144px;height:46px">Claim tax treaty benefits<span class="chip" data-on="t4">Yes · India · Article 12 (Royalties)</span></div>
+   <div class="trow" style="top:190px;height:46px">Foreign TIN (PAN)<span class="chip" id="f_pan"><span id="v_pan"></span><span class="caret" id="c_pan"></span><span class="ph" id="ph_pan">Enter your PAN</span></span></div>
+   <div class="trow" style="top:236px;height:46px">Signature (your full name)<span class="chip" id="f_tsign" style="right:170px"><span id="v_tsign"></span><span class="caret" id="c_tsign"></span><span class="ph" id="ph_tsign">Type your name</span></span></div>
+   <div class="dbtn p" style="right:30px;top:243px;width:130px">SUBMIT</div></div>
+ </div></div>
+ <div class="hl" id="hl"></div><div class="ripple" id="rip"></div>
+ <svg id="cursor" viewBox="0 0 26 26"><path d="M3 2 L3 21 L8 16 L11.5 24 L15 22.5 L11.5 14.8 L18.5 14.8 Z" fill="#fff" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/></svg>
+</div></div></div></div><div id="base"></div></div>
+
+<div id="brand"><div class="lg">SL</div>Smart Learning Hindi</div>
+<div id="panel"><div id="pwrap"><span class="kick" id="pk"></span><div class="ptitle" id="pt"></div><div class="psub" id="ps"></div><div id="pb"></div></div></div><div id="confw"></div>
+<div id="cap"><span id="kickfs"><i id="kfk"></i><b id="kft"></b></span><span id="captxt"></span></div>
+<div id="tipfs"><i id="tfi">✓</i><span id="tft"></span></div>
+<div id="note">Note: Screens may look slightly different on your computer.</div>
+<div id="fade"></div>
+<script src="timeline_deskfull.js"></script>
+<script src="engine_desk.js"></script>
+<script>
+// full-screen overlays: Studio menu moved up (clear of captions), chapter label in the caption bar, key point as a corner card
+(function () {
+  document.querySelectorAll('.mi').forEach((el, k) => el.style.top = (168 + k * 44) + 'px');
+  const TL = window.TL, base = window.render, $ = id => document.getElementById(id);
+  const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x)), seg = (t, a, b) => clamp((t - a) / (b - a));
+  const strip = h => { const d = document.createElement('div'); d.innerHTML = h; return d.textContent; };
+  window.render = function (t) {
+    base(t);
+    let P = null; for (const p of TL.panels) if (p.t <= t) P = p;
+    $('kfk').textContent = P ? strip(P.kick) : ''; $('kft').textContent = P ? strip(P.title) : '';
+    $('kfk').style.background = P && P.kc ? P.kc : '';
+    let B = null; for (const b of TL.bullets) if (b.t <= t && t <= b.t + 4.2) B = b;
+    const tip = $('tipfs');
+    if (B) { const o = Math.min(seg(t, B.t, B.t + .35), 1 - seg(t, B.t + 3.8, B.t + 4.2)); tip.style.opacity = o; tip.style.transform = `translateX(${(1 - o) * 40}px)`;
+      tip.className = B.neg ? 'neg' : ''; $('tfi').textContent = B.neg ? '✕' : '✓'; $('tft').textContent = strip(B.text); }
+    else tip.style.opacity = 0;
+  };
+})();
+</script>
+</body></html>
