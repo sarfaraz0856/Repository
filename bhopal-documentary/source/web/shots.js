@@ -113,6 +113,9 @@ import { J9A, J9B, J9C, J9D } from './bhopal9.js';
 import { K10A, K10B, K10C, K10D } from './bhopal10.js';
 import { L11A, L11B, L11C, L11D } from './bhopal11.js';
 import { M12A, M12B, M12C, M12D } from './bhopal12.js';
+import { N13A, N13B, N13C, N13D } from './bhopal13.js';
+import { O14A, O14B, O14C, O14D } from './bhopal14.js';
+import { P15A, P15B, P15C, P15D } from './bhopal15.js';
 export const SHOTS = {
   BH1: { duration: 14.0, build: BH1, ss: 1, msaa: 4, volScale: 0.4 },
   BH2: { duration: 14.0, build: BH2, ss: 1, msaa: 4, volScale: 0.45 },
@@ -162,6 +165,18 @@ export const SHOTS = {
   M12B: { duration: 15.0, build: M12B, ss: 1, msaa: 4, volScale: 0.3 },
   M12C: { duration: 15.0, build: M12C, ss: 1, msaa: 4, volScale: 0.3 },
   M12D: { duration: 15.0, build: M12D, ss: 1, msaa: 4, volScale: 0.3 },
+  N13A: { duration: 15.0, build: N13A, ss: 1, msaa: 4, volScale: 0.3 },
+  N13B: { duration: 15.0, build: N13B, ss: 1, msaa: 4, volScale: 0.3 },
+  N13C: { duration: 15.0, build: N13C, ss: 1, msaa: 4, volScale: 0.3 },
+  N13D: { duration: 15.0, build: N13D, ss: 1, msaa: 4, volScale: 0.3 },
+  O14A: { duration: 15.0, build: O14A, ss: 1, msaa: 4, volScale: 0.3 },
+  O14B: { duration: 15.0, build: O14B, ss: 1, msaa: 4, volScale: 0.3 },
+  O14C: { duration: 15.0, build: O14C, ss: 1, msaa: 4, volScale: 0.3 },
+  O14D: { duration: 15.0, build: O14D, ss: 1, msaa: 4, volScale: 0.3 },
+  P15A: { duration: 15.0, build: P15A, ss: 1, msaa: 4, volScale: 0.3 },
+  P15B: { duration: 15.0, build: P15B, ss: 1, msaa: 4, volScale: 0.3 },
+  P15C: { duration: 15.0, build: P15C, ss: 1, msaa: 4, volScale: 0.3 },
+  P15D: { duration: 15.0, build: P15D, ss: 1, msaa: 4, volScale: 0.3 },
   TEST: { duration: 2, build: testShot },
   PTEST: { duration: 2, build: PTEST },
   S1: { duration: 9.5, build: S1, ss: 2, msaa: 0, volScale: 0.25 },
