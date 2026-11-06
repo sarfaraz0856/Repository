@@ -28,7 +28,7 @@ export function gasFX(ctx, scene, { boxMin, boxMax, steps = 80 }) {
   ]);
   return v;
 }
-function gasPlume(amount, t) {
+export function gasPlume(amount, t) {
   // amount 0..1: how much of the release is under way
   return { base: STACK_TOP.toArray(), r0: 0.7 + 1.6 * amount, spread: 0.28 + 0.12 * amount, height: 8 + 70 * amount, density: 0.25 + 1.3 * amount, rise: 6, wind: [0.15, 1.05], noiseScale: 1 / 14, seed: 0.4 };
 }
@@ -90,7 +90,7 @@ export async function BH3(ctx) {
 }
 
 // ---------------- BH4: a lane in JP Nagar, the gas creeping in ----------------
-function laneProps(scene) {
+export function laneProps(scene) {
   const rnd = mulberry32(44);
   const wallM = [[0.3, 0.26, 0.2], [0.36, 0.33, 0.27], [0.22, 0.28, 0.3], [0.33, 0.22, 0.17], [0.27, 0.27, 0.24], [0.38, 0.32, 0.2]].map((c, i) => lit(c, 0.95, 0, 'bhlw' + i));
   const tin = lit([0.2, 0.2, 0.21], 0.55, 0.45, 'bhlt'); tin.side = THREE.DoubleSide;

@@ -6,6 +6,7 @@ import * as THREE from 'three';
 import { patchMaterial, ATM, makeSky } from './atmos.js';
 import { mulberry32 } from './util.js';
 import { mergeGeos } from './city.js';
+import { makeDaySky, sunDir, dayLights } from './daysky.js';
 
 export const V3 = (x, y, z) => new THREE.Vector3(x, y, z);
 const C = (r, g, b) => new THREE.Color(r, g, b);
@@ -143,7 +144,7 @@ export function buildHouses(ctx, { regions, seed = 3, litFrac = 0.04, roads = []
 }
 
 // ---------------- trees (neem / peepal crowns) ----------------
-export function buildTrees(ctx, { list }) {
+export function buildTrees(ctx, { list, tint = null }) {
   const g = new THREE.Group(); const n = list.length; if (!n) return g;
   const blob = (r, x, y, z) => { const b = new THREE.IcosahedronGeometry(r, 1); b.translate(x, y, z); return b; };
   const crown = mergeGeos([blob(0.75, 0, 0, 0), blob(0.55, 0.55, -0.15, 0.2), blob(0.6, -0.45, -0.1, -0.3), blob(0.5, 0.1, 0.35, 0.35), blob(0.45, -0.2, -0.3, 0.5)]);
@@ -154,7 +155,7 @@ export function buildTrees(ctx, { list }) {
   list.forEach((t, i) => {
     const r = t.r, h = t.h;
     m4.compose(V3(t.x, h - r * 0.35, t.z), q.setFromAxisAngle(V3(0, 1, 0), t.x * 0.3), V3(r * 1.15, r * 0.8, r)); ci.setMatrixAt(i, m4);
-    ci.setColorAt(i, col.setRGB(0.05 + 0.03 * Math.sin(t.x), 0.09 + 0.03 * Math.cos(t.z), 0.035));
+    if (tint) { const k = 0.8 + 0.4 * Math.abs(Math.sin(t.x * 1.7 + t.z)); ci.setColorAt(i, col.setRGB(tint[0] * k, tint[1] * k, tint[2] * k)); } else ci.setColorAt(i, col.setRGB(0.05 + 0.03 * Math.sin(t.x), 0.09 + 0.03 * Math.cos(t.z), 0.035));
     m4.compose(V3(t.x, 0, t.z), q.identity(), V3(1, h - r * 0.9, 1)); ti.setMatrixAt(i, m4);
   });
   ci.castShadow = false; ci.receiveShadow = true; g.add(ci, ti);
@@ -317,7 +318,7 @@ export function lampMap(lamps, B) {
 }
 
 // ---------------- the world ----------------
-export function bhopalWorld(ctx, { focal = 35, near = 1, far = 9000, city = true, basti = true, oldCity = true, mosque = true, moon = 0.22, fog = 0.0011, litFrac = 0.04, lampGain = 3.0, laneCut = false } = {}) {
+export function bhopalWorld(ctx, { focal = 35, near = 1, far = 9000, city = true, basti = true, oldCity = true, mosque = true, moon = 0.22, fog = 0.0011, litFrac = 0.04, lampGain = 3.0, laneCut = false, carve = null, hill = null, day = null, treeTint = null } = {}) {
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(30, ctx.aspect, near, far);
   const sky = makeSky({ noiseTex: ctx.noiseTex }); scene.add(sky);
@@ -345,6 +346,7 @@ export function bhopalWorld(ctx, { focal = 35, near = 1, far = 9000, city = true
       regions.push({ x0: -1400, x1: 1600, z0: -1400, z1: -420, plot: 13, street: 6, storeys: [1, 2], tin: 0.3, empty: 0.35, patches: 12 });
     }
     const roads = oldCity ? makeRoads(9) : [];
+    if (carve || hill) for (const R of regions) { const prev = R.skip; R.skip = (x, z) => (prev && prev(x, z)) || (carve && carve.some(([a, b, c, d]) => x > a && x < b && z > c && z < d)) || (hill && Math.hypot(x - hill.x, z - hill.z) < hill.r * 0.8); }
     const H = buildHouses(ctx, { regions, seed: 5, litFrac, roads });
     scene.add(H.group);
     // the arterial roads: asphalt ribbons with lamps every ~32 m (many dark in 1984)
@@ -370,7 +372,7 @@ export function bhopalWorld(ctx, { focal = 35, near = 1, far = 9000, city = true
     }
     const trees = [];
     for (let i = 0; i < 2600; i++) { const x = -1700 + rnd() * 3600, z = -500 + rnd() * 3900; if (inLake(x, z) || (Math.abs(x) < 260 && z < 75 && z > -380)) continue; trees.push({ x, z, r: 3 + rnd() * 4, h: 7 + rnd() * 7 }); }
-    scene.add(buildTrees(ctx, { list: trees }));
+    scene.add(buildTrees(ctx, { list: trees, tint: treeTint }));
   }
   if (mosque) scene.add(buildMosque());
   const B = { x0: -2000, z0: -900, size: 4600 };
@@ -392,5 +394,21 @@ export function bhopalWorld(ctx, { focal = 35, near = 1, far = 9000, city = true
   ATM.uFogColor.value.setRGB(0.006, 0.0062, 0.0075); ATM.uFogDensity.value = fog; ATM.uFogHeight.value = 120; ATM.uFogBase.value = 0;
   ATM.uGlowDir.value.set(0, 0, 1); ATM.uGlowCol.value.setRGB(0.004, 0.0024, 0.0012); ATM.uGlowPow.value = 3;
   ATM.uMoonHalo.value.setRGB(0.012, 0.013, 0.016); ATM.uFirePos.value.set(0, -1e5, 0); ATM.uFireFog.value.setRGB(0, 0, 0);
+  if (day) {
+    // daylight: swap the night sky for the day sky, the moon for the sun, switch the lamps off
+    scene.remove(sky); ml.visible = false; ATM.uLampMapOn.value = 0; ATM.uLampGain.value = 0;
+    scene.traverse(o => { if (o.isSpotLight || o.isPointLight) o.visible = false; if (o.isMesh && o.material?.isMeshBasicMaterial) o.visible = false; if (o.isInstancedMesh && o.material?.isMeshBasicMaterial) o.visible = false; });
+    const sun = sunDir(day.az ?? 120, day.el ?? 30);
+    const sk = makeDaySky({ noiseTex: ctx.noiseTex }); sk.uniforms.uSunDir.value.copy(sun);
+    for (const [k, v] of Object.entries(day.sky || {})) { const u = sk.uniforms[k]; if (u.value?.setRGB && Array.isArray(v)) u.value.setRGB(...v); else u.value = v; }
+    scene.add(sk);
+    scene.children.filter(o => o.isHemisphereLight).forEach(o => o.visible = false);
+    const L = dayLights(scene, { dir: sun, sunColor: C(...(day.sunCol || [1.0, 0.9, 0.78])), sunI: day.sunI ?? 2.6, skyColor: C(...(day.skyCol || [0.55, 0.62, 0.75])), groundColor: C(...(day.groundCol || [0.25, 0.2, 0.15])), hemiI: day.hemiI ?? 0.9, center: day.center || V3(0, 0, 0), extent: day.extent ?? 300, near: 100, far: 7000 });
+    ATM.uMoonDir.value.copy(sun);
+    ATM.uFogColor.value.setRGB(...(day.fog || [0.55, 0.55, 0.55])); ATM.uFogDensity.value = day.density ?? 0.0012; ATM.uFogHeight.value = day.fogH ?? 80; ATM.uFogBase.value = 0;
+    ATM.uGlowDir.value.set(sun.x, 0, sun.z).normalize(); ATM.uGlowCol.value.setRGB(...(day.glow || [0.4, 0.3, 0.2])); ATM.uGlowPow.value = 6;
+    ATM.uMoonHalo.value.setRGB(...(day.halo || [0.5, 0.35, 0.2]));
+    return { scene, camera, sky: sk, plant, sun: L.sun, sunDir: sun };
+  }
   return { scene, camera, sky, plant, moonLight: ml };
 }
