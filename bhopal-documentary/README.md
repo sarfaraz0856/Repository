@@ -21,3 +21,7 @@ A documentary about the Bhopal gas tragedy, planned at about 15 minutes. It uses
 - `source/web/bhopal1.js` defines shots BH1–BH4.
 - `source/titles_bh1.py` makes the captions, `source/audio_bh1.py` the score and sound, and `source/assemble_bh1.sh` the edit.
 - `source/voiceover/lines_ch1.json` holds the Hindi narration lines.
+
+## Chapter 2 – What Went Wrong (`chapter2/`, 60 s, 1080p)
+
+The control room at about 11 pm as the pressure in tank 610 rises; the refrigeration unit, shut down since June 1984; the flare tower (down for repair) and the vent gas scrubber (on standby); the water curtain, which could not reach the top of the vent stack.
