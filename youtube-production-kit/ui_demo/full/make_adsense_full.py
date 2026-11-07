@@ -55,7 +55,7 @@ B("वॉच टाइम में सिर्फ़ पब्लिक लं
   "Only public long-form watch hours count — not Shorts, private, unlisted or deleted videos.", b="Only public long-video hours count")
 B("और अगर अभी एलिजिबल नहीं हैं, तो इसी पेज पर 'गेट नोटिफ़ाइड' पर क्लिक कर दीजिए — लिमिट पूरी होते ही यूट्यूब आपको ईमेल कर देगा।",
   "Not eligible yet? Click 'Get notified' on this page and YouTube will email you once you are.", b="Not yet? Click 'Get notified'")
-B("ध्यान रखिए, वॉच टाइम और शॉर्ट्स व्यूज़ आपस में नहीं जुड़ते — दोनों में से कोई एक पूरा करना होगा। और यूट्यूब ये नियम समय-समय पर बदलता है, इसलिए स्टूडियो में ज़रूर चेक कीजिए।",
+B("याद रखिए, वॉच टाइम और शॉर्ट्स व्यूज़ आपस में नहीं जुड़ते — दोनों में से कोई एक पूरा करना होगा। और यूट्यूब ये नियम समय-समय पर बदलता है, इसलिए स्टूडियो में ज़रूर चेक कीजिए।",
   "Watch hours and Shorts views don't add up — complete one of them. YouTube changes these rules over time, so always check in Studio.",
   b="Rules change — always check Studio", pad=1.0)
 
