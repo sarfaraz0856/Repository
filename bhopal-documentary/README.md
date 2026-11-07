@@ -37,3 +37,7 @@ The gas reaches Bhopal Junction after 1 am while a crowded express train waits a
 ## Chapter 5 – The Hospital (`chapter5/`, 60 s, 1080p)
 
 By the morning of 3 December thousands have reached Hamidia Hospital; with no room left, patients lie in the corridors and on the floors; the doctors do not know which gas it was or how to treat it; in the first few days tens of thousands need treatment.
+
+## Chapter 6 – The Morning (`chapter6/`, 60 s, 1080p)
+
+Dawn on 3 December: the lanes have fallen silent, with shoes, bundles and bicycles left behind where people fled or fell; by then the cloud has drifted away (about 40 tonnes of gas escaped in roughly two hours); thousands of animals died too, and the leaves on the trees turned yellow and fell.
