@@ -49,3 +49,7 @@ The pyres at Chhola Vishram Ghat burn for days; at Jhada Kabristan graves are du
 ## Chapter 8 – Warren Anderson (`chapter8/`, 60 s, 1080p)
 
 On 7 December 1984 Union Carbide's chairman arrives in Bhopal and is arrested; he is held at the company guest house for only a few hours, released on bail the same day and flown out on a state government plane; he never returned to face trial, was declared an absconder, and died in the USA in 2014.
+
+## Chapter 9 – The Settlement (`chapter9/`, 60 s, 1080p)
+
+On 14 February 1989 the Supreme Court approves a settlement of $470 million; the survivors were never asked and take to the streets; most victims receive about 25,000 rupees, years later; on 7 June 2010 seven former executives are convicted, sentenced to two years and given bail the same day.
