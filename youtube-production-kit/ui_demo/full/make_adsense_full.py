@@ -40,7 +40,7 @@ B("अब सवाल — ऐडसेंस कब बनाएँ? जब आ
   panel=P("CHAPTER 2", f"Are you {Y('eligible?')}", "YouTube Partner Program (YPP)"), ch="YPP Eligibility (2026)", pad=1.0)
 B("यहाँ आपको अपने चैनल की प्रोग्रेस दिखती है। अभी के नियमों में पार्टनर प्रोग्राम के दो लेवल हैं।",
   "Here you can see your channel's progress. Under current rules, the Partner Program has two levels.",
-  [("hl", 0.5, 280, 220, 960, 130, 3.4)])
+  [("hl", 0.5, 280, 220, 960, 130, 3.4), ("zoom", 0.3, 760, 285, 1.3, 3.0)])
 B("पहला लेवल — पाँच सौ सब्सक्राइबर्स, पिछले नब्बे दिनों में तीन पब्लिक वीडियो, और साथ में या तो पिछले बारह महीनों में तीन हज़ार घंटे का वॉच टाइम, या नब्बे दिनों में तीस लाख शॉर्ट्स व्यूज़।",
   "Level 1: 500 subscribers, 3 public uploads in 90 days, plus 3,000 watch hours in 12 months or 3M Shorts views in 90 days.",
   panel=P("LEVEL 1 · FAN FUNDING", f"{Y('500')} subscribers"))
@@ -49,7 +49,7 @@ B("इसमें मेंबरशिप और सुपर थैंक्�
   "This unlocks fan funding like memberships and Super Thanks — but not ad revenue.", b=("No ad revenue at this level", True))
 B("ऐड से कमाई के लिए दूसरा लेवल चाहिए — एक हज़ार सब्सक्राइबर्स, और या तो पिछले बारह महीनों में चार हज़ार घंटे का वॉच टाइम, या नब्बे दिनों में एक करोड़ शॉर्ट्स व्यूज़।",
   "For ad revenue you need level 2: 1,000 subscribers plus 4,000 watch hours in 12 months, or 10M Shorts views in 90 days.",
-  [("hl", 2.0, 300, 290, 920, 58, 3.4)], panel=P("LEVEL 2 · AD REVENUE", f"{Y('1,000')} subscribers"))
+  [("hl", 2.0, 300, 290, 920, 58, 3.4), ("zoom", 1.8, 760, 300, 1.35, 3.2)], panel=P("LEVEL 2 · AD REVENUE", f"{Y('1,000')} subscribers"))
 bl("4,000 watch hours (12 months)", "or 10M Shorts views (90 days)", start=3.2, step=2.8)
 B("वॉच टाइम में सिर्फ़ पब्लिक लंबी वीडियो के घंटे गिने जाते हैं। शॉर्ट्स, प्राइवेट, अनलिस्टेड या डिलीट की हुई वीडियो के घंटे इसमें नहीं जुड़ते।",
   "Only public long-form watch hours count — not Shorts, private, unlisted or deleted videos.", b="Only public long-video hours count")
@@ -91,14 +91,14 @@ B("अब दूसरा स्टेप — 'साइन अप फ़ॉर 
   panel=P("CHAPTER 5", f"Step 2: {Y('Sign up for AdSense')}"), ch="Create Your AdSense Account", pad=0.8)
 B("अब गूगल अकाउंट चुनने को कहा जाएगा। यहाँ एक बहुत ज़रूरी नियम है — एक नाम पर सिर्फ़ एक ही ऐडसेंस अकाउंट हो सकता है।",
   "Now pick a Google account. A key rule: only one AdSense account is allowed per payee name.",
-  [("hl", 1.0, 330, 384, 620, 66, 2.4)], b="One payee name = one AdSense account")
+  [("hl", 1.0, 330, 384, 620, 66, 2.4), ("zoom", 0.8, 640, 417, 1.4, 2.6)], b="One payee name = one AdSense account")
 B("अगर आपका पहले से ऐडसेंस अकाउंट है — जैसे किसी वेबसाइट के लिए — तो नया मत बनाइए। उसी जीमेल को चुनिए, और पुराना अकाउंट ही लिंक कर दीजिए।",
   "Already have AdSense, say for a website? Don't create a new one — choose that Gmail and link the existing account.", b="Already have one? Link it")
 B("मेरे पास पहले से नहीं है, तो मैं अपने चैनल वाला अकाउंट चुनता हूँ।",
   "I don't have one, so I'll pick my channel's account.", tapgo(("e", 0.1), 640, 417, to="ads1", box=(330, 384, 620, 66)), pad=1.0)
 B("यहाँ आपका चैनल अपने आप भरा होता है। अब देश में 'इंडिया' चुनिए — ये बाद में बदला नहीं जा सकता, इसलिए ध्यान से।",
   "Your channel is already filled in. Choose India as the country — it can't be changed later, so be careful.",
-  [("hl", 0.4, 340, 240, 600, 58, 1.8), ("hl", 2.6, 340, 320, 600, 58, 1.6), ("tap", 3.0, 640, 349), ("set", 3.2, "country", "India")],
+  [("hl", 0.4, 340, 240, 600, 58, 1.8), ("hl", 2.6, 340, 320, 600, 58, 1.6), ("zoom", 2.2, 640, 349, 1.4, 2.4), ("tap", 3.0, 640, 349), ("set", 3.2, "country", "India")],
   b="Country can't be changed later")
 B("फिर टर्म्स पढ़कर टिक कीजिए, और 'कंटिन्यू' पर क्लिक कीजिए।",
   "Then accept the terms and click Continue.",
@@ -144,7 +144,7 @@ B("अब आता है अगला ज़रूरी स्टेप — �
   [("scr", "e+0.1", "adhome")], panel=P("CHAPTER 8", f"Verify your {Y('address (PIN)')}"), ch="PIN Verification", pad=0.8)
 B("जब आपकी कमाई एक छोटी सी लिमिट पार कर लेती है, तो गूगल आपके पते पर छह अंकों का पिन डाक से भेजता है। ये चिट्ठी आने में आम तौर पर दो से चार हफ़्ते लगते हैं।",
   "Once your earnings pass a small threshold, Google posts a 6-digit PIN to your address. It usually takes 2–4 weeks to arrive.",
-  [("hl", 0.6, 240, 270, 1020, 80, 3.0)], b="6-digit PIN by post (2–4 weeks)")
+  [("hl", 0.6, 240, 270, 1020, 80, 3.0), ("zoom", 0.4, 750, 310, 1.3, 3.0)], b="6-digit PIN by post (2–4 weeks)")
 B("चिट्ठी आ जाए, तो यहाँ 'वेरिफ़ाई एड्रेस' पर क्लिक कीजिए, और अपना पिन डालिए।",
   "When it arrives, click Verify address and enter your PIN.",
   press(0.6, 1170, 310, z=1.6, box=(1090, 290, 160, 40), after=[("set", .1, "pinmodal", 1)]) + [("tap", "e+0.0", 640, 404)] + typ(("e", 0.2), "pin", "482915", cps=4), pad=1.0)
@@ -186,7 +186,7 @@ B("अब वो स्टेप, जिसे ज़्यादातर ल�
   panel=P("CHAPTER 10", f"US {Y('tax info')}"), ch="US Tax Info (Save Tax)", pad=1.0)
 B("अगर ये जानकारी नहीं भरी, तो आपकी पूरी कमाई से चौबीस प्रतिशत तक कट सकता है। लेकिन भरने पर, भारत और अमेरिका की टैक्स संधि की वजह से, सिर्फ़ अमेरिका वाली कमाई पर पंद्रह प्रतिशत कटता है।",
   "If it's missing, up to 24% of your total earnings can be withheld. With it, thanks to the India–US treaty, only US-viewer earnings are taxed at 15%.",
-  [("hl", 0.6, 240, 270, 1020, 80, 2.6)], panel=P("WHY IT MATTERS", f"{Y('24%')} vs {Y('15%')}"))
+  [("hl", 0.6, 240, 270, 1020, 80, 2.6), ("zoom", 0.4, 750, 302, 1.3, 3.4)], panel=P("WHY IT MATTERS", f"{Y('24%')} vs {Y('15%')}"))
 bl(("Not submitted: up to 24% of ALL earnings", True), "Submitted: 15% on US-viewer earnings only", start=1.2, step=5.0)
 B("'ऐड टैक्स इन्फ़ो' पर क्लिक कीजिए। इंडिविजुअल चुनिए, यू-एस पर्सन में 'नो' — और आपका फ़ॉर्म होगा डब्ल्यू-एट-बी-ई-एन।",
   "Click Add tax info. Choose Individual, US person: No — your form is W-8BEN.",
@@ -207,7 +207,7 @@ B("अब सबसे मज़ेदार सवाल — पैसा क�
   [("scr", 0.5, "adpay")], panel=P("CHAPTER 11", f"When do you {Y('get paid?')}"), ch="Payment Threshold & Dates")
 B("अगर आपका बैलेंस पेमेंट थ्रेशोल्ड, यानी लगभग सौ डॉलर, पार कर गया है, और कोई होल्ड नहीं है, तो पेमेंट हर महीने की इक्कीस से छब्बीस तारीख़ के बीच आ जाता है।",
   "If your balance is over the payment threshold — about $100 — with no holds, you're paid between the 21st and 26th of the month.",
-  [("hl", 0.6, 240, 270, 480, 150, 2.6), ("hl", 4.4, 740, 270, 480, 150, 2.6)])
+  [("hl", 0.6, 240, 270, 480, 150, 2.6), ("zoom", 0.4, 480, 345, 1.35, 3.0), ("hl", 4.4, 740, 270, 480, 150, 2.6)])
 bl("Threshold ≈ $100 (₹ amount varies)", "Paid between the 21st and 26th", start=1.0, step=3.6)
 B("जैसे — अक्टूबर की कमाई नवंबर की शुरुआत में फ़ाइनल होगी, और अगर थ्रेशोल्ड पार है, तो इक्कीस से छब्बीस नवंबर के बीच आपके बैंक में आ जाएगी।",
   "For example: October's earnings are finalised in early November and reach your bank around 21–26 November.", b="Oct earnings → paid ~21–26 Nov")
