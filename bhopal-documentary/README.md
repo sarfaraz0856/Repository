@@ -25,3 +25,7 @@ A documentary about the Bhopal gas tragedy, planned at about 15 minutes. It uses
 ## Chapter 2 – What Went Wrong (`chapter2/`, 60 s, 1080p)
 
 The control room at about 11 pm as the pressure in tank 610 rises; the refrigeration unit, shut down since June 1984; the flare tower (down for repair) and the vent gas scrubber (on standby); the water curtain, which could not reach the top of the vent stack.
+
+## Chapter 3 – The Escape (`chapter3/`, 60 s, 1080p)
+
+Around 1 am on 3 December, people wake up choking and run into the lanes; many run with the wind, straight into the cloud; the heavy gas sinks into the low ground; the cloud spreads over the old city with no proper warning.
