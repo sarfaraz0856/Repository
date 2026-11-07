@@ -20,12 +20,14 @@ from chatterbox.mtl_tts import ChatterboxMultilingualTTS
 model = ChatterboxMultilingualTTS.from_pretrained(device="cpu")
 model.prepare_conditionals(ref, exaggeration=EXAG)
 
-def parts(t):
-    """Split at sentence ends (। ? !) and long dashes so each generation stays short and stable."""
-    bits = [b.strip() for b in re.split(r"(?<=[।?!])\s+|\s+—\s+", t) if b.strip()]
+def parts(t, minc=30):
+    """Split at sentence ends (। ? !) so each generation stays short and stable.
+    Very short pieces (e.g. "सब ठीक है?") make the model mumble, so they are merged into a neighbour."""
+    t = re.sub(r"['\"‘’“”]", "", t).replace(" — ", ", ")   # a comma keeps the dash's pause
+    bits = [b.strip() for b in re.split(r"(?<=[।?!])\s+", t) if b.strip()]
     merged = []
-    for b in bits:  # glue tiny fragments onto the previous part
-        if merged and len(b) < 18: merged[-1] += " " + b
+    for b in bits:
+        if merged and (len(b) < minc or len(merged[-1]) < minc): merged[-1] += " " + b
         else: merged.append(b)
     return merged or [t]
 
