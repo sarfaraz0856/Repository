@@ -174,7 +174,7 @@ B("अब अकाउंट नंबर दो बार डालिए, 'स
   [("set", 4.2, "focus", ""), ("tap", 4.4, 391, 507), ("set", 4.5, "primary", 1)] +
   press(("e", 0.1), 845, 602, z=1.5, box=(790, 582, 110, 40), after=[("set", .1, "bankform", 0), ("set", .1, "bankok", 1), ("sfx", .2, "ping")]),
   b="IFSC + account number (twice)", pad=1.2)
-B("ध्यान रखिए — बैंक अकाउंट आपके अपने नाम पर होना चाहिए, वही नाम जो ऐडसेंस में है। किसी और के अकाउंट में पेमेंट मत मँगवाइए।",
+B("याद रखिए — बैंक अकाउंट आपके अपने नाम पर होना चाहिए, वही नाम जो ऐडसेंस में है। किसी और के अकाउंट में पेमेंट मत मँगवाइए।",
   "Remember: the bank account must be in your own name — the same as in AdSense. Never use someone else's account.", b=("Someone else's bank account", True))
 B("पैसा डॉलर में भेजा जाता है, और आपके बैंक में रुपयों में बदलकर आता है। इस पर बैंक थोड़ा सा चार्ज भी काट सकता है।",
   "Money is sent in dollars and arrives in your bank converted to rupees; your bank may deduct a small fee.", b="Sent in $ → arrives in ₹", pad=1.0)
