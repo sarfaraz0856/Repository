@@ -345,9 +345,10 @@ B("मिलते हैं अगली वीडियो में। तब
 
 # ======================= BUILD =======================
 def main():
-    from kokoro_onnx import Kokoro
-    kd = os.environ["KOKORO_DIR"]
-    k = Kokoro(os.path.join(kd, "kokoro-v1.0.int8.onnx"), os.path.join(kd, "voices-v1.0.bin"))
+    if not os.environ.get("CLONE_DIR"):
+        from kokoro_onnx import Kokoro
+        kd = os.environ["KOKORO_DIR"]
+        k = Kokoro(os.path.join(kd, "kokoro-v1.0.int8.onnx"), os.path.join(kd, "voices-v1.0.bin"))
     STYLE = np.load(os.environ["VOICE_NPY"]).astype(np.float32) if os.environ.get("VOICE_NPY") else None
     import hashlib
     cache = os.path.join(OUT, "tts_cache"); os.makedirs(cache, exist_ok=True)
@@ -355,11 +356,19 @@ def main():
         cf = os.path.join(cache, hashlib.md5(f"{VOICE}|{SPEED}|{PITCH}|{text}".encode()).hexdigest() + ".npy")
         if os.path.exists(cf): return np.load(cf)
         b = _tts(text); np.save(cf, b); return b
+    CLONE_DIR = os.environ.get("CLONE_DIR")   # pre-generated cloned-voice wavs named md5(text).wav (see ../voice/clone_tts.py)
+    CLONE_TEMPO = float(os.environ.get("CLONE_TEMPO", str(SPEED)))
     def _tts(text):
-        a, sr = k.create(text, voice=STYLE if STYLE is not None else VOICE, speed=SPEED, lang="hi")
         raw, out = os.path.join(OUT, "_in.wav"), os.path.join(OUT, "_out.wav")
-        sf.write(raw, a, sr)
-        af = ["-af", f"asetrate={int(sr * 2 ** (PITCH / 12))},aresample={sr},atempo={1 / 2 ** (PITCH / 12):.5f}"] if PITCH else []
+        if CLONE_DIR:
+            raw = os.path.join(CLONE_DIR, hashlib.md5(text.encode()).hexdigest() + ".wav")
+            # tempo to 1.15x + broadcast voice chain: rumble cut, mud cut, presence lift, de-ess, gentle compression
+            af = ["-af", f"atempo={CLONE_TEMPO:.4f},highpass=f=80,equalizer=f=280:t=q:w=1.2:g=-2,equalizer=f=3200:t=q:w=1.4:g=2,"
+                  "deesser=i=0.35,acompressor=threshold=-20dB:ratio=3:attack=8:release=120:makeup=2"]
+        else:
+            a, sr = k.create(text, voice=STYLE if STYLE is not None else VOICE, speed=SPEED, lang="hi")
+            sf.write(raw, a, sr)
+            af = ["-af", f"asetrate={int(sr * 2 ** (PITCH / 12))},aresample={sr},atempo={1 / 2 ** (PITCH / 12):.5f}"] if PITCH else []
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", raw, *af, "-ar", str(SR), "-ac", "1", out], check=True)
         b, _ = sf.read(out, dtype="float32")
         # trim leading/trailing near-silence
@@ -368,9 +377,11 @@ def main():
         return b / (np.abs(b).max() + 1e-9) * 0.9
     TL = dict(screens=[], taps=[], zooms=[], hls=[], types=[], sets=[], tweens=[], panels=[], bullets=[], caps=[], confetti=[], chapters=[])
     voice_clips, sfx_ev, t = [], [], 0.6
+    LINES = []
     for bi, bt in enumerate(BEATS):
         clip = tts(bt["vo"]); d = len(clip) / SR
         vs = t + 0.15; ve = vs + d
+        LINES.append(dict(s=round(vs, 3), e=round(ve, 3), hi=bt["vo"], en=bt["cap"]))
         res = lambda o: (t + O(o)[1]) if O(o)[0] == "s" else (ve + O(o)[1])
         end = ve
         if bt["ch"]: TL["chapters"].append(dict(t=round(t, 2), title=bt["ch"]))
@@ -440,6 +451,7 @@ def main():
     TL["types"].sort(key=lambda x: x["a"]); TL["zooms"].sort(key=lambda x: x["a"])
     open(os.path.join(HERE, os.environ.get("TL_NAME", "timeline.js")), "w", encoding="utf-8").write("window.TL=" + json.dumps(TL, ensure_ascii=False) + ";")
     json.dump(TL["chapters"], open(os.path.join(OUT, "chapters.json"), "w"), ensure_ascii=False, indent=1)
+    json.dump(LINES, open(os.path.join(OUT, "lines.json"), "w"), ensure_ascii=False, indent=1)
 
     # ---------- audio ----------
     N = int(D * SR); voice = np.zeros(N, np.float32); vmask = np.zeros(N, np.float32)
@@ -480,6 +492,7 @@ def main():
         for j in range(8):
             f = ch[j % 3] * (4 if j % 4 == 3 else 2); ps = s + int(j * beat / 2 * SR); pl = tone(f, .04, 6, .5); pe = min(N, ps + len(pl))
             if ps < N: music[ps:pe] += pl[:pe - ps]
+    sf.write(os.path.join(OUT, "voice_only.wav"), voice / (np.abs(voice).max() + 1e-9) * .9, SR)
     ker = np.ones(int(.3 * SR)) / int(.3 * SR); vm = np.convolve(vmask, ker, mode="same")
     music *= (1 - .7 * np.clip(vm, 0, 1)).astype(np.float32)
     ta = np.arange(N) / SR; music *= (np.minimum(1, ta / 1.5) * np.minimum(1, (D - ta) / 2.0)).astype(np.float32)

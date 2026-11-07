@@ -234,7 +234,7 @@ B("तो एक बार दोहरा लेते हैं — एलि�
 bl("Eligible for YPP", "Terms accepted + AdSense linked", "PIN verified", "Bank account added", "US tax info submitted", start=1.0, step=1.3)
 B("अगर इस वीडियो से आपको मदद मिली, तो लाइक कीजिए, चैनल सब्सक्राइब कीजिए, और कोई सवाल हो तो कमेंट में पूछिए — मैं जवाब दूँगा। मिलते हैं अगली वीडियो में!",
   "Found this helpful? Like, subscribe, and ask any question in the comments — I'll reply. See you in the next video!",
-  panel=P("THANK YOU", f"👍 Like · 🔔 {Y('Subscribe')} · 💬 Comment"), pad=2.0)
+  panel=P("THANK YOU", f"👍 Like · 🔔 {Y('Subscribe')} · 💬 Comment"), pad=float(__import__("os").environ.get("END_PAD", "2.0")))
 
 if __name__ == "__main__":
     M.main()
