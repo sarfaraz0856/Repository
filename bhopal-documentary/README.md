@@ -33,3 +33,7 @@ Around 1 am on 3 December, people wake up choking and run into the lanes; many r
 ## Chapter 4 – The Station (`chapter4/`, 60 s, 1080p)
 
 The gas reaches Bhopal Junction after 1 am while a crowded express train waits at the platform; deputy station superintendent Ghulam Dastagir sends the train away ahead of time and stays at his post to warn other stations.
+
+## Chapter 5 – The Hospital (`chapter5/`, 60 s, 1080p)
+
+By the morning of 3 December thousands have reached Hamidia Hospital; with no room left, patients lie in the corridors and on the floors; the doctors do not know which gas it was or how to treat it; in the first few days tens of thousands need treatment.
