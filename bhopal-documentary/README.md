@@ -29,3 +29,7 @@ The control room at about 11 pm as the pressure in tank 610 rises; the refrigera
 ## Chapter 3 – The Escape (`chapter3/`, 60 s, 1080p)
 
 Around 1 am on 3 December, people wake up choking and run into the lanes; many run with the wind, straight into the cloud; the heavy gas sinks into the low ground; the cloud spreads over the old city with no proper warning.
+
+## Chapter 4 – The Station (`chapter4/`, 60 s, 1080p)
+
+The gas reaches Bhopal Junction after 1 am while a crowded express train waits at the platform; deputy station superintendent Ghulam Dastagir sends the train away ahead of time and stays at his post to warn other stations.
