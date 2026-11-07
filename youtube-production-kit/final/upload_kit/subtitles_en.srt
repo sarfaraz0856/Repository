@@ -1,0 +1,896 @@
+1
+00:00:00,750 --> 00:00:03,834
+Every creator dreams of earning from YouTube.
+
+2
+00:00:03,834 --> 00:00:07,330
+But how does the money reach your bank? The answer:
+
+3
+00:00:07,330 --> 00:00:08,358
+Google AdSense.
+
+4
+00:00:09,608 --> 00:00:12,049
+I'll show the whole process:
+
+5
+00:00:12,049 --> 00:00:14,839
+applying to the Partner Program,
+
+6
+00:00:14,839 --> 00:00:16,321
+creating AdSense,
+
+7
+00:00:16,321 --> 00:00:17,803
+PIN verification,
+
+8
+00:00:17,803 --> 00:00:20,419
+adding your bank and tax info.
+
+9
+00:00:21,319 --> 00:00:24,388
+And I'll show where people go wrong,
+
+10
+00:00:24,388 --> 00:00:27,202
+so your payment never gets stuck.
+
+11
+00:00:27,202 --> 00:00:28,225
+Let's begin.
+
+12
+00:00:29,725 --> 00:00:30,150
+First,
+
+13
+00:00:30,150 --> 00:00:31,566
+how the money flows:
+
+14
+00:00:31,566 --> 00:00:34,115
+YouTube shows ads on your videos and
+
+15
+00:00:34,115 --> 00:00:36,735
+shares part of that revenue with you.
+
+16
+00:00:37,985 --> 00:00:40,389
+It doesn't go straight to your bank.
+
+17
+00:00:40,389 --> 00:00:43,595
+It collects in your AdSense for YouTube account,
+
+18
+00:00:43,595 --> 00:00:46,266
+then gets sent to your bank every month.
+
+19
+00:00:47,516 --> 00:00:49,460
+How big is your share?
+
+20
+00:00:49,460 --> 00:00:53,259
+About 55% of the ad revenue on long videos,
+
+21
+00:00:53,259 --> 00:00:54,849
+and 45% on Shorts.
+
+22
+00:00:56,099 --> 00:00:58,708
+Earnings also depend on your topic and
+
+23
+00:00:58,708 --> 00:01:00,356
+where your viewers are —
+
+24
+00:01:00,356 --> 00:01:02,759
+so every channel earns differently.
+
+25
+00:01:04,009 --> 00:01:06,385
+So don't treat AdSense as just a form —
+
+26
+00:01:06,385 --> 00:01:08,457
+it's the locker for your earnings.
+
+27
+00:01:08,457 --> 00:01:10,590
+Every detail in it must be correct.
+
+28
+00:01:12,090 --> 00:01:14,085
+When should you set up AdSense?
+
+29
+00:01:14,085 --> 00:01:16,466
+Once your channel is eligible for the
+
+30
+00:01:16,466 --> 00:01:18,397
+YouTube Partner Program (YPP).
+
+31
+00:01:18,397 --> 00:01:19,555
+In YouTube Studio,
+
+32
+00:01:19,555 --> 00:01:21,035
+click Earn on the left.
+
+33
+00:01:23,735 --> 00:01:26,152
+Here you can see your channel's progress.
+
+34
+00:01:26,152 --> 00:01:27,331
+Under current rules,
+
+35
+00:01:27,331 --> 00:01:29,395
+the Partner Program has two levels.
+
+36
+00:01:30,645 --> 00:01:31,340
+Level 1:
+
+37
+00:01:31,340 --> 00:01:32,730
+500 subscribers,
+
+38
+00:01:32,730 --> 00:01:35,161
+3 public uploads in 90 days,
+
+39
+00:01:35,161 --> 00:01:38,722
+plus 3,000 watch hours in 12 months or 3M
+
+40
+00:01:38,722 --> 00:01:40,807
+Shorts views in 90 days.
+
+41
+00:01:42,057 --> 00:01:44,901
+This unlocks fan funding like memberships
+
+42
+00:01:44,901 --> 00:01:46,149
+and Super Thanks —
+
+43
+00:01:46,149 --> 00:01:47,467
+but not ad revenue.
+
+44
+00:01:48,717 --> 00:01:51,669
+For ad revenue you need level 2:
+
+45
+00:01:51,669 --> 00:01:55,358
+1,000 subscribers plus 4,000 watch hours
+
+46
+00:01:55,358 --> 00:01:56,558
+in 12 months,
+
+47
+00:01:56,558 --> 00:01:59,417
+or 10M Shorts views in 90 days.
+
+48
+00:02:00,667 --> 00:02:05,232
+Only public long-form watch hours count —
+
+49
+00:02:05,232 --> 00:02:07,459
+not Shorts, private,
+
+50
+00:02:07,459 --> 00:02:10,465
+unlisted or deleted videos.
+
+51
+00:02:11,715 --> 00:02:13,053
+Not eligible yet?
+
+52
+00:02:13,053 --> 00:02:15,966
+Click 'Get notified' on this page and
+
+53
+00:02:15,966 --> 00:02:18,800
+YouTube will email you once you are.
+
+54
+00:02:20,050 --> 00:02:23,656
+Watch hours and Shorts views don't add up —
+
+55
+00:02:23,656 --> 00:02:25,417
+complete one of them.
+
+56
+00:02:25,417 --> 00:02:28,603
+YouTube changes these rules over time,
+
+57
+00:02:28,603 --> 00:02:30,783
+so always check in Studio.
+
+58
+00:02:32,283 --> 00:02:33,323
+Before applying,
+
+59
+00:02:33,323 --> 00:02:35,014
+make sure of three things.
+
+60
+00:02:36,014 --> 00:02:36,315
+One:
+
+61
+00:02:36,315 --> 00:02:39,246
+2-Step Verification must be on for your
+
+62
+00:02:39,246 --> 00:02:40,373
+Google account.
+
+63
+00:02:41,623 --> 00:02:41,936
+Two:
+
+64
+00:02:41,936 --> 00:02:45,149
+no active Community Guidelines strikes on
+
+65
+00:02:45,149 --> 00:02:46,168
+your channel.
+
+66
+00:02:47,418 --> 00:02:48,027
+Three,
+
+67
+00:02:48,027 --> 00:02:49,549
+most important:
+
+68
+00:02:49,549 --> 00:02:51,274
+original content.
+
+69
+00:02:51,274 --> 00:02:55,536
+'Reused content' is the most common reason
+
+70
+00:02:55,536 --> 00:02:57,768
+channels get rejected.
+
+71
+00:02:59,268 --> 00:03:01,974
+Reviewers look at your whole channel:
+
+72
+00:03:01,974 --> 00:03:03,071
+its main theme,
+
+73
+00:03:03,071 --> 00:03:05,266
+most-viewed and newest videos,
+
+74
+00:03:05,266 --> 00:03:07,606
+and titles and descriptions too.
+
+75
+00:03:08,856 --> 00:03:10,346
+So before applying,
+
+76
+00:03:10,346 --> 00:03:13,248
+delete or make private any old copied
+
+77
+00:03:13,248 --> 00:03:15,444
+videos or misleading titles.
+
+78
+00:03:16,944 --> 00:03:17,545
+All set?
+
+79
+00:03:17,545 --> 00:03:18,445
+Let's apply.
+
+80
+00:03:18,445 --> 00:03:21,373
+Step one is the Partner Program terms —
+
+81
+00:03:21,373 --> 00:03:24,000
+click START next to 'Review Partner
+
+82
+00:03:24,000 --> 00:03:25,126
+Program terms'.
+
+83
+00:03:27,726 --> 00:03:30,593
+They explain how revenue is shared and
+
+84
+00:03:30,593 --> 00:03:32,705
+which rules you must follow.
+
+85
+00:03:32,705 --> 00:03:33,837
+Read them once,
+
+86
+00:03:33,837 --> 00:03:35,195
+then click Accept.
+
+87
+00:03:38,195 --> 00:03:39,183
+Step two:
+
+88
+00:03:39,183 --> 00:03:42,695
+Sign up for AdSense for YouTube.
+
+89
+00:03:42,695 --> 00:03:44,012
+Click START.
+
+90
+00:03:46,812 --> 00:03:49,960
+Now pick a Google account. A key rule:
+
+91
+00:03:49,960 --> 00:03:54,186
+only one AdSense account is allowed per payee name.
+
+92
+00:03:55,436 --> 00:03:57,142
+Already have AdSense,
+
+93
+00:03:57,142 --> 00:03:58,604
+say for a website?
+
+94
+00:03:58,604 --> 00:04:00,553
+Don't create a new one —
+
+95
+00:04:00,553 --> 00:04:04,452
+choose that Gmail and link the existing account.
+
+96
+00:04:05,702 --> 00:04:06,872
+I don't have one,
+
+97
+00:04:06,872 --> 00:04:09,213
+so I'll pick my channel's account.
+
+98
+00:04:11,513 --> 00:04:14,191
+Your channel is already filled in.
+
+99
+00:04:14,191 --> 00:04:16,476
+Choose India as the country —
+
+100
+00:04:16,476 --> 00:04:18,524
+it can't be changed later,
+
+101
+00:04:18,524 --> 00:04:19,627
+so be careful.
+
+102
+00:04:20,877 --> 00:04:24,559
+Then accept the terms and click Continue.
+
+103
+00:04:27,059 --> 00:04:29,206
+Now the payee information —
+
+104
+00:04:29,206 --> 00:04:31,194
+details of who gets paid.
+
+105
+00:04:31,194 --> 00:04:34,056
+Keep the account type as Individual.
+
+106
+00:04:35,306 --> 00:04:39,895
+Type your name exactly as in your bank account —
+
+107
+00:04:39,895 --> 00:04:41,233
+same spelling.
+
+108
+00:04:41,233 --> 00:04:44,770
+A mismatch puts your payment on hold.
+
+109
+00:04:46,020 --> 00:04:49,243
+Use the address where you actually live
+
+110
+00:04:49,243 --> 00:04:50,400
+and get post —
+
+111
+00:04:50,400 --> 00:04:54,367
+Google will mail a PIN letter here. No P.O. box.
+
+112
+00:04:55,617 --> 00:04:57,419
+If a phone number is asked,
+
+113
+00:04:57,419 --> 00:04:59,153
+enter your active number —
+
+114
+00:04:59,153 --> 00:05:01,689
+a verification code may be sent to it.
+
+115
+00:05:02,939 --> 00:05:04,494
+Check everything once,
+
+116
+00:05:04,494 --> 00:05:05,766
+then click Submit.
+
+117
+00:05:09,766 --> 00:05:12,491
+AdSense is linked. Step three:
+
+118
+00:05:12,491 --> 00:05:13,763
+Get reviewed —
+
+119
+00:05:13,763 --> 00:05:17,487
+YouTube's team will look at your channel.
+
+120
+00:05:18,737 --> 00:05:21,433
+This usually takes about a month.
+
+121
+00:05:21,433 --> 00:05:25,191
+Keep uploading and follow the rules meanwhile.
+
+122
+00:05:26,441 --> 00:05:30,986
+You can track the review on this same Earn page —
+
+123
+00:05:30,986 --> 00:05:34,326
+and YouTube emails you the decision.
+
+124
+00:05:35,576 --> 00:05:36,521
+If rejected,
+
+125
+00:05:36,521 --> 00:05:37,466
+don't panic:
+
+126
+00:05:37,466 --> 00:05:39,198
+appeal within 21 days,
+
+127
+00:05:39,198 --> 00:05:43,134
+or improve your content and reapply after 30 days.
+
+128
+00:05:44,384 --> 00:05:46,201
+And once you're approved,
+
+129
+00:05:46,201 --> 00:05:47,364
+you'll see this!
+
+130
+00:05:47,364 --> 00:05:49,617
+Ads can now run on your videos.
+
+131
+00:05:51,717 --> 00:05:53,611
+Next important step:
+
+132
+00:05:53,611 --> 00:05:55,220
+PIN verification.
+
+133
+00:05:55,220 --> 00:05:57,587
+Open AdSense for YouTube.
+
+134
+00:05:59,387 --> 00:06:02,512
+Once your earnings pass a small threshold,
+
+135
+00:06:02,512 --> 00:06:05,710
+Google posts a 6-digit PIN to your address.
+
+136
+00:06:05,710 --> 00:06:08,463
+It usually takes 2–4 weeks to arrive.
+
+137
+00:06:09,713 --> 00:06:10,944
+When it arrives,
+
+138
+00:06:10,944 --> 00:06:14,023
+click Verify address and enter your PIN.
+
+139
+00:06:17,523 --> 00:06:18,108
+Submit,
+
+140
+00:06:18,108 --> 00:06:20,532
+and your address is verified.
+
+141
+00:06:20,532 --> 00:06:23,373
+You get 4 months to enter the PIN;
+
+142
+00:06:23,373 --> 00:06:26,967
+3 wrong tries can stop payments. No letter?
+
+143
+00:06:26,967 --> 00:06:29,391
+Request a new PIN in AdSense.
+
+144
+00:06:30,641 --> 00:06:34,048
+The PIN arrives as a plain letter from Google.
+
+145
+00:06:34,048 --> 00:06:35,604
+Don't throw it away —
+
+146
+00:06:35,604 --> 00:06:38,344
+many people mistake it for junk mail.
+
+147
+00:06:39,844 --> 00:06:41,764
+Now let's add your bank account.
+
+148
+00:06:41,764 --> 00:06:43,384
+Click Payments on the left.
+
+149
+00:06:45,184 --> 00:06:46,667
+Under How you get paid,
+
+150
+00:06:46,667 --> 00:06:48,923
+click Add payment method. In India,
+
+151
+00:06:48,923 --> 00:06:51,759
+money comes straight into your bank account.
+
+152
+00:06:54,359 --> 00:06:56,189
+Account holder name —
+
+153
+00:06:56,189 --> 00:06:58,194
+the same as in AdSense.
+
+154
+00:06:58,194 --> 00:07:01,070
+Then the bank name and IFSC code,
+
+155
+00:07:01,070 --> 00:07:04,382
+found on your passbook or cheque book.
+
+156
+00:07:05,632 --> 00:07:08,186
+Enter the account number twice,
+
+157
+00:07:08,186 --> 00:07:09,834
+tick Set as primary,
+
+158
+00:07:09,834 --> 00:07:11,070
+and click Save.
+
+159
+00:07:15,370 --> 00:07:16,024
+Remember:
+
+160
+00:07:16,024 --> 00:07:19,151
+the bank account must be in your own name —
+
+161
+00:07:19,151 --> 00:07:20,823
+the same as in AdSense.
+
+162
+00:07:20,823 --> 00:07:23,222
+Never use someone else's account.
+
+163
+00:07:24,472 --> 00:07:27,206
+Money is sent in dollars and arrives in
+
+164
+00:07:27,206 --> 00:07:29,309
+your bank converted to rupees;
+
+165
+00:07:29,309 --> 00:07:31,622
+your bank may deduct a small fee.
+
+166
+00:07:33,122 --> 00:07:33,563
+Next,
+
+167
+00:07:33,563 --> 00:07:35,858
+the step most people skip:
+
+168
+00:07:35,858 --> 00:07:36,917
+US tax info.
+
+169
+00:07:36,917 --> 00:07:40,888
+Earnings from US viewers are taxed in the US.
+
+170
+00:07:43,088 --> 00:07:44,314
+If it's missing,
+
+171
+00:07:44,314 --> 00:07:48,069
+up to 24% of your total earnings can be withheld.
+
+172
+00:07:48,069 --> 00:07:48,682
+With it,
+
+173
+00:07:48,682 --> 00:07:50,981
+thanks to the India–US treaty,
+
+174
+00:07:50,981 --> 00:07:54,123
+only US-viewer earnings are taxed at 15%.
+
+175
+00:07:55,373 --> 00:07:57,367
+Click Add tax info.
+
+176
+00:07:57,367 --> 00:08:00,936
+Choose Individual, US person: No —
+
+177
+00:08:00,936 --> 00:08:03,035
+your form is W-8BEN.
+
+178
+00:08:04,835 --> 00:08:07,420
+Claim treaty benefits for India, Article 12,
+
+179
+00:08:07,420 --> 00:08:08,301
+enter your PAN,
+
+180
+00:08:08,301 --> 00:08:10,122
+sign with your name and submit.
+
+181
+00:08:14,622 --> 00:08:15,172
+Done —
+
+182
+00:08:15,172 --> 00:08:18,836
+only 15% is now withheld on US earnings.
+
+183
+00:08:18,836 --> 00:08:22,134
+You can claim it as a credit in your
+
+184
+00:08:22,134 --> 00:08:23,875
+Indian tax return —
+
+185
+00:08:23,875 --> 00:08:24,974
+ask your CA.
+
+186
+00:08:26,474 --> 00:08:27,513
+Now the fun question:
+
+187
+00:08:27,513 --> 00:08:28,552
+when do you get paid?
+
+188
+00:08:28,552 --> 00:08:29,889
+At the start of each month,
+
+189
+00:08:29,889 --> 00:08:31,670
+last month's earnings are finalised.
+
+190
+00:08:32,920 --> 00:08:35,842
+If your balance is over the payment threshold —
+
+191
+00:08:35,842 --> 00:08:36,588
+about $100 —
+
+192
+00:08:36,588 --> 00:08:37,458
+with no holds,
+
+193
+00:08:37,458 --> 00:08:40,628
+you're paid between the 21st and 26th of the month.
+
+194
+00:08:41,878 --> 00:08:42,832
+For example:
+
+195
+00:08:42,832 --> 00:08:46,093
+October's earnings are finalised in early
+
+196
+00:08:46,093 --> 00:08:50,148
+November and reach your bank around 21–26 November.
+
+197
+00:08:51,398 --> 00:08:52,352
+Below the threshold?
+
+198
+00:08:52,352 --> 00:08:54,547
+Your earnings simply roll over to next month —
+
+199
+00:08:54,547 --> 00:08:55,310
+nothing is lost.
+
+200
+00:08:56,810 --> 00:08:58,745
+If a payment ever gets stuck,
+
+201
+00:08:58,745 --> 00:09:01,813
+look for a 'payment hold' message in AdSense —
+
+202
+00:09:01,813 --> 00:09:03,214
+usually it's the PIN,
+
+203
+00:09:03,214 --> 00:09:04,882
+tax info or bank details.
+
+204
+00:09:06,382 --> 00:09:06,867
+Finally,
+
+205
+00:09:06,867 --> 00:09:09,173
+the mistakes that block payments. One:
+
+206
+00:09:09,173 --> 00:09:11,236
+creating a second AdSense account.
+
+207
+00:09:12,486 --> 00:09:12,779
+Two:
+
+208
+00:09:12,779 --> 00:09:16,221
+different names in AdSense and the bank. Three:
+
+209
+00:09:16,221 --> 00:09:17,392
+a wrong address,
+
+210
+00:09:17,392 --> 00:09:19,223
+so the PIN never arrives.
+
+211
+00:09:20,473 --> 00:09:20,886
+Four:
+
+212
+00:09:20,886 --> 00:09:22,375
+skipping tax info,
+
+213
+00:09:22,375 --> 00:09:24,607
+so extra tax gets deducted.
+
+214
+00:09:26,107 --> 00:09:27,257
+A safety tip:
+
+215
+00:09:27,257 --> 00:09:30,885
+avoid anyone promising 'AdSense approval'
+
+216
+00:09:30,885 --> 00:09:32,743
+or fast monetization.
+
+217
+00:09:32,743 --> 00:09:36,547
+Never share your AdSense or Gmail password.
+
+218
+00:09:38,047 --> 00:09:38,995
+Quick recap:
+
+219
+00:09:38,995 --> 00:09:40,496
+eligibility, terms,
+
+220
+00:09:40,496 --> 00:09:42,786
+AdSense account, review, PIN,
+
+221
+00:09:42,786 --> 00:09:44,840
+bank account and tax info.
+
+222
+00:09:46,090 --> 00:09:48,578
+Found this helpful? Like, subscribe,
+
+223
+00:09:48,578 --> 00:09:52,032
+and ask any question in the comments — I'll reply.
+
+224
+00:09:52,032 --> 00:09:53,829
+See you in the next video!
+
