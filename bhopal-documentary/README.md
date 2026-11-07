@@ -41,3 +41,7 @@ By the morning of 3 December thousands have reached Hamidia Hospital; with no ro
 ## Chapter 6 – The Morning (`chapter6/`, 60 s, 1080p)
 
 Dawn on 3 December: the lanes have fallen silent, with shoes, bundles and bicycles left behind where people fled or fell; by then the cloud has drifted away (about 40 tonnes of gas escaped in roughly two hours); thousands of animals died too, and the leaves on the trees turned yellow and fell.
+
+## Chapter 7 – The Toll (`chapter7/`, 60 s, 1080p)
+
+The pyres at Chhola Vishram Ghat burn for days; at Jhada Kabristan graves are dug in long rows; 3,787 dead is the official figure of the Madhya Pradesh government, while other estimates put the deaths at about 8,000 in the first weeks; more than 500,000 people were injured.
