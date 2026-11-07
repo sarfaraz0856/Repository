@@ -45,3 +45,7 @@ Dawn on 3 December: the lanes have fallen silent, with shoes, bundles and bicycl
 ## Chapter 7 – The Toll (`chapter7/`, 60 s, 1080p)
 
 The pyres at Chhola Vishram Ghat burn for days; at Jhada Kabristan graves are dug in long rows; 3,787 dead is the official figure of the Madhya Pradesh government, while other estimates put the deaths at about 8,000 in the first weeks; more than 500,000 people were injured.
+
+## Chapter 8 – Warren Anderson (`chapter8/`, 60 s, 1080p)
+
+On 7 December 1984 Union Carbide's chairman arrives in Bhopal and is arrested; he is held at the company guest house for only a few hours, released on bail the same day and flown out on a state government plane; he never returned to face trial, was declared an absconder, and died in the USA in 2014.
