@@ -53,3 +53,7 @@ On 7 December 1984 Union Carbide's chairman arrives in Bhopal and is arrested; h
 ## Chapter 9 – The Settlement (`chapter9/`, 60 s, 1080p)
 
 On 14 February 1989 the Supreme Court approves a settlement of $470 million; the survivors were never asked and take to the streets; most victims receive about 25,000 rupees, years later; on 7 June 2010 seven former executives are convicted, sentenced to two years and given bail the same day.
+
+## Chapter 10 – The Poison Stays (`chapter10/`, 60 s, 1080p)
+
+The abandoned plant, with hundreds of tonnes of toxic waste left behind; the solar evaporation ponds, where years of chemical waste seeped into the ground; contaminated groundwater at a hand pump in the settlements; in January 2025, 337 tonnes of waste were finally taken away.
