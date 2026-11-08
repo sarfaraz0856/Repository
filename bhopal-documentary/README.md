@@ -65,3 +65,7 @@ Many children of survivors were born with illnesses; rehabilitation centres, whe
 ## Chapter 12 – The Fight (`chapter12/`, 60 s, 1080p)
 
 Women survivors led by Rashida Bee and Champa Devi Shukla; survivors walk about 800 km to Delhi to be heard, asking for clean water, medical care and justice; the 2004 Goldman Environmental Prize; every year on 3 December, Bhopal still marches with candles.
+
+## Chapter 13 – The Memorial (`chapter13/`, 60 s, 1080p)
+
+The mother-and-child statue made in 1985 by the Dutch sculptor Ruth Kupferschmidt; murals on the walls around the plant; the victims' belongings kept in a museum; candles at the statue at dusk: "No Hiroshima, No Bhopal. We want to live."
