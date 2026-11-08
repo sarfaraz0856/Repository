@@ -138,7 +138,7 @@ export async function M12D(ctx) {
     update(t) {
       marchUpdate(cs, glows, t);
       const k = easeInOutSine(t / 15);
-      placeCamera(camera, ctx, V3(lerp(8, 6, k), lerp(9, 26, k), lerp(760, 775, k)), V3(0, 0, 680), { focal: 30, shake: 0.03, shakeFreq: 0.25, t, seed: 12404 });
+      placeCamera(camera, ctx, V3(lerp(4, 6, k), lerp(17, 26, k), lerp(766, 775, k)), V3(0, 0, 680), { focal: 30, shake: 0.03, shakeFreq: 0.25, t, seed: 12404 });
       return dcam(ctx, camera) || {};
     },
   };
