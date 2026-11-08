@@ -1,10 +1,17 @@
-# BHOPAL — 2–3 December 1984 (Hindi documentary, in progress)
+# BHOPAL — 2–3 December 1984 (Hindi documentary)
 
 A documentary about the Bhopal gas tragedy, planned at about 15 minutes. It uses the same pipeline as the Chernobyl film in `../chernobyl-documentary/`:
 
 - Every frame is rendered in code from 3D scenes (three.js / WebGL), with ray-marched volumetric gas.
 - The score and sound effects are synthesised.
 - The Hindi narration is in the creator's cloned voice: Piper TTS converted with FreeVC.
+
+## The full film
+
+- `Bhopal-Gas-Tragedy-Documentary-in-Hindi-720p.mp4` is the whole film: 15 chapters, 15:00, 720p, under 100 MB.
+- The 1080p upload master (about 1.4 GB) is too large for the repository. `source/join_full.sh` rebuilds it, and the 720p copy, from the fifteen `chapterN/` files.
+- `youtube/` holds the upload kit: title, tags and description with chapter timestamps, upload notes, Hindi and English subtitles, the Hindi narration script, and thumbnails A, B and C.
+- Chapters 10–15 were narrated after the original 54-second voice recording was lost. Their FreeVC reference was rebuilt from the narration of chapters 1–8 with `source/voiceover/build_ref_from_chapters.py`.
 
 ## Chapter 1 – The Night (`chapter1/`, 60 s, 1080p)
 
