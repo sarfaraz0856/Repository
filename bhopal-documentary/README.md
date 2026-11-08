@@ -73,3 +73,7 @@ The mother-and-child statue made in 1985 by the Dutch sculptor Ruth Kupferschmid
 ## Chapter 14 – The Lesson (`chapter14/`, 60 s, 1080p)
 
 New laws: India passed the Environment (Protection) Act in 1986; safer plants, with alarms, emergency plans and the public's right to know; Bhopal today, the city of lakes and home to more than two million people; the worst industrial disaster in history, a warning the world must not forget.
+
+## Chapter 15 – Epilogue (`chapter15/`, 60 s, 1080p)
+
+Dusk over the Upper Lake; the dead plant still stands at night, a silent witness; a single diya among many: thousands died in one night and hundreds of thousands still wait for justice; the mother-and-child statue at night, and THE END.
