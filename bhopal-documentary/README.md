@@ -69,3 +69,7 @@ Women survivors led by Rashida Bee and Champa Devi Shukla; survivors walk about 
 ## Chapter 13 – The Memorial (`chapter13/`, 60 s, 1080p)
 
 The mother-and-child statue made in 1985 by the Dutch sculptor Ruth Kupferschmidt; murals on the walls around the plant; the victims' belongings kept in a museum; candles at the statue at dusk: "No Hiroshima, No Bhopal. We want to live."
+
+## Chapter 14 – The Lesson (`chapter14/`, 60 s, 1080p)
+
+New laws: India passed the Environment (Protection) Act in 1986; safer plants, with alarms, emergency plans and the public's right to know; Bhopal today, the city of lakes and home to more than two million people; the worst industrial disaster in history, a warning the world must not forget.
