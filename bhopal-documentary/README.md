@@ -57,3 +57,7 @@ On 14 February 1989 the Supreme Court approves a settlement of $470 million; the
 ## Chapter 10 – The Poison Stays (`chapter10/`, 60 s, 1080p)
 
 The abandoned plant, with hundreds of tonnes of toxic waste left behind; the solar evaporation ponds, where years of chemical waste seeped into the ground; contaminated groundwater at a hand pump in the settlements; in January 2025, 337 tonnes of waste were finally taken away.
+
+## Chapter 11 – The Next Generation (`chapter11/`, 60 s, 1080p)
+
+Many children of survivors were born with illnesses; rehabilitation centres, where doctors recorded more cases of birth defects; a new generation grows up in the same colonies; children play beside the plant wall, on ground that has never been cleaned.
