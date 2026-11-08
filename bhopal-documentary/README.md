@@ -61,3 +61,7 @@ The abandoned plant, with hundreds of tonnes of toxic waste left behind; the sol
 ## Chapter 11 – The Next Generation (`chapter11/`, 60 s, 1080p)
 
 Many children of survivors were born with illnesses; rehabilitation centres, where doctors recorded more cases of birth defects; a new generation grows up in the same colonies; children play beside the plant wall, on ground that has never been cleaned.
+
+## Chapter 12 – The Fight (`chapter12/`, 60 s, 1080p)
+
+Women survivors led by Rashida Bee and Champa Devi Shukla; survivors walk about 800 km to Delhi to be heard, asking for clean water, medical care and justice; the 2004 Goldman Environmental Prize; every year on 3 December, Bhopal still marches with candles.
