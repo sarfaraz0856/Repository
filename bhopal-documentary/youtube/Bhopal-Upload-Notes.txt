@@ -1,0 +1,45 @@
+BHOPAL GAS TRAGEDY – UPLOAD NOTES
+========================
+
+Title, tags, description और pinned comment: file Bhopal-Title-Tags-Description.txt में हैं।
+Subtitles: Bhopal-Subtitles-Hindi.srt (Hindi) और Bhopal-Subtitles-English.srt (English)।
+YouTube Studio > Subtitles > Add language > Upload file > With timing।
+
+FILES
+-----
+Video (upload this one, 1080p, 15:00):  Bhopal-Gas-Tragedy-Documentary-in-Hindi.mp4
+Thumbnail A (gas over the plant, "1984") - RECOMMENDED: Bhopal-Documentary-Thumbnail-A.jpg
+Thumbnail B (Tank 610 gauge, "THE FULL STORY"):      Bhopal-Documentary-Thumbnail-B.jpg
+Thumbnail C (the memorial statue, "40 YEARS LATER"): Bhopal-Documentary-Thumbnail-C.jpg
+Title, tags, description, pinned comment:          Bhopal-Title-Tags-Description.txt
+Full Hindi narration script with timings:          Bhopal-Narration-Script-Hindi.txt
+Hindi subtitles for YouTube:                       Bhopal-Subtitles-Hindi.srt
+English subtitles for YouTube:                     Bhopal-Subtitles-English.srt
+
+
+UPLOAD SETTINGS (YouTube Studio)
+--------------------------------
+1. Title, Description: paste from file Bhopal-Title-Tags-Description.txt.
+2. Thumbnail: upload Thumbnail A. If "Test & compare" is shown, add A, B and C and YouTube will pick the best one.
+3. Audience: "No, it's not made for kids".
+4. Tags: open "Show more" and paste the tags from file Bhopal-Title-Tags-Description.txt.
+5. Altered or synthetic content: choose YES (CGI visuals and an AI-cloned voice). This is YouTube's rule and protects the channel. It does not reduce reach.
+6. Video language: Hindi.   Title and description language: English.
+7. Category: Education.
+8. Subtitles: Subtitles > Add language > Hindi > Upload file > "With timing" > Bhopal-Subtitles-Hindi.srt.
+   Then Add language > English > Upload file > "With timing" > Bhopal-Subtitles-English.srt.
+   Subtitles help search, and English subtitles let viewers outside India follow the video too.
+9. Chapters: they come from the timestamps in the description. Keep "Allow automatic chapters" on.
+10. End screen: use the last 10-20 seconds (over THE END): one Subscribe element and one video or playlist.
+11. Visibility: Public, or Schedule for a time when your audience is online (YouTube Studio > Analytics > Audience shows it).
+
+
+NOTES (आपके लिए)
+----------------
+- Video को 720p नहीं, यही 1080p वाली file upload करें। YouTube पर quality बहुत बेहतर दिखेगी।
+- Upload के बाद HD processing में 10-30 मिनट लग सकते हैं। तब तक video कम quality में दिखे तो घबराएँ नहीं।
+- Upload के बाद एक pinned comment डालें, जैसे: "भोपाल गैस त्रासदी की कौन-सी बात आपको सबसे ज़्यादा झकझोर गई? Comment में बताइए।"
+- पहले 24 घंटे में video अपने WhatsApp, Instagram और Facebook पर share करें। शुरुआती views से YouTube video को आगे बढ़ाता है।
+- पहले 2-3 दिन title और thumbnail मत बदलें। उसके बाद Analytics में CTR (click-through rate) कम लगे, तो thumbnail B या C लगाकर देखें।
+- Description के पहले 2 lines सबसे ज़रूरी हैं, क्योंकि search में वही दिखते हैं। उन्हें मत बदलें।
+- Copyright: video, music और narration सब इसी film के लिए बने हैं, इसलिए copyright claim का ख़तरा नहीं है।
