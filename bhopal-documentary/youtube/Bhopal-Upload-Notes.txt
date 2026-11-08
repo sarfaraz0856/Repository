@@ -15,7 +15,7 @@ Title, tags, description, pinned comment:          Bhopal-Title-Tags-Description
 Full Hindi narration script with timings:          Bhopal-Narration-Script-Hindi.txt
 Hindi subtitles for YouTube:                       Bhopal-Subtitles-Hindi.srt
 English subtitles for YouTube:                     Bhopal-Subtitles-English.srt
-Same film, background music only (no voice), 720p: Bhopal-Gas-Tragedy-Documentary-Music-Only-No-Voice-720p.mp4
+Same film, background music only (no voice), 1080p: Bhopal-Gas-Tragedy-Documentary-Music-Only-No-Voice-1080p.mp4 (in the Part 2 ZIP)
 
 
 UPLOAD SETTINGS (YouTube Studio)
