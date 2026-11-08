@@ -5,7 +5,6 @@ import { fovFromFocalH, fbm1, noise1, smoothstep, clamp, lerp, easeInOut, easeIn
 import { buildCity, buildForest } from './lib/city.js';
 import { buildPlant, PLANT } from './lib/plant.js';
 import { S2, S3, S4, S10 } from './shots_plant.js';
-import { PTEST } from './shots_people_test.js';
 import { S5, S6, S7 } from './shots_fire.js';
 import { S8, S9 } from './shots_after.js';
 import { P1, P2, P3, P4, P5, P6, P7 } from './part2.js';
@@ -178,7 +177,6 @@ export const SHOTS = {
   P15C: { duration: 15.0, build: P15C, ss: 1, msaa: 4, volScale: 0.3 },
   P15D: { duration: 15.0, build: P15D, ss: 1, msaa: 4, volScale: 0.3 },
   TEST: { duration: 2, build: testShot },
-  PTEST: { duration: 2, build: PTEST },
   S1: { duration: 9.5, build: S1, ss: 2, msaa: 0, volScale: 0.25 },
   S2: { duration: 4.5, build: S2, ss: 1, msaa: 4, volScale: 0.5 },
   S3: { duration: 6.0, build: S3, ss: 1, msaa: 4, volScale: 0.4 },
