@@ -1,0 +1,94 @@
+YOUTUBE CHANNEL KIT
+===================
+
+1. CHANNEL NAME
+---------------
+Recommended:  Itihaas Ke Saaye  (इतिहास के साये)  –  "Shadows of History"
+  The logo and the banner are made with this name.
+  Suggested handle: @ItihaasKeSaaye   (check on YouTube that it is free; if not, try @ItihaasKeSaayeHindi)
+
+Other options:
+  2. Raat Jo Itihaas Ban Gayi   (रात जो इतिहास बन गई)
+  3. Sach Ki Gawahi             (सच की गवाही)  –  "Witness to the Truth"
+  4. Itihaas Ki Raatein         (इतिहास की रातें)
+  5. Andhere Ka Itihaas         (अँधेरे का इतिहास)
+
+Before you choose, search the name on YouTube and Google so that it is not already a big channel.
+
+
+2. CHANNEL DESCRIPTION  (YouTube Studio > Customisation > Basic info > Description)
+-----------------------------------------------------------------------------------
+Itihaas Ke Saaye tells the true stories of history's darkest nights, in Hindi.
+
+Chernobyl 1986. Bhopal 1984. Disasters that changed the world, and the people who lived through them. Every film is a cinematic reconstruction: computer-generated scenes, original music, and Hindi narration, with English subtitles.
+
+We tell what happened, why it happened, and what it left behind, minute by minute and fact by fact. These are not stories to be scared of. They are stories to remember, so that they never happen again.
+
+New documentaries on industrial disasters, historical tragedies and the people who stood up to them.
+
+Subscribe and turn on notifications so that you do not miss the next story.
+
+इतिहास के साये – इतिहास की वो सच्ची घटनाएँ, जिन्हें भूलना नहीं चाहिए। हिंदी में सिनेमैटिक डॉक्यूमेंट्री।
+
+Business enquiries: (add your email here)
+
+
+3. CHANNEL TAGS / KEYWORDS  (YouTube Studio > Settings > Channel > Basic info > Keywords)
+-----------------------------------------------------------------------------------------
+hindi documentary, documentary in hindi, history in hindi, itihaas, history documentary, cinematic documentary, true story hindi, disaster documentary, industrial disaster, bhopal gas tragedy, chernobyl in hindi, chernobyl disaster, bhopal 1984, chernobyl 1986, world history hindi, indian history, historical events, tragedy documentary, hindi explainer, mystery and history, इतिहास, हिंदी डॉक्यूमेंट्री, भोपाल गैस त्रासदी, चेर्नोबिल
+
+
+4. DOCUMENTARY NARRATIVE (the channel's storytelling style)
+-----------------------------------------------------------
+Who we are:
+  A Hindi documentary channel about the nights that changed history: disasters, tragedies and the people at the centre of them.
+
+How every film is told:
+  - Start with the night itself. The first minute puts the viewer inside the event: the date, the place, the silence before it happens.
+  - Then the "why". What went wrong, step by step, in simple Hindi, without jargon.
+  - The human story. Real people: the worker on shift, the station master, the doctor, the mother. Their names are used when they are known.
+  - The aftermath. The toll, official figures and other estimates, always with the source made clear.
+  - Today. What is left now: the place, the law, the people still fighting.
+  - End on memory, not fear. Every film closes with a line on why we must remember.
+
+Voice and tone:
+  Calm, serious and respectful. No shouting, no exaggeration, no fake drama. Facts first; where numbers differ, say so.
+
+Look:
+  Dark, cinematic CGI reconstructions, warm amber light, and white captions with the date and place. Original music. Hindi narration with English subtitles.
+
+Format:
+  10–15 minute films in 1-minute chapters, with chapter timestamps in every description.
+
+Ideas for the next films:
+  - Titanic, 1912
+  - The Partition of 1947: one train's story
+  - The Uphaar cinema fire, Delhi, 1997
+  - Fukushima, 2011
+  - The Morbi bridge collapse, 2022
+  - The Kedarnath floods, 2013
+
+
+5. CHANNEL TRAILER SCRIPT (about 40 seconds, Hindi)
+---------------------------------------------------
+[Black screen. Slow music.]
+कुछ रातें, कभी ख़त्म नहीं होतीं।
+[Chernobyl: the reactor burning]
+छब्बीस अप्रैल, उन्नीस सौ छियासी। एक धमाका, जिसने दुनिया बदल दी।
+[Bhopal: the gas over the plant]
+दो दिसंबर, उन्नीस सौ चौरासी। एक गैस, जो सोते हुए शहर में उतर आई।
+[Candles, the memorial statue]
+ये कहानियाँ, डराने के लिए नहीं हैं। याद रखने के लिए हैं।
+ताकि ऐसा, फिर कभी न हो।
+[Logo + channel name]
+इतिहास के साये। इतिहास की वो रातें, जिन्हें भूलना नहीं चाहिए।
+सब्सक्राइब कीजिए।
+
+
+6. FILES IN THIS FOLDER
+-----------------------
+Channel-Logo-800x800.png          Profile picture (upload this; YouTube crops it into a circle)
+Channel-Logo-800x800-round.png    The same logo already cut round, with a transparent background (for other platforms)
+Channel-Banner-2560x1440.png      Channel banner (YouTube Studio > Customisation > Branding > Banner image)
+Channel-Banner-2560x1440.jpg      The same banner as JPG, if the PNG upload is too large
+Banner-Safe-Area-Preview.jpg      Shows what is visible on each device. Green box = visible everywhere (phones too); blue band = visible on desktop.
