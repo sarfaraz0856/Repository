@@ -26,7 +26,7 @@ ENC="-c:v libx264 -preset medium -crf 15 -pix_fmt yuv420p -r 24 -c:a pcm_s16le -
 n=0; : > "$T/list"
 while read c a b; do
   f=$(ls "$R"/chapter$c/*.mp4); o=$(printf "$T/seg%02d.mkv" $n)
-  ffmpeg -v error -y -ss $a -to $b -i "$f" $ENC "$o"; echo "$o" >> "$T/list"; n=$((n+1))
+  ffmpeg -nostdin -v error -y -ss $a -to $b -i "$f" $ENC "$o"; echo "$o" >> "$T/list"; n=$((n+1))
 done <<< "$SEGS"
 # end card: the statue at night (chapter 15, 45-53 s, no captions there), dimmed, with the call to action and the
 # chapter's score under the new narration line
