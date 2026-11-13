@@ -1,0 +1,6 @@
+{
+  "name": "chernobyl-documentary-renderer",
+  "private": true,
+  "description": "Procedural WebGL renderer for the CHERNOBYL 1986 documentary short",
+  "dependencies": { "three": "0.186.1" }
+}
