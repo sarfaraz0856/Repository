@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YouTube Channel Tutorial — Production Kit</title>
+<style>
+  :root{
+    --ink:#1a1a2e;--muted:#55566b;--line:#e2e3ee;--soft:#f5f6fb;
+    --red:#c8102e;--red-soft:#fdecef;--blue:#1f3a93;--blue-soft:#eef1fb;
+    --green:#1b7a43;--green-soft:#eaf6ef;--amber:#9a6a00;--amber-soft:#fcf3e0;
+    --accent:#6c2bd9;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{
+    margin:0;color:var(--ink);
+    font-family:"Segoe UI",system-ui,-apple-system,Arial,"Noto Sans",sans-serif;
+    font-size:10.5pt;line-height:1.5;
+  }
+  @page{size:A4;margin:16mm 15mm;}
+  .page{page-break-after:always;}
+  .page:last-child{page-break-after:auto;}
+  h1,h2,h3,h4{line-height:1.2;margin:0 0 .35em;}
+  h2.sec{
+    font-size:16pt;color:var(--red);border-bottom:3px solid var(--red);
+    padding-bottom:5px;margin:0 0 14px;letter-spacing:-.2px;
+  }
+  h3{font-size:12pt;color:var(--blue);margin-top:18px;}
+  p{margin:0 0 9px;}
+  small{color:var(--muted);}
+  .muted{color:var(--muted);}
+  ul,ol{margin:0 0 9px;padding-left:20px;}
+  li{margin:0 0 4px;}
+  table{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:9.6pt;}
+  th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top;}
+  th{background:var(--soft);font-weight:700;color:var(--ink);}
+  code,.hl{background:var(--soft);border:1px solid var(--line);border-radius:4px;padding:1px 5px;font-family:"Consolas",monospace;font-size:9pt;}
+  .tag{display:inline-block;background:var(--blue-soft);color:var(--blue);border-radius:20px;padding:2px 10px;font-size:8.6pt;font-weight:700;margin:0 4px 4px 0;}
+
+  /* cover */
+  .cover{display:flex;flex-direction:column;justify-content:center;min-height:255mm;text-align:center;}
+  .cover .kicker{color:var(--red);font-weight:800;letter-spacing:3px;font-size:11pt;text-transform:uppercase;}
+  .cover h1{font-size:30pt;margin:10px 0 6px;letter-spacing:-.5px;}
+  .cover .sub{font-size:13pt;color:var(--muted);max-width:150mm;margin:0 auto 26px;}
+  .badge-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:10px auto;max-width:150mm;}
+  .badge{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:8px 14px;font-size:9.5pt;font-weight:600;}
+  .badge b{color:var(--red);}
+
+  /* segment block */
+  .seg{border:1px solid var(--line);border-radius:10px;padding:0;margin:0 0 14px;overflow:hidden;page-break-inside:avoid;}
+  .seg-head{display:flex;align-items:center;gap:10px;background:var(--blue);color:#fff;padding:7px 12px;}
+  .seg-head .tc{font-family:Consolas,monospace;font-weight:700;font-size:10pt;background:rgba(255,255,255,.18);padding:2px 8px;border-radius:5px;}
+  .seg-head .ti{font-weight:700;font-size:11pt;}
+  .seg-head .dur{margin-left:auto;font-size:8.8pt;opacity:.85;}
+  .seg-body{padding:10px 12px;}
+  .lab{font-size:8.4pt;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--red);margin:10px 0 3px;}
+  .lab:first-child{margin-top:0;}
+  .vo{background:var(--red-soft);border-left:4px solid var(--red);border-radius:0 6px 6px 0;padding:8px 11px;font-size:10.2pt;line-height:1.55;}
+  .cap{background:var(--amber-soft);border-left:4px solid var(--amber);border-radius:0 6px 6px 0;padding:7px 11px;font-size:9.6pt;}
+  .cap b{color:var(--amber);}
+  .shot{background:var(--green-soft);border-left:4px solid var(--green);border-radius:0 6px 6px 0;padding:7px 11px;font-size:9.6pt;}
+  .shot ul{margin:0;padding-left:18px;}
+  .note{font-size:9.2pt;color:var(--muted);margin-top:6px;}
+  .callout{background:var(--blue-soft);border:1px solid #cfd8f5;border-radius:8px;padding:10px 12px;margin:10px 0;font-size:9.8pt;}
+  .callout b{color:var(--blue);}
+  .warn{background:var(--amber-soft);border:1px solid #efdca8;border-radius:8px;padding:10px 12px;margin:10px 0;font-size:9.8pt;}
+  .warn b{color:var(--amber);}
+  .ok{background:var(--green-soft);border:1px solid #c0e4cf;border-radius:8px;padding:10px 12px;margin:10px 0;font-size:9.8pt;}
+  .ok b{color:var(--green);}
+  .two{display:flex;gap:14px;}
+  .two>div{flex:1;}
+  .foot{position:running(f);}
+  .mock{border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--soft);text-align:center;}
+  .toc li{margin-bottom:6px;font-size:10.5pt;}
+  .toc b{color:var(--red);}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:3px 9px;font-size:9pt;margin:0 4px 4px 0;background:#fff;}
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<section class="page cover">
+  <div class="kicker">YouTube Video Production Kit — 2026 Edition</div>
+  <h1>Mobile Se YouTube Channel<br>Kaise Banayein</h1>
+  <div class="sub">A complete, upload-ready 12-minute tutorial kit — timed Hindi/Hinglish script, on-screen captions, shot-by-shot screen-recording plan, thumbnail &amp; banner specs, SEO, and export settings.</div>
+  <div class="badge-row">
+    <div class="badge">Duration <b>12:00</b></div>
+    <div class="badge">Resolution <b>1920×1080</b></div>
+    <div class="badge">Frame rate <b>30 FPS</b></div>
+    <div class="badge">Format <b>MP4 / H.264</b></div>
+    <div class="badge">Audio <b>AAC</b></div>
+    <div class="badge">Language <b>Hindi / Hinglish</b></div>
+  </div>
+  <div class="badge-row" style="margin-top:4px;">
+    <div class="badge">Audience <b>Beginners (India)</b></div>
+    <div class="badge">Style <b>Screen-demo tutorial</b></div>
+    <div class="badge">14 timed segments</div>
+  </div>
+  <p class="muted" style="margin-top:34px;font-size:9pt;">Prepared 19 Oct 2026 · Facts verified against current YouTube guidance (see final page). Use a real phone screen recording for all app steps — do not rely on AI-generated UI.</p>
+</section>
+
+<!-- ============ HOW TO USE + CHECKLIST ============ -->
+<section class="page">
+  <h2 class="sec">How To Use This Kit</h2>
+  <p>This kit turns the written plan into an actual video. Work through it in four stages. Each timeline segment below gives you four things: the <b>voice-over</b> (read it aloud or feed it to the AI voice file included with this kit), the <b>on-screen captions</b> (type these as text overlays), the <b>shot list</b> (exactly what to screen-record on your phone), and <b>editing notes</b> (zooms, highlights, transitions).</p>
+
+  <h3>The 4-stage workflow</h3>
+  <ol>
+    <li><b>Record the voice-over</b> — Use the AI Hindi voice file supplied with this kit, or record your own voice reading the red voice-over boxes. This becomes your master audio track and sets the final timing.</li>
+    <li><b>Screen-record your phone</b> — Follow the green shot lists. On Android, use the built-in <span class="hl">Screen Recorder</span> (swipe down → Screen record) at 1080p/30fps. Record each step slowly and cleanly. Use a <b>demo Google account</b>, never your private one.</li>
+    <li><b>Edit &amp; assemble</b> — In any editor (CapCut, VN, KineMaster, or DaVinci Resolve on PC — all free), lay the voice-over first, then drop screen clips under it, add caption overlays, zoom-ins and highlights per the notes.</li>
+    <li><b>Export &amp; upload</b> — Use the export settings on the last page, then upload with the SEO title, description and tags provided.</li>
+  </ol>
+
+  <h2 class="sec" style="margin-top:22px;">Pre-Production Checklist</h2>
+  <table>
+    <tr><th style="width:55%">Item</th><th>Status / Notes</th></tr>
+    <tr><td>Android phone with screen recorder enabled</td><td>1080p, 30fps, show taps ON (Developer options → Show taps)</td></tr>
+    <tr><td>Demo Google account created (for safe filming)</td><td>e.g. a throwaway Gmail — never show your real password/email</td></tr>
+    <tr><td>AI Hindi voice-over file (supplied) OR mic for self-recording</td><td>Clear audio, quiet room, no echo</td></tr>
+    <tr><td>Sample logo / profile picture (800×800)</td><td>Supplied concept: "SL" monogram for Smart Learning Hindi</td></tr>
+    <tr><td>Banner artwork (2560×1440, safe area 1546×423)</td><td>Supplied concept on banner page</td></tr>
+    <tr><td>Thumbnail (1280×720)</td><td>Supplied concept on thumbnail page</td></tr>
+    <tr><td>Low-volume background music (royalty-free)</td><td>YouTube Audio Library / Pixabay — keep at −24 dB under voice</td></tr>
+    <tr><td>Video editor installed</td><td>CapCut / VN / KineMaster (mobile) or DaVinci Resolve (PC)</td></tr>
+  </table>
+
+  <div class="callout"><b>Demo-channel example used throughout:</b> &nbsp; Channel name — <b>Smart Learning Hindi</b> &nbsp;·&nbsp; Handle — <b>@SmartLearningHindi</b> &nbsp;·&nbsp; Niche — Education. Availability of any name/handle depends on YouTube at the moment you create it.</div>
+</section>
+
+<!-- ============ CONTENTS / TIMELINE MAP ============ -->
+<section class="page">
+  <h2 class="sec">Timeline At A Glance</h2>
+  <table>
+    <tr><th style="width:90px">Timecode</th><th>Segment</th><th style="width:70px">Length</th><th style="width:70px">~Words</th></tr>
+    <tr><td>0:00–0:30</td><td>01 · Powerful Introduction (Hook)</td><td>30s</td><td>70</td></tr>
+    <tr><td>0:30–1:15</td><td>02 · What You Need</td><td>45s</td><td>105</td></tr>
+    <tr><td>1:15–2:00</td><td>03 · Install &amp; Open YouTube</td><td>45s</td><td>105</td></tr>
+    <tr><td>2:00–3:00</td><td>04 · Sign In With A Google Account</td><td>60s</td><td>140</td></tr>
+    <tr><td>3:00–4:15</td><td>05 · Create Your YouTube Channel ★</td><td>75s</td><td>175</td></tr>
+    <tr><td>4:15–5:15</td><td>06 · Choose The Right Channel Name</td><td>60s</td><td>140</td></tr>
+    <tr><td>5:15–6:00</td><td>07 · Add A Profile Picture</td><td>45s</td><td>105</td></tr>
+    <tr><td>6:00–7:00</td><td>08 · Create A Channel Banner</td><td>60s</td><td>140</td></tr>
+    <tr><td>7:00–8:00</td><td>09 · Customize Your Channel</td><td>60s</td><td>140</td></tr>
+    <tr><td>8:00–9:00</td><td>10 · Important Channel Settings</td><td>60s</td><td>140</td></tr>
+    <tr><td>9:00–10:00</td><td>11 · Upload Your First Video</td><td>60s</td><td>140</td></tr>
+    <tr><td>10:00–10:45</td><td>12 · Basic YouTube SEO</td><td>45s</td><td>105</td></tr>
+    <tr><td>10:45–11:30</td><td>13 · Common Beginner Mistakes</td><td>45s</td><td>105</td></tr>
+    <tr><td>11:30–12:00</td><td>14 · Recap &amp; Call To Action</td><td>30s</td><td>70</td></tr>
+    <tr><th colspan="2" style="text-align:right">TOTAL</th><th>12:00</th><th>~1,680</th></tr>
+  </table>
+  <div class="note">Pacing note: Hindi/Hinglish narration reads naturally at ~140 words/minute. Word counts above are tuned so the voice-over lands close to 12:00. If a segment runs short, hold the last screen-recording shot; if long, trim the b-roll, never the demo step.</div>
+
+  <div class="ok" style="margin-top:14px;"><b>Colour key for every segment below:</b><br>
+  <span style="color:var(--red)">■</span> Red box = <b>Voice-over</b> (what the narrator says) &nbsp;&nbsp;
+  <span style="color:var(--amber)">■</span> Amber box = <b>On-screen captions</b> (text overlays) &nbsp;&nbsp;
+  <span style="color:var(--green)">■</span> Green box = <b>Shot list</b> (what to screen-record) &nbsp;&nbsp;
+  <span class="muted">Grey = editing &amp; timing notes</span></div>
+</section>
+
+<!-- ============ SEGMENT 01 ============ -->
+<section class="page">
+  <h2 class="sec">Full Timed Script — Part 1 (0:00 – 3:00)</h2>
+
+  <div class="seg">
+    <div class="seg-head"><span class="tc">0:00–0:30</span><span class="ti">01 · Powerful Introduction</span><span class="dur">30 sec</span></div>
+    <div class="seg-body">
+      <div class="lab">Voice-over</div>
+      <div class="vo">"Kya aap apna khud ka YouTube channel banana chahte hain, lekin aapko nahi pata ki shuruaat kaise karein? Toh aaj ke is video mein main aapko sirf apne mobile phone se, bilkul shuru se, YouTube channel banana step by step sikhaunga. Video ke end tak aap apna channel create karna, uska naam rakhna, profile photo lagana, banner banana aur basic settings karna seekh jaayenge. Aur sabse achhi baat — iske liye aapko computer ki bilkul bhi zaroorat nahi hai. Toh chaliye, shuru karte hain!"</div>
+      <div class="lab">On-screen captions</div>
+      <div class="cap"><b>0:02</b> (animated, big): "CREATE YOUR YOUTUBE CHANNEL" → <b>0:06</b> second line slides in: "USING ONLY YOUR PHONE 📱" &nbsp;·&nbsp; <b>0:18</b> small checklist animates in: ✔ Channel ✔ Naam ✔ Photo ✔ Banner ✔ Settings</div>
+      <div class="lab">Shot list</div>
+      <div class="shot"><ul>
+        <li>B-roll: hand holding a smartphone, YouTube app open on screen (your own demo phone).</li>
+        <li>Quick montage (0.5s each): YouTube logo, a channel homepage, the red Subscribe button.</li>
+        <li>Optional: your face-cam intro if you want a presenter (not required).</li>
+      </ul></div>
+      <div class="note">Editing: Punchy. Energetic background music starts here at normal level, then ducks to −24 dB when VO begins. Add a subtle whoosh transition on each caption. Zoom slowly into the phone (Ken Burns effect).</div>
+    </div>
+  </div>
+
+  <div class="seg">
+    <div class="seg-head"><span class="tc">0:30–1:15</span><span class="ti">02 · What You Need</span><span class="dur">45 sec</span></div>
+    <div class="seg-body">
+      <div class="lab">Voice-over</div>
+      <div class="vo">"Sabse pehle jaan lete hain ki aapko kya-kya chahiye. Number one — ek Android smartphone. Number two — internet connection, WiFi ya mobile data. Number three — ek Google account, yaani aapki Gmail ID. Number four — YouTube ki official app. Aur number five — ek achha sa channel ka naam. Profile photo aur banner optional hain, baad mein bhi laga sakte hain. Ek important baat samajh lijiye: Google account aur YouTube channel do alag cheezein hain. Google account aapka login hai — jaise ghar ki chaabi. Aur YouTube channel us account ke andar banta hai — jaise ghar ke andar ka ek kamra. Ek hi Gmail se aap channel bana sakte hain."</div>
+      <div class="lab">On-screen captions</div>
+      <div class="cap">Animated checklist, one item appears per line as narrated: <b>📱 Android Phone · 🌐 Internet · 📧 Google Account · ▶️ YouTube App · ✍️ Channel Name · (Optional) 🖼️ Photo + Banner</b>. &nbsp; Then a simple diagram card: "Google Account = Login 🔑 &nbsp; | &nbsp; YouTube Channel = Inside it 🚪"</div>
+      <div class="lab">Shot list</div>
+      <div class="shot"><ul>
+        <li>Full-screen animated icon list (make in editor, or use simple icon images on a clean background).</li>
+        <li>A simple two-box graphic showing Google Account → contains → YouTube Channel.</li>
+      </ul></div>
+      <div class="note">Editing: Each icon pops in with the narration (sync to the words "number one… number two…"). Keep background clean (white or soft gradient). No screen recording needed here — this is a graphics segment.</div>
+    </div>
+  </div>
+
+  <div class="seg">
+    <div class="seg-head"><span class="tc">1:15–2:00</span><span class="ti">03 · Install &amp; Open YouTube</span><span class="dur">45 sec</span></div>
+    <div class="seg-body">
+      <div class="lab">Voice-over</div>
+      <div class="vo">"Ab apne phone mein Google Play Store kholiye. Search bar mein type kijiye 'YouTube'. Dhyaan rakhiye — official app wahi hai jiske aage YouTube ka laal play button logo hota hai aur publisher 'Google LLC' likha hota hai. Agar app pehle se install hai, toh use 'Update' kar lijiye taaki aapko latest features milein. Agar nahi hai, toh 'Install' par tap kijiye. Install hone ke baad app ko kholiye. Screen ke sabse upar, right corner mein aapko profile icon dikhega — ya toh aapki photo ya ek gol circle. Yahi hamara main button hai. Dhyaan rahe — alag-alag phone mein design thoda alag ho sakta hai, lekin profile icon hamesha upar right mein hi hota hai."</div>
+      <div class="lab">On-screen captions</div>
+      <div class="cap"><b>Caption:</b> "Step 1: Play Store → Search 'YouTube'" &nbsp;·&nbsp; "✅ Publisher: Google LLC" (point with arrow) &nbsp;·&nbsp; "Profile icon = top-right corner 👆"</div>
+      <div class="lab">Shot list — SCREEN RECORD</div>
+      <div class="shot"><ul>
+        <li>Record: open Play Store → tap search → type "YouTube" → show the official listing (highlight "Google LLC").</li>
+        <li>Record: the Install / Update button; tap it; show it opening.</li>
+        <li>Record: YouTube home screen; slowly move/point to the top-right profile icon.</li>
+      </ul></div>
+      <div class="note">Editing: Add a <b>yellow highlight circle + zoom-in</b> on the Install button and again on the profile icon. Arrow graphic pointing to "Google LLC". Smooth cut between each tap.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEGMENT 04 ============ -->
+<section class="page">
+  <h2 class="sec">Full Timed Script — Part 2 (2:00 – 4:15)</h2>
+
+  <div class="seg">
+    <div class="seg-head"><span class="tc">2:00–3:00</span><span class="ti">04 · Sign In With A Google Account</span><span class="dur">60 sec</span></div>
+    <div class="seg-body">
+      <div class="lab">Voice-over</div>
+      <div class="vo">"Ab us profile icon par tap kijiye. Yahaan ek menu khulega. Agar aap pehle se sign in hain, toh upar aapka naam aur Gmail dikhega. Agar aapke phone mein ek se zyada account hain, toh naam par tap karke sahi wala account choose kar lijiye — wahi jis se aap channel banana chahte hain. Agar aap sign in nahi hain, toh aapko 'Sign in' ka option milega — us par tap kijiye aur apni Gmail ID aur password daal kar login kijiye. Aur agar aapke paas Google account hi nahi hai, toh koi baat nahi — 'Create account' par tap karke, naam, date of birth aur ek nayi Gmail bana kar, do minute mein account ready ho jaata hai. Main yahaan ek demo account use kar raha hoon — aap apni private email ya password kabhi bhi video mein mat dikhaiyega."</div>
+      <div class="lab">On-screen captions</div>
+      <div class="cap">"Tap profile icon → Choose correct account" &nbsp;·&nbsp; "Not signed in? Tap 'Sign in'" &nbsp;·&nbsp; "No account? Tap 'Create account'" &nbsp;·&nbsp; <b>Privacy reminder (amber):</b> "🔒 Apna real password kabhi record mat karein"</div>
+      <div class="lab">Shot list — SCREEN RECORD (demo account only)</div>
+      <div class="shot"><ul>
+        <li>Record: tap profile icon → account menu opens → show account switcher (blur any real email).</li>
+        <li>Record: the "Use another account / Add account" and "Sign in" options.</li>
+        <li>Graphic card: "No Google account? → Create one free" with 3 mini-steps.</li>
+      </ul></div>
+      <div class="warn"><b>Privacy / safety:</b> Film only with a fictional demo account. <b>Blur or cover</b> any real email address or password on screen in editing. Never show OTPs or recovery info.</div>
+    </div>
+  </div>
+
+  <div class="seg">
+    <div class="seg-head"><span class="tc">3:00–4:15</span><span class="ti">05 · Create Your YouTube Channel ★ MOST IMPORTANT</span><span class="dur">75 sec</span></div>
+    <div class="seg-body">
+      <div class="lab">Voice-over</div>
+      <div class="vo">"Ab aata hai sabse important step — channel banana. Profile icon par tap kijiye, phir menu mein 'Your channel' par jaaiye. Agar is account par abhi tak koi channel nahi hai, toh YouTube aapse channel create karne ko bolega. Yahaan do cheezein maangi jaati hain — pehla, channel ka naam, aur doosra, ek handle. Apne channel ka naam type kijiye — jaise 'Smart Learning Hindi'. Phir handle choose kijiye — jaise '@SmartLearningHindi'. Handle aapke channel ka unique address hota hai, jaise @ ke baad username. Do channel ka naam same ho sakta hai, lekin handle hamesha unique hota hai. Jo handle available hoga YouTube bata dega; agar nahi mila toh thoda change karna padega. Chaahein toh abhi profile photo bhi add kar sakte hain. Phir 'Create channel' par tap kijiye — aur badhaai ho, aapka channel ban gaya! Agar kisi reason se app mein yeh option na dikhe, toh mobile browser mein youtube dot com kholiye, desktop site par switch kijiye, aur wahaan se channel bana lijiye."</div>
+      <div class="lab">On-screen captions</div>
+      <div class="cap">"Profile → 'Your channel'" &nbsp;·&nbsp; "1️⃣ Enter channel name" &nbsp;·&nbsp; "2️⃣ Choose a handle @..." &nbsp;·&nbsp; <b>Example:</b> Name = Smart Learning Hindi · Handle = @SmartLearningHindi &nbsp;·&nbsp; "Handle = unique address" &nbsp;·&nbsp; "Tap 'Create channel' ✅"</div>
+      <div class="lab">Shot list — SCREEN RECORD (the key demo)</div>
+      <div class="shot"><ul>
+        <li>Record the full real flow on your phone: profile icon → "Your channel" → the create-channel screen.</li>
+        <li>Record typing the name and handle; show YouTube's availability check.</li>
+        <li>Record tapping "Create channel" and the new empty channel page appearing.</li>
+        <li>Backup shot: mobile browser → youtube.com → menu → "Desktop site" → create channel (film this too, in case the app path differs on the viewer's phone).</li>
+      </ul></div>
+      <div class="warn"><b>Accuracy:</b> Record the <b>real current flow on your own phone</b> — do NOT animate fake buttons. Menu labels change over time; if your app shows a slightly different label, read what is actually on screen. Always include the browser backup path so every viewer can succeed.</div>
+      <div class="note">Editing: This is the hero step — slow it down. Zoom-in + yellow highlight on "Your channel", on the name field, on the handle field, and on "Create channel". A small celebratory animation ("🎉 Channel Ready!") when it's created.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEGMENT 06-07 ============ -->
+<section class="page">
+  <h2 class="sec">Full Timed Script — Part 3 (4:15 – 6:00)</h2>
+
+  <div class="seg">
+    <div class="seg-head"><span class="tc">4:15–5:15</span><span class="ti">06 · Choose The Right Channel Name</span><span class="dur">60 sec</span></div>
+    <div class="seg-body">
+      <div class="lab">Voice-over</div>
+      <div class="vo">"Ek achha channel naam aapki pehchaan banata hai. Isliye naam aisa rakhiye jo — yaad rakhne mein aasaan ho, bolne mein simple ho, aapke topic se related ho, chhota aur professional ho, aur unique ho taaki log aapko dhoondh sakein. Kuch examples dekhiye. Education ke liye — 'Smart Learning Hindi'. Technology ke liye — 'Tech Gyaan Hindi'. Gaming ke liye — 'GameVeer India'. Vlogging ke liye — 'Daily Life with Raj'. Aur finance education ke liye — 'Paisa Samajh'. Dekhiye, sab naam chhote, clear aur topic se jude hue hain. Ek baat yaad rakhiye — channel ka naam baad mein bhi change kiya ja sakta hai, lekin YouTube ki current rules aur limits ke hisaab se. Isliye shuru se soch-samajh kar ek achha naam chuniye."</div>
+      <div class="lab">On-screen captions</div>
+      <div class="cap">Checklist animates: "✔ Easy to remember · ✔ Easy to say · ✔ Topic-related · ✔ Short &amp; professional · ✔ Unique". Then an examples table slides in (Education / Tech / Gaming / Vlogging / Finance).</div>
+      <div class="lab">Shot list</div>
+      <div class="shot"><ul>
+        <li>Graphics segment: animated 5-point checklist.</li>
+        <li>Examples table card (one row per niche, each row fades in).</li>
+        <li>Optional b-roll: typing a name into the channel name field.</li>
+      </ul></div>
+      <div class="note">Editing: Highlight each good trait as it's spoken. Keep the examples on screen long enough to read (~2s each).</div>
+    </div>
+  </div>
+
+  <div class="seg">
+    <div class="seg-head"><span class="tc">5:15–6:00</span><span class="ti">07 · Add A Profile Picture</span><span class="dur">45 sec</span></div>
+    <div class="seg-body">
+      <div class="lab">Voice-over</div>
+      <div class="vo">"Ab channel par profile picture lagate hain. Profile picture aapke channel ka chehra hota hai — jo har video aur comment ke saath dikhta hai. Isey lagane ke liye 'Your channel' mein jaa kar edit ya pencil icon par tap kijiye, phir profile photo par tap karke gallery se image choose kijiye. Image clear honi chahiye — aap ek simple logo bhi laga sakte hain ya apni ek achhi portrait photo. Design simple rakhiye, kyunki yeh image bahut chhote size mein bhi dikhti hai, jaise comment section mein. Isliye check kar lijiye ki chhoti size mein bhi logo saaf dikhe. YouTube profile photo ke liye lagbhag 800 by 800 pixel ki square image best rehti hai. Aur haan — doosron ke copyright logo kabhi use mat kijiye, apna original design banaiye."</div>
+      <div class="lab">On-screen captions</div>
+      <div class="cap">"'Your channel' → ✏️ Edit → Profile photo" &nbsp;·&nbsp; "Best size: 800×800 px (square)" &nbsp;·&nbsp; "Keep it simple — check small size readability" &nbsp;·&nbsp; "❌ No copyrighted logos — use your own"</div>
+      <div class="lab">Shot list — SCREEN RECORD</div>
+      <div class="shot"><ul>
+        <li>Record: "Your channel" → edit/pencil → tap profile photo → pick from gallery → confirm.</li>
+        <li>Show the supplied sample "SL" logo being selected.</li>
+        <li>Graphic: the logo shown large, then shrunk to comment-size to prove it's still clear.</li>
+      </ul></div>
+      <div class="note">Editing: Side-by-side "Large vs Small" preview of the logo. Zoom on the edit/pencil icon. Use the supplied sample logo (never a real brand's logo).</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEGMENT 08-09 ============ -->
+<section class="page">
+  <h2 class="sec">Full Timed Script — Part 4 (6:00 – 8:00)</h2>
+
+  <div class="seg">
+    <div class="seg-head"><span class="tc">6:00–7:00</span><span class="ti">08 · Create A Channel Banner</span><span class="dur">60 sec</span></div>
+    <div class="seg-body">
+      <div class="lab">Voice-over</div>
+      <div class="vo">"Ab banate hain channel banner. Banner wahi badi image hoti hai jo aapke channel page ke sabse upar dikhti hai — yeh aapke channel ki first impression hai. Ise banane ke liye aap mobile-friendly design app jaise Canva use kar sakte hain. Canva kholiye, YouTube banner template select kijiye, apne channel ka naam likhiye — jaise 'SMART LEARNING HINDI' — ek suitable background chuniye, aur readable, bada text rakhiye. Sabse important baat — important text aur logo ko hamesha center mein rakhiye, kyunki banner alag-alag devices par alag crop hota hai. YouTube banner ke liye recommended size hai 2560 by 1440 pixel, aur safe area jahaan aapka text zaroor dikhega woh hai beech ka 1546 by 423 pixel. Text ko edges ke bahut paas mat rakhiye, warna mobile par kat jaayega. Ban jaane ke baad banner download karke channel par upload kar dijiye."</div>
+      <div class="lab">On-screen captions</div>
+      <div class="cap"><b>Banner specs (amber):</b> "Upload size: 2560×1440 px · Safe area (center): 1546×423 px · Max file: 6 MB" &nbsp;·&nbsp; "Keep text/logo in the CENTER" &nbsp;·&nbsp; "Readable, big text · Simple background"</div>
+      <div class="lab">Shot list — SCREEN RECORD</div>
+      <div class="shot"><ul>
+        <li>Record in Canva: open YouTube banner template → type "SMART LEARNING HINDI" → pick background → center the text.</li>
+        <li>Record: download the banner to gallery.</li>
+        <li>Record: on channel → edit → banner → upload → show it live on the channel.</li>
+        <li>Graphic: a 2560×1440 frame with the 1546×423 safe-area box drawn in the middle.</li>
+      </ul></div>
+      <div class="note">Editing: Overlay the safe-area box graphic on top of the banner so viewers literally see where text must stay. Use the sample banner concept on the "Brand Assets" page.</div>
+    </div>
+  </div>
+
+  <div class="seg">
+    <div class="seg-head"><span class="tc">7:00–8:00</span><span class="ti">09 · Customize Your Channel</span><span class="dur">60 sec</span></div>
+    <div class="seg-body">
+      <div class="lab">Voice-over</div>
+      <div class="vo">"Ab channel ko thoda customize karte hain. Customization mein aap set karte hain — channel ki description, profile picture, banner, basic information, aur agar available ho toh relevant links jaise aapka Instagram, aur contact info. Description mein simple shabdon mein batayein ki aapka channel kis baare mein hai aur kitni baar video aati hai. Ek example dekhiye: 'Namaste! Smart Learning Hindi mein aapka swagat hai. Yahaan aapko technology, YouTube aur online earning ke aasaan tutorials milenge, Hindi mein. Har hafte nayi video — abhi subscribe kijiye!' Dekhiye, yeh clear hai aur viewer ko turant samajh aata hai. Ek baat dhyaan rakhiye — har YouTube app version mein saari settings ek hi jagah nahi hoti. Isliye poori customization ke liye aksar YouTube Studio app ya mobile browser ka desktop mode use karna padta hai. Wahaan se aapko saare options mil jaayenge."</div>
+      <div class="lab">On-screen captions</div>
+      <div class="cap">"Customize: Description · Photo · Banner · Links · Contact" &nbsp;·&nbsp; <b>Sample description on screen</b> (type it out, highlight key line "Har hafte nayi video") &nbsp;·&nbsp; "Full options → YouTube Studio app / browser desktop mode"</div>
+      <div class="lab">Shot list — SCREEN RECORD</div>
+      <div class="shot"><ul>
+        <li>Record: opening YouTube Studio app (or browser desktop site) → Customization → Basic info.</li>
+        <li>Record: typing the sample description into the description box.</li>
+        <li>Record: adding a link (e.g. Instagram) if shown in your version.</li>
+      </ul></div>
+      <div class="warn"><b>Honesty note for the script:</b> Do not claim every setting is in the same place in every app version. Show YouTube Studio / browser when the main app doesn't have the option.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEGMENT 10-11 ============ -->
+<section class="page">
+  <h2 class="sec">Full Timed Script — Part 5 (8:00 – 10:00)</h2>
+
+  <div class="seg">
+    <div class="seg-head"><span class="tc">8:00–9:00</span><span class="ti">10 · Important Channel Settings</span><span class="dur">60 sec</span></div>
+    <div class="seg-body">
+      <div class="lab">Voice-over</div>
+      <div class="vo">"Ab kuch zaroori settings samajh lijiye jo har beginner ko pata honi chahiye. Pehli — content visibility: aapki videos public honi chahiye tabhi log dekh paayenge. Doosri — audience setting: har video par aapko batana hota hai ki video 'Made for Kids' hai ya nahi. Dhyaan dijiye — yeh aapke actual content ke hisaab se sach-sach select kijiye, sirf views ya features ke liye galat option mat chuniye, kyunki yeh YouTube ki rule hai. Teesri — account security: apne Google account par two-step verification zaroor on kijiye, taaki aapka channel safe rahe. Chauthi — YouTube Studio: yahi aapka control room hai jahaan se saare settings aur analytics milte hain. Aur paanchvi baat — kuch advanced features, jaise lambi videos ya live stream, ke liye phone number verification ya kuch eligibility poori karni padti hai. Yeh sab normal hai, dheere-dheere unlock hota rehta hai."</div>
+      <div class="lab">On-screen captions</div>
+      <div class="cap">"Public visibility · Audience (Made for Kids) · 2-Step Verification 🔒 · YouTube Studio · Some features need verification" &nbsp;·&nbsp; <b>Bold amber:</b> "'Made for Kids' = choose honestly, per your real content"</div>
+      <div class="lab">Shot list — SCREEN RECORD</div>
+      <div class="shot"><ul>
+        <li>Record: YouTube Studio → Settings; show the audience / "Made for Kids" question.</li>
+        <li>Record: Google account → Security → 2-Step Verification toggle.</li>
+        <li>Graphic card listing the 5 settings as icons.</li>
+      </ul></div>
+      <div class="warn"><b>Compliance:</b> The script must tell viewers to set "Made for Kids" <b>accurately</b> based on their real content, and never to pick a false audience to chase views/features.</div>
+    </div>
+  </div>
+
+  <div class="seg">
+    <div class="seg-head"><span class="tc">9:00–10:00</span><span class="ti">11 · Upload Your First Video</span><span class="dur">60 sec</span></div>
+    <div class="seg-body">
+      <div class="lab">Voice-over</div>
+      <div class="vo">"Ab aata hai sabse exciting part — apni pehli video upload karna. YouTube app kholiye, screen ke beech-neeche '+' yaani Create button par tap kijiye, phir 'Upload a video' choose kijiye. Apne phone ki gallery se video select kijiye. Ab ek clear title likhiye, ek achhi description add kijiye, audience setting — Made for Kids ya nahi — sahi select kijiye, aur visibility choose kijiye. Visibility ke teen options hote hain: Private — sirf aap dekh sakte hain; Unlisted — sirf wahi dekh sakte hain jinke paas link hai; aur Public — sabko dikhegi aur search mein aayegi. Jab sab theek lage, 'Upload' par tap kijiye. Ek important baat yaad rakhiye — video upload karne se apne aap views, subscribers ya paise nahi aate. Consistency aur achha content hi asli key hai. Main yahaan ek demo educational video example ke taur par use kar raha hoon."</div>
+      <div class="lab">On-screen captions</div>
+      <div class="cap">"Tap ➕ Create → Upload a video" &nbsp;·&nbsp; "Add: Title · Description · Audience · Visibility" &nbsp;·&nbsp; <b>Visibility card:</b> "🔒 Private = only you · 🔗 Unlisted = link only · 🌍 Public = everyone"</div>
+      <div class="lab">Shot list — SCREEN RECORD</div>
+      <div class="shot"><ul>
+        <li>Record the full upload flow: tap ➕ → Upload a video → pick a (demo) clip from gallery.</li>
+        <li>Record: typing title + description, choosing audience, choosing visibility.</li>
+        <li>Record: tapping Upload and the progress indicator.</li>
+        <li>Graphic: 3-column Private / Unlisted / Public comparison.</li>
+      </ul></div>
+      <div class="note">Editing: Zoom + highlight the ➕ button and the three visibility options. Use a harmless demo video as the sample upload.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEGMENT 12-14 ============ -->
+<section class="page">
+  <h2 class="sec">Full Timed Script — Part 6 (10:00 – 12:00)</h2>
+
+  <div class="seg">
+    <div class="seg-head"><span class="tc">10:00–10:45</span><span class="ti">12 · Basic YouTube SEO</span><span class="dur">45 sec</span></div>
+    <div class="seg-body">
+      <div class="lab">Voice-over</div>
+      <div class="vo">"Ab thodi si SEO ki baat — yaani aapki video ko log kaise dhoondhenge. Pehla — ek clear title likhiye jisme wahi words hon jo log search karte hain. Doosra — ek useful description likhiye jisme video ka saar ho. Teesra — ek accurate, saaf thumbnail lagaiye. Chautha — relevant keywords naturally use kijiye, zabardasti thoonsiye mat. Aur sabse zaroori — aisa content banaiye jo viewer ke sawaal ka jawaab de. Ek baat clear kar doon — tags koi jaadू nahi hain jo raaton-raat views la dein. Ek example dekhiye: kamzor title hai 'My video'. Behtar title hai 'Mobile Se YouTube Channel Kaise Banaye 2026 — Full Guide'. Dekhiye, doosra title clear hai aur batata hai ki video kis baare mein hai."</div>
+      <div class="lab">On-screen captions</div>
+      <div class="cap">"Clear title · Useful description · Accurate thumbnail · Natural keywords · Answer the viewer's question" &nbsp;·&nbsp; <b>Before/After card:</b> ❌ "My video" → ✅ "Mobile Se YouTube Channel Kaise Banaye 2026 — Full Guide"</div>
+      <div class="lab">Shot list</div>
+      <div class="shot"><ul>
+        <li>Graphics segment: 5-point SEO checklist animating in.</li>
+        <li>Before/After title comparison (red weak title, green strong title).</li>
+      </ul></div>
+      <div class="warn"><b>No false promises:</b> State clearly that tags are not magic and nothing guarantees viral results.</div>
+    </div>
+  </div>
+
+  <div class="seg">
+    <div class="seg-head"><span class="tc">10:45–11:30</span><span class="ti">13 · Common Beginner Mistakes</span><span class="dur">45 sec</span></div>
+    <div class="seg-body">
+      <div class="lab">Voice-over</div>
+      <div class="vo">"Ab kuch common galtiyan jo beginners karte hain — inse bachiye. Ek — confusing ya mushkil channel naam rakhna. Do — bina permission copyright content upload karna, jo strike dila sakta hai. Teen — misleading, yaani galat clickbait thumbnail lagana. Chaar — audience setting ignore karna. Paanch — apni private account info public mein share karna. Chhe — sirf do-chaar video daal kar give up kar dena. Saat — fake subscribers ya views kharidna, jo aapke channel ko nuksaan pahunchata hai. Aur aath — turant monetization yaani paise ki ummeed karna. Inse bachne ka tarika simple hai: original content banaiye, settings sahi rakhiye, apni info safe rakhiye, aur consistency ke saath seekhte rahiye. Dheere-dheere results zaroor aayenge."</div>
+      <div class="lab">On-screen captions</div>
+      <div class="cap">Red ❌ list animates one per line: "Confusing name · Copyrighted content · Misleading thumbnails · Ignoring audience setting · Sharing private info · Giving up early · Buying fake subs/views · Expecting instant money" → then green ✅ "Fix: Original content · Correct settings · Stay safe · Be consistent"</div>
+      <div class="lab">Shot list</div>
+      <div class="shot"><ul>
+        <li>Graphics segment: red ❌ mistakes list, then a green ✅ "how to avoid" card.</li>
+      </ul></div>
+      <div class="note">Editing: Fast, snappy cuts — one mistake per beat, synced to narration. A red "X" stamp animation on each.</div>
+    </div>
+  </div>
+
+  <div class="seg">
+    <div class="seg-head"><span class="tc">11:30–12:00</span><span class="ti">14 · Recap &amp; Call To Action</span><span class="dur">30 sec</span></div>
+    <div class="seg-body">
+      <div class="lab">Voice-over</div>
+      <div class="vo">"Toh dosto, ab aapne seekh liya ki mobile phone se YouTube channel kaise banaya jaata hai. Sabse pehle Google account se sign in karein, apna channel create karein, achha naam aur profile picture select karein, channel customize karein, aur apni pehli video upload karein. Bas yaad rakhiye — consistency aur achha content hi success ki asli chaabi hai. Agar yeh video helpful lagi, toh ise like kijiye, channel ko subscribe kijiye, aur apne doston ke saath share kijiye. Comment mein batayiye aap kis topic par channel banana chahte hain. Milte hain agli video mein — tab tak ke liye, seekhte rahiye, aage badhte rahiye!"</div>
+      <div class="lab">On-screen captions</div>
+      <div class="cap">Recap chips animate: "Sign in → Create → Name + Photo → Customize → Upload" &nbsp;·&nbsp; Big CTA: "👍 LIKE · 🔔 SUBSCRIBE · ↗️ SHARE" &nbsp;·&nbsp; "Comment your channel topic 👇"</div>
+      <div class="lab">Shot list</div>
+      <div class="shot"><ul>
+        <li>Recap animation: the 5 steps as a horizontal flow.</li>
+        <li>End screen (last 20s): Subscribe button animation + space for 2 video thumbnails (YouTube end-screen elements).</li>
+      </ul></div>
+      <div class="note">Editing: Music lifts back up for the outro. Add YouTube end-screen elements in the last ~20 seconds (subscribe + suggested videos).</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BRAND ASSETS: THUMBNAIL + BANNER + LOGO ============ -->
+<section class="page">
+  <h2 class="sec">Brand Assets — Thumbnail, Banner &amp; Logo</h2>
+
+  <h3>Thumbnail concept (1280 × 720 px, 16:9, &lt; 2 MB)</h3>
+  <div class="mock">
+    <div style="display:flex;gap:4px;align-items:stretch;height:120px;border-radius:8px;overflow:hidden;">
+      <div style="flex:1.3;background:linear-gradient(135deg,#c8102e,#7a0b1d);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:12px;text-align:left;">
+        <div style="font-size:9pt;font-weight:700;background:#ffd400;color:#1a1a2e;display:inline-block;padding:2px 8px;border-radius:5px;width:fit-content;">2026</div>
+        <div style="font-size:19pt;font-weight:900;line-height:1.05;margin-top:6px;">MOBILE SE<br>YOUTUBE<br>CHANNEL</div>
+        <div style="font-size:11pt;font-weight:700;color:#ffd400;margin-top:4px;">Kaise Banaye? 📱</div>
+      </div>
+      <div style="flex:.8;background:#13131f;color:#fff;display:flex;align-items:center;justify-content:center;font-size:30pt;">▶️📱</div>
+    </div>
+  </div>
+  <ul>
+    <li><b>Text (large, 3–4 words max):</b> "MOBILE SE YOUTUBE CHANNEL" + small "Kaise Banaye? 2026".</li>
+    <li><b>Colours:</b> YouTube red + bright yellow highlight for contrast; dark side panel with a phone/play graphic.</li>
+    <li><b>Rules:</b> Big bold font, high contrast, readable on a small phone screen, accurate (not clickbait). Keep text out of the bottom-right (timestamp overlaps it).</li>
+    <li>Build it in Canva (1280×720 template) or use the AI thumbnail supplied with this kit.</li>
+  </ul>
+
+  <h3>Channel banner concept (2560 × 1440 px · safe area 1546 × 423 px · &lt; 6 MB)</h3>
+  <div class="mock">
+    <div style="position:relative;background:linear-gradient(120deg,#1f3a93,#6c2bd9);border-radius:8px;height:120px;color:#fff;display:flex;align-items:center;justify-content:center;">
+      <div style="position:absolute;top:14px;bottom:14px;left:24%;right:24%;border:2px dashed rgba(255,255,255,.7);border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+        <div style="font-size:16pt;font-weight:900;letter-spacing:1px;">SMART LEARNING HINDI</div>
+        <div style="font-size:9pt;opacity:.9;margin-top:3px;">Tech · YouTube · Online Earning — Hindi mein</div>
+        <div style="font-size:7.5pt;opacity:.75;margin-top:6px;">⟵ keep all text inside this safe-area box ⟶</div>
+      </div>
+    </div>
+  </div>
+  <ul>
+    <li><b>Upload size:</b> 2560 × 1440 px (16:9). <b>Minimum:</b> 2048 × 1152 px. <b>Max file:</b> 6 MB.</li>
+    <li><b>Safe area</b> (always visible on all devices incl. mobile): the centre <b>1546 × 423 px</b> — keep the channel name, tagline and logo inside it.</li>
+    <li>Simple gradient/solid background, big readable title, optional "New video every week" line.</li>
+  </ul>
+
+  <div class="two" style="margin-top:6px;">
+    <div>
+      <h3>Logo / profile picture</h3>
+      <div class="mock"><div style="width:70px;height:70px;border-radius:50%;margin:0 auto;background:linear-gradient(135deg,#c8102e,#6c2bd9);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26pt;font-weight:900;">SL</div></div>
+      <p class="note">800×800 px square · simple "SL" monogram · readable even at tiny comment size · original art, no copyrighted logos.</p>
+    </div>
+    <div>
+      <h3>Channel description (ready to paste)</h3>
+      <div class="vo" style="font-size:9.4pt;">"Namaste! Smart Learning Hindi mein aapka swagat hai. Yahaan aapko technology, YouTube aur online earning ke aasaan tutorials milenge — bilkul simple Hindi mein. Har hafte nayi video aati hai. Agar aap seekhna chahte hain, toh abhi subscribe kijiye aur bell icon dabaiye. Dhanyawaad!"</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEO + EXPORT ============ -->
+<section class="page">
+  <h2 class="sec">Upload Metadata (SEO) &amp; Export Settings</h2>
+
+  <h3>Title options (pick one)</h3>
+  <ul>
+    <li>Mobile Se YouTube Channel Kaise Banaye 2026 | Step by Step Full Guide (Hindi)</li>
+    <li>YouTube Channel Kaise Banaye Phone Se — Beginners Complete Tutorial 2026</li>
+    <li>Sirf Mobile Se YouTube Channel Banaye | Naam, Logo, Banner &amp; Settings (Hindi/Hinglish)</li>
+  </ul>
+
+  <h3>Description (ready to paste)</h3>
+  <div class="cap" style="background:var(--soft);border-left-color:var(--blue);font-size:9.3pt;">
+  Is video mein aap seekhenge ki sirf apne mobile phone se YouTube channel kaise banaya jaata hai — bilkul shuru se, step by step, Hindi/Hinglish mein.<br><br>
+  ⏱️ Timestamps:<br>
+  0:00 Introduction<br>0:30 Kya-kya chahiye<br>1:15 YouTube app install<br>2:00 Google account sign in<br>3:00 Channel create karein<br>4:15 Achha naam kaise chunein<br>5:15 Profile picture<br>6:00 Banner banayein<br>7:00 Channel customize<br>8:00 Important settings<br>9:00 Pehli video upload<br>10:00 Basic SEO<br>10:45 Common mistakes<br>11:30 Recap<br><br>
+  👍 Video pasand aaye toh LIKE, SUBSCRIBE aur SHARE zaroor karein.<br>
+  #YouTubeChannelKaiseBanaye #MobileSeYouTube #YouTubeTutorialHindi
+  </div>
+
+  <h3>Tags / keywords (natural, not stuffed)</h3>
+  <p>
+    <span class="pill">youtube channel kaise banaye</span><span class="pill">mobile se youtube channel</span><span class="pill">youtube channel kaise banaye 2026</span><span class="pill">youtube tutorial hindi</span><span class="pill">how to create youtube channel on phone</span><span class="pill">youtube channel setup hindi</span><span class="pill">youtube for beginners india</span><span class="pill">youtube handle kaise banaye</span>
+  </p>
+
+  <h2 class="sec" style="margin-top:20px;">Final Export Settings</h2>
+  <table>
+    <tr><th style="width:38%">Setting</th><th>Value</th></tr>
+    <tr><td>Resolution</td><td>1920 × 1080 (Full HD)</td></tr>
+    <tr><td>Aspect ratio</td><td>16:9</td></tr>
+    <tr><td>Frame rate</td><td>30 FPS (constant)</td></tr>
+    <tr><td>Container / format</td><td>MP4</td></tr>
+    <tr><td>Video codec</td><td>H.264</td></tr>
+    <tr><td>Video bitrate</td><td>8–12 Mbps (1080p30 recommended)</td></tr>
+    <tr><td>Audio codec</td><td>AAC</td></tr>
+    <tr><td>Audio bitrate / sample rate</td><td>192–320 kbps · 48 kHz · Stereo</td></tr>
+    <tr><td>Voice level</td><td>around −3 dB peak (clear, dominant)</td></tr>
+    <tr><td>Background music level</td><td>around −24 dB (very low, under the voice)</td></tr>
+    <tr><td>Target duration</td><td>12:00</td></tr>
+  </table>
+
+  <div class="ok"><b>Editing quick-tips:</b> Keep each screen clip tight — cut dead air. Add a 0.15s zoom-in + yellow highlight whenever you name a button. Use smooth cross-dissolve/whip transitions between sections. Hard-burn the Hindi/Hinglish captions (don't rely on auto-subtitles). Keep on-screen text large (min ~40px) and away from the lower third where YouTube controls sit.</div>
+</section>
+
+<!-- ============ VERIFIED FACTS + SOURCES ============ -->
+<section class="page">
+  <h2 class="sec">Verified Facts &amp; Accuracy Notes</h2>
+  <p>Per your brief, these numbers and steps were checked against current guidance (Oct 2026). YouTube's app interface changes often, so <b>always record the real, current flow on your own phone</b> and read the labels actually shown — never animate invented buttons.</p>
+
+  <table>
+    <tr><th style="width:42%">Item</th><th>Verified value</th></tr>
+    <tr><td>Banner upload size</td><td>2560 × 1440 px (16:9); minimum 2048 × 1152 px</td></tr>
+    <tr><td>Banner safe area (all devices)</td><td>1546 × 423 px (centre) — keep text/logo here</td></tr>
+    <tr><td>Banner max file size</td><td>6 MB</td></tr>
+    <tr><td>Profile picture</td><td>~800 × 800 px square recommended (displays small, e.g. in comments)</td></tr>
+    <tr><td>Thumbnail</td><td>1280 × 720 px (16:9), under 2 MB</td></tr>
+    <tr><td>Channel creation (app)</td><td>Profile icon → "Your channel" → enter name + handle → Create channel</td></tr>
+    <tr><td>Backup path</td><td>Mobile browser → youtube.com → Desktop site → create/customize channel</td></tr>
+    <tr><td>Full customization</td><td>Often needs YouTube Studio app or browser desktop mode — not all in the main app</td></tr>
+    <tr><td>Handle</td><td>Unique @address; can be changed later subject to YouTube's rules/limits</td></tr>
+  </table>
+
+  <div class="warn"><b>Why no fully AI-generated video:</b> An AI text-to-video tool cannot reproduce the real, current YouTube mobile UI accurately — it would invent fake buttons and menus, breaking your "do not invent buttons / verify the interface" rule. That is why this kit gives you an exact screen-recording plan instead: your real phone footage keeps every step accurate.</div>
+
+  <h3>Sources consulted</h3>
+  <ul style="font-size:9pt;">
+    <li>Banner size &amp; safe area (2560×1440; safe area 1546×423; 6 MB) — industry guides cross-checked (b2w.tv, framia, cmc.imexhs), consistent with YouTube's own help on channel art.</li>
+    <li>Mobile channel-creation &amp; handle flow — 91mobiles, Primal Video "Create a YouTube Channel With Your Phone (2026 Guide)", Android Central "How to create a YouTube handle".</li>
+    <li>Always confirm final numbers on YouTube's official Help Centre at the time of filming, as specs can change.</li>
+  </ul>
+
+  <p class="muted" style="margin-top:24px;font-size:8.6pt;">Production kit generated 19 Oct 2026. Example channel "Smart Learning Hindi / @SmartLearningHindi" is fictional and for demonstration only. Use a fictional demo account while filming; never show real passwords, emails or private data. Do not use other creators' copyrighted logos or content.</p>
+</section>
+
+</body>
+</html>

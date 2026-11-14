@@ -1,0 +1,10 @@
+# Large/intermediate video build artifacts (delivered to user directly, not stored in git)
+video_build/
+*.mp4
+ui_demo/full/timeline.js
+ui_demo/full/timeline_adsense.js
+__pycache__/
+ui_demo/full/timeline_desk.js
+ui_demo/full/timeline_desk_guide.js
+ui_demo/full/timeline_deskfull.js
+final/upload_kit/*.mp3
