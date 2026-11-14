@@ -68,7 +68,7 @@ B("अब एक प्रो टिप — अगर आगे चलकर क
   "Pro tip: if a team or editor will manage your channel later, a Brand Account channel — made on a computer — is better.", b="Team later? → Brand Account")
 B("लेकिन अगर आप अकेले शुरू कर रहे हैं, तो मोबाइल से बना चैनल बिल्कुल ठीक है। आज हम वही बनाएँगे।",
   "Starting on your own? A channel made on your phone is perfectly fine — that's what we'll build today.", b="Solo creator → phone is perfect")
-B("बस एक बात पक्की कर लीजिए — जिस जीमेल से चैनल बनाएँगे, उसका पासवर्ड और रिकवरी नंबर आपके पास होना चाहिए। आगे यही आपके चैनल की सुरक्षा करेगा।",
+B("बस एक बात पक्की कर लीजिए — जिस जीमेल से चैनल बनाएँगे, उसका पासवर्ड और रिकवरी नंबर आपके पास होना चाहिए। आगे यही आपके चैनल को safe रखेगा।",
   "Just make sure you know that Gmail's password and recovery number — they'll protect your channel later.", b="Keep password &amp; recovery number ready", pad=1.0)
 
 # ---- Chapter 2: Plan topic & name ----
@@ -103,7 +103,7 @@ B("अब बात करते हैं हैंडल की — जिस�
   "Now the handle — something most beginners take lightly, and regret later.",
   tapgo(1.0, 48, 140, to="otherch", box=(16, 106, 380, 70)),
   panel=P("CHAPTER 3 · @HANDLE", f"What is a {Y('YouTube handle?')}"), ch="YouTube Handle Explained")
-B("नाम के नीचे यह जो '@' से शुरू होने वाला नाम दिख रहा है — यही हैंडल है। ये आपके चैनल का यूनिक पता होता है।",
+B("नाम के नीचे यह जो एट साइन से शुरू होने वाला नाम दिख रहा है — यही हैंडल है। ये आपके चैनल का यूनिक पता होता है।",
   "See the name starting with “@” under the channel name? That's the handle — your channel's unique address.",
   [("zoom", 0.4, 104, 196, 1.6, 4.2), ("hl", 1.0, 100, 184, 140, 26, 3.4)])
 B("चैनल का नाम दो लोगों का एक जैसा हो सकता है, लेकिन हैंडल पूरी दुनिया में सिर्फ़ एक ही होता है।",
@@ -155,7 +155,7 @@ B("अब यह स्क्रीन खुली है, जिसमें �
 B("फ़ोटो अभी छोड़ सकते हैं — इसे हम थोड़ी देर में अच्छे से लगाएँगे। पहले 'नेम' वाले बॉक्स पर टैप कीजिए, और अपने चैनल का नाम लिखिए।",
   "You can skip the photo — we'll add it properly in a moment. Tap “Name” and type your channel name.",
   [("zoom", "e-1.6", 30, 330, 1.5, 3.4)] + tapgo(("e", -1.0), 206, 328) + typ(("e", -0.7), "name", "Smart Learning Hindi", cps=8.5), pad=2.0)
-B("अब 'हैंडल' बॉक्स में अपना हैंडल लिखिए। मैं पहले '@स्मार्टलर्निंग' ट्राई करता हूँ, देखते हैं मिलता है या नहीं।",
+B("अब 'हैंडल' बॉक्स में अपना हैंडल लिखिए। मैं पहले एट स्मार्टलर्निंग ट्राई करता हूँ, देखते हैं मिलता है या नहीं।",
   "Now type your handle. Let me first try @SmartLearning and see if it's free.",
   [("zoom", "e-1.4", 30, 420, 1.5, 4.6)] + tapgo(("e", -0.9), 206, 412) + typ(("e", -0.6), "handle", "@SmartLearning", cps=8) +
   [("set", "e+1.2", "hstate", "checking"), ("set", "e+2.0", "hstate", "taken"), ("sfx", "e+2.0", "err")], pad=1.2,
@@ -163,11 +163,11 @@ B("अब 'हैंडल' बॉक्स में अपना हैंड�
 B("देखिए — लाल रंग में लिखा आ गया, 'दिस हैंडल इज़न्ट अवेलेबल'। यानी ये हैंडल किसी और ने पहले ही ले रखा है।",
   "See? In red: “This handle isn't available.” Someone already owns it.",
   [("zoom", 0.2, 30, 440, 1.6, 3.6), ("hl", 0.8, 24, 440, 364, 26, 3.0)], b=("<code>@SmartLearning</code> — taken", True))
-B("कोई बात नहीं। जैसा मैंने पहले बताया था, मैं इसमें अपनी भाषा जोड़ देता हूँ — '@स्मार्टलर्निंगहिंदी'।",
+B("कोई बात नहीं। जैसा मैंने पहले बताया था, मैं इसमें अपनी भाषा जोड़ देता हूँ — एट स्मार्टलर्निंगहिंदी।",
   "No problem. Just like I said earlier, I'll add my language: @SmartLearningHindi.",
   [("zoom", "e-1.0", 30, 420, 1.5, 4.2), ("set", "e-0.6", "hstate", ""), ("type", ("e", -0.6), "handle", "@SmartLearningHindi", .9, "@SmartLearning"),
    ("set", "e+0.6", "hstate", "checking"), ("set", "e+1.4", "hstate", "available"), ("sfx", "e+1.4", "ping")], pad=1.4)
-B("और यह रहा — हरे रंग का टिक, यानी हैंडल उपलब्ध है। साथ ही नीचे 'क्रिएट चैनल' बटन भी अब नीले रंग में चालू हो गया है।",
+B("और यह रहा — हरे रंग का टिक, यानी हैंडल available है। साथ ही नीचे 'क्रिएट चैनल' बटन भी अब नीले रंग में चालू हो गया है।",
   "There it is — a green tick: the handle is available. And the “Create channel” button is now active (blue).",
   [("hl", 0.5, 24, 440, 364, 26, 2.2), ("zoom", 3.4, 398, 840, 1.6, 2.0), ("hl", 3.9, 236, 818, 162, 44, 1.6)], b="<code>@SmartLearningHindi</code> — available ✅")
 B("नीचे छोटे अक्षरों में लिखी बात भी एक बार पढ़ लीजिए — आपका नाम और हैंडल यूट्यूब पर सबको दिखेगा।",
@@ -195,7 +195,7 @@ B("यहाँ से आप बैनर, प्रोफ़ाइल फ़�
 B("सबसे पहले प्रोफ़ाइल फ़ोटो। ये आपके चैनल का चेहरा है — हर वीडियो के नीचे, और हर कमेंट के साथ यही दिखती है।",
   "First, the profile photo. It's your channel's face — shown under every video and next to every comment.",
   panel=P("PROFILE PHOTO", f"Your channel's {Y('face')}"))
-B("इसके लिए आठ सौ बाय आठ सौ पिक्सल की चौकोर फ़ोटो सबसे अच्छी रहती है। और याद रखिए, ये गोल आकार में और काफ़ी छोटी दिखती है।",
+B("इसके लिए आठ सौ बाय आठ सौ पिक्सल की चौकोर फ़ोटो सबसे अच्छी रहती है। और याद रखिए, ये गोल शेप में और काफ़ी छोटी दिखती है।",
   "Use a square image — 800 × 800 px is ideal. Remember, it's shown as a small circle.", b="800 × 800 px, square")
 B("इसलिए इसमें ज़्यादा टेक्स्ट मत डालिए। या तो अपनी एक साफ़ फ़ोटो लगाइए, या फिर एक सिंपल सा लोगो।",
   "So skip the small text. Use a clear photo of your face, or a simple logo.", b="Clear face or simple logo")
@@ -204,7 +204,7 @@ B("फ़ोटो पर बने कैमरा आइकन पर टै�
   "Tap the camera icon on the photo and pick your logo from the gallery.",
   press(0.5, 246, 246, z=1.7, box=(226, 226, 40, 40), to="gallery", after=[("set", -0.2, "galMode", "photo")]) +
   tapgo(4.6, 206, 152, to="crop", box=(138, 84, 136, 136)) + [("tw", 5.0, "cropS", 1.3, 1.0, 1.4)], pad=1.6)
-B("अब इसे गोल घेरे के अंदर सही से एडजस्ट कीजिए, ताकि लोगो बीच में रहे — और 'सेव' कर दीजिए।",
+B("अब इसे गोल सर्कल के अंदर सही से एडजस्ट कीजिए, ताकि लोगो बीच में रहे — और 'सेव' कर दीजिए।",
   "Fit it inside the circle so the logo stays centred — then tap “Save”.",
   [("hl", 0.6, 46, 255, 320, 320, 2.0)] + tapgo(("e", 0.2), 370, 53, to="edit", box=(340, 38, 60, 30), extra=[("set", ("e", 0.3), "logo", 1)]), pad=1.6)
 
@@ -249,7 +249,7 @@ B("अब वापस जाकर देखिए — चैनल कित�
   tapgo(0.6, 24, 53, to="channel2"), pad=2.2)
 
 # ---- Chapter 8: Security & settings ----
-B("अब कुछ ऐसी सेटिंग्स, जिन्हें नज़रअंदाज़ करना सबसे बड़ी गलती होती है। पहली — सिक्योरिटी।",
+B("अब कुछ ऐसी सेटिंग्स, जिन्हें इग्नोर करना सबसे बड़ी गलती होती है। पहली — सिक्योरिटी।",
   "Now a few settings you should never ignore. First: security.",
   [("scr", "e+0.2", "security")], panel=P("CHAPTER 8 · SAFETY", f"Protect your {Y('channel')}"), ch="Security, Verification & Audience Settings")
 B("आजकल यूट्यूब चैनल हैक होने के बहुत मामले आते हैं। इसलिए अपने गूगल अकाउंट में 'टू-स्टेप वेरिफ़िकेशन' ज़रूर ऑन कीजिए।",
@@ -265,14 +265,14 @@ B("दूसरी सेटिंग — फ़ोन नंबर वेरि
 B("यहाँ 'इंटरमीडिएट फ़ीचर्स' में 'वेरिफ़ाई फ़ोन नंबर' पर टैप करके, अपने नंबर पर आया कोड डाल दीजिए।",
   "Under “Intermediate features”, tap “Verify phone number” and enter the code you receive.",
   [("hl", 0.6, 16, 200, 380, 170, 1.8)] + press(("e", -1.4), 126, 322, z=1.6, ox=40, oy=322, box=(32, 304, 190, 36), after=[("set", .2, "verified", 1), ("sfx", .2, "ping")]), pad=1.2)
-B("इससे पंद्रह मिनट से लंबी वीडियो, कस्टम थंबनेल, और लाइव स्ट्रीम जैसे फ़ीचर्स खुल जाते हैं। ध्यान रखिए, एक नंबर से साल में ज़्यादा से ज़्यादा दो चैनल वेरिफ़ाई होते हैं।",
+B("इससे पंद्रह मिनट से लंबी वीडियो, कस्टम थंबनेल, और लाइव स्ट्रीम जैसे फ़ीचर्स खुल जाते हैं। याद रखिए, एक नंबर से साल में ज़्यादा से ज़्यादा दो चैनल वेरिफ़ाई होते हैं।",
   "That unlocks videos over 15 minutes, custom thumbnails and live streaming. Note: one number can verify up to 2 channels a year.",
   [("hl", 0.8, 16, 200, 380, 170, 3.0)])
 BEATS[-1]["bl"] = [(1.0, "Videos longer than 15 min", False), (2.2, "Custom thumbnails", False), (3.4, "Live streaming", False)]
 B("तीसरी सेटिंग — ऑडियंस। हर वीडियो पर यूट्यूब पूछता है कि क्या ये बच्चों के लिए बनी है। इसका जवाब हमेशा सच-सच दीजिए।",
   "Third: audience. For every video, YouTube asks if it's made for kids. Always answer honestly.",
   panel=P("MADE FOR KIDS?", f"Always answer {Y('honestly')}"))
-B("अगर आपकी वीडियो सच में बच्चों के लिए है, तभी 'हाँ' चुनिए। सिर्फ़ व्यूज़ के लिए गलत जवाब देंगे, तो चैनल पर कार्रवाई भी हो सकती है।",
+B("अगर आपकी वीडियो सच में बच्चों के लिए है, तभी 'हाँ' चुनिए। सिर्फ़ व्यूज़ के लिए गलत जवाब देंगे, तो चैनल पर एक्शन भी हो सकता है।",
   "Choose “Yes” only if it's truly for kids. A false answer just for views can lead to action on your channel.", b=("Wrong answer = risk to your channel", True), pad=1.0)
 
 # ---- Chapter 9: First upload ----
@@ -316,7 +316,7 @@ B("अब सबसे ज़रूरी सवाल — वीडियो �
   [("scr", 0.6, "channel2")], panel=P("CHAPTER 10 · RANKING", f"How videos {Y('rank')} on YouTube"), ch="How to Rank Your Videos")
 B("इसलिए टाइटल और थंबनेल ऐसा हो कि क्लिक करने का मन करे — लेकिन झूठा क्लिकबेट नहीं। जो दिखाइए, वही वीडियो में दीजिए।",
   "So make the title and thumbnail click-worthy — but never fake clickbait. Deliver what you promise.", b="Honest, clickable title + thumbnail")
-B("वीडियो के पहले तीस सेकंड में ही बता दीजिए कि दर्शक को क्या मिलेगा, ताकि वो बीच में छोड़कर न जाए।",
+B("वीडियो के पहले तीस सेकंड में ही बता दीजिए कि व्यूअर को क्या मिलेगा, ताकि वो बीच में छोड़कर न जाए।",
   "In the first 30 seconds, tell viewers what they'll get — so they don't leave.", b="Strong first 30 seconds")
 B("एक तय शेड्यूल रखिए — हफ़्ते में एक या दो वीडियो, लेकिन लगातार। कंसिस्टेंसी से ही चैनल बढ़ता है।",
   "Keep a fixed schedule — one or two videos a week, but consistently. Consistency grows channels.", b="Consistency beats volume")
@@ -333,7 +333,7 @@ B("दूसरी — फ़ेक सब्सक्राइबर्स य�
   "Two: never buy fake subscribers or views — it hurts your channel instead of helping.", b=("Buying fake subs or views", True))
 B("और तीसरी — दो-चार वीडियो के बाद हार मत मानिए। हर बड़ा चैनल, ज़ीरो से ही शुरू हुआ था।",
   "Three: don't give up after a few videos. Every big channel started from zero.", b=("Giving up too early", True), pad=1.0)
-B("तो एक बार जल्दी से दोहरा लेते हैं — सही अकाउंट से लॉग-इन, अच्छा नाम और हैंडल, प्रोफ़ाइल फ़ोटो और बैनर, डिस्क्रिप्शन, सिक्योरिटी — और फिर आपकी पहली वीडियो।",
+B("तो एक बार जल्दी से रीकैप कर लेते हैं — सही अकाउंट से लॉग-इन, अच्छा नाम और हैंडल, प्रोफ़ाइल फ़ोटो और बैनर, डिस्क्रिप्शन, सिक्योरिटी — और फिर आपकी पहली वीडियो।",
   "Quick recap: right account, a good name and handle, photo and banner, description, security — then your first video.",
   panel=P("RECAP", f"You're {Y('ready')} to start"))
 BEATS[-1]["bl"] = [(1.6 + i * 1.3, t, False) for i, t in enumerate(["Right Google account", "Good name &amp; @handle", "Profile photo &amp; banner", "Description &amp; links", "Security &amp; first upload"])]
