@@ -1,0 +1,296 @@
+1
+00:00:00,400 --> 00:00:09,391
+Namaste doston! Aaj is video mein hum Claude AI ka poora interface, bilkul shuru se, step by step samjhenge.
+
+2
+00:00:09,451 --> 00:00:20,024
+Screen par jo bhi option dikhta hai, woh kya hai, kaise use karte hain, kab use karna chahiye, aur uski limitations kya hain, sab kuch detail mein.
+
+3
+00:00:20,084 --> 00:00:32,585
+Aur end mein hum Claude Code ka ek real terminal demo dekhenge, jismein Claude ek project samjhega aur ek asli bug fix karega. To video ko end tak zaroor dekhiye.
+
+4
+00:00:33,475 --> 00:00:41,899
+Ye Claude ka home screen hai. Main yahan Pro plan use kar raha hoon, isliye neeche mere naam ke saath Pro likha hua hai.
+
+5
+00:00:41,959 --> 00:00:47,404
+Is screen ko samajhna bahut aasan hai, kyunki iske teen main hisse hain.
+
+6
+00:00:47,464 --> 00:00:54,700
+Pehla, left side mein sidebar, jahan saare main options aur aapki purani chats milti hain.
+
+7
+00:00:54,760 --> 00:01:01,771
+Doosra, beech mein message box, jahan aap Claude se sawaal poochte hain ya koi kaam dete hain.
+
+8
+00:01:01,831 --> 00:01:08,094
+Aur teesra, neeche left corner mein aapka account, jahan se Settings khulti hai.
+
+9
+00:01:08,154 --> 00:01:21,239
+Ek baat dhyaan rakhiye: kuch options aapke plan, account aur app ke version ke hisaab se thode alag dikh sakte hain. Isliye agar aapki screen thodi alag ho, to ghabraiye mat.
+
+10
+00:01:22,129 --> 00:01:32,546
+Ab sidebar ko ek ek karke dekhte hain. Sabse upar New button hai. Is par click karte hi ek bilkul nayi, khaali chat shuru ho jaati hai.
+
+11
+00:01:32,606 --> 00:01:45,420
+Har chat ki apni alag conversation hoti hai. Isliye jab bhi topic badle, nayi chat shuru kijiye. Ek chat mein ek hi topic rakhenge, to jawab zyada focused milenge.
+
+12
+00:01:46,210 --> 00:01:53,430
+Uske neeche Search hai. Iski madad se aap apni purani chats ko jaldi se dhoondh sakte hain.
+
+13
+00:01:53,490 --> 00:02:12,246
+Pro jaise paid plans mein chat search bhi milta hai. Aap Claude se seedha pooch sakte hain ki pichhli baar humne is topic par kya discuss kiya tha, aur Claude aapki purani chats mein dhoondh kar bata deta hai. Ise Settings ke Your Claude section mein on ya off kar sakte hain.
+
+14
+00:02:13,036 --> 00:02:23,246
+Ab aata hai Projects. Project ek alag workspace hota hai, jismein aap apni files aur instructions ek hi jagah save kar sakte hain.
+
+15
+00:02:23,306 --> 00:02:36,210
+Phir us project ke andar aap jitni bhi chats banayenge, Claude un sab mein in files ko background knowledge ki tarah use karega, jaise aapke notes, documents ya code.
+
+16
+00:02:36,270 --> 00:02:52,572
+Project banana bahut simple hai. Projects kholiye, New Project par click kijiye, naam aur description likhiye, phir plus button se files add kijiye, aur Set project instructions mein bataiye ki Claude ko kaise jawab dena hai.
+
+17
+00:02:52,632 --> 00:03:12,415
+Do baatein yaad rakhiye. Pehli, project ki chats ek doosre ki baatein share nahi karti, sirf project ki knowledge share hoti hai. Doosri, paid plans mein RAG ki madad se project knowledge das guna tak badh sakti hai. Aur projects share karna sirf Team aur Enterprise plans mein hota hai.
+
+18
+00:03:13,205 --> 00:03:25,126
+Agla option hai Artifacts. Artifacts woh cheezein hain jo Claude aapke liye banata hai, jaise document, code, chhoti website, diagram ya dashboard.
+
+19
+00:03:25,186 --> 00:03:40,852
+Ye chat ke bagal mein ek alag panel mein khulte hain, taaki aap inhe aaram se dekh sakein. Aur aapke saare artifacts Artifacts page par save rehte hain, jahan se aap inhe kabhi bhi dobara khol sakte hain.
+
+20
+00:03:40,912 --> 00:04:00,274
+Aap chat mein bol kar inhe edit karwa sakte hain, aur documents ko Word, PDF, Markdown ya Google Docs mein export bhi kar sakte hain. Shuru mein ye sirf aapke liye private hote hain. Inke liye Settings mein code execution and file creation on hona chahiye.
+
+21
+00:04:01,064 --> 00:04:16,523
+Ab Code option. Ye Claude Code ke liye hai, jo coding ka ek agentic tool hai. Matlab ye sirf code likhta nahi, balki aapke project ki files padhta hai, unhe edit karta hai aur commands bhi chala sakta hai.
+
+22
+00:04:16,583 --> 00:04:27,435
+Web par ise use karne ke liye pehle apna GitHub account connect kijiye, phir repository chuniye, aur simple bhasha mein apna task likhiye.
+
+23
+00:04:27,495 --> 00:04:40,804
+Claude cloud mein, ek alag machine par kaam karta hai. Kaam khatam hone ke baad aap har change ko diff mein review karte hain, aur sab theek ho to Create PR se pull request bana dete hain.
+
+24
+00:04:40,864 --> 00:04:53,992
+Claude Code terminal, VS Code, JetBrains aur Desktop app mein bhi milta hai. Ye Pro plan mein included hai, lekin iska use bhi aapki usage limit mein count hota hai.
+
+25
+00:04:54,782 --> 00:05:05,081
+Iske neeche Customize hai. Yahan se aap Claude ki abilities badha sakte hain. Isme teen cheezein milti hain: Skills, Connectors aur Plugins.
+
+26
+00:05:05,141 --> 00:05:17,651
+Skills Claude ko koi khaas kaam karne ka tarika sikhati hain. Connectors Claude ko bahar ki services se jodte hain, jinhe aap Connect dabakar sign in karke jodte hain,
+
+27
+00:05:17,711 --> 00:05:27,340
+aur Plugins skills aur commands ka ek bundle hote hain. Naye skills, connectors aur plugins dhoondhne ke liye Discover tab dekhiye.
+
+28
+00:05:28,130 --> 00:05:39,270
+Ab Usage. Yahan aap dekh sakte hain ki aapne apne plan ka kitna hissa use kar liya hai. Poori details Settings ke Usage page par milti hain.
+
+29
+00:05:39,330 --> 00:05:56,288
+Pro plan mein session limit har paanch ghante mein reset hoti hai, aur ek weekly limit bhi hoti hai. Limit khatam ho jaaye to usage credits on karke kaam jaari rakh sakte hain. Aur ek tip: kam effort wale jawab kam usage lete hain.
+
+30
+00:05:57,078 --> 00:06:07,150
+Neeche Chats and tasks mein aapki haal ki chats aur tasks ki list hoti hai. View all par click karke aap poori list dekh sakte hain.
+
+31
+00:06:07,210 --> 00:06:20,786
+Kisi bhi chat par mouse le jaiye, to teen dots ka menu aata hai. Wahan se aap chat ko rename ya delete kar sakte hain. Aap ek saath kai chats select karke bhi delete kar sakte hain.
+
+32
+00:06:21,576 --> 00:06:31,011
+Ab sabse neeche, left corner mein apne naam par click kijiye. Yahin se Settings khulti hai, aur yahin aapka plan bhi dikhta hai.
+
+33
+00:06:31,071 --> 00:06:43,900
+Settings mein Appearance se theme badal sakte hain, Your Claude mein memory aur chat search ki settings hoti hain, aur Usage mein aapki limits aur credits ki jaankari milti hai.
+
+34
+00:06:44,690 --> 00:06:57,323
+Ab screen ke upar right corner mein dekhiye. Ye chhota sa ghost icon incognito chat ke liye hai. Nayi chat mein ise click karke incognito mode shuru hota hai.
+
+35
+00:06:57,383 --> 00:07:13,228
+Incognito chat history mein save nahi hoti, memory mein nahi jaati, aur model training mein use nahi hoti. Lekin band karne ke baad ise dobara khol nahi sakte, aur ye projects ke andar available nahi hai.
+
+36
+00:07:14,218 --> 00:07:24,216
+Ab chaliye beech wale message box par. Yahi Claude ka sabse important hissa hai, kyunki yahin aap apna sawaal ya kaam likhte hain.
+
+37
+00:07:24,276 --> 00:07:38,094
+Achha jawab paane ka simple formula hai: saaf batao ki kya chahiye, kis ke liye chahiye, aur kis format mein chahiye. Jaise, kisi beginner ko teen examples ke saath Python lists samjhao.
+
+38
+00:07:38,884 --> 00:07:52,575
+Message box ke left side mein plus button hai. Is par click karke Add files or photos chuniye, aur apni files attach kijiye. Files ko drag and drop ya paste bhi kar sakte hain.
+
+39
+00:07:52,635 --> 00:08:05,346
+Isme PDF, Word, Excel, CSV, text aur images jaisi files support hoti hain. Ek chat mein bees files tak, aur har file paanch sau MB tak ho sakti hai.
+
+40
+00:08:05,406 --> 00:08:15,876
+Isi plus menu se aap kisi ek chat ke liye memory bhi band kar sakte hain, bas ye pehla message bhejne se pehle karna hota hai.
+
+41
+00:08:16,666 --> 00:08:24,837
+Plus ke bagal mein Chat aur Cowork ka switch hai. Chat normal baatcheet aur jaldi sawaal jawaab ke liye hai.
+
+42
+00:08:24,897 --> 00:08:32,410
+Cowork mein aap Claude ko ek poora task de dete hain, aur Claude khud kai steps mein us par kaam karta hai,
+
+43
+00:08:32,470 --> 00:08:42,236
+jaise web par research karna, aapki files padhna, aur aakhir mein spreadsheet ya presentation jaisi finished files banana.
+
+44
+00:08:42,296 --> 00:08:57,404
+Lekin Cowork zyada usage leta hai, paid plans mein milta hai, aur computer ki local files ke liye Claude Desktop app chahiye. Kisi bhi action se pehle uski permission setting zaroor check kijiye.
+
+45
+00:08:58,194 --> 00:09:07,623
+Ab right side mein model selector dekhiye. Yahan abhi Opus 5.5 model aur Medium effort selected hai.
+
+46
+00:09:07,683 --> 00:09:21,069
+Model ke naam par click karke aap doosra model chun sakte hain, aur More models mein aur options milte hain. Chat ke beech mein bhi model badal sakte hain, change agle jawab se lagta hai.
+
+47
+00:09:21,129 --> 00:09:33,791
+Isi menu mein Effort hota hai, jo batata hai ki Claude jawab dene se pehle kitna gehra sochega. Iske paanch level hain: Low, Medium, High, Extra high aur Max.
+
+48
+00:09:33,851 --> 00:09:44,817
+Zyada effort se jawab zyada detailed aur soch samajh kar milta hai, lekin usme time zyada lagta hai aur usage bhi zyada hota hai.
+
+49
+00:09:44,877 --> 00:10:00,399
+Rozana ke normal kaam ke liye Medium kaafi hai. Mushkil coding, planning ya lambe documents ke liye High ya usse upar ka effort chuniye. Aur Opus 5.5 har jawab se pehle sochta hai.
+
+50
+00:10:01,189 --> 00:10:10,498
+Model ke bagal mein mic aur voice ke buttons hain. Inse aap type karne ki jagah bol kar bhi Claude se baat kar sakte hain.
+
+51
+00:10:10,558 --> 00:10:23,648
+Aur message box ke neeche Write, Learn, Code, Life stuff aur Claude's choice jaise buttons hain. Agar samajh na aaye ki kya poochein, to inse shuruaat ke ideas mil jaate hain.
+
+52
+00:10:24,638 --> 00:10:33,751
+Ab sabse interesting part: Claude Code ka real demo, seedha terminal mein. Yahan jo bhi dikhega, woh sach mein chala hua hai.
+
+53
+00:10:33,811 --> 00:10:53,086
+Claude Code install karne ke liye official command chalaiye. Mac, Linux aur WSL ke liye curl wali command, aur Windows PowerShell ke liye irm wali command. Phir claude version likh kar check kijiye ki install ho gaya. Pehli baar chalane par ye login maangta hai.
+
+54
+00:10:53,976 --> 00:11:04,036
+Ye ek chhota sa demo project hai, ek todo app, jismein app.py, storage.py aur tasks.json jaisi files hain.
+
+55
+00:11:04,096 --> 00:11:12,808
+Ab main Claude Code ko ek simple instruction deta hoon: is project ki files ko teen chhote points mein explain karo.
+
+56
+00:11:12,868 --> 00:11:20,830
+Claude Code ab project ki saari files padh raha hai. Is waqt ko humne video mein fast forward kar diya hai.
+
+57
+00:11:20,890 --> 00:11:35,117
+Aur dekhiye, Claude ne har file ka kaam saaf saaf samjha diya. Sabse badi baat, usne khud se ek bug bhi pakad liya: list tasks function name key padh raha hai, jabki data title key mein save hai.
+
+58
+00:11:36,107 --> 00:11:43,868
+Ab us bug ko sach mein dekhte hain. App chalate hi ye KeyError deta hai, yaani name naam ki key milti hi nahi.
+
+59
+00:11:43,928 --> 00:11:50,329
+To main Claude Code ko yahi error batata hoon, aur kehta hoon ki bug dhoondho aur fix karo.
+
+60
+00:11:50,389 --> 00:11:58,924
+Dhyaan dijiye, is command mein maine allowed tools ke through sirf file edit karne ki permission di hai, aur kuch nahi.
+
+61
+00:11:58,984 --> 00:12:05,046
+Claude Code code padh raha hai aur fix bana raha hai. Ye hissa bhi fast forward hai.
+
+62
+00:12:05,106 --> 00:12:18,366
+Claude ne bug fix kar diya, aur saath mein ye bhi bataya ki app chala kar test karne ke liye use approval chahiye tha, jo maine diya hi nahi tha. Isliye usne code padh kar problem samjhi.
+
+63
+00:12:18,426 --> 00:12:33,237
+Yahi Claude Code ki sabse badi safety hai. Files padhne ke liye permission nahi lagti, lekin file badalne ya command chalane se pehle ye aapse poochta hai, jab tak aap pehle se allow na karein.
+
+64
+00:12:33,297 --> 00:12:44,517
+Ab git diff se hum exact change review karte hain. Laal line purani hai aur hari line nayi. Bas name ki jagah title kiya gaya hai, ek hi line ka change.
+
+65
+00:12:44,577 --> 00:12:51,967
+Aur ab app dobara chalate hain, to dono tasks bilkul sahi print ho rahe hain. Bug fix ho gaya!
+
+66
+00:12:52,957 --> 00:13:13,790
+Claude Code mein chaar main permission modes hote hain. Manual, jo default hai, har tool ke pehli baar use par permission maangta hai. Accept edits, file edits apne aap maan leta hai. Plan, sirf padhta aur plan banata hai. Aur Auto, jismein ek safety classifier aapki jagah actions check karta hai.
+
+67
+00:13:13,850 --> 00:13:22,134
+Agar aap beginner hain, to Manual ya Plan mode se shuru kijiye, taaki har badlaav aapki nazar se guzre.
+
+68
+00:13:23,124 --> 00:13:27,663
+Video khatam karne se pehle kuch bahut zaroori baatein.
+
+69
+00:13:27,723 --> 00:13:37,993
+Pehli, AI bhi galti kar sakta hai. Isliye Claude ke jawab aur code ko hamesha khud verify kijiye, khaas kar important kaam mein.
+
+70
+00:13:38,053 --> 00:13:45,742
+Doosri, apne passwords, API keys ya koi bhi private data chat mein kabhi share mat kijiye.
+
+71
+00:13:45,802 --> 00:13:52,284
+Teesri, Claude Code jo bhi change kare, use run karne se pehle diff mein review kijiye.
+
+72
+00:13:52,344 --> 00:14:01,378
+Aur chauthi, yaad rakhiye ki Pro plan mein bhi usage limits hoti hain, isliye bade kaam soch samajh kar plan kijiye.
+
+73
+00:14:02,368 --> 00:14:12,891
+Is series ki agli videos mein hum Projects, Artifacts, Cowork, settings aur Claude Code ko ek ek karke aur bhi detail mein seekhenge.
+
+74
+00:14:12,951 --> 00:14:27,535
+Agar is video se kuch naya seekhne ko mila ho, to like kijiye, doston ke saath share kijiye, aur channel subscribe karke bell icon zaroor dabaiye. Milte hain agli video mein. Dhanyavaad!
+

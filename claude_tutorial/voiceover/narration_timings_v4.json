@@ -1,0 +1,716 @@
+{
+ "voice": "hm_omega",
+ "speed": 0.92,
+ "total": 870.533,
+ "scenes": [
+  {
+   "id": "intro",
+   "start": 0.4,
+   "end": 32.975
+  },
+  {
+   "id": "home",
+   "start": 33.475,
+   "end": 81.629
+  },
+  {
+   "id": "new",
+   "start": 82.129,
+   "end": 105.81
+  },
+  {
+   "id": "search",
+   "start": 106.21,
+   "end": 132.636
+  },
+  {
+   "id": "projects",
+   "start": 133.036,
+   "end": 192.805
+  },
+  {
+   "id": "artifacts",
+   "start": 193.205,
+   "end": 240.664
+  },
+  {
+   "id": "code",
+   "start": 241.064,
+   "end": 294.382
+  },
+  {
+   "id": "customize",
+   "start": 294.782,
+   "end": 327.73
+  },
+  {
+   "id": "usage",
+   "start": 328.13,
+   "end": 356.678
+  },
+  {
+   "id": "history",
+   "start": 357.078,
+   "end": 381.176
+  },
+  {
+   "id": "account",
+   "start": 381.576,
+   "end": 404.29
+  },
+  {
+   "id": "incognito",
+   "start": 404.69,
+   "end": 433.618
+  },
+  {
+   "id": "msgbox",
+   "start": 434.218,
+   "end": 458.484
+  },
+  {
+   "id": "plus",
+   "start": 458.884,
+   "end": 496.266
+  },
+  {
+   "id": "cowork",
+   "start": 496.666,
+   "end": 537.794
+  },
+  {
+   "id": "model",
+   "start": 538.194,
+   "end": 600.789
+  },
+  {
+   "id": "voice",
+   "start": 601.189,
+   "end": 624.038
+  },
+  {
+   "id": "cc_intro",
+   "start": 624.638,
+   "end": 653.476
+  },
+  {
+   "id": "cc_explain",
+   "start": 653.976,
+   "end": 695.507
+  },
+  {
+   "id": "cc_fix",
+   "start": 696.107,
+   "end": 772.357
+  },
+  {
+   "id": "cc_modes",
+   "start": 772.957,
+   "end": 802.524
+  },
+  {
+   "id": "limits",
+   "start": 803.124,
+   "end": 841.768
+  },
+  {
+   "id": "outro",
+   "start": 842.368,
+   "end": 870.525
+  }
+ ],
+ "timings": [
+  {
+   "id": "i1",
+   "scene": "intro",
+   "start": 0.4,
+   "end": 9.111,
+   "text": "Namaste doston! Aaj is video mein hum Claude AI ka poora interface, bilkul shuru se, step by step samjhenge.",
+   "en": "Hello friends! Today we'll understand the complete Claude AI interface, right from the start, step by step."
+  },
+  {
+   "id": "i2",
+   "scene": "intro",
+   "start": 9.451,
+   "end": 19.744,
+   "text": "Screen par jo bhi option dikhta hai, woh kya hai, kaise use karte hain, kab use karna chahiye, aur uski limitations kya hain, sab kuch detail mein.",
+   "en": "Every option on the screen: what it is, how to use it, when to use it, and its limits, all in detail."
+  },
+  {
+   "id": "i3",
+   "scene": "intro",
+   "start": 20.084,
+   "end": 32.235,
+   "text": "Aur end mein hum Claude Code ka ek real terminal demo dekhenge, jismein Claude ek project samjhega aur ek asli bug fix karega. To video ko end tak zaroor dekhiye.",
+   "en": "At the end, we'll watch a real Claude Code terminal demo where Claude understands a project and fixes a real bug. So watch till the end."
+  },
+  {
+   "id": "h1",
+   "scene": "home",
+   "start": 33.475,
+   "end": 41.619,
+   "text": "Ye Claude ka home screen hai. Main yahan Pro plan use kar raha hoon, isliye neeche mere naam ke saath Pro likha hua hai.",
+   "en": "This is Claude's home screen. I'm on the Pro plan, which is why 'Pro' appears next to my name at the bottom."
+  },
+  {
+   "id": "h2",
+   "scene": "home",
+   "start": 41.959,
+   "end": 47.124,
+   "text": "Is screen ko samajhna bahut aasan hai, kyunki iske teen main hisse hain.",
+   "en": "This screen is easy to understand, because it has three main parts."
+  },
+  {
+   "id": "h3",
+   "scene": "home",
+   "start": 47.464,
+   "end": 54.42,
+   "text": "Pehla, left side mein sidebar, jahan saare main options aur aapki purani chats milti hain.",
+   "en": "First, the sidebar on the left, with all the main options and your past chats."
+  },
+  {
+   "id": "h4",
+   "scene": "home",
+   "start": 54.76,
+   "end": 61.491,
+   "text": "Doosra, beech mein message box, jahan aap Claude se sawaal poochte hain ya koi kaam dete hain.",
+   "en": "Second, the message box in the middle, where you ask questions or give Claude tasks."
+  },
+  {
+   "id": "h5",
+   "scene": "home",
+   "start": 61.831,
+   "end": 67.814,
+   "text": "Aur teesra, neeche left corner mein aapka account, jahan se Settings khulti hai.",
+   "en": "And third, your account in the bottom-left corner, which opens Settings."
+  },
+  {
+   "id": "h6",
+   "scene": "home",
+   "start": 68.154,
+   "end": 80.889,
+   "text": "Ek baat dhyaan rakhiye: kuch options aapke plan, account aur app ke version ke hisaab se thode alag dikh sakte hain. Isliye agar aapki screen thodi alag ho, to ghabraiye mat.",
+   "en": "Note: some options may look a little different depending on your plan, account and app version, so don't worry if your screen differs slightly."
+  },
+  {
+   "id": "n1",
+   "scene": "new",
+   "start": 82.129,
+   "end": 92.266,
+   "text": "Ab sidebar ko ek ek karke dekhte hain. Sabse upar New button hai. Is par click karte hi ek bilkul nayi, khaali chat shuru ho jaati hai.",
+   "en": "Now let's go through the sidebar one by one. At the top is New. Click it and a brand-new, empty chat starts."
+  },
+  {
+   "id": "n2",
+   "scene": "new",
+   "start": 92.606,
+   "end": 105.07,
+   "text": "Har chat ki apni alag conversation hoti hai. Isliye jab bhi topic badle, nayi chat shuru kijiye. Ek chat mein ek hi topic rakhenge, to jawab zyada focused milenge.",
+   "en": "Each chat is its own conversation, so start a new chat whenever the topic changes. One topic per chat keeps answers focused."
+  },
+  {
+   "id": "s1",
+   "scene": "search",
+   "start": 106.21,
+   "end": 113.15,
+   "text": "Uske neeche Search hai. Iski madad se aap apni purani chats ko jaldi se dhoondh sakte hain.",
+   "en": "Below it is Search. It helps you quickly find your old chats."
+  },
+  {
+   "id": "s2",
+   "scene": "search",
+   "start": 113.49,
+   "end": 131.896,
+   "text": "Pro jaise paid plans mein chat search bhi milta hai. Aap Claude se seedha pooch sakte hain ki pichhli baar humne is topic par kya discuss kiya tha, aur Claude aapki purani chats mein dhoondh kar bata deta hai. Ise Settings ke Your Claude section mein on ya off kar sakte hain.",
+   "en": "Paid plans like Pro also have chat search: ask Claude what you discussed about a topic, and it searches your past chats. Turn it on or off in Settings › Your Claude."
+  },
+  {
+   "id": "p1",
+   "scene": "projects",
+   "start": 133.036,
+   "end": 142.966,
+   "text": "Ab aata hai Projects. Project ek alag workspace hota hai, jismein aap apni files aur instructions ek hi jagah save kar sakte hain.",
+   "en": "Next is Projects. A project is a separate workspace where you keep your files and instructions in one place."
+  },
+  {
+   "id": "p2",
+   "scene": "projects",
+   "start": 143.306,
+   "end": 155.93,
+   "text": "Phir us project ke andar aap jitni bhi chats banayenge, Claude un sab mein in files ko background knowledge ki tarah use karega, jaise aapke notes, documents ya code.",
+   "en": "Every chat you create inside that project uses these files as background knowledge, like your notes, documents or code."
+  },
+  {
+   "id": "p3",
+   "scene": "projects",
+   "start": 156.27,
+   "end": 172.292,
+   "text": "Project banana bahut simple hai. Projects kholiye, New Project par click kijiye, naam aur description likhiye, phir plus button se files add kijiye, aur Set project instructions mein bataiye ki Claude ko kaise jawab dena hai.",
+   "en": "Creating one is simple: open Projects, click New Project, add a name and description, add files with the plus button, and use Set project instructions to tell Claude how to respond."
+  },
+  {
+   "id": "p4",
+   "scene": "projects",
+   "start": 172.632,
+   "end": 192.065,
+   "text": "Do baatein yaad rakhiye. Pehli, project ki chats ek doosre ki baatein share nahi karti, sirf project ki knowledge share hoti hai. Doosri, paid plans mein RAG ki madad se project knowledge das guna tak badh sakti hai. Aur projects share karna sirf Team aur Enterprise plans mein hota hai.",
+   "en": "Remember: project chats don't share their conversations, only the project knowledge. Paid plans can grow project knowledge up to 10× with RAG. Sharing projects is for Team and Enterprise only."
+  },
+  {
+   "id": "a1",
+   "scene": "artifacts",
+   "start": 193.205,
+   "end": 204.846,
+   "text": "Agla option hai Artifacts. Artifacts woh cheezein hain jo Claude aapke liye banata hai, jaise document, code, chhoti website, diagram ya dashboard.",
+   "en": "Next is Artifacts: things Claude makes for you, like documents, code, small websites, diagrams or dashboards."
+  },
+  {
+   "id": "a2",
+   "scene": "artifacts",
+   "start": 205.186,
+   "end": 220.572,
+   "text": "Ye chat ke bagal mein ek alag panel mein khulte hain, taaki aap inhe aaram se dekh sakein. Aur aapke saare artifacts Artifacts page par save rehte hain, jahan se aap inhe kabhi bhi dobara khol sakte hain.",
+   "en": "They open in a separate panel next to the chat, and all of them are saved on the Artifacts page, so you can reopen them any time."
+  },
+  {
+   "id": "a3",
+   "scene": "artifacts",
+   "start": 220.912,
+   "end": 239.924,
+   "text": "Aap chat mein bol kar inhe edit karwa sakte hain, aur documents ko Word, PDF, Markdown ya Google Docs mein export bhi kar sakte hain. Shuru mein ye sirf aapke liye private hote hain. Inke liye Settings mein code execution and file creation on hona chahiye.",
+   "en": "Ask for edits in the chat, and export documents to Word, PDF, Markdown or Google Docs. They start private. They need 'Code execution and file creation' turned on in Settings."
+  },
+  {
+   "id": "c1",
+   "scene": "code",
+   "start": 241.064,
+   "end": 256.243,
+   "text": "Ab Code option. Ye Claude Code ke liye hai, jo coding ka ek agentic tool hai. Matlab ye sirf code likhta nahi, balki aapke project ki files padhta hai, unhe edit karta hai aur commands bhi chala sakta hai.",
+   "en": "Now Code. It opens Claude Code, an agentic coding tool: it doesn't just write code, it reads your project files, edits them and can run commands."
+  },
+  {
+   "id": "c2",
+   "scene": "code",
+   "start": 256.583,
+   "end": 267.155,
+   "text": "Web par ise use karne ke liye pehle apna GitHub account connect kijiye, phir repository chuniye, aur simple bhasha mein apna task likhiye.",
+   "en": "On the web, first connect your GitHub account, pick a repository, and describe your task in plain language."
+  },
+  {
+   "id": "c3",
+   "scene": "code",
+   "start": 267.495,
+   "end": 280.524,
+   "text": "Claude cloud mein, ek alag machine par kaam karta hai. Kaam khatam hone ke baad aap har change ko diff mein review karte hain, aur sab theek ho to Create PR se pull request bana dete hain.",
+   "en": "Claude works in the cloud on a separate machine. When it's done, you review every change in the diff and, if it looks right, click Create PR."
+  },
+  {
+   "id": "c4",
+   "scene": "code",
+   "start": 280.864,
+   "end": 293.642,
+   "text": "Claude Code terminal, VS Code, JetBrains aur Desktop app mein bhi milta hai. Ye Pro plan mein included hai, lekin iska use bhi aapki usage limit mein count hota hai.",
+   "en": "Claude Code is also in the Terminal, VS Code, JetBrains and the Desktop app. It's included in Pro, but it counts toward your usage limits."
+  },
+  {
+   "id": "u1",
+   "scene": "customize",
+   "start": 294.782,
+   "end": 304.801,
+   "text": "Iske neeche Customize hai. Yahan se aap Claude ki abilities badha sakte hain. Isme teen cheezein milti hain: Skills, Connectors aur Plugins.",
+   "en": "Below is Customize, where you extend what Claude can do. It has three things: Skills, Connectors and Plugins."
+  },
+  {
+   "id": "u2",
+   "scene": "customize",
+   "start": 305.141,
+   "end": 317.551,
+   "text": "Skills Claude ko koi khaas kaam karne ka tarika sikhati hain. Connectors Claude ko bahar ki services se jodte hain, jinhe aap Connect dabakar sign in karke jodte hain,",
+   "en": "Skills teach Claude how to do specific tasks. Connectors link Claude to outside services: click Connect and sign in,"
+  },
+  {
+   "id": "u3",
+   "scene": "customize",
+   "start": 317.711,
+   "end": 326.99,
+   "text": "aur Plugins skills aur commands ka ek bundle hote hain. Naye skills, connectors aur plugins dhoondhne ke liye Discover tab dekhiye.",
+   "en": "and Plugins bundle skills and commands. Use the Discover tab to find new ones."
+  },
+  {
+   "id": "g1",
+   "scene": "usage",
+   "start": 328.13,
+   "end": 338.99,
+   "text": "Ab Usage. Yahan aap dekh sakte hain ki aapne apne plan ka kitna hissa use kar liya hai. Poori details Settings ke Usage page par milti hain.",
+   "en": "Now Usage: see how much of your plan you've used. Full details are on the Usage page in Settings."
+  },
+  {
+   "id": "g2",
+   "scene": "usage",
+   "start": 339.33,
+   "end": 355.938,
+   "text": "Pro plan mein session limit har paanch ghante mein reset hoti hai, aur ek weekly limit bhi hoti hai. Limit khatam ho jaaye to usage credits on karke kaam jaari rakh sakte hain. Aur ek tip: kam effort wale jawab kam usage lete hain.",
+   "en": "On Pro, the session limit resets every 5 hours, plus a weekly limit. If you run out, usage credits let you keep working. Tip: lower effort uses less."
+  },
+  {
+   "id": "t1",
+   "scene": "history",
+   "start": 357.078,
+   "end": 366.87,
+   "text": "Neeche Chats and tasks mein aapki haal ki chats aur tasks ki list hoti hai. View all par click karke aap poori list dekh sakte hain.",
+   "en": "Chats and tasks lists your recent chats and tasks. Click View all to see the full list."
+  },
+  {
+   "id": "t2",
+   "scene": "history",
+   "start": 367.21,
+   "end": 380.436,
+   "text": "Kisi bhi chat par mouse le jaiye, to teen dots ka menu aata hai. Wahan se aap chat ko rename ya delete kar sakte hain. Aap ek saath kai chats select karke bhi delete kar sakte hain.",
+   "en": "Hover over any chat for the three-dot menu to rename or delete it. You can also select several chats and delete them together."
+  },
+  {
+   "id": "ac1",
+   "scene": "account",
+   "start": 381.576,
+   "end": 390.731,
+   "text": "Ab sabse neeche, left corner mein apne naam par click kijiye. Yahin se Settings khulti hai, aur yahin aapka plan bhi dikhta hai.",
+   "en": "Now click your name in the bottom-left corner. That opens Settings, and it also shows your plan."
+  },
+  {
+   "id": "ac2",
+   "scene": "account",
+   "start": 391.071,
+   "end": 403.55,
+   "text": "Settings mein Appearance se theme badal sakte hain, Your Claude mein memory aur chat search ki settings hoti hain, aur Usage mein aapki limits aur credits ki jaankari milti hai.",
+   "en": "In Settings: Appearance changes the theme, Your Claude holds memory and chat search, and Usage shows your limits and credits."
+  },
+  {
+   "id": "k1",
+   "scene": "incognito",
+   "start": 404.69,
+   "end": 417.043,
+   "text": "Ab screen ke upar right corner mein dekhiye. Ye chhota sa ghost icon incognito chat ke liye hai. Nayi chat mein ise click karke incognito mode shuru hota hai.",
+   "en": "Look at the top-right corner: this small ghost icon starts an incognito chat, from a new chat."
+  },
+  {
+   "id": "k2",
+   "scene": "incognito",
+   "start": 417.383,
+   "end": 432.878,
+   "text": "Incognito chat history mein save nahi hoti, memory mein nahi jaati, aur model training mein use nahi hoti. Lekin band karne ke baad ise dobara khol nahi sakte, aur ye projects ke andar available nahi hai.",
+   "en": "Incognito chats aren't saved to history or memory and aren't used for training. But they can't be reopened once closed, and aren't available in projects."
+  },
+  {
+   "id": "m1",
+   "scene": "msgbox",
+   "start": 434.218,
+   "end": 443.936,
+   "text": "Ab chaliye beech wale message box par. Yahi Claude ka sabse important hissa hai, kyunki yahin aap apna sawaal ya kaam likhte hain.",
+   "en": "Now the message box in the middle: the most important part, because this is where you type your question or task."
+  },
+  {
+   "id": "m2",
+   "scene": "msgbox",
+   "start": 444.276,
+   "end": 457.744,
+   "text": "Achha jawab paane ka simple formula hai: saaf batao ki kya chahiye, kis ke liye chahiye, aur kis format mein chahiye. Jaise, kisi beginner ko teen examples ke saath Python lists samjhao.",
+   "en": "A simple formula for good answers: say what you want, for whom, and in what format. For example: explain Python lists to a beginner with 3 examples."
+  },
+  {
+   "id": "x1",
+   "scene": "plus",
+   "start": 458.884,
+   "end": 472.295,
+   "text": "Message box ke left side mein plus button hai. Is par click karke Add files or photos chuniye, aur apni files attach kijiye. Files ko drag and drop ya paste bhi kar sakte hain.",
+   "en": "On the left of the message box is the plus button: choose Add files or photos to attach files. Drag and drop or paste also work."
+  },
+  {
+   "id": "x2",
+   "scene": "plus",
+   "start": 472.635,
+   "end": 485.066,
+   "text": "Isme PDF, Word, Excel, CSV, text aur images jaisi files support hoti hain. Ek chat mein bees files tak, aur har file paanch sau MB tak ho sakti hai.",
+   "en": "PDF, Word, Excel, CSV, text and images are supported: up to 20 files per chat, each up to 500 MB."
+  },
+  {
+   "id": "x3",
+   "scene": "plus",
+   "start": 485.406,
+   "end": 495.526,
+   "text": "Isi plus menu se aap kisi ek chat ke liye memory bhi band kar sakte hain, bas ye pehla message bhejne se pehle karna hota hai.",
+   "en": "The same plus menu can turn memory off for a single chat, as long as you do it before the first message."
+  },
+  {
+   "id": "w1",
+   "scene": "cowork",
+   "start": 496.666,
+   "end": 504.557,
+   "text": "Plus ke bagal mein Chat aur Cowork ka switch hai. Chat normal baatcheet aur jaldi sawaal jawaab ke liye hai.",
+   "en": "Next to plus is the Chat / Cowork switch. Chat is for normal conversation and quick questions."
+  },
+  {
+   "id": "w2",
+   "scene": "cowork",
+   "start": 504.897,
+   "end": 512.31,
+   "text": "Cowork mein aap Claude ko ek poora task de dete hain, aur Claude khud kai steps mein us par kaam karta hai,",
+   "en": "In Cowork you hand Claude a whole task and it works through the steps itself,"
+  },
+  {
+   "id": "w3",
+   "scene": "cowork",
+   "start": 512.47,
+   "end": 521.956,
+   "text": "jaise web par research karna, aapki files padhna, aur aakhir mein spreadsheet ya presentation jaisi finished files banana.",
+   "en": "like researching the web, reading your files, and producing finished spreadsheets or presentations."
+  },
+  {
+   "id": "w4",
+   "scene": "cowork",
+   "start": 522.296,
+   "end": 537.054,
+   "text": "Lekin Cowork zyada usage leta hai, paid plans mein milta hai, aur computer ki local files ke liye Claude Desktop app chahiye. Kisi bhi action se pehle uski permission setting zaroor check kijiye.",
+   "en": "Cowork uses more usage, is for paid plans, and needs the Claude Desktop app for local files. Always check its permission setting before it acts."
+  },
+  {
+   "id": "md1",
+   "scene": "model",
+   "start": 538.194,
+   "end": 547.343,
+   "text": "Ab right side mein model selector dekhiye. Yahan abhi Opus 5.5 model aur Medium effort selected hai.",
+   "en": "Now the model selector on the right: Opus 5.5 with Medium effort is selected."
+  },
+  {
+   "id": "md2",
+   "scene": "model",
+   "start": 547.683,
+   "end": 560.789,
+   "text": "Model ke naam par click karke aap doosra model chun sakte hain, aur More models mein aur options milte hain. Chat ke beech mein bhi model badal sakte hain, change agle jawab se lagta hai.",
+   "en": "Click the model name to pick another model; More models has extra options. You can switch mid-chat; it applies from the next reply."
+  },
+  {
+   "id": "md3",
+   "scene": "model",
+   "start": 561.129,
+   "end": 573.511,
+   "text": "Isi menu mein Effort hota hai, jo batata hai ki Claude jawab dene se pehle kitna gehra sochega. Iske paanch level hain: Low, Medium, High, Extra high aur Max.",
+   "en": "The same menu has Effort: how deeply Claude thinks before answering. Five levels: Low, Medium, High, Extra high and Max."
+  },
+  {
+   "id": "md4",
+   "scene": "model",
+   "start": 573.851,
+   "end": 584.537,
+   "text": "Zyada effort se jawab zyada detailed aur soch samajh kar milta hai, lekin usme time zyada lagta hai aur usage bhi zyada hota hai.",
+   "en": "Higher effort gives more detailed, careful answers, but takes longer and uses more."
+  },
+  {
+   "id": "md5",
+   "scene": "model",
+   "start": 584.877,
+   "end": 600.049,
+   "text": "Rozana ke normal kaam ke liye Medium kaafi hai. Mushkil coding, planning ya lambe documents ke liye High ya usse upar ka effort chuniye. Aur Opus 5.5 har jawab se pehle sochta hai.",
+   "en": "Medium is fine for everyday work; choose High or above for hard coding, planning or long documents. Opus 5.5 always thinks before answering."
+  },
+  {
+   "id": "v1",
+   "scene": "voice",
+   "start": 601.189,
+   "end": 610.218,
+   "text": "Model ke bagal mein mic aur voice ke buttons hain. Inse aap type karne ki jagah bol kar bhi Claude se baat kar sakte hain.",
+   "en": "Next to the model are the mic and voice buttons, so you can speak to Claude instead of typing."
+  },
+  {
+   "id": "v2",
+   "scene": "voice",
+   "start": 610.558,
+   "end": 623.298,
+   "text": "Aur message box ke neeche Write, Learn, Code, Life stuff aur Claude's choice jaise buttons hain. Agar samajh na aaye ki kya poochein, to inse shuruaat ke ideas mil jaate hain.",
+   "en": "Below the message box are Write, Learn, Code, Life stuff and Claude's choice: if you're not sure what to ask, they give you ideas to start."
+  },
+  {
+   "id": "d1",
+   "scene": "cc_intro",
+   "start": 624.638,
+   "end": 633.471,
+   "text": "Ab sabse interesting part: Claude Code ka real demo, seedha terminal mein. Yahan jo bhi dikhega, woh sach mein chala hua hai.",
+   "en": "Now the most interesting part: a real Claude Code demo, right in the terminal. Everything you see here really ran."
+  },
+  {
+   "id": "d2",
+   "scene": "cc_intro",
+   "start": 633.811,
+   "end": 652.736,
+   "text": "Claude Code install karne ke liye official command chalaiye. Mac, Linux aur WSL ke liye curl wali command, aur Windows PowerShell ke liye irm wali command. Phir claude version likh kar check kijiye ki install ho gaya. Pehli baar chalane par ye login maangta hai.",
+   "en": "To install Claude Code, run the official command: curl on Mac, Linux and WSL, irm on Windows PowerShell. Then check with claude --version. The first run asks you to log in."
+  },
+  {
+   "id": "e1",
+   "scene": "cc_explain",
+   "start": 653.976,
+   "end": 663.756,
+   "text": "Ye ek chhota sa demo project hai, ek todo app, jismein app.py, storage.py aur tasks.json jaisi files hain.",
+   "en": "This is a small demo project, a to-do app, with files like app.py, storage.py and tasks.json."
+  },
+  {
+   "id": "e2",
+   "scene": "cc_explain",
+   "start": 664.096,
+   "end": 672.528,
+   "text": "Ab main Claude Code ko ek simple instruction deta hoon: is project ki files ko teen chhote points mein explain karo.",
+   "en": "Now I give Claude Code a simple instruction: explain this project's files in 3 short points."
+  },
+  {
+   "id": "epause",
+   "scene": "cc_explain",
+   "start": 672.868,
+   "end": 680.55,
+   "text": "Claude Code ab project ki saari files padh raha hai. Is waqt ko humne video mein fast forward kar diya hai.",
+   "en": "Claude Code is now reading all the project files. We've fast-forwarded this wait."
+  },
+  {
+   "id": "e3",
+   "scene": "cc_explain",
+   "start": 680.89,
+   "end": 694.767,
+   "text": "Aur dekhiye, Claude ne har file ka kaam saaf saaf samjha diya. Sabse badi baat, usne khud se ek bug bhi pakad liya: list tasks function name key padh raha hai, jabki data title key mein save hai.",
+   "en": "Look: Claude clearly explained each file. Best of all, it spotted a bug on its own: list_tasks reads the 'name' key, but the data uses 'title'."
+  },
+  {
+   "id": "f1",
+   "scene": "cc_fix",
+   "start": 696.107,
+   "end": 703.588,
+   "text": "Ab us bug ko sach mein dekhte hain. App chalate hi ye KeyError deta hai, yaani name naam ki key milti hi nahi.",
+   "en": "Let's see that bug for real. Running the app throws a KeyError: the 'name' key doesn't exist."
+  },
+  {
+   "id": "f2",
+   "scene": "cc_fix",
+   "start": 703.928,
+   "end": 710.049,
+   "text": "To main Claude Code ko yahi error batata hoon, aur kehta hoon ki bug dhoondho aur fix karo.",
+   "en": "So I tell Claude Code about this error and ask it to find and fix the bug."
+  },
+  {
+   "id": "f3",
+   "scene": "cc_fix",
+   "start": 710.389,
+   "end": 718.644,
+   "text": "Dhyaan dijiye, is command mein maine allowed tools ke through sirf file edit karne ki permission di hai, aur kuch nahi.",
+   "en": "Notice: in this command I used --allowedTools to permit file edits only, nothing else."
+  },
+  {
+   "id": "fpause",
+   "scene": "cc_fix",
+   "start": 718.984,
+   "end": 724.766,
+   "text": "Claude Code code padh raha hai aur fix bana raha hai. Ye hissa bhi fast forward hai.",
+   "en": "Claude Code is reading the code and preparing a fix. This part is fast-forwarded too."
+  },
+  {
+   "id": "f4",
+   "scene": "cc_fix",
+   "start": 725.106,
+   "end": 738.086,
+   "text": "Claude ne bug fix kar diya, aur saath mein ye bhi bataya ki app chala kar test karne ke liye use approval chahiye tha, jo maine diya hi nahi tha. Isliye usne code padh kar problem samjhi.",
+   "en": "Claude fixed the bug, and said running the app to test it needed approval, which I hadn't given, so it found the cause by reading the code."
+  },
+  {
+   "id": "f5",
+   "scene": "cc_fix",
+   "start": 738.426,
+   "end": 752.957,
+   "text": "Yahi Claude Code ki sabse badi safety hai. Files padhne ke liye permission nahi lagti, lekin file badalne ya command chalane se pehle ye aapse poochta hai, jab tak aap pehle se allow na karein.",
+   "en": "That's Claude Code's key safety feature: reading files needs no permission, but it asks before changing files or running commands, unless you allowed it in advance."
+  },
+  {
+   "id": "f6",
+   "scene": "cc_fix",
+   "start": 753.297,
+   "end": 764.237,
+   "text": "Ab git diff se hum exact change review karte hain. Laal line purani hai aur hari line nayi. Bas name ki jagah title kiya gaya hai, ek hi line ka change.",
+   "en": "Now we review the exact change with git diff: red is the old line, green the new. Just 'name' replaced by 'title', a one-line change."
+  },
+  {
+   "id": "f7",
+   "scene": "cc_fix",
+   "start": 764.577,
+   "end": 771.617,
+   "text": "Aur ab app dobara chalate hain, to dono tasks bilkul sahi print ho rahe hain. Bug fix ho gaya!",
+   "en": "Run the app again and both tasks print correctly. Bug fixed!"
+  },
+  {
+   "id": "pm1",
+   "scene": "cc_modes",
+   "start": 772.957,
+   "end": 793.51,
+   "text": "Claude Code mein chaar main permission modes hote hain. Manual, jo default hai, har tool ke pehli baar use par permission maangta hai. Accept edits, file edits apne aap maan leta hai. Plan, sirf padhta aur plan banata hai. Aur Auto, jismein ek safety classifier aapki jagah actions check karta hai.",
+   "en": "Claude Code has four permission modes. Manual, the default, asks the first time each tool is used. Accept edits accepts file edits automatically. Plan only reads and plans. Auto lets a safety classifier review actions for you."
+  },
+  {
+   "id": "pm2",
+   "scene": "cc_modes",
+   "start": 793.85,
+   "end": 801.784,
+   "text": "Agar aap beginner hain, to Manual ya Plan mode se shuru kijiye, taaki har badlaav aapki nazar se guzre.",
+   "en": "If you're a beginner, start with Manual or Plan mode, so every change passes your review."
+  },
+  {
+   "id": "l1",
+   "scene": "limits",
+   "start": 803.124,
+   "end": 807.383,
+   "text": "Video khatam karne se pehle kuch bahut zaroori baatein.",
+   "en": "Before we finish, some very important points."
+  },
+  {
+   "id": "l2",
+   "scene": "limits",
+   "start": 807.723,
+   "end": 817.713,
+   "text": "Pehli, AI bhi galti kar sakta hai. Isliye Claude ke jawab aur code ko hamesha khud verify kijiye, khaas kar important kaam mein.",
+   "en": "First, AI can make mistakes, so always verify Claude's answers and code yourself, especially for important work."
+  },
+  {
+   "id": "l3",
+   "scene": "limits",
+   "start": 818.053,
+   "end": 825.462,
+   "text": "Doosri, apne passwords, API keys ya koi bhi private data chat mein kabhi share mat kijiye.",
+   "en": "Second, never share passwords, API keys or any private data in a chat."
+  },
+  {
+   "id": "l4",
+   "scene": "limits",
+   "start": 825.802,
+   "end": 832.004,
+   "text": "Teesri, Claude Code jo bhi change kare, use run karne se pehle diff mein review kijiye.",
+   "en": "Third, review every change Claude Code makes in the diff before you run it."
+  },
+  {
+   "id": "l5",
+   "scene": "limits",
+   "start": 832.344,
+   "end": 841.028,
+   "text": "Aur chauthi, yaad rakhiye ki Pro plan mein bhi usage limits hoti hain, isliye bade kaam soch samajh kar plan kijiye.",
+   "en": "Fourth, remember that even Pro has usage limits, so plan big tasks carefully."
+  },
+  {
+   "id": "o1",
+   "scene": "outro",
+   "start": 842.368,
+   "end": 852.611,
+   "text": "Is series ki agli videos mein hum Projects, Artifacts, Cowork, settings aur Claude Code ko ek ek karke aur bhi detail mein seekhenge.",
+   "en": "In the next videos of this series, we'll learn Projects, Artifacts, Cowork, settings and Claude Code one by one, in even more detail."
+  },
+  {
+   "id": "o2",
+   "scene": "outro",
+   "start": 852.951,
+   "end": 867.185,
+   "text": "Agar is video se kuch naya seekhne ko mila ho, to like kijiye, doston ke saath share kijiye, aur channel subscribe karke bell icon zaroor dabaiye. Milte hain agli video mein. Dhanyavaad!",
+   "en": "If you learned something new, like the video, share it with friends, and subscribe with the bell icon. See you in the next video. Thank you!"
+  }
+ ]
+}

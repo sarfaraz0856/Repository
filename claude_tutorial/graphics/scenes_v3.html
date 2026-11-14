@@ -315,7 +315,7 @@ function renderFull(t){
   document.querySelectorAll('.ch').forEach((e,k)=>{const a=S('i2')+k*0.28,q=ramp(t,a,a+.35);e.style.opacity=q;e.style.transform=`translateY(${(1-q)*10}px)`});
   showFull(FULLS.note,win(t,S('h6'),E('h6')+0.4,.3),-10,t,S('h6'),E('h6')+0.4);
   showFull(FULLS.ccTitle,win(t,SC.cc_intro.start-0.2,E('d1')+0.1,.35),14,t,SC.cc_intro.start,E('d1'));
-  showFull(FULLS.install,win(t,S('d2'),E('e1')-1.2,.35),0,t,S('d2'),E('e1'));
+  showFull(FULLS.install,win(t,S('d2'),S('e1')+0.1,.35),0,t,S('d2'),S('e1'));
   showFull(FULLS.safety,win(t,S('f5'),E('f5'),.3),16,t,S('f5'),E('f5'));
   showFull(FULLS.modes,win(t,SC.cc_modes.start,SC.cc_modes.end,.4),16,t,SC.cc_modes.start,SC.cc_modes.end);
   showFull(FULLS.limits,win(t,SC.limits.start,SC.limits.end,.4),16,t,SC.limits.start,SC.limits.end);

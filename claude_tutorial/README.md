@@ -2,6 +2,21 @@
 
 Sample episode: **"Claude AI Interface Explained: Where to Find Every Important Option"** (Hindi / Hinglish).
 
+## v4 (CURRENT): voice-over kit for your own cloned voice, 14:30
+
+Folder `voiceover_kit_v4/`. Start with `PROMPT_FOR_CLAUDE.md`, which you paste into the chat where your voice clone is set up.
+
+| File | What |
+|---|---|
+| `claude_ep01_v4_music_only.mp4` | 1920×1080, 30 fps, 14:30.53: picture + background music/SFX, **no voice** (kept local, not in git) |
+| `VOICEOVER_SCRIPT_v4.md` / `voiceover_script_v4.json` | 74 lines with start time, target length, slot, Hinglish, Devanagari, English |
+| `lines_devanagari.txt` / `lines_hinglish.txt` | `id<TAB>text`, one line per clip |
+| `add_my_voice.py` | Places `voice/<id>.wav` clips on the video, fits timing, ducks music, exports MP4 (Python 3 + FFmpeg) |
+| `claude_ep01_v4.en.ass`, `.en.srt`, `.hinglish.srt` | Captions |
+
+v4 rebuild: `narration_lines_v4.json` → `make_voiceover_seq.py … --tag _v4` (timing only; the audio is not used)
+→ `render_all_v3.sh voiceover/narration_timings_v4.json …` → `make_audio.py <silence> assets/audio audio_cues_v4.json _v4` → mux at −24 LUFS.
+
 ## v3 (FINAL, full episode, 6:34): every option explained, English on-screen text
 
 | Path | What |

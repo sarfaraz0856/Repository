@@ -1,0 +1,87 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Inter SemiBold,40,&H00FFFFFF,&H00FFFFFF,&H3A000000,&H3A000000,0,0,0,0,100,100,0,0,3,14,0,2,300,300,34,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.35,0:00:09.39,Cap,,0,0,0,,{\fad(80,80)}Hello friends! Today we'll understand the complete Claude AI interface, right from the start, step by step.
+Dialogue: 0,0:00:09.40,0:00:20.02,Cap,,0,0,0,,{\fad(80,80)}Every option on the screen: what it is, how to use it, when to use it, and its limits, all in detail.
+Dialogue: 0,0:00:20.03,0:00:32.58,Cap,,0,0,0,,{\fad(80,80)}At the end, we'll watch a real Claude Code terminal demo where Claude understands a project and fixes a real bug. So watch till the end.
+Dialogue: 0,0:00:33.43,0:00:41.90,Cap,,0,0,0,,{\fad(80,80)}This is Claude's home screen. I'm on the Pro plan, which is why 'Pro' appears next to my name at the bottom.
+Dialogue: 0,0:00:41.91,0:00:47.40,Cap,,0,0,0,,{\fad(80,80)}This screen is easy to understand, because it has three main parts.
+Dialogue: 0,0:00:47.41,0:00:54.70,Cap,,0,0,0,,{\fad(80,80)}First, the sidebar on the left, with all the main options and your past chats.
+Dialogue: 0,0:00:54.71,0:01:01.77,Cap,,0,0,0,,{\fad(80,80)}Second, the message box in the middle, where you ask questions or give Claude tasks.
+Dialogue: 0,0:01:01.78,0:01:08.09,Cap,,0,0,0,,{\fad(80,80)}And third, your account in the bottom-left corner, which opens Settings.
+Dialogue: 0,0:01:08.10,0:01:21.24,Cap,,0,0,0,,{\fad(80,80)}Note: some options may look a little different depending on your plan, account and app version, so don't worry if your screen differs slightly.
+Dialogue: 0,0:01:22.08,0:01:32.55,Cap,,0,0,0,,{\fad(80,80)}Now let's go through the sidebar one by one. At the top is New. Click it and a brand-new, empty chat starts.
+Dialogue: 0,0:01:32.56,0:01:45.42,Cap,,0,0,0,,{\fad(80,80)}Each chat is its own conversation, so start a new chat whenever the topic changes. One topic per chat keeps answers focused.
+Dialogue: 0,0:01:46.16,0:01:53.43,Cap,,0,0,0,,{\fad(80,80)}Below it is Search. It helps you quickly find your old chats.
+Dialogue: 0,0:01:53.44,0:02:12.25,Cap,,0,0,0,,{\fad(80,80)}Paid plans like Pro also have chat search: ask Claude what you discussed about a topic, and it searches your past chats. Turn it on or off in Settings › Your Claude.
+Dialogue: 0,0:02:12.99,0:02:23.25,Cap,,0,0,0,,{\fad(80,80)}Next is Projects. A project is a separate workspace where you keep your files and instructions in one place.
+Dialogue: 0,0:02:23.26,0:02:36.21,Cap,,0,0,0,,{\fad(80,80)}Every chat you create inside that project uses these files as background knowledge, like your notes, documents or code.
+Dialogue: 0,0:02:36.22,0:02:52.57,Cap,,0,0,0,,{\fad(80,80)}Creating one is simple: open Projects, click New Project, add a name and description, add files with the plus button, and use Set project instructions to tell Claude how to respond.
+Dialogue: 0,0:02:52.58,0:03:12.42,Cap,,0,0,0,,{\fad(80,80)}Remember: project chats don't share their conversations, only the project knowledge. Paid plans can grow project knowledge up to 10× with RAG. Sharing projects is for Team and Enterprise only.
+Dialogue: 0,0:03:13.16,0:03:25.13,Cap,,0,0,0,,{\fad(80,80)}Next is Artifacts: things Claude makes for you, like documents, code, small websites, diagrams or dashboards.
+Dialogue: 0,0:03:25.14,0:03:40.85,Cap,,0,0,0,,{\fad(80,80)}They open in a separate panel next to the chat, and all of them are saved on the Artifacts page, so you can reopen them any time.
+Dialogue: 0,0:03:40.86,0:04:00.27,Cap,,0,0,0,,{\fad(80,80)}Ask for edits in the chat, and export documents to Word, PDF, Markdown or Google Docs. They start private. They need 'Code execution and file creation' turned on in Settings.
+Dialogue: 0,0:04:01.01,0:04:16.52,Cap,,0,0,0,,{\fad(80,80)}Now Code. It opens Claude Code, an agentic coding tool: it doesn't just write code, it reads your project files, edits them and can run commands.
+Dialogue: 0,0:04:16.53,0:04:27.44,Cap,,0,0,0,,{\fad(80,80)}On the web, first connect your GitHub account, pick a repository, and describe your task in plain language.
+Dialogue: 0,0:04:27.44,0:04:40.80,Cap,,0,0,0,,{\fad(80,80)}Claude works in the cloud on a separate machine. When it's done, you review every change in the diff and, if it looks right, click Create PR.
+Dialogue: 0,0:04:40.81,0:04:53.99,Cap,,0,0,0,,{\fad(80,80)}Claude Code is also in the Terminal, VS Code, JetBrains and the Desktop app. It's included in Pro, but it counts toward your usage limits.
+Dialogue: 0,0:04:54.73,0:05:05.08,Cap,,0,0,0,,{\fad(80,80)}Below is Customize, where you extend what Claude can do. It has three things: Skills, Connectors and Plugins.
+Dialogue: 0,0:05:05.09,0:05:17.65,Cap,,0,0,0,,{\fad(80,80)}Skills teach Claude how to do specific tasks. Connectors link Claude to outside services: click Connect and sign in,
+Dialogue: 0,0:05:17.66,0:05:27.34,Cap,,0,0,0,,{\fad(80,80)}and Plugins bundle skills and commands. Use the Discover tab to find new ones.
+Dialogue: 0,0:05:28.08,0:05:39.27,Cap,,0,0,0,,{\fad(80,80)}Now Usage: see how much of your plan you've used. Full details are on the Usage page in Settings.
+Dialogue: 0,0:05:39.28,0:05:56.29,Cap,,0,0,0,,{\fad(80,80)}On Pro, the session limit resets every 5 hours, plus a weekly limit. If you run out, usage credits let you keep working. Tip: lower effort uses less.
+Dialogue: 0,0:05:57.03,0:06:07.15,Cap,,0,0,0,,{\fad(80,80)}Chats and tasks lists your recent chats and tasks. Click View all to see the full list.
+Dialogue: 0,0:06:07.16,0:06:20.79,Cap,,0,0,0,,{\fad(80,80)}Hover over any chat for the three-dot menu to rename or delete it. You can also select several chats and delete them together.
+Dialogue: 0,0:06:21.53,0:06:31.01,Cap,,840,0,0,,{\fad(80,80)}Now click your name in the bottom-left corner. That opens Settings, and it also shows your plan.
+Dialogue: 0,0:06:31.02,0:06:43.90,Cap,,840,0,0,,{\fad(80,80)}In Settings: Appearance changes the theme, Your Claude holds memory and chat search, and Usage shows your limits and credits.
+Dialogue: 0,0:06:44.64,0:06:57.32,Cap,,0,0,0,,{\fad(80,80)}Look at the top-right corner: this small ghost icon starts an incognito chat, from a new chat.
+Dialogue: 0,0:06:57.33,0:07:13.23,Cap,,0,0,0,,{\fad(80,80)}Incognito chats aren't saved to history or memory and aren't used for training. But they can't be reopened once closed, and aren't available in projects.
+Dialogue: 0,0:07:14.17,0:07:24.22,Cap,,0,0,0,,{\fad(80,80)}Now the message box in the middle: the most important part, because this is where you type your question or task.
+Dialogue: 0,0:07:24.23,0:07:38.09,Cap,,0,0,0,,{\fad(80,80)}A simple formula for good answers: say what you want, for whom, and in what format. For example: explain Python lists to a beginner with 3 examples.
+Dialogue: 0,0:07:38.83,0:07:52.58,Cap,,0,0,0,,{\fad(80,80)}On the left of the message box is the plus button: choose Add files or photos to attach files. Drag and drop or paste also work.
+Dialogue: 0,0:07:52.58,0:08:05.35,Cap,,0,0,0,,{\fad(80,80)}PDF, Word, Excel, CSV, text and images are supported: up to 20 files per chat, each up to 500 MB.
+Dialogue: 0,0:08:05.36,0:08:15.88,Cap,,0,0,0,,{\fad(80,80)}The same plus menu can turn memory off for a single chat, as long as you do it before the first message.
+Dialogue: 0,0:08:16.62,0:08:24.84,Cap,,0,0,0,,{\fad(80,80)}Next to plus is the Chat / Cowork switch. Chat is for normal conversation and quick questions.
+Dialogue: 0,0:08:24.85,0:08:32.41,Cap,,0,0,0,,{\fad(80,80)}In Cowork you hand Claude a whole task and it works through the steps itself,
+Dialogue: 0,0:08:32.42,0:08:42.24,Cap,,0,0,0,,{\fad(80,80)}like researching the web, reading your files, and producing finished spreadsheets or presentations.
+Dialogue: 0,0:08:42.25,0:08:57.40,Cap,,0,0,0,,{\fad(80,80)}Cowork uses more usage, is for paid plans, and needs the Claude Desktop app for local files. Always check its permission setting before it acts.
+Dialogue: 0,0:08:58.14,0:09:07.62,Cap,,0,0,0,,{\fad(80,80)}Now the model selector on the right: Opus 5.5 with Medium effort is selected.
+Dialogue: 0,0:09:07.63,0:09:21.07,Cap,,0,0,0,,{\fad(80,80)}Click the model name to pick another model; More models has extra options. You can switch mid-chat; it applies from the next reply.
+Dialogue: 0,0:09:21.08,0:09:33.79,Cap,,0,0,0,,{\fad(80,80)}The same menu has Effort: how deeply Claude thinks before answering. Five levels: Low, Medium, High, Extra high and Max.
+Dialogue: 0,0:09:33.80,0:09:44.82,Cap,,0,0,0,,{\fad(80,80)}Higher effort gives more detailed, careful answers, but takes longer and uses more.
+Dialogue: 0,0:09:44.83,0:10:00.40,Cap,,0,0,0,,{\fad(80,80)}Medium is fine for everyday work; choose High or above for hard coding, planning or long documents. Opus 5.5 always thinks before answering.
+Dialogue: 0,0:10:01.14,0:10:10.50,Cap,,0,0,0,,{\fad(80,80)}Next to the model are the mic and voice buttons, so you can speak to Claude instead of typing.
+Dialogue: 0,0:10:10.51,0:10:23.65,Cap,,0,0,0,,{\fad(80,80)}Below the message box are Write, Learn, Code, Life stuff and Claude's choice: if you're not sure what to ask, they give you ideas to start.
+Dialogue: 0,0:10:24.59,0:10:33.75,Cap,,0,0,0,,{\fad(80,80)}Now the most interesting part: a real Claude Code demo, right in the terminal. Everything you see here really ran.
+Dialogue: 0,0:10:33.76,0:10:53.09,Cap,,0,0,0,,{\fad(80,80)}To install Claude Code, run the official command: curl on Mac, Linux and WSL, irm on Windows PowerShell. Then check with claude --version. The first run asks you to log in.
+Dialogue: 0,0:10:53.93,0:11:04.04,Cap,,0,0,0,,{\fad(80,80)}This is a small demo project, a to-do app, with files like app.py, storage.py and tasks.json.
+Dialogue: 0,0:11:04.05,0:11:12.81,Cap,,0,0,0,,{\fad(80,80)}Now I give Claude Code a simple instruction: explain this project's files in 3 short points.
+Dialogue: 0,0:11:12.82,0:11:20.83,Cap,,0,0,0,,{\fad(80,80)}Claude Code is now reading all the project files. We've fast-forwarded this wait.
+Dialogue: 0,0:11:20.84,0:11:35.12,Cap,,0,0,0,,{\fad(80,80)}Look: Claude clearly explained each file. Best of all, it spotted a bug on its own: list_tasks reads the 'name' key, but the data uses 'title'.
+Dialogue: 0,0:11:36.06,0:11:43.87,Cap,,0,0,0,,{\fad(80,80)}Let's see that bug for real. Running the app throws a KeyError: the 'name' key doesn't exist.
+Dialogue: 0,0:11:43.88,0:11:50.33,Cap,,0,0,0,,{\fad(80,80)}So I tell Claude Code about this error and ask it to find and fix the bug.
+Dialogue: 0,0:11:50.34,0:11:58.92,Cap,,0,0,0,,{\fad(80,80)}Notice: in this command I used --allowedTools to permit file edits only, nothing else.
+Dialogue: 0,0:11:58.93,0:12:05.05,Cap,,0,0,0,,{\fad(80,80)}Claude Code is reading the code and preparing a fix. This part is fast-forwarded too.
+Dialogue: 0,0:12:05.06,0:12:18.37,Cap,,0,0,0,,{\fad(80,80)}Claude fixed the bug, and said running the app to test it needed approval, which I hadn't given, so it found the cause by reading the code.
+Dialogue: 0,0:12:18.38,0:12:33.24,Cap,,0,0,0,,{\fad(80,80)}That's Claude Code's key safety feature: reading files needs no permission, but it asks before changing files or running commands, unless you allowed it in advance.
+Dialogue: 0,0:12:33.25,0:12:44.52,Cap,,0,0,0,,{\fad(80,80)}Now we review the exact change with git diff: red is the old line, green the new. Just 'name' replaced by 'title', a one-line change.
+Dialogue: 0,0:12:44.53,0:12:51.97,Cap,,0,0,0,,{\fad(80,80)}Run the app again and both tasks print correctly. Bug fixed!
+Dialogue: 0,0:12:52.91,0:13:13.79,Cap,,0,0,0,,{\fad(80,80)}Claude Code has four permission modes. Manual, the default, asks the first time each tool is used. Accept edits accepts file edits automatically. Plan only reads and plans. Auto lets a safety classifier review actions for you.
+Dialogue: 0,0:13:13.80,0:13:22.13,Cap,,0,0,0,,{\fad(80,80)}If you're a beginner, start with Manual or Plan mode, so every change passes your review.
+Dialogue: 0,0:13:23.07,0:13:27.66,Cap,,0,0,0,,{\fad(80,80)}Before we finish, some very important points.
+Dialogue: 0,0:13:27.67,0:13:37.99,Cap,,0,0,0,,{\fad(80,80)}First, AI can make mistakes, so always verify Claude's answers and code yourself, especially for important work.
+Dialogue: 0,0:13:38.00,0:13:45.74,Cap,,0,0,0,,{\fad(80,80)}Second, never share passwords, API keys or any private data in a chat.
+Dialogue: 0,0:13:45.75,0:13:52.28,Cap,,0,0,0,,{\fad(80,80)}Third, review every change Claude Code makes in the diff before you run it.
+Dialogue: 0,0:13:52.29,0:14:01.38,Cap,,0,0,0,,{\fad(80,80)}Fourth, remember that even Pro has usage limits, so plan big tasks carefully.
+Dialogue: 0,0:14:02.32,0:14:12.89,Cap,,0,0,0,,{\fad(80,80)}In the next videos of this series, we'll learn Projects, Artifacts, Cowork, settings and Claude Code one by one, in even more detail.
+Dialogue: 0,0:14:12.90,0:14:27.54,Cap,,0,0,0,,{\fad(80,80)}If you learned something new, like the video, share it with friends, and subscribe with the bell icon. See you in the next video. Thank you!
