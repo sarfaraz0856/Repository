@@ -231,12 +231,12 @@ B("अब डिस्क्रिप्शन। बहुत लोग इस�
   tapgo(("e", -0.6), 206, 450, to="desc", box=(0, 418, 412, 64)), panel=P("CHAPTER 7 · DESCRIPTION", f"Tell people {Y('why to subscribe')}"), ch="Channel Description & Links", pad=1.0)
 B("इसकी पहली दो लाइनें सबसे ज़रूरी हैं, क्योंकि सर्च में यही दिखती हैं। इनमें साफ़ लिखिए कि आपका चैनल क्या है, और किसके लिए है।",
   "The first two lines matter most — they show in search. Say clearly what your channel is and who it's for.",
-  typ(0.6, "desc", "Namaste! Smart Learning Hindi par aapko technology, YouTube aur online earning ke aasaan tutorials milenge — bilkul simple Hindi mein.\n\n", cps=22),
+  typ(0.6, "desc", "Is channel par main mobile, YouTube aur online kamai se judi cheezein seedhi Hindi mein, step by step sikhata hoon.\n\n", cps=22),
   b="First 2 lines = most important")
 B("फिर बताइए कि नई वीडियो कब आती है, और बिज़नेस के लिए एक ईमेल दे दीजिए। अपने टॉपिक के कीवर्ड्स नैचुरली लिखिए — ज़बरदस्ती भरने से कोई फ़ायदा नहीं।",
   "Then add when new videos come out and a business email. Use topic keywords naturally — stuffing them doesn't help.",
-  [("type", 0.5, "desc", "Namaste! Smart Learning Hindi par aapko technology, YouTube aur online earning ke aasaan tutorials milenge — bilkul simple Hindi mein.\n\n🎬 Har Monday aur Thursday nayi video.\n📩 Business: hello@smartlearninghindi.in", 4.0,
-    "Namaste! Smart Learning Hindi par aapko technology, YouTube aur online earning ke aasaan tutorials milenge — bilkul simple Hindi mein.\n\n")])
+  [("type", 0.5, "desc", "Is channel par main mobile, YouTube aur online kamai se judi cheezein seedhi Hindi mein, step by step sikhata hoon.\n\nHar Monday aur Thursday nayi video aati hai.\nBusiness ke liye mail karein: hello@smartlearninghindi.in", 4.0,
+    "Is channel par main mobile, YouTube aur online kamai se judi cheezein seedhi Hindi mein, step by step sikhata hoon.\n\n")])
 BEATS[-1]["bl"] = [(0.8, "Upload schedule", False), (3.0, "Business email", False), (5.0, "Keywords — naturally", False)]
 B("लिखने के बाद ऊपर 'सेव' पर टैप कीजिए।",
   "When you're done, tap “Save” at the top.",
