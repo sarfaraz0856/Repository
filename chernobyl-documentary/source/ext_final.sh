@@ -1,6 +1,6 @@
 #!/bin/bash
 # Joins the extended cut: the narrated 1.2x film (Part A 0-350 s + Part B 350-640.1 s) with the six new chapters
-# inserted at chapter boundaries. The first chapter is untouched.
+# inserted at chapter boundaries, after a new 16.5 s cold open (make_intro.sh -> CX_DIR/intro/intro_final.mp4).
 #   after I    45.833 s   CX1 How it happened        after II   95.833 s   CX2 The world finds out
 #   after III 145.833 s   CX3 The bio-robots         after IV  200.000 s   CX4 Hospital No. 6
 #   after VII 350.000 s   CX5 The lost city          after XII 600.000 s   CX6 The lesson
@@ -18,9 +18,10 @@ cut $A 145.8333 54.1667 $T/o04.mkv
 cut $A 200     150     $T/o05.mkv
 cut $B 0       250     $T/o06.mkv
 cut $B 250     $(python3 -c "print($(ffprobe -v error -show_entries format=duration -of csv=p=0 $B)-250)") $T/o07.mkv
+ffmpeg -nostdin -v error -y -i $C/intro/intro_final.mp4 -af "afade=t=out:st=16.47:d=0.03" $ENC $T/n00.mkv
 for k in 1 2 3 4 5 6; do ffmpeg -nostdin -v error -y -i $C/cx$k/cx_final_cx$k.mp4 -af "afade=t=in:d=0.02,afade=t=out:st=49.97:d=0.03" $ENC $T/n0$k.mkv; done
 : > $T/list.txt
-for f in o01 n01 o02 n02 o03 n03 o04 n04 o05 n05 o06 n06 o07; do echo "file '$T/$f.mkv'" >> $T/list.txt; done
+for f in n00 o01 n01 o02 n02 o03 n03 o04 n04 o05 n05 o06 n06 o07; do echo "file '$T/$f.mkv'" >> $T/list.txt; done
 ffmpeg -nostdin -v error -y -f concat -safe 0 -i $T/list.txt -c copy $T/joined.mkv
 ffprobe -v error -show_entries format=duration -of csv=p=0 $T/joined.mkv
 # 1080p master (two-pass, sized for upload) and a 720p copy under 100 MB
