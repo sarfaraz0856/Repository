@@ -1,0 +1,296 @@
+1
+00:00:00,400 --> 00:00:09,391
+Hello friends! Today we'll understand the complete Claude AI interface, right from the start, step by step.
+
+2
+00:00:09,451 --> 00:00:20,024
+Every option on the screen: what it is, how to use it, when to use it, and its limits, all in detail.
+
+3
+00:00:20,084 --> 00:00:32,585
+At the end, we'll watch a real Claude Code terminal demo where Claude understands a project and fixes a real bug. So watch till the end.
+
+4
+00:00:33,475 --> 00:00:41,899
+This is Claude's home screen. I'm on the Pro plan, which is why 'Pro' appears next to my name at the bottom.
+
+5
+00:00:41,959 --> 00:00:47,404
+This screen is easy to understand, because it has three main parts.
+
+6
+00:00:47,464 --> 00:00:54,700
+First, the sidebar on the left, with all the main options and your past chats.
+
+7
+00:00:54,760 --> 00:01:01,771
+Second, the message box in the middle, where you ask questions or give Claude tasks.
+
+8
+00:01:01,831 --> 00:01:08,094
+And third, your account in the bottom-left corner, which opens Settings.
+
+9
+00:01:08,154 --> 00:01:21,239
+Note: some options may look a little different depending on your plan, account and app version, so don't worry if your screen differs slightly.
+
+10
+00:01:22,129 --> 00:01:32,546
+Now let's go through the sidebar one by one. At the top is New. Click it and a brand-new, empty chat starts.
+
+11
+00:01:32,606 --> 00:01:45,420
+Each chat is its own conversation, so start a new chat whenever the topic changes. One topic per chat keeps answers focused.
+
+12
+00:01:46,210 --> 00:01:53,430
+Below it is Search. It helps you quickly find your old chats.
+
+13
+00:01:53,490 --> 00:02:12,246
+Paid plans like Pro also have chat search: ask Claude what you discussed about a topic, and it searches your past chats. Turn it on or off in Settings › Your Claude.
+
+14
+00:02:13,036 --> 00:02:23,246
+Next is Projects. A project is a separate workspace where you keep your files and instructions in one place.
+
+15
+00:02:23,306 --> 00:02:36,210
+Every chat you create inside that project uses these files as background knowledge, like your notes, documents or code.
+
+16
+00:02:36,270 --> 00:02:52,572
+Creating one is simple: open Projects, click New Project, add a name and description, add files with the plus button, and use Set project instructions to tell Claude how to respond.
+
+17
+00:02:52,632 --> 00:03:12,415
+Remember: project chats don't share their conversations, only the project knowledge. Paid plans can grow project knowledge up to 10× with RAG. Sharing projects is for Team and Enterprise only.
+
+18
+00:03:13,205 --> 00:03:25,126
+Next is Artifacts: things Claude makes for you, like documents, code, small websites, diagrams or dashboards.
+
+19
+00:03:25,186 --> 00:03:40,852
+They open in a separate panel next to the chat, and all of them are saved on the Artifacts page, so you can reopen them any time.
+
+20
+00:03:40,912 --> 00:04:00,274
+Ask for edits in the chat, and export documents to Word, PDF, Markdown or Google Docs. They start private. They need 'Code execution and file creation' turned on in Settings.
+
+21
+00:04:01,064 --> 00:04:16,523
+Now Code. It opens Claude Code, an agentic coding tool: it doesn't just write code, it reads your project files, edits them and can run commands.
+
+22
+00:04:16,583 --> 00:04:27,435
+On the web, first connect your GitHub account, pick a repository, and describe your task in plain language.
+
+23
+00:04:27,495 --> 00:04:40,804
+Claude works in the cloud on a separate machine. When it's done, you review every change in the diff and, if it looks right, click Create PR.
+
+24
+00:04:40,864 --> 00:04:53,992
+Claude Code is also in the Terminal, VS Code, JetBrains and the Desktop app. It's included in Pro, but it counts toward your usage limits.
+
+25
+00:04:54,782 --> 00:05:05,081
+Below is Customize, where you extend what Claude can do. It has three things: Skills, Connectors and Plugins.
+
+26
+00:05:05,141 --> 00:05:17,651
+Skills teach Claude how to do specific tasks. Connectors link Claude to outside services: click Connect and sign in,
+
+27
+00:05:17,711 --> 00:05:27,340
+and Plugins bundle skills and commands. Use the Discover tab to find new ones.
+
+28
+00:05:28,130 --> 00:05:39,270
+Now Usage: see how much of your plan you've used. Full details are on the Usage page in Settings.
+
+29
+00:05:39,330 --> 00:05:56,288
+On Pro, the session limit resets every 5 hours, plus a weekly limit. If you run out, usage credits let you keep working. Tip: lower effort uses less.
+
+30
+00:05:57,078 --> 00:06:07,150
+Chats and tasks lists your recent chats and tasks. Click View all to see the full list.
+
+31
+00:06:07,210 --> 00:06:20,786
+Hover over any chat for the three-dot menu to rename or delete it. You can also select several chats and delete them together.
+
+32
+00:06:21,576 --> 00:06:31,011
+Now click your name in the bottom-left corner. That opens Settings, and it also shows your plan.
+
+33
+00:06:31,071 --> 00:06:43,900
+In Settings: Appearance changes the theme, Your Claude holds memory and chat search, and Usage shows your limits and credits.
+
+34
+00:06:44,690 --> 00:06:57,323
+Look at the top-right corner: this small ghost icon starts an incognito chat, from a new chat.
+
+35
+00:06:57,383 --> 00:07:13,228
+Incognito chats aren't saved to history or memory and aren't used for training. But they can't be reopened once closed, and aren't available in projects.
+
+36
+00:07:14,218 --> 00:07:24,216
+Now the message box in the middle: the most important part, because this is where you type your question or task.
+
+37
+00:07:24,276 --> 00:07:38,094
+A simple formula for good answers: say what you want, for whom, and in what format. For example: explain Python lists to a beginner with 3 examples.
+
+38
+00:07:38,884 --> 00:07:52,575
+On the left of the message box is the plus button: choose Add files or photos to attach files. Drag and drop or paste also work.
+
+39
+00:07:52,635 --> 00:08:05,346
+PDF, Word, Excel, CSV, text and images are supported: up to 20 files per chat, each up to 500 MB.
+
+40
+00:08:05,406 --> 00:08:15,876
+The same plus menu can turn memory off for a single chat, as long as you do it before the first message.
+
+41
+00:08:16,666 --> 00:08:24,837
+Next to plus is the Chat / Cowork switch. Chat is for normal conversation and quick questions.
+
+42
+00:08:24,897 --> 00:08:32,410
+In Cowork you hand Claude a whole task and it works through the steps itself,
+
+43
+00:08:32,470 --> 00:08:42,236
+like researching the web, reading your files, and producing finished spreadsheets or presentations.
+
+44
+00:08:42,296 --> 00:08:57,404
+Cowork uses more usage, is for paid plans, and needs the Claude Desktop app for local files. Always check its permission setting before it acts.
+
+45
+00:08:58,194 --> 00:09:07,623
+Now the model selector on the right: Opus 5.5 with Medium effort is selected.
+
+46
+00:09:07,683 --> 00:09:21,069
+Click the model name to pick another model; More models has extra options. You can switch mid-chat; it applies from the next reply.
+
+47
+00:09:21,129 --> 00:09:33,791
+The same menu has Effort: how deeply Claude thinks before answering. Five levels: Low, Medium, High, Extra high and Max.
+
+48
+00:09:33,851 --> 00:09:44,817
+Higher effort gives more detailed, careful answers, but takes longer and uses more.
+
+49
+00:09:44,877 --> 00:10:00,399
+Medium is fine for everyday work; choose High or above for hard coding, planning or long documents. Opus 5.5 always thinks before answering.
+
+50
+00:10:01,189 --> 00:10:10,498
+Next to the model are the mic and voice buttons, so you can speak to Claude instead of typing.
+
+51
+00:10:10,558 --> 00:10:23,648
+Below the message box are Write, Learn, Code, Life stuff and Claude's choice: if you're not sure what to ask, they give you ideas to start.
+
+52
+00:10:24,638 --> 00:10:33,751
+Now the most interesting part: a real Claude Code demo, right in the terminal. Everything you see here really ran.
+
+53
+00:10:33,811 --> 00:10:53,086
+To install Claude Code, run the official command: curl on Mac, Linux and WSL, irm on Windows PowerShell. Then check with claude --version. The first run asks you to log in.
+
+54
+00:10:53,976 --> 00:11:04,036
+This is a small demo project, a to-do app, with files like app.py, storage.py and tasks.json.
+
+55
+00:11:04,096 --> 00:11:12,808
+Now I give Claude Code a simple instruction: explain this project's files in 3 short points.
+
+56
+00:11:12,868 --> 00:11:20,830
+Claude Code is now reading all the project files. We've fast-forwarded this wait.
+
+57
+00:11:20,890 --> 00:11:35,117
+Look: Claude clearly explained each file. Best of all, it spotted a bug on its own: list_tasks reads the 'name' key, but the data uses 'title'.
+
+58
+00:11:36,107 --> 00:11:43,868
+Let's see that bug for real. Running the app throws a KeyError: the 'name' key doesn't exist.
+
+59
+00:11:43,928 --> 00:11:50,329
+So I tell Claude Code about this error and ask it to find and fix the bug.
+
+60
+00:11:50,389 --> 00:11:58,924
+Notice: in this command I used --allowedTools to permit file edits only, nothing else.
+
+61
+00:11:58,984 --> 00:12:05,046
+Claude Code is reading the code and preparing a fix. This part is fast-forwarded too.
+
+62
+00:12:05,106 --> 00:12:18,366
+Claude fixed the bug, and said running the app to test it needed approval, which I hadn't given, so it found the cause by reading the code.
+
+63
+00:12:18,426 --> 00:12:33,237
+That's Claude Code's key safety feature: reading files needs no permission, but it asks before changing files or running commands, unless you allowed it in advance.
+
+64
+00:12:33,297 --> 00:12:44,517
+Now we review the exact change with git diff: red is the old line, green the new. Just 'name' replaced by 'title', a one-line change.
+
+65
+00:12:44,577 --> 00:12:51,967
+Run the app again and both tasks print correctly. Bug fixed!
+
+66
+00:12:52,957 --> 00:13:13,790
+Claude Code has four permission modes. Manual, the default, asks the first time each tool is used. Accept edits accepts file edits automatically. Plan only reads and plans. Auto lets a safety classifier review actions for you.
+
+67
+00:13:13,850 --> 00:13:22,134
+If you're a beginner, start with Manual or Plan mode, so every change passes your review.
+
+68
+00:13:23,124 --> 00:13:27,663
+Before we finish, some very important points.
+
+69
+00:13:27,723 --> 00:13:37,993
+First, AI can make mistakes, so always verify Claude's answers and code yourself, especially for important work.
+
+70
+00:13:38,053 --> 00:13:45,742
+Second, never share passwords, API keys or any private data in a chat.
+
+71
+00:13:45,802 --> 00:13:52,284
+Third, review every change Claude Code makes in the diff before you run it.
+
+72
+00:13:52,344 --> 00:14:01,378
+Fourth, remember that even Pro has usage limits, so plan big tasks carefully.
+
+73
+00:14:02,368 --> 00:14:12,891
+In the next videos of this series, we'll learn Projects, Artifacts, Cowork, settings and Claude Code one by one, in even more detail.
+
+74
+00:14:12,951 --> 00:14:27,535
+If you learned something new, like the video, share it with friends, and subscribe with the bell icon. See you in the next video. Thank you!
+
