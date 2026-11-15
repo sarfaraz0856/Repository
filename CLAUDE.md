@@ -1,3 +1,7 @@
 # Preferences (Excel YouTube videos)
 
 - YouTube tags in the SEO package: keep the total tag text at about 410 characters (not the full 500 limit).
+- Background music: keep it soft and steady (medium). It must not get louder during zoom in/out, card/screen changes or pauses; keep whoosh/transition sounds quiet.
+- Do not burn subtitles into videos (full videos and Shorts). Give subtitles as separate .srt files.
+- Use SEO-friendly file names for every delivered file (video, thumbnail, .srt, title/description/tags .txt): lowercase, hyphenated keywords (e.g. excel-marksheet-pass-fail-formula-hindi.mp4).
+- Shorts: start each Short at #1 (it is a standalone video); add a short spoken intro about the topic and end with a call to watch the full video (link below).
