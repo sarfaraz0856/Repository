@@ -1,0 +1,83 @@
+=====================================================
+YOUTUBE UPLOAD - Claude vs ChatGPT 2026: Kaun Better Hai?
+=====================================================
+
+1) VIDEO FILE
+claude-vs-chatgpt.mp4
+(File ka naam keyword wala hai, isi naam se upload karein.)
+Length: 4:43 | 1920x1080 | Aapki awaaz | Video par koi subtitle nahi
+
+-----------------------------------------------------
+2) TITLE (main)
+-----------------------------------------------------
+Claude vs ChatGPT 2026: Kaun Better Hai? | Full Comparison in Hindi
+
+Test & Compare ke liye 3 titles (thumbnail ke saath match karte hain):
+A) Claude vs ChatGPT 2026: Kaun Better Hai? | Full Comparison in Hindi
+B) Claude vs ChatGPT: 6 Rounds, Final Score 3-2 | Kaunsa AI Better? (Hindi)
+C) Kaunsa AI Lena Chahiye? Claude vs ChatGPT for Students, Coders & Creators
+
+Note: Agar aapke Studio me title test ka option na dikhe, to title A lagaiye.
+Search ke liye wahi sabse strong hai.
+
+-----------------------------------------------------
+3) THUMBNAIL A/B/C TEST
+-----------------------------------------------------
+A = claude-vs-chatgpt-A.png  ("Claude VS ChatGPT, Kaun Better Hai?" - search ke liye)
+B = claude-vs-chatgpt-B.png  ("3-2 Final Score" - curiosity ke liye)
+C = claude-vs-chatgpt-C.png  ("Kaunsa AI Lena Chahiye?" - kharidne wale viewers ke liye)
+
+Kaise lagaye: YouTube Studio > Upload > Details > Thumbnail me
+"Test & Compare" chuniye > teeno thumbnail upload kariye.
+
+-----------------------------------------------------
+4) DESCRIPTION (copy-paste)
+-----------------------------------------------------
+Claude ya ChatGPT, aapke liye kaunsa AI better hai? Is video me maine dono ko 6 rounds me compare kiya hai: price, writing, coding, lambe documents, images aur extra features. Aakhir me main bata raha hoon ki student, writer, coder aur content creator ko kaunsa lena chahiye.
+
+Short me result:
+- Writing, coding aur lambe documents: Claude aage
+- Photo banana aur features ki variety: ChatGPT aage
+- Price: lagbhag barabar, sasta Go plan ChatGPT ko halka fayda deta hai
+
+CHAPTERS
+0:00 Introduction
+0:23 Claude vs ChatGPT: Basic Intro
+0:48 Round 1: Price & Plans
+1:22 Round 2: Writing
+1:47 Round 3: Coding
+2:11 Round 4: Long Documents
+2:35 Round 5: Images
+2:56 Round 6: Extra Features
+3:20 Final Scorecard
+3:35 Which One Should You Choose?
+4:06 My Tip & Safety
+4:24 Outro
+
+Note: AI tools ke plans, prices aur features jaldi badalte rehte hain. Rupees me sahi price apne app me check karein. Ye video November 2026 ki jaankari par bani hai.
+
+Claude ko shuru se seekhna hai to meri Claude AI Complete Guide series dekhiye: [yahan playlist ka link daalein]
+
+Aap kaunsa use karte ho, Claude ya ChatGPT? Comment me bataiye. Video kaam ki lagi to Like aur Subscribe karein.
+
+#ClaudeVsChatGPT #ClaudeAI #SmartLearningHindi
+
+-----------------------------------------------------
+5) TAGS (copy-paste)
+-----------------------------------------------------
+claude vs chatgpt, claude vs chatgpt hindi, claude vs chatgpt 2026, claude ai vs chatgpt, chatgpt vs claude, kaunsa ai best hai, best ai tool 2026, claude ai in hindi, chatgpt in hindi, claude or chatgpt which is better, ai tools comparison hindi, claude ai kya hai, chatgpt go plan, claude pro vs chatgpt plus, smart learning hindi
+
+-----------------------------------------------------
+6) SUBTITLES
+-----------------------------------------------------
+Studio > Subtitles > Add language:
+ - Hindi   -> claude-vs-chatgpt-hindi.srt   ("Upload file" > "With timing" chuniye)
+ - English -> claude-vs-chatgpt-english.srt ("Upload file" > "With timing" chuniye)
+
+-----------------------------------------------------
+7) BAAKI SETTINGS
+-----------------------------------------------------
+Video language: Hindi | Category: Education | Audience: No, it's not made for kids
+Playlist: "Claude AI Complete Guide (Hindi)" me bhi daaliye.
+End screen: aakhri 15 second par Subscribe + Claude AI Ep 01 video lagaiye.
+Pinned comment: "Aap kaunsa use karte ho? Claude ya ChatGPT? Aur kis kaam ke liye?"
