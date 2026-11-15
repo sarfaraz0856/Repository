@@ -173,7 +173,7 @@ const CXV = {
   CX1A: ['W2', { zoom: 1.35, push: 0.15 }], CX1B: ['T3', { zoom: 1.3, yaw: 4 }], CX1C: ['W3', { zoom: 1.6, push: 0.25 }], CX1D: ['S10', { zoom: 1.25, push: 0.2 }],
   CX2A: ['P1', { zoom: 1.2, yaw: -6 }], CX2B: ['R4', { zoom: 1.3 }], CX2C: ['R1', { zoom: 1.35, yaw: 3 }], CX2D: ['P3', { zoom: 1.4, push: 0.15 }],
   CX3A: ['Q3', { zoom: 1.3 }], CX3B: ['Q1', { zoom: 1.15 }], CX3C: ['Q2', { zoom: 1.3, yaw: -5 }], CX3D: ['Q4', { zoom: 1.25, push: 0.15 }],
-  CX4A: ['U2', { zoom: 1.35 }], CX4B: ['Z2', { zoom: 1.3, yaw: -4 }], CX4C: ['Z1', { zoom: 1.35, yaw: 4 }], CX4D: ['R5', { zoom: 1.3, a0: 0, a1: 10 }],
+  CX4A: ['U2', { zoom: 1.35 }], CX4B: ['Z1', { zoom: 1.35, yaw: 4 }], CX4C: ['Z2', { zoom: 1.3, yaw: -4 }], CX4D: ['R5', { zoom: 1.3, a0: 0, a1: 10 }],
   CX5A: ['V2', { zoom: 1.3 }], CX5B: ['T2', { zoom: 1.35, yaw: 4 }], CX5C: ['AA2', { zoom: 1.3, yaw: -4 }], CX5D: ['V3', { zoom: 1.12, c0: 15, c1: 7 }],
   CX6A: ['Z3', { zoom: 1.3 }], CX6B: ['Y4', { zoom: 1.35, yaw: -4, a0: 0, a1: 10, c0: 10, c1: 0 }], CX6C: ['V1', { zoom: 1.3, yaw: 4 }], CX6D: ['AB1', { zoom: 1.3, push: 0.2 }],
 };
