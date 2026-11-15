@@ -1,5 +1,7 @@
 # CHERNOBYL — 26 April 1986 (cinematic documentary short)
 
+> **Extended cut with Hindi narration (newest):** [`Chernobyl-Disaster-Documentary-in-Hindi-Extended-720p.mp4`](Chernobyl-Disaster-Documentary-in-Hindi-Extended-720p.mp4), 15:57, 1280×720, −15 LUFS. It opens with a new 16.5 s cold open, then runs the 1.2x film with six new 50 s chapters cut in at scene boundaries. Chapter marks: 0:00 intro · 0:16 the film · 1:02 How It Happened · 2:42 The World Finds Out · 4:22 The Bio-Robots · 6:06 Hospital No. 6 · 9:26 The Lost City · 14:26 The Lesson. The 1080p master (≈384 MiB) is too big for the repo. Build scripts: `source/ext_final.sh`, `source/make_intro.sh`.
+
 > **With Hindi narration (final cut):** [`Chernobyl-Disaster-Documentary-in-Hindi-720p.mp4`](Chernobyl-Disaster-Documentary-in-Hindi-720p.mp4), 10:40, 1280×720. This is the whole film at 1.2x speed with Hindi narration in the director's cloned voice. It ends on THE END, without the credits. The 1080p version is split in two: [`Part A`](Chernobyl-Disaster-Documentary-in-Hindi-1080p-Part-A.mp4) (0:00–5:50) and [`Part B`](Chernobyl-Disaster-Documentary-in-Hindi-1080p-Part-B.mp4) (5:50–10:40). See `source/voiceover/full_film/`. Thumbnails and the YouTube title, description and tags are in [`youtube/`](youtube/).
 >
 > **The finished film without narration:** [`Chernobyl_1986_Full_Film.mp4`](Chernobyl_1986_Full_Film.mp4), 13:00, 1280×720. It ends with closing cards, **THE END** and the credits.
