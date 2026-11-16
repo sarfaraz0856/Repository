@@ -8,7 +8,7 @@ SR = 48000; GAP, SCENE_GAP, LEAD = 0.45, 1.1, 0.8
 SCENE = {"i3": "intro2"}
 
 def clip(text):
-    f = os.path.join(SP, "clone_out", hashlib.md5(text.encode()).hexdigest() + ".wav")
+    f = os.path.join(SP, os.environ.get("CLONE", "clone_out"), hashlib.md5(text.encode()).hexdigest() + ".wav")
     if not os.path.exists(f): return None
     raw = subprocess.run(["ffmpeg", "-v", "error", "-i", f, "-af", "silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse",
                           "-ac", "1", "-ar", str(SR), "-f", "f32le", "-"], capture_output=True, check=True).stdout
