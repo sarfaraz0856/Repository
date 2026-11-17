@@ -10,4 +10,4 @@
 - Brother-voice (F5) lines: avoid commas mid-phrase (they cause stalls); generate several takes and pick by ASR + internal pause check.
 - Do NOT say in the video narration that we are using / making it in Microsoft 365 (no "Microsoft 365" mention in the voice).
 - English dub zip: always include English subtitles (.srt in English) along with the dub WAV, thumbnail and text.
-- Long (full) videos: the normal Hindi zip must include subtitles in BOTH Hindi and English (two .srt files: -hindi.srt and -english.srt).
+- Long (full) videos: the normal Hindi zip must include THREE subtitle files: -hindi.srt (Devanagari), -hinglish.srt (Roman Hindi) and -english.srt.
