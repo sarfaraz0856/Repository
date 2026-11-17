@@ -31,6 +31,13 @@ DON'T
 • Don't delete and re-upload a Short that starts slowly. Shorts often pick up views days later.
 """
 M = {
+ 'first': dict(name='Chernobyl-Short-1-One-Button',
+  title='Chernobyl 1986: 1 बटन और पूरा शहर ख़ाली 😱 #shorts',
+  alts=['Chernobyl Disaster in Hindi | 1 बटन ने पूरा शहर ख़ाली कर दिया', 'Chernobyl की असली कहानी 50 सेकंड में ☢️'],
+  desc='Chernobyl disaster की असली कहानी, 50 सेकंड में। 26 अप्रैल 1986, रात 1:23 बजे, एक टेस्ट के दौरान रिएक्टर नंबर 4 फट गया। 50,000 लोगों को 3.5 घंटे में शहर छोड़ना पड़ा, और वे कभी वापस नहीं लौटे। पूरी Chernobyl documentary इसी चैनल पर है।',
+  tags='chernobyl, chernobyl disaster, chernobyl hindi, chernobyl 1986, chernobyl story in hindi, chernobyl explosion, pripyat, nuclear disaster hindi, chernobyl documentary hindi, history in hindi',
+  hash='#Shorts #Chernobyl #ChernobylHindi #NuclearDisaster #HistoryInHindi',
+  pin='पूरी Chernobyl documentary इसी चैनल पर है 👆 आपको यह कहानी पहले पता थी?'),
  'bio': dict(name='Chernobyl-Short-2-Bio-Robots',
   title='Chernobyl Bio Robots: 90 सेकंड की मौत 😨 #shorts',
   alts=['चेर्नोबिल की छत पर 90 सेकंड… Bio Robots की असली कहानी', 'Chernobyl Bio Robots Story in Hindi | जब मशीनें भी फेल हो गईं'],
