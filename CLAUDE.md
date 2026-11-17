@@ -8,3 +8,6 @@
 - Shorts: show the thumbnail/intro card only for the first 1.3 seconds (fade out 1.0–1.3 s), then the real video screen (voice intro continues over the video).
 - Give title, description and tags together in ONE .txt file (e.g. <seo-name>-title-description-tags.txt). Each zip contains everything: video, thumbnail, .srt and that one .txt.
 - Brother-voice (F5) lines: avoid commas mid-phrase (they cause stalls); generate several takes and pick by ASR + internal pause check.
+- Do NOT say in the video narration that we are using / making it in Microsoft 365 (no "Microsoft 365" mention in the voice).
+- English dub zip: always include English subtitles (.srt in English) along with the dub WAV, thumbnail and text.
+- Long (full) videos: the normal Hindi zip must include subtitles in BOTH Hindi and English (two .srt files: -hindi.srt and -english.srt).
