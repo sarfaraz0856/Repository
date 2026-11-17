@@ -75,18 +75,31 @@ else:
 im.save(f'{W}/sub_end.png'); END0 = round(TOTAL - (5.0 if CFG.get('link') else 2.6), 2)
 n0 = len(segs)
 cmd += ['-loop', '1', '-t', str(TOTAL), '-i', f'{W}/grad.png']
-for fn, a, b in subs: cmd += ['-loop', '1', '-t', str(TOTAL), '-i', fn]
+SUBS_ON = not CFG.get('nosubs')
+for fn, a, b in (subs if SUBS_ON else []): cmd += ['-loop', '1', '-t', str(TOTAL), '-i', fn]
 cmd += ['-loop', '1', '-t', str(TOTAL), '-i', f'{W}/sub_end.png']
 fc.append(f'[base][{n0}:v]overlay=0:0[o0]')
 last = 'o0'
-for k, (fn, a, b) in enumerate(subs):
+for k, (fn, a, b) in enumerate(subs if SUBS_ON else []):
     fc.append(f"[{n0 + 1 + k}:v]fade=t=in:st={a}:d=0.08:alpha=1[s{k}];[{last}][s{k}]overlay=0:0:enable='between(t,{a},{b})'[o{k + 1}]"); last = f'o{k + 1}'
-ke = n0 + 1 + len(subs)
+ke = n0 + 1 + (len(subs) if SUBS_ON else 0)
 fc.append(f"[{ke}:v]fade=t=in:st={END0}:d=0.25:alpha=1[se];[{last}][se]overlay=0:0:enable='gte(t,{END0})',fade=t=out:st={TOTAL - 0.4}:d=0.4,format=yuv420p[vout]")
 cmd += ['-i', f'{W}/mix.wav', '-filter_complex', ';'.join(fc), '-map', '[vout]', '-map', f'{ke + 1}:a', '-t', str(TOTAL),
         '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-profile:v', 'high', '-pix_fmt', 'yuv420p', '-r', '24',
         '-color_primaries', 'bt709', '-color_trc', 'bt709', '-colorspace', 'bt709',
         '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-movflags', '+faststart', CFG['out']]
+def ts(x):
+    x = max(0, x); h = int(x // 3600); m = int(x % 3600 // 60); sec = x % 60
+    return f'{h:02d}:{m:02d}:{int(sec):02d},{int(round((sec - int(sec)) * 1000)) % 1000:03d}'
+OFF = 0.1
+hp = []; t_ph = []
+for i, (t0, txt) in enumerate(L[SEC]):
+    ph = [p.strip() for p in txt.split('|')]; tot = sum(len(p) for p in ph); t = t0 + OFF
+    for j, p in enumerate(ph):
+        dd = dur[i] * len(p) / tot; hp.append((t, t + dd + (0.25 if j == len(ph) - 1 else 0.15), p)); t += dd + 0.2
+open(f"{W}/hi.srt", 'w').write(''.join(f'{k + 1}\n{ts(a)} --> {ts(min(b, TOTAL))}\n{p}\n\n' for k, (a, b, p) in enumerate(hp)))
+if CFG.get('en'):
+    open(f"{W}/en.srt", 'w').write(''.join(f'{i + 1}\n{ts(L[SEC][i][0] + OFF)} --> {ts(min(L[SEC][i][0] + OFF + dur[i] + 0.25, TOTAL))}\n{e}\n\n' for i, e in enumerate(CFG['en'])))
 json.dump({'TOTAL': TOTAL, 'starts': starts, 'cuts': cuts, 'boom': 0.55}, open(f'{W}/timeline.json', 'w'))
 json.dump(cmd, open(f'{W}/cmd.json', 'w'))
 print('TOTAL', TOTAL, 'segments', len(segs), 'subs', len(subs)); print('starts', starts)
