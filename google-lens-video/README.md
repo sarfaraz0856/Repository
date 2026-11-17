@@ -1,7 +1,7 @@
 # How Google Lens Works — 15 s UI animation (Remotion)
 
 A 1920×1080, 30 fps, 450-frame (exactly 15 s) explainer video built with Remotion, React and TypeScript.
-Rendered output: `../google_lens_ui_demo_15sec.mp4` (H.264, yuv420p).
+Rendered output: `../google_lens_ui_demo_15sec.mp4` (H.264 yuv420p video + AAC 320 kbps stereo audio).
 
 ## Timeline
 | Frames | Time | Scene |
@@ -13,6 +13,13 @@ Rendered output: `../google_lens_ui_demo_15sec.mp4` (H.264, yuv420p).
 | 390–450 | 13–15 s | Full interface, "SCAN. SEARCH. DISCOVER.", slow push-in and cinematic fade-out |
 
 All artwork (phone, sneaker, icons) is original SVG/CSS. Fonts: Inter and Plus Jakarta Sans (bundled through @fontsource, no network needed).
+
+## Audio
+`public/soundtrack.wav` is an original soundtrack generated in code by `scripts/make_audio.py` (numpy only):
+a soft chord pad that changes with each scene, a plucked arpeggio from 3 s, a light kick, bass and hats in the AI/results section,
+and UI sound effects timed to the animation frames (zoom whoosh, tap, camera reveal, focus beep, scan sweep, glints,
+outline shimmer, card pops, check-mark chimes, results swoosh, final three-note chord). Mastered to about -14 LUFS and faded out with the picture.
+Regenerate with `python3 scripts/make_audio.py`.
 
 ## Commands
 ```bash

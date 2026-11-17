@@ -6,7 +6,7 @@ import '@fontsource/inter/800.css';
 import '@fontsource/plus-jakarta-sans/700.css';
 import '@fontsource/plus-jakarta-sans/800.css';
 import React, {useEffect, useState} from 'react';
-import {AbsoluteFill, continueRender, delayRender, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Audio, continueRender, delayRender, staticFile, useCurrentFrame} from 'remotion';
 import {EIO, ip, EO} from './anim';
 import {T} from './theme';
 import {Background} from './components/Background';
@@ -44,6 +44,8 @@ export const GoogleLensDemo: React.FC = () => {
 
   return (
     <AbsoluteFill style={{overflow: 'hidden'}}>
+      {/* Original soundtrack: music bed + UI sound effects synced to the timeline (scripts/make_audio.py) */}
+      <Audio src={staticFile('soundtrack.wav')} />
       <Background />
       <AbsoluteFill style={{transform: `scale(${push})`, transformOrigin: '50% 50%'}}>
         <AbsoluteFill
