@@ -33,3 +33,44 @@ export async function FK3A(ctx) {
     },
   };
 }
+
+// FK3B: from high over the sea to the north, the white line of the wave reaches the breakwater
+export async function FK3B(ctx) {
+  const W = fukuWorld(ctx, { sun: SUN_1535, sky: STORM_SKY, fog: 0.0002, fogColor: [0.34, 0.36, 0.39], sunI: 1.6, hemiI: 1.1, sunCol: [0.85, 0.8, 0.75] });
+  const { scene, camera, ocean } = W;
+  const A = V3(700, 260, -900), B = V3(620, 230, -820);
+  return { scene, camera,
+    look: { uExposure: 1.25, uLookPow: 1.22, uLookSat: 0.85, uBloom: 0.04, uHalation: 0.05, uVignette: 0.6, uGrain: 0.05 },
+    update(t) {
+      tsunamiState(ocean, t, { x0: 1900, x1: 120, t0: 0, t1: 18 });
+      placeCamera(camera, ctx, A.clone().lerp(B, easeInOutSine(t / 18)), V3(150, 0, 80), { focal: 28, shake: 0.08, shakeFreq: 0.4, t, seed: 32 });
+      return dcam(ctx, camera) || {};
+    } };
+}
+// FK3C: on the site behind the turbine halls: the sea pours between the buildings
+export async function FK3C(ctx) {
+  const W = fukuWorld(ctx, { sun: SUN_1535, sky: STORM_SKY, fog: 0.00025, fogColor: [0.34, 0.36, 0.39], sunI: 1.6, hemiI: 1.1, sunCol: [0.85, 0.8, 0.75] });
+  const { scene, camera, ocean } = W;
+  const A = V3(-140, 22, 255), B = V3(-138, 21, 250);
+  return { scene, camera,
+    look: { uExposure: 1.25, uLookPow: 1.22, uLookSat: 0.85, uBloom: 0.04, uHalation: 0.05, uVignette: 0.62, uGrain: 0.05 },
+    update(t) {
+      tsunamiState(ocean, t, { x0: 300, x1: -400, t0: 0, t1: 16, H: 14.5 });
+      placeCamera(camera, ctx, A.clone().lerp(B, easeInOutSine(t / 18)), V3(-20, 12, 240), { focal: 24, shake: 0.2 + 0.4 * smoothstep(3, 8, t), shakeFreq: 0.6, t, seed: 33 });
+      return dcam(ctx, camera) || {};
+    } };
+}
+// FK3D: after the wave: the site under water, the sea still running back out over the breakwater
+export async function FK3D(ctx) {
+  const W = fukuWorld(ctx, { sun: SUN_1535, sky: STORM_SKY, fog: 0.00028, fogColor: [0.32, 0.34, 0.37], sunI: 1.4, hemiI: 1.0, sunCol: [0.85, 0.8, 0.75] });
+  const { scene, camera, ocean } = W;
+  const A = V3(380, 120, 420), B = V3(330, 105, 380);
+  return { scene, camera,
+    look: { uExposure: 1.2, uLookPow: 1.22, uLookSat: 0.8, uBloom: 0.04, uHalation: 0.05, uVignette: 0.62, uGrain: 0.05 },
+    update(t) {
+      ocean.uniforms.uTsuX.value = -900; ocean.uniforms.uTsuH.value = 12.2 - 2.0 * smoothstep(0, 18, t); ocean.uniforms.uTsuW.value = 60;
+      ocean.uniforms.uDraw.value = 0; ocean.uniforms.uFoam.value = 1; ocean.uniforms.uChop.value = 1.8;
+      placeCamera(camera, ctx, A.clone().lerp(B, easeInOutSine(t / 18)), V3(-60, 8, 80), { focal: 30, shake: 0.06, shakeFreq: 0.3, t, seed: 34 });
+      return dcam(ctx, camera) || {};
+    } };
+}

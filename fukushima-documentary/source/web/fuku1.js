@@ -28,3 +28,31 @@ export async function FK1(ctx) {
     },
   };
 }
+
+// FK1B: along the row of units 1-4 from the shore road, the cloud-painted reactor buildings in afternoon light
+export async function FK1B(ctx) {
+  const W = fukuWorld(ctx, { sun: SUN_1446, sky: MARCH_SKY, fog: 0.00016, sunI: 4.2, hemiI: 0.9 });
+  const { scene, camera } = W;
+  const A = V3(70, 22, 380), B = V3(55, 22, 335);
+  return { scene, camera,
+    look: { uExposure: 1.05, uLookPow: 1.2, uLookSat: 1.0, uBloom: 0.05, uHalation: 0.05, uVignette: 0.5, uGrain: 0.035 },
+    update(t) { placeCamera(camera, ctx, A.clone().lerp(B, easeInOutSine(t / 18)), V3(-90, 34, 60), { focal: 32, shake: 0.03, shakeFreq: 0.3, t, seed: 12 }); return dcam(ctx, camera) || {}; } };
+}
+// FK1C: the plant from the sea, at the height of a fishing boat
+export async function FK1C(ctx) {
+  const W = fukuWorld(ctx, { sun: SUN_1446, sky: MARCH_SKY, fog: 0.00018, sunI: 4.2, hemiI: 0.9 });
+  const { scene, camera } = W;
+  const A = V3(760, 7, 220), B = V3(700, 7.5, 160);
+  return { scene, camera,
+    look: { uExposure: 1.05, uLookPow: 1.2, uLookSat: 1.0, uBloom: 0.05, uHalation: 0.05, uVignette: 0.5, uGrain: 0.035 },
+    update(t) { placeCamera(camera, ctx, A.clone().lerp(B, easeInOutSine(t / 18)), V3(-100, 30, 40), { focal: 45, roll: Math.sin(t * 0.7) * 0.6, shake: 0.15, shakeFreq: 0.35, t, seed: 13 }); return dcam(ctx, camera) || {}; } };
+}
+// FK1D: a slow push towards the unit 4 refuelling floor, where its fuel sat in the pool
+export async function FK1D(ctx) {
+  const W = fukuWorld(ctx, { sun: SUN_1446, sky: MARCH_SKY, fog: 0.00016, sunI: 4.2, hemiI: 0.9 });
+  const { scene, camera } = W;
+  const A = V3(120, 70, 330), B = V3(40, 62, 280);
+  return { scene, camera,
+    look: { uExposure: 1.05, uLookPow: 1.2, uLookSat: 1.0, uBloom: 0.05, uHalation: 0.05, uVignette: 0.55, uGrain: 0.035 },
+    update(t) { placeCamera(camera, ctx, A.clone().lerp(B, easeInOutSine(t / 18)), V3(-95, 45, 210), { focal: 40, shake: 0.03, shakeFreq: 0.25, t, seed: 14 }); return dcam(ctx, camera) || {}; } };
+}

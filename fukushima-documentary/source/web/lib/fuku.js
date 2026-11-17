@@ -317,6 +317,23 @@ function clutter(mats) {
   return g;
 }
 
+// The refuelling floor after a hydrogen explosion: walls and roof gone, the bare steel frame left, rubble on top.
+export function blowTop(u, mats, { frame = true, rubble = 1 } = {}) {
+  u.top.visible = false;
+  const g = new THREE.Group(); g.position.copy(u.group.position); g.position.y += u.h * 0.62;
+  const H = u.h * 0.38, w = u.w, n = 6, rnd = mulberry32(u.n * 13);
+  const beam = (x, y, z, sx, sy, sz, rx = 0, rz = 0) => { const m = new THREE.Mesh(new THREE.BoxGeometry(sx, sy, sz), mats.steelDark); m.position.set(x, y, z); m.rotation.set(rx, 0, rz); m.castShadow = true; g.add(m); };
+  if (frame) for (let i = 0; i <= n; i++) for (const side of [-1, 1]) {
+    const p = -w / 2 + (w * i) / n, bent = rnd() < 0.3 ? (rnd() - 0.5) * 0.5 : 0, hh = H * (0.55 + rnd() * 0.45);
+    beam(p, hh / 2, side * w / 2, 0.6, hh, 0.6, bent, 0); beam(side * w / 2, hh / 2, p, 0.6, hh, 0.6, 0, bent);
+    if (rnd() < 0.5) beam(p, hh * 0.6, side * w / 2, w / n, 0.4, 0.4, 0, (rnd() - 0.5) * 0.6);
+  }
+  for (let k = 0; k < 60 * rubble; k++) { const m = new THREE.Mesh(new THREE.BoxGeometry(1 + rnd() * 4, 0.4 + rnd(), 1 + rnd() * 4), rnd() < 0.5 ? mats.concrete : mats.dark); m.position.set((rnd() - 0.5) * w * 0.9, rnd() * 1.5, (rnd() - 0.5) * w * 0.9); m.rotation.set(rnd(), rnd() * 3, rnd()); m.castShadow = m.receiveShadow = true; g.add(m); }
+  // torn panels hanging on the outside of the lower building
+  for (let k = 0; k < 8; k++) { const m = new THREE.Mesh(new THREE.PlaneGeometry(4 + rnd() * 5, 3 + rnd() * 6), mats.panelTorn); const side = rnd() < 0.5 ? -1 : 1; m.position.set(side * (w / 2 + 0.3), -2 - rnd() * 6, (rnd() - 0.5) * w * 0.8); m.rotation.set(rnd() * 0.4, Math.PI / 2, (rnd() - 0.5) * 0.6); g.add(m); }
+  u.group.parent.add(g); return g;
+}
+
 export function fukuWorld(ctx, opts = {}) {
   const { sun, sky: skyOpts = {}, fog = 0.00028, fogColor = [0.42, 0.46, 0.52] } = opts;
   const scene = new THREE.Scene();
@@ -332,7 +349,7 @@ export function fukuWorld(ctx, opts = {}) {
     cloud: texMat(cloudTexture(3), 'fkcloud'), panel: texMat(panelTexture(), 'fkpanel'),
     stack: lit([0.7, 0.7, 0.68], 0.7, 0.2, 'fkstack'), steel: lit([0.45, 0.46, 0.46], 0.6, 0.5, 'fksteel'),
     red: lit([0.6, 0.08, 0.05], 0.7, 0, 'fkred'), white: lit([0.85, 0.85, 0.83], 0.7, 0, 'fkwhite'),
-    rubble: lit([0.27, 0.27, 0.26], 1, 0, 'fkrub'), tetra: lit([0.55, 0.55, 0.52], 0.95, 0, 'fktet'), tank: lit([0.75, 0.75, 0.72], 0.6, 0.2, 'fktank'), pump: lit([0.2, 0.3, 0.45], 0.6, 0.4, 'fkpump'),
+    rubble: lit([0.27, 0.27, 0.26], 1, 0, 'fkrub'), steelDark: lit([0.18, 0.17, 0.16], 0.7, 0.5, 'fksd'), panelTorn: (() => { const m = lit([0.55, 0.65, 0.72], 0.9, 0, 'fkpt'); m.side = THREE.DoubleSide; return m; })(), tetra: lit([0.55, 0.55, 0.52], 0.95, 0, 'fktet'), tank: lit([0.75, 0.75, 0.72], 0.6, 0.2, 'fktank'), pump: lit([0.2, 0.3, 0.45], 0.6, 0.4, 'fkpump'),
   };
   const root = new THREE.Group(); scene.add(root);
   root.add(terrainMesh());
