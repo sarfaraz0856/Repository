@@ -1,7 +1,7 @@
 # How Google Lens Works — 15 s UI animation (Remotion)
 
 A 1920×1080, 30 fps, 450-frame (exactly 15 s) explainer video built with Remotion, React and TypeScript.
-Rendered output: `../google_lens_ui_demo_15sec.mp4` (H.264 yuv420p video + AAC 320 kbps stereo audio).
+Rendered output: `../google_lens_ui_demo_15sec.mp4` (H.264 yuv420p video + AAC 320 kbps stereo audio with Hindi voiceover).
 
 ## Timeline
 | Frames | Time | Scene |
@@ -20,6 +20,22 @@ a soft chord pad that changes with each scene, a plucked arpeggio from 3 s, a li
 and UI sound effects timed to the animation frames (zoom whoosh, tap, camera reveal, focus beep, scan sweep, glints,
 outline shimmer, card pops, check-mark chimes, results swoosh, final three-note chord). Mastered to about -14 LUFS and faded out with the picture.
 Regenerate with `python3 scripts/make_audio.py`.
+
+## Hindi voiceover
+Generated offline with Piper TTS, voice `hi_IN-pratham-medium` (`scripts/make_voiceover.sh` → `public/voiceover/vo_1..5.wav`),
+then mixed into `soundtrack.wav` by `scripts/make_audio.py`, which lowers the music about 6 dB while the narrator speaks.
+
+| Start | Line |
+|---|---|
+| 0.55 s | गूगल लेंस कैसे काम करता है? |
+| 3.20 s | कैमरा, ऑब्जेक्ट को स्कैन करता है। |
+| 6.15 s | फिर एआई उसे पहचानकर, अरबों तस्वीरों से मिलान करता है। |
+| 10.20 s | और आपको मिलते हैं, मिलते-जुलते प्रोडक्ट्स। |
+| 12.80 s | स्कैन करें, सर्च करें, खोजें! |
+
+**License note:** the Piper `pratham` voice's training data is licensed CC BY-NC-SA 4.0 (non-commercial).
+For commercial use, replace the five WAVs in `public/voiceover/` with a commercially licensed recording or TTS voice
+(48 kHz mono, same file names), then run `python3 scripts/make_audio.py` and `npm run render`.
 
 ## Commands
 ```bash

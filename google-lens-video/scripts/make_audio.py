@@ -273,11 +273,52 @@ fade[fo] = np.cos(np.clip((t_all[fo] - 14.0) / 1.0, 0, 1) * np.pi / 2) ** 2
 L *= fade
 R *= fade
 
-# gentle soft-clip + normalise to -1 dBFS
+# gentle soft-clip of the music + SFX bed
 peak = max(np.abs(L).max(), np.abs(R).max())
 L, R = L / peak, R / peak
 L, R = np.tanh(1.2 * L) / np.tanh(1.2), np.tanh(1.2 * R) / np.tanh(1.2)
-target = 10 ** (-3.7 / 20)  # peak -3.7 dBFS, about -14 LUFS integrated
+
+# ---------------------------------------------------------------- Hindi voiceover
+# Lines are produced by scripts/make_voiceover.sh (48 kHz mono WAVs). Start times in seconds,
+# placed at the start of each scene so the narration matches the on-screen captions.
+VO_DIR = os.path.join(os.path.dirname(__file__), '..', 'public', 'voiceover')
+VO_CUES = [(0.55, 'vo_1.wav'), (3.20, 'vo_2.wav'), (6.15, 'vo_3.wav'), (10.20, 'vo_4.wav'), (12.80, 'vo_5.wav')]
+
+
+def read_wav_mono(path):
+    with wave.open(path, 'rb') as w:
+        assert w.getframerate() == SR and w.getsampwidth() == 2, path
+        x = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float64) / 32768
+        if w.getnchannels() == 2:
+            x = x.reshape(-1, 2).mean(axis=1)
+    return x
+
+
+voice = np.zeros(N)
+if all(os.path.exists(os.path.join(VO_DIR, f)) for _, f in VO_CUES):
+    for start, fname in VO_CUES:
+        x = read_wav_mono(os.path.join(VO_DIR, fname))
+        x = x / (np.abs(x).max() + 1e-9)
+        i = int(start * SR)
+        n = min(len(x), N - i)
+        voice[i:i + n] += x[:n]
+    # duck the music/SFX bed ~6 dB while the narrator speaks (smooth attack/release)
+    win = int(0.05 * SR)
+    rms = np.sqrt(np.convolve(voice ** 2, np.ones(win) / win, mode='same'))
+    active = (rms > 0.02).astype(np.float64)
+    smooth = int(0.25 * SR)
+    active = np.convolve(active, np.ones(smooth) / smooth, mode='same')
+    duck = 1 - 0.5 * np.clip(active, 0, 1)
+    L *= duck * 0.55
+    R *= duck * 0.55
+    vfade = np.clip((15.0 - t_all) / 0.15, 0, 1)
+    L += voice * 0.9 * vfade
+    R += voice * 0.9 * vfade
+
+# normalise
+peak = max(np.abs(L).max(), np.abs(R).max())
+L, R = L / peak, R / peak
+target = 10 ** (-1.5 / 20)  # peak -1.5 dBFS, about -14.5 LUFS integrated with the voiceover
 L *= target
 R *= target
 
