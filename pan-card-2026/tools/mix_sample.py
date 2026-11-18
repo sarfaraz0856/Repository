@@ -22,7 +22,8 @@ def put(sig, t):
 tt = np.arange(int(0.06 * SR)) / SR
 click = np.sin(2 * np.pi * 2200 * tt) * np.exp(-tt * 120) * 0.25
 L = T["lines"]
-for t in (L[1]["start"] + 0.1, L[2]["start"] + 2.2, L[3]["start"] + 5.4, L[6]["start"] + 1.5):
+for t in (L[1]["start"] + 0.1, L[2]["start"] + 2.2, L[3]["start"] + 5.4, L[6]["start"] + 1.5, L[7]["start"] + 0.6,
+          L[9]["start"] + 0.3, L[9]["start"] + 1.9, L[9]["start"] + 3.6, L[10]["start"] + 1.6):
     put(click, t)
 rng = np.random.default_rng(3)
 w = rng.standard_normal(int(0.5 * SR)); w = np.convolve(w, np.ones(40) / 40, mode="same") * np.sin(np.pi * np.linspace(0, 1, len(w))) ** 2 * 0.25
