@@ -16,7 +16,24 @@ https://tinpan.proteantech.in/services/pan/pan-index.html
 https://onlineservices.proteantech.in/paam/endUserRegisterContact.html
 
 ⏱️ CHAPTERS
-{CHAPTERS}
+0:00 Intro
+0:48 Required Documents (2026 update)
+1:41 Open Official Protean Website
+2:14 Select Application Type – Form 93
+2:50 Online Registration
+3:34 Application Submission Method
+4:11 Physical PAN Card or e-PAN
+4:43 Personal Details
+5:21 Address & Contact Details
+5:56 AO Code
+6:31 Document Upload
+7:07 Application Preview
+7:39 Online Payment & Fees
+8:09 OTP Verification & e-Sign
+8:47 Acknowledgement Receipt
+9:18 Track PAN Card Status
+9:54 New PAN vs Reprint vs Correction
+10:23 Recap & Outro
 
 📌 2026 IMPORTANT UPDATES
 • New PAN applications by Indian individual citizens now use Form 93 (Form 49A is no longer accepted from 1 April 2026).
