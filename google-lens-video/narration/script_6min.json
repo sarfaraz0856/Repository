@@ -320,9 +320,9 @@
    "title": "THANK YOU",
    "lines": [
     {
-     "hi": "Video को like और share कीजिए, और channel को subscribe कर लीजिए। Thank you, good night!",
-     "say": "वीडियो को लाइक और शेयर कीजिए, और चैनल को सब्सक्राइब कर लीजिए। थैंक यू, गुड नाइट!",
-     "en": "(added) Like and share the video, and subscribe to the channel. Thank you, good night!"
+     "hi": "Video को like और share कीजिए, और channel को subscribe कर लीजिए। Thank you!",
+     "say": "वीडियो को लाइक और शेयर कीजिए, और चैनल को सब्सक्राइब कर लीजिए। थैंक यू!",
+     "en": "(added) Like and share the video, and subscribe to the channel. Thank you!"
     }
    ]
   }

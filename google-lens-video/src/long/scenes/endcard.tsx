@@ -49,9 +49,6 @@ export const Screen: React.FC<{f: number}> = ({f}) => {
       <Tap x={201} y={427} f={f} at={LIKE()} />
       <Tap x={201} y={523} f={f} at={SHARE()} />
       <Tap x={201} y={619} f={f} at={SUB()} />
-      <div style={{position: 'absolute', top: 700, width: '100%', textAlign: 'center', fontSize: 24, fontWeight: 800, color: C.ink, opacity: ip(f, [BYE(), BYE() + 16], [0, 1]), transform: `translateY(${(1 - ip(f, [BYE(), BYE() + 16], [0, 1])) * 14}px)`}}>
-        Good night <span style={{color: C.yellow}}>☾</span>
-      </div>
     </div>
   );
 };
