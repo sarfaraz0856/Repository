@@ -4,6 +4,7 @@ import { Background, Shell, Subtitle } from "./Shell";
 import { SCENES } from "./scenes";
 import { SiteS3 } from "./site";
 import { IntroCard } from "./Intro";
+import { CardA, CardF, CardF2, CardI, segFrames } from "./cards";
 
 type Scene = { id: number; title: string; from: number; dur: number; beats: number[]; ends: number[]; en: string[] };
 const T = timeline as { fps: number; total: number; scenes: Scene[] };
@@ -26,6 +27,9 @@ export const SampleSite: React.FC = () => (
 export const MyComposition = () => {
   return (
     <>
+    {([["CardA", CardA, "A"], ["CardF", CardF, "F"], ["CardF2", CardF2, "F2"], ["CardI", CardI, "I"]] as const).map(([id, C, k]) => (
+      <Composition key={id} id={id} component={C} durationInFrames={segFrames(k)} fps={30} width={1920} height={1080} />
+    ))}
     <Composition id="IntroCard" component={IntroCard} durationInFrames={211} fps={30} width={1920} height={1080} />
     <Composition id="SampleSite" component={SampleSite} durationInFrames={S3.dur} fps={30} width={1920} height={1080} />
     <Composition
