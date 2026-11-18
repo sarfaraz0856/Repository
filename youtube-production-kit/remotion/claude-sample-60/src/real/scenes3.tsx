@@ -1,6 +1,6 @@
 // Scenes 9-13 of the "real Claude screen" documentary (scene-local frames follow the narration).
 import React from "react";
-import { useCurrentFrame } from "remotion";
+import { useSceneFrame } from "./warp";
 import type { SceneProps } from "../full/kit";
 import { Artifact, Callout, ChatView, Msg, chatGeo, chatTyping } from "./chat";
 import { Home, ProjectPage, T } from "./screens";
@@ -53,7 +53,7 @@ const ART9: Artifact = {
   ],
 };
 export const R09: React.FC<SceneProps> = ({ dur }) => {
-  const f = useCurrentFrame();
+  const f = useSceneFrame();
   const g = chatGeo(false, true);
   return (
     <Shell
@@ -102,7 +102,7 @@ const M10: Msg[] = [
   { at: 1280, wps: 9, blocks: [{ k: "p", t: "Refined options:" }, { k: "ol", items: ["Mobile Se YouTube Channel Kaise Banaye (Step by Step)", "Phone Se YouTube Channel Banao: Easy Guide", "YouTube Channel Kaise Banaye Mobile Se (2026)"] }] },
 ];
 export const R10: React.FC<SceneProps> = ({ dur }) => {
-  const f = useCurrentFrame();
+  const f = useSceneFrame();
   const g = chatGeo(false, true);
   return (
     <Shell
@@ -184,7 +184,7 @@ const ART11: Artifact = {
   ],
 };
 export const R11: React.FC<SceneProps> = ({ dur }) => {
-  const f = useCurrentFrame();
+  const f = useSceneFrame();
   const g = chatGeo(false, true);
   return (
     <Shell
@@ -219,7 +219,7 @@ const CHATS12 = [
   { t: "Channel report card", at: 1179, hl: [1179, 1416] as [number, number] },
 ];
 export const R12: React.FC<SceneProps> = ({ dur }) => {
-  const f = useCurrentFrame();
+  const f = useSceneFrame();
   return (
     <Shell
       f={f} dur={dur} n={12} chapter="Complete workflow" url={PROJ_URL} side={{ active: "Projects" }}
@@ -254,7 +254,7 @@ const RECAP = [
   { t: "Analytics", d: "Informed content decisions", at: 667 },
 ];
 export const R13: React.FC<SceneProps> = ({ dur }) => {
-  const f = useCurrentFrame();
+  const f = useSceneFrame();
   const card = p01(f, 14, 16);
   const liked = f >= 1180, subbed = f >= 1250;
   return (

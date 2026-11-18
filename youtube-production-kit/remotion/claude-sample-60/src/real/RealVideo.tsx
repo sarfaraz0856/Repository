@@ -3,6 +3,8 @@ import React from "react";
 import { AbsoluteFill, Composition, Sequence, staticFile } from "remotion";
 import { Audio } from "@remotion/media";
 import { FPS, LINES, SCENES, TOTAL } from "../full/timing";
+import * as V1 from "../full/timing_v1";
+import { WarpProvider, makeWarp } from "./warp";
 import { K } from "./ui";
 import { R01, R02, R03, R04 } from "./scenes1";
 import { R05, R06, R07, R08 } from "./scenes2";
@@ -15,9 +17,13 @@ export const RealVideo: React.FC = () => (
     {SCENES.map((s, i) => {
       const Scene = SCENE_COMPONENTS[i];
       const L = LINES.filter((l) => l.scene === i + 1).map((l) => ({ s: l.from - s.from, d: l.dur }));
+      const o = V1.SCENES[i];
+      const oL = V1.LINES.filter((l) => l.scene === i + 1).map((l) => ({ s: l.from - o.from, d: l.dur }));
       return (
         <Sequence key={i} from={s.from} durationInFrames={s.dur} name={`Scene ${i + 1}`}>
-          <Scene dur={s.dur} L={L} />
+          <WarpProvider warp={makeWarp(oL, o.dur, L, s.dur)}>
+            <Scene dur={o.dur} L={oL} />
+          </WarpProvider>
         </Sequence>
       );
     })}

@@ -1,7 +1,7 @@
 // Scenes 1-4 of the "real Claude screen" documentary. Frame numbers are scene-local and follow the
 // measured narration (src/full/timing.ts).
 import React from "react";
-import { useCurrentFrame } from "remotion";
+import { useSceneFrame } from "./warp";
 import type { SceneProps } from "../full/kit";
 import { Callout, ChatView, Msg, chatGeo, chatTyping } from "./chat";
 import { Home, InstrModal, NewProject, ProjectPage, ProjectsList, T } from "./screens";
@@ -28,7 +28,7 @@ const M1: Msg[] = [
 const AGENDA = ["Projects", "Custom instructions", "Reference files", "Skills", "Video ideas", "Thumbnails", "Analytics"];
 
 export const R01: React.FC<SceneProps> = ({ dur }) => {
-  const f = useCurrentFrame();
+  const f = useSceneFrame();
   const g = chatGeo(false);
   const card = p01(f, 1135, 16);
   return (
@@ -89,7 +89,7 @@ const M2: Msg[] = [
   },
 ];
 export const R02: React.FC<SceneProps> = ({ dur }) => {
-  const f = useCurrentFrame();
+  const f = useSceneFrame();
   const g = chatGeo(false, true);
   return (
     <Shell
@@ -123,7 +123,7 @@ const M3b: Msg[] = [
   { at: 1440, wps: 10, blocks: [{ k: "p", t: "Aapki beginner audience aur Hinglish style ke hisaab se:" }, { k: "ol", items: ["Mobile se YouTube Shorts kaise banaye", "Free video editing apps: honest comparison", "Pehle 100 subscribers ke liye 5 tips"] }] },
 ];
 export const R03: React.FC<SceneProps> = ({ dur }) => {
-  const f = useCurrentFrame();
+  const f = useSceneFrame();
   const screen =
     f < 415 ? <Home f={f} text={curText(f, M3a[0])} focus={isTyping(f, M3a[0])} />
     : f < 700 ? <ChatView f={f} msgs={M3a} title="Script outline" project="" narrow />
@@ -160,7 +160,7 @@ export const R03: React.FC<SceneProps> = ({ dur }) => {
 const S4 = { name: { at: 222, cps: 14 }, purpose: { at: 528, cps: 16 } };
 const SEG4 = [{ t: ROLE, at: 830, cps: 20 }, { t: BASICS, at: 1355, cps: 22 }];
 export const R04: React.FC<SceneProps> = ({ dur }) => {
-  const f = useCurrentFrame();
+  const f = useSceneFrame();
   const nm = typed(NAME, f, S4.name.at, S4.name.cps), pu = typed(PURPOSE, f, S4.purpose.at, S4.purpose.cps);
   const screen =
     f < 118 ? <Home f={f} />

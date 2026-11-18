@@ -1,6 +1,6 @@
 // Scenes 5-8 of the "real Claude screen" documentary (scene-local frames follow the narration).
 import React from "react";
-import { useCurrentFrame } from "remotion";
+import { useSceneFrame } from "./warp";
 import type { SceneProps } from "../full/kit";
 import { Artifact, Callout, ChatView, Msg, chatGeo, chatTyping } from "./chat";
 import { Finder, InstrModal, ProjectPage, SettingsSkills, Sheet, SkillFile, ST, Studio, T, skillRowY } from "./screens";
@@ -12,7 +12,7 @@ const curText = (f: number, m: Msg) => ("u" in m ? typed(m.u, f, m.typeAt, m.cps
 
 // ------------------------------------------------------------------ 5 · Teach Claude about your channel
 export const R05: React.FC<SceneProps> = ({ dur }) => {
-  const f = useCurrentFrame();
+  const f = useSceneFrame();
   return (
     <Shell
       f={f} dur={dur} n={5} chapter="Claude ko apna channel sikhao" url="claude.ai/project/youtube-content-assistant" side={{ active: "Projects" }}
@@ -46,7 +46,7 @@ const STUDIO_TAB: Tab = { t: "Channel analytics - Studio", kind: "studio" };
 const SHEET_TAB: Tab = { t: "channel-analytics.csv", kind: "sheet" };
 const colAt = (f: number) => (f >= 1340 && f < 1545 ? Math.floor((f - 1340) / 41) : -1);
 export const R06: React.FC<SceneProps> = ({ dur }) => {
-  const f = useCurrentFrame();
+  const f = useSceneFrame();
   const active = f < 815 ? 0 : f < 1555 ? 1 : f < 1800 ? 2 : 0;
   const tabs = f < 1548 ? [CLAUDE_TAB, STUDIO_TAB] : [CLAUDE_TAB, STUDIO_TAB, SHEET_TAB];
   const sel = f >= 400 ? [0, 1, 2] : f >= 370 ? [0, 1] : f >= 340 ? [0] : [];
@@ -130,7 +130,7 @@ const ART7: Artifact = {
   },
 };
 export const R07: React.FC<SceneProps> = ({ dur }) => {
-  const f = useCurrentFrame();
+  const f = useSceneFrame();
   const g = chatGeo(false, true), ga = chatGeo(true);
   return (
     <Shell
@@ -162,7 +162,7 @@ const SKILL_MD: { t: string; hl?: [number, number] }[] = [
   { t: "" }, { t: "## Output" }, { t: "Table: title | style (curiosity / benefit / search) | notes" }, { t: "" }, { t: "## Avoid" }, { t: "- Clickbait aur misleading claims" },
 ];
 export const R08: React.FC<SceneProps> = ({ dur }) => {
-  const f = useCurrentFrame();
+  const f = useSceneFrame();
   const on = [0, 1, ...(f >= 990 ? [2] : []), ...(f >= 1040 ? [3] : []), ...(f >= 1090 ? [4] : [])];
   const tog = (i: number) => [1789, skillRowY(i) + 39] as [number, number];
   return (

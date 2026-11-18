@@ -3,6 +3,7 @@
 // plus overlays (callouts, chapter chip) and UI sound effects that follow the same timeline.
 import React from "react";
 import { Sequence, staticFile, useCurrentFrame } from "remotion";
+import { useWarp } from "./warp";
 import { Audio } from "@remotion/media";
 import { Caret, Composer, IC, K, SANS, SERIF, SIDE_W, Spark, p01, typed } from "./ui";
 
@@ -220,20 +221,26 @@ export const Chapter: React.FC<{ f: number; n: number; title: string }> = ({ f, 
 
 /** UI sounds that follow the on-screen actions. */
 export type Typing = { at: number; len: number };
-export const Sfx: React.FC<{ clicks?: number[]; typing?: Typing[] }> = ({ clicks = [], typing = [] }) => (
-  <>
-    {clicks.map((c, i) => (
-      <Sequence key={`c${i}`} from={c} durationInFrames={12} layout="none">
-        <Audio src={staticFile("audio/sfx_click.wav")} volume={0.55} />
-      </Sequence>
-    ))}
-    {typing.map((t, i) => (
-      <Sequence key={`t${i}`} from={t.at} durationInFrames={Math.max(1, t.len)} layout="none">
-        <Audio src={staticFile("audio/sfx_typing.wav")} volume={0.32} trimBefore={(i * 37) % 120} />
-      </Sequence>
-    ))}
-  </>
-);
+export const Sfx: React.FC<{ clicks?: number[]; typing?: Typing[] }> = ({ clicks = [], typing = [] }) => {
+  const w = useWarp();
+  return (
+    <>
+      {clicks.map((c, i) => (
+        <Sequence key={`c${i}`} from={Math.round(w.toNew(c))} durationInFrames={12} layout="none">
+          <Audio src={staticFile("audio/sfx_click.wav")} volume={0.55} />
+        </Sequence>
+      ))}
+      {typing.map((t, i) => {
+        const a = Math.round(w.toNew(t.at)), b = Math.round(w.toNew(t.at + t.len));
+        return (
+          <Sequence key={`t${i}`} from={a} durationInFrames={Math.max(1, b - a)} layout="none">
+            <Audio src={staticFile("audio/sfx_typing.wav")} volume={0.32} trimBefore={(i * 37) % 120} />
+          </Sequence>
+        );
+      })}
+    </>
+  );
+};
 /** Typing ranges for every user message in a chat. */
 export const chatTyping = (msgs: Msg[]): Typing[] => msgs.filter(isU).map((m) => ({ at: m.typeAt, len: Math.min(m.send - m.typeAt - 6, typeLen(m.u, m.cps ?? 16)) }));
 export const chatSends = (msgs: Msg[]) => msgs.filter(isU).map((m) => m.send);
