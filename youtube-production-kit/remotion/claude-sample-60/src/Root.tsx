@@ -1,6 +1,7 @@
 import { MyComposition } from "./Composition";
 import { FullComposition } from "./full/FullVideo";
 import { Sample30Composition } from "./real/Sample30";
+import { RealComposition } from "./real/RealVideo";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -8,6 +9,7 @@ export const RemotionRoot: React.FC = () => {
       <MyComposition />
       <FullComposition />
       <Sample30Composition />
+      <RealComposition />
     </>
   );
 };

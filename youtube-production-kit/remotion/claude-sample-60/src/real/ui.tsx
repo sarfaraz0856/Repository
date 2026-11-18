@@ -70,7 +70,16 @@ export const IC = {
 };
 
 /** Desktop browser frame (light Chrome-like). */
-export const Browser: React.FC<{ url: string; children?: React.ReactNode }> = ({ url, children }) => (
+export type Tab = { t: string; kind: "claude" | "studio" | "sheet" };
+const TabIcon: React.FC<{ kind: Tab["kind"] }> = ({ kind }) =>
+  kind === "claude" ? <Spark size={18} /> : kind === "studio" ? (
+    <div style={{ width: 20, height: 14, borderRadius: 4, background: "#E5322D", display: "grid", placeItems: "center" }}><div style={{ width: 0, height: 0, borderLeft: "6px solid #fff", borderTop: "4px solid transparent", borderBottom: "4px solid transparent" }} /></div>
+  ) : <div style={{ width: 16, height: 18, borderRadius: 3, background: "#2F8F5B" }} />;
+
+/** Desktop browser frame (light Chrome-like) with tabs and an optional download chip. */
+export const Browser: React.FC<{ url: string; tabs?: Tab[]; active?: number; download?: number; children?: React.ReactNode }> = ({
+  url, tabs = [{ t: "Claude", kind: "claude" }], active = 0, download = 0, children,
+}) => (
   <div style={{ position: "absolute", inset: 0, background: K.page, fontFamily: SANS, color: K.text, overflow: "hidden" }}>
     <div style={{ position: "absolute", left: 0, right: 0, top: 0, height: 44, background: "#DFDDD8", display: "flex", alignItems: "flex-end" }}>
       <div style={{ display: "flex", gap: 9, padding: "0 20px", alignSelf: "center" }}>
@@ -78,17 +87,26 @@ export const Browser: React.FC<{ url: string; children?: React.ReactNode }> = ({
           <div key={c} style={{ width: 14, height: 14, borderRadius: 7, background: c }} />
         ))}
       </div>
-      <div style={{ marginLeft: 14, width: 270, height: 36, background: "#F6F5F2", borderRadius: "10px 10px 0 0", display: "flex", alignItems: "center", gap: 10, padding: "0 14px", fontSize: 16 }}>
-        <Spark size={18} /> Claude
-      </div>
+      {tabs.map((tb, i) => (
+        <div key={i} style={{ marginLeft: i === 0 ? 14 : 4, width: 270, height: 36, background: i === active ? "#F6F5F2" : "transparent", borderRadius: "10px 10px 0 0", display: "flex", alignItems: "center", gap: 10, padding: "0 14px", fontSize: 16, color: i === active ? K.text : K.sub, whiteSpace: "nowrap", overflow: "hidden" }}>
+          <TabIcon kind={tb.kind} /> {tb.t}
+        </div>
+      ))}
     </div>
     <div style={{ position: "absolute", left: 0, right: 0, top: 44, height: 48, background: "#F6F5F2", borderBottom: `1px solid ${K.border}`, display: "flex", alignItems: "center", padding: "0 18px", gap: 18 }}>
       <span style={{ color: K.faint, fontSize: 22, letterSpacing: 6 }}>‹ › ⟳</span>
       <div style={{ flex: 1, height: 34, borderRadius: 17, background: "#ECEAE4", display: "flex", alignItems: "center", gap: 8, padding: "0 16px", fontSize: 17, color: K.sub }}>
         <Icon d={IC.lock} size={16} /> {url}
       </div>
+      <div style={{ width: 34, height: 34, borderRadius: 17, display: "grid", placeItems: "center", background: download > 0 ? "#DCE8FA" : "transparent", color: "#2B63C9", fontSize: 20, fontWeight: 700 }}>⤓</div>
     </div>
     <div style={{ position: "absolute", left: 0, right: 0, top: Y0, bottom: 0 }}>{children}</div>
+    {download > 0 ? (
+      <div style={{ position: "absolute", right: 16, top: 96, width: 420, background: "#fff", borderRadius: 14, boxShadow: "0 12px 34px rgba(0,0,0,0.18)", padding: "16px 20px", opacity: download, display: "flex", alignItems: "center", gap: 14, fontSize: 18 }}>
+        <div style={{ width: 34, height: 40, borderRadius: 5, background: "#2F8F5B", color: "#fff", display: "grid", placeItems: "center", fontSize: 11, fontWeight: 700 }}>CSV</div>
+        <div><div style={{ fontWeight: 600 }}>channel-analytics.csv</div><div style={{ color: K.sub, fontSize: 15 }}>18.4 KB · Done</div></div>
+      </div>
+    ) : null}
   </div>
 );
 
@@ -140,20 +158,30 @@ export const Sidebar: React.FC<{ active?: string; hover?: string }> = ({ active,
   </div>
 );
 
-export const Composer: React.FC<{ left: number; top: number; width: number; text?: string; f?: number; focus?: boolean; placeholder?: string }> = ({
-  left, top, width, text = "", f = 0, focus = false, placeholder = "How can I help you today?",
+export const Composer: React.FC<{ left: number; top: number; width: number; height?: number; text?: string; f?: number; focus?: boolean; placeholder?: string; file?: string }> = ({
+  left, top, width, height, text = "", f = 0, focus = false, placeholder = "How can I help you today?", file,
 }) => (
   <div
     style={{
-      position: "absolute", left, top, width, minHeight: 150, background: K.card, borderRadius: 22,
-      border: `1px solid ${focus ? "#CFCBBE" : K.border}`, boxShadow: "0 6px 24px rgba(40,35,20,0.07)", padding: "24px 26px 70px", fontSize: 22,
+      position: "absolute", left, top, width, height, minHeight: height ? undefined : 150, boxSizing: height ? "border-box" : "content-box", background: K.card, borderRadius: 22,
+      border: `1px solid ${focus ? "#CFCBBE" : K.border}`, boxShadow: "0 6px 24px rgba(40,35,20,0.07)", padding: "22px 26px 70px", fontSize: 22, lineHeight: 1.4, overflow: "hidden",
+      fontFamily: SANS, color: K.text,
     }}
   >
-    {text ? <span>{text}</span> : <span style={{ color: K.faint }}>{placeholder}</span>}
-    <Caret f={f} on={focus} />
+    <div style={{ position: "absolute", left: 26, right: 26, top: 20, bottom: 66, display: "flex", flexDirection: "column", justifyContent: "flex-end", overflow: "hidden" }}>
+      <div>
+        {file ? (
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 8, background: K.side, border: `1px solid ${K.border}`, borderRadius: 8, padding: "4px 10px", fontSize: 16, marginRight: 10, verticalAlign: "2px" }}>
+            <b style={{ color: file.endsWith(".csv") ? "#2F8F5B" : "#5B6B8C" }}>{file.split(".").pop()?.toUpperCase()}</b> {file}
+          </span>
+        ) : null}
+        {text ? <span>{text}</span> : <span style={{ color: K.faint }}>{placeholder}</span>}
+        <Caret f={f} on={focus} />
+      </div>
+    </div>
     <div style={{ position: "absolute", left: 20, bottom: 16, display: "flex", gap: 10 }}>
       {[IC.plus, IC.tools, IC.clock].map((d) => (
-        <div key={d} style={{ width: 42, height: 42, borderRadius: 10, border: `1px solid ${K.border}`, display: "grid", placeItems: "center" }}>
+        <div key={d} style={{ width: 42, height: 42, borderRadius: 10, border: `1px solid ${K.border}`, display: "grid", placeItems: "center", background: K.card }}>
           <Icon d={d} size={20} />
         </div>
       ))}
@@ -221,7 +249,7 @@ export const StepChip: React.FC<{ f: number; steps: { from: number; to: number; 
         <div
           key={s.n}
           style={{
-            position: "absolute", left: 360, bottom: 36, opacity: o, transform: `translateY(${(1 - p01(f, s.from, 12)) * 24}px)`,
+            position: "absolute", right: 36, bottom: 40, opacity: o, transform: `translateY(${(1 - p01(f, s.from, 12)) * 24}px)`,
             background: "rgba(31,30,27,0.94)", color: "#fff", borderRadius: 999, padding: "14px 26px 14px 16px",
             display: "flex", alignItems: "center", gap: 14, fontFamily: SANS, fontSize: 24, fontWeight: 600, boxShadow: "0 12px 32px rgba(0,0,0,0.25)",
           }}
