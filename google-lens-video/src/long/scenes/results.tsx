@@ -11,10 +11,10 @@ const S = sceneById('results');
 const L = local(S);
 const B = BOXES.sneaker;
 const TABS = [
-  {word: 'जूते', tab: 'Similar'},
-  {word: 'लिस्टिंग', tab: 'Products'},
-  {word: 'शॉपिंग', tab: 'Shopping'},
-  {word: 'वेब', tab: 'Web'},
+  {word: 'shoes', tab: 'Similar'},
+  {word: 'listings', tab: 'Products'},
+  {word: 'shopping', tab: 'Shopping'},
+  {word: 'web', tab: 'Web'},
 ];
 const tabIdx = (f: number) => {
   let k = 0;
@@ -23,10 +23,10 @@ const tabIdx = (f: number) => {
 };
 const catSeq = (): [number, Kind][] => [
   [0, 'sneaker'],
-  [L.w(4, 'कपड़ों'), 'jacket'],
-  [L.w(4, 'फ़र्नीचर'), 'chair'],
-  [L.w(4, 'एक्सेसरीज़'), 'watch'],
-  [L.w(4, 'रोज़मर्रा'), 'mug'],
+  [L.w(4, 'clothing'), 'jacket'],
+  [L.w(4, 'furniture'), 'chair'],
+  [L.w(4, 'accessories'), 'watch'],
+  [L.w(4, 'everyday'), 'mug'],
   [L.c(5), 'sneaker'],
 ];
 
@@ -68,7 +68,7 @@ export const Screen: React.FC<{f: number}> = ({f}) => {
   const sq = catSeq();
   const kind = inCats ? seqKind(f, sq) : 'sneaker';
   const box = inCats ? seqBox(f, sq) : B;
-  const showAt = L.w(5, 'कैमरे');
+  const showAt = L.w(5, 'camera');
   const about = f >= L.c(3) - 4;
   return (
     <div style={{position: 'absolute', inset: 0, background: '#000'}}>
@@ -108,7 +108,7 @@ export const Screen: React.FC<{f: number}> = ({f}) => {
         ) : (
           <>
             <SheetHeader title="Results" tabs={TABS.map((t) => t.tab)} active={ti} />
-            {ti === 0 ? <ResultGrid f={f} a={L.w(2, 'जूते')} /> : <Rows f={f} kind={ti} a={L.w(2, TABS[ti].word)} />}
+            {ti === 0 ? <ResultGrid f={f} a={L.w(2, 'shoes')} /> : <Rows f={f} kind={ti} a={L.w(2, TABS[ti].word)} />}
           </>
         )}
       </Sheet>
@@ -117,10 +117,10 @@ export const Screen: React.FC<{f: number}> = ({f}) => {
 };
 
 const CATS = [
-  {word: 'कपड़ों', title: 'Clothing', el: <Jacket size={92} />},
-  {word: 'फ़र्नीचर', title: 'Furniture', el: <Chair size={92} />},
-  {word: 'एक्सेसरीज़', title: 'Accessories', el: <Watch size={92} />},
-  {word: 'रोज़मर्रा', title: 'Everyday objects', el: <Mug size={92} />},
+  {word: 'clothing', title: 'Clothing', el: <Jacket size={92} />},
+  {word: 'furniture', title: 'Furniture', el: <Chair size={92} />},
+  {word: 'accessories', title: 'Accessories', el: <Watch size={92} />},
+  {word: 'everyday', title: 'Everyday objects', el: <Mug size={92} />},
 ];
 
 export const Side: React.FC<{f: number}> = ({f}) => {
@@ -175,7 +175,7 @@ export const Side: React.FC<{f: number}> = ({f}) => {
         <div style={{marginTop: 16, padding: '14px 16px', borderRadius: 16, background: 'rgba(234,67,53,0.08)', color: '#A50E0E', fontSize: 18, lineHeight: 1.45}}>
           “low white shoe with a red curved stripe and a thick white sole…”
         </div>
-        <div style={{marginTop: 14, padding: '14px 16px', borderRadius: 16, background: 'rgba(52,168,83,0.10)', color: '#137333', fontSize: 21, fontWeight: 700, opacity: ip(f, [L.w(5, 'कैमरे'), L.w(5, 'कैमरे') + 14], [0, 1])}}>
+        <div style={{marginTop: 14, padding: '14px 16px', borderRadius: 16, background: 'rgba(52,168,83,0.10)', color: '#137333', fontSize: 21, fontWeight: 700, opacity: ip(f, [L.w(5, 'camera'), L.w(5, 'camera') + 14], [0, 1])}}>
           ✓ Point the camera. Done.
         </div>
       </Card>

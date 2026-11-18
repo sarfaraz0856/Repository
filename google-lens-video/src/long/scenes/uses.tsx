@@ -14,8 +14,8 @@ const seq = (): [number, Kind][] => [
   [L.c(1), 'plant'],
   [L.c(2), 'landmark'],
   [L.c(3), 'sneaker'],
-  [L.w(4, 'मेन्यू'), 'menu'],
-  [L.w(4, 'कॉपी'), 'page'],
+  [L.w(4, 'menus'), 'menu'],
+  [L.w(4, 'copy'), 'page'],
   [L.w(4, 'आस-पास'), 'sneaker'],
   [L.c(5), 'mug'],
 ];
@@ -57,16 +57,16 @@ export const Screen: React.FC<{f: number}> = ({f}) => {
   const kind = seqKind(f, sq);
   const box = seqBox(f, sq);
   const collage = vis(f, -10, L.c(1) + 6, 1, 14);
-  const menuT = ip(f, [L.w(4, 'मेन्यू') + 20, L.w(4, 'मेन्यू') + 44], [0, 1], EIO);
+  const menuT = ip(f, [L.w(4, 'menus') + 20, L.w(4, 'menus') + 44], [0, 1], EIO);
   const lim = f >= L.c(5) - 4;
-  const qAt = L.w(6, 'क्वालिटी'), lAt = L.w(6, 'रोशनी'), iAt = L.w(6, 'उपलब्ध');
+  const qAt = L.w(6, 'quality'), lAt = L.w(6, 'lighting'), iAt = L.w(6, 'available');
   const blur = lim ? 3 + 5 * vis(f, qAt, lAt + 4, 10, 10) : 0;
   const dim = lim ? 0.55 + 0.4 * vis(f, lAt, iAt + 4, 10, 10) : 0;
   const plantSheet = vis(f, L.c(1) + 40, L.c(2), 18, 12);
   const lmSheet = vis(f, L.c(2) + 40, L.c(3), 18, 12);
   const prodSheet = vis(f, L.c(3) + 36, L.c(4), 18, 12);
   const sheetT = Math.max(plantSheet, lmSheet, prodSheet);
-  const pageHi = [0, 1, 2, 3, 4].map((i) => ip(f, [L.w(4, 'कॉपी') + 10 + i * 4, L.w(4, 'कॉपी') + 20 + i * 4], [0, 1]));
+  const pageHi = [0, 1, 2, 3, 4].map((i) => ip(f, [L.w(4, 'copy') + 10 + i * 4, L.w(4, 'copy') + 20 + i * 4], [0, 1]));
   const mode: LensMode = kind === 'menu' ? 'Translate' : kind === 'page' ? 'Text' : 'Search';
   return (
     <div style={{position: 'absolute', inset: 0, background: '#000'}}>
@@ -109,7 +109,7 @@ const USE: {cue: number; title: string; desc: string; color: string; icon: strin
 ];
 
 export const Side: React.FC<{f: number}> = ({f}) => {
-  const qAt = L.w(6, 'क्वालिटी'), lAt = L.w(6, 'रोशनी'), iAt = L.w(6, 'उपलब्ध');
+  const qAt = L.w(6, 'quality'), lAt = L.w(6, 'lighting'), iAt = L.w(6, 'available');
   return (
     <>
       <Card x={1290} y={260} w={510} t={vis(f, 4, L.c(1), 16, 12)} pad={28}>
@@ -128,7 +128,7 @@ export const Side: React.FC<{f: number}> = ({f}) => {
           <div style={{fontSize: 14, color: C.faint, marginTop: 16}}>Illustrative example · not real search results</div>
         </Card>
       ))}
-      {[['Translate menus', 'मेन्यू', C.red], ['Copy printed text', 'कॉपी', C.yellow], ['Search objects around you', 'आस-पास', C.green]].map(([t, w, c], i) => {
+      {[['Translate menus', 'menus', C.red], ['Copy printed text', 'copy', C.yellow], ['Search objects around you', 'आस-पास', C.green]].map(([t, w, c], i) => {
         const at = L.w(4, w as string);
         return (
           <Card key={t as string} x={1290} y={260 + i * 150} w={510} h={124} t={vis(f, at - 4, L.c(5), 14, 12)} style={{display: 'flex', alignItems: 'center', gap: 18}}>

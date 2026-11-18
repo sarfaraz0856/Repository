@@ -8,14 +8,14 @@ import {BOXES, Gallery, HomeScreen, LENS_ICON, ResultGrid, Reveal, SheetHeader, 
 const S = sceneById('howto');
 const L = local(S);
 const B = BOXES.sneaker;
-const ACTIONS = [{w: 'प्रोडक्ट्स', t: 'Products'}, {w: 'कॉपी', t: 'Copy text'}, {w: 'अनुवाद', t: 'Translate'}, {w: 'और जानकारी', t: 'Learn more'}];
+const ACTIONS = [{w: 'products', t: 'Products'}, {w: 'copy', t: 'Copy text'}, {w: 'translate', t: 'Translate'}, {w: 'information', t: 'Learn more'}];
 
 export const Screen: React.FC<{f: number}> = ({f}) => {
-  const tapAt = L.w(1, 'आइकॉन');
+  const tapAt = L.w(1, 'icon');
   const rev: [number, number] = [tapAt + 6, tapAt + 34];
-  const galAt = L.w(2, 'मौजूदा');
+  const galAt = L.w(2, 'existing');
   const gal = Math.min(ip(f, [galAt + 4, galAt + 24], [0, 1], EIO), ip(f, [L.c(3) - 6, L.c(3) + 10], [1, 0], EIO));
-  const capAt = L.w(3, 'कैप्चर');
+  const capAt = L.w(3, 'capture');
   const flash = Math.sin(Math.PI * ip(f, [capAt, capAt + 10], [0, 1]));
   const res = ip(f, [L.c(4) + 30, L.c(4) + 54], [0, 1], EIO);
   return (

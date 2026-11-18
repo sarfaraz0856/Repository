@@ -9,7 +9,7 @@ import {DeskBg, PAGE_LINES, PrintedPage, SIGN_TEXT, Sign, WallBg} from '../art';
 const S = sceneById('text');
 const L = local(S);
 const PG = {x: 51, y: 200};
-const ACT = [{word: 'कॉपी', label: 'Copy text', x: 92}, {word: 'सर्च कर', label: 'Search', x: 201}, {word: 'अनुवाद', label: 'Translate', x: 310}];
+const ACT = [{word: 'copy', label: 'Copy text', x: 92}, {word: 'search', label: 'Search', x: 201}, {word: 'translate', label: 'Translate', x: 310}];
 const OCR_TEXT = PAGE_LINES.map((l) => l.text).join(' ');
 
 const Page: React.FC<{hi: number[]}> = ({hi}) => (
@@ -21,7 +21,7 @@ const Page: React.FC<{hi: number[]}> = ({hi}) => (
 
 export const Screen: React.FC<{f: number}> = ({f}) => {
   const signOn = ip(f, [L.c(3) - 4, L.c(3) + 12], [0, 1], EIO) * (1 - ip(f, [L.c(5) - 4, L.c(5) + 12], [0, 1], EIO));
-  const trAt = L.w(4, 'अनुवाद');
+  const trAt = L.w(4, 'translate');
   const tr = ip(f, [trAt, trAt + 26], [0, 1], EIO);
   const mode = f >= L.c(3) && f < L.c(5) ? 'Translate' : 'Text';
   // OCR line boxes (sentence 2)
@@ -30,14 +30,14 @@ export const Screen: React.FC<{f: number}> = ({f}) => {
     return {t, x: PG.x + 20, y: PG.y + l.y - l.h - 1, w: l.w + 12, h: l.h + 9};
   });
   // copy highlight: sentence 3 on "copy", again in sentence 6
-  const copyAt = L.w(2, 'कॉपी');
+  const copyAt = L.w(2, 'copy');
   const hi = PAGE_LINES.map((_, i) => Math.max(
     f < L.c(3) ? ip(f, [copyAt + i * 3, copyAt + 10 + i * 3], [0, 1]) : 0,
     ip(f, [L.c(5) + 16 + i * 4, L.c(5) + 26 + i * 4], [0, 1]),
   ));
   const actions = vis(f, L.c(2) + 20, L.c(3) + 2, 14, 10);
   const toast = vis(f, copyAt + 22, copyAt + 70, 10, 10);
-  const clip = ip(f, [L.w(5, 'कॉपी') + 4, L.w(5, 'कॉपी') + 26], [0, 1], EIO);
+  const clip = ip(f, [L.w(5, 'copy') + 4, L.w(5, 'copy') + 26], [0, 1], EIO);
   return (
     <div style={{position: 'absolute', inset: 0, background: '#000'}}>
       <Feed>
@@ -84,7 +84,7 @@ export const Screen: React.FC<{f: number}> = ({f}) => {
 
 export const Side: React.FC<{f: number}> = ({f}) => {
   const nChars = Math.round(ip(f, [L.c(1) + 30, L.c(2) + 10], [0, OCR_TEXT.length], (v) => v));
-  const trAt = L.w(4, 'अनुवाद');
+  const trAt = L.w(4, 'translate');
   const tr = ip(f, [trAt, trAt + 26], [0, 1], EIO);
   return (
     <>
@@ -127,7 +127,7 @@ export const Side: React.FC<{f: number}> = ({f}) => {
           </div>
         ))}
       </Card>
-      {[['Books', 'किताबों', C.blue], ['Notes', 'नोट्स', C.yellow], ['Documents', 'डॉक्यूमेंट्स', C.green]].map(([t, w, c], i) => {
+      {[['Books', 'books', C.blue], ['Notes', 'notes', C.yellow], ['Documents', 'documents', C.green]].map(([t, w, c], i) => {
         const at = L.w(5, w as string);
         return (
           <Card key={t as string} x={1290} y={250 + i * 150} w={510} h={128} t={vis(f, at - 4, L.dur, 14, 14)} style={{display: 'flex', alignItems: 'center', gap: 20}}>

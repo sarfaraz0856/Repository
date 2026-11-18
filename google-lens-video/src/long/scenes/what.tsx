@@ -13,10 +13,10 @@ const TYPED = 'white sneaker with red curved stripe';
 
 const capSeq = (): [number, Kind][] => [
   [0, 'sneaker'],
-  [L.w(3, 'इमारतों'), 'landmark'],
-  [L.w(3, 'टेक्स्ट'), 'page'],
-  [L.w(3, 'अनुवाद'), 'sign'],
-  [L.w(3, 'प्रोडक्ट्स'), 'sneaker'],
+  [L.w(3, 'landmarks'), 'landmark'],
+  [L.w(3, 'text'), 'page'],
+  [L.w(3, 'translate'), 'sign'],
+  [L.w(3, 'products'), 'sneaker'],
 ];
 
 /** Google-style text search page (typing a description) */
@@ -44,8 +44,8 @@ const TextSearch: React.FC<{f: number; a: number}> = ({f, a}) => {
 };
 
 export const Screen: React.FC<{f: number}> = ({f}) => {
-  const camAt = L.w(1, 'कैमरे');
-  const galAt = L.w(1, 'मौजूदा');
+  const camAt = L.w(1, 'camera');
+  const galAt = L.w(1, 'existing');
   const showText = f >= L.c(1) - 4 && f < camAt + 14;
   const camOn = ip(f, [camAt, camAt + 14], [0, 1], EIO);
   const galSheet = Math.min(ip(f, [galAt + 6, galAt + 26], [0, 1], EIO), ip(f, [L.c(2) - 10, L.c(2) + 8], [1, 0], EIO));
@@ -55,8 +55,8 @@ export const Screen: React.FC<{f: number}> = ({f}) => {
   const kind = inCaps ? seqKind(f, sq) : 'sneaker';
   const box = inCaps ? seqBox(f, sq) : BOXES.sneaker;
   const mode: LensMode = inCaps && (kind === 'page') ? 'Text' : inCaps && kind === 'sign' ? 'Translate' : 'Search';
-  const signT = ip(f, [L.w(3, 'अनुवाद') + 14, L.w(3, 'अनुवाद') + 34], [0, 1], EIO);
-  const prodSheet = Math.min(ip(f, [L.w(3, 'प्रोडक्ट्स') + 10, L.w(3, 'प्रोडक्ट्स') + 30], [0, 1], EIO), ip(f, [L.c(4) - 4, L.c(4) + 12], [1, 0], EIO));
+  const signT = ip(f, [L.w(3, 'translate') + 14, L.w(3, 'translate') + 34], [0, 1], EIO);
+  const prodSheet = Math.min(ip(f, [L.w(3, 'products') + 10, L.w(3, 'products') + 30], [0, 1], EIO), ip(f, [L.c(4) - 4, L.c(4) + 12], [1, 0], EIO));
   // image as query (c4+)
   const q = ip(f, [L.c(4) + 4, L.c(4) + 30], [0, 1], EIO);
   const qSheet = ip(f, [L.c(4) + 20, L.c(4) + 44], [0, 1], EIO);
@@ -68,9 +68,9 @@ export const Screen: React.FC<{f: number}> = ({f}) => {
       <Sparks pts={ptsIn(BOXES.sneaker, 18, 3)} f={f} a={L.c(2) + 4} op={vis(f, L.c(2), L.c(3) + 4)} />
       <ScreenChip cx={201} y={BOXES.sneaker.y - 56} t={vis(f, L.c(2) + 30, L.c(3))}>Analyzing what Lens sees…</ScreenChip>
       <Brackets box={{x: box.x - 10, y: box.y - 12, w: box.w + 20, h: box.h + 24}} t={1} op={vis(f, L.c(3) - 2, L.c(4), 10, 10)} />
-      {inCaps && kind === 'sneaker' && f < L.w(3, 'इमारतों') && <Outline box={BOXES.sneaker} draw={ip(f, [L.c(3), L.c(3) + 24], [0, 1], EIO)} f={f} />}
+      {inCaps && kind === 'sneaker' && f < L.w(3, 'landmarks') && <Outline box={BOXES.sneaker} draw={ip(f, [L.c(3), L.c(3) + 24], [0, 1], EIO)} f={f} />}
       <ScreenChip cx={201} y={box.y - 58} t={vis(f, L.c(3) + 6, L.c(4), 10, 10)}>
-        {kind === 'landmark' ? 'Landmark' : kind === 'page' ? 'Text found' : kind === 'sign' ? 'Translated · ES → EN' : f >= L.w(3, 'प्रोडक्ट्स') ? 'Similar products' : 'Object detected'}
+        {kind === 'landmark' ? 'Landmark' : kind === 'page' ? 'Text found' : kind === 'sign' ? 'Translated · ES → EN' : f >= L.w(3, 'products') ? 'Similar products' : 'Object detected'}
       </ScreenChip>
       <ChromeShade />
       <LensTop />
@@ -83,7 +83,7 @@ export const Screen: React.FC<{f: number}> = ({f}) => {
       <Tap x={78} y={420} f={f} at={galAt + 34} />
       <Sheet t={prodSheet} top={430}>
         <SheetHeader title="Visual matches" active={1} />
-        <ResultGrid f={f} a={L.w(3, 'प्रोडक्ट्स') + 18} />
+        <ResultGrid f={f} a={L.w(3, 'products') + 18} />
       </Sheet>
       {/* text search page for sentence 2, before the camera opens */}
       {showText && (
@@ -113,11 +113,11 @@ export const Screen: React.FC<{f: number}> = ({f}) => {
 };
 
 const CAPS = [
-  {word: 'चीज़ों', title: 'Recognize objects', color: C.blue},
-  {word: 'इमारतों', title: 'Identify landmarks', color: C.yellow},
-  {word: 'टेक्स्ट', title: 'Extract text', color: C.red},
-  {word: 'अनुवाद', title: 'Translate signs', color: C.green},
-  {word: 'प्रोडक्ट्स', title: 'Find similar products', color: C.blue},
+  {word: 'objects', title: 'Recognize objects', color: C.blue},
+  {word: 'landmarks', title: 'Identify landmarks', color: C.yellow},
+  {word: 'text', title: 'Extract text', color: C.red},
+  {word: 'translate', title: 'Translate signs', color: C.green},
+  {word: 'products', title: 'Find similar products', color: C.blue},
 ];
 
 export const Side: React.FC<{f: number}> = ({f}) => {
@@ -143,9 +143,9 @@ export const Side: React.FC<{f: number}> = ({f}) => {
       <Card x={1290} y={420} w={510} t={vis(f, L.c(1) - 4, L.c(3), 16, 14)} pad={26}>
         <div style={{fontSize: 15, fontWeight: 700, letterSpacing: 2.2, color: C.faint, textTransform: 'uppercase'}}>Two ways to search</div>
         {[
-          {t: 'Type words', d: 'Describe it in a search bar', c: C.faint, on: f < L.w(1, 'कैमरे')},
-          {t: 'Use your camera', d: 'Point at what you see', c: C.blue, on: f >= L.w(1, 'कैमरे') && f < L.w(1, 'मौजूदा')},
-          {t: 'Use an existing image', d: 'Photo or screenshot from your device', c: C.green, on: f >= L.w(1, 'मौजूदा')},
+          {t: 'Type words', d: 'Describe it in a search bar', c: C.faint, on: f < L.w(1, 'camera')},
+          {t: 'Use your camera', d: 'Point at what you see', c: C.blue, on: f >= L.w(1, 'camera') && f < L.w(1, 'existing')},
+          {t: 'Use an existing image', d: 'Photo or screenshot from your device', c: C.green, on: f >= L.w(1, 'existing')},
         ].map((r, i) => (
           <div key={r.t} style={{display: 'flex', alignItems: 'center', gap: 16, marginTop: 16, opacity: ip(f, [L.c(1) + i * 10, L.c(1) + 14 + i * 10], [0, 1]) * (r.on ? 1 : 0.55)}}>
             <Dot c={r.c} s={14} />

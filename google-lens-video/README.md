@@ -59,8 +59,8 @@ npm run render   # writes out/google_lens_ui_demo_15sec.mp4
 Full-length documentary built on the same visual identity, phone design, fonts, colours, instruments and narrator.
 Output: `../google_lens_complete_explainer_6min.mp4` (1920×1080, 30 fps, 10,800 frames, H.264 + AAC).
 
-- **Narration:** Hindi, same Piper voice `hi_IN-pratham-medium` at length-scale 0.9 with the same processing chain.
-  Script with timings: `narration/NARRATION_SCRIPT_6min.md` (source: `narration/script_6min.json`; on-screen subtitles use the Hindi text).
+- **Narration:** Hinglish (Hindi with English tech words), same Piper voice `hi_IN-pratham-medium` at length-scale 0.9 with the same processing chain.
+  Script with timings: `narration/NARRATION_SCRIPT_6min.md` (source: `narration/script_6min.json`; on-screen subtitles use the Hinglish text).
 - **Phone:** 1.19× larger than in the 15 s video (fully inside the frame, never moves after the opening fade-in).
 - **Timeline:** `scripts/build_timeline.py` lays the 51 narration lines into 9 chapters (exactly 10,800 frames) → `src/long/timeline.json`.
   Animations are keyed to the sentence and word timings in that file, so visuals follow the voice.

@@ -21,11 +21,11 @@ const P = {
 const toScreen = (vx: number, vy: number): [number, number] => [SNK.x + vx * SNK.k, SNK.y + vy * SNK.k];
 
 const FEATS = [
-  {word: 'आकार', title: 'Shapes', color: C.blue},
-  {word: 'रंग', title: 'Colors', color: C.red},
-  {word: 'बनावट', title: 'Textures', color: C.yellow},
-  {word: 'पैटर्न', title: 'Patterns', color: C.green},
-  {word: 'संबंध', title: 'Relationships', color: C.blue},
+  {word: 'shapes', title: 'Shapes', color: C.blue},
+  {word: 'colors', title: 'Colors', color: C.red},
+  {word: 'textures', title: 'Textures', color: C.yellow},
+  {word: 'patterns', title: 'Patterns', color: C.green},
+  {word: 'relationships', title: 'Relationships', color: C.blue},
 ];
 const featWin = (i: number): [number, number] => [L.w(1, FEATS[i].word), i < 4 ? L.w(1, FEATS[i + 1].word) : L.c(2)];
 
@@ -119,14 +119,14 @@ const Segmentation: React.FC<{f: number}> = ({f}) => {
 };
 
 export const Screen: React.FC<{f: number}> = ({f}) => {
-  const capAt = L.w(0, 'कैप्चर');
+  const capAt = L.w(0, 'capture');
   const focus = ip(f, [L.c(0), L.c(0) + 26], [7, 0], EIO);
   const flash = Math.sin(Math.PI * ip(f, [capAt, capAt + 10], [0, 1]));
   const outline = ip(f, [L.c(3) + 4, L.c(3) + 30], [0, 1], EIO);
   const attrs = [
-    {word: 'रंग', text: 'Color · White & red', y: B.y - 112},
-    {word: 'स्टाइल', text: 'Style · Running', y: B.y + B.h + 18},
-    {word: 'डिज़ाइन', text: 'Design · Low-top', y: B.y + B.h + 66},
+    {word: 'color', text: 'Color · White & red', y: B.y - 112},
+    {word: 'style', text: 'Style · Running', y: B.y + B.h + 18},
+    {word: 'design', text: 'Design · Low-top', y: B.y + B.h + 66},
   ];
   const fly = ip(f, [L.c(5) + 10, L.c(5) + 40], [0, 1], EIO);
   const queryT = ip(f, [L.c(5) + 30, L.c(5) + 50], [0, 1]);
@@ -235,7 +235,7 @@ export const Side: React.FC<{f: number}> = ({f}) => {
           <span style={{fontSize: 22, fontWeight: 800, color: C.green}}>{Math.round(ip(f, [L.c(3) + 10, L.c(3) + 50], [0, 97], EIO))}%</span>
         </div>
         <div style={{marginTop: 10}}><Bar p={ip(f, [L.c(3) + 10, L.c(3) + 50], [0, 0.97], EIO)} color={C.green} h={8} /></div>
-        {[['Color', 'White & red', 'रंग'], ['Style', 'Running', 'स्टाइल'], ['Design', 'Low-top', 'डिज़ाइन']].map(([k, v, word], i) => {
+        {[['Color', 'White & red', 'color'], ['Style', 'Running', 'style'], ['Design', 'Low-top', 'design']].map(([k, v, word], i) => {
           const t = ip(f, [L.w(4, word), L.w(4, word) + 14], [0, 1]);
           return (
             <div key={k} style={{display: 'flex', justifyContent: 'space-between', padding: '13px 0', borderTop: '1px solid rgba(30,40,70,0.07)', marginTop: i ? 0 : 16, opacity: t, transform: `translateX(${(1 - t) * 16}px)`}}>

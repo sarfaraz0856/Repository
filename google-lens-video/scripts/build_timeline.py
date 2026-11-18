@@ -8,15 +8,15 @@ FPS, TOTAL = 30, 10800
 script = json.load(open(os.path.join(ROOT, 'narration', 'script_6min.json')))
 durs = json.load(open(os.path.join(ROOT, 'narration', 'durations.json')))['durations']
 TARGET = {'intro': 30, 'what': 45, 'scan': 45, 'ai': 50, 'results': 45, 'text': 45, 'uses': 45, 'howto': 35, 'outro': 20}
-LEAD = {'intro': 2.6, 'outro': 0.8}   # intro: phone + title appear first
-TAIL = {'outro': 4.6}                  # outro: final title hold + fade-out
-GAP = 0.36
+LEAD = {'intro': 2.0, 'outro': 0.6}   # intro: phone + title appear first
+TAIL = {'outro': 4.0}                  # outro: final title hold + fade-out
+GAP = 0.25
 
 need = {}
 for s in script['scenes']:
     sid = s['id']
     speech = sum(durs[f'{sid}_{i + 1}'] for i in range(len(s['lines'])))
-    need[sid] = LEAD.get(sid, 0.9) + speech + GAP * (len(s['lines']) - 1) + TAIL.get(sid, 0.6)
+    need[sid] = LEAD.get(sid, 0.75) + speech + GAP * (len(s['lines']) - 1) + TAIL.get(sid, 0.45)
 
 # start from targets, grow scenes that need more, take the time back from scenes with the most slack
 length = {k: max(TARGET[k], need[k]) for k in TARGET}
@@ -38,7 +38,7 @@ for s in script['scenes']:
     sid = s['id']
     slack = frames[sid] / FPS - need[sid]
     gap = GAP + (slack * 0.5) / max(1, len(s['lines']) - 1)  # spread half of the slack between sentences
-    t = cur / FPS + LEAD.get(sid, 0.9) + slack * 0.2
+    t = cur / FPS + LEAD.get(sid, 0.75) + slack * 0.2
     cues = []
     for i, line in enumerate(s['lines']):
         name = f'{sid}_{i + 1}'

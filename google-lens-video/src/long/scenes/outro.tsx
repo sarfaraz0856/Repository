@@ -40,10 +40,10 @@ export const Screen: React.FC<{f: number}> = ({f}) => {
 };
 
 const TECH = [
-  {w: 'कंप्यूटर', t: 'Computer vision', c: C.blue},
-  {w: 'आर्टिफ़िशियल', t: 'Artificial intelligence', c: C.red},
-  {w: 'टेक्स्ट', t: 'Text recognition', c: C.yellow},
-  {w: 'विज़ुअल', t: 'Visual search', c: C.green},
+  {w: 'computer', t: 'Computer vision', c: C.blue},
+  {w: 'artificial', t: 'Artificial intelligence', c: C.red},
+  {w: 'text', t: 'Text recognition', c: C.yellow},
+  {w: 'visual', t: 'Visual search', c: C.green},
 ];
 const EXAMPLES: [string, string][] = [['Objects', C.blue], ['Plants', C.green], ['Landmarks', C.yellow], ['Text', C.red], ['Translation', C.blue], ['Products', C.green]];
 
