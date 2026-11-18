@@ -1,404 +1,68 @@
 1
-00:00:00,600 --> 00:00:09,533
+00:00:00,600 --> 00:00:12,867
 Hello friends! If you want to apply for a new PAN Card online from home using your mobile or laptop, this video is going to be very helpful for you.
 
 2
-00:00:09,933 --> 00:00:17,700
+00:00:13,267 --> 00:00:21,333
 Today I will show you the complete step-by-step process to apply for a PAN Card on the official NSDL, that is Protean, website.
 
 3
-00:00:18,100 --> 00:00:28,667
+00:00:21,733 --> 00:00:33,600
 Which documents are required, how to fill the application form, how to pay online and how to track your PAN Card status — we will cover everything in this video.
 
 4
-00:00:29,067 --> 00:00:36,767
+00:00:34,000 --> 00:00:41,300
 Also, there have been some important changes to the PAN Card application rules in 2026 that you should know about.
 
 5
-00:00:37,167 --> 00:00:39,967
+00:00:41,700 --> 00:00:45,233
 So without wasting time, let's start the video.
 
 6
-00:00:41,467 --> 00:00:44,367
+00:00:46,733 --> 00:00:50,400
 First, let's talk about the required documents.
 
 7
-00:00:44,767 --> 00:00:50,800
+00:00:50,800 --> 00:00:57,700
 Before applying, keep your Identity Proof, Address Proof and Date of Birth Proof ready.
 
 8
-00:00:51,200 --> 00:00:55,100
+00:00:58,100 --> 00:01:02,767
 You can use your Aadhaar Card as Identity and Address Proof.
 
 9
-00:00:55,500 --> 00:01:03,100
+00:01:03,167 --> 00:01:12,333
 But here is an important update: from April 2026, Aadhaar Card is not accepted as Date of Birth Proof.
 
 10
-00:01:03,500 --> 00:01:11,667
+00:01:12,733 --> 00:01:25,300
 For Date of Birth, give a Birth Certificate, Passport or another eligible document. Do check the current list on the website.
 
 11
-00:01:12,067 --> 00:01:17,800
+00:01:25,700 --> 00:01:32,233
 Also keep your active mobile number, email ID, and if required, your photo and signature ready.
 
 12
-00:01:18,200 --> 00:01:22,500
+00:01:32,633 --> 00:01:37,733
 If your documents are ready beforehand, the application process becomes much easier.
 
 13
-00:01:24,000 --> 00:01:28,400
+00:01:39,233 --> 00:01:44,733
 Now, first open the Chrome browser on your mobile or computer.
 
 14
-00:01:28,800 --> 00:01:32,933
+00:01:45,133 --> 00:01:49,767
 Then go to the official website of NSDL, that is Protean.
 
 15
-00:01:33,333 --> 00:01:37,400
+00:01:50,167 --> 00:01:54,767
 You will find the direct link to this website in the video description.
 
 16
-00:01:37,800 --> 00:01:43,433
+00:01:55,167 --> 00:02:01,600
 As soon as you open the website, you will see various PAN Card related services.
 
 17
-00:01:43,833 --> 00:01:51,100
+00:02:02,000 --> 00:02:11,500
 Remember, always apply only on the official website. Never enter your Aadhaar number or personal details on an unknown website.
-
-18
-00:01:52,600 --> 00:01:56,267
-Now select the New PAN Card Application option.
-
-19
-00:01:56,667 --> 00:02:03,500
-If you are an Indian citizen applying for a PAN Card for the first time, select Form 93.
-
-20
-00:02:03,900 --> 00:02:10,967
-Earlier, Form 49A was used for this, but from April 2026 the new application form has come into effect.
-
-21
-00:02:11,367 --> 00:02:15,367
-Then select the correct Individual Applicant option and continue.
-
-22
-00:02:15,767 --> 00:02:20,133
-If you already have a PAN number, do not apply for a new PAN Card.
-
-23
-00:02:21,633 --> 00:02:24,233
-Now the registration form will open.
-
-24
-00:02:24,633 --> 00:02:27,067
-First, enter your name here.
-
-25
-00:02:27,467 --> 00:02:31,167
-Then fill in your date of birth, email ID and mobile number.
-
-26
-00:02:31,567 --> 00:02:36,367
-Take special care that your details match your documents.
-
-27
-00:02:36,767 --> 00:02:42,567
-If there is any difference in name or date of birth, there may be problems during processing.
-
-28
-00:02:42,967 --> 00:02:46,333
-Then complete the required consent and the captcha.
-
-29
-00:02:46,733 --> 00:02:51,733
-After registration, if you get a Token Number, save it.
-
-30
-00:02:52,133 --> 00:02:56,133
-With it, you can continue your application later if needed.
-
-31
-00:02:57,633 --> 00:03:01,100
-Now you need to select the method to submit your application.
-
-32
-00:03:01,500 --> 00:03:08,533
-Depending on your eligibility, you may see options like Digital Verification, e-Sign or Physical Document Submission.
-
-33
-00:03:08,933 --> 00:03:14,433
-If you want to complete the whole process online, select the available digital option.
-
-34
-00:03:14,833 --> 00:03:19,400
-But check the requirements of any option before selecting it.
-
-35
-00:03:19,800 --> 00:03:26,367
-If you have any issue with your documents or mobile number, choose the method that suits your situation.
-
-36
-00:03:27,867 --> 00:03:32,000
-In the next step you may get the option of a Physical PAN Card or an e-PAN.
-
-37
-00:03:32,400 --> 00:03:39,200
-If you want the physical PAN Card delivered to your home address, select the physical card option.
-
-38
-00:03:39,600 --> 00:03:44,533
-And if you only need a digital PAN Card, select the available e-PAN option.
-
-39
-00:03:44,933 --> 00:03:47,033
-e-PAN is also a valid PAN document.
-
-40
-00:03:47,433 --> 00:03:50,900
-Choose the option that fits your requirement.
-
-41
-00:03:52,400 --> 00:03:54,767
-Now fill in your personal details.
-
-42
-00:03:55,167 --> 00:04:00,500
-Enter your full name, date of birth, gender and the required parents' details.
-
-43
-00:04:00,900 --> 00:04:05,833
-Where Aadhaar number and Name as per Aadhaar are asked, enter the correct details.
-
-44
-00:04:06,233 --> 00:04:08,500
-The spelling of your name must be exactly correct.
-
-45
-00:04:08,900 --> 00:04:15,933
-People often make small mistakes while filling the form in a hurry, which may need correction later.
-
-46
-00:04:16,333 --> 00:04:20,267
-So check all details carefully once before clicking Next.
-
-47
-00:04:21,767 --> 00:04:26,000
-In the next section, fill in your contact and address details.
-
-48
-00:04:26,400 --> 00:04:32,500
-Enter required information like house number, area, city, district, state and PIN code.
-
-49
-00:04:32,900 --> 00:04:38,133
-If you selected a physical PAN Card, your delivery address must be exactly correct.
-
-50
-00:04:38,533 --> 00:04:44,667
-Keep your mobile number and email ID active, as application updates may come on them.
-
-51
-00:04:45,067 --> 00:04:50,933
-If a Source of Income option appears, select the correct option for your actual situation.
-
-52
-00:04:52,433 --> 00:04:54,000
-Now let's talk about the AO Code.
-
-53
-00:04:54,400 --> 00:04:56,833
-AO Code means Assessing Officer Code.
-
-54
-00:04:57,233 --> 00:05:04,533
-If your application requires an AO Code, find the correct one using the search option on the website.
-
-55
-00:05:04,933 --> 00:05:10,500
-For this, check details according to your city, state and applicable tax jurisdiction.
-
-56
-00:05:10,900 --> 00:05:13,000
-Do not select a random AO Code here.
-
-57
-00:05:13,400 --> 00:05:16,467
-Verify the correct information before moving to the next step.
-
-58
-00:05:17,967 --> 00:05:21,033
-Now select your supporting documents.
-
-59
-00:05:21,433 --> 00:05:26,467
-Choose the correct documents for Identity, Address and Date of Birth Proof.
-
-60
-00:05:26,867 --> 00:05:35,733
-If your method requires uploading photo, signature or documents, upload them as per the file size and format given on the website.
-
-61
-00:05:36,133 --> 00:05:38,567
-Documents should be of good quality.
-
-62
-00:05:38,967 --> 00:05:43,667
-Uploading blurred or unclear documents can cause verification problems.
-
-63
-00:05:44,067 --> 00:05:47,433
-After uploading, check all details again.
-
-64
-00:05:48,933 --> 00:05:52,067
-Now we have reached the most important step of the application.
-
-65
-00:05:52,467 --> 00:05:56,000
-Before final submission, review your complete application.
-
-66
-00:05:56,400 --> 00:06:00,967
-Check your name, date of birth, address, mobile number and documents carefully.
-
-67
-00:06:01,367 --> 00:06:04,367
-If there is any mistake, correct it now.
-
-68
-00:06:04,767 --> 00:06:08,600
-Because making changes after final submission may not be so easy.
-
-69
-00:06:09,000 --> 00:06:11,367
-Move ahead only when all details are correct.
-
-70
-00:06:12,867 --> 00:06:16,300
-Now you need to pay the required PAN Card application fee.
-
-71
-00:06:16,700 --> 00:06:21,467
-The fee may differ based on your selected card type and submission method.
-
-72
-00:06:21,867 --> 00:06:26,633
-So always check the final amount shown on the official website before paying.
-
-73
-00:06:27,033 --> 00:06:32,200
-Then choose any available payment option as per your convenience.
-
-74
-00:06:32,600 --> 00:06:36,367
-After a successful payment, save your payment receipt.
-
-75
-00:06:37,867 --> 00:06:44,767
-If you selected Aadhaar-based verification or e-Sign, complete the required verification now.
-
-76
-00:06:45,167 --> 00:06:48,600
-An OTP may come on your Aadhaar-linked mobile number.
-
-77
-00:06:49,000 --> 00:06:53,867
-Follow the instructions on the website to complete verification and e-Sign.
-
-78
-00:06:54,267 --> 00:06:57,733
-Never share your OTP with anyone.
-
-79
-00:06:58,133 --> 00:07:06,267
-If you chose physical document submission, submit your documents as per the instructions on the website.
-
-80
-00:07:07,767 --> 00:07:14,833
-When all required steps are completed successfully, you will receive an Acknowledgement Number or receipt.
-
-81
-00:07:15,233 --> 00:07:17,733
-Download this receipt and keep it safe.
-
-82
-00:07:18,133 --> 00:07:23,600
-With the Acknowledgement Number you can track your PAN application status later.
-
-83
-00:07:24,000 --> 00:07:27,533
-Also confirm that your application was submitted successfully.
-
-84
-00:07:27,933 --> 00:07:32,000
-A successful payment alone does not guarantee that the application is complete.
-
-85
-00:07:33,500 --> 00:07:39,633
-If you want to check whether your PAN Card is ready, you can track its status online.
-
-86
-00:07:40,033 --> 00:07:43,500
-For this, go to the official Protean website again.
-
-87
-00:07:43,900 --> 00:07:47,033
-Open the PAN Application Status Tracking option.
-
-88
-00:07:47,433 --> 00:07:51,500
-Then enter your Acknowledgement Number and other required details.
-
-89
-00:07:51,900 --> 00:07:54,733
-Now you will see the current status of your application.
-
-90
-00:07:55,133 --> 00:08:00,000
-PAN processing and delivery time depends on your application verification.
-
-91
-00:08:01,500 --> 00:08:04,933
-Before ending the video, remember one important thing.
-
-92
-00:08:05,333 --> 00:08:11,767
-If you already have a PAN number and lost your PAN Card, do not apply for a new PAN number.
-
-93
-00:08:12,167 --> 00:08:14,267
-Use the Reprint option instead.
-
-94
-00:08:14,667 --> 00:08:19,833
-And if the name or date of birth on your PAN Card is wrong, select the Correction option.
-
-95
-00:08:20,233 --> 00:08:23,533
-One person should not have more than one PAN number.
-
-96
-00:08:25,033 --> 00:08:31,833
-So friends, this is how you can apply for a new PAN Card online on the official NSDL, that is Protean, website.
-
-97
-00:08:32,233 --> 00:08:35,933
-I hope you understood the complete application process.
-
-98
-00:08:36,333 --> 00:08:42,233
-If the video was helpful, do like it and share it with your friends and family.
-
-99
-00:08:42,633 --> 00:08:47,333
-If you have any question about PAN Card, tell us in the comments below.
-
-100
-00:08:47,733 --> 00:08:52,367
-Subscribe to our channel for more useful and informative videos.
-
-101
-00:08:52,767 --> 00:08:55,433
-See you in the next video. Thank you for watching!
 

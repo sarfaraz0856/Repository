@@ -56,6 +56,8 @@ for k in range(nbars):
         f = note(m)
         pl = (np.sin(2 * np.pi * f * tt) + 0.3 * np.sin(2 * np.pi * 3 * f * tt)) * np.exp(-tt * 5.5) * 0.09
         e2 = min(n_total, st + L)
+        if e2 <= st:
+            continue
         pan = 0.35 if j % 2 else -0.35
         music[st:e2, 0] += pl[: e2 - st] * (1 - pan)
         music[st:e2, 1] += pl[: e2 - st] * (1 + pan)

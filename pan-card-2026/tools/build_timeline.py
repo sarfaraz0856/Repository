@@ -15,6 +15,9 @@ S = sys.argv[1]
 estimate = "--estimate" in sys.argv
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 script = json.load(open(f"{S}/tts/script.json"))
+for a in sys.argv:
+    if a.startswith("--upto="):
+        script = [sc for sc in script if sc["id"] <= int(a[7:])]
 
 
 def dur_seconds(path, text):
