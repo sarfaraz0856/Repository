@@ -9,6 +9,7 @@ from chatterbox.mtl_tts import ChatterboxMultilingualTTS
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 args = sys.argv[1:]
 REF = args[args.index('--ref') + 1]
+EXAG = float(args[args.index('--exag') + 1]) if '--exag' in args else 0.45
 TAKES = int(args[args.index('--takes') + 1]) if '--takes' in args else 3
 names = [a for a in args if '_' in a and not a.endswith('.wav') and not a.startswith('--')]
 CHAIN = ('silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse,'
@@ -17,7 +18,7 @@ torch.set_num_threads(4)
 script = json.load(open(os.path.join(ROOT, 'narration', 'script_6min.json')))
 lines = {f"{s['id']}_{i + 1}": l['say'] for s in script['scenes'] for i, l in enumerate(s['lines'])}
 model = ChatterboxMultilingualTTS.from_pretrained(device='cpu')
-model.prepare_conditionals(REF, exaggeration=0.5)
+model.prepare_conditionals(REF, exaggeration=EXAG if '--exag' in args else 0.5)
 
 
 MINLEN = int(args[args.index('--minlen') + 1]) if '--minlen' in args else 38
@@ -51,7 +52,7 @@ for name in names:
         torch.manual_seed(5000 + 31 * k + len(name))
         pieces = []
         for c in chunks(lines[name]):
-            w = model.generate(c, language_id='hi', exaggeration=0.45, cfg_weight=0.6, temperature=TEMP)[0].numpy()
+            w = model.generate(c, language_id='hi', exaggeration=EXAG, cfg_weight=0.6, temperature=TEMP)[0].numpy()
             pieces += [trim(w), np.zeros(int(0.14 * model.sr))]
         wav = np.concatenate(pieces[:-1])
         with tempfile.NamedTemporaryFile(suffix='.wav') as raw:

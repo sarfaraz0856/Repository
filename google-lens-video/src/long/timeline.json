@@ -1,6 +1,6 @@
 {
  "fps": 30,
- "durationInFrames": 11046,
+ "durationInFrames": 11111,
  "scenes": [
   {
    "id": "intro",
@@ -384,13 +384,13 @@
    "id": "endcard",
    "title": "THANK YOU",
    "from": 10800,
-   "dur": 246,
+   "dur": 311,
    "cues": [
     {
      "file": "long/vo/endcard_1.wav",
-     "text": "Video को like और share कीजिए, और channel को subscribe कर लीजिए। Thank you!",
+     "text": "अगर आपको ये video अच्छा लगा हो, तो please इसे like और share कीजिए, और channel को subscribe ज़रूर कीजिए। Thank you!",
      "from": 10818,
-     "dur": 133
+     "dur": 198
     }
    ]
   }

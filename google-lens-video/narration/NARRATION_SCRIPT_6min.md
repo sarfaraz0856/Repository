@@ -173,3 +173,7 @@ Each line shows the start time, the Hinglish narration (also the on-screen subti
 
 **5:50.47** Google Lens इस बात का एक example है, कि AI कैसे physical world को digital knowledge से connect करता है।  
 <sub>EN: Google Lens is one example of how AI connects the physical world with digital knowledge.</sub>
+
+## 6:00.00 – 6:10.37 · THANK YOU (end card)
+
+**6:00.60** अगर आपको ये video अच्छा लगा हो, तो please इसे like और share कीजिए, और channel को subscribe ज़रूर कीजिए। Thank you!  
