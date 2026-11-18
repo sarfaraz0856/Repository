@@ -1,10 +1,9 @@
 {
  "voice": {
-  "engine": "piper",
-  "model": "hi_IN-pratham-medium",
-  "length_scale": 0.9,
-  "language": "Hinglish (Hindi with English tech terms)",
-  "note": "Same narrator, settings and post-processing as the 15-second video. \"hi\" is the Hinglish on-screen subtitle; \"say\" is the exact text sent to the voice (English words spelled in Devanagari so the Hindi voice pronounces them naturally); \"en\" is the original English brief text, kept for reference."
+  "engine": "chatterbox-multilingual 0.1.7 (Resemble AI, MIT license)",
+  "voice": "creator's own cloned voice (reference: 14 s clean clip of the creator's recording)",
+  "language": "Hinglish (Hindi with English tech words)",
+  "note": "\"hi\" is the on-screen subtitle; \"say\" is the exact text spoken (English words spelled in Devanagari); \"en\" is the original English brief text. Outputs carry Resemble's inaudible Perth watermark."
  },
  "scenes": [
   {
@@ -104,8 +103,8 @@
      "en": "It may also distinguish specific characteristics, such as its color, style, and design."
     },
     {
-     "hi": "ये visual clues system को समझने में help करते हैं, कि आगे क्या search करना है।",
-     "say": "ये विज़ुअल क्लूज़ सिस्टम को समझने में हेल्प करते हैं, कि आगे क्या सर्च करना है।",
+     "hi": "ये visual details, system को ये समझने में help करती हैं, कि आगे क्या search करना है।",
+     "say": "ये विज़ुअल डिटेल्स, सिस्टम को ये समझने में हेल्प करती हैं, कि आगे क्या सर्च करना है।",
      "en": "These visual clues help the system understand what to search for next."
     }
    ]
