@@ -42,7 +42,7 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
             {rows.map(([k, v], i) => (
               <div key={k} style={{display: 'flex', justifyContent: 'space-between', padding: '12px 16px', marginTop: 8, borderRadius: 12, background: '#fff', border: `1px solid ${enc > 0.5 ? U.cyan : 'rgba(15,23,42,0.12)'}`, fontSize: 20, color: U.ink}}>
                 <span style={{color: U.slate}}>{enc > 0.5 ? 'block ' + (i + 1) : k}</span>
-                <b style={{fontFamily: enc > 0.5 ? 'monospace' : UF.ui, color: enc > 0.5 ? U.cyan : '#fff'}}>{enc > 0.5 ? HEX[i] : v}</b>
+                <b style={{fontFamily: enc > 0.5 ? 'monospace' : UF.ui, color: enc > 0.5 ? deep(U.cyan) : U.ink}}>{enc > 0.5 ? HEX[i] : v}</b>
               </div>
             ))}
           </div>

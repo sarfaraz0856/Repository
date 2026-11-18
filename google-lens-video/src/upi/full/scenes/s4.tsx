@@ -50,8 +50,8 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
         </Panel>
       ))}
       {/* UPI ID as address */}
-      {f >= L.c(3) - 4 && f < L.c(5) + 10 && (
-        <div style={{position: 'absolute', inset: 0, opacity: vis(f, L.c(3) - 4, L.c(5) + 10, 14, 14)}}>
+      {f >= L.c(3) - 4 && f < L.c(6) + 4 && (
+        <div style={{position: 'absolute', inset: 0, opacity: vis(f, L.c(3) - 4, L.c(6) + 4, 14, 14)}}>
           <OnText f={f} a={L.c(3)} y={180} size={48} text="UPI ID = DIGITAL PAYMENT ADDRESS" />
           <div style={{position: 'absolute', left: X0, top: 300, width: XW, textAlign: 'center', fontFamily: 'monospace', fontSize: 56, fontWeight: 800, color: U.ink, opacity: ip(f, [L.c(3) + 10, L.c(3) + 24], [0, 1])}}>
             <span style={{color: deep(U.cyan)}}>sharma.store</span><span style={{color: deep(U.saffron)}}>@demo</span>

@@ -63,7 +63,7 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
               ))}
             </div>
           )}
-          <div style={{position: 'absolute', left: X0, top: 860, width: XW, display: 'flex', justifyContent: 'center', gap: 24, fontFamily: UF.ui, fontSize: 15, color: U.slate}}>
+          <div style={{position: 'absolute', left: X0, top: 915, width: XW, display: 'flex', justifyContent: 'center', gap: 24, fontFamily: UF.ui, fontSize: 15, color: U.slate}}>
             <span><b style={{color: deep(U.cyan)}}>■</b> instruction</span><span><b style={{color: deep(U.green)}}>■</b> confirmation</span><span>Simplified transaction flow · illustrative balances</span>
           </div>
         </div>

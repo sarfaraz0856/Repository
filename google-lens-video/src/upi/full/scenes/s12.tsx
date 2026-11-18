@@ -35,7 +35,7 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
           <Packet f={f} pts={[RING[2][4], HUB, RING[3][4]]} a={L.w(2, 'Debit')} b={L.w(2, 'Credit')} color={U.blue} label="₹" />
           <Packet f={f} pts={[RING[3][4], HUB, RING[0][4]]} a={L.w(2, 'Status')} b={L.w(2, 'Status') + 40} color={U.green} label="✓" />
           <Ledger x={RING[2][4][0]} y={RING[2][4][1] + 70} t={ip(f, [L.c(2), L.c(2) + 12], [0, 1])} title="Sender A/c" from={5000} to={4900} at={L.w(2, 'Debit')} f={f} />
-          <Ledger x={RING[3][4][0]} y={RING[3][4][1] - 160} t={ip(f, [L.c(2), L.c(2) + 12], [0, 1])} title="Receiver A/c" from={2000} to={2100} at={L.w(2, 'Credit')} f={f} />
+          <Ledger x={RING[3][4][0]} y={RING[3][4][1] + 70} t={ip(f, [L.c(2), L.c(2) + 12], [0, 1])} title="Receiver A/c" from={2000} to={2100} at={L.w(2, 'Credit')} f={f} />
           <OnText f={f} a={L.c(4)} b={L.c(6)} y={870} size={28} color={U.cyan} text="FROM LOCAL SHOPS TO ONLINE SHOPPING" />
         </div>
       )}
