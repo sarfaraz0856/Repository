@@ -2,21 +2,32 @@
  YOUTUBE UPLOAD DETAILS – Google Lens कैसे काम करता है?
 ==================================================================
 
-------------------------------------------------------------------
-1) TITLE  (मुख्य – इसे इस्तेमाल करें)
-------------------------------------------------------------------
-Google Lens कैसे काम करता है? | AI Visual Search पूरी जानकारी हिंदी में (2026)
+YouTube Studio → "Test & Compare" में आप 3 थंबनेल और 3 टाइटल एक साथ test कर सकते हैं।
+YouTube खुद देखेगा कि किस थंबनेल/टाइटल पर ज़्यादा watch time आता है और उसी को आगे रखेगा।
+हर थंबनेल के साथ उससे मेल खाता टाइटल नीचे दिया है।
 
-दूसरे विकल्प (A/B test के लिए):
-- Google Lens Kaise Kaam Karta Hai? Photo Se Search Karne Ka Asli Raaz | AI Explained
-- Google Lens की पूरी जानकारी: Scan, Search, Translate और Shopping – AI कैसे पहचानता है?
-- Photo से कुछ भी Search कैसे होता है? Google Lens Technology Explained in Hindi
+------------------------------------------------------------------
+1) 3 TITLES  (थंबनेल के साथ जोड़ी में)
+------------------------------------------------------------------
+[A]  Thumbnail_A_1280x720.jpg  –  "Google Lens कैसे काम करता है?"
+     Google Lens कैसे काम करता है? | AI Visual Search पूरी जानकारी हिंदी में (2026)
+
+[B]  Thumbnail_B_1280x720.jpg  –  "Photo से कुछ भी Search!"
+     Photo से कुछ भी Search कैसे करें? Google Lens Kaise Use Kare | पूरी जानकारी हिंदी में
+
+[C]  Thumbnail_C_1280x720.jpg  –  "AI ने कैसे पहचाना?"
+     AI ने Photo देखकर कैसे पहचाना? Google Lens Explained in Hindi | Computer Vision, OCR
+
+❓ Chapters title में डालें या नहीं?
+   नहीं – title में chapters डालने से title बहुत लंबा हो जाता है और mobile पर कट जाता है।
+   Chapters का सही जगह DESCRIPTION है (नीचे पहले से डाले हैं)। YouTube उन्हें अपने आप
+   video की timeline पर दिखाता है, और Google Search में भी "Key moments" के रूप में दिखा सकता है।
 
 
 ------------------------------------------------------------------
 2) DESCRIPTION  (पूरा copy-paste करें)
 ------------------------------------------------------------------
-Google Lens कैसे काम करता है? 📸 इस वीडियो में आसान हिंदी में समझिए कि आपका smartphone सिर्फ़ एक photo देखकर किसी product, plant, landmark या लिखे हुए text को कैसे पहचान लेता है। Computer Vision, Artificial Intelligence (AI), OCR और Visual Search – सब कुछ step by step, animation के साथ।
+Google Lens कैसे काम करता है? 📸 इस वीडियो में आसान हिंदी में समझिए कि आपका smartphone सिर्फ़ एक photo देखकर किसी product, plant, landmark या लिखे हुए text को कैसे पहचान लेता है। Photo से search कैसे होता है, Google Lens kaise use kare, text copy और translate कैसे करें – Computer Vision, Artificial Intelligence (AI), OCR और Visual Search सब कुछ step by step, animation के साथ।
 
 इस वीडियो में आप सीखेंगे:
 ✅ Google Lens क्या है और ये normal Google Search से अलग कैसे है
@@ -39,7 +50,26 @@ Google Lens कैसे काम करता है? 📸 इस वीडि
 5:28 Conclusion
 6:00 Thank You
 
-👍 अगर आपको ये video अच्छा लगा हो, तो please इसे like और share कीजिए, और channel को subscribe कीजिए। Thank you!
+❓ अक्सर पूछे जाने वाले सवाल (FAQ)
+Q. Google Lens kaise use kare?
+A. Google app खोलें, search bar में Lens icon पर tap करें, फिर camera को किसी चीज़ की तरफ़ point करें या gallery से कोई photo चुनें।
+
+Q. Photo se product kaise search kare?
+A. Google Lens में product की photo लें – Lens मिलते-जुलते products, कीमतें और shopping results दिखा सकता है।
+
+Q. Google Lens se text copy kaise kare?
+A. किसी page या sign पर camera रखें, "Text" option चुनें, text select करें और Copy पर tap करें।
+
+Q. Google Lens se translate kaise kare?
+A. "Translate" option चुनें और camera को लिखे हुए text पर रखें – translation सीधे screen पर दिखेगा।
+
+Q. Kya Google Lens free hai?
+A. हाँ, Google Lens free है। ये Android और iPhone दोनों पर Google app में मिलता है।
+
+Q. Google Lens kis technology par kaam karta hai?
+A. Computer Vision, Artificial Intelligence (Machine Learning), OCR (Optical Character Recognition) और Visual Search पर।
+
+👍 अगर आपको ये video अच्छा लगा हो, तो please इसे like और share, और channel को subscribe कीजिए। Thank you!
 
 📌 Note:
 - यह एक educational explainer video है। इस channel का Google से कोई संबंध नहीं है, और न ही Google इसे endorse करता है। (Not affiliated with or endorsed by Google.)
@@ -50,9 +80,9 @@ Google Lens कैसे काम करता है? 📸 इस वीडि
 
 
 ------------------------------------------------------------------
-3) TAGS  (YouTube Studio के "Tags" box में comma के साथ paste करें)
+3) TAGS  (YouTube Studio के "Tags" box में paste करें)
 ------------------------------------------------------------------
-google lens, google lens kaise kaam karta hai, google lens kaise use kare, google lens in hindi, how google lens works, google lens explained, google lens tutorial, google lens features, visual search, ai visual search, image search, photo se search kaise kare, google lens translate, google lens text copy, google lens shopping, computer vision, ocr kya hai, artificial intelligence hindi, ai explained hindi, tech hindi
+google lens, google lens kaise kaam karta hai, google lens kaise use kare, google lens in hindi, how google lens works, google lens explained, photo se search kaise kare, photo se product kaise search kare, google lens se text copy kaise kare, google lens translate kaise kare, google lens features, google lens tutorial, image search kaise kare, visual search, ai visual search, computer vision, ocr kya hai, artificial intelligence hindi, ai explained hindi, tech hindi
 
 
 ------------------------------------------------------------------
@@ -66,8 +96,9 @@ google lens, google lens kaise kaam karta hai, google lens kaise use kare, googl
 5) UPLOAD CHECKLIST
 ------------------------------------------------------------------
 [ ] Video file: google_lens_complete_explainer_6min.mp4  (1920x1080, 30fps, 6:09)
-[ ] Thumbnail: thumbnail_google_lens_1280x720.jpg  (1280x720, 2MB से कम)
-[ ] Title, Description, Tags ऊपर से copy करें
+[ ] Thumbnails: Thumbnail_A / B / C  (1280x720, हर एक 2MB से कम) → "Test & Compare" में तीनों डालें
+[ ] Titles: ऊपर के A / B / C (Test & Compare में title test भी कर सकते हैं)
+[ ] Description और Tags ऊपर से copy करें
 [ ] "Altered or synthetic content" → YES  (voiceover AI voice clone है – ये ज़रूरी disclosure है, इससे monetization नहीं रुकता)
 [ ] Audience: "No, it's not made for kids"
 [ ] Category: Education  (या Science & Technology)
@@ -80,3 +111,4 @@ google lens, google lens kaise kaam karta hai, google lens kaise use kare, googl
 - पहले 24–48 घंटे में video को अपने WhatsApp/Instagram/community पर share करें।
 - Comments का जवाब दें – इससे engagement बढ़ता है।
 - Pinned comment में पूछें: "आप Google Lens सबसे ज़्यादा किस काम के लिए use करते हैं?"
+- Test & Compare का result आने तक (आम तौर पर कुछ दिन से 2 हफ़्ते) थंबनेल न बदलें।
