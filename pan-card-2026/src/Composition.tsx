@@ -26,7 +26,7 @@ export const SampleSite: React.FC = () => (
 export const MyComposition = () => {
   return (
     <>
-    <Composition id="IntroCard" component={IntroCard} durationInFrames={232} fps={30} width={1920} height={1080} />
+    <Composition id="IntroCard" component={IntroCard} durationInFrames={211} fps={30} width={1920} height={1080} />
     <Composition id="SampleSite" component={SampleSite} durationInFrames={S3.dur} fps={30} width={1920} height={1080} />
     <Composition
       id="PanCard2026"
