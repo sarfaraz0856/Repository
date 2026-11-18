@@ -7,3 +7,4 @@ dist
 out
 build
 build_audio
+release/*.zip

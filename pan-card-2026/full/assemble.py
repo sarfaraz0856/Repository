@@ -57,21 +57,24 @@ for name in TL["order"]:
 sf.write(f"{SEGD}/voice_full.wav", voice, SR)
 sf.write(f"{SEGD}/fx_full.wav", fx, SR)
 
-# concat video segments (all 1920x1080 30fps)
-lst = f"{SEGD}/concat.txt"
-with open(lst, "w") as fh:
-    for name in TL["order"]:
-        fh.write(f"file '{os.path.abspath(f'{SEGD}/{name}.mp4')}'\n")
+# concat video segments with the concat FILTER (each trimmed to its exact timeline length -> stays in sync)
 out = f"{OUTD}/{BASE}.mp4"
+vin, vf = [], []
+for k, name in enumerate(TL["order"]):
+    vin += ["-i", f"{SEGD}/{name}.mp4"]
+    d = TL["segments"][name]["dur"]
+    vf.append(f"[{k}:v]fps=30,format=yuv420p,setsar=1,tpad=stop_mode=clone:stop_duration=1,trim=0:{d},setpts=PTS-STARTPTS[s{k}]")
+nv = len(TL["order"])
+vf.append("".join(f"[s{k}]" for k in range(nv)) + f"concat=n={nv}:v=1:a=0,fade=t=out:st={total - 0.7}:d=0.7,setpts=PTS/{SPEED}[v]")
 subprocess.run([
-    "ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", lst,
+    "ffmpeg", "-v", "error", "-y", *vin,
     "-i", f"{SEGD}/voice_full.wav", "-i", MUSIC, "-i", f"{SEGD}/fx_full.wav",
     "-filter_complex",
-    f"[0:v]fps=30,format=yuv420p,setsar=1,trim=0:{total},setpts=PTS-STARTPTS,fade=t=out:st={total - 0.7}:d=0.7,setpts=PTS/{SPEED}[v];"
-    f"[1:a]aformat=channel_layouts=stereo,atrim=0:{total},asplit=2[vo][key];"
-    f"[2:a]aformat=channel_layouts=stereo,atrim=0:{total},asetpts=PTS-STARTPTS,volume=0.15[m];"
+    ";".join(vf) + ";"
+    f"[{nv}:a]aformat=channel_layouts=stereo,atrim=0:{total},asplit=2[vo][key];"
+    f"[{nv + 1}:a]aformat=channel_layouts=stereo,atrim=0:{total},asetpts=PTS-STARTPTS,volume=0.15[m];"
     f"[m][key]sidechaincompress=threshold=0.02:ratio=4:attack=30:release=1200[md];"
-    f"[3:a]aformat=channel_layouts=stereo,atrim=0:{total},volume=0.8[fx];"
+    f"[{nv + 2}:a]aformat=channel_layouts=stereo,atrim=0:{total},volume=0.8[fx];"
     f"[vo][md][fx]amix=inputs=3:normalize=0,afade=t=out:st={total - 1.0}:d=1.0,"
     f"loudnorm=I=-14:TP=-1.5:LRA=7,atempo={SPEED}[a]",
     "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-pix_fmt", "yuv420p", "-r", "30",

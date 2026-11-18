@@ -1,0 +1,208 @@
+1
+00:00:00,318 --> 00:00:07,450
+PAN card online apply karna hai? To chaliye, aaj Protean ki official website se, poora process step by step seekhte hain.
+
+2
+00:00:07,832 --> 00:00:12,011
+Is video mein form bharna, documents, fees, aur status check karna, sab kuch bataunga.
+
+3
+00:00:12,965 --> 00:00:16,970
+To sabse pehle browser mein, Protean ki ye official website kholiye.
+
+4
+00:00:17,352 --> 00:00:22,733
+Yahan saaf likha hai, ki 1 April 2026 se, naye PAN ke liye naye form laagu ho gaye hain.
+
+5
+00:00:23,115 --> 00:00:27,551
+Indian citizen ke liye, ab Form No. 93 istemaal hota hai.
+
+6
+00:00:27,933 --> 00:00:31,515
+Aur ye form tabhi bhariye, jab aapne pehle kabhi PAN ke liye apply na kiya ho.
+
+7
+00:00:32,696 --> 00:00:35,475
+Ab apply karne se pehle, documents ki list dekh lijiye.
+
+8
+00:00:35,857 --> 00:00:39,462
+Yahan teen tarah ke proof chahiye, Identity, Address, aur Date of Birth.
+
+9
+00:00:39,844 --> 00:00:43,240
+Ab dhyan se dekhiye, Aadhaar card Identity aur Address ke liye chalta hai.
+
+10
+00:00:43,622 --> 00:00:45,775
+Lekin Date of Birth ke aage, yahan No likha hai.
+
+11
+00:00:46,157 --> 00:00:51,512
+To Date of Birth ke liye, passport, driving licence, ya voter ID jaisa koi document rakhiye.
+
+12
+00:00:51,894 --> 00:00:55,138
+Dasvi ki marksheet bhi, Date of Birth proof ke liye chalti hai.
+
+13
+00:00:56,320 --> 00:00:57,353
+Ab fees dekh lete hain.
+
+14
+00:00:57,735 --> 00:01:03,937
+Agar aap documents courier se bhejte hain, yaani physical mode, to PAN card ki fees ₹107 hai.
+
+15
+00:01:04,319 --> 00:01:08,917
+Aur paperless mode, yaani e-KYC aur e-Sign mein, ye fees ₹101 hai.
+
+16
+00:01:09,299 --> 00:01:12,625
+Agar aapko sirf e-PAN chahiye, to physical mode mein ₹72 lagte hain.
+
+17
+00:01:13,006 --> 00:01:15,495
+Aur paperless mode mein, ye fees ₹66 hai.
+
+18
+00:01:15,876 --> 00:01:19,667
+e-Sign chunne par, ₹5.90 ka charge alag se lagta hai.
+
+19
+00:01:20,849 --> 00:01:25,746
+Ab Apply wale link par click karte hi, ye Online PAN Application ka page khulta hai.
+
+20
+00:01:26,128 --> 00:01:29,580
+Yahan sabse pehle, PAN Application Type wale dropdown par click kijiye.
+
+21
+00:01:29,962 --> 00:01:33,304
+Phir New PAN, Form No. 93, Indian Citizen chuniye.
+
+22
+00:01:33,685 --> 00:01:37,626
+Ab dekhiye, Form 93 chunte hi, Applicant Category wala dropdown hat jata hai.
+
+23
+00:01:38,008 --> 00:01:41,032
+Ab apna naam bhariye, First Name, Middle Name, aur Last Name.
+
+24
+00:01:42,281 --> 00:01:44,098
+Upar laal rang wala note zaroor padhiye.
+
+25
+00:01:44,480 --> 00:01:48,328
+Agar Aadhaar mein naam ke initials hain, to yahan poora naam likhna hai.
+
+26
+00:01:48,710 --> 00:01:53,089
+Aur Aadhaar wala naam aage alag se bharna hota hai, wahi naam PAN card par chhapta hai.
+
+27
+00:01:53,471 --> 00:01:56,355
+Ab Date of Birth, Email ID, aur Mobile Number daliye.
+
+28
+00:01:58,107 --> 00:02:02,910
+Email aur mobile apna hi daliye, kyunki token number aur updates inhi par aate hain.
+
+29
+00:02:03,292 --> 00:02:04,915
+Ab consent wale box par tick kijiye.
+
+30
+00:02:05,297 --> 00:02:07,605
+Phir neeche captcha bhariye, aur Submit par click kijiye.
+
+31
+00:02:07,987 --> 00:02:12,689
+Submit karte hi, ek token number banta hai, jo screen par dikhta hai, aur email par bhi aata hai.
+
+32
+00:02:13,071 --> 00:02:17,796
+Is token number se, adhoora form baad mein, Resume Application se poora kar sakte hain.
+
+33
+00:02:18,796 --> 00:02:23,615
+Token ke baad aage ka form khulta hai, ye steps main aasaan tareeke se samjhata hoon.
+
+34
+00:02:23,996 --> 00:02:25,812
+Yahan apply karne ke chaar tareeke milte hain.
+
+35
+00:02:26,194 --> 00:02:30,315
+Sabse aasaan hai e-KYC aur e-Sign, isme koi kaagaz bhejna nahi padta.
+
+36
+00:02:30,697 --> 00:02:33,710
+Phir chunna hai, ki physical PAN card chahiye, ya sirf e-PAN.
+
+37
+00:02:34,092 --> 00:02:38,485
+Iske baad personal details, Aadhaar wala naam, pata, aur contact details bharni hoti hain.
+
+38
+00:02:38,867 --> 00:02:41,785
+Phir AO Code bharna hota hai, jo apne shehar ke hisaab se milta hai.
+
+39
+00:02:42,967 --> 00:02:46,005
+AO Code, website ke is AO Codes wale page par milta hai.
+
+40
+00:02:46,386 --> 00:02:48,610
+Yahan list kholkar, apne shehar ka sahi code chuniye.
+
+41
+00:02:49,610 --> 00:02:51,376
+Ab form check karke, payment kijiye.
+
+42
+00:02:51,758 --> 00:02:56,777
+Paperless mode mein, credit card, debit card, ya net banking se payment hota hai.
+
+43
+00:02:57,159 --> 00:03:00,561
+Payment ke baad acknowledgement milta hai, jisme 15 ankon ka number hota hai.
+
+44
+00:03:00,943 --> 00:03:02,884
+Iski PDF, email par bhi aati hai.
+
+45
+00:03:03,265 --> 00:03:12,524
+Agar aapne physical mode chuna hai, to sign ki hui acknowledgement, photo, aur documents, 15 din ke andar, Protean ke Pune office bhejne hote hain.
+
+46
+00:03:12,905 --> 00:03:16,596
+Sab sahi hone par, PAN card aam taur par kareeb do hafte mein dispatch ho jata hai.
+
+47
+00:03:17,778 --> 00:03:23,020
+Ab status check karna seekhte hain, apply karne ke teen din baad, aap status track kar sakte hain.
+
+48
+00:03:23,402 --> 00:03:26,255
+Yahan Application Type mein, PAN – New / Change Request chuniye.
+
+49
+00:03:26,637 --> 00:03:29,944
+Phir acknowledgement number daalkar submit kijiye, aapka status dikh jayega.
+
+50
+00:03:30,944 --> 00:03:35,259
+To doston, is tarah aap Protean ki website se, naya PAN card online apply kar sakte hain.
+
+51
+00:03:35,641 --> 00:03:38,082
+Poori checklist, description mein di hai.
+
+52
+00:03:38,464 --> 00:03:44,587
+Video achha laga ho, to like aur share kijiye, aur Learn Vexa channel ko subscribe kijiye. Thank you!
+

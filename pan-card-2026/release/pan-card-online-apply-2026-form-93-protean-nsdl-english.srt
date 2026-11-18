@@ -1,0 +1,208 @@
+1
+00:00:00,318 --> 00:00:07,450
+Want to apply for a PAN card online? Let's learn the full process step by step on Protean's official website.
+
+2
+00:00:07,832 --> 00:00:12,011
+In this video I'll cover filling the form, documents, fees and checking the status.
+
+3
+00:00:12,965 --> 00:00:16,970
+First, open this official Protean website in your browser.
+
+4
+00:00:17,352 --> 00:00:22,733
+It clearly says that from 1 April 2026, new forms apply for a new PAN.
+
+5
+00:00:23,115 --> 00:00:27,551
+For Indian citizens, Form No. 93 is now used.
+
+6
+00:00:27,933 --> 00:00:31,515
+Fill this form only if you have never applied for a PAN before.
+
+7
+00:00:32,696 --> 00:00:35,475
+Before applying, check the list of documents.
+
+8
+00:00:35,857 --> 00:00:39,462
+You need three kinds of proof: Identity, Address and Date of Birth.
+
+9
+00:00:39,844 --> 00:00:43,240
+Look carefully: Aadhaar works for Identity and Address.
+
+10
+00:00:43,622 --> 00:00:45,775
+But for Date of Birth, it says No.
+
+11
+00:00:46,157 --> 00:00:51,512
+So for Date of Birth, keep a document like a passport, driving licence or voter ID.
+
+12
+00:00:51,894 --> 00:00:55,138
+A Class 10 marksheet also works as Date of Birth proof.
+
+13
+00:00:56,320 --> 00:00:57,353
+Now let's look at the fees.
+
+14
+00:00:57,735 --> 00:01:03,937
+If you send documents by post (physical mode), the PAN card fee is ₹107.
+
+15
+00:01:04,319 --> 00:01:08,917
+In paperless mode (e-KYC & e-Sign), the fee is ₹101.
+
+16
+00:01:09,299 --> 00:01:12,625
+If you only need an e-PAN, it costs ₹72 in physical mode.
+
+17
+00:01:13,006 --> 00:01:15,495
+And in paperless mode, this fee is ₹66.
+
+18
+00:01:15,876 --> 00:01:19,667
+Choosing e-Sign adds a separate charge of ₹5.90.
+
+19
+00:01:20,849 --> 00:01:25,746
+Clicking the Apply link opens this Online PAN Application page.
+
+20
+00:01:26,128 --> 00:01:29,580
+First, click the PAN Application Type dropdown.
+
+21
+00:01:29,962 --> 00:01:33,304
+Then choose New PAN – Form No. 93 (Indian Citizen).
+
+22
+00:01:33,685 --> 00:01:37,626
+Notice: once you choose Form 93, the Applicant Category dropdown disappears.
+
+23
+00:01:38,008 --> 00:01:41,032
+Now fill in your name: First, Middle and Last Name.
+
+24
+00:01:42,281 --> 00:01:44,098
+Do read the red note at the top.
+
+25
+00:01:44,480 --> 00:01:48,328
+If your Aadhaar name has initials, write the full name here.
+
+26
+00:01:48,710 --> 00:01:53,089
+The name as per Aadhaar is filled separately later, and that name is printed on the PAN card.
+
+27
+00:01:53,471 --> 00:01:56,355
+Now enter Date of Birth, Email ID and Mobile Number.
+
+28
+00:01:58,107 --> 00:02:02,910
+Use your own email and mobile, because the token number and updates come there.
+
+29
+00:02:03,292 --> 00:02:04,915
+Now tick the consent box.
+
+30
+00:02:05,297 --> 00:02:07,605
+Then fill the captcha below and click Submit.
+
+31
+00:02:07,987 --> 00:02:12,689
+On submitting, a token number is generated, shown on screen and also sent by email.
+
+32
+00:02:13,071 --> 00:02:17,796
+With this token number you can finish an incomplete form later via Resume Application.
+
+33
+00:02:18,796 --> 00:02:23,615
+After the token, the next form opens. Let me explain these steps simply.
+
+34
+00:02:23,996 --> 00:02:25,812
+There are four ways to submit the application.
+
+35
+00:02:26,194 --> 00:02:30,315
+The easiest is e-KYC & e-Sign, where you don't have to send any papers.
+
+36
+00:02:30,697 --> 00:02:33,710
+Then choose whether you want a physical PAN card or only an e-PAN.
+
+37
+00:02:34,092 --> 00:02:38,485
+Next, fill personal details, name as per Aadhaar, address and contact details.
+
+38
+00:02:38,867 --> 00:02:41,785
+Then fill the AO Code, which depends on your city.
+
+39
+00:02:42,967 --> 00:02:46,005
+The AO Code is found on this AO Codes page of the website.
+
+40
+00:02:46,386 --> 00:02:48,610
+Open the list here and pick the right code for your city.
+
+41
+00:02:49,610 --> 00:02:51,376
+Now check the form and make the payment.
+
+42
+00:02:51,758 --> 00:02:56,777
+In paperless mode you pay by credit card, debit card or net banking.
+
+43
+00:02:57,159 --> 00:03:00,561
+After payment you get an acknowledgement with a 15-digit number.
+
+44
+00:03:00,943 --> 00:03:02,884
+Its PDF also comes by email.
+
+45
+00:03:03,265 --> 00:03:12,524
+In physical mode, send the signed acknowledgement, photos and documents to Protean's Pune office within 15 days.
+
+46
+00:03:12,905 --> 00:03:16,596
+If everything is in order, the PAN card is normally dispatched in about two weeks.
+
+47
+00:03:17,778 --> 00:03:23,020
+Now, checking status: you can track it three days after applying.
+
+48
+00:03:23,402 --> 00:03:26,255
+Here, in Application Type, choose PAN – New / Change Request.
+
+49
+00:03:26,637 --> 00:03:29,944
+Then enter the acknowledgement number and submit to see your status.
+
+50
+00:03:30,944 --> 00:03:35,259
+So friends, this is how you apply for a new PAN card online on Protean's website.
+
+51
+00:03:35,641 --> 00:03:38,082
+The full checklist is in the description.
+
+52
+00:03:38,464 --> 00:03:44,587
+If you liked the video, please like and share, and subscribe to Learn Vexa. Thank you!
+
