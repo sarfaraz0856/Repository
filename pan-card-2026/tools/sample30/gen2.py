@@ -5,7 +5,7 @@ torch.set_num_threads(4)
 S = sys.argv[1]
 lines = json.load(open(f"{S}/s30/lines.json"))
 tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2")
-refs = [f"{S}/ref/ref_{x}.wav" for x in "abc"]
+refs = [f"{S}/ref/ref_best.wav"]  # 2:11-2:25 clip chosen by the user
 for i, (hi, _h, _e) in enumerate(lines):
     for k, temp in enumerate([0.6, 0.75]):
         out = f"{S}/s30/l{i:02d}_t{k}.wav"
