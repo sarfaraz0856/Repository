@@ -3,10 +3,10 @@ import {PHONE} from '../theme';
 import {LensScreen} from './LensScreen';
 
 /** Realistic modern smartphone shell (original CSS design) */
-export const Phone: React.FC = () => {
+export const Phone: React.FC<{screen?: React.ReactNode; x?: number; y?: number; scale?: number}> = ({screen, x = PHONE.x, y = PHONE.y, scale = 1}) => {
   const {w, h, inset} = PHONE;
   return (
-    <div style={{position: 'absolute', left: PHONE.x, top: PHONE.y, width: w, height: h}}>
+    <div style={{position: 'absolute', left: x, top: y, width: w, height: h, transform: scale !== 1 ? `scale(${scale})` : undefined, transformOrigin: '50% 50%'}}>
       {/* ground shadow */}
       <div style={{position: 'absolute', left: 30, right: 30, bottom: -40, height: 60, borderRadius: '50%', background: 'rgba(30,40,80,0.22)', filter: 'blur(26px)'}} />
       {/* side buttons */}
@@ -27,7 +27,7 @@ export const Phone: React.FC = () => {
       <div style={{position: 'absolute', inset: 4, borderRadius: 64, background: '#0B0C0F'}} />
       {/* screen */}
       <div style={{position: 'absolute', left: inset, top: inset, width: w - inset * 2, height: h - inset * 2, borderRadius: 56, overflow: 'hidden', transform: 'translateZ(0)'}}>
-        <LensScreen />
+        {screen ?? <LensScreen />}
         {/* glass reflection */}
         <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(115deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.03) 28%, transparent 40%)', pointerEvents: 'none'}} />
       </div>

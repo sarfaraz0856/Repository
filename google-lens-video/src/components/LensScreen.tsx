@@ -21,7 +21,7 @@ const SPARKS: [number, number][] = [
 ];
 const SPARK_COLORS = [C.blue, C.red, C.yellow, C.green];
 
-const StatusBar: React.FC<{dark?: boolean}> = ({dark}) => {
+export const StatusBar: React.FC<{dark?: boolean}> = ({dark}) => {
   const col = dark ? '#1a1f2b' : '#fff';
   return (
     <div style={{position: 'absolute', top: 0, left: 0, width: W, height: 50, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 34px 0', boxSizing: 'border-box', fontFamily: FONT_UI, fontWeight: 600, fontSize: 16, color: col, zIndex: 20}}>
@@ -77,7 +77,7 @@ const HomeScreen: React.FC<{f: number}> = ({f}) => {
 };
 
 // Scene is oversized so the camera view can be re-framed without exposing edges
-const CameraScene: React.FC = () => (
+export const CameraScene: React.FC = () => (
   <div style={{position: 'absolute', left: -70, top: -40, width: W + 140, height: H + 260}}>
     {/* wall */}
     <div style={{position: 'absolute', inset: 0, background: 'linear-gradient(180deg, #DCD6CD 0%, #CFC7BB 52%, #BDB4A6 56%, #A9A196 100%)'}} />

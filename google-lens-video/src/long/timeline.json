@@ -1,0 +1,384 @@
+{
+ "fps": 30,
+ "durationInFrames": 10800,
+ "scenes": [
+  {
+   "id": "intro",
+   "title": "HOW GOOGLE LENS WORKS",
+   "from": 0,
+   "dur": 900,
+   "cues": [
+    {
+     "file": "long/vo/intro_1.wav",
+     "text": "Imagine pointing your smartphone at almost anything and instantly discovering information about it.",
+     "from": 98,
+     "dur": 171
+    },
+    {
+     "file": "long/vo/intro_2.wav",
+     "text": "A product, a plant, a famous landmark, or even a page of handwritten notes.",
+     "from": 289,
+     "dur": 150
+    },
+    {
+     "file": "long/vo/intro_3.wav",
+     "text": "Google Lens makes this possible using artificial intelligence and visual search technology.",
+     "from": 458,
+     "dur": 169
+    },
+    {
+     "file": "long/vo/intro_4.wav",
+     "text": "But how does it actually work?",
+     "from": 646,
+     "dur": 51
+    },
+    {
+     "file": "long/vo/intro_5.wav",
+     "text": "In this video, we'll explore the technology behind Google Lens, step by step.",
+     "from": 716,
+     "dur": 142
+    }
+   ]
+  },
+  {
+   "id": "what",
+   "title": "WHAT IS GOOGLE LENS?",
+   "from": 900,
+   "dur": 1245,
+   "cues": [
+    {
+     "file": "long/vo/what_1.wav",
+     "text": "Google Lens is a visual search tool developed by Google.",
+     "from": 945,
+     "dur": 118
+    },
+    {
+     "file": "long/vo/what_2.wav",
+     "text": "Instead of typing words into a search bar, you can use your camera or an existing image to search for information.",
+     "from": 1081,
+     "dur": 224
+    },
+    {
+     "file": "long/vo/what_3.wav",
+     "text": "Google Lens analyzes what it sees and helps you discover relevant results.",
+     "from": 1324,
+     "dur": 135
+    },
+    {
+     "file": "long/vo/what_4.wav",
+     "text": "It can recognize objects, identify landmarks, extract text, translate signs, and help you find similar products online.",
+     "from": 1478,
+     "dur": 234
+    },
+    {
+     "file": "long/vo/what_5.wav",
+     "text": "The idea is simple: use an image as your search query.",
+     "from": 1731,
+     "dur": 117
+    },
+    {
+     "file": "long/vo/what_6.wav",
+     "text": "This makes searching more natural, especially when you don't know the name of something or when describing it with words would be difficult.",
+     "from": 1867,
+     "dur": 236
+    }
+   ]
+  },
+  {
+   "id": "scan",
+   "title": "HOW IMAGE SCANNING WORKS",
+   "from": 2145,
+   "dur": 1290,
+   "cues": [
+    {
+     "file": "long/vo/scan_1.wav",
+     "text": "When you point your camera at an object, the first step is capturing an image.",
+     "from": 2191,
+     "dur": 163
+    },
+    {
+     "file": "long/vo/scan_2.wav",
+     "text": "The system processes visual information such as shapes, colors, textures, patterns, and the relationships between different parts of the image.",
+     "from": 2372,
+     "dur": 256
+    },
+    {
+     "file": "long/vo/scan_3.wav",
+     "text": "Machine learning models analyze this information to develop an understanding of what might be present.",
+     "from": 2648,
+     "dur": 157
+    },
+    {
+     "file": "long/vo/scan_4.wav",
+     "text": "For example, when you scan a sneaker, the system can identify visual features that resemble footwear.",
+     "from": 2824,
+     "dur": 205
+    },
+    {
+     "file": "long/vo/scan_5.wav",
+     "text": "It may also distinguish specific characteristics, such as its color, style, and design.",
+     "from": 3049,
+     "dur": 177
+    },
+    {
+     "file": "long/vo/scan_6.wav",
+     "text": "These visual clues help the system understand what to search for next.",
+     "from": 3245,
+     "dur": 146
+    }
+   ]
+  },
+  {
+   "id": "ai",
+   "title": "AI AND OBJECT RECOGNITION",
+   "from": 3435,
+   "dur": 1305,
+   "cues": [
+    {
+     "file": "long/vo/ai_1.wav",
+     "text": "One of the technologies that makes Google Lens possible is computer vision, a field of artificial intelligence focused on understanding images and videos.",
+     "from": 3481,
+     "dur": 273
+    },
+    {
+     "file": "long/vo/ai_2.wav",
+     "text": "AI models learn visual patterns from large collections of training examples.",
+     "from": 3776,
+     "dur": 129
+    },
+    {
+     "file": "long/vo/ai_3.wav",
+     "text": "When a new image is analyzed, the model uses its learned patterns to recognize possible objects and visual features.",
+     "from": 3926,
+     "dur": 202
+    },
+    {
+     "file": "long/vo/ai_4.wav",
+     "text": "Modern visual search systems can also use sophisticated models to understand how different elements of an image relate to one another.",
+     "from": 4148,
+     "dur": 251
+    },
+    {
+     "file": "long/vo/ai_5.wav",
+     "text": "Rather than simply looking for an identical picture, the system can use visual similarities and context to help identify relevant information.",
+     "from": 4421,
+     "dur": 274
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "title": "VISUAL SEARCH & MATCHING",
+   "from": 4740,
+   "dur": 1230,
+   "cues": [
+    {
+     "file": "long/vo/results_1.wav",
+     "text": "After analyzing the image, Google Lens can use its visual understanding to find relevant search results.",
+     "from": 4785,
+     "dur": 193
+    },
+    {
+     "file": "long/vo/results_2.wav",
+     "text": "Let's imagine that you scan a pair of sneakers.",
+     "from": 4997,
+     "dur": 96
+    },
+    {
+     "file": "long/vo/results_3.wav",
+     "text": "Google Lens may show visually similar shoes, product listings, shopping information, and useful web pages.",
+     "from": 5112,
+     "dur": 193
+    },
+    {
+     "file": "long/vo/results_4.wav",
+     "text": "The results can help you learn more about the style or find places where similar products are available.",
+     "from": 5324,
+     "dur": 167
+    },
+    {
+     "file": "long/vo/results_5.wav",
+     "text": "Visual search is especially useful for clothing, furniture, accessories, and everyday objects.",
+     "from": 5511,
+     "dur": 176
+    },
+    {
+     "file": "long/vo/results_6.wav",
+     "text": "Instead of trying to describe the exact shape and color of a product, you can simply show the camera what you're looking for.",
+     "from": 5705,
+     "dur": 222
+    }
+   ]
+  },
+  {
+   "id": "text",
+   "title": "TEXT RECOGNITION & TRANSLATION",
+   "from": 5970,
+   "dur": 1350,
+   "cues": [
+    {
+     "file": "long/vo/text_1.wav",
+     "text": "Google Lens can also work with text inside images.",
+     "from": 6017,
+     "dur": 102
+    },
+    {
+     "file": "long/vo/text_2.wav",
+     "text": "This is made possible by optical character recognition, commonly known as OCR, combined with other language-processing technologies.",
+     "from": 6140,
+     "dur": 266
+    },
+    {
+     "file": "long/vo/text_3.wav",
+     "text": "When you point your camera at a printed page or sign, Lens can detect the text and allow you to copy it, search for it, or translate it.",
+     "from": 6427,
+     "dur": 263
+    },
+    {
+     "file": "long/vo/text_4.wav",
+     "text": "Imagine traveling to another country and seeing a sign written in a language you don't understand.",
+     "from": 6710,
+     "dur": 178
+    },
+    {
+     "file": "long/vo/text_5.wav",
+     "text": "Google Lens can help translate that text and display the result on your screen.",
+     "from": 6908,
+     "dur": 131
+    },
+    {
+     "file": "long/vo/text_6.wav",
+     "text": "You can also use it to copy information from books, notes, and documents without typing everything manually.",
+     "from": 7060,
+     "dur": 214
+    }
+   ]
+  },
+  {
+   "id": "uses",
+   "title": "REAL-WORLD APPLICATIONS",
+   "from": 7320,
+   "dur": 1336,
+   "cues": [
+    {
+     "file": "long/vo/uses_1.wav",
+     "text": "Google Lens can be useful in many everyday situations.",
+     "from": 7365,
+     "dur": 110
+    },
+    {
+     "file": "long/vo/uses_2.wav",
+     "text": "If you see an unfamiliar plant, you can scan it to explore possible matches and learn more about it.",
+     "from": 7492,
+     "dur": 183
+    },
+    {
+     "file": "long/vo/uses_3.wav",
+     "text": "If you're visiting a famous location, visual search may help you identify a landmark and discover its history.",
+     "from": 7693,
+     "dur": 204
+    },
+    {
+     "file": "long/vo/uses_4.wav",
+     "text": "If you see a product you like, you can search for similar items without knowing the brand or model.",
+     "from": 7916,
+     "dur": 174
+    },
+    {
+     "file": "long/vo/uses_5.wav",
+     "text": "You can also translate menus, copy printed text, and search for information related to objects around you.",
+     "from": 8108,
+     "dur": 191
+    },
+    {
+     "file": "long/vo/uses_6.wav",
+     "text": "However, AI recognition isn't always perfect.",
+     "from": 8317,
+     "dur": 108
+    },
+    {
+     "file": "long/vo/uses_7.wav",
+     "text": "Results can vary depending on image quality, lighting, and the information available.",
+     "from": 8443,
+     "dur": 170
+    }
+   ]
+  },
+  {
+   "id": "howto",
+   "title": "HOW TO USE GOOGLE LENS",
+   "from": 8656,
+   "dur": 1110,
+   "cues": [
+    {
+     "file": "long/vo/howto_1.wav",
+     "text": "Using Google Lens is straightforward.",
+     "from": 8692,
+     "dur": 67
+    },
+    {
+     "file": "long/vo/howto_2.wav",
+     "text": "Open the Google app or another supported place where Lens is available, and select the Google Lens icon.",
+     "from": 8774,
+     "dur": 197
+    },
+    {
+     "file": "long/vo/howto_3.wav",
+     "text": "You can point your camera at something you want to explore or choose an existing picture from your device.",
+     "from": 8986,
+     "dur": 186
+    },
+    {
+     "file": "long/vo/howto_4.wav",
+     "text": "Position the object clearly inside the camera view and capture or select the image as needed.",
+     "from": 9186,
+     "dur": 171
+    },
+    {
+     "file": "long/vo/howto_5.wav",
+     "text": "Lens will analyze it and display relevant options or search results.",
+     "from": 9372,
+     "dur": 122
+    },
+    {
+     "file": "long/vo/howto_6.wav",
+     "text": "Depending on the content, you can explore matching products, copy text, translate words, or discover additional information.",
+     "from": 9509,
+     "dur": 228
+    }
+   ]
+  },
+  {
+   "id": "outro",
+   "title": "GOOGLE LENS",
+   "from": 9766,
+   "dur": 1034,
+   "cues": [
+    {
+     "file": "long/vo/outro_1.wav",
+     "text": "Google Lens brings together computer vision, artificial intelligence, text recognition, and visual search to make everyday information easier to discover.",
+     "from": 9796,
+     "dur": 289
+    },
+    {
+     "file": "long/vo/outro_2.wav",
+     "text": "Instead of searching only with words, we can now explore the world using images.",
+     "from": 10100,
+     "dur": 152
+    },
+    {
+     "file": "long/vo/outro_3.wav",
+     "text": "From identifying objects to translating text, visual search is changing how we interact with information.",
+     "from": 10266,
+     "dur": 183
+    },
+    {
+     "file": "long/vo/outro_4.wav",
+     "text": "Google Lens is one example of how AI connects the physical world with digital knowledge.",
+     "from": 10463,
+     "dur": 172
+    }
+   ]
+  }
+ ]
+}

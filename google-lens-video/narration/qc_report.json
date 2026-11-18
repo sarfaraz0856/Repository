@@ -1,0 +1,257 @@
+{
+ "intro_1": {
+  "wer": 0.0,
+  "asr": "Imagine pointing your smartphone at almost anything and instantly discovering information about it.",
+  "retakes": 0
+ },
+ "intro_2": {
+  "wer": 0.0,
+  "asr": "a product, a plant, a famous landmark or even, a page of handwritten notes.",
+  "retakes": 0
+ },
+ "intro_3": {
+  "wer": 0.0,
+  "asr": "Google Lens makes this possible using artificial intelligence and visual search technology.",
+  "retakes": 0
+ },
+ "intro_4": {
+  "wer": 0.0,
+  "asr": "But how does it actually work?",
+  "retakes": 0
+ },
+ "intro_5": {
+  "wer": 0.0,
+  "asr": "In this video, we will explore the technology behind Google Lens, step by step.",
+  "retakes": 0
+ },
+ "what_1": {
+  "wer": 0.0,
+  "asr": "Google Lens is a visual search tool developed by Google.",
+  "retakes": 0
+ },
+ "what_2": {
+  "wer": 0.0,
+  "asr": "Instead of typing words into a search bar, you can use your camera or an existing image to search for information.",
+  "retakes": 0
+ },
+ "what_3": {
+  "wer": 0.0,
+  "asr": "Google Lens analyzes what it sees and helps you discover relevant results.",
+  "retakes": 0
+ },
+ "what_4": {
+  "wer": 0.0,
+  "asr": "It can recognize objects, identify landmarks, extract text, translate signs and help you find similar products online.",
+  "retakes": 0
+ },
+ "what_5": {
+  "wer": 0.0,
+  "asr": "The idea is simple, use an image as your search query.",
+  "retakes": 0
+ },
+ "what_6": {
+  "wer": 0.042,
+  "asr": "this makes searching more natural, especially when you don't know the name of samathin or when describing it with words would be difficult.",
+  "retakes": 0
+ },
+ "scan_1": {
+  "wer": 0.0,
+  "asr": "When you point your camera at an object, the first step is capturing an image.",
+  "retakes": 0
+ },
+ "scan_2": {
+  "wer": 0.05,
+  "asr": "The system processes visual information such as shapes, tellers, textures, patterns and the relationships between different parts of the image.",
+  "retakes": 0
+ },
+ "scan_3": {
+  "wer": 0.0,
+  "asr": "Machine learning models analyze this information to develop an understanding of what might be present.",
+  "retakes": 0
+ },
+ "scan_4": {
+  "wer": 0.0,
+  "asr": "For example, when you scan a sneaker, the system can identify visual features that resemble footwear.",
+  "retakes": 0
+ },
+ "scan_5": {
+  "wer": 0.0,
+  "asr": "It may also distinguish specific characteristics such as its color, style and design.",
+  "retakes": 0
+ },
+ "scan_6": {
+  "wer": 0.0,
+  "asr": "these visual clues help the system understand what to search for next.",
+  "retakes": 0
+ },
+ "ai_1": {
+  "wer": 0.0,
+  "asr": "One of the technologies that makes Google Lens possible is computer vision, a field of artificial intelligence focused on understanding images and videos.",
+  "retakes": 0
+ },
+ "ai_2": {
+  "wer": 0.0,
+  "asr": "AI models learn visual patterns from large collections of training examples.",
+  "retakes": 0
+ },
+ "ai_3": {
+  "wer": 0.0,
+  "asr": "When a new image is analyzed, the model uses its learned patterns to recognize possible objects and visual features.",
+  "retakes": 0
+ },
+ "ai_4": {
+  "wer": 0.0,
+  "asr": "Modern visual search systems can also use sophisticated models to understand how different elements of an image relate to one another.",
+  "retakes": 0
+ },
+ "ai_5": {
+  "wer": 0.0,
+  "asr": "Rather than simply looking for an identical picture, the system can use visual similarities and context to help identify relevant information.",
+  "retakes": 0
+ },
+ "results_1": {
+  "wer": 0.0,
+  "asr": "After analyzing the image, Google Lens can use its visual understanding to find relevant search results.",
+  "retakes": 0
+ },
+ "results_2": {
+  "wer": 0.0,
+  "asr": "Let's imagine that you scan a pair of sneakers.",
+  "retakes": 0
+ },
+ "results_3": {
+  "wer": 0.0,
+  "asr": "Google Lens may show visually similar shoes, product listings, shopping information and useful web pages.",
+  "retakes": 0
+ },
+ "results_4": {
+  "wer": 0.056,
+  "asr": "The results can help you learn more about the style of find places where similar products are available.",
+  "retakes": 0
+ },
+ "results_5": {
+  "wer": 0.0,
+  "asr": "Visual search is especially useful for clothing, furniture, accessories and everyday objects.",
+  "retakes": 0
+ },
+ "results_6": {
+  "wer": 0.0,
+  "asr": "Instead of trying to describe the exact shape and color of a product, you can simply show the camera what you are looking for.",
+  "retakes": 0
+ },
+ "text_1": {
+  "wer": 0.0,
+  "asr": "Google Lens can also work with text inside images.",
+  "retakes": 0
+ },
+ "text_2": {
+  "wer": 0.056,
+  "asr": "And this is made possible by Optical Character Recognition, commonly known as OCR, combined with other language processing technologies.",
+  "retakes": 0
+ },
+ "text_3": {
+  "wer": 0.0,
+  "asr": "When you point your camera at a printed page or sign, lens can detect the text and allow you to copy it, search for it or translate it.",
+  "retakes": 0
+ },
+ "text_4": {
+  "wer": 0.059,
+  "asr": "Imagine traveling to another country and seeing the sign written in a language you don't understand.",
+  "retakes": 0
+ },
+ "text_5": {
+  "wer": 0.0,
+  "asr": "Google Lens can help translate that text and display the result on your screen.",
+  "retakes": 0
+ },
+ "text_6": {
+  "wer": 0.0,
+  "asr": "You can also use it to copy information from books, notes and documents without typing everything manually.",
+  "retakes": 0
+ },
+ "uses_1": {
+  "wer": 0.0,
+  "asr": "Google Lens can be useful in many everyday situations.",
+  "retakes": 0
+ },
+ "uses_2": {
+  "wer": 0.0,
+  "asr": "If you see an unfamiliar plant, you can scan it to explore possible matches and learn more about it.",
+  "retakes": 0
+ },
+ "uses_3": {
+  "wer": 0.053,
+  "asr": "If you are visiting the famous location, visual search may help you identify a landmark and discover its history.",
+  "retakes": 0
+ },
+ "uses_4": {
+  "wer": 0.0,
+  "asr": "If you see a product you like, you can search for similar items without knowing the brand or model.",
+  "retakes": 0
+ },
+ "uses_5": {
+  "wer": 0.0,
+  "asr": "You can also translate menus, copy printed text and search for information related to objects around you.",
+  "retakes": 0
+ },
+ "uses_6": {
+  "wer": 0.0,
+  "asr": "However, AI recognition is not always perfect.",
+  "retakes": 0
+ },
+ "uses_7": {
+  "wer": 0.0,
+  "asr": "Results can vary depending on image quality, lighting and the information available.",
+  "retakes": 0
+ },
+ "howto_1": {
+  "wer": 0.0,
+  "asr": "using Google Lens is straightforward.",
+  "retakes": 0
+ },
+ "howto_2": {
+  "wer": 0.0,
+  "asr": "Open the Google app or another supported place where Lens is available and select the Google Lens icon.",
+  "retakes": 0
+ },
+ "howto_3": {
+  "wer": 0.0,
+  "asr": "You can point your camera at something you want to explore or choose an existing picture from your device.",
+  "retakes": 0
+ },
+ "howto_4": {
+  "wer": 0.0,
+  "asr": "position the object clearly inside the camera view and capture or select the image as needed.",
+  "retakes": 0
+ },
+ "howto_5": {
+  "wer": 0.0,
+  "asr": "lens will analyze it and display relevant options or search results.",
+  "retakes": 0
+ },
+ "howto_6": {
+  "wer": 0.0,
+  "asr": "Depending on the content, you can explore matching products, copy text, translate words or discover additional information.",
+  "retakes": 0
+ },
+ "outro_1": {
+  "wer": 0.0,
+  "asr": "Google Lens brings together computer vision, artificial intelligence, text recognition, and visual search to make everyday information easier to discover.",
+  "retakes": 0
+ },
+ "outro_2": {
+  "wer": 0.0,
+  "asr": "Instead of searching only with words, we can now explore the world using images.",
+  "retakes": 0
+ },
+ "outro_3": {
+  "wer": 0.0,
+  "asr": "From identifying objects to translating text, visual search is changing how we interact with information.",
+  "retakes": 0
+ },
+ "outro_4": {
+  "wer": 0.0,
+  "asr": "Google Lens is one example of how AI connects the physical world with digital knowledge.",
+  "retakes": 0
+ }
+}

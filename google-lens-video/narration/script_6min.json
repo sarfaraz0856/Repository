@@ -1,0 +1,267 @@
+{
+ "voice": {
+  "engine": "piper",
+  "model": "hi_IN-pratham-medium",
+  "note": "Same voice and post-processing chain as the 15-second video (scripts/make_voiceover.sh). 'en' is the exact narration text (used for subtitles); 'say' is the same sentence spelled phonetically in Devanagari so the Hindi voice pronounces the English words clearly."
+ },
+ "scenes": [
+  {
+   "id": "intro",
+   "title": "HOW GOOGLE LENS WORKS",
+   "lines": [
+    {
+     "en": "Imagine pointing your smartphone at almost anything and instantly discovering information about it.",
+     "say": "इमैजिन पॉइंटिंग योर स्मार्टफ़ोन ऐट ऑलमोस्ट एनीथिंग, ऐंड इंस्टैंटली डिस्कवरिंग इन्फ़ॉर्मेशन अबाउट इट।"
+    },
+    {
+     "en": "A product, a plant, a famous landmark, or even a page of handwritten notes.",
+     "say": "अ प्रॉडक्ट, अ प्लांट, अ फ़ेमस लैंडमार्क, ऑर ईवन, अ पेज ऑफ़ हैंडरिटन नोट्स।"
+    },
+    {
+     "en": "Google Lens makes this possible using artificial intelligence and visual search technology.",
+     "say": "गूगल लेंस मेक्स दिस पॉसिबल, यूज़िंग आर्टिफ़िशियल इंटेलिजेंस, ऐंड विज़ुअल सर्च टेक्नॉलजी।"
+    },
+    {
+     "en": "But how does it actually work?",
+     "say": "बट हाउ डज़ इट ऐक्चुअली वर्क?"
+    },
+    {
+     "en": "In this video, we'll explore the technology behind Google Lens, step by step.",
+     "say": "इन दिस वीडियो, वील एक्सप्लोर द टेक्नॉलजी बिहाइंड गूगल लेंस, स्टेप बाय स्टेप।"
+    }
+   ]
+  },
+  {
+   "id": "what",
+   "title": "WHAT IS GOOGLE LENS?",
+   "lines": [
+    {
+     "en": "Google Lens is a visual search tool developed by Google.",
+     "say": "गूगल लैन्स, इज़ अ विज़ुअल सर्च टूल, डिवेलप्ड बाय गूगल।"
+    },
+    {
+     "en": "Instead of typing words into a search bar, you can use your camera or an existing image to search for information.",
+     "say": "इंस्टेड ऑफ़ टाइपिंग वर्ड्स इनटू अ सर्च बार, यू कैन यूज़ योर कैमरा, ऑर ऐन एग्ज़िस्टिंग इमेज, टू सर्च फ़ॉर इन्फ़ॉर्मेशन।"
+    },
+    {
+     "en": "Google Lens analyzes what it sees and helps you discover relevant results.",
+     "say": "गूगल लेंस ऐनालाइज़ेज़ व्हाट इट सीज़, ऐंड हेल्प्स यू डिस्कवर रेलेवेंट रिज़ल्ट्स।"
+    },
+    {
+     "en": "It can recognize objects, identify landmarks, extract text, translate signs, and help you find similar products online.",
+     "say": "इट कैन रेकग्नाइज़ ऑब्जेक्ट्स, आइडेंटिफ़ाई लैंडमार्क्स, एक्सट्रैक्ट टेक्स्ट, ट्रांसलेट साइन्स, ऐंड हेल्प यू फ़ाइंड सिमिलर प्रॉडक्ट्स ऑनलाइन।"
+    },
+    {
+     "en": "The idea is simple: use an image as your search query.",
+     "say": "द आइडिया इज़ सिंपल। यूज़ ऐन इमेज, ऐज़ योर सर्च क्वेरी।"
+    },
+    {
+     "en": "This makes searching more natural, especially when you don't know the name of something or when describing it with words would be difficult.",
+     "say": "दिस मेक्स सर्चिंग मोर नैचुरल, इस्पेशली व्हेन यू डोन्ट नो द नेम ऑफ़ समथिंग, ऑर व्हेन डिस्क्राइबिंग इट विद वर्ड्स, वुड बी डिफ़िकल्ट।"
+    }
+   ]
+  },
+  {
+   "id": "scan",
+   "title": "HOW IMAGE SCANNING WORKS",
+   "lines": [
+    {
+     "en": "When you point your camera at an object, the first step is capturing an image.",
+     "say": "व्हेन यू पॉइंट योर कैमरा, ऐट ऐन ऑब्जेक्ट, द फ़र्स्ट स्टेप इज़ कैप्चरिंग ऐन इमेज।"
+    },
+    {
+     "en": "The system processes visual information such as shapes, colors, textures, patterns, and the relationships between different parts of the image.",
+     "say": "द सिस्टम प्रोसेसेज़ विज़ुअल इन्फ़ॉर्मेशन, सच ऐज़ शेप्स, कलर्स, टेक्सचर्स, पैटर्न्स, ऐंड द रिलेशनशिप्स बिटवीन डिफ़रेंट पार्ट्स ऑफ़ द इमेज।"
+    },
+    {
+     "en": "Machine learning models analyze this information to develop an understanding of what might be present.",
+     "say": "मशीन लर्निंग मॉडल्स ऐनालाइज़ दिस इन्फ़ॉर्मेशन, टू डिवेलप ऐन अंडरस्टैंडिंग ऑफ़ व्हाट माइट बी प्रेज़ेंट।"
+    },
+    {
+     "en": "For example, when you scan a sneaker, the system can identify visual features that resemble footwear.",
+     "say": "फ़ॉर एग्ज़ाम्पल, व्हेन यू स्कैन अ स्नीकर, द सिस्टम कैन आइडेंटिफ़ाई विज़ुअल फ़ीचर्स, दैट रिज़ेम्बल फ़ुटवेयर।"
+    },
+    {
+     "en": "It may also distinguish specific characteristics, such as its color, style, and design.",
+     "say": "इट मे ऑल्सो डिस्टिंग्विश स्पेसिफ़िक कैरेक्टरिस्टिक्स, सच ऐज़ इट्स कलर, स्टाइल, ऐंड डिज़ाइन।"
+    },
+    {
+     "en": "These visual clues help the system understand what to search for next.",
+     "say": "दीज़ विज़ुअल, क्लूज़, हेल्प द सिस्टम अंडरस्टैंड, व्हाट टू सर्च फ़ॉर नेक्स्ट।"
+    }
+   ]
+  },
+  {
+   "id": "ai",
+   "title": "AI AND OBJECT RECOGNITION",
+   "lines": [
+    {
+     "en": "One of the technologies that makes Google Lens possible is computer vision, a field of artificial intelligence focused on understanding images and videos.",
+     "say": "वन ऑफ़ द टेक्नॉलजीज़ दैट मेक्स गूगल लेन्स पॉसिबल, इज़ कंप्यूटर विज़न। अ फ़ील्ड ऑफ़ आर्टिफ़िशियल इंटेलिजेंस, फ़ोकस्ड ऑन अंडरस्टैंडिंग इमेजेज़ ऐंड वीडियोज़।"
+    },
+    {
+     "en": "AI models learn visual patterns from large collections of training examples.",
+     "say": "एआई मॉडल्स लर्न विज़ुअल पैटर्न्स, फ़्रॉम लार्ज कलेक्शन्स ऑफ़ ट्रेनिंग एग्ज़ाम्पल्स।"
+    },
+    {
+     "en": "When a new image is analyzed, the model uses its learned patterns to recognize possible objects and visual features.",
+     "say": "व्हेन अ न्यू इमेज इज़ ऐनालाइज़्ड, द मॉडल यूज़ेज़ इट्स लर्न्ड पैटर्न्स, टू रेकग्नाइज़ पॉसिबल ऑब्जेक्ट्स, ऐंड विज़ुअल फ़ीचर्स।"
+    },
+    {
+     "en": "Modern visual search systems can also use sophisticated models to understand how different elements of an image relate to one another.",
+     "say": "मॉडर्न विज़ुअल सर्च सिस्टम्स, कैन ऑल्सो यूज़ सॉफ़िस्टिकेटेड मॉडल्स, टू अंडरस्टैंड हाउ डिफ़रेंट एलिमेंट्स ऑफ़ ऐन इमेज, रिलेट टू वन अनदर।"
+    },
+    {
+     "en": "Rather than simply looking for an identical picture, the system can use visual similarities and context to help identify relevant information.",
+     "say": "रैदर दैन सिंपली लुकिंग फ़ॉर ऐन आइडेंटिकल पिक्चर, द सिस्टम कैन यूज़ विज़ुअल सिमिलैरिटीज़ ऐंड कॉन्टेक्स्ट, टू हेल्प आइडेंटिफ़ाई रेलेवेंट इन्फ़ॉर्मेशन।"
+    }
+   ]
+  },
+  {
+   "id": "results",
+   "title": "VISUAL SEARCH & MATCHING",
+   "lines": [
+    {
+     "en": "After analyzing the image, Google Lens can use its visual understanding to find relevant search results.",
+     "say": "आफ़्टर ऐनालाइज़िंग द इमेज, गूगल लेंस कैन यूज़ इट्स विज़ुअल अंडरस्टैंडिंग, टू फ़ाइंड रेलेवेंट सर्च रिज़ल्ट्स।"
+    },
+    {
+     "en": "Let's imagine that you scan a pair of sneakers.",
+     "say": "लेट्स इमैजिन, दैट यू स्कैन अ पेयर ऑफ़ स्नीकर्स।"
+    },
+    {
+     "en": "Google Lens may show visually similar shoes, product listings, shopping information, and useful web pages.",
+     "say": "गूगल लेंस मे शो विज़ुअली सिमिलर शूज़, प्रॉडक्ट लिस्टिंग्स, शॉपिंग इन्फ़ॉर्मेशन, ऐंड यूज़फ़ुल वेब पेजेज़।"
+    },
+    {
+     "en": "The results can help you learn more about the style or find places where similar products are available.",
+     "say": "द रिज़ल्ट्स कैन हेल्प यू लर्न मोर अबाउट द स्टाइल, ऑर फ़ाइंड प्लेसेज़ व्हेयर सिमिलर प्रॉडक्ट्स आर अवेलेबल।"
+    },
+    {
+     "en": "Visual search is especially useful for clothing, furniture, accessories, and everyday objects.",
+     "say": "विज़ुअल सर्च इज़ इस्पेशली यूज़फ़ुल फ़ॉर क्लोदिंग, फ़र्निचर, एक्सेसरीज़, ऐंड एवरीडे ऑब्जेक्ट्स।"
+    },
+    {
+     "en": "Instead of trying to describe the exact shape and color of a product, you can simply show the camera what you're looking for.",
+     "say": "इंस्टेड ऑफ़ ट्राइंग टू डिस्क्राइब द एग्ज़ैक्ट शेप ऐंड कलर ऑफ़ अ प्रॉडक्ट, यू कैन सिंपली शो द कैमरा, व्हाट यू आर लुकिंग फ़ॉर।"
+    }
+   ]
+  },
+  {
+   "id": "text",
+   "title": "TEXT RECOGNITION & TRANSLATION",
+   "lines": [
+    {
+     "en": "Google Lens can also work with text inside images.",
+     "say": "गूगल लेंस कैन ऑल्सो वर्क विद टेक्स्ट, इनसाइड इमेजेज़।"
+    },
+    {
+     "en": "This is made possible by optical character recognition, commonly known as OCR, combined with other language-processing technologies.",
+     "say": "दिस इज़ मेइड पॉसिबल बाय ऑप्टिकल कैरेक्टर रेकग्निशन, कॉमनली नोन ऐज़ ओ, सी, आर। कंबाइंड विद अदर लैंग्वेज प्रोसेसिंग टेक्नॉलजीज़।"
+    },
+    {
+     "en": "When you point your camera at a printed page or sign, Lens can detect the text and allow you to copy it, search for it, or translate it.",
+     "say": "व्हेन यू पॉइंट योर कैमरा ऐट अ प्रिंटेड पेज ऑर साइन, लेंस कैन डिटेक्ट द टेक्स्ट, ऐंड अलाउ यू टू कॉपी इट, सर्च फ़ॉर इट, ऑर ट्रांसलेट इट।"
+    },
+    {
+     "en": "Imagine traveling to another country and seeing a sign written in a language you don't understand.",
+     "say": "इमैजिन ट्रैवलिंग टू अनदर कंट्री, ऐंड सीइंग अ साइन, रिटन इन अ लैंग्वेज यू डोन्ट अंडरस्टैंड।"
+    },
+    {
+     "en": "Google Lens can help translate that text and display the result on your screen.",
+     "say": "गूगल लेन्स कैन हेल्प ट्रांसलेट दैट टेक्स्ट, ऐंड डिस्प्ले द रिज़ल्ट ऑन योर स्क्रीन।"
+    },
+    {
+     "en": "You can also use it to copy information from books, notes, and documents without typing everything manually.",
+     "say": "यू कैन ऑल्सो यूज़ इट, टू कॉपी इन्फ़ॉर्मेशन फ़्रॉम बुक्स, नोट्स, ऐंड डॉक्यूमेंट्स, विदाउट टाइपिंग एवरीथिंग मैनुअली।"
+    }
+   ]
+  },
+  {
+   "id": "uses",
+   "title": "REAL-WORLD APPLICATIONS",
+   "lines": [
+    {
+     "en": "Google Lens can be useful in many everyday situations.",
+     "say": "गूगल लेंस कैन बी यूज़फ़ुल, इन मेनी एवरीडे सिचुएशन्स।"
+    },
+    {
+     "en": "If you see an unfamiliar plant, you can scan it to explore possible matches and learn more about it.",
+     "say": "इफ़ यू सी ऐन अनफ़ैमिलियर प्लांट, यू कैन स्कैन इट टू एक्सप्लोर पॉसिबल मैचेज़, ऐंड लर्न मोर अबाउट इट।"
+    },
+    {
+     "en": "If you're visiting a famous location, visual search may help you identify a landmark and discover its history.",
+     "say": "इफ़ यू आर विज़िटिंग अ फ़ेमस लोकेशन, विज़ुअल सर्च मे हेल्प यू आइडेंटिफ़ाई अ लैंडमार्क, ऐंड डिस्कवर इट्स हिस्ट्री।"
+    },
+    {
+     "en": "If you see a product you like, you can search for similar items without knowing the brand or model.",
+     "say": "इफ़ यू सी अ प्रॉडक्ट यू लाइक, यू कैन सर्च फ़ॉर सिमिलर आइटम्स, विदाउट नोइंग द ब्रैंड ऑर मॉडल।"
+    },
+    {
+     "en": "You can also translate menus, copy printed text, and search for information related to objects around you.",
+     "say": "यू कैन ऑल्सो ट्रांसलेट मेन्यूज़, कॉपी प्रिंटेड टेक्स्ट, ऐंड सर्च फ़ॉर इन्फ़ॉर्मेशन रिलेटेड टू ऑब्जेक्ट्स अराउंड यू।"
+    },
+    {
+     "en": "However, AI recognition isn't always perfect.",
+     "say": "हाउएवर, एआई रेकग्निशन, इज़ नॉट ऑलवेज़ परफ़ेक्ट।"
+    },
+    {
+     "en": "Results can vary depending on image quality, lighting, and the information available.",
+     "say": "रिज़ल्ट्स कैन वेरी, डिपेंडिंग ऑन इमेज क्वालिटी, लाइटिंग, ऐंड द इन्फ़ॉर्मेशन अवेलेबल।"
+    }
+   ]
+  },
+  {
+   "id": "howto",
+   "title": "HOW TO USE GOOGLE LENS",
+   "lines": [
+    {
+     "en": "Using Google Lens is straightforward.",
+     "say": "यूज़िंग गूगल लेंस, इज़ स्ट्रेटफ़ॉरवर्ड।"
+    },
+    {
+     "en": "Open the Google app or another supported place where Lens is available, and select the Google Lens icon.",
+     "say": "ओपन द गूगल ऐप, ऑर ऐनअदर सपोर्टेड प्लेस व्हेयर लैन्स इज़ अवेलेबल, ऐंड सिलेक्ट द गूगल लैन्स आइकॉन।"
+    },
+    {
+     "en": "You can point your camera at something you want to explore or choose an existing picture from your device.",
+     "say": "यू कैन पॉइंट योर कैमरा ऐट समथिंग यू वॉन्ट टू एक्सप्लोर, ऑर चूज़ ऐन एग्ज़िस्टिंग पिक्चर फ़्रॉम योर डिवाइस।"
+    },
+    {
+     "en": "Position the object clearly inside the camera view and capture or select the image as needed.",
+     "say": "पोज़िशन द ऑब्जेक्ट क्लियरली इनसाइड द कैमरा व्यू, ऐंड कैप्चर, ऑर सिलेक्ट द इमेज ऐज़ नीडेड।"
+    },
+    {
+     "en": "Lens will analyze it and display relevant options or search results.",
+     "say": "लेंस विल ऐनालाइज़ इट, ऐंड डिस्प्ले रेलेवेंट ऑप्शन्स, ऑर सर्च रिज़ल्ट्स।"
+    },
+    {
+     "en": "Depending on the content, you can explore matching products, copy text, translate words, or discover additional information.",
+     "say": "डिपेंडिंग ऑन द कॉन्टेंट, यू कैन एक्सप्लोर मैचिंग प्रॉडक्ट्स, कॉपी टेक्स्ट, ट्रांसलेट वर्ड्स, ऑर डिस्कवर ऐडिशनल इन्फ़ॉर्मेशन।"
+    }
+   ]
+  },
+  {
+   "id": "outro",
+   "title": "GOOGLE LENS",
+   "lines": [
+    {
+     "en": "Google Lens brings together computer vision, artificial intelligence, text recognition, and visual search to make everyday information easier to discover.",
+     "say": "गूगल लेंस ब्रिंग्स टुगेदर कंप्यूटर विज़न, आर्टिफ़िशियल इंटेलिजेंस, टेक्स्ट रेकग्निशन, ऐंड विज़ुअल सर्च, टू मेक एवरीडे इन्फ़ॉर्मेशन ईज़ियर टू डिसकवर।"
+    },
+    {
+     "en": "Instead of searching only with words, we can now explore the world using images.",
+     "say": "इंस्टेड ऑफ़ सर्चिंग ओन्ली विद वर्ड्स, वी कैन नाउ एक्सप्लोर द वर्ल्ड, यूज़िंग इमेजेज़।"
+    },
+    {
+     "en": "From identifying objects to translating text, visual search is changing how we interact with information.",
+     "say": "फ़्रॉम आइडेंटिफ़ाइंग ऑब्जेक्ट्स टू ट्रांसलेटिंग टेक्स्ट, विज़ुअल सर्च इज़ चेंजिंग हाउ वी इंटरैक्ट विद इन्फ़ॉर्मेशन।"
+    },
+    {
+     "en": "Google Lens is one example of how AI connects the physical world with digital knowledge.",
+     "say": "गूगल लेन्स, इज़ वन एग्ज़ाम्पल ऑफ़ हाउ, ए आई कनेक्ट्स द फ़िज़िकल वर्ल्ड, विद डिजिटल नॉलेज।"
+    }
+   ]
+  }
+ ]
+}
