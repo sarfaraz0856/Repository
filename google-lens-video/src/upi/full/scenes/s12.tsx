@@ -1,6 +1,6 @@
 import React from 'react';
 import {EIO, ip} from '../../../anim';
-import {U, UF} from '../../theme';
+import {U, UF, deep} from '../../theme';
 import {sc, loc} from '../tl';
 import {PayScreen, Processing, Scanner, ScreenSeq, StatusScreen} from '../screens';
 import {Edges, Header, Ledger, NodeBox, OnText, Packet, X0, XW, vis, P} from '../kit';
@@ -57,7 +57,7 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
           {[['👍  Like', U.blue, 'Like'], ['🔔  Subscribe', U.red, 'Subscribe']].map(([t, c, w]) => {
             const at = L.w(6, w);
             const done = f >= at + 6;
-            return <div key={t} style={{padding: '22px 40px', borderRadius: 40, background: done ? c : 'rgba(255,255,255,0.08)', border: `2px solid ${c}`, color: '#fff', fontSize: 34, fontWeight: 800, transform: `scale(${1 + 0.1 * Math.sin(Math.PI * ip(f, [at, at + 12], [0, 1]))})`, boxShadow: done ? `0 0 40px ${c}88` : undefined}}>{done && w === 'Subscribe' ? '✓ Subscribed' : t}</div>;
+            return <div key={t} style={{padding: '22px 40px', borderRadius: 40, background: done ? c : '#fff', border: `2px solid ${c}`, color: done ? '#fff' : U.ink, fontSize: 34, fontWeight: 800, transform: `scale(${1 + 0.1 * Math.sin(Math.PI * ip(f, [at, at + 12], [0, 1]))})`, boxShadow: done ? `0 0 40px ${c}88` : undefined}}>{done && w === 'Subscribe' ? '✓ Subscribed' : t}</div>;
           })}
         </div>
       )}
@@ -66,8 +66,8 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
         <div style={{position: 'absolute', left: X0, top: 300, width: XW, textAlign: 'center'}}>
           <div style={{fontFamily: UF.head, fontWeight: 800, fontSize: 170, letterSpacing: 12, opacity: title1, transform: `translateY(${(1 - title1) * 30}px)`, background: `linear-gradient(90deg, ${U.cyan}, ${U.green})`, WebkitBackgroundClip: 'text', color: 'transparent'}}>UPI</div>
           <div style={{height: 4, width: 520 * ip(f, [end, end + 30], [0, 1], EIO), margin: '6px auto 0', borderRadius: 2, background: `linear-gradient(90deg, ${U.saffron}, #fff, ${U.green})`}} />
-          <div style={{fontFamily: UF.head, fontWeight: 800, fontSize: 46, color: '#fff', marginTop: 22, opacity: ip(f, [end + 8, end + 26], [0, 1])}}>MORE THAN JUST A PAYMENT APP</div>
-          <div style={{fontFamily: UF.ui, fontWeight: 700, fontSize: 24, letterSpacing: 7, color: U.cyan, marginTop: 18, opacity: ip(f, [end + 18, end + 36], [0, 1])}}>THE TECHNOLOGY BEHIND INSTANT PAYMENTS</div>
+          <div style={{fontFamily: UF.head, fontWeight: 800, fontSize: 46, color: U.ink, marginTop: 22, opacity: ip(f, [end + 8, end + 26], [0, 1])}}>MORE THAN JUST A PAYMENT APP</div>
+          <div style={{fontFamily: UF.ui, fontWeight: 700, fontSize: 24, letterSpacing: 7, color: deep(U.cyan), marginTop: 18, opacity: ip(f, [end + 18, end + 36], [0, 1])}}>THE TECHNOLOGY BEHIND INSTANT PAYMENTS</div>
         </div>
       )}
     </>

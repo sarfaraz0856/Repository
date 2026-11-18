@@ -1,5 +1,5 @@
 import React from 'react';
-import {U, UF} from '../../theme';
+import {U, UF, deep} from '../../theme';
 import {sc, loc} from '../tl';
 import {PayScreen} from '../screens';
 import {Edges, Header, NodeBox, OnText, Packet, X0, XW, P} from '../kit';
@@ -42,7 +42,7 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
         return <Packet key={i} f={f} pts={routes[i]} a={a} b={a + 40} color={[U.cyan, U.blue, U.green, U.green][i]} label="✉" />;
       })}
       <OnText f={f} a={L.c(8)} y={880} size={30} color={U.cyan} text="APP • PSP • NPCI • BANKS" />
-      <div style={{position: 'absolute', left: X0, top: 140, width: XW, textAlign: 'center', fontFamily: UF.ui, fontSize: 15, color: 'rgba(255,255,255,0.5)', opacity: ip(f, [L.c(1), L.c(1) + 14], [0, 1])}}>Simplified view · in some transactions one organisation can play more than one role</div>
+      <div style={{position: 'absolute', left: X0, top: 140, width: XW, textAlign: 'center', fontFamily: UF.ui, fontSize: 15, color: U.slate, opacity: ip(f, [L.c(1), L.c(1) + 14], [0, 1])}}>Simplified view · in some transactions one organisation can play more than one role</div>
     </>
   );
 };

@@ -72,7 +72,7 @@ export const UPIFull: React.FC = () => {
   const total = FT.durationInFrames;
   const s1fade = ip(f, [S1_END - 14, S1_END + 4], [1, 0], EIO);
   return (
-    <AbsoluteFill style={{overflow: 'hidden', background: U.navy}}>
+    <AbsoluteFill style={{overflow: 'hidden', background: '#F8FAFD'}}>
       <Audio src={staticFile('upi/full_soundtrack.wav')} />
       <Backdrop />
       <AbsoluteFill style={{opacity: ip(f, [0, 18], [0, 1])}}>
@@ -93,8 +93,8 @@ export const UPIFull: React.FC = () => {
         const St = SCENES[s.id].Stage;
         return <AbsoluteFill key={s.id}><St f={lf} /></AbsoluteFill>;
       })}
-      <Subs f={f} />
-      <AbsoluteFill style={{background: '#000', opacity: ip(f, [0, 10], [1, 0]) + ip(f, [total - 40, total - 1], [0, 1], EIO)}} />
+      <AbsoluteFill style={{background: '#F8FAFD', opacity: ip(f, [0, 10], [1, 0])}} />
+      <AbsoluteFill style={{background: '#05070C', opacity: ip(f, [total - 40, total - 1], [0, 1], EIO)}} />
     </AbsoluteFill>
   );
 };

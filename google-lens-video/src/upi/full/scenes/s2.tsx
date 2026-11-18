@@ -1,6 +1,6 @@
 import React from 'react';
 import {EIO, ip} from '../../../anim';
-import {U, UF} from '../../theme';
+import {U, UF, deep} from '../../theme';
 import {sc, loc} from '../tl';
 import {AppHome} from '../screens';
 import {Edges, Header, Icon, NodeBox, OnText, Panel, Packet, X0, XW, vis, P} from '../kit';
@@ -33,14 +33,14 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
       {/* U P I → full form */}
       {big > 0.01 && (
         <div style={{position: 'absolute', left: X0, top: 250, width: XW, textAlign: 'center', opacity: big, fontFamily: UF.head}}>
-          <div style={{fontSize: f < L.c(1) ? 220 : 150, fontWeight: 800, letterSpacing: 20, color: '#fff', lineHeight: 1, textShadow: `0 0 60px ${U.blue}`}}>UPI</div>
+          <div style={{fontSize: f < L.c(1) ? 220 : 150, fontWeight: 800, letterSpacing: 20, color: U.ink, lineHeight: 1, textShadow: `0 0 60px ${U.blue}`}}>UPI</div>
           {[['U', 'NIFIED', 'Unified'], ['P', 'AYMENTS', 'Payments'], ['I', 'NTERFACE', 'Interface']].map(([a, b, w]) => (
             <div key={a} style={{fontSize: 54, fontWeight: 800, letterSpacing: 4, marginTop: 8, opacity: word(w), transform: `translateX(${(1 - word(w)) * 30}px)`}}>
-              <span style={{color: U.cyan}}>{a}</span><span style={{color: '#fff'}}>{b}</span>
+              <span style={{color: deep(U.cyan)}}>{a}</span><span style={{color: U.ink}}>{b}</span>
             </div>
           ))}
-          <div style={{display: 'inline-flex', alignItems: 'center', gap: 12, marginTop: 28, padding: '10px 22px', borderRadius: 30, background: `${U.saffron}22`, border: `1.5px solid ${U.saffron}`, fontFamily: UF.ui, fontSize: 22, fontWeight: 700, color: '#fff', opacity: ip(f, [L.w(2, 'NPCI'), L.w(2, 'NPCI') + 14], [0, 1])}}>
-            Developed by <b style={{color: U.saffron}}>NPCI</b> · National Payments Corporation of India
+          <div style={{display: 'inline-flex', alignItems: 'center', gap: 12, marginTop: 28, padding: '10px 22px', borderRadius: 30, background: `${U.saffron}22`, border: `1.5px solid ${U.saffron}`, fontFamily: UF.ui, fontSize: 22, fontWeight: 700, color: U.ink, opacity: ip(f, [L.w(2, 'NPCI'), L.w(2, 'NPCI') + 14], [0, 1])}}>
+            Developed by <b style={{color: deep(U.saffron)}}>NPCI</b> · National Payments Corporation of India
           </div>
         </div>
       )}
@@ -57,20 +57,20 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
       )}
       {/* before vs UPI */}
       <Panel x={X0 + 20} y={210} w={430} t={before}>
-        <div style={{fontSize: 16, fontWeight: 700, letterSpacing: 3, color: 'rgba(255,255,255,0.6)'}}>BEFORE</div>
+        <div style={{fontSize: 16, fontWeight: 700, letterSpacing: 3, color: U.slate}}>BEFORE</div>
         {[['Account Number', '0012 3456 7890', 'Account'], ['IFSC Code', 'DEMO0001234', 'IFSC'], ['Other bank details', 'Name, branch…', 'Details']].map(([k, v, w]) => (
-          <div key={k} style={{marginTop: 14, padding: '12px 14px', borderRadius: 14, background: 'rgba(255,255,255,0.06)', opacity: ip(f, [L.w(4, w), L.w(4, w) + 12], [0, 1])}}>
-            <div style={{fontSize: 14, color: 'rgba(255,255,255,0.6)'}}>{k}</div>
+          <div key={k} style={{marginTop: 14, padding: '12px 14px', borderRadius: 14, background: 'rgba(15,23,42,0.06)', opacity: ip(f, [L.w(4, w), L.w(4, w) + 12], [0, 1])}}>
+            <div style={{fontSize: 14, color: U.slate}}>{k}</div>
             <div style={{fontSize: 22, fontWeight: 700, fontFamily: 'monospace'}}>{v}</div>
           </div>
         ))}
         <div style={{position: 'absolute', left: 20, right: 20, top: '52%', height: 5, borderRadius: 3, background: U.red, transform: `scaleX(${strike})`, transformOrigin: 'left'}} />
       </Panel>
       <Panel x={X0 + 500} y={210} w={430} t={vis(f, L.c(6) - 4, L.c(7), 14, 14)} glow={U.green}>
-        <div style={{fontSize: 16, fontWeight: 700, letterSpacing: 3, color: U.green}}>WITH UPI – ANY ONE OF</div>
+        <div style={{fontSize: 16, fontWeight: 700, letterSpacing: 3, color: deep(U.green)}}>WITH UPI – ANY ONE OF</div>
         {opts.map(([k, v, w]) => (
           <div key={k} style={{marginTop: 14, padding: '12px 14px', borderRadius: 14, background: 'rgba(34,197,94,0.10)', border: `1px solid ${U.green}55`, opacity: ip(f, [L.w(6, w), L.w(6, w) + 12], [0, 1])}}>
-            <div style={{fontSize: 14, color: 'rgba(255,255,255,0.6)'}}>{k}</div>
+            <div style={{fontSize: 14, color: U.slate}}>{k}</div>
             <div style={{fontSize: 22, fontWeight: 700}}>{v}</div>
           </div>
         ))}
@@ -87,7 +87,7 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
             <NodeBox x={bank[0]} y={bank[1]} w={240} big t={ip(f, [L.c(7) + 6, L.c(7) + 20], [0, 1])} label="Your Bank Account" sub="₹5,000 – money stays here" icon="bank" color={U.green} active={f < L.c(8)} />
             <NodeBox x={net[0]} y={net[1]} w={240} big t={ip(f, [L.c(8), L.c(8) + 14], [0, 1])} label="UPI Network" icon="switch" color={U.saffron} />
             <OnText f={f} a={L.c(7) + 10} y={150} size={30} color={U.green} text="MONEY NORMALLY STAYS IN YOUR LINKED BANK ACCOUNT" />
-            <div style={{position: 'absolute', left: X0, top: 830, width: XW, textAlign: 'center', fontFamily: UF.ui, fontSize: 15, color: 'rgba(255,255,255,0.5)'}}>Regular bank-account UPI payment · some UPI products work differently</div>
+            <div style={{position: 'absolute', left: X0, top: 830, width: XW, textAlign: 'center', fontFamily: UF.ui, fontSize: 15, color: U.slate}}>Regular bank-account UPI payment · some UPI products work differently</div>
           </div>
         );
       })()}

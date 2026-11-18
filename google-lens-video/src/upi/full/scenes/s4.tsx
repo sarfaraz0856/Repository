@@ -1,6 +1,6 @@
 import React from 'react';
 import {EIO, ip} from '../../../anim';
-import {U, UF} from '../../theme';
+import {U, UF, deep} from '../../theme';
 import {sc, loc} from '../tl';
 import {PayScreen, Scanner, ScreenSeq} from '../screens';
 import {DemoQR} from '../../QR';
@@ -29,14 +29,14 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
           </div>
           <OnText f={f} a={L.c(0) + 30} b={L.c(2)} y={640} size={40} x={X0} w={560} color={U.cyan} text="QR CODE = PAYMENT INFORMATION" />
           <Panel x={1360} y={190} w={480} t={split} glow={U.cyan}>
-            <div style={{fontFamily: 'monospace', fontSize: 15, color: U.cyan, wordBreak: 'break-all'}}>upi://pay?pa=sharma.store@demo&amp;pn=Sharma%20General%20Store&amp;am=100</div>
+            <div style={{fontFamily: 'monospace', fontSize: 15, color: deep(U.cyan), wordBreak: 'break-all'}}>upi://pay?pa=sharma.store@demo&amp;pn=Sharma%20General%20Store&amp;am=100</div>
             {fields.map(([k, n, v, w], i) => (
               <div key={k} style={{marginTop: 14, padding: '10px 14px', borderRadius: 14, background: 'rgba(0,217,255,0.08)', border: `1px solid ${U.cyan}44`, opacity: ip(f, [L.c(1) + 10 + i * 10, L.c(1) + 24 + i * 10], [0, 1])}}>
-                <div style={{fontSize: 13.5, color: 'rgba(255,255,255,0.6)'}}><b style={{color: U.cyan, fontFamily: 'monospace'}}>{k}=</b> {n}</div>
+                <div style={{fontSize: 13.5, color: U.slate}}><b style={{color: deep(U.cyan), fontFamily: 'monospace'}}>{k}=</b> {n}</div>
                 <div style={{fontSize: 21, fontWeight: 700}}>{v}</div>
               </div>
             ))}
-            <div style={{fontSize: 13, color: 'rgba(255,255,255,0.5)', marginTop: 12}}>Illustrative demo fields</div>
+            <div style={{fontSize: 13, color: U.slate, marginTop: 12}}>Illustrative demo fields</div>
           </Panel>
         </div>
       )}
@@ -46,22 +46,22 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
           <div style={{display: 'flex', justifyContent: 'center'}}><div style={{borderRadius: 14, overflow: 'hidden'}}><DemoQR size={170} seed={i ? 19 : 7} /></div></div>
           <div style={{fontFamily: UF.head, fontSize: 30, fontWeight: 800, marginTop: 16, textAlign: 'center', color: c}}>{t}</div>
           <div style={{fontSize: 21, fontWeight: 700, textAlign: 'center', marginTop: 6}}>{d}</div>
-          <div style={{fontSize: 15, color: 'rgba(255,255,255,0.6)', textAlign: 'center', marginTop: 4}}>{s}</div>
+          <div style={{fontSize: 15, color: U.slate, textAlign: 'center', marginTop: 4}}>{s}</div>
         </Panel>
       ))}
       {/* UPI ID as address */}
       {f >= L.c(3) - 4 && f < L.c(5) + 10 && (
         <div style={{position: 'absolute', inset: 0, opacity: vis(f, L.c(3) - 4, L.c(5) + 10, 14, 14)}}>
           <OnText f={f} a={L.c(3)} y={180} size={48} text="UPI ID = DIGITAL PAYMENT ADDRESS" />
-          <div style={{position: 'absolute', left: X0, top: 300, width: XW, textAlign: 'center', fontFamily: 'monospace', fontSize: 56, fontWeight: 800, color: '#fff', opacity: ip(f, [L.c(3) + 10, L.c(3) + 24], [0, 1])}}>
-            <span style={{color: U.cyan}}>sharma.store</span><span style={{color: U.saffron}}>@demo</span>
+          <div style={{position: 'absolute', left: X0, top: 300, width: XW, textAlign: 'center', fontFamily: 'monospace', fontSize: 56, fontWeight: 800, color: U.ink, opacity: ip(f, [L.c(3) + 10, L.c(3) + 24], [0, 1])}}>
+            <span style={{color: deep(U.cyan)}}>sharma.store</span><span style={{color: deep(U.saffron)}}>@demo</span>
           </div>
-          <div style={{position: 'absolute', left: X0, top: 380, width: XW, display: 'flex', justifyContent: 'center', gap: 160, fontFamily: UF.ui, fontSize: 17, color: 'rgba(255,255,255,0.6)', opacity: ip(f, [L.c(3) + 20, L.c(3) + 34], [0, 1])}}><span>name</span><span>handle</span></div>
+          <div style={{position: 'absolute', left: X0, top: 380, width: XW, display: 'flex', justifyContent: 'center', gap: 160, fontFamily: UF.ui, fontSize: 17, color: U.slate, opacity: ip(f, [L.c(3) + 20, L.c(3) + 34], [0, 1])}}><span>name</span><span>handle</span></div>
           {[['mail', 'friend@email.com', '→ reaches an inbox', 'Email'], ['bank', 'sharma.store@demo', '→ reaches a bank account', 'UPI']].map(([ic, a, b, w], i) => (
             <Panel key={a} x={X0 + 40 + i * 460} y={470} w={420} t={ip(f, [L.w(4, w), L.w(4, w) + 14], [0, 1])}>
               <div style={{display: 'flex', alignItems: 'center', gap: 14}}>
                 <div style={{width: 54, height: 54, borderRadius: 16, background: i ? U.green : U.blue, display: 'flex', alignItems: 'center', justifyContent: 'center'}}><Icon k={ic} s={30} /></div>
-                <div><div style={{fontFamily: 'monospace', fontSize: 20, fontWeight: 700}}>{a}</div><div style={{fontSize: 16, color: 'rgba(255,255,255,0.65)'}}>{b}</div></div>
+                <div><div style={{fontFamily: 'monospace', fontSize: 20, fontWeight: 700}}>{a}</div><div style={{fontSize: 16, color: U.slate}}>{b}</div></div>
               </div>
             </Panel>
           ))}
@@ -81,11 +81,11 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
       )}
       {/* verify receiver */}
       <Panel x={X0 + 140} y={260} w={680} t={vis(f, L.c(6) - 2, L.dur, 14, 14)} glow={U.saffron}>
-        <div style={{fontSize: 16, fontWeight: 700, letterSpacing: 3, color: U.saffron}}>BEFORE YOU PAY</div>
+        <div style={{fontSize: 16, fontWeight: 700, letterSpacing: 3, color: deep(U.saffron)}}>BEFORE YOU PAY</div>
         <div style={{display: 'flex', alignItems: 'center', gap: 16, marginTop: 16, padding: 16, borderRadius: 16, background: 'rgba(34,197,94,0.1)', border: `1.5px solid ${U.green}`}}>
           <div style={{width: 56, height: 56, borderRadius: 28, background: U.saffron, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: 20}}>SG</div>
-          <div style={{flex: 1}}><div style={{fontSize: 24, fontWeight: 800}}>Sharma General Store</div><div style={{fontSize: 16, color: 'rgba(255,255,255,0.6)'}}>Is this the person you want to pay?</div></div>
-          <div style={{fontSize: 34, color: U.green}}>✓</div>
+          <div style={{flex: 1}}><div style={{fontSize: 24, fontWeight: 800}}>Sharma General Store</div><div style={{fontSize: 16, color: U.slate}}>Is this the person you want to pay?</div></div>
+          <div style={{fontSize: 34, color: deep(U.green)}}>✓</div>
         </div>
         <div style={{marginTop: 16, fontSize: 19, lineHeight: 1.5, color: '#FFD7A8', opacity: ip(f, [L.w(6, 'गलत'), L.w(6, 'गलत') + 14], [0, 1])}}>⚠️ Money sent to the wrong person is not always easy to get back.</div>
       </Panel>

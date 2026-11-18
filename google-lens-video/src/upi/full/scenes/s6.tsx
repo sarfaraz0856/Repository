@@ -1,6 +1,6 @@
 import React from 'react';
 import {ip} from '../../../anim';
-import {U, UF} from '../../theme';
+import {U, UF, deep} from '../../theme';
 import {sc, loc} from '../tl';
 import {PayScreen, Processing, ScreenSeq, StatusScreen} from '../screens';
 import {Edges, Header, Ledger, NodeBox, OnText, Packet, X0, XW, P} from '../kit';
@@ -57,14 +57,14 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
           <Packet f={f} pts={[N.rb, N.rcv]} a={L.c(10) + 10} b={L.c(10) + 34} color={U.green} label="✓" />
           <Packet f={f} pts={[N.rb, N.npci, N.psp, N.app]} a={L.c(11)} b={L.c(12)} color={U.green} label="✓" />
           {cur >= 2 && cur <= 3 && (
-            <div style={{position: 'absolute', left: N.sb[0] + 130, top: N.sb[1] - 110, padding: '10px 14px', borderRadius: 14, background: 'rgba(7,17,31,0.92)', border: `1px solid ${U.cyan}`, fontFamily: UF.ui, fontSize: 15, color: '#fff', lineHeight: 1.7, zIndex: 4}}>
+            <div style={{position: 'absolute', left: N.sb[0] + 130, top: N.sb[1] - 110, padding: '10px 14px', borderRadius: 14, background: '#fff', border: `1px solid ${U.cyan}`, fontFamily: UF.ui, fontSize: 15, color: U.ink, lineHeight: 1.7, zIndex: 4}}>
               {[['Authentication', 'Authentication'], ['Available balance', 'Balance'], ['Transaction limits', 'Limits'], ['Security checks', 'Security']].map(([t, w]) => (
                 <div key={t} style={{opacity: cur === 2 ? 0.5 : ip(f, [L.w(7, w), L.w(7, w) + 10], [0.4, 1])}}>{cur === 3 && f >= L.w(7, w) + 6 ? '✓ ' : '• '}{t}</div>
               ))}
             </div>
           )}
-          <div style={{position: 'absolute', left: X0, top: 860, width: XW, display: 'flex', justifyContent: 'center', gap: 24, fontFamily: UF.ui, fontSize: 15, color: 'rgba(255,255,255,0.6)'}}>
-            <span><b style={{color: U.cyan}}>■</b> instruction</span><span><b style={{color: U.green}}>■</b> confirmation</span><span>Simplified transaction flow · illustrative balances</span>
+          <div style={{position: 'absolute', left: X0, top: 860, width: XW, display: 'flex', justifyContent: 'center', gap: 24, fontFamily: UF.ui, fontSize: 15, color: U.slate}}>
+            <span><b style={{color: deep(U.cyan)}}>■</b> instruction</span><span><b style={{color: deep(U.green)}}>■</b> confirmation</span><span>Simplified transaction flow · illustrative balances</span>
           </div>
         </div>
       )}

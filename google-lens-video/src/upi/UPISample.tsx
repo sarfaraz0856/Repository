@@ -10,7 +10,7 @@ import {EIO, ip} from '../anim';
 import {Phone} from '../components/Phone';
 import {U} from './theme';
 import {UPIScreen} from './screens';
-import {Network, PacketsOut, Shop, Subtitles, Title} from './stage';
+import {Network, PacketsOut, Shop, Title} from './stage';
 import {UT} from './timeline';
 
 const PHONE_SCALE = 1.19; // same enlarged phone as the 6-minute Google Lens video
@@ -24,11 +24,14 @@ const useFonts = () => {
   }, [h]);
 };
 
+/** Same backdrop as the Google Lens documentary: soft light gradient, four gentle colour glows, dot grid */
 export const Backdrop: React.FC = () => (
-  <AbsoluteFill style={{background: `radial-gradient(ellipse 70% 80% at 30% 50%, #0F2547 0%, ${U.navy} 60%), ${U.navy}`}}>
-    <AbsoluteFill style={{backgroundImage: 'linear-gradient(rgba(49,133,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(49,133,255,0.06) 1px, transparent 1px)', backgroundSize: '48px 48px'}} />
-    <div style={{position: 'absolute', left: 1180, top: 160, width: 700, height: 700, borderRadius: '50%', background: `radial-gradient(circle, ${U.blue}33 0%, transparent 65%)`}} />
-    <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 50%, transparent 60%, rgba(0,0,0,0.45) 100%)'}} />
+  <AbsoluteFill style={{background: 'linear-gradient(135deg, #F8FAFD 0%, #EEF2F9 48%, #F5F2FA 100%)'}}>
+    {[[260, 180, 900, '#4285F4'], [1700, 240, 760, '#34A853'], [1600, 940, 820, '#FBBC05'], [360, 980, 760, '#EA4335']].map(([x, y, s, c], i) => (
+      <div key={i} style={{position: 'absolute', left: (x as number) - (s as number) / 2, top: (y as number) - (s as number) / 2, width: s as number, height: s as number, borderRadius: '50%', background: `radial-gradient(circle, ${c} 0%, transparent 68%)`, opacity: 0.2}} />
+    ))}
+    <AbsoluteFill style={{backgroundImage: 'radial-gradient(rgba(60,80,120,0.16) 1.3px, transparent 1.4px)', backgroundSize: '32px 32px', WebkitMaskImage: 'radial-gradient(ellipse 70% 65% at 50% 50%, #000 0%, transparent 85%)', opacity: 0.5}} />
+    <AbsoluteFill style={{background: 'radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(40,55,90,0.10) 100%)'}} />
   </AbsoluteFill>
 );
 
@@ -38,7 +41,7 @@ export const UPISample: React.FC = () => {
   const enter = ip(f, [0, 18], [0, 1]);
   const fadeOut = ip(f, [UT.durationInFrames - 16, UT.durationInFrames - 1], [0, 1], EIO);
   return (
-    <AbsoluteFill style={{overflow: 'hidden', background: U.navy}}>
+    <AbsoluteFill style={{overflow: 'hidden', background: '#F8FAFD'}}>
       <Audio src={staticFile('upi/sample_soundtrack.wav')} />
       <Backdrop />
       <AbsoluteFill style={{opacity: enter}}>
@@ -48,8 +51,8 @@ export const UPISample: React.FC = () => {
       <PacketsOut f={f} />
       <Network f={f} />
       <Title f={f} />
-      <Subtitles f={f} />
-      <AbsoluteFill style={{background: '#000', opacity: ip(f, [0, 10], [1, 0]) + fadeOut * 0.6}} />
+      <AbsoluteFill style={{background: '#F8FAFD', opacity: ip(f, [0, 10], [1, 0])}} />
+      <AbsoluteFill style={{background: '#000', opacity: fadeOut * 0.6}} />
     </AbsoluteFill>
   );
 };

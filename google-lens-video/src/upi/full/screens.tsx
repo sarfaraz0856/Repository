@@ -93,7 +93,6 @@ export const Scanner: React.FC<{f: number; det: number; dynamic?: boolean}> = ({
       <div style={{position: 'absolute', top: box.y + box.s + 34, width: '100%', display: 'flex', justifyContent: 'center', opacity: d}}>
         <span style={{padding: '10px 18px', borderRadius: 24, background: U.green, color: '#fff', fontWeight: 700, fontSize: 17}}>✓ QR read · payment details found</span>
       </div>
-      <div style={{position: 'absolute', bottom: 60, width: '100%', textAlign: 'center', color: 'rgba(255,255,255,0.7)', fontSize: 14}}>Demo QR · not payable</div>
       <Bar />
     </div>
   );

@@ -66,7 +66,6 @@ export const ScannerScreen: React.FC<{f: number}> = ({f}) => {
       <div style={{position: 'absolute', top: box.y + box.s + 34, width: '100%', display: 'flex', justifyContent: 'center', opacity: det}}>
         <span style={{display: 'flex', alignItems: 'center', gap: 8, padding: '10px 18px', borderRadius: 24, background: U.green, color: '#fff', fontWeight: 700, fontSize: 17, boxShadow: '0 8px 20px rgba(34,197,94,0.4)'}}>✓ QR detected · {MERCHANT.short === 'SG' ? MERCHANT.name : ''}</span>
       </div>
-      <div style={{position: 'absolute', bottom: 60, width: '100%', textAlign: 'center', color: 'rgba(255,255,255,0.7)', fontSize: 14}}>Demo QR · not payable</div>
       <StatusBar />
     </div>
   );

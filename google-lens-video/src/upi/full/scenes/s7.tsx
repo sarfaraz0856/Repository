@@ -1,6 +1,6 @@
 import React from 'react';
 import {EIO, ip} from '../../../anim';
-import {U, UF} from '../../theme';
+import {U, UF, deep} from '../../theme';
 import {sc, loc} from '../tl';
 import {AppHome, PayScreen, ScreenSeq, StatusScreen} from '../screens';
 import {Edges, Header, NodeBox, OnText, Packet, X0, XW, P} from '../kit';
@@ -46,7 +46,7 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
       <OnText f={f} a={L.c(3) + 14} b={L.c(5)} y={880} size={34} color={U.green} text="INTEROPERABILITY" />
       <OnText f={f} a={L.c(5)} b={L.c(6)} y={880} size={30} color={U.saffron} text="AN INTELLIGENT NETWORK JUNCTION" />
       <OnText f={f} a={L.c(6)} b={L.dur} y={880} size={30} color={U.cyan} text="ONE CONNECTED PAYMENT ECOSYSTEM" />
-      <div style={{position: 'absolute', left: X0, top: 120, width: XW, textAlign: 'center', fontFamily: UF.ui, fontSize: 15, color: 'rgba(255,255,255,0.5)', opacity: nodes}}>Generic apps and banks · conceptual network</div>
+      <div style={{position: 'absolute', left: X0, top: 120, width: XW, textAlign: 'center', fontFamily: UF.ui, fontSize: 15, color: U.slate, opacity: nodes}}>Generic apps and banks · conceptual network</div>
     </>
   );
 };

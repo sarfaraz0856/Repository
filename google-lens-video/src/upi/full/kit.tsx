@@ -1,6 +1,6 @@
 import React from 'react';
 import {EIO, EO, ip} from '../../anim';
-import {U, UF} from '../theme';
+import {U, UF, GLASS, deep} from '../theme';
 
 export const X0 = 890, XW = 960; // stage area
 export type P = [number, number];
@@ -11,8 +11,8 @@ export const Header: React.FC<{f: number; dur: number; n: string; title: string}
   const t = vis(f, 4, dur, 16, 14);
   return (
     <div style={{position: 'absolute', left: X0, top: 64, width: XW, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, opacity: t, transform: `translateY(${(1 - t) * -10}px)`, fontFamily: UF.ui}}>
-      <span style={{fontFamily: UF.head, fontWeight: 800, fontSize: 22, color: U.navy, background: U.saffron, padding: '4px 12px', borderRadius: 10}}>{n}</span>
-      <span style={{fontSize: 22, fontWeight: 700, letterSpacing: 4, color: U.cyan}}>{title}</span>
+      <span style={{fontFamily: UF.head, fontWeight: 800, fontSize: 22, color: '#fff', background: U.blue, padding: '4px 12px', borderRadius: 10}}>{n}</span>
+      <span style={{fontSize: 22, fontWeight: 700, letterSpacing: 4, color: '#0F3A8A'}}>{title}</span>
     </div>
   );
 };
@@ -20,17 +20,17 @@ export const Header: React.FC<{f: number; dur: number; n: string; title: string}
 export const Panel: React.FC<{x: number; y: number; w: number; h?: number; t: number; children?: React.ReactNode; style?: React.CSSProperties; glow?: string}> = ({x, y, w, h, t, children, style, glow}) => {
   if (t <= 0.01) return null;
   return (
-    <div style={{position: 'absolute', left: x, top: y, width: w, height: h, boxSizing: 'border-box', padding: 22, borderRadius: 24, background: 'linear-gradient(160deg, rgba(20,38,70,0.92), rgba(10,22,42,0.92))', border: `1.5px solid ${glow ?? 'rgba(120,160,255,0.25)'}`, boxShadow: glow ? `0 0 40px ${glow}44` : '0 20px 50px rgba(0,0,0,0.45)', opacity: t, transform: `translateY(${(1 - t) * 24}px)`, filter: t < 1 ? `blur(${(1 - t) * 6}px)` : undefined, fontFamily: UF.ui, color: '#fff', ...style}}>
+    <div style={{position: 'absolute', left: x, top: y, width: w, height: h, boxSizing: 'border-box', padding: 22, borderRadius: 24, ...GLASS, border: glow ? `2px solid ${glow}88` : GLASS.border, boxShadow: glow ? `0 20px 50px ${glow}33, ${GLASS.boxShadow}` : GLASS.boxShadow, opacity: t, transform: `translateY(${(1 - t) * 24}px)`, filter: t < 1 ? `blur(${(1 - t) * 6}px)` : undefined, fontFamily: UF.ui, color: U.ink, ...style}}>
       {children}
     </div>
   );
 };
 
 /** big on-screen English text */
-export const OnText: React.FC<{f: number; a: number; b?: number; y: number; text: string; size?: number; color?: string; x?: number; w?: number}> = ({f, a, b = 1e9, y, text, size = 46, color = '#fff', x = X0, w = XW}) => {
+export const OnText: React.FC<{f: number; a: number; b?: number; y: number; text: string; size?: number; color?: string; x?: number; w?: number}> = ({f, a, b = 1e9, y, text, size = 46, color = U.ink, x = X0, w = XW}) => {
   const t = vis(f, a, b, 16, 12);
   if (t <= 0.01) return null;
-  return <div style={{position: 'absolute', left: x, top: y, width: w, textAlign: 'center', fontFamily: UF.head, fontWeight: 800, fontSize: size, letterSpacing: 1.5, color, opacity: t, transform: `translateY(${(1 - t) * 18}px)`, filter: t < 1 ? `blur(${(1 - t) * 6}px)` : undefined, textShadow: '0 8px 30px rgba(0,0,0,0.5)'}}>{text}</div>;
+  return <div style={{position: 'absolute', left: x, top: y, width: w, textAlign: 'center', fontFamily: UF.head, fontWeight: 800, fontSize: size, letterSpacing: 1.5, color: deep(color), opacity: t, transform: `translateY(${(1 - t) * 18}px)`, filter: t < 1 ? `blur(${(1 - t) * 6}px)` : undefined, textShadow: '0 6px 24px rgba(255,255,255,0.8)'}}>{text}</div>;
 };
 
 export const Icon: React.FC<{k: string; s?: number}> = ({k, s = 30}) => {
@@ -59,10 +59,10 @@ export const NodeBox: React.FC<{x: number; y: number; t: number; label: string; 
   if (t <= 0.01) return null;
   const h = big ? 150 : sub ? 120 : 100;
   return (
-    <div style={{position: 'absolute', left: x - w / 2, top: y - h / 2, width: w, height: h, borderRadius: 22, background: 'linear-gradient(160deg, rgba(20,38,70,0.96), rgba(10,22,42,0.96))', border: `1.5px solid ${active ? color : 'rgba(120,160,255,0.28)'}`, boxShadow: active ? `0 0 36px ${color}77, inset 0 0 18px ${color}22` : '0 16px 40px rgba(0,0,0,0.45)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 5, opacity: t, transform: `scale(${(0.85 + 0.15 * t) * (active ? 1.05 : 1)})`, fontFamily: UF.ui, zIndex: 2}}>
+    <div style={{position: 'absolute', left: x - w / 2, top: y - h / 2, width: w, height: h, borderRadius: 22, background: 'linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.78))', border: `2px solid ${active ? color : 'rgba(255,255,255,0.95)'}`, boxShadow: active ? `0 0 0 4px ${color}33, 0 20px 44px ${color}44` : GLASS.boxShadow, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 5, opacity: t, transform: `scale(${(0.85 + 0.15 * t) * (active ? 1.05 : 1)})`, fontFamily: UF.ui, zIndex: 2}}>
       <div style={{width: big ? 60 : 46, height: big ? 60 : 46, borderRadius: 15, background: `linear-gradient(140deg, ${color}, ${color}99)`, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: `0 8px 20px ${color}55`}}><Icon k={icon} s={big ? 34 : 26} /></div>
-      <div style={{fontSize: big ? 23 : 18, fontWeight: 800, color: '#fff', textAlign: 'center', lineHeight: 1.1}}>{label}</div>
-      {sub && <div style={{fontSize: 13, color: 'rgba(255,255,255,0.6)', fontWeight: 600, textAlign: 'center'}}>{sub}</div>}
+      <div style={{fontSize: big ? 23 : 18, fontWeight: 800, color: U.ink, textAlign: 'center', lineHeight: 1.1}}>{label}</div>
+      {sub && <div style={{fontSize: 13, color: U.slate, fontWeight: 600, textAlign: 'center'}}>{sub}</div>}
     </div>
   );
 };
@@ -104,10 +104,10 @@ export const Ledger: React.FC<{x: number; y: number; t: number; title: string; f
   const d = to - from;
   const col = d < 0 ? U.red : U.green;
   return (
-    <div style={{position: 'absolute', left: x - w / 2, top: y, width: w, padding: '10px 14px', borderRadius: 16, background: 'rgba(7,17,31,0.92)', border: `1.5px solid ${f >= at ? col : 'rgba(120,160,255,0.25)'}`, fontFamily: UF.ui, opacity: t, boxSizing: 'border-box', zIndex: 2}}>
-      <div style={{display: 'flex', justifyContent: 'space-between', fontSize: 13, color: 'rgba(255,255,255,0.6)', fontWeight: 600}}><span>{title}</span><span>ledger</span></div>
+    <div style={{position: 'absolute', left: x - w / 2, top: y, width: w, padding: '10px 14px', borderRadius: 16, background: '#fff', border: `2px solid ${f >= at ? col : 'rgba(30,45,90,0.12)'}`, boxShadow: GLASS.boxShadow, fontFamily: UF.ui, opacity: t, boxSizing: 'border-box', zIndex: 2}}>
+      <div style={{display: 'flex', justifyContent: 'space-between', fontSize: 13, color: U.slate, fontWeight: 600}}><span>{title}</span><span>ledger</span></div>
       <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginTop: 4}}>
-        <span style={{fontSize: 24, fontWeight: 800, color: '#fff', fontVariantNumeric: 'tabular-nums'}}>₹{val.toLocaleString('en-IN')}</span>
+        <span style={{fontSize: 24, fontWeight: 800, color: U.ink, fontVariantNumeric: 'tabular-nums'}}>₹{val.toLocaleString('en-IN')}</span>
         {d !== 0 && <span style={{fontSize: 17, fontWeight: 800, color: col, opacity: ip(f, [at, at + 8], [0, 1])}}>{d < 0 ? '−' : '+'}₹{Math.abs(d).toLocaleString('en-IN')}</span>}
       </div>
     </div>
@@ -116,8 +116,8 @@ export const Ledger: React.FC<{x: number; y: number; t: number; title: string; f
 
 export const Row: React.FC<{t: number; ok?: boolean | null; text: string; color?: string; size?: number}> = ({t, ok, text, color = U.green, size = 21}) => (
   <div style={{display: 'flex', alignItems: 'center', gap: 14, padding: '10px 0', opacity: t, transform: `translateX(${(1 - t) * 16}px)`}}>
-    <span style={{width: 30, height: 30, borderRadius: 15, flexShrink: 0, background: ok === null || ok === undefined ? 'rgba(255,255,255,0.12)' : ok ? color : U.red, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>{ok === true ? <Icon k="check" s={18} /> : ok === false ? <Icon k="cross" s={16} /> : null}</span>
-    <span style={{fontSize: size, fontWeight: 600, color: '#fff'}}>{text}</span>
+    <span style={{width: 30, height: 30, borderRadius: 15, flexShrink: 0, background: ok === null || ok === undefined ? 'rgba(15,23,42,0.08)' : ok ? color : U.red, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>{ok === true ? <Icon k="check" s={18} /> : ok === false ? <Icon k="cross" s={16} /> : null}</span>
+    <span style={{fontSize: size, fontWeight: 600, color: U.ink}}>{text}</span>
   </div>
 );
 

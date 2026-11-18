@@ -1,6 +1,6 @@
 import React from 'react';
 import {ip} from '../../../anim';
-import {U, UF} from '../../theme';
+import {U, UF, deep} from '../../theme';
 import {sc, loc} from '../tl';
 import {History, ScreenSeq, StatusScreen} from '../screens';
 import {Edges, Header, Icon, Ledger, NodeBox, OnText, Packet, Panel, X0, XW, vis, P} from '../kit';
@@ -28,7 +28,7 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
       <Header f={f} dur={L.dur} n="10" title="WHY DO UPI PAYMENTS SOMETIMES FAIL?" />
       <div style={{position: 'absolute', left: X0, top: 330, width: XW, display: 'flex', justifyContent: 'center', gap: 20, opacity: vis(f, 4, L.c(2), 14, 12), fontFamily: UF.head}}>
         {[['SUCCESSFUL', U.green, 0], ['PENDING', '#F59E0B', L.w(0, 'Pending')], ['FAILED', U.red, L.w(0, 'Fail')]].map(([t, c, a]) => (
-          <div key={t as string} style={{padding: '22px 30px', borderRadius: 20, border: `2px solid ${c}`, background: `${c}22`, color: '#fff', fontSize: 34, fontWeight: 800, opacity: ip(f, [a as number, (a as number) + 12], [0.25, 1])}}>{t as string}</div>
+          <div key={t as string} style={{padding: '22px 30px', borderRadius: 20, border: `2px solid ${c}`, background: `${c}22`, color: U.ink, fontSize: 34, fontWeight: 800, opacity: ip(f, [a as number, (a as number) + 12], [0.25, 1])}}>{t as string}</div>
         ))}
       </div>
       {reasons.map(([t, w, ic], i) => (
@@ -59,16 +59,16 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
         <div style={{position: 'absolute', inset: 0, opacity: vis(f, L.c(7) - 4, L.c(8) + 4, 14, 10)}}>
           <OnText f={f} a={L.c(7)} y={220} size={40} text="FAILED BUT DEBITED? → REVERSAL" />
           <Ledger x={1370} y={360} t={1} title="Your A/c" from={4900} to={5000} at={L.w(7, 'Reversal')} f={f} w={380} />
-          <div style={{position: 'absolute', left: X0, top: 500, width: XW, textAlign: 'center', fontFamily: UF.ui, fontSize: 19, color: 'rgba(255,255,255,0.7)'}}>As per applicable rules · illustrative example</div>
+          <div style={{position: 'absolute', left: X0, top: 500, width: XW, textAlign: 'center', fontFamily: UF.ui, fontSize: 19, color: U.slate}}>As per applicable rules · illustrative example</div>
         </div>
       )}
       <Panel x={X0 + 120} y={250} w={720} t={vis(f, L.c(8) - 2, L.dur, 14, 14)} glow={U.saffron}>
-        <div style={{fontFamily: UF.head, fontSize: 36, fontWeight: 800, color: U.saffron}}>CHECK STATUS BEFORE RETRYING</div>
+        <div style={{fontFamily: UF.head, fontSize: 36, fontWeight: 800, color: deep(U.saffron)}}>CHECK STATUS BEFORE RETRYING</div>
         <div style={{display: 'flex', gap: 16, marginTop: 20}}>
           {['Transaction history', 'Bank statement'].map((t) => <div key={t} style={{flex: 1, padding: 16, borderRadius: 14, background: 'rgba(34,197,94,0.12)', border: `1px solid ${U.green}`, fontSize: 20, fontWeight: 700}}>✓ {t}</div>)}
         </div>
         <div style={{marginTop: 16, padding: 16, borderRadius: 14, background: 'rgba(240,68,56,0.12)', border: `1px solid ${U.red}`, fontSize: 20, fontWeight: 700}}>✕ Paying again immediately → possible duplicate payment</div>
-        <div style={{marginTop: 16, fontSize: 19, color: 'rgba(255,255,255,0.8)', opacity: ip(f, [L.c(9), L.c(9) + 14], [0, 1])}}>Need help? Use only the official support of your payment app or bank.</div>
+        <div style={{marginTop: 16, fontSize: 19, color: U.slate, opacity: ip(f, [L.c(9), L.c(9) + 14], [0, 1])}}>Need help? Use only the official support of your payment app or bank.</div>
       </Panel>
     </>
   );

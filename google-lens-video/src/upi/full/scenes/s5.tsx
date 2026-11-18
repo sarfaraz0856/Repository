@@ -1,6 +1,6 @@
 import React from 'react';
 import {EIO, ip} from '../../../anim';
-import {U, UF} from '../../theme';
+import {U, UF, deep} from '../../theme';
 import {sc, loc} from '../tl';
 import {PinPad, Processing, ScreenSeq, StatusScreen} from '../screens';
 import {Edges, Header, Icon, NodeBox, OnText, Packet, Panel, Row, X0, XW, vis, P} from '../kit';
@@ -40,19 +40,19 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
           </svg>
           <div style={{position: 'absolute', left: 1190, top: 330, width: 360, fontFamily: UF.ui}}>
             {rows.map(([k, v], i) => (
-              <div key={k} style={{display: 'flex', justifyContent: 'space-between', padding: '12px 16px', marginTop: 8, borderRadius: 12, background: 'rgba(7,17,31,0.85)', border: `1px solid ${enc > 0.5 ? U.cyan : 'rgba(255,255,255,0.2)'}`, fontSize: 20, color: '#fff'}}>
-                <span style={{color: 'rgba(255,255,255,0.6)'}}>{enc > 0.5 ? 'block ' + (i + 1) : k}</span>
+              <div key={k} style={{display: 'flex', justifyContent: 'space-between', padding: '12px 16px', marginTop: 8, borderRadius: 12, background: '#fff', border: `1px solid ${enc > 0.5 ? U.cyan : 'rgba(15,23,42,0.12)'}`, fontSize: 20, color: U.ink}}>
+                <span style={{color: U.slate}}>{enc > 0.5 ? 'block ' + (i + 1) : k}</span>
                 <b style={{fontFamily: enc > 0.5 ? 'monospace' : UF.ui, color: enc > 0.5 ? U.cyan : '#fff'}}>{enc > 0.5 ? HEX[i] : v}</b>
               </div>
             ))}
           </div>
           <OnText f={f} a={L.c(4)} b={L.c(5)} y={720} size={36} color={U.cyan} text="SECURE AUTHENTICATION · ENCRYPTED" />
-          <div style={{position: 'absolute', left: X0, top: 700, width: XW, textAlign: 'center', fontFamily: UF.ui, fontSize: 19, color: 'rgba(255,255,255,0.75)', opacity: ip(f, [L.c(2), L.c(2) + 14], [0, 1]) * (1 - ip(f, [L.c(4) - 4, L.c(4)], [0, 1]))}}>Your bank uses it to confirm the payment is approved by you</div>
+          <div style={{position: 'absolute', left: X0, top: 700, width: XW, textAlign: 'center', fontFamily: UF.ui, fontSize: 19, color: U.slate, opacity: ip(f, [L.c(2), L.c(2) + 14], [0, 1]) * (1 - ip(f, [L.c(4) - 4, L.c(4)], [0, 1]))}}>Your bank uses it to confirm the payment is approved by you</div>
         </div>
       )}
       {/* PIN never shown / stored */}
       <Panel x={X0 + 120} y={240} w={720} t={vis(f, L.c(5) - 2, L.c(6), 14, 12)} glow={U.red}>
-        <div style={{fontSize: 16, fontWeight: 700, letterSpacing: 3, color: U.saffron}}>PROTECTED</div>
+        <div style={{fontSize: 16, fontWeight: 700, letterSpacing: 3, color: deep(U.saffron)}}>PROTECTED</div>
         <Row t={1} ok={true} text="PIN shown only as masked dots" />
         <Row t={ip(f, [L.w(5, 'पढ़ने'), L.w(5, 'पढ़ने') + 12], [0, 1])} ok={false} text="A regular UPI app cannot read your PIN" />
         <Row t={ip(f, [L.w(5, 'Store'), L.w(5, 'Store') + 12], [0, 1])} ok={false} text="A regular UPI app cannot store your PIN" />
@@ -67,9 +67,9 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
           <Panel x={X0 + 120} y={190} w={720} t={1} glow={f >= L.c(7) ? U.red : U.green}>
             {f < L.c(7) ? (
               <>
-                <div style={{fontSize: 16, fontWeight: 700, letterSpacing: 3, color: U.green}}>BANK CHECKS</div>
+                <div style={{fontSize: 16, fontWeight: 700, letterSpacing: 3, color: deep(U.green)}}>BANK CHECKS</div>
                 {['UPI PIN correct', 'Enough balance', 'Security checks passed'].map((t, i) => <Row key={t} t={ip(f, [L.c(6) + 20 + i * 10, L.c(6) + 32 + i * 10], [0, 1])} ok={f >= L.c(6) + 30 + i * 10 ? true : null} text={t} />)}
-                <div style={{marginTop: 10, fontFamily: UF.head, fontSize: 30, fontWeight: 800, color: U.green, opacity: ip(f, [L.c(6) + 60, L.c(6) + 72], [0, 1])}}>APPROVED ✓</div>
+                <div style={{marginTop: 10, fontFamily: UF.head, fontSize: 30, fontWeight: 800, color: deep(U.green), opacity: ip(f, [L.c(6) + 60, L.c(6) + 72], [0, 1])}}>APPROVED ✓</div>
               </>
             ) : (
               <>
