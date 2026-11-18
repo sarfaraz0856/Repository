@@ -2,12 +2,27 @@ import { AbsoluteFill, Composition, Sequence } from "remotion";
 import timeline from "./timeline.json";
 import { Background, Shell, Subtitle } from "./Shell";
 import { SCENES } from "./scenes";
+import { SiteS3 } from "./site";
 
 type Scene = { id: number; title: string; from: number; dur: number; beats: number[]; ends: number[]; en: string[] };
 const T = timeline as { fps: number; total: number; scenes: Scene[] };
 
+const S3 = T.scenes.find((s) => s.id === 3)!;
+
+export const SampleSite: React.FC = () => (
+  <AbsoluteFill style={{ backgroundColor: "#0A1A33" }}>
+    <Background />
+    <SiteS3 b={S3.beats} e={S3.ends} dur={S3.dur} />
+    {S3.en.map((t, i) => (
+      <Subtitle key={i} text={t} from={S3.beats[i]} to={S3.ends[i]} />
+    ))}
+  </AbsoluteFill>
+);
+
 export const MyComposition = () => {
   return (
+    <>
+    <Composition id="SampleSite" component={SampleSite} durationInFrames={S3.dur} fps={30} width={1920} height={1080} />
     <Composition
       id="PanCard2026"
       component={PanVideo}
@@ -16,6 +31,7 @@ export const MyComposition = () => {
       width={1920}
       height={1080}
     />
+    </>
   );
 };
 

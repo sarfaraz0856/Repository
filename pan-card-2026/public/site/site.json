@@ -1,0 +1,64 @@
+{
+ "VW": 1472,
+ "VH": 712,
+ "DSF": 1.25,
+ "home": {
+  "url": "https://tinpan.proteantech.in/services/pan/pan-index.html",
+  "height": 2979,
+  "boxes": {
+   "services": {
+    "x": 574.5,
+    "y": 56,
+    "width": 105.515625,
+    "height": 84
+   },
+   "sidebar": null,
+   "applyOnline": {
+    "x": 307.671875,
+    "y": 269.59375,
+    "width": 97.171875,
+    "height": 24
+   },
+   "knowStatus": {
+    "x": 181,
+    "y": 642.59375,
+    "width": 197.703125,
+    "height": 16
+   },
+   "aoCodes": {
+    "x": 181,
+    "y": 825.59375,
+    "width": 64.59375,
+    "height": 16
+   },
+   "docsReq": {
+    "x": 181,
+    "y": 870.59375,
+    "width": 131.515625,
+    "height": 16
+   },
+   "form93": {
+    "x": 458.5,
+    "y": 617.78125,
+    "width": 555,
+    "height": 72
+   },
+   "notice": {
+    "x": 458.5,
+    "y": 435.78125,
+    "width": 555,
+    "height": 90
+   },
+   "applyLink": {
+    "x": 488.5,
+    "y": 863.78125,
+    "width": 35.03125,
+    "height": 16
+   }
+  }
+ },
+ "reg": {
+  "url": "https://onlineservices.proteantech.in/paam/endUserRegisterContact.html",
+  "height": 1361
+ }
+}
