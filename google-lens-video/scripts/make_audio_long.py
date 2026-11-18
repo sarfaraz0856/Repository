@@ -108,7 +108,7 @@ padL = lowpass(padL, 1800); padR = lowpass(padR, 1800)
 add((padL, padR), 0, 0.045)
 
 # energy per scene (smoothly interpolated -> no abrupt changes)
-ENERGY = {'intro': 0.45, 'what': 0.55, 'scan': 0.75, 'ai': 1.0, 'results': 0.9, 'text': 0.6, 'uses': 0.8, 'howto': 0.65, 'outro': 0.5}
+ENERGY = {'intro': 0.45, 'what': 0.55, 'scan': 0.75, 'ai': 1.0, 'results': 0.9, 'text': 0.6, 'uses': 0.8, 'howto': 0.65, 'outro': 0.5, 'endcard': 0.45}
 pts_t, pts_v = [], []
 for s in TL['scenes']:
     pts_t += [fr(s['from']) + 1.5, fr(s['from'] + s['dur']) - 1.5]; pts_v += [ENERGY[s['id']]] * 2
@@ -218,6 +218,13 @@ whoosh(1.0, 6000, 400, 0.08, fin - 0.6)
 for i, nm in enumerate(['C6', 'E6', 'G6']): ping(note(nm), fin + fr(10 + i * 8), 0.07, decay=2.2, dur=2.0)
 n = int(3.0 * SR); t = t_arr(n)
 add(sum(np.sin(2 * np.pi * note(nm) * 2 * t + i) for i, nm in enumerate(['C5', 'E5', 'G5', 'B5', 'D6'])) * np.exp(-t * 1.0) * np.clip(t / 0.05, 0, 1), fin + 0.2, 0.012)
+
+# end card: like / share / subscribe taps
+if 'endcard' in SC:
+    whoosh(0.9, 400, 3000, 0.10, sstart('endcard') - 0.4)
+    for i, w in enumerate(['like', 'share', 'subscribe']):
+        tap(word('endcard', 0, w)); ping(note(['E6', 'G6', 'C7'][i]), word('endcard', 0, w) + 0.12, 0.045, decay=6)
+    ping(note('C6'), word('endcard', 0, 'Thank'), 0.04, decay=2.5, dur=1.6)
 
 # ---------------------------------------------------------------- master: bed, ducking, narration
 t_all = np.arange(N) / SR

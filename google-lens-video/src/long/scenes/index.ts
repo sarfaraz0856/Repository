@@ -8,6 +8,7 @@ import * as text from './text';
 import * as uses from './uses';
 import * as howto from './howto';
 import * as outro from './outro';
+import * as endcard from './endcard';
 
 type SceneMod = {Screen: React.FC<{f: number}>; Side: React.FC<{f: number}>};
-export const SCENE_COMPONENTS: Record<string, SceneMod> = {intro, what, scan, ai, results, text, uses, howto, outro};
+export const SCENE_COMPONENTS: Record<string, SceneMod> = {intro, what, scan, ai, results, text, uses, howto, outro, endcard};

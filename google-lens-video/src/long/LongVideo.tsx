@@ -49,10 +49,11 @@ const TITLES: Record<string, string[]> = {
   uses: ['REAL-WORLD', 'APPLICATIONS'],
   howto: ['HOW TO USE', 'GOOGLE LENS'],
   outro: ['GOOGLE LENS'],
+  endcard: ['THANK YOU', 'FOR WATCHING'],
 };
 const CHAPTER: Record<string, string> = {
   intro: 'Introduction', what: 'What is Google Lens?', scan: 'Image scanning', ai: 'AI & object recognition', results: 'Visual search & results',
-  text: 'Text recognition & translation', uses: 'Real-world applications', howto: 'How to use Google Lens', outro: 'Conclusion',
+  text: 'Text recognition & translation', uses: 'Real-world applications', howto: 'How to use Google Lens', outro: 'Conclusion', endcard: 'Like · Share · Subscribe',
 };
 const ACCENT = [C.blue, C.red, C.yellow, C.green];
 
@@ -64,13 +65,14 @@ const LeftPanel: React.FC<{f: number}> = ({f}) => {
         if (lf < -2 || lf > s.dur + 2) return null;
         const accent = ACCENT[k % 4];
         const exit = k === SCENES.length - 1 ? 0 : ip(lf, [s.dur - 14, s.dur], [0, 1], EIO);
+        const isEnd = s.id === 'endcard';
         const item = (d: number): React.CSSProperties => {
           const t = ip(lf, [d, d + 18], [0, 1]);
           return {opacity: t * (1 - exit), transform: `translateY(${(1 - t) * 30 - exit * 14}px)`, filter: t < 1 || exit > 0 ? `blur(${(1 - t) * 7 + exit * 5}px)` : undefined};
         };
         const lines = TITLES[s.id];
         const longest = Math.max(...lines.map((l) => l.length));
-        const size = s.id === 'intro' ? 70 : Math.min(60, 540 / (longest * 0.64));
+        const size = s.id === 'intro' || isEnd ? 70 : Math.min(60, 540 / (longest * 0.64));
         // active subtitle
         const last = s.cues[s.cues.length - 1];
         const finalT = s.id === 'outro' ? ip(f, [last.from + last.dur + 6, last.from + last.dur + 30], [0, 1]) : 0;
@@ -91,7 +93,7 @@ const LeftPanel: React.FC<{f: number}> = ({f}) => {
             <div style={{position: 'absolute', top: 196, ...item(4), display: 'flex', alignItems: 'center', gap: 12}}>
               <div style={{width: 10, height: 10, borderRadius: 5, background: accent, boxShadow: `0 0 12px ${accent}`}} />
               <span style={{fontFamily: FONT_UI, fontSize: 16, fontWeight: 600, letterSpacing: 2.4, textTransform: 'uppercase', color: C.sub}}>
-                {k === 0 ? 'A visual search documentary' : `Chapter ${String(k + 1).padStart(2, '0')} · ${CHAPTER[s.id]}`}
+                {k === 0 ? 'A visual search documentary' : s.id === 'endcard' ? CHAPTER[s.id] : `Chapter ${String(k + 1).padStart(2, '0')} · ${CHAPTER[s.id]}`}
               </span>
             </div>
             <div style={{position: 'absolute', top: 246}}>
@@ -119,7 +121,7 @@ const ChapterBar: React.FC<{f: number}> = ({f}) => {
   const op = ip(f, [30, 60], [0, 1]) * ip(f, [TL.durationInFrames - 120, TL.durationInFrames - 60], [1, 0]);
   return (
     <div style={{position: 'absolute', left: 96, top: 1000, display: 'flex', gap: 8, opacity: op}}>
-      {SCENES.map((s, k) => {
+      {SCENES.filter((s) => s.id !== 'endcard').map((s, k) => {
         const p = ip(f, [s.from, s.from + s.dur], [0, 1], (v) => v);
         return (
           <div key={s.id} style={{width: 52, height: 5, borderRadius: 3, background: 'rgba(30,40,70,0.10)', overflow: 'hidden'}}>

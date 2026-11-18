@@ -10,7 +10,7 @@ ROOT = os.path.join(os.path.dirname(__file__), '..')
 args = sys.argv[1:]
 REF = args[args.index('--ref') + 1]
 TAKES = int(args[args.index('--takes') + 1]) if '--takes' in args else 3
-names = [a for a in args if '_' in a and not a.endswith('.wav')]
+names = [a for a in args if '_' in a and not a.endswith('.wav') and not a.startswith('--')]
 CHAIN = ('silenceremove=start_periods=1:start_threshold=-45dB,areverse,silenceremove=start_periods=1:start_threshold=-45dB,areverse,'
          'highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=5:release=80:makeup=2,aresample=48000:resampler=soxr')
 torch.set_num_threads(4)
@@ -20,7 +20,12 @@ model = ChatterboxMultilingualTTS.from_pretrained(device='cpu')
 model.prepare_conditionals(REF, exaggeration=0.5)
 
 
-def chunks(text, minlen=38):
+MINLEN = int(args[args.index('--minlen') + 1]) if '--minlen' in args else 38
+TEMP = float(args[args.index('--temp') + 1]) if '--temp' in args else 0.65
+
+
+def chunks(text, minlen=None):
+    minlen = minlen or MINLEN
     parts = [p.strip() for p in re.split(r'(?<=[,।?!])\s+', text) if p.strip()]
     out, cur = [], ''
     for p in parts:
@@ -35,7 +40,10 @@ def chunks(text, minlen=38):
 
 def trim(w, thr=10 ** (-45 / 20)):
     idx = np.where(np.abs(w) > thr)[0]
-    return w[max(0, idx[0] - 240): idx[-1] + 2400] if len(idx) else w
+    w = w[max(0, idx[0] - 240): idx[-1] + 2400] if len(idx) else w
+    f = min(len(w) // 4, 480)  # 20 ms fades so chunk joins never click
+    w = w.copy(); w[:f] *= np.linspace(0, 1, f); w[-f:] *= np.linspace(1, 0, f)
+    return w
 
 
 for name in names:
@@ -43,7 +51,7 @@ for name in names:
         torch.manual_seed(5000 + 31 * k + len(name))
         pieces = []
         for c in chunks(lines[name]):
-            w = model.generate(c, language_id='hi', exaggeration=0.5, cfg_weight=0.5, temperature=0.65)[0].numpy()
+            w = model.generate(c, language_id='hi', exaggeration=0.45, cfg_weight=0.6, temperature=TEMP)[0].numpy()
             pieces += [trim(w), np.zeros(int(0.14 * model.sr))]
         wav = np.concatenate(pieces[:-1])
         with tempfile.NamedTemporaryFile(suffix='.wav') as raw:

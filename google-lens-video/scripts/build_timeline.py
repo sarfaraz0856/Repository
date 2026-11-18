@@ -12,8 +12,11 @@ LEAD = {'intro': 2.0, 'outro': 0.6}   # intro: phone + title appear first
 TAIL = {'outro': 4.0}                  # outro: final title hold + fade-out
 GAP = 0.25
 
+ENDCARD = 'endcard'  # optional closing call-to-action, appended after the 6-minute body
+END_LEAD, END_TAIL = 0.6, 3.2
+main_scenes = [s for s in script['scenes'] if s['id'] != ENDCARD]
 need = {}
-for s in script['scenes']:
+for s in main_scenes:
     sid = s['id']
     speech = sum(durs[f'{sid}_{i + 1}'] for i in range(len(s['lines'])))
     need[sid] = LEAD.get(sid, 0.75) + speech + GAP * (len(s['lines']) - 1) + TAIL.get(sid, 0.45)
@@ -32,9 +35,14 @@ while over > 1e-6:
 frames = {k: round(v * FPS) for k, v in length.items()}
 frames['outro'] += TOTAL - sum(frames.values())
 
-out = {'fps': FPS, 'durationInFrames': TOTAL, 'scenes': []}
+end = next((s for s in script['scenes'] if s['id'] == ENDCARD), None)
+end_frames = 0
+if end:
+    sp = sum(durs[f'{ENDCARD}_{i + 1}'] for i in range(len(end['lines'])))
+    end_frames = round((END_LEAD + sp + END_TAIL) * FPS)
+out = {'fps': FPS, 'durationInFrames': TOTAL + end_frames, 'scenes': []}
 cur = 0
-for s in script['scenes']:
+for s in main_scenes:
     sid = s['id']
     slack = frames[sid] / FPS - need[sid]
     gap = GAP + (slack * 0.5) / max(1, len(s['lines']) - 1)  # spread half of the slack between sentences
@@ -49,6 +57,15 @@ for s in script['scenes']:
     print(f"{sid:8s} {cur / FPS:6.1f}s -> {(cur + frames[sid]) / FPS:6.1f}s  len {frames[sid] / FPS:5.1f}s  narration needs {need[sid]:5.1f}s")
     cur += frames[sid]
 assert cur == TOTAL
+if end:
+    cues, t = [], cur / FPS + END_LEAD
+    for i, line in enumerate(end['lines']):
+        name = f'{ENDCARD}_{i + 1}'
+        cues.append({'file': f'long/vo/{name}.wav', 'text': line['hi'], 'from': round(t * FPS), 'dur': math.ceil(durs[name] * FPS)})
+        t += durs[name] + GAP
+    out['scenes'].append({'id': ENDCARD, 'title': end['title'], 'from': cur, 'dur': end_frames, 'cues': cues})
+    print(f"{ENDCARD:8s} {cur / FPS:6.1f}s -> {(cur + end_frames) / FPS:6.1f}s  (call to action)")
+    cur += end_frames
 os.makedirs(os.path.join(ROOT, 'src', 'long'), exist_ok=True)
 json.dump(out, open(os.path.join(ROOT, 'src', 'long', 'timeline.json'), 'w'), indent=1, ensure_ascii=False)
-print('total', cur, 'frames')
+print('total', cur, 'frames =', round(cur / FPS, 2), 's')
