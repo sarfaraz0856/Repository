@@ -13,9 +13,9 @@ const REV: [number, number] = [50, 80];
 
 const seq = (): [number, Kind][] => [
   [0, 'sneaker'],
-  [L.w(1, 'plant'), 'plant'],
-  [L.w(1, 'famous'), 'landmark'],
-  [L.w(1, 'page'), 'notes'],
+  [L.w(1, 'पौधा'), 'plant'],
+  [L.w(1, 'मशहूर'), 'landmark'],
+  [L.w(1, 'हाथ'), 'notes'],
   [L.c(2), 'sneaker'],
 ];
 
@@ -57,10 +57,10 @@ export const Screen: React.FC<{f: number}> = ({f}) => {
 };
 
 const CATS: {kind: Kind; word: string; title: string; desc: string; color: string; glyph: string}[] = [
-  {kind: 'sneaker', word: 'product', title: 'A product', desc: 'Find visually similar items', color: C.blue, glyph: '👟'},
-  {kind: 'plant', word: 'plant', title: 'A plant', desc: 'Explore possible matches', color: C.green, glyph: '🌿'},
-  {kind: 'landmark', word: 'famous', title: 'A famous landmark', desc: 'Discover its history', color: C.yellow, glyph: '🏛'},
-  {kind: 'notes', word: 'page', title: 'Handwritten notes', desc: 'Copy and search the text', color: C.red, glyph: '✍'},
+  {kind: 'sneaker', word: 'प्रोडक्ट', title: 'A product', desc: 'Find visually similar items', color: C.blue, glyph: '👟'},
+  {kind: 'plant', word: 'पौधा', title: 'A plant', desc: 'Explore possible matches', color: C.green, glyph: '🌿'},
+  {kind: 'landmark', word: 'मशहूर', title: 'A famous landmark', desc: 'Discover its history', color: C.yellow, glyph: '🏛'},
+  {kind: 'notes', word: 'हाथ', title: 'Handwritten notes', desc: 'Copy and search the text', color: C.red, glyph: '✍'},
 ];
 const CHAPTERS = ['What is Google Lens?', 'How image scanning works', 'AI and object recognition', 'Visual search and results', 'Text recognition and translation', 'Real-world applications', 'How to use Google Lens', 'Conclusion'];
 
@@ -79,7 +79,7 @@ export const Side: React.FC<{f: number}> = ({f}) => {
   return (
     <>
       {CATS.map((c, i) => {
-        const at = i === 0 ? L.w(1, 'product') : L.w(1, c.word);
+        const at = L.w(1, c.word);
         const t = vis(f, at - 4, out + 6, 14, 14);
         const active = f >= at && (i === 3 ? f < L.c(2) : f < (i < 3 ? L.w(1, CATS[i + 1].word) : 0));
         return (
@@ -99,7 +99,7 @@ export const Side: React.FC<{f: number}> = ({f}) => {
           <span style={{fontSize: 26, fontWeight: 800, color: C.ink}}>Powered by</span>
         </div>
         {[['Artificial intelligence', C.blue], ['Visual search technology', C.green]].map(([t, c], i) => (
-          <div key={t} style={{display: 'flex', alignItems: 'center', gap: 12, fontSize: 21, fontWeight: 600, color: C.ink, opacity: ip(f, [L.w(2, i ? 'visual' : 'artificial'), L.w(2, i ? 'visual' : 'artificial') + 12], [0.25, 1])}}>
+          <div key={t} style={{display: 'flex', alignItems: 'center', gap: 12, fontSize: 21, fontWeight: 600, color: C.ink, opacity: ip(f, [L.w(2, i ? 'विज़ुअल' : 'आर्टिफ़िशियल'), L.w(2, i ? 'विज़ुअल' : 'आर्टिफ़िशियल') + 12], [0.25, 1])}}>
             <Dot c={c} s={12} />
             {t}
           </div>

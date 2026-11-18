@@ -5,6 +5,9 @@ import '@fontsource/inter/700.css';
 import '@fontsource/inter/800.css';
 import '@fontsource/plus-jakarta-sans/700.css';
 import '@fontsource/plus-jakarta-sans/800.css';
+import '@fontsource/noto-sans-devanagari/400.css';
+import '@fontsource/noto-sans-devanagari/500.css';
+import '@fontsource/noto-sans-devanagari/600.css';
 import React, {useEffect, useState} from 'react';
 import {AbsoluteFill, Audio, continueRender, delayRender, staticFile, useCurrentFrame} from 'remotion';
 import {C, FONT_HEAD, FONT_UI, PHONE} from '../theme';
@@ -18,8 +21,10 @@ export const PHONE_SCALE = 1.19; // ~20 % larger than the 15 s video, still full
 const useFonts = () => {
   const [handle] = useState(() => delayRender('fonts'));
   useEffect(() => {
-    const fam = ['400 20px Inter', '500 20px Inter', '600 20px Inter', '700 20px Inter', '800 20px Inter', '800 20px "Plus Jakarta Sans"', '700 20px "Plus Jakarta Sans"'];
-    Promise.all(fam.map((x) => document.fonts.load(x))).then(() => document.fonts.ready).finally(() => continueRender(handle));
+    const fam = ['400 20px Inter', '500 20px Inter', '600 20px Inter', '700 20px Inter', '800 20px Inter', '800 20px "Plus Jakarta Sans"', '700 20px "Plus Jakarta Sans"', '400 20px "Noto Sans Devanagari"', '500 20px "Noto Sans Devanagari"', '600 20px "Noto Sans Devanagari"'];
+    // make sure the Devanagari glyph subset is actually fetched
+    const probe = 'सोचिए आप अपने स्मार्टफ़ोन';
+    Promise.all(fam.map((x) => document.fonts.load(x, probe))).then(() => document.fonts.ready).finally(() => continueRender(handle));
   }, [handle]);
 };
 
@@ -76,7 +81,7 @@ const LeftPanel: React.FC<{f: number}> = ({f}) => {
           const t = Math.min(ip(f, [c.from - 6, c.from + 8], [0, 1]), ip(f, [end - 8, end], [1, 0]));
           if (t > 0.001)
             sub = (
-              <div key={i} style={{position: 'absolute', top: 0, left: 0, width: 540, opacity: t * (1 - exit) * (1 - finalT), transform: `translateY(${(1 - t) * 10}px)`, fontFamily: FONT_UI, fontSize: 24, lineHeight: 1.5, color: C.sub}}>
+              <div key={i} style={{position: 'absolute', top: 0, left: 0, width: 540, opacity: t * (1 - exit) * (1 - finalT), transform: `translateY(${(1 - t) * 10}px)`, fontFamily: "'Noto Sans Devanagari', 'Inter', sans-serif", fontSize: 24, fontWeight: 500, lineHeight: 1.62, color: C.sub}}>
                 {c.text}
               </div>
             );
@@ -137,7 +142,7 @@ const ScreenRouter: React.FC<{f: number}> = ({f}) => {
     const p = SCENES[idx - 1];
     const Prev = SCENE_COMPONENTS[p.id].Screen;
     return (
-      <div style={{position: 'absolute', inset: 0}}>
+      <div style={{position: 'absolute', inset: 0, fontFamily: FONT_UI}}>
         <Prev f={f - p.from} />
         <div style={{position: 'absolute', inset: 0, opacity: ip(lf, [0, xf], [0, 1], EIO)}}>
           <Cur f={lf} />
@@ -145,7 +150,7 @@ const ScreenRouter: React.FC<{f: number}> = ({f}) => {
       </div>
     );
   }
-  return <Cur f={lf} />;
+  return <div style={{position: 'absolute', inset: 0, fontFamily: FONT_UI}}><Cur f={lf} /></div>;
 };
 
 const SideRouter: React.FC<{f: number}> = ({f}) => (

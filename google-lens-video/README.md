@@ -51,3 +51,30 @@ npm run render   # writes out/google_lens_ui_demo_15sec.mp4
 - `src/components/ScanPanel.tsx`, `ResultsPanel.tsx`, `Captions.tsx`: side panels and typography
 - `src/components/Sneaker.tsx`: vector sneaker with colour palettes
 - `src/theme.ts`, `src/anim.ts`: timing, layout constants, easing and motion-blur helpers
+
+---
+
+# 6-minute explainer (`GoogleLensExplainer6min`)
+
+Full-length documentary built on the same visual identity, phone design, fonts, colours, instruments and narrator.
+Output: `../google_lens_complete_explainer_6min.mp4` (1920×1080, 30 fps, 10,800 frames, H.264 + AAC).
+
+- **Narration:** Hindi, same Piper voice `hi_IN-pratham-medium` at length-scale 0.9 with the same processing chain.
+  Script with timings: `narration/NARRATION_SCRIPT_6min.md` (source: `narration/script_6min.json`; on-screen subtitles use the Hindi text).
+- **Phone:** 1.19× larger than in the 15 s video (fully inside the frame, never moves after the opening fade-in).
+- **Timeline:** `scripts/build_timeline.py` lays the 51 narration lines into 9 chapters (exactly 10,800 frames) → `src/long/timeline.json`.
+  Animations are keyed to the sentence and word timings in that file, so visuals follow the voice.
+- **Soundtrack:** `scripts/make_audio_long.py` loops the 15 s chord progression and instruments for 6 minutes, re-uses the same
+  sound-effect designs at the matching UI events, mixes the narration with ~6 dB music ducking and normalises to -14 LUFS.
+
+Rebuild everything:
+```bash
+pip install piper-tts numpy
+PIPER_MODEL_DIR=/tmp/piper python3 scripts/make_narration_6min.py --speed 0.9   # voice lines (downloads model manually, see make_voiceover.sh)
+python3 scripts/build_timeline.py
+python3 scripts/make_audio_long.py
+npm run render:long
+```
+Code: `src/long/` (`LongVideo.tsx`, `kit.tsx`, `subjects.tsx`, `art.tsx`, `scenes/*.tsx`).
+Product names, stores and results shown are illustrative mockups, not real search results.
+The `pratham` voice is licensed CC BY-NC-SA 4.0 (non-commercial); replace the WAVs in `public/long/vo/` for commercial use.

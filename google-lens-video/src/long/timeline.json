@@ -6,377 +6,377 @@
    "id": "intro",
    "title": "HOW GOOGLE LENS WORKS",
    "from": 0,
-   "dur": 900,
+   "dur": 885,
    "cues": [
     {
      "file": "long/vo/intro_1.wav",
-     "text": "Imagine pointing your smartphone at almost anything and instantly discovering information about it.",
-     "from": 98,
-     "dur": 171
+     "text": "सोचिए, आप अपने स्मार्टफ़ोन को लगभग किसी भी चीज़ की ओर करें, और तुरंत उसके बारे में जानकारी पा लें।",
+     "from": 85,
+     "dur": 179
     },
     {
      "file": "long/vo/intro_2.wav",
-     "text": "A product, a plant, a famous landmark, or even a page of handwritten notes.",
-     "from": 289,
-     "dur": 150
+     "text": "कोई प्रोडक्ट, कोई पौधा, कोई मशहूर इमारत, या फिर हाथ से लिखे नोट्स का एक पन्ना।",
+     "from": 279,
+     "dur": 155
     },
     {
      "file": "long/vo/intro_3.wav",
-     "text": "Google Lens makes this possible using artificial intelligence and visual search technology.",
-     "from": 458,
-     "dur": 169
+     "text": "Google Lens यह सब, आर्टिफ़िशियल इंटेलिजेंस और विज़ुअल सर्च टेक्नोलॉजी की मदद से संभव बनाता है।",
+     "from": 448,
+     "dur": 178
     },
     {
      "file": "long/vo/intro_4.wav",
-     "text": "But how does it actually work?",
-     "from": 646,
-     "dur": 51
+     "text": "लेकिन यह असल में काम कैसे करता है?",
+     "from": 641,
+     "dur": 57
     },
     {
      "file": "long/vo/intro_5.wav",
-     "text": "In this video, we'll explore the technology behind Google Lens, step by step.",
-     "from": 716,
-     "dur": 142
+     "text": "इस वीडियो में, हम Google Lens के पीछे की टेक्नोलॉजी को, कदम-दर-कदम समझेंगे।",
+     "from": 712,
+     "dur": 145
     }
    ]
   },
   {
    "id": "what",
    "title": "WHAT IS GOOGLE LENS?",
-   "from": 900,
-   "dur": 1245,
+   "from": 885,
+   "dur": 1290,
    "cues": [
     {
      "file": "long/vo/what_1.wav",
-     "text": "Google Lens is a visual search tool developed by Google.",
-     "from": 945,
-     "dur": 118
+     "text": "Google Lens, Google का बनाया हुआ एक विज़ुअल सर्च टूल है।",
+     "from": 917,
+     "dur": 106
     },
     {
      "file": "long/vo/what_2.wav",
-     "text": "Instead of typing words into a search bar, you can use your camera or an existing image to search for information.",
-     "from": 1081,
-     "dur": 224
+     "text": "सर्च बार में शब्द टाइप करने के बजाय, आप अपने कैमरे या किसी मौजूदा तस्वीर से जानकारी खोज सकते हैं।",
+     "from": 1036,
+     "dur": 187
     },
     {
      "file": "long/vo/what_3.wav",
-     "text": "Google Lens analyzes what it sees and helps you discover relevant results.",
-     "from": 1324,
-     "dur": 135
+     "text": "Google Lens जो देखता है, उसका विश्लेषण करता है, और आपको काम के नतीजे खोजने में मदद करता है।",
+     "from": 1236,
+     "dur": 180
     },
     {
      "file": "long/vo/what_4.wav",
-     "text": "It can recognize objects, identify landmarks, extract text, translate signs, and help you find similar products online.",
-     "from": 1478,
-     "dur": 234
+     "text": "यह चीज़ों को पहचान सकता है, इमारतों और जगहों की पहचान कर सकता है, टेक्स्ट निकाल सकता है, साइन बोर्ड का अनुवाद कर सकता है, और ऑनलाइन मिलते-जुलते प्रोडक्ट्स ढूँढने में मदद कर सकता है।",
+     "from": 1429,
+     "dur": 348
     },
     {
      "file": "long/vo/what_5.wav",
-     "text": "The idea is simple: use an image as your search query.",
-     "from": 1731,
-     "dur": 117
+     "text": "आइडिया बहुत आसान है: तस्वीर को ही अपनी सर्च क्वेरी बना दीजिए।",
+     "from": 1789,
+     "dur": 111
     },
     {
      "file": "long/vo/what_6.wav",
-     "text": "This makes searching more natural, especially when you don't know the name of something or when describing it with words would be difficult.",
-     "from": 1867,
-     "dur": 236
+     "text": "इससे सर्च करना ज़्यादा स्वाभाविक हो जाता है, खासकर तब, जब आपको किसी चीज़ का नाम नहीं पता हो, या उसे शब्दों में बताना मुश्किल हो।",
+     "from": 1913,
+     "dur": 237
     }
    ]
   },
   {
    "id": "scan",
    "title": "HOW IMAGE SCANNING WORKS",
-   "from": 2145,
-   "dur": 1290,
+   "from": 2175,
+   "dur": 1291,
    "cues": [
     {
      "file": "long/vo/scan_1.wav",
-     "text": "When you point your camera at an object, the first step is capturing an image.",
-     "from": 2191,
-     "dur": 163
+     "text": "जब आप किसी चीज़ की ओर कैमरा करते हैं, तो पहला कदम होता है, एक तस्वीर कैप्चर करना।",
+     "from": 2207,
+     "dur": 165
     },
     {
      "file": "long/vo/scan_2.wav",
-     "text": "The system processes visual information such as shapes, colors, textures, patterns, and the relationships between different parts of the image.",
-     "from": 2372,
-     "dur": 256
+     "text": "सिस्टम विज़ुअल जानकारी को प्रोसेस करता है, जैसे आकार, रंग, बनावट, पैटर्न, और तस्वीर के अलग-अलग हिस्सों के बीच का संबंध।",
+     "from": 2384,
+     "dur": 255
     },
     {
      "file": "long/vo/scan_3.wav",
-     "text": "Machine learning models analyze this information to develop an understanding of what might be present.",
-     "from": 2648,
-     "dur": 157
+     "text": "मशीन लर्निंग मॉडल्स इस जानकारी का विश्लेषण करके यह समझने की कोशिश करते हैं, कि तस्वीर में क्या हो सकता है।",
+     "from": 2652,
+     "dur": 208
     },
     {
      "file": "long/vo/scan_4.wav",
-     "text": "For example, when you scan a sneaker, the system can identify visual features that resemble footwear.",
-     "from": 2824,
-     "dur": 205
+     "text": "उदाहरण के लिए, जब आप एक स्नीकर स्कैन करते हैं, तो सिस्टम ऐसे विज़ुअल फ़ीचर्स पहचान सकता है, जो जूतों जैसे दिखते हैं।",
+     "from": 2872,
+     "dur": 230
     },
     {
      "file": "long/vo/scan_5.wav",
-     "text": "It may also distinguish specific characteristics, such as its color, style, and design.",
-     "from": 3049,
-     "dur": 177
+     "text": "यह कुछ खास बातें भी पहचान सकता है, जैसे उसका रंग, स्टाइल, और डिज़ाइन।",
+     "from": 3115,
+     "dur": 159
     },
     {
      "file": "long/vo/scan_6.wav",
-     "text": "These visual clues help the system understand what to search for next.",
-     "from": 3245,
-     "dur": 146
+     "text": "ये विज़ुअल संकेत सिस्टम को यह समझने में मदद करते हैं, कि आगे क्या खोजना है।",
+     "from": 3287,
+     "dur": 155
     }
    ]
   },
   {
    "id": "ai",
    "title": "AI AND OBJECT RECOGNITION",
-   "from": 3435,
-   "dur": 1305,
+   "from": 3466,
+   "dur": 1290,
    "cues": [
     {
      "file": "long/vo/ai_1.wav",
-     "text": "One of the technologies that makes Google Lens possible is computer vision, a field of artificial intelligence focused on understanding images and videos.",
-     "from": 3481,
-     "dur": 273
+     "text": "Google Lens को संभव बनाने वाली एक अहम टेक्नोलॉजी है, कंप्यूटर विज़न। यह आर्टिफ़िशियल इंटेलिजेंस का वह क्षेत्र है, जो तस्वीरों और वीडियो को समझने पर काम करता है।",
+     "from": 3498,
+     "dur": 317
     },
     {
      "file": "long/vo/ai_2.wav",
-     "text": "AI models learn visual patterns from large collections of training examples.",
-     "from": 3776,
-     "dur": 129
+     "text": "AI मॉडल्स, ट्रेनिंग के ढेर सारे उदाहरणों से विज़ुअल पैटर्न सीखते हैं।",
+     "from": 3828,
+     "dur": 123
     },
     {
      "file": "long/vo/ai_3.wav",
-     "text": "When a new image is analyzed, the model uses its learned patterns to recognize possible objects and visual features.",
-     "from": 3926,
-     "dur": 202
+     "text": "जब किसी नई तस्वीर का विश्लेषण होता है, तो मॉडल अपने सीखे हुए पैटर्न्स से, संभावित चीज़ों और विज़ुअल फ़ीचर्स को पहचानता है।",
+     "from": 3964,
+     "dur": 234
     },
     {
      "file": "long/vo/ai_4.wav",
-     "text": "Modern visual search systems can also use sophisticated models to understand how different elements of an image relate to one another.",
-     "from": 4148,
+     "text": "आधुनिक विज़ुअल सर्च सिस्टम, एडवांस्ड मॉडल्स की मदद से यह भी समझ सकते हैं, कि तस्वीर के अलग-अलग हिस्से एक-दूसरे से कैसे जुड़े हैं।",
+     "from": 4211,
      "dur": 251
     },
     {
      "file": "long/vo/ai_5.wav",
-     "text": "Rather than simply looking for an identical picture, the system can use visual similarities and context to help identify relevant information.",
-     "from": 4421,
-     "dur": 274
+     "text": "सिर्फ़ हूबहू वैसी ही तस्वीर ढूँढने के बजाय, सिस्टम विज़ुअल समानताओं और संदर्भ की मदद से, काम की जानकारी पहचानने में मदद करता है।",
+     "from": 4475,
+     "dur": 256
     }
    ]
   },
   {
    "id": "results",
    "title": "VISUAL SEARCH & MATCHING",
-   "from": 4740,
-   "dur": 1230,
+   "from": 4756,
+   "dur": 1200,
    "cues": [
     {
      "file": "long/vo/results_1.wav",
-     "text": "After analyzing the image, Google Lens can use its visual understanding to find relevant search results.",
-     "from": 4785,
-     "dur": 193
+     "text": "तस्वीर का विश्लेषण करने के बाद, Google Lens अपनी विज़ुअल समझ से, सही सर्च रिज़ल्ट्स ढूँढ सकता है।",
+     "from": 4790,
+     "dur": 183
     },
     {
      "file": "long/vo/results_2.wav",
-     "text": "Let's imagine that you scan a pair of sneakers.",
-     "from": 4997,
-     "dur": 96
+     "text": "मान लीजिए, आपने स्नीकर्स की एक जोड़ी स्कैन की।",
+     "from": 4987,
+     "dur": 84
     },
     {
      "file": "long/vo/results_3.wav",
-     "text": "Google Lens may show visually similar shoes, product listings, shopping information, and useful web pages.",
-     "from": 5112,
-     "dur": 193
+     "text": "Google Lens आपको मिलते-जुलते जूते, प्रोडक्ट लिस्टिंग, शॉपिंग की जानकारी, और काम के वेब पेज दिखा सकता है।",
+     "from": 5086,
+     "dur": 199
     },
     {
      "file": "long/vo/results_4.wav",
-     "text": "The results can help you learn more about the style or find places where similar products are available.",
-     "from": 5324,
-     "dur": 167
+     "text": "ये रिज़ल्ट्स उस स्टाइल के बारे में ज़्यादा जानने, या ऐसे प्रोडक्ट्स कहाँ मिलेंगे, यह पता करने में मदद करते हैं।",
+     "from": 5299,
+     "dur": 183
     },
     {
      "file": "long/vo/results_5.wav",
-     "text": "Visual search is especially useful for clothing, furniture, accessories, and everyday objects.",
-     "from": 5511,
-     "dur": 176
+     "text": "विज़ुअल सर्च खासकर कपड़ों, फ़र्नीचर, एक्सेसरीज़, और रोज़मर्रा की चीज़ों के लिए बहुत काम का है।",
+     "from": 5496,
+     "dur": 183
     },
     {
      "file": "long/vo/results_6.wav",
-     "text": "Instead of trying to describe the exact shape and color of a product, you can simply show the camera what you're looking for.",
-     "from": 5705,
-     "dur": 222
+     "text": "किसी प्रोडक्ट का सही आकार और रंग शब्दों में बताने की कोशिश करने के बजाय, आप बस कैमरे को दिखा सकते हैं, कि आप क्या ढूँढ रहे हैं।",
+     "from": 5693,
+     "dur": 235
     }
    ]
   },
   {
    "id": "text",
    "title": "TEXT RECOGNITION & TRANSLATION",
-   "from": 5970,
-   "dur": 1350,
+   "from": 5956,
+   "dur": 1390,
    "cues": [
     {
      "file": "long/vo/text_1.wav",
-     "text": "Google Lens can also work with text inside images.",
-     "from": 6017,
-     "dur": 102
+     "text": "Google Lens तस्वीरों के अंदर लिखे टेक्स्ट के साथ भी काम कर सकता है।",
+     "from": 5983,
+     "dur": 118
     },
     {
      "file": "long/vo/text_2.wav",
-     "text": "This is made possible by optical character recognition, commonly known as OCR, combined with other language-processing technologies.",
-     "from": 6140,
-     "dur": 266
+     "text": "यह संभव होता है ऑप्टिकल कैरेक्टर रिकग्निशन से, जिसे OCR कहते हैं, और इसके साथ दूसरी लैंग्वेज-प्रोसेसिंग टेक्नोलॉजीज़ भी काम करती हैं।",
+     "from": 6111,
+     "dur": 285
     },
     {
      "file": "long/vo/text_3.wav",
-     "text": "When you point your camera at a printed page or sign, Lens can detect the text and allow you to copy it, search for it, or translate it.",
-     "from": 6427,
-     "dur": 263
+     "text": "जब आप किसी छपे हुए पन्ने या साइन बोर्ड की ओर कैमरा करते हैं, तो Lens उसका टेक्स्ट पहचान लेता है, और आप उसे कॉपी कर सकते हैं, सर्च कर सकते हैं, या उसका अनुवाद कर सकते हैं।",
+     "from": 6406,
+     "dur": 325
     },
     {
      "file": "long/vo/text_4.wav",
-     "text": "Imagine traveling to another country and seeing a sign written in a language you don't understand.",
-     "from": 6710,
-     "dur": 178
+     "text": "सोचिए, आप किसी दूसरे देश में घूम रहे हैं, और आपको एक ऐसा साइन बोर्ड दिखता है, जिसकी भाषा आप नहीं समझते।",
+     "from": 6742,
+     "dur": 221
     },
     {
      "file": "long/vo/text_5.wav",
-     "text": "Google Lens can help translate that text and display the result on your screen.",
-     "from": 6908,
-     "dur": 131
+     "text": "Google Lens उस टेक्स्ट का अनुवाद करके, नतीजा सीधे आपकी स्क्रीन पर दिखा सकता है।",
+     "from": 6973,
+     "dur": 137
     },
     {
      "file": "long/vo/text_6.wav",
-     "text": "You can also use it to copy information from books, notes, and documents without typing everything manually.",
-     "from": 7060,
-     "dur": 214
+     "text": "आप इससे किताबों, नोट्स, और डॉक्यूमेंट्स की जानकारी, बिना सब कुछ हाथ से टाइप किए, कॉपी भी कर सकते हैं।",
+     "from": 7120,
+     "dur": 208
     }
    ]
   },
   {
    "id": "uses",
    "title": "REAL-WORLD APPLICATIONS",
-   "from": 7320,
-   "dur": 1336,
+   "from": 7346,
+   "dur": 1320,
    "cues": [
     {
      "file": "long/vo/uses_1.wav",
-     "text": "Google Lens can be useful in many everyday situations.",
-     "from": 7365,
-     "dur": 110
+     "text": "Google Lens रोज़मर्रा की कई स्थितियों में काम आ सकता है।",
+     "from": 7380,
+     "dur": 92
     },
     {
      "file": "long/vo/uses_2.wav",
-     "text": "If you see an unfamiliar plant, you can scan it to explore possible matches and learn more about it.",
-     "from": 7492,
-     "dur": 183
+     "text": "अगर आपको कोई अनजान पौधा दिखे, तो आप उसे स्कैन करके संभावित मिलान देख सकते हैं, और उसके बारे में ज़्यादा जान सकते हैं।",
+     "from": 7485,
+     "dur": 226
     },
     {
      "file": "long/vo/uses_3.wav",
-     "text": "If you're visiting a famous location, visual search may help you identify a landmark and discover its history.",
-     "from": 7693,
-     "dur": 204
+     "text": "अगर आप किसी मशहूर जगह पर घूम रहे हैं, तो विज़ुअल सर्च आपको उस इमारत को पहचानने, और उसका इतिहास जानने में मदद कर सकता है।",
+     "from": 7724,
+     "dur": 229
     },
     {
      "file": "long/vo/uses_4.wav",
-     "text": "If you see a product you like, you can search for similar items without knowing the brand or model.",
-     "from": 7916,
-     "dur": 174
+     "text": "अगर आपको कोई प्रोडक्ट पसंद आए, तो आप ब्रांड या मॉडल जाने बिना, मिलते-जुलते आइटम्स खोज सकते हैं।",
+     "from": 7967,
+     "dur": 172
     },
     {
      "file": "long/vo/uses_5.wav",
-     "text": "You can also translate menus, copy printed text, and search for information related to objects around you.",
-     "from": 8108,
-     "dur": 191
+     "text": "आप मेन्यू का अनुवाद कर सकते हैं, छपा हुआ टेक्स्ट कॉपी कर सकते हैं, और अपने आस-पास की चीज़ों से जुड़ी जानकारी खोज सकते हैं।",
+     "from": 8152,
+     "dur": 235
     },
     {
      "file": "long/vo/uses_6.wav",
-     "text": "However, AI recognition isn't always perfect.",
-     "from": 8317,
-     "dur": 108
+     "text": "हालाँकि, AI की पहचान हमेशा सही नहीं होती।",
+     "from": 8400,
+     "dur": 89
     },
     {
      "file": "long/vo/uses_7.wav",
-     "text": "Results can vary depending on image quality, lighting, and the information available.",
-     "from": 8443,
-     "dur": 170
+     "text": "नतीजे तस्वीर की क्वालिटी, रोशनी, और उपलब्ध जानकारी पर निर्भर करते हैं।",
+     "from": 8503,
+     "dur": 135
     }
    ]
   },
   {
    "id": "howto",
    "title": "HOW TO USE GOOGLE LENS",
-   "from": 8656,
-   "dur": 1110,
+   "from": 8666,
+   "dur": 1113,
    "cues": [
     {
      "file": "long/vo/howto_1.wav",
-     "text": "Using Google Lens is straightforward.",
-     "from": 8692,
-     "dur": 67
+     "text": "Google Lens इस्तेमाल करना बहुत आसान है।",
+     "from": 8693,
+     "dur": 68
     },
     {
      "file": "long/vo/howto_2.wav",
-     "text": "Open the Google app or another supported place where Lens is available, and select the Google Lens icon.",
-     "from": 8774,
-     "dur": 197
+     "text": "Google ऐप, या कोई और जगह जहाँ Lens उपलब्ध है, उसे खोलिए, और Google Lens आइकॉन चुनिए।",
+     "from": 8772,
+     "dur": 187
     },
     {
      "file": "long/vo/howto_3.wav",
-     "text": "You can point your camera at something you want to explore or choose an existing picture from your device.",
-     "from": 8986,
-     "dur": 186
+     "text": "आप जिस चीज़ के बारे में जानना चाहते हैं, उसकी ओर कैमरा कीजिए, या अपने फ़ोन से कोई मौजूदा तस्वीर चुनिए।",
+     "from": 8969,
+     "dur": 190
     },
     {
      "file": "long/vo/howto_4.wav",
-     "text": "Position the object clearly inside the camera view and capture or select the image as needed.",
-     "from": 9186,
-     "dur": 171
+     "text": "चीज़ को कैमरा व्यू के अंदर साफ़-साफ़ रखिए, और ज़रूरत के हिसाब से तस्वीर कैप्चर या सिलेक्ट कीजिए।",
+     "from": 9169,
+     "dur": 177
     },
     {
      "file": "long/vo/howto_5.wav",
-     "text": "Lens will analyze it and display relevant options or search results.",
-     "from": 9372,
-     "dur": 122
+     "text": "Lens उसका विश्लेषण करेगा, और काम के ऑप्शन्स या सर्च रिज़ल्ट्स दिखाएगा।",
+     "from": 9356,
+     "dur": 129
     },
     {
      "file": "long/vo/howto_6.wav",
-     "text": "Depending on the content, you can explore matching products, copy text, translate words, or discover additional information.",
-     "from": 9509,
-     "dur": 228
+     "text": "कंटेंट के हिसाब से, आप मिलते-जुलते प्रोडक्ट्स देख सकते हैं, टेक्स्ट कॉपी कर सकते हैं, शब्दों का अनुवाद कर सकते हैं, या और जानकारी पा सकते हैं।",
+     "from": 9495,
+     "dur": 267
     }
    ]
   },
   {
    "id": "outro",
    "title": "GOOGLE LENS",
-   "from": 9766,
-   "dur": 1034,
+   "from": 9779,
+   "dur": 1021,
    "cues": [
     {
      "file": "long/vo/outro_1.wav",
-     "text": "Google Lens brings together computer vision, artificial intelligence, text recognition, and visual search to make everyday information easier to discover.",
-     "from": 9796,
-     "dur": 289
+     "text": "Google Lens, कंप्यूटर विज़न, आर्टिफ़िशियल इंटेलिजेंस, टेक्स्ट रिकग्निशन, और विज़ुअल सर्च को एक साथ लाता है, ताकि रोज़मर्रा की जानकारी खोजना आसान हो जाए।",
+     "from": 9803,
+     "dur": 318
     },
     {
      "file": "long/vo/outro_2.wav",
-     "text": "Instead of searching only with words, we can now explore the world using images.",
-     "from": 10100,
-     "dur": 152
+     "text": "अब हम सिर्फ़ शब्दों से ही नहीं, बल्कि तस्वीरों से भी दुनिया को एक्सप्लोर कर सकते हैं।",
+     "from": 10131,
+     "dur": 151
     },
     {
      "file": "long/vo/outro_3.wav",
-     "text": "From identifying objects to translating text, visual search is changing how we interact with information.",
-     "from": 10266,
-     "dur": 183
+     "text": "चीज़ों को पहचानने से लेकर टेक्स्ट के अनुवाद तक, विज़ुअल सर्च जानकारी से जुड़ने का हमारा तरीका बदल रहा है।",
+     "from": 10293,
+     "dur": 188
     },
     {
      "file": "long/vo/outro_4.wav",
-     "text": "Google Lens is one example of how AI connects the physical world with digital knowledge.",
-     "from": 10463,
-     "dur": 172
+     "text": "Google Lens इस बात का एक उदाहरण है, कि AI कैसे असली दुनिया को डिजिटल ज्ञान से जोड़ता है।",
+     "from": 10491,
+     "dur": 171
     }
    ]
   }
