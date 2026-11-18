@@ -56,11 +56,15 @@ npm run render   # writes out/google_lens_ui_demo_15sec.mp4
 
 # 6-minute explainer (`GoogleLensExplainer6min`)
 
-Full-length documentary built on the same visual identity, phone design, fonts, colours, instruments and narrator.
+Full-length documentary built on the same visual identity, phone design, fonts, colours and instruments.
 Output: `../google_lens_complete_explainer_6min.mp4` (1920×1080, 30 fps, 10,800 frames, H.264 + AAC).
 
-- **Narration:** Hinglish (Hindi with English tech words), same Piper voice `hi_IN-pratham-medium` at length-scale 0.9 with the same processing chain.
-  Script with timings: `narration/NARRATION_SCRIPT_6min.md` (source: `narration/script_6min.json`; on-screen subtitles use the Hinglish text).
+- **Narration:** Hinglish (Hindi with English tech words) in the creator's own cloned voice, made with
+  [Chatterbox Multilingual](https://github.com/resemble-ai/chatterbox) (Resemble AI, MIT license, so commercial use is allowed)
+  from a 14-second clean clip of the creator's recording (`scripts/make_narration_clone.py`, retakes via `scripts/regen_clone_lines.py`).
+  Every line was checked with speech recognition and re-generated where words were dropped or repeated.
+  Outputs carry Resemble's inaudible Perth watermark. When uploading to YouTube, set "Altered or synthetic content" to Yes.
+  Script with timings: `narration/NARRATION_SCRIPT_6min.md` (source: `narration/script_6min.json`).
 - **Phone:** 1.19× larger than in the 15 s video (fully inside the frame, never moves after the opening fade-in).
 - **Timeline:** `scripts/build_timeline.py` lays the 51 narration lines into 9 chapters (exactly 10,800 frames) → `src/long/timeline.json`.
   Animations are keyed to the sentence and word timings in that file, so visuals follow the voice.
@@ -69,12 +73,12 @@ Output: `../google_lens_complete_explainer_6min.mp4` (1920×1080, 30 fps, 10,800
 
 Rebuild everything:
 ```bash
-pip install piper-tts numpy
-PIPER_MODEL_DIR=/tmp/piper python3 scripts/make_narration_6min.py --speed 0.9   # voice lines (downloads model manually, see make_voiceover.sh)
+pip install numpy  # + chatterbox-tts==0.1.7 and torch 2.6 (CPU) in a separate venv
+python scripts/make_narration_clone.py --ref your_voice_reference.wav   # voice lines in your cloned voice (Chatterbox venv)
 python3 scripts/build_timeline.py
 python3 scripts/make_audio_long.py
 npm run render:long
 ```
 Code: `src/long/` (`LongVideo.tsx`, `kit.tsx`, `subjects.tsx`, `art.tsx`, `scenes/*.tsx`).
 Product names, stores and results shown are illustrative mockups, not real search results.
-The `pratham` voice is licensed CC BY-NC-SA 4.0 (non-commercial); replace the WAVs in `public/long/vo/` for commercial use.
+The earlier Piper `pratham` voice (CC BY-NC-SA 4.0, non-commercial) is no longer used in the 6-minute video; it remains only in the 15-second video.
