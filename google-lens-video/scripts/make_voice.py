@@ -41,7 +41,7 @@ CHAIN = ('silenceremove=start_periods=1:start_threshold=-45dB,areverse,'
          'highpass=f=70,acompressor=threshold=-20dB:ratio=3:attack=5:release=80:makeup=2,'
          'aresample=48000')
 
-torch.set_num_threads(max(1, os.cpu_count() or 4))
+torch.set_num_threads(int(os.environ.get('VOICE_THREADS', max(1, os.cpu_count() or 4))))
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 model = ChatterboxMultilingualTTS.from_pretrained(device=device)
 model.prepare_conditionals(a.ref, exaggeration=COND_EXAGGERATION)

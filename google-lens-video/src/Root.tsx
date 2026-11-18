@@ -6,6 +6,8 @@ import {TL} from './long/timeline';
 import {Thumbnail} from './thumbnail/Thumbnail';
 import {ThumbB, ThumbC} from './thumbnail/Variants';
 import {UPISample} from './upi/UPISample';
+import {UPIFull} from './upi/full/UPIFull';
+import {FT} from './upi/full/tl';
 import {FPS, DURATION, WIDTH, HEIGHT} from './theme';
 
 export const RemotionRoot: React.FC = () => (
@@ -23,5 +25,6 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="ThumbnailB" component={ThumbB} durationInFrames={1} fps={FPS} width={1280} height={720} />
   <Composition id="ThumbnailC" component={ThumbC} durationInFrames={1} fps={FPS} width={1280} height={720} />
   <Composition id="UPISample" component={UPISample} durationInFrames={900} fps={FPS} width={WIDTH} height={HEIGHT} />
+  <Composition id="UPIFull" component={UPIFull} durationInFrames={FT.durationInFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
   </>
 );

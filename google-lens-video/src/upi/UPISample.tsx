@@ -24,7 +24,7 @@ const useFonts = () => {
   }, [h]);
 };
 
-const Backdrop: React.FC = () => (
+export const Backdrop: React.FC = () => (
   <AbsoluteFill style={{background: `radial-gradient(ellipse 70% 80% at 30% 50%, #0F2547 0%, ${U.navy} 60%), ${U.navy}`}}>
     <AbsoluteFill style={{backgroundImage: 'linear-gradient(rgba(49,133,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(49,133,255,0.06) 1px, transparent 1px)', backgroundSize: '48px 48px'}} />
     <div style={{position: 'absolute', left: 1180, top: 160, width: 700, height: 700, borderRadius: '50%', background: `radial-gradient(circle, ${U.blue}33 0%, transparent 65%)`}} />
