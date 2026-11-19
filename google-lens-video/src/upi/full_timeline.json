@@ -1,6 +1,6 @@
 {
  "fps": 30,
- "durationInFrames": 19270,
+ "durationInFrames": 18717,
  "scenes": [
   {
    "id": "s1",
@@ -44,7 +44,7 @@
    "id": "s2",
    "title": "WHAT EXACTLY IS UPI?",
    "from": 900,
-   "dur": 1481,
+   "dur": 1488,
    "cues": [
     {
      "file": "upi/vo/s2_1.wav",
@@ -80,24 +80,24 @@
      "file": "upi/vo/s2_6.wav",
      "text": "लेकिन UPI ने ये पूरा Process काफी easy बना दिया।",
      "from": 1805,
-     "dur": 70
+     "dur": 77
     },
     {
      "file": "upi/vo/s2_7.wav",
      "text": "अब आप UPI ID, Mobile Number या QR Code से Payment Initiate कर सकते हैं।",
-     "from": 1886,
+     "from": 1893,
      "dur": 109
     },
     {
      "file": "upi/vo/s2_8.wav",
      "text": "सबसे interesting बात ये है कि normal Bank Account वाले UPI Payment में, आपका पैसा Payment App के अंदर पहले से रखना ज़रूरी नहीं होता।",
-     "from": 2006,
+     "from": 2013,
      "dur": 213
     },
     {
      "file": "upi/vo/s2_9.wav",
      "text": "Payment App बस आपके Bank Account और UPI Network के बीच एक Interface की तरह काम करता है।",
-     "from": 2230,
+     "from": 2237,
      "dur": 125
     }
    ]
@@ -105,61 +105,61 @@
   {
    "id": "s3",
    "title": "THE MAIN COMPONENTS OF UPI",
-   "from": 2381,
-   "dur": 1584,
+   "from": 2388,
+   "dur": 1608,
    "cues": [
     {
      "file": "upi/vo/s3_1.wav",
      "text": "UPI Transaction को समझने के लिए, पहले इसके पीछे काम करने वाले कुछ Important Components को समझते हैं।",
-     "from": 2404,
+     "from": 2410,
      "dur": 198
     },
     {
      "file": "upi/vo/s3_2.wav",
      "text": "पहला है आपका Smartphone और Payment App, जहाँ से आप Transaction start करते हैं।",
-     "from": 2612,
+     "from": 2619,
      "dur": 160
     },
     {
      "file": "upi/vo/s3_3.wav",
      "text": "दूसरा है Payment Service Provider, जिसे short में PSP कहते हैं।",
-     "from": 2783,
+     "from": 2790,
      "dur": 133
     },
     {
      "file": "upi/vo/s3_4.wav",
      "text": "ये UPI Network के साथ Payment वाली Communication में एक important role play करता है।",
-     "from": 2926,
+     "from": 2933,
      "dur": 162
     },
     {
      "file": "upi/vo/s3_5.wav",
      "text": "तीसरा है आपका Bank, जिसे Remitter Bank या Sender Bank कहते हैं।",
-     "from": 3099,
+     "from": 3106,
      "dur": 84
     },
     {
      "file": "upi/vo/s3_6.wav",
      "text": "चौथा है Receiver का Bank, जिसे Beneficiary Bank कहते हैं।",
-     "from": 3193,
+     "from": 3200,
      "dur": 155
     },
     {
      "file": "upi/vo/s3_7.wav",
      "text": "और इन सबके बीच Routing और Coordination का important काम करता है, NPCI का UPI Switch।",
-     "from": 3359,
+     "from": 3366,
      "dur": 206
     },
     {
      "file": "upi/vo/s3_8.wav",
      "text": "इन सभी Systems के बीच Electronic Messages Exchange होते हैं।",
-     "from": 3577,
-     "dur": 84
+     "from": 3584,
+     "dur": 109
     },
     {
      "file": "upi/vo/s3_9.wav",
      "text": "यानी आपके मोबाइल पर सिर्फ एक Payment Button दिखता है, लेकिन उसके पीछे कई Financial और Technical Systems मिलकर काम करते हैं।",
-     "from": 3672,
+     "from": 3703,
      "dur": 267
     }
    ]
@@ -167,111 +167,111 @@
   {
    "id": "s4",
    "title": "HOW QR CODES AND UPI IDS WORK",
-   "from": 3965,
-   "dur": 1392,
+   "from": 3996,
+   "dur": 1414,
    "cues": [
     {
      "file": "upi/vo/s4_1.wav",
      "text": "जब आप किसी shopkeeper का UPI QR Code Scan करते हैं, तो आपका Payment App उसमें रखी Payment Information को Read करता है।",
-     "from": 3987,
+     "from": 4018,
      "dur": 198
     },
     {
      "file": "upi/vo/s4_2.wav",
      "text": "इस Information में shopkeeper की UPI ID, और QR के type के हिसाब से दूसरी Payment Details हो सकती हैं।",
-     "from": 4196,
+     "from": 4227,
      "dur": 181
     },
     {
      "file": "upi/vo/s4_3.wav",
      "text": "कुछ QR Codes में Amount पहले से होता है, जबकि बाकी QR Codes में आपको खुद Amount Enter करना पड़ता है।",
-     "from": 4388,
+     "from": 4419,
      "dur": 179
     },
     {
      "file": "upi/vo/s4_4.wav",
      "text": "UPI ID को आप एक Digital Payment Address समझ सकते हैं।",
-     "from": 4578,
+     "from": 4609,
      "dur": 107
     },
     {
      "file": "upi/vo/s4_5.wav",
      "text": "जैसे Email Address से Message सही person तक पहुँचता है, वैसे ही UPI Address से Payment सही Receiver तक Route होता है।",
-     "from": 4696,
+     "from": 4727,
      "dur": 242
     },
     {
      "file": "upi/vo/s4_6.wav",
      "text": "Payment Network इस Address को Resolve करता है, ताकि Payment सही Bank Account तक पहुँचे।",
-     "from": 4948,
+     "from": 4979,
      "dur": 183
     },
     {
      "file": "upi/vo/s4_7.wav",
      "text": "Payment करने से पहले Receiver का Name ज़रूर Check करें, क्योंकि गलत person को भेजा गया पैसा वापस पाना हमेशा easy नहीं होता।",
-     "from": 5142,
-     "dur": 189
+     "from": 5173,
+     "dur": 211
     }
    ]
   },
   {
    "id": "s5",
    "title": "WHAT HAPPENS WHEN YOU ENTER YOUR UPI PIN?",
-   "from": 5357,
-   "dur": 1468,
+   "from": 5410,
+   "dur": 1451,
    "cues": [
     {
      "file": "upi/vo/s5_1.wav",
      "text": "अब आप Amount Enter करते हैं, और अपना UPI PIN डालते हैं।",
-     "from": 5380,
+     "from": 5432,
      "dur": 102
     },
     {
      "file": "upi/vo/s5_2.wav",
      "text": "UPI PIN का काम है Payment को Authorize करना।",
-     "from": 5492,
-     "dur": 71
+     "from": 5545,
+     "dur": 74
     },
     {
      "file": "upi/vo/s5_3.wav",
      "text": "Normal UPI Payment में, ये आपके Bank को confirm करने में help करता है कि Transaction आपकी permission से हो रहा है।",
-     "from": 5574,
+     "from": 5630,
      "dur": 186
     },
     {
      "file": "upi/vo/s5_4.wav",
      "text": "जैसे ही आप PIN Enter करते हैं, Payment Request Secure तरीके से Process होती है।",
-     "from": 5771,
+     "from": 5827,
      "dur": 123
     },
     {
      "file": "upi/vo/s5_5.wav",
      "text": "Sensitive Information को Protect करने के लिए, Encryption और Secure Authentication का use होता है।",
-     "from": 5905,
+     "from": 5961,
      "dur": 156
     },
     {
      "file": "upi/vo/s5_6.wav",
      "text": "Screen पर आपका PIN दिखना नहीं चाहिए, और normal UPI App को इसे पढ़ने या Store करने की permission नहीं होती।",
-     "from": 6072,
+     "from": 6128,
      "dur": 210
     },
     {
      "file": "upi/vo/s5_7.wav",
      "text": "आपका Bank इस Authentication को Verify करता है।",
-     "from": 6292,
+     "from": 6348,
      "dur": 101
     },
     {
      "file": "upi/vo/s5_8.wav",
      "text": "अगर PIN गलत है, Account में enough Balance नहीं है, या कोई Security Check Fail होता है, तो Payment Decline हो सकता है।",
-     "from": 6404,
-     "dur": 209
+     "from": 6461,
+     "dur": 189
     },
     {
      "file": "upi/vo/s5_9.wav",
      "text": "इसलिए UPI PIN सिर्फ एक Password नहीं, बल्कि Transaction Authorization का एक important part है।",
-     "from": 6625,
+     "from": 6660,
      "dur": 174
     }
    ]
@@ -279,91 +279,91 @@
   {
    "id": "s6",
    "title": "THE ACTUAL UPI TRANSACTION JOURNEY",
-   "from": 6825,
-   "dur": 2501,
+   "from": 6861,
+   "dur": 2275,
    "cues": [
     {
      "file": "upi/vo/s6_1.wav",
      "text": "अब आते हैं सबसे Interesting part पर।",
-     "from": 6848,
+     "from": 6884,
      "dur": 52
     },
     {
      "file": "upi/vo/s6_2.wav",
      "text": "Payment start होने के बाद, Behind the Scenes actually होता क्या है?",
-     "from": 6910,
+     "from": 6946,
      "dur": 92
     },
     {
      "file": "upi/vo/s6_3.wav",
      "text": "मान लीजिए आपके Bank Account में पाँच हज़ार रुपये हैं, और आप किसी दूसरे Bank के Account में सौ रुपये भेजना चाहते हैं।",
-     "from": 7013,
+     "from": 7049,
      "dur": 230
     },
     {
      "file": "upi/vo/s6_4.wav",
      "text": "सबसे पहले आपका Payment App, ज़रूरी Transaction Details के साथ Payment Request Initiate करता है।",
-     "from": 7254,
+     "from": 7290,
      "dur": 146
     },
     {
      "file": "upi/vo/s6_5.wav",
      "text": "ये Request PSP और UPI Network के through Process होती है।",
-     "from": 7410,
+     "from": 7446,
      "dur": 99
     },
     {
      "file": "upi/vo/s6_6.wav",
      "text": "NPCI का UPI Switch इस Information को Route करता है, ताकि सही Banks और Participants आपस में Communicate कर सकें।",
-     "from": 7520,
+     "from": 7556,
      "dur": 197
     },
     {
      "file": "upi/vo/s6_7.wav",
      "text": "अब आपका Bank Transaction को Verify करता है।",
-     "from": 7728,
+     "from": 7764,
      "dur": 64
     },
     {
      "file": "upi/vo/s6_8.wav",
      "text": "Authentication, Available Balance, Transaction Limits और Security Checks, सब Process किए जाते हैं।",
-     "from": 7802,
-     "dur": 375
+     "from": 7838,
+     "dur": 176
     },
     {
      "file": "upi/vo/s6_9.wav",
      "text": "अगर सारे Checks Successful हैं, तो आपके Account से सौ रुपये Debit हो जाते हैं।",
-     "from": 8188,
+     "from": 8025,
      "dur": 184
     },
     {
      "file": "upi/vo/s6_10.wav",
      "text": "इसके बाद UPI Network के through, Receiver के Bank तक Credit Instruction पहुँचती है।",
-     "from": 8382,
+     "from": 8220,
      "dur": 139
     },
     {
      "file": "upi/vo/s6_11.wav",
      "text": "Receiver का Bank Transaction Process करता है, और उसके Account में सौ रुपये Credit कर देता है।",
-     "from": 8532,
+     "from": 8369,
      "dur": 138
     },
     {
      "file": "upi/vo/s6_12.wav",
      "text": "फिर Payment Status की Information, वापस Network और Payment App तक आती है।",
-     "from": 8681,
+     "from": 8518,
      "dur": 131
     },
     {
      "file": "upi/vo/s6_13.wav",
      "text": "Successful Response मिलते ही, आपके मोबाइल पर Payment Successful दिख जाता है।",
-     "from": 8823,
-     "dur": 183
+     "from": 8660,
+     "dur": 156
     },
     {
      "file": "upi/vo/s6_14.wav",
      "text": "तो जो आपको सिर्फ एक Loading Animation दिखता है, उसके पीछे असल में Multiple Secure Messages, Bank Systems और Real-Time Database Updates काम कर रहे होते हैं।",
-     "from": 9017,
+     "from": 8827,
      "dur": 282
     }
    ]
@@ -371,55 +371,55 @@
   {
    "id": "s7",
    "title": "WHAT IS NPCI AND WHY IS IT IMPORTANT?",
-   "from": 9326,
-   "dur": 1282,
+   "from": 9136,
+   "dur": 1263,
    "cues": [
     {
      "file": "upi/vo/s7_1.wav",
      "text": "अब सवाल ये है कि NPCI की ज़रूरत क्यों है?",
-     "from": 9348,
+     "from": 9158,
      "dur": 71
     },
     {
      "file": "upi/vo/s7_2.wav",
      "text": "India में बहुत सारे Banks और Payment Apps हैं।",
-     "from": 9430,
+     "from": 9240,
      "dur": 65
     },
     {
      "file": "upi/vo/s7_3.wav",
      "text": "अगर हर Payment App को हर Bank के साथ अपना अलग Network बनाना पड़े, तो पूरा System बहुत Complex हो जाएगा।",
-     "from": 9505,
+     "from": 9315,
      "dur": 164
     },
     {
      "file": "upi/vo/s7_4.wav",
      "text": "UPI का Common Network, अलग-अलग Banks और Payment Service Providers के बीच Interoperability possible बनाता है।",
-     "from": 9680,
+     "from": 9490,
      "dur": 180
     },
     {
      "file": "upi/vo/s7_5.wav",
      "text": "NPCI का UPI Switch, Transaction Messages को Route करने और सबके बीच Communication Coordinate करने में important role play करता है।",
-     "from": 9871,
-     "dur": 246
+     "from": 9681,
+     "dur": 226
     },
     {
      "file": "upi/vo/s7_6.wav",
      "text": "इसे आप एक Intelligent Network Junction समझ सकते हैं, जहाँ से हर Payment Message सही Destination पर भेजा जाता है।",
-     "from": 10128,
+     "from": 9918,
      "dur": 189
     },
     {
      "file": "upi/vo/s7_7.wav",
      "text": "इसी वजह से आप एक UPI App से, किसी दूसरे UPI App use करने वाले person को भी पैसा भेज सकते हैं।",
-     "from": 10327,
+     "from": 10118,
      "dur": 158
     },
     {
      "file": "upi/vo/s7_8.wav",
      "text": "आप दोनों का Bank या Payment App same होना ज़रूरी नहीं है।",
-     "from": 10497,
+     "from": 10287,
      "dur": 85
     }
    ]
@@ -427,61 +427,61 @@
   {
    "id": "s8",
    "title": "HOW DOES MONEY TRANSFER SO FAST?",
-   "from": 10608,
-   "dur": 1740,
+   "from": 10399,
+   "dur": 1635,
    "cues": [
     {
      "file": "upi/vo/s8_1.wav",
      "text": "अब सबसे बड़ा सवाल। इतना बड़ा Process कुछ ही seconds में कैसे complete हो जाता है?",
-     "from": 10630,
+     "from": 10422,
      "dur": 118
     },
     {
      "file": "upi/vo/s8_2.wav",
      "text": "इसका reason है Automated Payment Infrastructure।",
-     "from": 10759,
+     "from": 10550,
      "dur": 72
     },
     {
      "file": "upi/vo/s8_3.wav",
      "text": "जब आप UPI Payment करते हैं, तो हर Transaction को कोई Bank Employee बैठकर Manually Approve नहीं करता।",
-     "from": 10842,
-     "dur": 198
+     "from": 10633,
+     "dur": 200
     },
     {
      "file": "upi/vo/s8_4.wav",
      "text": "Connected Servers और Banking Systems, set Rules के हिसाब से Requests को Automatically Process करते हैं।",
-     "from": 11051,
+     "from": 10843,
      "dur": 181
     },
     {
      "file": "upi/vo/s8_5.wav",
      "text": "Secure Digital Messages Network के through बहुत fast Travel करते हैं।",
-     "from": 11243,
+     "from": 11036,
      "dur": 97
     },
     {
      "file": "upi/vo/s8_6.wav",
      "text": "Banking Systems Authentication और Balance को Verify करते हैं, और Successful Transaction में Account Records Update हो जाते हैं।",
-     "from": 11351,
+     "from": 11144,
      "dur": 279
     },
     {
      "file": "upi/vo/s8_7.wav",
      "text": "ये सब fast चलाने के लिए Electronic Communication, Automated Processing और Standardized Payment Protocols का use होता है।",
-     "from": 11641,
-     "dur": 300
+     "from": 11434,
+     "dur": 194
     },
     {
      "file": "upi/vo/s8_8.wav",
      "text": "लेकिन इसका मतलब ये नहीं कि हर UPI Payment exactly दो seconds में Successful होगा।",
-     "from": 11952,
+     "from": 11638,
      "dur": 119
     },
     {
      "file": "upi/vo/s8_9.wav",
      "text": "Internet Connection, Server Load, Bank Availability और दूसरी Technical Conditions की वजह से, Processing Time बदल सकता है।",
-     "from": 12082,
+     "from": 11768,
      "dur": 239
     }
    ]
@@ -489,61 +489,61 @@
   {
    "id": "s9",
    "title": "INSTANT CREDIT VS BANK SETTLEMENT",
-   "from": 12348,
-   "dur": 1788,
+   "from": 12034,
+   "dur": 1613,
    "cues": [
     {
      "file": "upi/vo/s9_1.wav",
      "text": "अब एक ऐसी बात, जो बहुत कम लोग जानते हैं।",
-     "from": 12370,
+     "from": 12056,
      "dur": 121
     },
     {
      "file": "upi/vo/s9_2.wav",
      "text": "जब आप किसी दूसरे Bank के Customer को पैसा भेजते हैं, तो Receiver को Credit कुछ ही seconds में मिल सकता है।",
-     "from": 12502,
+     "from": 12188,
      "dur": 179
     },
     {
      "file": "upi/vo/s9_3.wav",
      "text": "लेकिन Customer के Account में Credit होना, और दो Banks के बीच Settlement होना, दो अलग Processes हैं।",
-     "from": 12692,
+     "from": 12378,
      "dur": 202
     },
     {
      "file": "upi/vo/s9_4.wav",
      "text": "मान लीजिए पूरे दिन Bank A के Customers ने, Bank B के Customers को बहुत सारे Payments किए।",
-     "from": 12905,
+     "from": 12591,
      "dur": 193
     },
     {
      "file": "upi/vo/s9_5.wav",
      "text": "और उसी time Bank B के Customers ने भी, Bank A के Customers को Payments किए।",
-     "from": 13109,
+     "from": 12795,
      "dur": 137
     },
     {
      "file": "upi/vo/s9_6.wav",
      "text": "इस तरह Banks के बीच आपस में Financial Obligations बनती हैं।",
-     "from": 13257,
+     "from": 12943,
      "dur": 139
     },
     {
      "file": "upi/vo/s9_7.wav",
      "text": "UPI के Settlement System में इन Obligations को calculate किया जाता है, और फिर Banks के बीच Balance Settle होता है।",
-     "from": 13407,
+     "from": 13093,
      "dur": 198
     },
     {
      "file": "upi/vo/s9_8.wav",
      "text": "इसे आप एक simple example, यानी Net Settlement से समझ सकते हैं।",
-     "from": 13616,
-     "dur": 307
+     "from": 13302,
+     "dur": 132
     },
     {
      "file": "upi/vo/s9_9.wav",
      "text": "मतलब आपके लिए Payment instantly complete हो सकता है, जबकि Banks के बीच Final Settlement एक अलग Process से होता है।",
-     "from": 13933,
+     "from": 13445,
      "dur": 176
     }
    ]
@@ -551,67 +551,67 @@
   {
    "id": "s10",
    "title": "WHY DO UPI PAYMENTS SOMETIMES FAIL?",
-   "from": 14136,
-   "dur": 1661,
+   "from": 13647,
+   "dur": 1608,
    "cues": [
     {
      "file": "upi/vo/s10_1.wav",
      "text": "अगर UPI इतना Advanced है, तो कभी-कभी Payment Fail या Pending क्यों हो जाता है?",
-     "from": 14158,
+     "from": 13670,
      "dur": 141
     },
     {
      "file": "upi/vo/s10_2.wav",
      "text": "इसके कई reasons हो सकते हैं।",
-     "from": 14310,
+     "from": 13821,
      "dur": 76
     },
     {
      "file": "upi/vo/s10_3.wav",
      "text": "जैसे Bank Server का Temporarily Down होना, weak Internet Connection, गलत UPI PIN, Insufficient Balance, Transaction Limit, या Technical Timeout।",
-     "from": 14397,
-     "dur": 322
+     "from": 13908,
+     "dur": 269
     },
     {
      "file": "upi/vo/s10_4.wav",
      "text": "कभी-कभी ऐसा भी होता है कि आपके Account से पैसा Debit हो जाए, लेकिन Payment App को Final Confirmation तुरंत न मिले।",
-     "from": 14729,
+     "from": 14187,
      "dur": 217
     },
     {
      "file": "upi/vo/s10_5.wav",
      "text": "ऐसी Situation में Transaction Pending दिख सकता है।",
-     "from": 14958,
+     "from": 14416,
      "dur": 71
     },
     {
      "file": "upi/vo/s10_6.wav",
      "text": "इसका मतलब ये नहीं कि पैसा हमेशा के लिए गायब हो गया।",
-     "from": 15039,
+     "from": 14497,
      "dur": 75
     },
     {
      "file": "upi/vo/s10_7.wav",
      "text": "Payment Network और Banks, Transaction Records Verify करके उसका Final Status decide करते हैं।",
-     "from": 15125,
+     "from": 14583,
      "dur": 140
     },
     {
      "file": "upi/vo/s10_8.wav",
      "text": "अगर Payment सच में Failed है और पैसा Debit हुआ है, तो Rules के हिसाब से Reversal हो सकता है।",
-     "from": 15276,
+     "from": 14734,
      "dur": 198
     },
     {
      "file": "upi/vo/s10_9.wav",
      "text": "इसलिए दोबारा Payment करने से पहले, Transaction History और Bank Statement ज़रूर Check करें।",
-     "from": 15485,
+     "from": 14943,
      "dur": 164
     },
     {
      "file": "upi/vo/s10_10.wav",
      "text": "ज़रूरत हो तो अपने Payment App या Bank के Official Support से Contact करें।",
-     "from": 15660,
+     "from": 15118,
      "dur": 111
     }
    ]
@@ -619,61 +619,61 @@
   {
    "id": "s11",
    "title": "HOW SAFE IS UPI?",
-   "from": 15797,
-   "dur": 1426,
+   "from": 15255,
+   "dur": 1449,
    "cues": [
     {
      "file": "upi/vo/s11_1.wav",
      "text": "UPI की Security में Authentication, Protected Communication और Banking Security Checks का important role है।",
-     "from": 15820,
+     "from": 15278,
      "dur": 176
     },
     {
      "file": "upi/vo/s11_2.wav",
      "text": "लेकिन कोई भी Digital Payment System तभी ज़्यादा Safe होता है, जब User भी alert रहता है।",
-     "from": 16007,
+     "from": 15465,
      "dur": 141
     },
     {
      "file": "upi/vo/s11_3.wav",
      "text": "सबसे पहले, अपना UPI PIN, OTP या Banking Password किसी के साथ Share मत कीजिए।",
-     "from": 16158,
-     "dur": 138
+     "from": 15616,
+     "dur": 145
     },
     {
      "file": "upi/vo/s11_4.wav",
      "text": "Normal UPI Transfer में पैसा Receive करने के लिए, आपको UPI PIN डालने की ज़रूरत नहीं होती।",
-     "from": 16307,
+     "from": 15772,
      "dur": 171
     },
     {
      "file": "upi/vo/s11_5.wav",
      "text": "अगर कोई Refund, Cashback या Reward के नाम पर, QR Code Scan करवाकर UPI PIN डालने को कहे, तो पहले पूरी Details Verify कीजिए।",
-     "from": 16489,
-     "dur": 223
+     "from": 15954,
+     "dur": 238
     },
     {
      "file": "upi/vo/s11_6.wav",
      "text": "सिर्फ Payment Successful का Screenshot देखकर भरोसा मत कीजिए।",
-     "from": 16722,
+     "from": 16203,
      "dur": 97
     },
     {
      "file": "upi/vo/s11_7.wav",
      "text": "Real Payment Status अपने Bank Account या Payment App में Check कीजिए।",
-     "from": 16830,
+     "from": 16311,
      "dur": 99
     },
     {
      "file": "upi/vo/s11_8.wav",
      "text": "Payment करने से पहले Receiver का Name और Amount ज़रूर Verify करें।",
-     "from": 16941,
+     "from": 16421,
      "dur": 96
     },
     {
      "file": "upi/vo/s11_9.wav",
      "text": "Technology Payment को easy बनाती है, लेकिन आपका alert रहना भी Security का उतना ही important part है।",
-     "from": 17048,
+     "from": 16528,
      "dur": 149
     }
    ]
@@ -681,55 +681,55 @@
   {
    "id": "s12",
    "title": "THE COMPLETE UPI JOURNEY",
-   "from": 17223,
-   "dur": 2047,
+   "from": 16704,
+   "dur": 2013,
    "cues": [
     {
      "file": "upi/vo/s12_1.wav",
      "text": "तो अगली बार जब आप किसी shop पर QR Code Scan करके Payment करेंगे, तो आपको पता होगा कि आपकी मोबाइल Screen के पीछे कितना Advanced Infrastructure काम कर रहा है।",
-     "from": 17246,
+     "from": 16726,
      "dur": 257
     },
     {
      "file": "upi/vo/s12_2.wav",
      "text": "एक छोटा सा Payment Button, आपके Payment App, PSP, NPCI Network और Banks के बीच Secure Communication start करता है।",
-     "from": 17514,
-     "dur": 270
+     "from": 16995,
+     "dur": 235
     },
     {
      "file": "upi/vo/s12_3.wav",
      "text": "आपका Bank Payment को Authenticate करता है, Account से Amount Debit होता है, Receiver के Bank में Credit Process होता है, और Transaction Status वापस आपके मोबाइल तक आता है।",
-     "from": 17794,
+     "from": 17241,
      "dur": 307
     },
     {
      "file": "upi/vo/s12_4.wav",
      "text": "इन सभी Processes के Coordination से, UPI Digital Payments को fast और convenient बनाता है।",
-     "from": 18112,
+     "from": 17559,
      "dur": 229
     },
     {
      "file": "upi/vo/s12_5.wav",
      "text": "और यही वजह है कि छोटी shops से लेकर Online Shopping तक, UPI हमारी daily life का important part बन चुका है।",
-     "from": 18353,
+     "from": 17799,
      "dur": 194
     },
     {
      "file": "upi/vo/s12_6.wav",
      "text": "एक simple QR Code से शुरू होने वाला Payment, असल में एक बड़े Connected Financial Network की कहानी है।",
-     "from": 18557,
+     "from": 18004,
      "dur": 170
     },
     {
      "file": "upi/vo/s12_7.wav",
      "text": "अगर आपको Technology के पीछे के ऐसे Systems समझना अच्छा लगता है, तो Video को Like कीजिए, और ऐसी ही Technology Documentaries के लिए Channel को Subscribe कीजिए।",
-     "from": 18738,
+     "from": 18185,
      "dur": 263
     },
     {
      "file": "upi/vo/s12_8.wav",
      "text": "मिलते हैं अगले Video में।",
-     "from": 19012,
+     "from": 18459,
      "dur": 33
     }
    ]
