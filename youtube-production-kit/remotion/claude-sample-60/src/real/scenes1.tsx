@@ -42,7 +42,7 @@ export const R01: React.FC<SceneProps> = ({ dur }) => {
             <div style={{ position: "absolute", left: 360, top: 200, width: 1200, height: 640, borderRadius: 28, background: K.page, opacity: card, transform: `translateY(${(1 - card) * 30}px)`, boxShadow: "0 40px 100px rgba(0,0,0,0.35)", fontFamily: SANS, textAlign: "center" }}>
               <div style={{ marginTop: 70, display: "flex", justifyContent: "center", transform: `rotate(${(1 - card) * -40}deg)` }}><Spark size={96} /></div>
               <div style={{ fontFamily: SERIF, fontSize: 70, marginTop: 26, color: "#2B2A26" }}>Claude AI for YouTube Creators</div>
-              <div style={{ fontSize: 28, color: K.sub, marginTop: 14 }}>Apna personal content assistant setup karo · step by step</div>
+              <div style={{ fontSize: 28, color: K.sub, marginTop: 14 }}>Set up your personal content assistant · step by step</div>
               <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 14, margin: "46px 80px 0" }}>
                 {AGENDA.map((a, i) => {
                   const o = p01(f, 1330 + i * 32, 10);
@@ -93,18 +93,18 @@ export const R02: React.FC<SceneProps> = ({ dur }) => {
   const g = chatGeo(false, true);
   return (
     <Shell
-      f={f} dur={dur} n={2} chapter="Claude AI kya hai?" url={f < 470 ? "claude.ai/new" : "claude.ai/chat/key-points"}
+      f={f} dur={dur} n={2} chapter="What is Claude AI?" url={f < 470 ? "claude.ai/new" : "claude.ai/chat/key-points"}
       screen={f < 470 ? <Home f={f} text={curText(f, M2[0])} focus={isTyping(f, M2[0])} file={f >= 296 ? "video-notes.pdf" : undefined} /> : <ChatView f={f} msgs={M2} title="Document ke key points" project="" narrow />}
       over={
         <>
           <Ring x={895} y={305} w={460} h={86} f={f} from={110} to={290} r={14} />
-          <Callout f={f} from={118} to={290} x={860} y={700} w={560} title="Claude = AI assistant" lines={["Anthropic ne develop kiya hai"]} />
-          <Callout f={f} from={300} to={600} x={1370} y={130} w={500} title="Claude kya kar sakta hai?" lines={["Likhna", "Jaankari samajhna", "Documents analyze karna", "Creative kaam mein help"]} />
-          <Callout f={f} from={760} to={930} x={1320} y={160} w={560} tone="warn" title="Context nahi = generic jawab" lines={["Topic? Audience? Language? Length?"]} />
-          <Callout f={f} from={1300} to={1462} x={1320} y={160} w={560} tone="ok" title="Sahi context = relevant content" lines={["Niche · style · audience · examples"]} />
+          <Callout f={f} from={118} to={290} x={860} y={700} w={560} title="Claude = AI assistant" lines={["Developed by Anthropic"]} />
+          <Callout f={f} from={300} to={600} x={1370} y={130} w={500} title="What can Claude do?" lines={["Writing", "Understanding information", "Analyzing documents", "Help with creative work"]} />
+          <Callout f={f} from={760} to={930} x={1320} y={160} w={560} tone="warn" title="No context = generic answers" lines={["Topic? Audience? Language? Length?"]} />
+          <Callout f={f} from={1300} to={1462} x={1320} y={160} w={560} tone="ok" title="Right context = relevant content" lines={["Niche · style · audience · examples"]} />
         </>
       }
-      steps={[{ from: 1467, to: dur + 20, n: 1, text: "Pehle AI ko apne channel ke baare mein sikhao" }]}
+      steps={[{ from: 1467, to: dur + 20, n: 1, text: "First, teach AI about your channel" }]}
       cursor={path([0, [1300, 800]], [120, [1300, 780]], [282, [706, 545]], [300, T.homeField], [455, T.homeSend], [560, [1500, 700]], [600, g.field], [690, g.send], [920, g.field], [1262, g.send], [1360, [1500, 820]])}
       clicks={[290, 470, 610, 700, 936, 1272]}
       typing={chatTyping(M2)}
@@ -132,19 +132,19 @@ export const R03: React.FC<SceneProps> = ({ dur }) => {
     : <ChatView f={f} msgs={M3b} title="Topic ideas" narrow />;
   return (
     <Shell
-      f={f} dur={dur} n={3} chapter="Projects kyun?" url={f < 415 ? "claude.ai/new" : f < 700 ? "claude.ai/chat/script-outline" : f < 905 ? "claude.ai/projects" : "claude.ai/project/youtube-content-assistant"}
+      f={f} dur={dur} n={3} chapter="Why Projects?" url={f < 415 ? "claude.ai/new" : f < 700 ? "claude.ai/chat/script-outline" : f < 905 ? "claude.ai/projects" : "claude.ai/project/youtube-content-assistant"}
       side={{ active: f >= 700 ? "Projects" : undefined, hover: f >= 680 && f < 700 ? "Projects" : undefined }}
       screen={screen}
       over={
         <>
-          <Callout f={f} from={440} to={642} x={1320} y={150} w={560} tone="warn" title="Har nayi chat mein yahi sab dobara?" lines={["Chat 1: niche, audience, language, style...", "Chat 2: niche, audience, language, style...", "Chat 3: phir se wahi..."]} />
+          <Callout f={f} from={440} to={642} x={1320} y={150} w={560} tone="warn" title="Repeat all this in every new chat?" lines={["Chat 1: niche, audience, language, style...", "Chat 2: niche, audience, language, style...", "Chat 3: the same again..."]} />
           <Ring x={14} y={sy(sideItemY(2))} w={302} h={48} f={f} from={650} to={706} r={10} />
-          <Callout f={f} from={712} to={880} x={1240} y={790} w={600} title="Solution: Claude Projects" lines={["Jahan ye feature aapke account par available ho"]} />
+          <Callout f={f} from={712} to={880} x={1240} y={790} w={600} title="Solution: Claude Projects" lines={["Where this feature is available on your account"]} />
           <Ring x={1384} y={212} w={472} h={110} f={f} from={915} to={1012} r={14} />
           <Ring x={1384} y={422} w={472} h={270} f={f} from={1012} to={1132} r={14} />
-          <Callout f={f} from={900} to={1132} x={420} y={640} w={640} title="Project = dedicated workspace" lines={["Instructions + reference materials", "ek hi jagah organized"]} />
-          <Callout f={f} from={1450} to={1602} x={1320} y={160} w={560} tone="ok" title="Context dobara likhne ki zaroorat nahi" lines={["Project ki instructions apne aap use hoti hain"]} />
-          <Callout f={f} from={1610} to={dur + 20} x={1320} y={160} w={560} tone="warn" title="AI output hamesha review karo" lines={["Saved context ke baad bhi AI galti kar sakta hai"]} />
+          <Callout f={f} from={900} to={1132} x={420} y={640} w={640} title="Project = dedicated workspace" lines={["Instructions + reference materials", "organized in one place"]} />
+          <Callout f={f} from={1450} to={1602} x={1320} y={160} w={560} tone="ok" title="No need to rewrite context" lines={["Project instructions are applied automatically"]} />
+          <Callout f={f} from={1610} to={dur + 20} x={1320} y={160} w={560} tone="warn" title="Always review AI output" lines={["AI can make mistakes even with saved context"]} />
           <Ring x={400} y={1038} w={860} h={30} f={f} from={1615} to={dur + 20} r={8} />
         </>
       }
@@ -169,7 +169,7 @@ export const R04: React.FC<SceneProps> = ({ dur }) => {
     : <ProjectPage f={f} instr={f >= 1562 ? ROLE + BASICS : undefined} instrHover={f >= 790 && f < 805} />;
   return (
     <Shell
-      f={f} dur={dur} n={4} chapter="Project create karo"
+      f={f} dur={dur} n={4} chapter="Create a Project"
       url={f < 118 ? "claude.ai/new" : f < 172 ? "claude.ai/projects" : f < 692 ? "claude.ai/projects/create" : "claude.ai/project/youtube-content-assistant"}
       side={{ active: f >= 118 ? "Projects" : undefined, hover: f >= 104 && f < 118 ? "Projects" : undefined }}
       screen={screen}
@@ -180,13 +180,13 @@ export const R04: React.FC<SceneProps> = ({ dur }) => {
           <Ring x={1384} y={212} w={472} h={110} f={f} from={716} to={800} r={14} />
           <InstrModal f={f} openAt={804} closeAt={1562} text={typedSeq("", SEG4, f)} focus={f >= 812 && f < 1560} savePress={f >= 1558 && f < 1564} />
           <Ring x={1384} y={212} w={472} h={110} f={f} from={1575} to={1720} r={14} />
-          <Callout f={f} from={1590} to={dur + 20} x={420} y={620} w={660} tone="ok" title="Jitna clear context, utne better results" lines={["Claude ke liye aapke goals samajhna aasaan"]} />
+          <Callout f={f} from={1590} to={dur + 20} x={420} y={620} w={660} tone="ok" title="Clearer context, better results" lines={["Easier for Claude to understand your goals"]} />
         </>
       }
       steps={[
         { from: 24, to: 300, n: 1, text: "Projects  →  New project" },
-        { from: 300, to: 692, n: 2, text: "Project ka naam + purpose likho" },
-        { from: 700, to: 1349, n: 3, text: "Project Instructions: Claude ka role" },
+        { from: 300, to: 692, n: 2, text: "Write the Project name + purpose" },
+        { from: 700, to: 1349, n: 3, text: "Project Instructions: Claude's role" },
         { from: 1349, to: dur + 20, n: 4, text: "Niche · audience · language · style" },
       ]}
       cursor={path(

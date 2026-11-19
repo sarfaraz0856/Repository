@@ -15,18 +15,18 @@ export const R05: React.FC<SceneProps> = ({ dur }) => {
   const f = useSceneFrame();
   return (
     <Shell
-      f={f} dur={dur} n={5} chapter="Claude ko apna channel sikhao" url="claude.ai/project/youtube-content-assistant" side={{ active: "Projects" }}
+      f={f} dur={dur} n={5} chapter="Teach Claude your channel" url="claude.ai/project/youtube-content-assistant" side={{ active: "Projects" }}
       screen={<ProjectPage f={f} instr={f >= 1532 ? INSTR : ROLE + BASICS} instrHover={f >= 140 && f < 156} />}
       over={
         <>
           <Ring x={1384} y={212} w={472} h={110} f={f} from={24} to={150} r={14} />
-          <Callout f={f} from={20} to={150} x={420} y={620} w={660} tone="warn" title="Sirf channel ka naam kaafi nahi" lines={["Apni content identity bhi explain karo"]} />
+          <Callout f={f} from={20} to={150} x={420} y={620} w={660} tone="warn" title="Channel name alone is not enough" lines={["Explain your content identity too"]} />
           <InstrModal f={f} openAt={156} closeAt={1532} text={typedSeq(ROLE + BASICS, SEGS5, f)} focus={f >= 256 && f < 1530} savePress={f >= 1528 && f < 1534} />
-          <Callout f={f} from={262} to={636} x={1470} y={170} w={420} title="Ideal viewer" lines={["Uski problems kya hain?", "Video kyun dekhta hai?", "Video ke baad kya seekhe?"]} />
-          <Callout f={f} from={640} to={1175} x={1470} y={170} w={420} title="Brand voice" lines={["Educational, entertaining ya documentary?", "Formal ya conversational?", "Short sentences ya detailed?"]} />
+          <Callout f={f} from={262} to={636} x={1470} y={170} w={420} title="Ideal viewer" lines={["What are their problems?", "Why do they watch?", "What should they learn?"]} />
+          <Callout f={f} from={640} to={1175} x={1470} y={170} w={420} title="Brand voice" lines={["Educational, entertaining or documentary?", "Formal or conversational?", "Short sentences or detailed?"]} />
           <Callout f={f} from={1180} to={1515} x={1470} y={170} w={420} title="Workflow" lines={["Research", "Scriptwriting", "Title generation", "Analytics analysis"]} />
           <Ring x={1384} y={212} w={472} h={110} f={f} from={1545} to={1700} r={14} />
-          <Callout f={f} from={1548} to={dur + 20} x={420} y={620} w={660} tone="ok" title="Claude = useful creative partner" lines={["Jitni clear identity, utni better help"]} />
+          <Callout f={f} from={1548} to={dur + 20} x={420} y={620} w={660} tone="ok" title="Claude = useful creative partner" lines={["Clearer identity, better help"]} />
         </>
       }
       steps={[
@@ -72,18 +72,18 @@ export const R06: React.FC<SceneProps> = ({ dur }) => {
         <>
           <Ring x={1812} y={354} w={48} h={48} f={f} from={24} to={180} r={10} />
           <Finder f={f} openAt={306} closeAt={446} files={[...SCRIPTS, "shorts-hooks.txt", "random-notes.txt"]} sel={sel} pressOpen={f >= 438 && f < 446} />
-          <Callout f={f} from={462} to={612} x={420} y={640} w={660} title="Best videos ki scripts add karo" lines={["Jab aapke account mein file upload available ho"]} />
+          <Callout f={f} from={462} to={612} x={420} y={640} w={660} title="Add scripts of your best videos" lines={["When file upload is available on your account"]} />
           <Ring x={1384} y={422} w={472} h={200} f={f} from={630} to={792} r={14} />
-          <Callout f={f} from={630} to={792} x={420} y={640} w={660} tone="ok" title="Claude better samjhega" lines={["Writing patterns", "Explanations", "Content structure"]} />
-          <Callout f={f} from={1340} to={1545} x={320} y={760} w={980} title="CSV mein kya hota hai?" lines={["Video titles · views · impressions · click-through rate · watch time"]} />
-          <Callout f={f} from={1562} to={1792} x={420} y={620} w={760} tone="warn" title="Sirf zaroori data share karo" lines={["Private notes, contact details aur personal info pehle remove karo"]} />
-          <Callout f={f} from={1812} to={dur + 20} x={420} y={620} w={660} tone="ok" title="Ab teeno cheezein ready hain" lines={["✓ Channel instructions", "✓ Sample scripts", "✓ Analytics data"]} />
+          <Callout f={f} from={630} to={792} x={420} y={640} w={660} tone="ok" title="Claude will understand better" lines={["Writing patterns", "Explanations", "Content structure"]} />
+          <Callout f={f} from={1340} to={1545} x={320} y={760} w={980} title="What is in the CSV?" lines={["Video titles · views · impressions · click-through rate · watch time"]} />
+          <Callout f={f} from={1562} to={1792} x={420} y={620} w={760} tone="warn" title="Share only the data you need" lines={["Remove private notes, contact details and personal info first"]} />
+          <Callout f={f} from={1812} to={dur + 20} x={420} y={620} w={660} tone="ok" title="All three are ready" lines={["✓ Channel instructions", "✓ Sample scripts", "✓ Analytics data"]} />
         </>
       }
       steps={[
         { from: 14, to: 801, n: 1, text: "Project files: best scripts" },
         { from: 801, to: 1548, n: 2, text: "Studio → Analytics → Advanced → Export CSV" },
-        { from: 1548, to: 1793, n: 3, text: "Private data hatao" },
+        { from: 1548, to: 1793, n: 3, text: "Remove private data" },
       ]}
       cursor={path(
         [0, [1300, 700]], [160, T.filesPlus], [262, T.menuUpload], [330, T.finderRow(0)], [362, T.finderRow(1)], [392, T.finderRow(2)], [428, T.finderOpen], [520, [1500, 760]],
@@ -137,10 +137,10 @@ export const R07: React.FC<SceneProps> = ({ dur }) => {
       f={f} dur={dur} n={7} chapter="Video ideas + script" url={f < 495 ? "claude.ai/project/youtube-content-assistant" : "claude.ai/chat/video-ideas"} side={{ active: "Projects" }}
       screen={f < 495 ? <ProjectPage f={f} instr={INSTR} files={FILES} text={curText(f, M7[0])} focus={f >= 160} /> : <ChatView f={f} msgs={M7} title="Video ideas" art={ART7} narrow />}
       over={
-        <Callout f={f} from={705} to={1110} x={1320} y={150} w={560} tone="warn" title="AI ideas apne aap trending nahi hote" lines={["Evaluate karo:", "• Audience demand", "• Search interest", "• Channel goals"]} />
+        <Callout f={f} from={705} to={1110} x={1320} y={150} w={560} tone="warn" title="AI ideas are not automatically trending" lines={["Evaluate:", "• Audience demand", "• Search interest", "• Channel goals"]} />
       }
       steps={[
-        { from: 144, to: 512, n: 1, text: "Project ke andar nayi chat" },
+        { from: 144, to: 512, n: 1, text: "New chat inside the Project" },
         { from: 1120, to: 1590, n: 2, text: "Intro + detailed script outline" },
         { from: 1590, to: dur + 20, n: 3, text: "Research + planning assistant" },
       ]}
@@ -178,15 +178,15 @@ export const R08: React.FC<SceneProps> = ({ dur }) => {
               ))}
             </div>
           ) : null}
-          <Callout f={f} from={150} to={366} x={1240} y={890} w={600} title="Skill = reusable instructions + resources" lines={["Ek particular task, har baar same tareeke se"]} />
+          <Callout f={f} from={150} to={366} x={1240} y={890} w={600} title="Skill = reusable instructions + resources" lines={["One task, done the same way every time"]} />
           <SkillFile f={f} openAt={476} closeAt={920} lines={SKILL_MD} reveal={482} />
-          <Callout f={f} from={500} to={662} x={1520} y={170} w={380} title="Har baar lamba prompt? Nahi." lines={["Ek structured workflow, baar baar use karo"]} />
-          <Callout f={f} from={670} to={915} x={1520} y={170} w={380} tone="ok" title="Achha title balance karta hai" lines={["Clarity", "Curiosity", "Accuracy", "Audience relevance"]} />
-          <Callout f={f} from={930} to={1152} x={1240} y={890} w={600} title="Aur bhi reusable workflows" lines={["Script review · intro writing · thumbnails · channel analysis"]} />
-          <Callout f={f} from={1160} to={1352} x={1240} y={890} w={600} tone="warn" title="Availability alag ho sakti hai" lines={["Claude product, plan aur environment par depend"]} />
+          <Callout f={f} from={500} to={662} x={1520} y={170} w={380} title="Long prompts every time? No." lines={["One structured workflow, reused again and again"]} />
+          <Callout f={f} from={670} to={915} x={1520} y={170} w={380} tone="ok" title="A good title balances" lines={["Clarity", "Curiosity", "Accuracy", "Audience relevance"]} />
+          <Callout f={f} from={930} to={1152} x={1240} y={890} w={600} title="More reusable workflows" lines={["Script review · intro writing · thumbnails · channel analysis"]} />
+          <Callout f={f} from={1160} to={1352} x={1240} y={890} w={600} tone="warn" title="Availability may vary" lines={["Depends on your Claude product, plan and environment"]} />
         </>
       }
-      steps={[{ from: 1358, to: dur + 20, n: 1, text: "Skills ko apne workflow mein organize karo" }]}
+      steps={[{ from: 1358, to: dur + 20, n: 1, text: "Organize Skills into your workflow" }]}
       cursor={path([0, [1300, 700]], [32, T.avatar], [62, [120, 800]], [140, [1200, 520]], [370, [1100, skillRowY(0) + 39]], [600, [1530, 640]], [905, [1560, 960]], [978, tog(2)], [1028, tog(3)], [1078, tog(4)], [1200, [1500, 760]])}
       clicks={[40, 80, 470, 920, 990, 1040, 1090]}
     />
