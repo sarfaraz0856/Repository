@@ -149,9 +149,9 @@ export const Sidebar: React.FC<{ active?: string; hover?: string }> = ({ active,
       </div>
     ))}
     <div style={{ position: "absolute", left: 14, right: 14, bottom: 18, height: 64, borderRadius: 12, display: "flex", alignItems: "center", gap: 14, padding: "0 12px" }}>
-      <div style={{ width: 40, height: 40, borderRadius: 20, background: "#3D3B36", color: "#fff", display: "grid", placeItems: "center", fontWeight: 600, fontSize: 18 }}>YT</div>
+      <div style={{ width: 40, height: 40, borderRadius: 20, background: "#3D3B36", color: "#fff", display: "grid", placeItems: "center", fontWeight: 600, fontSize: 18 }}>S</div>
       <div>
-        <div style={{ fontSize: 18, fontWeight: 600 }}>Creator</div>
+        <div style={{ fontSize: 18, fontWeight: 600 }}>Sujan</div>
         <div style={{ fontSize: 15, color: K.sub }}>Pro plan</div>
       </div>
     </div>
@@ -187,7 +187,7 @@ export const Composer: React.FC<{ left: number; top: number; width: number; heig
       ))}
     </div>
     <div style={{ position: "absolute", right: 20, bottom: 16, display: "flex", gap: 14, alignItems: "center" }}>
-      <span style={{ fontSize: 18, color: K.sub }}>Sonnet 5.5 ⌄</span>
+      <span style={{ fontSize: 18, color: K.sub }}>Opus 5.5 · Medium ⌄</span>
       <div style={{ width: 44, height: 44, borderRadius: 10, background: text ? K.clay : "#E9B9A6", display: "grid", placeItems: "center", color: "#fff", fontSize: 24, fontWeight: 700 }}>↑</div>
     </div>
   </div>
