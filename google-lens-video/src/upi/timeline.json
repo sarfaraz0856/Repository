@@ -4,67 +4,67 @@
  "cues": [
   {
    "file": "upi/vo/s1_1.wav",
-   "text": "कल्पना कीजिए, आप किसी दुकान पर QR Code Scan करते हैं, सौ रुपये Enter करते हैं, और अपना UPI PIN डालते हैं।",
+   "text": "Imagine कीजिए, आप किसी shop पर QR Code Scan करते हैं, सौ रुपये Enter करते हैं, और अपना UPI PIN डालते हैं।",
    "from": 14,
-   "dur": 194
+   "dur": 276
   },
   {
    "file": "upi/vo/s1_2.wav",
-   "text": "कुछ ही सेकंड में पैसा दुकानदार के Bank Account में पहुँच जाता है।",
-   "from": 216,
-   "dur": 127
+   "text": "बस कुछ ही seconds में पैसा shopkeeper के Bank Account में पहुँच जाता है।",
+   "from": 299,
+   "dur": 154
   },
   {
    "file": "upi/vo/s1_3.wav",
-   "text": "लेकिन इतने कम समय में आपका मोबाइल, Payment App, NPCI और दो अलग-अलग Banks आपस में कैसे Communicate करते हैं?",
-   "from": 352,
-   "dur": 211
+   "text": "लेकिन इतने कम time में आपका मोबाइल, Payment App, NPCI और दो अलग-अलग Banks आपस में कैसे Communicate करते हैं?",
+   "from": 462,
+   "dur": 198
   },
   {
    "file": "upi/vo/s1_4.wav",
-   "text": "आखिर पैसा इतनी तेजी से Transfer कैसे होता है?",
-   "from": 572,
-   "dur": 73
+   "text": "आखिर पैसा इतनी fast Transfer कैसे होता है?",
+   "from": 670,
+   "dur": 66
   },
   {
    "file": "upi/vo/s1_5.wav",
-   "text": "आज हम UPI के पीछे छिपी Technology को Step by Step समझेंगे।",
-   "from": 654,
-   "dur": 117
+   "text": "आज हम UPI के पीछे की Technology को, Step by Step समझेंगे।",
+   "from": 745,
+   "dur": 110
   }
  ],
  "beats": {
-  "scanDetect": 90,
-  "amountScreen": 108,
+  "scanDetect": 121,
+  "amountScreen": 150,
   "digits": [
-   114,
-   118,
-   122
+   156,
+   160,
+   164
   ],
-  "payTap": 136,
-  "pinScreen": 143,
+  "payTap": 186,
+  "pinScreen": 193,
   "pinTaps": [
-   176,
-   181,
-   186,
-   191
+   247,
+   252,
+   257,
+   262
   ],
-  "pinSubmit": 198,
-  "processing": 203,
-  "packetsOut": 211,
-  "shopOut": 226,
-  "network": 348,
-  "mobile": 405,
-  "nodeApp": 421,
-  "nodePSP": 431,
-  "nodeNPCI": 447,
-  "nodeBanks": 484,
-  "flow": 518,
-  "debit": 576,
-  "credit": 590,
-  "confirm": 598,
-  "success": 606,
-  "title": 662,
+  "pinSubmit": 269,
+  "processing": 274,
+  "packetsOut": 282,
+  "shopOut": 309,
+  "network": 458,
+  "mobile": 513,
+  "nodeApp": 528,
+  "nodePSP": 538,
+  "nodeNPCI": 552,
+  "nodeBanks": 587,
+  "flow": 618,
+  "debit": 674,
+  "credit": 688,
+  "confirm": 696,
+  "success": 704,
+  "title": 753,
   "end": 900
  }
 }
