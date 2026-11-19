@@ -86,20 +86,19 @@ for s in FT['scenes']:
     pt += [fr(s['from']) + 1.5, fr(s['from'] + s['dur']) - 1.5]; pv += [ENERGY[s['id']]] * 2
 energy = lambda t: float(np.interp(t, pt, pv))
 arp = [0, 2, 1, 3, 2, 1, 3, 2]; tt = 1.0; k = 0
-while tt < fin - 0.3:
-    ch = next(c for c in CH if c[0] <= tt < c[1]); f0 = note(ch[2][arp[k % 8] % len(ch[2])]) * 2
-    n = int(0.45 * SR); t = t_arr(n)
-    add((np.sin(2 * np.pi * f0 * t) + 0.3 * np.sin(4 * np.pi * f0 * t)) * np.exp(-t * 9), tt, 0.028 * energy(tt), pan=0.35 if k % 2 else -0.35)
-    tt += 0.25; k += 1
+while tt < fin - 0.3:   # soft, slower plucks (was 4 notes/s an octave higher - tiring over 10 minutes)
+    ch = next(c for c in CH if c[0] <= tt < c[1]); f0 = note(ch[2][arp[k % 8] % len(ch[2])])
+    n = int(0.9 * SR); t = t_arr(n)
+    add((np.sin(2 * np.pi * f0 * t) + 0.12 * np.sin(4 * np.pi * f0 * t)) * np.exp(-t * 4.5) * np.clip(t / 0.012, 0, 1), tt, 0.02 * energy(tt), pan=0.25 if k % 2 else -0.25)
+    tt += 0.5; k += 1
 beat = t_net
 while beat < fin:
     g = energy(beat) if beat >= s1end else (1.0 if beat < t_title else 0)
     if g >= 0.7:
         w = (g - 0.6) / 0.4 if beat >= s1end else 1.0
         n = int(0.35 * SR); t = t_arr(n); fq = 45 + 90 * np.exp(-t * 30)
-        add(np.sin(2 * np.pi * np.cumsum(fq) / SR) * np.exp(-t * 11), beat, 0.07 * w)
-        n = int(0.06 * SR); add(highpass(rng.standard_normal(n), 7000) * np.exp(-t_arr(n) * 70), beat + 0.25, 0.025 * w, 0.25)
-    beat += 0.5
+        add(np.sin(2 * np.pi * np.cumsum(fq) / SR) * np.exp(-t * 11), beat, 0.045 * w)
+    beat += 1.0
 
 
 # ---------------- effects
@@ -109,23 +108,23 @@ def ping(freq, start, gain, decay=6.0, dur=1.2, pan=0.0):
     n = int(dur * SR); t = t_arr(n)
     s = np.sin(2 * np.pi * freq * t) + 0.4 * np.sin(2 * np.pi * freq * 2.01 * t) * np.exp(-t * 4)
     add(s * np.exp(-t * decay) * np.clip(t / 0.004, 0, 1), start, gain, pan)
-def click(start, gain=0.12, freq=2400):
-    n = int(0.05 * SR); t = t_arr(n); add((np.sin(2 * np.pi * freq * t) + 0.5 * rng.standard_normal(n)) * np.exp(-t * 160), start, gain)
+def click(start, gain=0.12, freq=1500):
+    n = int(0.05 * SR); t = t_arr(n); add((np.sin(2 * np.pi * freq * t) + 0.1 * lowpass(rng.standard_normal(n), 3000)) * np.exp(-t * 160) * np.clip(t / 0.002, 0, 1), start, gain * 0.7)
 def pop(start, gain=0.05, freq=900, pan=0.0):
     n = int(0.16 * SR); t = t_arr(n); f = freq * (1 + 0.6 * np.exp(-t * 40)); add(np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 28), start, gain, pan)
 def tap(start, gain=1.0): click(start, 0.11 * gain); pop(start + 0.015, 0.06 * gain, 700)
-def blip(start, freq, gain=0.03, pan=0.0):
-    n = int(0.09 * SR); t = t_arr(n); add(np.sin(2 * np.pi * freq * t) * np.exp(-t * 35), start, gain, pan)
+def blip(start, freq, gain=0.03, pan=0.0):   # soft rounded tick, pitched down
+    n = int(0.12 * SR); t = t_arr(n); add(np.sin(2 * np.pi * freq * 0.55 * t) * np.exp(-t * 30) * np.clip(t / 0.006, 0, 1), start, gain * 0.6, pan)
 def chime(start, g=0.055):
-    for j, nm in enumerate(['C6', 'E6', 'G6', 'C7']): ping(note(nm), start + j * 0.07, g, decay=4)
-def buzz(start, g=0.05):
-    n = int(0.35 * SR); t = t_arr(n); add(np.sign(np.sin(2 * np.pi * 140 * t)) * np.exp(-t * 8) * 0.5, start, g)
+    for j, nm in enumerate(['C5', 'E5', 'G5', 'C6']): ping(note(nm), start + j * 0.07, g * 0.7, decay=4)
+def buzz(start, g=0.05):   # soft low two-note 'error' tone (replaces the harsh square-wave buzz)
+    for j, f in enumerate((330, 262)):
+        n = int(0.32 * SR); t = t_arr(n); add(np.sin(2 * np.pi * f * t) * np.exp(-t * 7) * np.clip(t / 0.01, 0, 1), start + j * 0.14, g * 0.9)
 
 
 # scene 1 – identical recipe to the approved sample
 whoosh(1.4, 250, 2600, 0.12, 0.0)
-for k in range(int((fr(B['scanDetect']) - 0.6) / 0.55)): blip(0.6 + k * 0.55, 1900, 0.012)
-ping(note('A6'), fr(B['scanDetect']), 0.06, decay=12); ping(note('E7'), fr(B['scanDetect']) + 0.08, 0.05, decay=12)
+ping(note('A5'), fr(B['scanDetect']), 0.05, decay=12); ping(note('E6'), fr(B['scanDetect']) + 0.08, 0.04, decay=12)
 for d in B['digits']: tap(fr(d))
 tap(fr(B['payTap']), 1.2); whoosh(0.4, 600, 3000, 0.05, fr(B['payTap']))
 for p in B['pinTaps']: tap(fr(p), 0.9)
@@ -151,9 +150,8 @@ def w(sid, i, word):
 
 for s in FT['scenes'][1:]:
     whoosh(1.0, 400, 3200, 0.09, fr(s['from']) - 0.45)          # scene transition
-    for i in range(len(s['cues'])): blip(c(s['id'], i) + 0.05, 1600, 0.012, 0.3)   # gentle UI tick per new idea
 # s4: QR scan + verification
-ping(note('A6'), w('s4', 0, 'Scan') + 16 / FPS, 0.05, decay=12); ping(note('E7'), w('s4', 0, 'Scan') + 16 / FPS + 0.08, 0.045, decay=12)
+ping(note('A5'), w('s4', 0, 'Scan') + 16 / FPS, 0.045, decay=12); ping(note('E6'), w('s4', 0, 'Scan') + 16 / FPS + 0.08, 0.04, decay=12)
 # s5: PIN taps, approval, decline
 for k2 in range(4): tap(w('s5', 0, 'PIN') + k2 * 6 / FPS, 0.9)
 tap(w('s5', 0, 'PIN') + 27 / FPS, 1.1); chime(w('s5', 6, 'Verify'), 0.045)
@@ -176,7 +174,7 @@ buzz(w('s10', 0, 'Fail')); buzz(c('s10', 3) + 56 / FPS); ping(note('G5'), w('s10
 buzz(w('s11', 4, 'Verify'), 0.06)
 # s12: replay + like/subscribe + final title
 tap(w('s12', 1, 'Button')); chime(c('s12', 3), 0.05)
-tap(w('s12', 6, 'Like')); tap(w('s12', 6, 'Subscribe')); ping(note('C7'), w('s12', 6, 'Subscribe') + 0.2, 0.04, decay=6)
+tap(w('s12', 6, 'Like')); tap(w('s12', 6, 'Subscribe')); ping(note('C6'), w('s12', 6, 'Subscribe') + 0.2, 0.035, decay=6)
 n = int(3.0 * SR); t = t_arr(n); fsub = 55 * (1 + 0.5 * np.exp(-t * 6))
 add(np.sin(2 * np.pi * np.cumsum(fsub) / SR) * np.exp(-t * 1.8), fin - 0.3, 0.2); whoosh(1.2, 5000, 300, 0.08, fin - 0.8)
 add(sum(np.sin(2 * np.pi * note(nm) * 2 * t + i) for i, nm in enumerate(['C5', 'E5', 'G5', 'B5', 'D6'])) * np.exp(-t * 0.8) * np.clip(t / 0.05, 0, 1), fin, 0.012)
@@ -185,18 +183,24 @@ add(sum(np.sin(2 * np.pi * note(nm) * 2 * t + i) for i, nm in enumerate(['C5', '
 t_all = np.arange(N) / SR
 fade = np.clip((DUR - t_all) / 1.4, 0, 1); fade[:int(0.02 * SR)] *= np.linspace(0, 1, int(0.02 * SR))
 L *= fade; R *= fade
+L = lowpass(L, 6500, 2); R = lowpass(R, 6500, 2)
 pk = max(np.abs(L).max(), np.abs(R).max()); L /= pk; R /= pk
-L = np.tanh(1.2 * L) / np.tanh(1.2); R = np.tanh(1.2 * R) / np.tanh(1.2)
 voice = np.zeros(N)
 for s in FT['scenes']:
     for q in s['cues']:
         with wave.open(os.path.join(ROOT, 'public', q['file']), 'rb') as wv:
             x = np.frombuffer(wv.readframes(wv.getnframes()), np.int16).astype(float) / 32768
         x /= np.abs(x).max() + 1e-9; i = int(fr(q['from']) * SR); m = min(len(x), N - i); voice[i:i + m] += x[:m]
-win = int(0.05 * SR)
-act = np.convolve((np.sqrt(np.convolve(voice ** 2, np.ones(win) / win, 'same')) > 0.02).astype(float), np.ones(int(0.3 * SR)) / int(0.3 * SR), 'same')
-duck = 1 - 0.5 * np.clip(act, 0, 1)
-L *= duck * 0.55; R *= duck * 0.55; L += voice * 0.9; R += voice * 0.9
+# ducking envelope at a 100 Hz control rate: voice-activity gate held across word gaps (1.2 s) then
+# smoothed (0.6 s) -> the music dips once per sentence instead of pumping between words
+hop = SR // 100; nf = N // hop
+rms = np.sqrt((voice[:nf * hop] ** 2).reshape(nf, hop).mean(1))
+gate = (np.convolve(rms, np.ones(5) / 5, 'same') > 0.02).astype(float)
+gate = (np.convolve(gate, np.ones(120), 'same') > 0).astype(float)
+act = np.convolve(gate, np.hanning(60) / np.hanning(60).sum(), 'same')
+act = np.interp(np.arange(N) / hop, np.arange(nf), act)
+duck = 1 - 0.45 * np.clip(act, 0, 1)
+L *= duck * 0.42; R *= duck * 0.42; L += voice * 0.9; R += voice * 0.9
 pk = max(np.abs(L).max(), np.abs(R).max()); L /= pk; R /= pk; L *= 0.84; R *= 0.84
 
 
