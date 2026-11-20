@@ -23,8 +23,8 @@ function world(ctx) {
   for (const i of [0, 2, 3]) blowTop(W.units[i], W.mats);
   return W;
 }
-function steam(ctx, scene, box, n = [0, 2, 3]) {
-  const v = new VolumeFX({ noiseTex: ctx.noiseTex, post: ctx.post, boxMin: box[0], boxMax: box[1], steps: 80, shadowSteps: 4, albedo: 0.78 });
+function steam(ctx, scene, box, n = [0, 2, 3], steps = 80) {
+  const v = new VolumeFX({ noiseTex: ctx.noiseTex, post: ctx.post, boxMin: box[0], boxMax: box[1], steps, shadowSteps: 4, albedo: 0.78 });
   scene.add(v.mesh);
   v.setLighting({ firePos: [0, -1e5, 0], fireCol: [0, 0, 0], moonDir: SUN.toArray(), moonCol: [2.4, 2.3, 2.2], ambTop: [0.55, 0.58, 0.64], ambBot: [0.3, 0.3, 0.3], ext: 0.06, minStep: 1.5 });
   const plumes = n.map((i, k) => { const u = UNITS[i]; return { base: [u.x, SITE_Y + u.h * 0.65, u.z], r0: 7, spread: 0.35, height: 70 + k * 15, density: 0.35, rise: 3.5, wind: [0.45, -0.25], noiseScale: 1 / 14, seed: k * 0.7 + 0.2 }; });
@@ -129,7 +129,7 @@ export async function FK6B(ctx) {
       emit: (te, q) => ({ p: p0.clone().add(q.j.clone().multiplyScalar(0.25)), v: v.clone().add(q.d.clone().multiplyScalar(1.8 + 2 * q.u)) }) });
     scene.add(s.mesh); return s;
   });
-  const st = steam(ctx, scene, [[-300, 0, -200], [300, 420, 450]]);
+  const st = steam(ctx, scene, [[-200, 0, 0], [100, 320, 300]], [2, 3], 48);
   const camA = V3(-192, 12.6, 104), camB = V3(-188, 12.8, 110);
   return { scene, camera,
     look: { uExposure: 1.1, uLookPow: 1.2, uLookSat: 0.85, uBloom: 0.05, uHalation: 0.06, uVignette: 0.55, uGrain: 0.05 },
@@ -168,7 +168,7 @@ export async function FK6C(ctx) {
     const c = suitUp(makeLiquidator(rig, { seed: 900 + k, shovel: false, helmet: 'cap' }));
     scene.add(c.root, c.ao); men.push({ c, x: -171.5 + (k % 2) * 1.6 + (k % 3) * 0.3, z0: 206 - k * 3.0 - (k % 2) * 1.2, sp: 1.25 + (k % 3) * 0.05 });
   }
-  const st = steam(ctx, scene, [[-300, 0, -200], [300, 420, 450]]);
+  const st = steam(ctx, scene, [[-200, 0, 0], [100, 320, 300]], [2, 3], 40);
   const camA = V3(-172, 11.2, 236), camB = V3(-171.6, 11.3, 234);
   return { scene, camera,
     look: { uExposure: 1.08, uLookPow: 1.22, uLookSat: 0.78, uBloom: 0.05, uHalation: 0.06, uVignette: 0.6, uGrain: 0.06 },
