@@ -285,7 +285,7 @@ export const R13: React.FC<SceneProps> = ({ dur }) => {
                 </div>
               ))}
             </div>
-            <div style={{ opacity: p01(f, 1380, 14), fontFamily: SERIF, fontSize: 40, marginTop: 70, color: "#2B2A26" }}>See you in the next video!</div>
+            <div style={{ opacity: p01(f, 1380, 14), fontFamily: SERIF, fontSize: 40, marginTop: 70, color: "#2B2A26" }}>See you in the next video. Thank you!</div>
           </div>
           {f >= 1094 ? (
             <div style={{ position: "absolute", left: 0, right: 0, top: 862, display: "flex", justifyContent: "center", gap: 24, opacity: p01(f, 1094, 12), fontFamily: SANS }}>
