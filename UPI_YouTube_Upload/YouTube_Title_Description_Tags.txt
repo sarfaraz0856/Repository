@@ -103,7 +103,8 @@ upi kaise kaam karta hai, how upi works, upi explained, upi in hindi, upi paymen
 [ ] Audience: "No, it's not made for kids"
 [ ] Category: Education  (या Science & Technology)
 [ ] Video language: Hindi
-[ ] Captions (optional): UPI_Documentary_Subtitles.srt → Subtitles → Hindi → Upload file
+[ ] Subtitles: Studio → Subtitles → Hindi → Add → Upload file → Subtitles_Hindi.srt ("With timing")
+[ ] English subtitles: Studio → Subtitles → Add language → English → Upload file → Subtitles_English.srt ("With timing")
 [ ] Chapters अपने आप बन जाएँगे (description के timestamps से)
 [ ] End screen (आख़िरी 20 सेकंड): subscribe button + एक और video जोड़ें
 [ ] English dub: अंदर वाली English_Dub_Pack.zip देखें (उसमें अलग से steps लिखे हैं)
