@@ -3,9 +3,9 @@
 ==================================================================
 
 Files in this pack:
-- How_UPI_Works_English_Dub.wav          → English audio track (voice + music), exactly 10:23.9 – same length as the video
-- Thumbnail_English_1280x720.jpg          → English thumbnail
-- How_UPI_Works_English_Subtitles.srt     → English subtitles (optional)
+- how-upi-works-explained-english-dub.wav          → English audio track (voice + music), exactly 10:23.9 – same length as the video
+- how-upi-works-explained-english-thumbnail.jpg          → English thumbnail
+- how-upi-works-explained-english-subtitles.srt     → English subtitles (optional)
 - English_Title_Description.txt           → this file
 
 
@@ -64,7 +64,7 @@ Step A – English audio (dub)
   1. YouTube Studio → Content → open this video → left menu "Languages".
   2. Video language should already be "Hindi".
   3. "Add language" → English → in the "Dub" column click "Add".
-  4. Upload How_UPI_Works_English_Dub.wav → Publish.
+  4. Upload how-upi-works-explained-english-dub.wav → Publish.
      (The WAV is exactly as long as the video, so YouTube will accept it.)
 
 Step B – English title & description
@@ -74,11 +74,11 @@ Step B – English title & description
 
 Step C – English thumbnail
   If your YouTube Studio "Languages" page shows a thumbnail option for English, upload
-  Thumbnail_English_1280x720.jpg there. If it doesn't, you can still use it as one of
+  how-upi-works-explained-english-thumbnail.jpg there. If it doesn't, you can still use it as one of
   the options in "Test & Compare", or for an English Short / community post.
 
 Step D – English subtitles (optional)
   Same "Languages" page → English row → "Subtitles" → "Add" → Upload file →
-  How_UPI_Works_English_Subtitles.srt (choose "With timing").
+  how-upi-works-explained-english-subtitles.srt (choose "With timing").
 
 Note: In "Altered or synthetic content", keep YES (the English voice is also an AI clone of your voice).

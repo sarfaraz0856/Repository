@@ -9,13 +9,13 @@ YouTube खुद देखेगा कि किस थंबनेल पर 
 ------------------------------------------------------------------
 1) 3 TITLES  (थंबनेल के साथ जोड़ी में)
 ------------------------------------------------------------------
-[A]  Thumbnail_A_1280x720.jpg  –  "UPI कैसे काम करता है?"
+[A]  upi-kaise-kaam-karta-hai-thumbnail-a.jpg  –  "UPI कैसे काम करता है?"
      UPI कैसे काम करता है? | QR Scan से Bank तक पूरा Process हिंदी में (2026)
 
-[B]  Thumbnail_B_1280x720.jpg  –  "₹100 सिर्फ़ 2 Second में?"
+[B]  upi-payment-kaise-hota-hai-npci-thumbnail-b.jpg  –  "₹100 सिर्फ़ 2 Second में?"
      ₹100 सिर्फ़ 2 Second में कैसे पहुँचता है? UPI Payment Behind the Scenes | NPCI Explained
 
-[C]  Thumbnail_C_1280x720.jpg  –  "QR Scan के पीछे क्या होता है?"
+[C]  qr-code-scan-upi-payment-process-thumbnail-c.jpg  –  "QR Scan के पीछे क्या होता है?"
      QR Scan के पीछे क्या होता है? UPI Payment Process in Hindi | UPI PIN, NPCI, Bank
 
 ❓ Chapters title में नहीं डाले हैं – title लंबा होकर mobile पर कट जाता है।
@@ -96,15 +96,15 @@ upi kaise kaam karta hai, how upi works, upi explained, upi in hindi, upi paymen
 ------------------------------------------------------------------
 5) UPLOAD CHECKLIST
 ------------------------------------------------------------------
-[ ] Video file: How_UPI_Works_Full_Documentary.mp4  (1920x1080, 30fps, 10:24)
-[ ] Thumbnails: Thumbnail_A / B / C  (1280x720, हर एक 2MB से कम) → "Test & Compare" में तीनों डालें
+[ ] Video file: upi-kaise-kaam-karta-hai-how-upi-works-hindi.mp4  (1920x1080, 30fps, 10:24)
+[ ] Thumbnails: ...-thumbnail-a / b / c.jpg  (1280x720, हर एक 2MB से कम) → "Test & Compare" में तीनों डालें
 [ ] Title, Description और Tags ऊपर से copy करें
 [ ] "Altered or synthetic content" → YES  (voiceover AI voice clone है – ये ज़रूरी disclosure है, इससे monetization नहीं रुकता)
 [ ] Audience: "No, it's not made for kids"
 [ ] Category: Education  (या Science & Technology)
 [ ] Video language: Hindi
-[ ] Subtitles: Studio → Subtitles → Hindi → Add → Upload file → Subtitles_Hindi.srt ("With timing")
-[ ] English subtitles: Studio → Subtitles → Add language → English → Upload file → Subtitles_English.srt ("With timing")
+[ ] Subtitles: Studio → Subtitles → Hindi → Add → Upload file → upi-kaise-kaam-karta-hai-hindi-subtitles.srt ("With timing")
+[ ] English subtitles: Studio → Subtitles → Add language → English → Upload file → how-upi-works-explained-english-subtitles.srt ("With timing")
 [ ] Chapters अपने आप बन जाएँगे (description के timestamps से)
 [ ] End screen (आख़िरी 20 सेकंड): subscribe button + एक और video जोड़ें
 [ ] English dub: अंदर वाली English_Dub_Pack.zip देखें (उसमें अलग से steps लिखे हैं)
@@ -114,3 +114,20 @@ upi kaise kaam karta hai, how upi works, upi explained, upi in hindi, upi paymen
 - Comments का जवाब दें – इससे engagement बढ़ता है।
 - Pinned comment में पूछें: "आप सबसे ज़्यादा किस UPI App से payment करते हैं?"
 - Test & Compare का result आने तक (आम तौर पर कुछ दिन से 2 हफ़्ते) थंबनेल न बदलें।
+
+
+------------------------------------------------------------------
+6) FILE NAMES (SEO)
+------------------------------------------------------------------
+Upload होने वाली सभी files के नाम search keywords के साथ रखे गए हैं
+(lowercase, शब्दों के बीच hyphen "-"), ताकि YouTube को file से भी topic का पता चले:
+  Video        : upi-kaise-kaam-karta-hai-how-upi-works-hindi.mp4
+  Thumbnail A  : upi-kaise-kaam-karta-hai-thumbnail-a.jpg
+  Thumbnail B  : upi-payment-kaise-hota-hai-npci-thumbnail-b.jpg
+  Thumbnail C  : qr-code-scan-upi-payment-process-thumbnail-c.jpg
+  Hindi SRT    : upi-kaise-kaam-karta-hai-hindi-subtitles.srt
+  English SRT  : how-upi-works-explained-english-subtitles.srt
+  English Dub  : how-upi-works-explained-english-dub.wav      (English_Dub_Pack.zip में)
+  English Thumb: how-upi-works-explained-english-thumbnail.jpg (English_Dub_Pack.zip में)
+ध्यान दें: file name एक छोटा signal है। Ranking पर सबसे ज़्यादा असर title, thumbnail,
+description, watch time और viewers के engagement का होता है।
