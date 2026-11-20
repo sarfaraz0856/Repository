@@ -1,0 +1,63 @@
+==================================================================
+ UPI कैसे काम करता है? – YouTube Upload Package
+==================================================================
+
+इस ZIP में 3 हिस्से हैं:
+
+01-Hindi-Video-Upload/        → ये सब YouTube पर upload करना है
+02-English-Dub-Pack.zip       → English dub (ZIP के अंदर ZIP) – Languages → English में upload करना है
+03-Extra-Files-Upload-Nahi-Karna/ → सिर्फ़ आपके record के लिए, upload नहीं करना
+
+
+------------------------------------------------------------------
+01-Hindi-Video-Upload/
+------------------------------------------------------------------
+upi-kaise-kaam-karta-hai-how-upi-works-hindi.mp4
+    → मुख्य वीडियो (Hinglish, 10:24, 1920x1080). YouTube Studio → Create → Upload video
+
+upi-kaise-kaam-karta-hai-thumbnail-a.jpg        → थंबनेल A: "UPI कैसे काम करता है?"
+upi-payment-kaise-hota-hai-npci-thumbnail-b.jpg → थंबनेल B: "₹100 सिर्फ़ 2 Second में?"
+qr-code-scan-upi-payment-process-thumbnail-c.jpg → थंबनेल C: "QR Scan के पीछे क्या होता है?"
+    → तीनों "Test & Compare" में डालें
+
+upi-kaise-kaam-karta-hai-hindi-subtitles.srt
+    → Subtitles → Hindi → Upload file → "With timing"
+how-upi-works-explained-english-subtitles.srt
+    → Subtitles → Add language → English → Upload file → "With timing"
+
+YouTube_Title_Description_Tags.txt
+    → 3 Titles, Description (chapters + FAQ), Tags, Hashtags, Upload Checklist – copy-paste करें
+
+
+------------------------------------------------------------------
+02-English-Dub-Pack.zip   (unzip करें)
+------------------------------------------------------------------
+how-upi-works-explained-english-dub.wav
+    → English आवाज़ + music, बिल्कुल वीडियो जितनी लंबी (10:23.9)
+    → Studio → Languages → Add language → English → Dub → Add → upload → Publish
+how-upi-works-explained-english-thumbnail.jpg
+    → English थंबनेल ("How UPI Really Works")
+how-upi-works-explained-english-subtitles.srt
+    → English subtitles
+English_Title_Description.txt
+    → English Title + Description + पूरे upload steps
+    → Studio → Languages → English → Title & description → Add
+
+
+------------------------------------------------------------------
+03-Extra-Files-Upload-Nahi-Karna/
+------------------------------------------------------------------
+UPI_Narration_Audio.wav           → सिर्फ़ Hinglish आवाज़ (बिना music)
+UPI_Complete_Voiceover_Script.txt → पूरी script, timing के साथ
+UPI_Research_References.txt       → References
+
+
+------------------------------------------------------------------
+File names के बारे में
+------------------------------------------------------------------
+Upload होने वाली सभी files के नाम search keywords से बनाए गए हैं (lowercase, शब्दों के बीच "-"),
+जैसे "upi-kaise-kaam-karta-hai", "how-upi-works-explained", "qr-code-scan-upi-payment-process"।
+YouTube file name को एक छोटे signal की तरह पढ़ता है; सबसे ज़्यादा असर title, थंबनेल,
+description और watch time का होता है।
+
+ज़रूरी: "Altered or synthetic content" → YES चुनें (Hindi और English दोनों आवाज़ें AI voice clone हैं)।
