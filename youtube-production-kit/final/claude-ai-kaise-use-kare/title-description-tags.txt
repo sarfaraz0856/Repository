@@ -1,0 +1,108 @@
+=====================================================
+YOUTUBE UPLOAD - Claude AI Kaise Use Kare 2026 (Ep 01)
+=====================================================
+
+1) VIDEO FILE
+claude-ai-kaise-use-kare.mp4
+(File ka naam keyword wala hai, isi naam se upload karein.)
+Length: 14:30 | 1920x1080 | Aapki awaaz | Video par koi subtitle nahi
+
+-----------------------------------------------------
+2) TITLE (main)
+-----------------------------------------------------
+Claude AI Kaise Use Kare 2026 | Complete Guide in Hindi (Step by Step)
+
+Test & Compare ke liye 3 titles (thumbnail ke saath match karte hain):
+A) Claude AI Kaise Use Kare 2026 | Complete Guide in Hindi (Step by Step)
+B) Claude AI Full Tutorial in Hindi | Projects, Artifacts, Cowork & Claude Code
+C) Claude Ne Khud Bug Fix Kiya! Claude Code Live Demo + Claude AI Guide Hindi
+
+Note: Agar aapke Studio me title test ka option na dikhe, to title A lagaiye.
+Search ke liye wahi sabse strong hai.
+
+-----------------------------------------------------
+3) THUMBNAIL A/B/C TEST
+-----------------------------------------------------
+A = claude-ai-kaise-use-kare-A.png  ("Kaise Use Kare" - search wale viewers ke liye)
+B = claude-ai-kaise-use-kare-B.png  ("Full Tutorial" + Projects/Artifacts/Cowork/Code)
+C = claude-ai-kaise-use-kare-C.png  ("Claude ne khud bug fix kiya" - curiosity, coders ke liye)
+
+Kaise lagaye: YouTube Studio > Upload > Details > Thumbnail me
+"Test & Compare" chuniye > teeno thumbnail upload kariye.
+YouTube 1-2 hafte me khud batayega kaunsa sabse zyada watch time la raha hai,
+aur wahi thumbnail apne aap lag jayega.
+
+-----------------------------------------------------
+4) DESCRIPTION (copy-paste)
+-----------------------------------------------------
+Claude AI kaise use kare, wo bhi bilkul shuru se? Is video me main Claude ka poora interface step by step dikha raha hoon. Screen par jo bhi option hai, wo kya hai, kab use karna hai aur uski limit kya hai, sab detail me samjhaya hai. Aakhir me Claude Code ka ek real terminal demo bhi hai, jisme Claude ek project samajhta hai aur khud ek bug pakad kar fix karta hai.
+
+Is video me aap seekhenge:
+- Claude ka home screen aur uske 3 main hisse
+- New chat, Search aur chat search
+- Projects: files aur instructions ek jagah kaise rakhein
+- Artifacts: documents, code aur chhoti websites banwana aur export karna
+- Claude Code web par: GitHub repo se kaam karwana
+- Customize: Skills, Connectors aur Plugins
+- Usage limits kaise kaam karti hain
+- Settings, memory aur incognito chat
+- Achha prompt likhne ka simple formula
+- Files upload karna (PDF, Word, Excel, images)
+- Chat aur Cowork me fark
+- Model aur Effort setting kab badlein
+- Claude Code install karna aur live bug fix demo
+- Claude Code ke permission modes
+- Safe tarike se AI use karne ki zaroori baatein
+
+CHAPTERS
+0:00 Introduction
+0:33 Claude Home Screen Overview
+1:22 New Chat & Search
+2:13 Projects
+3:13 Artifacts
+4:01 Claude Code on the Web
+4:54 Customize: Skills, Connectors, Plugins
+5:28 Usage Limits
+5:57 Chats, Settings & Account
+6:44 Incognito Chat
+7:14 Message Box & Prompt Formula
+7:38 Upload Files
+8:16 Chat vs Cowork
+8:58 Model & Effort Settings
+10:01 Voice & Starter Ideas
+10:24 Claude Code Install (Terminal Demo)
+10:54 Claude Code Explains a Project
+11:36 Claude Code Fixes a Bug
+12:53 Permission Modes
+13:23 Important Safety Tips
+14:02 What's Next in This Series
+
+Note: Aapke plan, account aur app version ke hisaab se kuch options thode alag dikh sakte hain. AI se galti ho sakti hai, isliye zaroori kaam me jawab khud check karein, aur chat me kabhi password ya API key share na karein.
+
+Ye is series ka pehla episode hai. Agle videos me main Projects, Artifacts, Cowork, Settings aur Claude Code ko ek ek karke aur detail me dikhaunga.
+
+Video kaam ki lagi to Like karein, channel Subscribe karein, aur koi sawal ho to comment me poochiye. Main reply karta hoon.
+
+#ClaudeAI #ClaudeCode #SmartLearningHindi
+
+-----------------------------------------------------
+5) TAGS (copy-paste)
+-----------------------------------------------------
+claude ai kaise use kare, claude ai in hindi, claude ai tutorial in hindi, claude ai full tutorial, claude ai kya hai, claude ai complete guide, how to use claude ai, claude ai 2026, claude code in hindi, claude code tutorial, claude projects, claude artifacts, claude cowork, claude ai vs chatgpt, ai tools in hindi, smart learning hindi
+
+-----------------------------------------------------
+6) SUBTITLES
+-----------------------------------------------------
+Studio > Subtitles > Add language:
+ - Hindi   -> claude-ai-kaise-use-kare-hindi.srt   ("Upload file" > "With timing" chuniye)
+ - English -> claude-ai-kaise-use-kare-english.srt ("Upload file" > "With timing" chuniye)
+Ye CC ki tarah dikhenge, dekhne wala khud on/off kar sakta hai. Video par kuch burn nahi hai.
+
+-----------------------------------------------------
+7) BAAKI SETTINGS
+-----------------------------------------------------
+Video language: Hindi | Category: Education | Audience: No, it's not made for kids
+Playlist: "Claude AI Complete Guide (Hindi)" naam ki nayi playlist banakar isme daaliye,
+agle episodes bhi isi me jayenge.
+End screen: aakhri 15 second (14:13 ke baad) par Subscribe + playlist lagaiye.
+Pinned comment: "Aapko Claude ka kaunsa feature agle video me detail me chahiye? Comment me likhiye."

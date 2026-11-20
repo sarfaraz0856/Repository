@@ -1,0 +1,13 @@
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1280px;height:720px;overflow:hidden;font-family:"Inter",Arial,sans-serif}
+.bg{position:fixed;inset:0;background:radial-gradient(circle at 80% 45%,rgba(217,119,87,.45),transparent 50%),linear-gradient(135deg,#0c0c10,#1b1612 60%,#2a1a12)}
+.dots{position:fixed;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1.4px,transparent 1.5px);background-size:30px 30px}
+.left{position:absolute;left:52px;top:58px;width:640px;z-index:3}
+.badge{display:inline-block;color:#fff;font-weight:900;font-size:34px;padding:8px 22px;border-radius:14px;letter-spacing:1px;transform:rotate(-3deg)}
+h1{font-weight:900;color:#fff;letter-spacing:-2px;line-height:.95;text-shadow:0 6px 18px rgba(0,0,0,.55)}
+.o{color:#ff8a5c}
+.sub{display:inline-block;margin-top:24px;background:#ffd400;color:#14141c;font-size:46px;font-weight:900;padding:10px 24px;border-radius:16px}
+.shot{position:absolute;border-radius:22px;overflow:hidden;border:5px solid #3a2e28;box-shadow:0 30px 70px rgba(0,0,0,.65),0 0 0 2px rgba(255,138,92,.35)}
+.shot img{display:block;width:100%}
+.hl{position:absolute;border:6px solid #ffd400;border-radius:16px;box-shadow:0 0 30px rgba(255,212,0,.7)}
+.arrow{position:absolute;font-size:110px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.5))}
