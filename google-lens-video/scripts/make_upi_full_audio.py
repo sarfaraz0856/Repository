@@ -200,8 +200,11 @@ for s in FT['scenes']:
 hop = SR // 100; nf = N // hop
 rms = np.sqrt((voice[:nf * hop] ** 2).reshape(nf, hop).mean(1))
 gate = (np.convolve(rms, np.ones(5) / 5, 'same') > 0.02).astype(float)
-gate = (np.convolve(gate, np.ones(120), 'same') > 0).astype(float)
-act = np.convolve(gate, np.hanning(60) / np.hanning(60).sum(), 'same')
+# English lines are shorter than the Hindi ones -> longer pauses between lines; hold the dip
+# across pauses up to ~3 s there, so the music doesn't swell up and drop again between sentences
+HOLD = 320 if DUB == 'en' else 120; SMOOTH = 100 if DUB == 'en' else 60
+gate = (np.convolve(gate, np.ones(HOLD), 'same') > 0).astype(float)
+act = np.convolve(gate, np.hanning(SMOOTH) / np.hanning(SMOOTH).sum(), 'same')
 act = np.interp(np.arange(N) / hop, np.arange(nf), act)
 duck = 1 - 0.45 * np.clip(act, 0, 1)
 L *= duck * 0.42; R *= duck * 0.42; L += voice * 0.9; R += voice * 0.9
