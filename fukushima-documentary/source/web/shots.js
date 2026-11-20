@@ -120,7 +120,11 @@ import { FK1, FK1B, FK1C, FK1D } from './fuku1.js';
 import { FK3A, FK3B, FK3C, FK3D } from './fuku3.js';
 import { FK5A, FK5B, FK5C } from './fuku5.js';
 import { FK2A, FK2B, FK4A } from './fuku2.js';
+import { FK4B, FK4C } from './fuku4.js';
+import { FK6A, FK6B, FK6C } from './fuku6.js';
 export const SHOTS = {
+  FK6A: { duration: 16.0, build: FK6A, ss: 1, msaa: 4, volScale: 0.4 }, FK6B: { duration: 16.0, build: FK6B, ss: 1, msaa: 4, volScale: 0.4 }, FK6C: { duration: 16.0, build: FK6C, ss: 1, msaa: 4, volScale: 0.4 },
+  FK4B: { duration: 22.0, build: FK4B, ss: 1, msaa: 4, volScale: 0.4 }, FK4C: { duration: 16.0, build: FK4C, ss: 1, msaa: 4, volScale: 0.4 },
   FK2A: { duration: 18.0, build: FK2A, ss: 1, msaa: 4, volScale: 0.4 }, FK2B: { duration: 14.0, build: FK2B, ss: 1, msaa: 4, volScale: 0.4 }, FK4A: { duration: 18.0, build: FK4A, ss: 1, msaa: 4, volScale: 0.4 },
   FK1: { duration: 14.0, build: FK1, ss: 1, msaa: 4, volScale: 0.4 },
   FK3A: { duration: 16.0, build: FK3A, ss: 1, msaa: 4, volScale: 0.4 },
