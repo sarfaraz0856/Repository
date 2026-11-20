@@ -1,11 +1,15 @@
 """Full UPI documentary soundtrack: one continuous music bed (same instruments as the sample / Google Lens
 videos) for the whole runtime, scene-1 sound effects exactly as in the approved sample, scene-specific
 effects for scenes 2-12 (synced to the same word timings as the visuals), the narration and ducking.
-Output: public/upi/full_soundtrack.wav (48 kHz stereo, -14 LUFS) and public/upi/narration_only.wav."""
+Output: public/upi/full_soundtrack.wav (48 kHz stereo, -14 LUFS) and public/upi/narration_only.wav.
+English dub: UPI_DUB=en reads voice lines from public/upi/vo_en/ and writes full_soundtrack_en.wav / narration_only_en.wav."""
 import json, os, subprocess, wave
 import numpy as np
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
+DUB = os.environ.get('UPI_DUB', '')
+VO_DIR = 'upi/vo_' + DUB + '/' if DUB else 'upi/vo/'
+SUF = '_' + DUB if DUB else ''
 SR = 48000
 FT = json.load(open(os.path.join(ROOT, 'src', 'upi', 'full_timeline.json')))
 B = json.load(open(os.path.join(ROOT, 'src', 'upi', 'timeline.json')))['beats']
@@ -188,7 +192,7 @@ pk = max(np.abs(L).max(), np.abs(R).max()); L /= pk; R /= pk
 voice = np.zeros(N)
 for s in FT['scenes']:
     for q in s['cues']:
-        with wave.open(os.path.join(ROOT, 'public', q['file']), 'rb') as wv:
+        with wave.open(os.path.join(ROOT, 'public', q['file'].replace('upi/vo/', VO_DIR)), 'rb') as wv:
             x = np.frombuffer(wv.readframes(wv.getnframes()), np.int16).astype(float) / 32768
         x /= np.abs(x).max() + 1e-9; i = int(fr(q['from']) * SR); m = min(len(x), N - i); voice[i:i + m] += x[:m]
 # ducking envelope at a 100 Hz control rate: voice-activity gate held across word gaps (1.2 s) then
@@ -210,11 +214,11 @@ def write(path, l, r):
 
 
 tmp = os.path.join(ROOT, 'public', 'upi', '_pre.wav'); write(tmp, L, R)
-out = os.path.join(ROOT, 'public', 'upi', 'full_soundtrack.wav')
+out = os.path.join(ROOT, 'public', 'upi', f'full_soundtrack{SUF}.wav')
 subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', tmp, '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11', '-ar', str(SR), '-ac', '2', '-c:a', 'pcm_s16le', out], check=True)
 os.remove(tmp)
 v = voice / (np.abs(voice).max() + 1e-9) * 0.9
 tmp2 = os.path.join(ROOT, 'public', 'upi', '_nar.wav'); write(tmp2, v, v)
-subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', tmp2, '-af', 'loudnorm=I=-16:TP=-1.5', '-ar', str(SR), '-ac', '1', '-c:a', 'pcm_s16le', os.path.join(ROOT, 'public', 'upi', 'narration_only.wav')], check=True)
+subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', tmp2, '-af', 'loudnorm=I=-16:TP=-1.5', '-ar', str(SR), '-ac', '1', '-c:a', 'pcm_s16le', os.path.join(ROOT, 'public', 'upi', f'narration_only{SUF}.wav')], check=True)
 os.remove(tmp2)
 print('wrote', out, f'{DUR:.1f}s')

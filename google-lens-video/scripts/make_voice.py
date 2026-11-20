@@ -28,7 +28,7 @@ ap.add_argument('--takes', type=int, default=3)
 a = ap.parse_args()
 
 # ---- EXACT SETTINGS (do not change for the same voice) ----
-LANG = 'hi'
+LANG = os.environ.get('VOICE_LANG', 'hi')   # 'en' for the English dub
 COND_EXAGGERATION = 0.5     # used when reading the reference clip
 EXAGGERATION = 0.45         # 0.40 for a softer, more polite tone
 CFG_WEIGHT = 0.6
