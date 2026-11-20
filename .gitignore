@@ -10,3 +10,4 @@ UPI_YouTube_Upload/English_Dub_Pack.zip
 UPI_YouTube_Upload/*.mp4
 UPI_YouTube_Upload/*.wav
 UPI_YouTube_Upload/English_Dub_Pack/*.wav
+__pycache__/
