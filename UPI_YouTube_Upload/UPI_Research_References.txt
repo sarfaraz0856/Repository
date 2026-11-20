@@ -1,0 +1,44 @@
+UPI DOCUMENTARY – RESEARCH REFERENCES & VERIFICATION NOTES
+==========================================================
+
+Primary sources to verify against (official):
+  1. NPCI – UPI FAQs ............ https://www.npci.org.in/what-we-do/upi/faqs
+  2. NPCI – UPI overview ........ https://www.npci.org.in/what-we-do/upi/product-overview
+  3. NPCI – UPI settlement ...... https://www.npci.org.in/uploads/UPI_Settlement_Process_256f73e1df.pdf
+  4. Reserve Bank of India ...... https://www.rbi.org.in/
+  5. NPCI ....................... https://www.npci.org.in/
+
+IMPORTANT – verification status
+  During production these official websites could NOT be opened from the build environment
+  (npci.org.in refused automated access with HTTP 403; it was not bypassed). So none of the
+  statements below could be checked live against the pages above. Please open the links
+  yourself and confirm before publishing.
+
+How the script was kept safe
+  - The narration follows the brief's own carefully worded script and avoids specific numbers:
+    no transaction limits, processing times, settlement schedules, cycle counts, volumes or
+    security-protocol names are stated.
+  - Wording such as "can", "may", "usually", "simplified" is used where behaviour varies.
+  - The "2 seconds" idea is shown only as an illustrative hook, with on-screen notes:
+    "Illustrative transaction timing. Actual processing time may vary."
+
+Statements made in the video (to confirm on the sources above)
+  [1] UPI = Unified Payments Interface, developed by NPCI (National Payments Corporation of India).
+  [1][2] A PSP (Payment Service Provider) connects UPI apps to the UPI network.
+  [1] Payments can be initiated with a UPI ID (VPA), a mobile number linked to UPI, or a QR code.
+  [1] In a regular bank-account UPI payment the money stays in the linked bank account
+      (the app is an interface, not a wallet). Some UPI products work differently.
+  [1] The UPI PIN authorises a payment; it is NOT needed to receive money.
+  [1] Payments can be declined for wrong PIN, insufficient balance, limits, or failed checks.
+  [3][4] Customer credit happens in real time, while interbank settlement is a separate,
+      netted process computed by NPCI and settled through the RBI settlement system
+      (shown conceptually; no schedule is claimed).
+  [1] Pending/failed transactions: status is verified by the network and banks; if money was
+      debited for a failed payment, a reversal may happen as per applicable rules.
+
+Illustrative content (NOT real data)
+  - Merchant "Sharma General Store", UPI IDs ending in "@demo", transaction ID "DEMO 0000 1234",
+    balances ₹5,000 / ₹4,900 / ₹2,000 / ₹2,100, settlement figures ₹10,000 / ₹7,000 / ₹3,000.
+  - All QR codes are random demonstration patterns marked "DEMO" and cannot be scanned or paid.
+  - App names Google Pay, PhonePe, BHIM and Paytm appear only as text examples of UPI apps
+    (no logos). The payment app shown on the phone is a fictional demo app.

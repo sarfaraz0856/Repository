@@ -1,0 +1,513 @@
+1
+00:00:00,467 --> 00:00:09,933
+Imagine कीजिए, आप किसी shop पर QR Code Scan करते हैं, सौ
+रुपये Enter करते हैं, और अपना UPI PIN डालते हैं।
+
+2
+00:00:09,967 --> 00:00:15,367
+बस कुछ ही seconds में पैसा shopkeeper के Bank
+Account में पहुँच जाता है।
+
+3
+00:00:15,400 --> 00:00:22,300
+लेकिन इतने कम time में आपका मोबाइल, Payment App, NPCI और दो
+अलग-अलग Banks आपस में कैसे Communicate करते हैं?
+
+4
+00:00:22,333 --> 00:00:24,800
+आखिर पैसा इतनी fast Transfer कैसे होता है?
+
+5
+00:00:24,833 --> 00:00:29,100
+आज हम UPI के पीछे की Technology को, Step by Step
+समझेंगे।
+
+6
+00:00:30,733 --> 00:00:33,333
+सबसे पहले समझते हैं कि UPI actually है क्या।
+
+7
+00:00:33,367 --> 00:00:36,267
+UPI का Full Form है Unified Payments Interface।
+
+8
+00:00:36,300 --> 00:00:41,267
+इसे National Payments Corporation of India, यानी
+NPCI ने Develop किया है।
+
+9
+00:00:41,300 --> 00:00:52,800
+UPI एक Instant Digital Payment System है, जो अलग-अलग Banks और
+Payment Apps को एक Common Network से Connect करता है।
+
+10
+00:00:52,833 --> 00:01:00,133
+पहले किसी के Bank Account में पैसा भेजने के लिए, उसका Account Number,
+IFSC Code और दूसरी Banking Details चाहिए होती थीं।
+
+11
+00:01:00,167 --> 00:01:03,067
+लेकिन UPI ने ये पूरा Process काफी easy बना दिया।
+
+12
+00:01:03,100 --> 00:01:07,067
+अब आप UPI ID, Mobile Number या QR Code से Payment
+Initiate कर सकते हैं।
+
+13
+00:01:07,100 --> 00:01:14,533
+सबसे interesting बात ये है कि normal Bank Account वाले UPI Payment में,
+आपका पैसा Payment App के अंदर पहले से रखना ज़रूरी नहीं होता।
+
+14
+00:01:14,567 --> 00:01:19,333
+Payment App बस आपके Bank Account और UPI Network के
+बीच एक Interface की तरह काम करता है।
+
+15
+00:01:20,333 --> 00:01:27,267
+UPI Transaction को समझने के लिए, पहले इसके पीछे काम
+करने वाले कुछ Important Components को समझते हैं।
+
+16
+00:01:27,300 --> 00:01:32,967
+पहला है आपका Smartphone और Payment App, जहाँ से आप
+Transaction start करते हैं।
+
+17
+00:01:33,000 --> 00:01:37,733
+दूसरा है Payment Service Provider, जिसे short में
+PSP कहते हैं।
+
+18
+00:01:37,767 --> 00:01:43,500
+ये UPI Network के साथ Payment वाली Communication में
+एक important role play करता है।
+
+19
+00:01:43,533 --> 00:01:46,633
+तीसरा है आपका Bank, जिसे Remitter Bank या Sender
+Bank कहते हैं।
+
+20
+00:01:46,667 --> 00:01:52,167
+चौथा है Receiver का Bank, जिसे Beneficiary Bank कहते
+हैं।
+
+21
+00:01:52,200 --> 00:01:59,433
+और इन सबके बीच Routing और Coordination का important
+काम करता है, NPCI का UPI Switch।
+
+22
+00:01:59,467 --> 00:02:03,400
+इन सभी Systems के बीच Electronic Messages Exchange
+होते हैं।
+
+23
+00:02:03,433 --> 00:02:12,933
+यानी आपके मोबाइल पर सिर्फ एक Payment Button दिखता है, लेकिन उसके पीछे
+कई Financial और Technical Systems मिलकर काम करते हैं।
+
+24
+00:02:13,933 --> 00:02:20,867
+जब आप किसी shopkeeper का UPI QR Code Scan करते हैं, तो आपका Payment
+App उसमें रखी Payment Information को Read करता है।
+
+25
+00:02:20,900 --> 00:02:27,267
+इस Information में shopkeeper की UPI ID, और QR के
+type के हिसाब से दूसरी Payment Details हो सकती हैं।
+
+26
+00:02:27,300 --> 00:02:33,600
+कुछ QR Codes में Amount पहले से होता है, जबकि बाकी
+QR Codes में आपको खुद Amount Enter करना पड़ता है।
+
+27
+00:02:33,633 --> 00:02:37,533
+UPI ID को आप एक Digital Payment Address समझ सकते
+हैं।
+
+28
+00:02:37,567 --> 00:02:45,933
+जैसे Email Address से Message सही person तक पहुँचता है, वैसे ही UPI
+Address से Payment सही Receiver तक Route होता है।
+
+29
+00:02:45,967 --> 00:02:52,400
+Payment Network इस Address को Resolve करता है, ताकि
+Payment सही Bank Account तक पहुँचे।
+
+30
+00:02:52,433 --> 00:03:00,067
+Payment करने से पहले Receiver का Name ज़रूर Check करें, क्योंकि गलत
+person को भेजा गया पैसा वापस पाना हमेशा easy नहीं होता।
+
+31
+00:03:01,067 --> 00:03:04,800
+अब आप Amount Enter करते हैं, और अपना UPI PIN डालते
+हैं।
+
+32
+00:03:04,833 --> 00:03:07,633
+UPI PIN का काम है Payment को Authorize करना।
+
+33
+00:03:07,667 --> 00:03:14,200
+Normal UPI Payment में, ये आपके Bank को confirm करने में help करता
+है कि Transaction आपकी permission से हो रहा है।
+
+34
+00:03:14,233 --> 00:03:18,667
+जैसे ही आप PIN Enter करते हैं, Payment Request
+Secure तरीके से Process होती है।
+
+35
+00:03:18,700 --> 00:03:24,233
+Sensitive Information को Protect करने के लिए,
+Encryption और Secure Authentication का use होता है।
+
+36
+00:03:24,267 --> 00:03:31,567
+Screen पर आपका PIN दिखना नहीं चाहिए, और normal UPI App को इसे
+पढ़ने या Store करने की permission नहीं होती।
+
+37
+00:03:31,600 --> 00:03:35,333
+आपका Bank इस Authentication को Verify करता है।
+
+38
+00:03:35,367 --> 00:03:41,967
+अगर PIN गलत है, Account में enough Balance नहीं है, या कोई Security
+Check Fail होता है, तो Payment Decline हो सकता है।
+
+39
+00:03:42,000 --> 00:03:48,400
+इसलिए UPI PIN सिर्फ एक Password नहीं, बल्कि
+Transaction Authorization का एक important part है।
+
+40
+00:03:49,467 --> 00:03:51,500
+अब आते हैं सबसे Interesting part पर।
+
+41
+00:03:51,533 --> 00:03:54,933
+Payment start होने के बाद, Behind the Scenes
+actually होता क्या है?
+
+42
+00:03:54,967 --> 00:04:02,967
+मान लीजिए आपके Bank Account में पाँच हज़ार रुपये हैं, और आप किसी
+दूसरे Bank के Account में सौ रुपये भेजना चाहते हैं।
+
+43
+00:04:03,000 --> 00:04:08,167
+सबसे पहले आपका Payment App, ज़रूरी Transaction
+Details के साथ Payment Request Initiate करता है।
+
+44
+00:04:08,200 --> 00:04:11,833
+ये Request PSP और UPI Network के through Process
+होती है।
+
+45
+00:04:11,867 --> 00:04:18,767
+NPCI का UPI Switch इस Information को Route करता है, ताकि सही
+Banks और Participants आपस में Communicate कर सकें।
+
+46
+00:04:18,800 --> 00:04:21,233
+अब आपका Bank Transaction को Verify करता है।
+
+47
+00:04:21,267 --> 00:04:27,467
+Authentication, Available Balance, Transaction
+Limits और Security Checks, सब Process किए जाते हैं।
+
+48
+00:04:27,500 --> 00:04:33,967
+अगर सारे Checks Successful हैं, तो आपके Account से
+सौ रुपये Debit हो जाते हैं।
+
+49
+00:04:34,000 --> 00:04:38,933
+इसके बाद UPI Network के through, Receiver के Bank तक
+Credit Instruction पहुँचती है।
+
+50
+00:04:38,967 --> 00:04:43,900
+Receiver का Bank Transaction Process करता है, और
+उसके Account में सौ रुपये Credit कर देता है।
+
+51
+00:04:43,933 --> 00:04:48,633
+फिर Payment Status की Information, वापस Network और
+Payment App तक आती है।
+
+52
+00:04:48,667 --> 00:04:54,200
+Successful Response मिलते ही, आपके मोबाइल पर Payment
+Successful दिख जाता है।
+
+53
+00:04:54,233 --> 00:05:04,233
+तो जो आपको सिर्फ एक Loading Animation दिखता है, उसके पीछे असल में Multiple Secure
+Messages, Bank Systems और Real-Time Database Updates काम कर रहे होते हैं।
+
+54
+00:05:05,267 --> 00:05:07,967
+अब सवाल ये है कि NPCI की ज़रूरत क्यों है?
+
+55
+00:05:08,000 --> 00:05:10,467
+India में बहुत सारे Banks और Payment Apps हैं।
+
+56
+00:05:10,500 --> 00:05:16,300
+अगर हर Payment App को हर Bank के साथ अपना अलग Network बनाना
+पड़े, तो पूरा System बहुत Complex हो जाएगा।
+
+57
+00:05:16,333 --> 00:05:22,667
+UPI का Common Network, अलग-अलग Banks और Payment Service
+Providers के बीच Interoperability possible बनाता है।
+
+58
+00:05:22,700 --> 00:05:30,567
+NPCI का UPI Switch, Transaction Messages को Route करने और सबके बीच
+Communication Coordinate करने में important role play करता है।
+
+59
+00:05:30,600 --> 00:05:37,233
+इसे आप एक Intelligent Network Junction समझ सकते हैं, जहाँ से हर
+Payment Message सही Destination पर भेजा जाता है।
+
+60
+00:05:37,267 --> 00:05:42,867
+इसी वजह से आप एक UPI App से, किसी दूसरे UPI App use
+करने वाले person को भी पैसा भेज सकते हैं।
+
+61
+00:05:42,900 --> 00:05:46,333
+आप दोनों का Bank या Payment App same होना ज़रूरी
+नहीं है।
+
+62
+00:05:47,400 --> 00:05:51,633
+अब सबसे बड़ा सवाल। इतना बड़ा Process कुछ ही seconds
+में कैसे complete हो जाता है?
+
+63
+00:05:51,667 --> 00:05:54,400
+इसका reason है Automated Payment Infrastructure।
+
+64
+00:05:54,433 --> 00:06:01,400
+जब आप UPI Payment करते हैं, तो हर Transaction को कोई
+Bank Employee बैठकर Manually Approve नहीं करता।
+
+65
+00:06:01,433 --> 00:06:07,833
+Connected Servers और Banking Systems, set Rules के
+हिसाब से Requests को Automatically Process करते हैं।
+
+66
+00:06:07,867 --> 00:06:11,433
+Secure Digital Messages Network के through बहुत fast
+Travel करते हैं।
+
+67
+00:06:11,467 --> 00:06:21,100
+Banking Systems Authentication और Balance को Verify करते हैं, और
+Successful Transaction में Account Records Update हो जाते हैं।
+
+68
+00:06:21,133 --> 00:06:27,900
+ये सब fast चलाने के लिए Electronic Communication, Automated
+Processing और Standardized Payment Protocols का use होता है।
+
+69
+00:06:27,933 --> 00:06:32,233
+लेकिन इसका मतलब ये नहीं कि हर UPI Payment exactly दो
+seconds में Successful होगा।
+
+70
+00:06:32,267 --> 00:06:40,833
+Internet Connection, Server Load, Bank Availability और दूसरी
+Technical Conditions की वजह से, Processing Time बदल सकता है।
+
+71
+00:06:41,867 --> 00:06:46,233
+अब एक ऐसी बात, जो बहुत कम लोग जानते हैं।
+
+72
+00:06:46,267 --> 00:06:52,567
+जब आप किसी दूसरे Bank के Customer को पैसा भेजते हैं, तो
+Receiver को Credit कुछ ही seconds में मिल सकता है।
+
+73
+00:06:52,600 --> 00:06:59,667
+लेकिन Customer के Account में Credit होना, और दो
+Banks के बीच Settlement होना, दो अलग Processes हैं।
+
+74
+00:06:59,700 --> 00:07:06,467
+मान लीजिए पूरे दिन Bank A के Customers ने, Bank B के
+Customers को बहुत सारे Payments किए।
+
+75
+00:07:06,500 --> 00:07:11,400
+और उसी time Bank B के Customers ने भी, Bank A के
+Customers को Payments किए।
+
+76
+00:07:11,433 --> 00:07:16,400
+इस तरह Banks के बीच आपस में Financial Obligations
+बनती हैं।
+
+77
+00:07:16,433 --> 00:07:23,367
+UPI के Settlement System में इन Obligations को calculate किया जाता
+है, और फिर Banks के बीच Balance Settle होता है।
+
+78
+00:07:23,400 --> 00:07:28,133
+इसे आप एक simple example, यानी Net Settlement से समझ
+सकते हैं।
+
+79
+00:07:28,167 --> 00:07:34,633
+मतलब आपके लिए Payment instantly complete हो सकता है, जबकि Banks के
+बीच Final Settlement एक अलग Process से होता है।
+
+80
+00:07:35,667 --> 00:07:40,667
+अगर UPI इतना Advanced है, तो कभी-कभी Payment Fail या
+Pending क्यों हो जाता है?
+
+81
+00:07:40,700 --> 00:07:43,567
+इसके कई reasons हो सकते हैं।
+
+82
+00:07:43,600 --> 00:07:52,867
+जैसे Bank Server का Temporarily Down होना, weak Internet Connection, गलत UPI PIN,
+Insufficient Balance, Transaction Limit, या Technical Timeout।
+
+83
+00:07:52,900 --> 00:08:00,500
+कभी-कभी ऐसा भी होता है कि आपके Account से पैसा Debit हो जाए, लेकिन
+Payment App को Final Confirmation तुरंत न मिले।
+
+84
+00:08:00,533 --> 00:08:03,200
+ऐसी Situation में Transaction Pending दिख सकता है।
+
+85
+00:08:03,233 --> 00:08:06,067
+इसका मतलब ये नहीं कि पैसा हमेशा के लिए गायब हो गया।
+
+86
+00:08:06,100 --> 00:08:11,100
+Payment Network और Banks, Transaction Records Verify
+करके उसका Final Status decide करते हैं।
+
+87
+00:08:11,133 --> 00:08:18,067
+अगर Payment सच में Failed है और पैसा Debit हुआ है,
+तो Rules के हिसाब से Reversal हो सकता है।
+
+88
+00:08:18,100 --> 00:08:23,900
+इसलिए दोबारा Payment करने से पहले, Transaction
+History और Bank Statement ज़रूर Check करें।
+
+89
+00:08:23,933 --> 00:08:28,233
+ज़रूरत हो तो अपने Payment App या Bank के Official
+Support से Contact करें।
+
+90
+00:08:29,267 --> 00:08:35,467
+UPI की Security में Authentication, Protected Communication और
+Banking Security Checks का important role है।
+
+91
+00:08:35,500 --> 00:08:40,500
+लेकिन कोई भी Digital Payment System तभी ज़्यादा Safe
+होता है, जब User भी alert रहता है।
+
+92
+00:08:40,533 --> 00:08:45,700
+सबसे पहले, अपना UPI PIN, OTP या Banking Password
+किसी के साथ Share मत कीजिए।
+
+93
+00:08:45,733 --> 00:08:51,767
+Normal UPI Transfer में पैसा Receive करने के लिए,
+आपको UPI PIN डालने की ज़रूरत नहीं होती।
+
+94
+00:08:51,800 --> 00:09:00,067
+अगर कोई Refund, Cashback या Reward के नाम पर, QR Code Scan करवाकर UPI
+PIN डालने को कहे, तो पहले पूरी Details Verify कीजिए।
+
+95
+00:09:00,100 --> 00:09:03,667
+सिर्फ Payment Successful का Screenshot देखकर भरोसा
+मत कीजिए।
+
+96
+00:09:03,700 --> 00:09:07,333
+Real Payment Status अपने Bank Account या Payment App
+में Check कीजिए।
+
+97
+00:09:07,367 --> 00:09:10,900
+Payment करने से पहले Receiver का Name और Amount
+ज़रूर Verify करें।
+
+98
+00:09:10,933 --> 00:09:16,500
+Technology Payment को easy बनाती है, लेकिन आपका
+alert रहना भी Security का उतना ही important part है।
+
+99
+00:09:17,533 --> 00:09:26,467
+तो अगली बार जब आप किसी shop पर QR Code Scan करके Payment करेंगे, तो आपको पता होगा कि
+आपकी मोबाइल Screen के पीछे कितना Advanced Infrastructure काम कर रहा है।
+
+100
+00:09:26,500 --> 00:09:34,667
+एक छोटा सा Payment Button, आपके Payment App, PSP, NPCI Network और
+Banks के बीच Secure Communication start करता है।
+
+101
+00:09:34,700 --> 00:09:45,267
+आपका Bank Payment को Authenticate करता है, Account से Amount Debit होता है, Receiver के Bank
+में Credit Process होता है, और Transaction Status वापस आपके मोबाइल तक आता है।
+
+102
+00:09:45,300 --> 00:09:53,267
+इन सभी Processes के Coordination से, UPI Digital
+Payments को fast और convenient बनाता है।
+
+103
+00:09:53,300 --> 00:10:00,100
+और यही वजह है कि छोटी shops से लेकर Online Shopping तक, UPI
+हमारी daily life का important part बन चुका है।
+
+104
+00:10:00,133 --> 00:10:06,133
+एक simple QR Code से शुरू होने वाला Payment, असल में
+एक बड़े Connected Financial Network की कहानी है।
+
+105
+00:10:06,167 --> 00:10:15,267
+अगर आपको Technology के पीछे के ऐसे Systems समझना अच्छा लगता है, तो Video को Like कीजिए,
+और ऐसी ही Technology Documentaries के लिए Channel को Subscribe कीजिए।
+
+106
+00:10:15,300 --> 00:10:17,000
+मिलते हैं अगले Video में। Thank you!

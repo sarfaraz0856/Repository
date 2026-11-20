@@ -1,0 +1,84 @@
+==================================================================
+ ENGLISH DUB PACK – How UPI Works
+==================================================================
+
+Files in this pack:
+- How_UPI_Works_English_Dub.wav          → English audio track (voice + music), exactly 10:23.9 – same length as the video
+- Thumbnail_English_1280x720.jpg          → English thumbnail
+- How_UPI_Works_English_Subtitles.srt     → English subtitles (optional)
+- English_Title_Description.txt           → this file
+
+
+------------------------------------------------------------------
+1) ENGLISH TITLE
+------------------------------------------------------------------
+How UPI Really Works | From QR Scan to Bank Account – UPI Payment System Explained
+
+
+------------------------------------------------------------------
+2) ENGLISH DESCRIPTION  (copy-paste)
+------------------------------------------------------------------
+How does UPI really work? 💸 When you scan a QR code at a shop and pay ₹100, how does the money reach the shopkeeper's bank account in just a few seconds? In this animated explainer, see how your payment app, the PSP, NPCI's UPI switch and two different banks communicate behind the scenes – UPI PIN, QR codes, UPI IDs, debit and credit, settlement, failed or pending payments, and UPI safety, step by step.
+
+In this video you will learn:
+✅ What UPI is – Unified Payments Interface
+✅ The main components – payment app, PSP, NPCI, sender bank, receiver bank
+✅ How QR codes and UPI IDs work
+✅ What happens when you enter your UPI PIN (authentication)
+✅ The complete payment journey – from debit to credit
+✅ What NPCI is and why it matters
+✅ Instant credit vs bank settlement
+✅ Why UPI payments sometimes fail or stay pending
+✅ Simple safety tips to avoid UPI fraud
+
+⏱️ Chapters
+0:00 Introduction – The Mystery of Instant Payments
+0:30 What Exactly Is UPI?
+1:19 The Main Components of UPI (App, PSP, NPCI, Banks)
+2:13 How QR Codes and UPI IDs Work
+3:00 What Happens When You Enter Your UPI PIN?
+3:48 The Payment Journey – From Debit to Credit
+5:04 What Is NPCI and Why Is It Important?
+5:46 How Does Money Transfer So Fast?
+6:41 Instant Credit vs Bank Settlement
+7:34 Why Do UPI Payments Sometimes Fail?
+8:28 How Safe Is UPI? (Safety Tips)
+9:16 The Complete UPI Journey – Summary
+
+👍 If you enjoyed this video, please like and share it, and subscribe to the channel. Thank you!
+
+📌 Note:
+- This is an educational explainer video. This channel is not affiliated with NPCI, RBI or any bank or payment app.
+- All names, QR codes, UPI IDs, amounts and balances shown are illustrative examples, not real data. The QR code is not payable.
+- Some steps are simplified for easy understanding; real systems include more checks.
+- This is not financial advice.
+- The voiceover was created with an AI clone of my own voice.
+
+#UPI #DigitalPayments #TechExplained
+
+
+------------------------------------------------------------------
+3) HOW TO UPLOAD (YouTube Studio)
+------------------------------------------------------------------
+Step A – English audio (dub)
+  1. YouTube Studio → Content → open this video → left menu "Languages".
+  2. Video language should already be "Hindi".
+  3. "Add language" → English → in the "Dub" column click "Add".
+  4. Upload How_UPI_Works_English_Dub.wav → Publish.
+     (The WAV is exactly as long as the video, so YouTube will accept it.)
+
+Step B – English title & description
+  1. Same "Languages" page → English row → "Title & description" column → "Add".
+  2. Paste the English title and description from above → Publish.
+  English-language viewers will then see the English title, description and audio.
+
+Step C – English thumbnail
+  If your YouTube Studio "Languages" page shows a thumbnail option for English, upload
+  Thumbnail_English_1280x720.jpg there. If it doesn't, you can still use it as one of
+  the options in "Test & Compare", or for an English Short / community post.
+
+Step D – English subtitles (optional)
+  Same "Languages" page → English row → "Subtitles" → "Add" → Upload file →
+  How_UPI_Works_English_Subtitles.srt (choose "With timing").
+
+Note: In "Altered or synthetic content", keep YES (the English voice is also an AI clone of your voice).

@@ -1,0 +1,115 @@
+==================================================================
+ YOUTUBE UPLOAD DETAILS – UPI कैसे काम करता है? (Hindi / Hinglish)
+==================================================================
+
+YouTube Studio → "Test & Compare" में आप 3 थंबनेल एक साथ test कर सकते हैं।
+YouTube खुद देखेगा कि किस थंबनेल पर ज़्यादा watch time आता है और उसी को आगे रखेगा।
+हर थंबनेल के साथ उससे मेल खाता टाइटल नीचे दिया है।
+
+------------------------------------------------------------------
+1) 3 TITLES  (थंबनेल के साथ जोड़ी में)
+------------------------------------------------------------------
+[A]  Thumbnail_A_1280x720.jpg  –  "UPI कैसे काम करता है?"
+     UPI कैसे काम करता है? | QR Scan से Bank तक पूरा Process हिंदी में (2026)
+
+[B]  Thumbnail_B_1280x720.jpg  –  "₹100 सिर्फ़ 2 Second में?"
+     ₹100 सिर्फ़ 2 Second में कैसे पहुँचता है? UPI Payment Behind the Scenes | NPCI Explained
+
+[C]  Thumbnail_C_1280x720.jpg  –  "QR Scan के पीछे क्या होता है?"
+     QR Scan के पीछे क्या होता है? UPI Payment Process in Hindi | UPI PIN, NPCI, Bank
+
+❓ Chapters title में नहीं डाले हैं – title लंबा होकर mobile पर कट जाता है।
+   Chapters DESCRIPTION में हैं (नीचे)। YouTube उन्हें अपने आप video की timeline पर दिखाता है।
+
+
+------------------------------------------------------------------
+2) DESCRIPTION  (पूरा copy-paste करें)
+------------------------------------------------------------------
+UPI कैसे काम करता है? 💸 जब आप किसी shop पर QR Code Scan करके ₹100 का Payment करते हैं, तो कुछ ही seconds में पैसा shopkeeper के Bank Account में कैसे पहुँच जाता है? इस वीडियो में आसान Hinglish में समझिए – Payment App, PSP, NPCI का UPI Switch और दोनों Banks आपस में कैसे Communicate करते हैं। UPI PIN, QR Code, UPI ID, Debit-Credit, Settlement, Payment Fail/Pending और UPI Safety – सब कुछ step by step, animation के साथ।
+
+इस वीडियो में आप सीखेंगे:
+✅ UPI क्या है और इसका Full Form (Unified Payments Interface)
+✅ UPI के Main Components – Payment App, PSP, NPCI, Sender Bank, Receiver Bank
+✅ QR Code और UPI ID कैसे काम करते हैं
+✅ UPI PIN डालते ही क्या होता है (Authentication)
+✅ Payment का पूरा सफ़र – Debit से Credit तक
+✅ NPCI क्या है और क्यों ज़रूरी है
+✅ Instant Credit और Bank Settlement में फ़र्क
+✅ UPI Payment Fail या Pending क्यों होता है
+✅ UPI Fraud से बचने के आसान Safety Tips
+
+⏱️ Chapters
+0:00 Introduction – Instant Payment का Mystery
+0:30 UPI क्या है?
+1:19 UPI के Main Components (App, PSP, NPCI, Banks)
+2:13 QR Code और UPI ID कैसे काम करते हैं
+3:00 UPI PIN डालने पर क्या होता है?
+3:48 Payment का पूरा सफ़र – Debit से Credit तक
+5:04 NPCI क्या है और क्यों ज़रूरी है?
+5:46 पैसा इतनी Fast कैसे Transfer होता है?
+6:41 Instant Credit vs Bank Settlement
+7:34 UPI Payment Fail या Pending क्यों होता है?
+8:28 UPI कितना Safe है? (Safety Tips)
+9:16 पूरी UPI Journey – Summary
+
+❓ अक्सर पूछे जाने वाले सवाल (FAQ)
+Q. UPI ka full form kya hai?
+A. Unified Payments Interface. इसे NPCI (National Payments Corporation of India) ने develop किया है।
+
+Q. UPI payment kaise kaam karta hai?
+A. आपका Payment App, PSP के ज़रिए NPCI के UPI Switch को request भेजता है, आपका Bank PIN और balance verify करके Debit करता है, और Receiver का Bank Credit करता है।
+
+Q. Kya paisa receive karne ke liye UPI PIN dalna padta hai?
+A. नहीं। Normal UPI transfer में पैसा receive करने के लिए PIN की ज़रूरत नहीं होती। कोई PIN माँगे तो सावधान रहें।
+
+Q. UPI payment pending ho jaye to kya kare?
+A. दोबारा payment करने से पहले Transaction History और Bank Statement check करें। ज़रूरत हो तो App या Bank के official support से contact करें।
+
+Q. UPI payment fail kyon hota hai?
+A. Bank server down, weak internet, गलत PIN, कम balance, transaction limit या technical timeout की वजह से।
+
+👍 अगर आपको ये video अच्छा लगा हो, तो please इसे like और share, और channel को subscribe कीजिए। Thank you!
+
+📌 Note:
+- यह एक educational explainer video है। इस channel का NPCI, RBI या किसी Bank / Payment App से कोई संबंध नहीं है। (Not affiliated with NPCI, RBI or any bank / payment app.)
+- वीडियो में दिखाए गए नाम, QR Code, UPI ID, amounts और balances सिर्फ़ समझाने के लिए बनाए गए examples हैं – असली नहीं। QR Code payable नहीं है।
+- Steps को आसान बनाने के लिए simplified दिखाया गया है; असली systems में और भी checks होते हैं।
+- यह financial advice नहीं है।
+- इस वीडियो का voiceover मेरी अपनी आवाज़ के AI voice clone से बनाया गया है।
+
+#UPI #DigitalPayment #TechHindi
+
+
+------------------------------------------------------------------
+3) TAGS  (YouTube Studio के "Tags" box में paste करें)
+------------------------------------------------------------------
+upi kaise kaam karta hai, how upi works, upi explained, upi in hindi, upi payment kaise hota hai, upi payment process, upi full form, upi kya hai, npci kya hai, upi pin kya hai, qr code payment kaise kaam karta hai, upi id kya hai, upi payment fail kyon hota hai, upi payment pending, upi settlement, upi safety tips, upi fraud se kaise bache, digital payment india, upi technology, tech hindi
+
+
+------------------------------------------------------------------
+4) HASHTAGS (description के आख़िर में पहले से जोड़ दिए हैं)
+------------------------------------------------------------------
+#UPI #DigitalPayment #TechHindi
+(Extra, चाहें तो: #NPCI #UPIPayment #TechExplained)
+
+
+------------------------------------------------------------------
+5) UPLOAD CHECKLIST
+------------------------------------------------------------------
+[ ] Video file: How_UPI_Works_Full_Documentary.mp4  (1920x1080, 30fps, 10:24)
+[ ] Thumbnails: Thumbnail_A / B / C  (1280x720, हर एक 2MB से कम) → "Test & Compare" में तीनों डालें
+[ ] Title, Description और Tags ऊपर से copy करें
+[ ] "Altered or synthetic content" → YES  (voiceover AI voice clone है – ये ज़रूरी disclosure है, इससे monetization नहीं रुकता)
+[ ] Audience: "No, it's not made for kids"
+[ ] Category: Education  (या Science & Technology)
+[ ] Video language: Hindi
+[ ] Captions (optional): UPI_Documentary_Subtitles.srt → Subtitles → Hindi → Upload file
+[ ] Chapters अपने आप बन जाएँगे (description के timestamps से)
+[ ] End screen (आख़िरी 20 सेकंड): subscribe button + एक और video जोड़ें
+[ ] English dub: अंदर वाली English_Dub_Pack.zip देखें (उसमें अलग से steps लिखे हैं)
+
+💡 Ranking tips:
+- पहले 24–48 घंटे में video को अपने WhatsApp/Instagram/community पर share करें।
+- Comments का जवाब दें – इससे engagement बढ़ता है।
+- Pinned comment में पूछें: "आप सबसे ज़्यादा किस UPI App से payment करते हैं?"
+- Test & Compare का result आने तक (आम तौर पर कुछ दिन से 2 हफ़्ते) थंबनेल न बदलें।
