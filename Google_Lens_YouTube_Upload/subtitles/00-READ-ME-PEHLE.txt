@@ -1,0 +1,47 @@
+==================================================================
+ Google Lens कैसे काम करता है? – YouTube Upload Kit
+==================================================================
+
+इस ZIP में 2 हिस्से हैं:
+
+01-Video-Upload/                  → ये सब YouTube पर upload करना है
+02-Extra-Files-Upload-Nahi-Karna/ → सिर्फ़ आपके record के लिए (या Shorts के लिए)
+
+
+------------------------------------------------------------------
+01-Video-Upload/
+------------------------------------------------------------------
+google-lens-kaise-kaam-karta-hai-how-google-lens-works-hindi.mp4
+    → मुख्य वीडियो (Hinglish, 6:09, 1920x1080). YouTube Studio → Create → Upload video
+
+google-lens-kaise-kaam-karta-hai-thumbnail-a.jpg       → थंबनेल A: "Google Lens कैसे काम करता है?"
+photo-se-search-kaise-kare-google-lens-thumbnail-b.jpg → थंबनेल B: "Photo से कुछ भी Search!"
+ai-visual-search-google-lens-explained-thumbnail-c.jpg → थंबनेल C: "AI ने कैसे पहचाना?"
+    → तीनों "Test & Compare" में डालें
+
+google-lens-kaise-kaam-karta-hai-hindi-subtitles.srt
+    → Subtitles → Hindi → Upload file → "With timing"
+how-google-lens-works-explained-english-subtitles.srt
+    → Subtitles → Add language → English → Upload file → "With timing"
+
+YouTube_Title_Description_Tags.txt
+    → 3 Titles, Description (chapters + FAQ), Tags, Hashtags, Upload Checklist – copy-paste करें
+
+
+------------------------------------------------------------------
+02-Extra-Files-Upload-Nahi-Karna/
+------------------------------------------------------------------
+Google_Lens_Narration_Audio.wav     → सिर्फ़ आवाज़ (बिना music), वीडियो की timing पर
+Google_Lens_Narration_Script.md     → पूरी script (Hindi + English)
+google-lens-ui-demo-15sec-short.mp4 → पहला 15 second वाला demo – चाहें तो YouTube Short की तरह डाल सकते हैं
+
+
+------------------------------------------------------------------
+File names के बारे में
+------------------------------------------------------------------
+Upload होने वाली सभी files के नाम search keywords से बनाए गए हैं (lowercase, शब्दों के बीच "-"),
+जैसे "google-lens-kaise-kaam-karta-hai", "photo-se-search-kaise-kare", "ai-visual-search"।
+YouTube file name को एक छोटे signal की तरह पढ़ता है; सबसे ज़्यादा असर title, थंबनेल,
+description और watch time का होता है।
+
+ज़रूरी: "Altered or synthetic content" → YES चुनें (आवाज़ AI voice clone है)।

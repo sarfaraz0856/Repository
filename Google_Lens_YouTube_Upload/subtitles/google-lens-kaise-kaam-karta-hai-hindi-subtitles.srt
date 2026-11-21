@@ -1,0 +1,255 @@
+1
+00:00:02,467 --> 00:00:09,800
+Imagine कीजिए, आप अपना smartphone लगभग किसी भी चीज़ की तरफ़ point
+करें, और instantly उसके बारे में information मिल जाए।
+
+2
+00:00:09,833 --> 00:00:14,667
+कोई product, कोई plant, कोई famous landmark, या फिर
+handwritten notes का एक page।
+
+3
+00:00:14,700 --> 00:00:21,533
+Google Lens ये सब possible बनाता है, artificial
+intelligence और visual search technology की मदद से।
+
+4
+00:00:21,567 --> 00:00:23,833
+लेकिन ये actually काम कैसे करता है?
+
+5
+00:00:23,867 --> 00:00:28,667
+इस video में, हम Google Lens के पीछे की technology
+को, step by step explore करेंगे।
+
+6
+00:00:30,400 --> 00:00:33,900
+Google Lens, Google का बनाया हुआ एक visual search
+tool है।
+
+7
+00:00:33,933 --> 00:00:39,900
+Search bar में words type करने के बजाय, आप अपने camera या किसी
+existing image से information search कर सकते हैं।
+
+8
+00:00:39,933 --> 00:00:46,467
+Google Lens जो देखता है, उसे analyze करता है, और आपको
+relevant results discover करने में help करता है।
+
+9
+00:00:46,500 --> 00:00:57,267
+ये objects को recognize कर सकता है, landmarks identify कर सकता है, text extract कर सकता है, sign
+boards translate कर सकता है, और online similar products ढूँढने में help कर सकता है।
+
+10
+00:00:57,300 --> 00:01:02,200
+Idea बहुत simple है: एक image को ही अपनी search
+query बना दीजिए।
+
+11
+00:01:02,233 --> 00:01:09,700
+इससे searching ज़्यादा natural हो जाती है, especially तब, जब आपको किसी
+चीज़ का नाम नहीं पता, या उसे words में describe करना मुश्किल हो।
+
+12
+00:01:11,400 --> 00:01:17,400
+जब आप किसी object की तरफ़ camera point करते हैं, तो
+पहला step होता है, एक image capture करना।
+
+13
+00:01:17,433 --> 00:01:25,167
+System visual information को process करता है, जैसे shapes, colors,
+textures, patterns, और image के अलग-अलग parts के बीच के relationships।
+
+14
+00:01:25,200 --> 00:01:31,700
+Machine learning models इस information को analyze करके, ये
+समझने की कोशिश करते हैं, कि image में क्या हो सकता है।
+
+15
+00:01:31,733 --> 00:01:39,000
+For example, जब आप एक sneaker scan करते हैं, तो system ऐसे visual
+features पहचान सकता है, जो footwear जैसे दिखते हैं।
+
+16
+00:01:39,033 --> 00:01:44,400
+ये कुछ specific characteristics भी distinguish कर
+सकता है, जैसे उसका color, style, और design।
+
+17
+00:01:44,433 --> 00:01:49,167
+ये visual details, system को ये समझने में help करती
+हैं, कि आगे क्या search करना है।
+
+18
+00:01:50,933 --> 00:02:01,833
+Google Lens को possible बनाने वाली एक important technology है, computer vision। ये
+artificial intelligence का वो field है, जो images और videos को समझने पर focus करता है।
+
+19
+00:02:01,867 --> 00:02:07,467
+AI models, training examples के बड़े collections से
+visual patterns सीखते हैं।
+
+20
+00:02:07,500 --> 00:02:14,667
+जब किसी नई image को analyze किया जाता है, तो model अपने learned patterns
+से, possible objects और visual features को recognize करता है।
+
+21
+00:02:14,700 --> 00:02:23,167
+Modern visual search systems, sophisticated models की मदद से ये भी समझ सकते
+हैं, कि image के अलग-अलग elements एक-दूसरे से कैसे relate करते हैं।
+
+22
+00:02:23,200 --> 00:02:31,633
+सिर्फ़ एक identical picture ढूँढने के बजाय, system visual similarities और
+context की मदद से, relevant information identify करने में help करता है।
+
+23
+00:02:33,100 --> 00:02:38,933
+Image analyze करने के बाद, Google Lens अपनी visual
+understanding से, relevant search results ढूँढ सकता है।
+
+24
+00:02:38,967 --> 00:02:43,467
+मान लीजिए, आपने sneakers का एक pair scan किया।
+
+25
+00:02:43,500 --> 00:02:49,833
+Google Lens आपको visually similar shoes, product listings,
+shopping information, और useful web pages दिखा सकता है।
+
+26
+00:02:49,867 --> 00:03:00,667
+ये results उस style के बारे में और जानने में, या similar products
+कहाँ available हैं, ये पता करने में help करते हैं।
+
+27
+00:03:00,700 --> 00:03:05,900
+Visual search खासकर clothing, furniture, accessories,
+और everyday objects के लिए बहुत useful है।
+
+28
+00:03:05,933 --> 00:03:17,167
+किसी product का exact shape और color describe करने की कोशिश करने के
+बजाय, आप बस camera को दिखा सकते हैं, कि आप क्या ढूँढ रहे हैं।
+
+29
+00:03:17,967 --> 00:03:21,600
+Google Lens images के अंदर लिखे text के साथ भी काम
+कर सकता है।
+
+30
+00:03:21,633 --> 00:03:29,033
+ये possible होता है optical character recognition से, जिसे OCR कहते हैं, और
+इसके साथ दूसरी language processing technologies भी काम करती हैं।
+
+31
+00:03:29,067 --> 00:03:43,433
+जब आप किसी printed page या sign की तरफ़ camera point करते हैं, तो Lens text detect कर लेता
+है, और आप उसे copy कर सकते हैं, search कर सकते हैं, या translate कर सकते हैं।
+
+32
+00:03:43,467 --> 00:03:52,000
+Imagine कीजिए, आप किसी दूसरे country में travel कर रहे हैं, और
+आपको एक sign दिखता है, जिसकी language आप नहीं समझते।
+
+33
+00:03:52,033 --> 00:03:58,367
+Google Lens उस text को translate करके, result सीधे
+आपकी screen पर दिखा सकता है।
+
+34
+00:03:58,400 --> 00:04:05,633
+आप इससे books, notes, और documents की information भी
+copy कर सकते हैं, बिना सब कुछ manually type किए।
+
+35
+00:04:06,667 --> 00:04:09,700
+Google Lens कई everyday situations में useful हो
+सकता है।
+
+36
+00:04:09,733 --> 00:04:17,667
+अगर आपको कोई unfamiliar plant दिखे, तो आप उसे scan करके possible
+matches explore कर सकते हैं, और उसके बारे में और जान सकते हैं।
+
+37
+00:04:17,700 --> 00:04:25,700
+अगर आप किसी famous location पर घूम रहे हैं, तो visual search आपको
+landmark identify करने, और उसकी history जानने में help कर सकता है।
+
+38
+00:04:25,733 --> 00:04:31,867
+अगर आपको कोई product पसंद आए, तो brand या model जाने
+बिना, आप similar items search कर सकते हैं।
+
+39
+00:04:31,900 --> 00:04:39,033
+आप menus translate कर सकते हैं, printed text copy कर सकते हैं, और अपने
+आस-पास के objects से जुड़ी information search कर सकते हैं।
+
+40
+00:04:39,067 --> 00:04:43,633
+हालाँकि, AI recognition हमेशा perfect नहीं होता।
+
+41
+00:04:43,667 --> 00:04:49,933
+Results image quality, lighting, और available
+information पर depend करते हैं।
+
+42
+00:04:51,233 --> 00:04:53,433
+Google Lens use करना बहुत straightforward है।
+
+43
+00:04:53,467 --> 00:05:01,933
+Google app, या कोई और supported जगह जहाँ Lens available है,
+उसे open कीजिए, और Google Lens icon select कीजिए।
+
+44
+00:05:01,967 --> 00:05:08,167
+आप जिस चीज़ को explore करना चाहते हैं, उसकी तरफ़ camera point
+कीजिए, या अपने device से कोई existing picture choose कीजिए।
+
+45
+00:05:08,200 --> 00:05:13,067
+Object को camera view के अंदर clearly रखिए, और
+ज़रूरत के हिसाब से image capture या select कीजिए।
+
+46
+00:05:13,100 --> 00:05:17,067
+Lens उसे analyze करेगा, और relevant options या
+search results दिखाएगा।
+
+47
+00:05:17,100 --> 00:05:28,967
+Content के हिसाब से, आप matching products explore कर सकते हैं, text copy कर सकते हैं,
+words translate कर सकते हैं, या additional information discover कर सकते हैं।
+
+48
+00:05:29,400 --> 00:05:38,500
+Google Lens, computer vision, artificial intelligence, text recognition, और visual
+search को एक साथ लाता है, ताकि everyday information discover करना आसान हो जाए।
+
+49
+00:05:38,533 --> 00:05:42,767
+अब हम सिर्फ़ words से ही नहीं, बल्कि images से भी
+दुनिया को explore कर सकते हैं।
+
+50
+00:05:42,800 --> 00:05:50,433
+Objects को identify करने से लेकर text translate करने तक, visual search
+information के साथ interact करने का हमारा तरीका बदल रहा है।
+
+51
+00:05:50,467 --> 00:05:56,633
+Google Lens इस बात का एक example है, कि AI कैसे physical
+world को digital knowledge से connect करता है।
+
+52
+00:06:00,600 --> 00:06:06,667
+अगर आपको ये video अच्छा लगा हो, तो please इसे like
+और share, और channel को subscribe कीजिए। Thank you!
