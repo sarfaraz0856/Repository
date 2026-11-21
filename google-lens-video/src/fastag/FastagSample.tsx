@@ -106,12 +106,13 @@ const Road: React.FC<{f: number}> = ({f}) => {
   })();
   const tagGlow = Math.sin(Math.PI * ip(f, [read - 6, read + 18], [0, 1]));
   const ok = ip(f, [FB.ok, FB.ok + 10], [0, 1], EO) * ip(f, [FB.carOut + 10, FB.carOut + 24], [1, 0]);
-  const arm = ip(f, [FB.barrierUp, FB.barrierUp + 12], [0, 1], EIO) * ip(f, [FB.carOut + 26, FB.carOut + 40], [1, 0], EIO);
+  const arm = ip(f, [FB.barrierUp, FB.barrierUp + 8], [0, 1], EIO) * ip(f, [FB.carOut + 26, FB.carOut + 40], [1, 0], EIO);
   const waves = f >= read - 8 && f < read + 22;
   return (
     <div style={{position: 'absolute', left: 860, top: 0, width: 1060, height: 1080, overflow: 'hidden', opacity: out, fontFamily: UF.ui}}>
+      <div style={{position: 'absolute', left: 40, top: 96, width: 940, textAlign: 'center', fontSize: 20, fontWeight: 700, letterSpacing: 6, color: '#0F3A8A', opacity: ip(f, [4, 24], [0, 1])}}>ON THE HIGHWAY</div>
       <div style={{position: 'absolute', left: 0, top: 0, width: 1060, height: 1080, transform: 'translateX(-860px)'}}>
-        <div style={{position: 'absolute', left: 900, top: 150, width: 940, textAlign: 'center', fontSize: 20, fontWeight: 700, letterSpacing: 6, color: '#0F3A8A', opacity: ip(f, [4, 24], [0, 1])}}>ON THE HIGHWAY</div>
+      <div style={{position: 'absolute', left: 0, top: 0, width: 1920, height: 1080, transform: 'scale(1.25)', transformOrigin: '1370px 900px'}}>
         {/* road */}
         <div style={{position: 'absolute', left: 860, top: ROAD_Y + 140, width: 1060, height: 90, background: 'linear-gradient(180deg,#9AA6B8,#7C889B)'}} />
         <div style={{position: 'absolute', left: 860, top: ROAD_Y + 182, width: 1060, height: 6, backgroundImage: 'linear-gradient(90deg,#fff 0 50%, transparent 50% 100%)', backgroundSize: '80px 6px', backgroundPositionX: -f * 6, opacity: 0.85}} />
@@ -129,12 +130,13 @@ const Road: React.FC<{f: number}> = ({f}) => {
             return <div key={k} style={{position: 'absolute', left: READER_X - 30 - t * 60, top: 410 + t * 120, width: 60 + t * 120, height: 60 + t * 120, borderRadius: '50%', borderBottom: `4px solid ${U.cyan}`, opacity: 1 - t}} />;
           })}
           {/* barrier */}
-          <div style={{position: 'absolute', left: READER_X + 170, top: ROAD_Y + 40, width: 34, height: 100, borderRadius: 8, background: '#334155'}} />
-          <div style={{position: 'absolute', left: READER_X + 186 - 230, top: ROAD_Y + 48, width: 230, height: 14, borderRadius: 7, backgroundImage: 'repeating-linear-gradient(90deg,#EF4444 0 26px,#fff 26px 52px)', transformOrigin: '100% 50%', transform: `rotate(${arm * 78}deg)`, boxShadow: '0 4px 10px rgba(0,0,0,0.2)'}} />
+          <div style={{position: 'absolute', left: READER_X + 250, top: ROAD_Y + 40, width: 34, height: 100, borderRadius: 8, background: '#334155'}} />
+          <div style={{position: 'absolute', left: READER_X + 266 - 170, top: ROAD_Y + 48, width: 170, height: 14, borderRadius: 7, backgroundImage: 'repeating-linear-gradient(90deg,#EF4444 0 26px,#fff 26px 52px)', transformOrigin: '100% 50%', transform: `rotate(${arm * 78}deg)`, boxShadow: '0 4px 10px rgba(0,0,0,0.2)'}} />
           {/* verified badge */}
           <div style={{position: 'absolute', left: READER_X - 120, top: 470, width: 240, padding: '12px 0', borderRadius: 16, background: U.green, color: '#fff', textAlign: 'center', fontWeight: 800, fontSize: 24, opacity: ok, transform: `scale(${0.8 + 0.2 * ok})`, boxShadow: '0 14px 30px rgba(34,197,94,0.4)'}}>✓ Tag read · Paid</div>
         </div>
         <Car x={carX} y={ROAD_Y} f={f} tagGlow={tagGlow} />
+      </div>
       </div>
     </div>
   );
@@ -143,7 +145,8 @@ const Road: React.FC<{f: number}> = ({f}) => {
 const ChipFly: React.FC<{f: number}> = ({f}) => {
   const chip = ip(f, [FB.chip, FB.sms], [0, 1], EIO);
   if (chip <= 0 || chip >= 1) return null;
-  const x = READER_X + (PHONE_CX + 40 - READER_X) * chip, y = 470 - Math.sin(Math.PI * chip) * 220 + (380 - 470) * chip;
+  const x0 = 1370 + (READER_X - 1370) * 1.25, y0 = 900 - (900 - 470) * 1.25; // badge position inside the 1.25x road scene
+  const x = x0 + (PHONE_CX + 40 - x0) * chip, y = y0 - Math.sin(Math.PI * chip) * 200 + (380 - y0) * chip;
   return <div style={{position: 'absolute', left: x - 50, top: y - 22, padding: '8px 14px', borderRadius: 14, background: '#fff', color: deep(U.red), fontFamily: UF.ui, fontWeight: 800, fontSize: 22, boxShadow: '0 10px 24px rgba(30,45,90,0.25)', opacity: Math.min(1, chip * 8, (1 - chip) * 8)}}>−{TOLL}</div>;
 };
 
@@ -155,7 +158,7 @@ const Questions: React.FC<{f: number}> = ({f}) => {
   const q = ip(f, [FB.how, FB.how + 14], [0, 1], EO);
   return (
     <div style={{position: 'absolute', left: 900, top: 0, width: 940, height: 1080, opacity: out, fontFamily: UF.ui}}>
-      <div style={{position: 'absolute', top: 300, width: '100%', display: 'flex', justifyContent: 'center', gap: 30}}>
+      <div style={{position: 'absolute', top: 320, width: '100%', display: 'flex', justifyContent: 'center', gap: 30}}>
         {items.map(([icon, label, at]) => {
           const e = ip(f, [at - 6, at + 12], [0, 1], EO), x = ip(f, [at + 6, at + 16], [0, 1], EO);
           return (
@@ -163,7 +166,7 @@ const Questions: React.FC<{f: number}> = ({f}) => {
               <div style={{fontSize: 84}}>{icon}</div>
               <div style={{fontSize: 28, fontWeight: 800, color: U.ink}}>{label}</div>
               <svg width={250} height={250} style={{position: 'absolute', left: 0, top: 0}}>
-                <line x1={60} y1={60} x2={60 + 130 * x} y2={60 + 130 * x} stroke={U.red} strokeWidth={10} strokeLinecap="round" opacity={0.85} />
+                <line x1={72} y1={40} x2={72 + 106 * x} y2={40 + 106 * x} stroke={U.red} strokeWidth={10} strokeLinecap="round" opacity={0.85} />
               </svg>
             </div>
           );

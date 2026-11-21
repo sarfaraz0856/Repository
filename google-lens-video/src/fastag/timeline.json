@@ -1,0 +1,56 @@
+{
+ "fps": 30,
+ "durationInFrames": 900,
+ "cues": [
+  {
+   "file": "fastag/vo/s1_1.wav",
+   "text": "Imagine कीजिए, आप Highway पर Car चला रहे हैं, सामने Toll Plaza आता है, और आप बिना रुके निकल जाते हैं।",
+   "from": 24,
+   "dur": 173
+  },
+  {
+   "file": "fastag/vo/s1_2.wav",
+   "text": "कुछ ही seconds में आपके Phone पर SMS आता है, कि Toll का पैसा कट गया।",
+   "from": 222,
+   "dur": 138
+  },
+  {
+   "file": "fastag/vo/s1_3.wav",
+   "text": "लेकिन बिना Cash, बिना Card, और बिना रुके, ये पैसा कटा कैसे?",
+   "from": 385,
+   "dur": 140
+  },
+  {
+   "file": "fastag/vo/s1_4.wav",
+   "text": "Windshield पर लगा ये छोटा सा Sticker, आखिर करता क्या है?",
+   "from": 550,
+   "dur": 94
+  },
+  {
+   "file": "fastag/vo/s1_5.wav",
+   "text": "आज हम FASTag के पीछे की Technology को, Step by Step समझेंगे।",
+   "from": 669,
+   "dur": 113
+  }
+ ],
+ "beats": {
+  "gantry": 105,
+  "read": 154,
+  "ok": 164,
+  "barrierUp": 157,
+  "carOut": 175,
+  "chip": 224,
+  "sms": 289,
+  "debit": 346,
+  "roadOut": 379,
+  "cash": 411,
+  "card": 437,
+  "stop": 470,
+  "how": 513,
+  "qOut": 544,
+  "windshield": 548,
+  "sticker": 599,
+  "title": 675,
+  "end": 900
+ }
+}

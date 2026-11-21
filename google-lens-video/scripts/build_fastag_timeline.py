@@ -13,7 +13,7 @@ def dur(p):
     return float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', p], capture_output=True, text=True).stdout)
 
 
-LEAD, GAP = 0.5, 0.36
+LEAD, GAP = 0.8, 0.85
 cues, t = [], LEAD
 for i, l in enumerate(lines):
     d = dur(os.path.join(VO, f's1_{i + 1}.wav'))
@@ -33,7 +33,7 @@ B = {}
 B['gantry'] = w(0, 'Toll') - 8          # toll plaza fades in as it is mentioned
 B['read'] = w(0, 'बिना') - 2            # reader reads the windshield tag
 B['ok'] = B['read'] + 10                # tag verified
-B['barrierUp'] = B['read'] + 12
+B['barrierUp'] = B['read'] + 3
 B['carOut'] = w(0, 'निकल') + 2          # car speeds through
 B['chip'] = c[1] + 2                    # payment chip flies from plaza to phone
 B['sms'] = w(1, 'SMS')                  # SMS notification lands on the phone

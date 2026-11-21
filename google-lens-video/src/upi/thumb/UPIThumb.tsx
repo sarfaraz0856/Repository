@@ -76,10 +76,10 @@ export const UPIThumb: React.FC<{v: V}> = ({v}) => {
         </div>
       </div>
 
-      {/* QR card (A, EN, C) */}
+      {/* QR card (A, EN) */}
       {(v === 'A' || en) && (
-        <div style={{position: 'absolute', left: v === 'C' ? 1080 : 1030, top: v === 'C' ? 330 : 440, padding: 14, borderRadius: 22, background: '#fff', boxShadow: '0 20px 50px rgba(0,0,0,0.45)', transform: 'rotate(5deg)'}}>
-          <DemoQR size={v === 'C' ? 150 : 170} seed={7} />
+        <div style={{position: 'absolute', left: 1030, top: 440, padding: 14, borderRadius: 22, background: '#fff', boxShadow: '0 20px 50px rgba(0,0,0,0.45)', transform: 'rotate(5deg)'}}>
+          <DemoQR size={170} seed={7} />
         </div>
       )}
       {/* speed badge (B) */}
