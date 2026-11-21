@@ -1,0 +1,35 @@
+{
+ "voice": {
+  "engine": "chatterbox-multilingual 0.1.7 (MIT)",
+  "voice": "creator's cloned voice (same reference + settings as the UPI / Google Lens videos)",
+  "language": "Hinglish"
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "title": "THE TOLL YOU NEVER STOPPED FOR",
+   "lines": [
+    {
+     "hi": "Imagine कीजिए, आप Highway पर Car चला रहे हैं, सामने Toll Plaza आता है, और आप बिना रुके निकल जाते हैं।",
+     "say": "इमैजिन कीजिए, आप हाईवे पर कार चला रहे हैं, सामने टोल प्लाज़ा आता है, और आप बिना रुके निकल जाते हैं।"
+    },
+    {
+     "hi": "कुछ ही seconds में आपके Phone पर SMS आता है, कि Toll का पैसा कट गया।",
+     "say": "कुछ ही सेकंड्स में आपके फ़ोन पर एसएमएस आता है, कि टोल का पैसा कट गया।"
+    },
+    {
+     "hi": "लेकिन बिना Cash, बिना Card, और बिना रुके, ये पैसा कटा कैसे?",
+     "say": "लेकिन बिना कैश, बिना कार्ड, और बिना रुके, ये पैसा कटा कैसे?"
+    },
+    {
+     "hi": "Windshield पर लगा ये छोटा सा Sticker, आखिर करता क्या है?",
+     "say": "विंडशील्ड पर लगा ये छोटा सा स्टिकर, आखिर करता क्या है?"
+    },
+    {
+     "hi": "आज हम FASTag के पीछे की Technology को, Step by Step समझेंगे।",
+     "say": "आज हम फ़ास्टैग के पीछे की टेक्नोलॉजी को, स्टेप बाय स्टेप समझेंगे।"
+    }
+   ]
+  }
+ ]
+}
