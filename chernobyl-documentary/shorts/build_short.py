@@ -1,0 +1,97 @@
+# Chernobyl YouTube Short (1080x1920): clips from the film cropped to 9:16, a new Hindi hook narration in the
+# narrator's cloned voice, big Hindi subtitles, a title on top, a new score. Run from scratchpad/short.
+import json, subprocess, os
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
+from scipy.io import wavfile
+S = '/tmp/claude-0/-home-user-Repository/b4b3560f-6a95-5352-8f12-41136e99024b/scratchpad'; R = '/home/user/Repository/chernobyl-documentary'
+A, B, BOFF = f'{R}/Chernobyl_1986_Full_Film_Part_A_1080p.mp4', f'{R}/Chernobyl_1986_Full_Film_Part_B_1080p.mp4', 420.083
+DOC = f'{S}/doc'; W = 'w'; GAP = 0.3; T0 = 0.2; TAIL = 1.6
+HI = '/usr/share/fonts/truetype/freefont/FreeSansBold.ttf'; IN = '/usr/share/fonts/opentype/inter/'
+lines = json.load(open(f'{DOC}/lines.json'))['short']
+dur = [len(wavfile.read(f'{DOC}/G_short_{i}.wav')[1]) / 48000 for i in range(len(lines))]
+starts = []; s = T0
+for d in dur: starts.append(round(s, 3)); s += d + GAP
+TOTAL = round(starts[-1] + dur[-1] + TAIL, 2)
+# narration placement for mix.py
+L = json.load(open(f'{DOC}/lines.json')); L['short'] = [[starts[i], lines[i][1]] for i in range(len(lines))]; json.dump(L, open(f'{DOC}/lines.json', 'w'), ensure_ascii=False, indent=0)
+# shots per line: (film time at 1x, crop centre 0..1, share of the line)
+SHOTS = [
+  [(15.55, 0.45, 1)],                                  # hook: the reactor blows
+  [(7.0, 0.5, 1)],                                   # 26 April 1986, 1:23
+  [(22.0, 0.5, .5), (25.5, 0.66, .5)],                # unit 4 exploded
+  [(36.0, 0.76, .45), (30.0, 0.7, .55)],              # firefighters
+  [(44.0, 0.45, .45), (56.0, 0.76, .55)],             # Pripyat did not know
+  [(84.0, 0.78, .45), (100.0, 0.5, .55)],             # the announcement, the buses
+  [(101.8, 0.7, .7), (46.5, 0.42, .3)],               # they never came back
+  [(137.0, 0.3, 1)],                                  # 90 seconds on the roof
+  [(694.0, 0.5, 1)],                                  # the Elephant's Foot
+  [(726.0, 0.62, 1)],                                 # radioactive for thousands of years
+  [(669.0, 0.6, 1)],                                  # watch the full story
+]
+segs = []; cuts = []
+for i, shots in enumerate(SHOTS):
+    a = 0 if i == 0 else starts[i] - 0.15
+    b = (starts[i + 1] - 0.15) if i + 1 < len(SHOTS) else TOTAL
+    t = a
+    for j, (ft, cx, share) in enumerate(shots):
+        d = (b - a) * share if j < len(shots) - 1 else b - t
+        segs.append((ft, cx, round(d, 3))); cuts.append(round(t, 3)); t += d
+cmd = ['ffmpeg', '-nostdin', '-v', 'error', '-y']
+fc = []
+for k, (ft, cx, d) in enumerate(segs):
+    src, st = (A, ft) if ft < BOFF else (B, ft - BOFF)
+    cmd += ['-ss', f'{st:.3f}', '-t', f'{d + 0.05:.3f}', '-i', src]
+    x = min(max(cx * 1920 - 303.75, 0), 1920 - 607.5)
+    # a slow push-in on every shot
+    fc.append(f'[{k}:v]crop=608:1080:{x:.0f}:0,scale=1188:2112:flags=lanczos,crop=1080:1920:(iw-ow)/2+0*t:(ih-oh)/2,'
+              f"scale=w='1080*(1+0.035*t/{d:.2f})':h=-1:eval=frame:flags=bicubic,crop=1080:1920,setsar=1,fps=24,trim=0:{d:.3f},setpts=PTS-STARTPTS[v{k}]")
+fc.append(''.join(f'[v{k}]' for k in range(len(segs))) + f'concat=n={len(segs)}:v=1:a=0[base]')
+# ---- overlays: gradients + title, subtitles, end card
+def font(p, s): return ImageFont.truetype(p, s)
+def stroke_text(d, xy, txt, f, fill, sw=7, anchor='ma'): d.text(xy, txt, font=f, fill=fill, anchor=anchor, stroke_width=sw, stroke_fill=(0, 0, 0))
+g = Image.new('RGBA', (1080, 1920), (0, 0, 0, 0)); px = g.load()
+for y in range(1920):
+    a = 0
+    if y < 430: a = int(200 * (1 - y / 430) ** 1.3)
+    if y > 1220: a = max(a, int(min(1, (y - 1220) / 210) ** 1.2 * 255))
+    for x in range(1080): px[x, y] = (0, 0, 0, a)
+d = ImageDraw.Draw(g)
+stroke_text(d, (540, 150), 'CHERNOBYL 1986', font(IN + 'Inter-Black.otf', 92), (255, 214, 0), 8)
+stroke_text(d, (540, 268), 'की असली कहानी', font(HI, 64), (255, 255, 255), 6)
+g.save(f'{W}/grad.png')
+subs = []
+for i, (t0, txt) in enumerate(L['short']):
+    ph = [p.strip() for p in txt.split('|')]; tot = sum(len(p) for p in ph); t = t0
+    for j, p in enumerate(ph):
+        dd = dur[i] * len(p) / tot; end = t + dd + (GAP if j == len(ph) - 1 else 0.05)
+        im = Image.new('RGBA', (1080, 1920), (0, 0, 0, 0)); dr = ImageDraw.Draw(im); f = font(HI, 76)
+        words = p.split(); rows = ['']
+        for w_ in words:
+            test = (rows[-1] + ' ' + w_).strip()
+            if dr.textlength(test, font=f) > 930 and rows[-1]: rows.append(w_)
+            else: rows[-1] = test
+        col = (255, 214, 0) if (i == 0 and j == 0) or i == len(L['short']) - 1 else (255, 255, 255)
+        y0 = 1290 - (len(rows) - 1) * 50
+        for r_, row in enumerate(rows): stroke_text(dr, (540, y0 + r_ * 100), row, f, col, 8)
+        fn = f'{W}/sub_{i}_{j}.png'; im.save(fn); subs.append((fn, round(t - 0.05, 3), round(min(end, TOTAL), 3))); t += dd + 0.2
+# end card: a red SUBSCRIBE button
+im = Image.new('RGBA', (1080, 1920), (0, 0, 0, 0)); dr = ImageDraw.Draw(im); f = font(IN + 'Inter-Black.otf', 58)
+dr.rounded_rectangle((300, 900, 780, 1020), 22, fill=(220, 20, 20, 255)); dr.text((540, 960), 'SUBSCRIBE', font=f, fill='white', anchor='mm')
+im.save(f'{W}/sub_end.png'); END0 = round(TOTAL - 2.6, 2)
+n0 = len(segs)
+cmd += ['-loop', '1', '-t', str(TOTAL), '-i', f'{W}/grad.png']
+for fn, a, b in subs: cmd += ['-loop', '1', '-t', str(TOTAL), '-i', fn]
+cmd += ['-loop', '1', '-t', str(TOTAL), '-i', f'{W}/sub_end.png']
+fc.append(f'[base][{n0}:v]overlay=0:0[o0]')
+last = 'o0'
+for k, (fn, a, b) in enumerate(subs):
+    fc.append(f"[{n0 + 1 + k}:v]fade=t=in:st={a}:d=0.08:alpha=1[s{k}];[{last}][s{k}]overlay=0:0:enable='between(t,{a},{b})'[o{k + 1}]"); last = f'o{k + 1}'
+ke = n0 + 1 + len(subs)
+fc.append(f"[{ke}:v]fade=t=in:st={END0}:d=0.25:alpha=1[se];[{last}][se]overlay=0:0:enable='gte(t,{END0})',fade=t=out:st={TOTAL - 0.4}:d=0.4,format=yuv420p[vout]")
+cmd += ['-i', f'{W}/mix.wav', '-filter_complex', ';'.join(fc), '-map', '[vout]', '-map', f'{ke + 1}:a', '-t', str(TOTAL),
+        '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-profile:v', 'high', '-pix_fmt', 'yuv420p', '-r', '24',
+        '-color_primaries', 'bt709', '-color_trc', 'bt709', '-colorspace', 'bt709',
+        '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-movflags', '+faststart', 'Chernobyl-Short-Hindi.mp4']
+json.dump({'TOTAL': TOTAL, 'starts': starts, 'cuts': cuts, 'boom': 0.55}, open(f'{W}/timeline.json', 'w'))
+json.dump(cmd, open(f'{W}/cmd.json', 'w'))
+print('TOTAL', TOTAL, 'segments', len(segs), 'subs', len(subs)); print('starts', starts)

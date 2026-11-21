@@ -1,0 +1,10 @@
+# English-dub thumbnail: the blast, CHERNOBYL in yellow, a white tagline and a red date tag.
+exec(open('make_thumbs.py').read().split('Y = (255')[0])
+Y = (255, 214, 0); W = (255, 255, 255); RED = (214, 30, 30)
+im = base('fa.png', 1.3, 1.3, shift=-520, side='left', dark=0.88).convert('RGB')
+box(im, (60, 60), 'APRIL 26, 1986  •  1:23 AM', ImageFont.truetype(IN + 'Inter-Black.otf', 38), RED)
+text(im, (55, 160), 'CHERNOBYL', ImageFont.truetype(IN + 'InterDisplay-Black.otf', 150), Y, 8)
+text(im, (60, 350), 'THE NIGHT THAT', ImageFont.truetype(IN + 'InterDisplay-Black.otf', 84), W, 6)
+text(im, (60, 455), 'CHANGED', ImageFont.truetype(IN + 'InterDisplay-Black.otf', 84), W, 6)
+text(im, (60, 560), 'THE WORLD', ImageFont.truetype(IN + 'InterDisplay-Black.otf', 84), W, 6)
+im.save('Chernobyl-English-Dub-Thumbnail.jpg', quality=92)
