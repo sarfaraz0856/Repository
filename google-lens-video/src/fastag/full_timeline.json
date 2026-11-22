@@ -1,6 +1,6 @@
 {
  "fps": 30,
- "durationInFrames": 14878,
+ "durationInFrames": 14564,
  "scenes": [
   {
    "id": "s1",
@@ -44,7 +44,7 @@
    "id": "s2",
    "title": "WHAT IS FASTAG?",
    "from": 900,
-   "dur": 1331,
+   "dur": 1301,
    "cues": [
     {
      "file": "fastag/vo/s2_1.wav",
@@ -98,136 +98,136 @@
      "file": "fastag/vo/s2_9.wav",
      "text": "FASTag लेते समय, गाड़ी की RC और KYC Documents की ज़रूरत होती है।",
      "from": 2040,
-     "dur": 162
+     "dur": 132
     }
    ]
   },
   {
    "id": "s3",
    "title": "THE MAIN COMPONENTS",
-   "from": 2231,
-   "dur": 1344,
+   "from": 2201,
+   "dur": 1323,
    "cues": [
     {
      "file": "fastag/vo/s3_1.wav",
      "text": "FASTag Transaction को समझने के लिए, पहले इसके Main Components को समझते हैं।",
-     "from": 2254,
+     "from": 2224,
      "dur": 156
     },
     {
      "file": "fastag/vo/s3_2.wav",
      "text": "पहला है FASTag Tag, जिसमें एक Unique Tag ID होती है।",
-     "from": 2423,
+     "from": 2393,
      "dur": 84
     },
     {
      "file": "fastag/vo/s3_3.wav",
      "text": "दूसरा है Toll Plaza का RFID Reader और Antenna, जो Lane के ऊपर लगे होते हैं।",
-     "from": 2519,
+     "from": 2489,
      "dur": 141
     },
     {
      "file": "fastag/vo/s3_4.wav",
      "text": "तीसरा है Toll Plaza का Computer System, जो हर Lane का Data संभालता है।",
-     "from": 2673,
+     "from": 2643,
      "dur": 118
     },
     {
      "file": "fastag/vo/s3_5.wav",
      "text": "चौथा है Acquirer Bank, यानी वो Bank जो Toll Plaza की तरफ़ से Payment लेता है।",
-     "from": 2804,
+     "from": 2774,
      "dur": 128
     },
     {
      "file": "fastag/vo/s3_6.wav",
      "text": "पाँचवाँ है Issuer Bank, यानी वो Bank जिसने आपको FASTag दिया है, और जहाँ आपका Wallet है।",
-     "from": 2946,
+     "from": 2916,
      "dur": 151
     },
     {
      "file": "fastag/vo/s3_7.wav",
      "text": "और इन सबके बीच है NPCI का NETC System, जो Messages को सही Bank तक Route करता है।",
-     "from": 3110,
+     "from": 3080,
      "dur": 178
     },
     {
      "file": "fastag/vo/s3_8.wav",
      "text": "अलग-अलग Banks Tag Issue करते हैं, लेकिन NETC की वजह से, आपका Tag देश के हर FASTag Toll Plaza पर काम करता है।",
-     "from": 3301,
-     "dur": 245
+     "from": 3271,
+     "dur": 224
     }
    ]
   },
   {
    "id": "s4",
    "title": "HOW RFID WORKS (NO BATTERY!)",
-   "from": 3575,
-   "dur": 1940,
+   "from": 3524,
+   "dur": 1880,
    "cues": [
     {
      "file": "fastag/vo/s4_1.wav",
      "text": "अब सबसे interesting सवाल। इस छोटे से Sticker में तो Battery भी नहीं होती, फिर ये काम कैसे करता है?",
-     "from": 3598,
+     "from": 3546,
      "dur": 150
     },
     {
      "file": "fastag/vo/s4_2.wav",
      "text": "FASTag में RFID Technology होती है, यानी Radio Frequency Identification।",
-     "from": 3761,
+     "from": 3710,
      "dur": 141
     },
     {
      "file": "fastag/vo/s4_3.wav",
      "text": "Sticker के अंदर एक छोटी सी Chip, और उसके चारों तरफ़ एक पतला Antenna होता है।",
-     "from": 3915,
+     "from": 3864,
      "dur": 164
     },
     {
      "file": "fastag/vo/s4_4.wav",
      "text": "जब गाड़ी Reader के पास आती है, तो Reader Radio Waves भेजता है।",
-     "from": 4092,
+     "from": 4041,
      "dur": 130
     },
     {
      "file": "fastag/vo/s4_5.wav",
      "text": "इन्हीं Radio Waves से Tag की Chip को थोड़ी सी Energy मिलती है, और वो Active हो जाती है।",
-     "from": 4235,
+     "from": 4184,
      "dur": 156
     },
     {
      "file": "fastag/vo/s4_6.wav",
      "text": "फिर Tag अपनी Unique ID, Radio Signal के ज़रिए वापस Reader को भेज देता है।",
-     "from": 4404,
+     "from": 4353,
      "dur": 137
     },
     {
      "file": "fastag/vo/s4_7.wav",
      "text": "इसे Passive RFID कहते हैं, इसलिए FASTag को Battery या Charging की ज़रूरत नहीं होती।",
-     "from": 4554,
+     "from": 4503,
      "dur": 145
     },
     {
      "file": "fastag/vo/s4_8.wav",
      "text": "ध्यान दीजिए, Tag के अंदर आपका पैसा या Bank Details नहीं होतीं।",
-     "from": 4712,
+     "from": 4661,
      "dur": 106
     },
     {
      "file": "fastag/vo/s4_9.wav",
      "text": "Tag सिर्फ़ एक ID बताता है, और बाकी सारा काम Banks और NETC System के Servers पर होता है।",
-     "from": 4830,
+     "from": 4779,
      "dur": 182
     },
     {
      "file": "fastag/vo/s4_10.wav",
      "text": "India में FASTag, UHF Band की Radio Frequency पर काम करता है, इसलिए Reader कुछ मीटर दूर से भी Tag Read कर सकता है।",
-     "from": 5025,
-     "dur": 257
+     "from": 4974,
+     "dur": 197
     },
     {
      "file": "fastag/vo/s4_11.wav",
      "text": "अगर Sticker मुड़ जाए या फट जाए, तो उसका Antenna खराब हो सकता है, और Reader उसे Read नहीं कर पाता।",
-     "from": 5295,
+     "from": 5184,
      "dur": 191
     }
    ]
@@ -235,421 +235,421 @@
   {
    "id": "s5",
    "title": "THE JOURNEY AT THE TOLL PLAZA",
-   "from": 5515,
-   "dur": 2209,
+   "from": 5404,
+   "dur": 2153,
    "cues": [
     {
      "file": "fastag/vo/s5_1.wav",
      "text": "अब देखते हैं, Toll Plaza पर Step by Step असल में क्या होता है।",
-     "from": 5538,
+     "from": 5426,
      "dur": 92
     },
     {
      "file": "fastag/vo/s5_2.wav",
      "text": "मान लीजिए आपके FASTag Wallet में पाँच सौ रुपये हैं, और Toll पंचानवे रुपये का है।",
-     "from": 5642,
+     "from": 5531,
      "dur": 154
     },
     {
      "file": "fastag/vo/s5_3.wav",
      "text": "जैसे ही Car FASTag Lane में आती है, Reader Tag की ID Read कर लेता है।",
-     "from": 5810,
+     "from": 5699,
      "dur": 137
     },
     {
      "file": "fastag/vo/s5_4.wav",
      "text": "Toll Plaza का System इस ID से Tag की Details और Status Check करता है।",
-     "from": 5960,
+     "from": 5849,
      "dur": 110
     },
     {
      "file": "fastag/vo/s5_5.wav",
      "text": "Plaza के पास Tags की एक Updated Status List रहती है, ताकि Check बहुत जल्दी हो सके।",
-     "from": 6083,
+     "from": 5972,
      "dur": 161
     },
     {
      "file": "fastag/vo/s5_6.wav",
      "text": "अगर Tag Valid है, तो गाड़ी की Class के हिसाब से Toll Amount तय होता है, और Barrier खुल जाता है।",
-     "from": 6256,
+     "from": 6145,
      "dur": 189
     },
     {
      "file": "fastag/vo/s5_7.wav",
      "text": "फिर Toll Plaza, Transaction को अपने Acquirer Bank को भेजता है।",
-     "from": 6458,
+     "from": 6347,
      "dur": 114
     },
     {
      "file": "fastag/vo/s5_8.wav",
      "text": "Acquirer Bank, NPCI के NETC System के ज़रिए, ये Request आपके Issuer Bank तक पहुँचाता है।",
-     "from": 6586,
+     "from": 6475,
      "dur": 180
     },
     {
      "file": "fastag/vo/s5_9.wav",
      "text": "Issuer Bank आपके FASTag Wallet से पंचानवे रुपये Debit कर देता है।",
-     "from": 6778,
+     "from": 6667,
      "dur": 164
     },
     {
      "file": "fastag/vo/s5_10.wav",
      "text": "इसके बाद Settlement के ज़रिए, ये पैसा Toll Plaza वाले Account तक पहुँचता है।",
-     "from": 6956,
+     "from": 6845,
      "dur": 136
     },
     {
      "file": "fastag/vo/s5_11.wav",
      "text": "और आपके Phone पर Debit का SMS आ जाता है।",
-     "from": 7105,
+     "from": 6994,
      "dur": 61
     },
     {
      "file": "fastag/vo/s5_12.wav",
      "text": "ध्यान दीजिए, Barrier तुरंत खुल सकता है, लेकिन Debit का SMS कभी-कभी थोड़ी देर बाद भी आ सकता है।",
-     "from": 7179,
+     "from": 7068,
      "dur": 197
     },
     {
      "file": "fastag/vo/s5_13.wav",
      "text": "कई Toll Plazas पर Cameras भी, गाड़ी की Number Plate और Class को Check करते हैं।",
-     "from": 7389,
-     "dur": 152
+     "from": 7278,
+     "dur": 133
     },
     {
      "file": "fastag/vo/s5_14.wav",
      "text": "और ये पूरा Process, ज़्यादातर बस कुछ ही seconds में पूरा हो जाता है।",
-     "from": 7553,
-     "dur": 141
+     "from": 7423,
+     "dur": 105
     }
    ]
   },
   {
    "id": "s6",
    "title": "HOW THE TOLL AMOUNT IS DECIDED",
-   "from": 7724,
-   "dur": 1126,
+   "from": 7557,
+   "dur": 1142,
    "cues": [
     {
      "file": "fastag/vo/s6_1.wav",
      "text": "अब सवाल ये है, Toll Amount कैसे तय होता है?",
-     "from": 7746,
+     "from": 7580,
      "dur": 73
     },
     {
      "file": "fastag/vo/s6_2.wav",
      "text": "हर FASTag गाड़ी की Class से Link होता है, जैसे Car, Light Commercial Vehicle, Bus या Truck।",
-     "from": 7833,
+     "from": 7666,
      "dur": 156
     },
     {
      "file": "fastag/vo/s6_3.wav",
      "text": "हर Toll Plaza का अपना Fee Rate होता है, जो Vehicle Class के हिसाब से अलग-अलग होता है।",
-     "from": 8001,
+     "from": 7834,
      "dur": 129
     },
     {
      "file": "fastag/vo/s6_4.wav",
      "text": "इसलिए Truck का Toll, Car से ज़्यादा होता है।",
-     "from": 8143,
+     "from": 7976,
      "dur": 90
     },
     {
      "file": "fastag/vo/s6_5.wav",
      "text": "कई Plazas पर Return Journey या Monthly Pass जैसे Options भी मिल सकते हैं।",
-     "from": 8246,
+     "from": 8079,
      "dur": 105
     },
     {
      "file": "fastag/vo/s6_6.wav",
      "text": "अगर कभी गलत Class का Toll कटे, तो अपने Issuer Bank से Complaint कर सकते हैं।",
-     "from": 8365,
+     "from": 8198,
      "dur": 111
     },
     {
      "file": "fastag/vo/s6_7.wav",
      "text": "Toll Rates, सरकार के तय Rules के हिसाब से, समय-समय पर Update होते हैं।",
-     "from": 8488,
-     "dur": 141
+     "from": 8321,
+     "dur": 172
     },
     {
      "file": "fastag/vo/s6_8.wav",
      "text": "किसी Toll Plaza का Fee Rate, आप NHAI की Official Website या App पर देख सकते हैं।",
-     "from": 8642,
-     "dur": 178
+     "from": 8506,
+     "dur": 164
     }
    ]
   },
   {
    "id": "s7",
    "title": "LOW BALANCE, BLACKLIST & KYC",
-   "from": 8850,
-   "dur": 1175,
+   "from": 8699,
+   "dur": 1136,
    "cues": [
     {
      "file": "fastag/vo/s7_1.wav",
      "text": "कभी-कभी FASTag होते हुए भी, Toll Plaza पर गाड़ी रुक जाती है। ऐसा क्यों?",
-     "from": 8872,
+     "from": 8722,
      "dur": 154
     },
     {
      "file": "fastag/vo/s7_2.wav",
      "text": "इसका सबसे Common Reason है Low Balance।",
-     "from": 9040,
+     "from": 8889,
      "dur": 59
     },
     {
      "file": "fastag/vo/s7_3.wav",
      "text": "अगर Wallet में ज़रूरी Balance नहीं है, तो Tag Low Balance या Blacklist Status में जा सकता है।",
-     "from": 9112,
+     "from": 8961,
      "dur": 141
     },
     {
      "file": "fastag/vo/s7_4.wav",
      "text": "KYC पूरी न होना, या Vehicle Details का Match न होना भी एक Reason हो सकता है।",
-     "from": 9266,
+     "from": 9115,
      "dur": 131
     },
     {
      "file": "fastag/vo/s7_5.wav",
      "text": "NHAI की One Vehicle One FASTag Policy के तहत, एक गाड़ी पर एक ही Active FASTag होना चाहिए।",
-     "from": 9410,
+     "from": 9259,
      "dur": 185
     },
     {
      "file": "fastag/vo/s7_6.wav",
      "text": "Valid FASTag न होने पर, आपको Normal से ज़्यादा Toll देना पड़ सकता है।",
-     "from": 9607,
+     "from": 9456,
      "dur": 125
     },
     {
      "file": "fastag/vo/s7_7.wav",
      "text": "इसलिए Trip से पहले Balance और Tag Status ज़रूर Check कर लें।",
-     "from": 9745,
+     "from": 9594,
      "dur": 88
     },
     {
      "file": "fastag/vo/s7_8.wav",
      "text": "Recharge करने के बाद, Tag का Status कुछ समय में फिर से Active हो जाता है।",
-     "from": 9846,
-     "dur": 149
+     "from": 9695,
+     "dur": 111
     }
    ]
   },
   {
    "id": "s8",
    "title": "HOW FASTAG RECHARGE WORKS",
-   "from": 10025,
-   "dur": 1181,
+   "from": 9835,
+   "dur": 1112,
    "cues": [
     {
      "file": "fastag/vo/s8_1.wav",
      "text": "अब बात करते हैं Recharge की।",
-     "from": 10048,
+     "from": 9858,
      "dur": 73
     },
     {
      "file": "fastag/vo/s8_2.wav",
      "text": "ज़्यादातर FASTag, Prepaid Wallet की तरह काम करते हैं, जिसे आप पहले से Recharge करते हैं।",
-     "from": 10134,
+     "from": 9944,
      "dur": 145
     },
     {
      "file": "fastag/vo/s8_3.wav",
      "text": "आप Issuer Bank की App, Net Banking, या UPI वाले Payment Apps से Recharge कर सकते हैं।",
-     "from": 10292,
+     "from": 10102,
      "dur": 158
     },
     {
      "file": "fastag/vo/s8_4.wav",
      "text": "कुछ Banks, FASTag को सीधे आपके Bank Account से Link करने का Option भी देते हैं।",
-     "from": 10462,
+     "from": 10272,
      "dur": 120
     },
     {
      "file": "fastag/vo/s8_5.wav",
      "text": "Recharge के बाद Balance Update होने में, कभी-कभी थोड़ा Time लग सकता है।",
-     "from": 10595,
+     "from": 10405,
      "dur": 121
     },
     {
      "file": "fastag/vo/s8_6.wav",
      "text": "इसलिए लंबे सफ़र से पहले, Recharge थोड़ा पहले कर लेना बेहतर है।",
-     "from": 10729,
+     "from": 10539,
      "dur": 94
     },
     {
      "file": "fastag/vo/s8_7.wav",
      "text": "कई Banks, Balance कम होने पर SMS Alert भी भेजते हैं।",
-     "from": 10836,
-     "dur": 114
+     "from": 10646,
+     "dur": 101
     },
     {
      "file": "fastag/vo/s8_8.wav",
      "text": "कुछ Apps में Auto Recharge का Option भी होता है, जिससे Balance कम होते ही Wallet अपने आप Recharge हो जाता है।",
-     "from": 10963,
-     "dur": 214
+     "from": 10760,
+     "dur": 158
     }
    ]
   },
   {
    "id": "s9",
    "title": "PROBLEMS & COMPLAINTS",
-   "from": 11206,
-   "dur": 1164,
+   "from": 10947,
+   "dur": 1143,
    "cues": [
     {
      "file": "fastag/vo/s9_1.wav",
      "text": "अगर FASTag से जुड़ी कोई Problem हो, तो क्या करें?",
-     "from": 11228,
+     "from": 10970,
      "dur": 72
     },
     {
      "file": "fastag/vo/s9_2.wav",
      "text": "कभी Tag Read नहीं होता, क्योंकि वो खराब हो गया है, या गलत जगह लगा है।",
-     "from": 11314,
+     "from": 11055,
      "dur": 126
     },
     {
      "file": "fastag/vo/s9_3.wav",
      "text": "FASTag को Windshield पर, Rear View Mirror के पीछे, बीच में लगाना चाहिए।",
-     "from": 11453,
+     "from": 11194,
      "dur": 128
     },
     {
      "file": "fastag/vo/s9_4.wav",
      "text": "कभी-कभी एक ही Toll दो बार कट जाता है, या गलत Amount कट जाता है।",
-     "from": 11595,
+     "from": 11336,
      "dur": 117
     },
     {
      "file": "fastag/vo/s9_5.wav",
      "text": "ऐसे में SMS और Transaction Details संभालकर रखें, और अपने Issuer Bank में Complaint करें।",
-     "from": 11724,
+     "from": 11465,
      "dur": 147
     },
     {
      "file": "fastag/vo/s9_6.wav",
      "text": "Highway से जुड़ी मदद के लिए, NHAI का Helpline Number 1033 भी है।",
-     "from": 11884,
+     "from": 11625,
      "dur": 145
     },
     {
      "file": "fastag/vo/s9_7.wav",
      "text": "Check करने के बाद, अगर Deduction गलत पाया गया, तो Refund मिल सकता है।",
-     "from": 12042,
+     "from": 11783,
      "dur": 127
     },
     {
      "file": "fastag/vo/s9_8.wav",
      "text": "Complaint करते समय, Vehicle Number, Date, Time और Toll Plaza का नाम ज़रूर बताएँ।",
-     "from": 12182,
-     "dur": 158
+     "from": 11923,
+     "dur": 137
     }
    ]
   },
   {
    "id": "s10",
    "title": "FASTAG SAFETY TIPS",
-   "from": 12370,
-   "dur": 1026,
+   "from": 12090,
+   "dur": 992,
    "cues": [
     {
      "file": "fastag/vo/s10_1.wav",
      "text": "FASTag Safe है, लेकिन कुछ बातों का ध्यान रखना ज़रूरी है।",
-     "from": 12392,
+     "from": 12112,
      "dur": 90
     },
     {
      "file": "fastag/vo/s10_2.wav",
      "text": "FASTag सिर्फ़ Bank, Official App या Authorized Point से ही लें।",
-     "from": 12495,
+     "from": 12215,
      "dur": 93
     },
     {
      "file": "fastag/vo/s10_3.wav",
      "text": "FASTag या KYC के नाम पर आए Call या Link पर, अपना OTP या PIN Share मत कीजिए।",
-     "from": 12602,
+     "from": 12322,
      "dur": 153
     },
     {
      "file": "fastag/vo/s10_4.wav",
      "text": "Tag को निकालकर दूसरी गाड़ी पर मत लगाइए, क्योंकि Tag एक ही गाड़ी के लिए होता है।",
-     "from": 12768,
+     "from": 12488,
      "dur": 128
     },
     {
      "file": "fastag/vo/s10_5.wav",
      "text": "गाड़ी बेचते समय पुराना FASTag Close करवाना न भूलें।",
-     "from": 12909,
+     "from": 12629,
      "dur": 90
     },
     {
      "file": "fastag/vo/s10_6.wav",
      "text": "और SMS Alerts हमेशा On रखें, ताकि हर Deduction की जानकारी मिलती रहे।",
-     "from": 13012,
+     "from": 12732,
      "dur": 156
     },
     {
      "file": "fastag/vo/s10_7.wav",
      "text": "अगर FASTag खो जाए या चोरी हो जाए, तो तुरंत अपने Issuer Bank को बताकर Tag Block करवाएँ।",
-     "from": 13182,
-     "dur": 185
+     "from": 12902,
+     "dur": 151
     }
    ]
   },
   {
    "id": "s11",
    "title": "THE FUTURE & SUMMARY",
-   "from": 13396,
+   "from": 13082,
    "dur": 1482,
    "cues": [
     {
      "file": "fastag/vo/s11_1.wav",
      "text": "आगे चलकर Toll Collection और भी Smart होने वाला है।",
-     "from": 13418,
+     "from": 13104,
      "dur": 78
     },
     {
      "file": "fastag/vo/s11_2.wav",
      "text": "Satellite यानी GNSS Based Tolling पर काम चल रहा है, जिसमें Toll तय की गई दूरी के हिसाब से कट सकता है।",
-     "from": 13510,
+     "from": 13196,
      "dur": 184
     },
     {
      "file": "fastag/vo/s11_3.wav",
      "text": "Number Plate पहचानने वाले Cameras भी, इस System को और Fast बना सकते हैं।",
-     "from": 13707,
+     "from": 13393,
      "dur": 146
     },
     {
      "file": "fastag/vo/s11_4.wav",
      "text": "तो Recap करें, Reader आपके Tag की ID Read करता है, Plaza System Status Check करता है, और Barrier खुल जाता है।",
-     "from": 13866,
+     "from": 13552,
      "dur": 209
     },
     {
      "file": "fastag/vo/s11_5.wav",
      "text": "फिर Acquirer Bank, NETC System और Issuer Bank मिलकर, आपके Wallet से Toll Debit करते हैं।",
-     "from": 14088,
+     "from": 13774,
      "dur": 164
     },
     {
      "file": "fastag/vo/s11_6.wav",
      "text": "एक छोटा सा Sticker, असल में एक बड़े Connected Payment Network की कहानी है।",
-     "from": 14265,
+     "from": 13951,
      "dur": 106
     },
     {
      "file": "fastag/vo/s11_7.wav",
      "text": "अगर आपको Technology के पीछे के ऐसे Systems समझना अच्छा लगता है, तो Video को Like कीजिए, और Channel को Subscribe कीजिए।",
-     "from": 14384,
+     "from": 14070,
      "dur": 204
     },
     {
      "file": "fastag/vo/s11_8.wav",
      "text": "मिलते हैं अगले Video में। Thank you!",
-     "from": 14601,
+     "from": 14287,
      "dur": 53
     }
    ]
