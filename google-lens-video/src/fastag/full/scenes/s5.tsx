@@ -68,7 +68,10 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
       <Ledger x={N.acq[0]} y={720} t={on(L.c(9) - 6)} title="Toll plaza account" from={0} to={95} at={L.w(9, 'Toll') + 10} f={f} w={230} />
       <Packet f={f} pts={[N.iss, N.netc, N.acq]} a={L.c(9)} b={L.c(9) + 50} color={U.green} label="₹95" />
       <OnText f={f} a={L.c(9)} b={L.c(11)} y={860} size={28} color={U.blue} text="SETTLEMENT: MONEY REACHES THE TOLL PLAZA'S ACCOUNT" />
-      <OnText f={f} a={L.c(11)} y={860} size={28} color={U.saffron} text="BARRIER OPENS FAST · THE SMS CAN COME A LITTLE LATER" />
+      <OnText f={f} a={L.c(11)} b={L.c(12)} y={860} size={28} color={U.saffron} text="BARRIER OPENS FAST · THE SMS CAN COME A LITTLE LATER" />
+      <div style={{position: 'absolute', left: 940, top: 200, padding: '10px 16px', borderRadius: 14, background: '#fff', boxShadow: '0 10px 24px rgba(30,45,90,0.16)', fontFamily: UF.ui, fontSize: 18, fontWeight: 800, color: U.ink, opacity: on(L.c(12))}}>📷 plate & class check</div>
+      <OnText f={f} a={L.c(12)} b={L.c(13)} y={860} size={28} color={U.blue} text="CAMERAS CAN ALSO CHECK NUMBER PLATE & CLASS" />
+      <OnText f={f} a={L.c(13)} y={860} size={32} color={U.green} text="⏱ USUALLY DONE IN JUST A FEW SECONDS" />
       <div style={{position: 'absolute', left: X0, top: 940, width: XW, textAlign: 'center', fontFamily: UF.ui, fontSize: 15, color: U.slate, opacity: on(L.c(1))}}>Simplified, illustrative flow · amounts are examples</div>
     </>
   );

@@ -67,6 +67,7 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
             <div style={{fontSize: 20, fontWeight: 700, letterSpacing: 3, color: '#0F3A8A', marginBottom: 4}}>BEFORE YOUR TRIP</div>
             <Row t={on(L.w(6, 'Balance'))} ok text="Check wallet balance" size={26} />
             <Row t={on(L.w(6, 'Status'))} ok text="Check tag status (Active)" size={26} />
+            <Row t={on(L.c(7))} ok text="After recharge, status turns Active again" size={26} />
           </Panel>
         </div>
       )}

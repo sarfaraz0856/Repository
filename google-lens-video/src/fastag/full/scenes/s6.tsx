@@ -22,7 +22,8 @@ const CLS: [string, string, string, number, number][] = [
 export const Stage: React.FC<{f: number}> = ({f}) => {
   const on = (a: number) => ip(f, [a, a + 14], [0, 1], EO);
   const A = vis(f, 4, L.c(4));
-  const B = vis(f, L.c(4) - 4, L.dur);
+  const B = vis(f, L.c(4) - 4, L.c(6));
+  const C = vis(f, L.c(6) - 4, L.dur);
   const max = 320;
   return (
     <>
@@ -72,6 +73,18 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
           <Edges f={f} edges={[[[1130, 620] as P, [1610, 620] as P, L.w(5, 'Complaint')]]} />
           <NodeBox x={1100} y={620} t={on(L.c(5))} label="Wrong class charged?" sub="keep the SMS / details" icon="warn" color={U.red} w={240} />
           <NodeBox x={1640} y={620} t={on(L.w(5, 'Issuer'))} label="Issuer Bank" sub="raise a complaint" icon="bank" color={U.green} w={220} />
+        </div>
+      )}
+      {C > 0.01 && (
+        <div style={{position: 'absolute', inset: 0, opacity: C, fontFamily: UF.ui}}>
+          <Panel x={X0 + 120} y={220} w={XW - 240} t={on(L.c(6))} glow={U.saffron}>
+            <div style={{display: 'flex', alignItems: 'center', gap: 20}}><div style={{fontSize: 56}}>🔄</div>
+              <div><div style={{fontSize: 28, fontWeight: 800}}>Toll rates are revised</div><div style={{fontSize: 20, color: U.slate, marginTop: 4}}>from time to time, as per government rules</div></div></div>
+          </Panel>
+          <Panel x={X0 + 120} y={470} w={XW - 240} t={on(L.c(7))} glow={U.blue}>
+            <div style={{display: 'flex', alignItems: 'center', gap: 20}}><div style={{fontSize: 56}}>🔍</div>
+              <div><div style={{fontSize: 28, fontWeight: 800}}>Check a plaza's fee</div><div style={{fontSize: 20, color: U.slate, marginTop: 4}}>on NHAI's official website or app</div></div></div>
+          </Panel>
         </div>
       )}
     </>

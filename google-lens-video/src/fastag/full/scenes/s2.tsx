@@ -13,7 +13,8 @@ export const Screen: React.FC<{f: number}> = ({f}) => <AppHome f={f} />;
 export const Stage: React.FC<{f: number}> = ({f}) => {
   const A = vis(f, L.c(1) - 6, L.c(4));          // sticker + link chain
   const B = vis(f, L.c(4) - 4, L.c(7));          // NETC / NPCI / 2021
-  const C = vis(f, L.c(7) - 4, L.dur);           // queues
+  const C = vis(f, L.c(7) - 4, L.c(8));          // queues
+  const D = vis(f, L.c(8) - 4, L.dur);           // documents
   const N: Record<string, P> = {car: [1040, 700], tag: [1370, 700], wal: [1700, 700]};
   const on = (a: number) => ip(f, [a, a + 14], [0, 1], EO);
   return (
@@ -67,6 +68,18 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
             );
           })}
           <OnText f={f} a={L.c(7) + 20} y={820} size={30} color={U.blue} text="SHORTER QUEUES · NO CASH HASSLE" />
+        </div>
+      )}
+      {D > 0.01 && (
+        <div style={{position: 'absolute', inset: 0, opacity: D, fontFamily: UF.ui}}>
+          <OnText f={f} a={L.c(8)} y={200} size={40} color={U.blue} text="TO GET A FASTAG YOU NEED" />
+          <div style={{position: 'absolute', left: X0, top: 330, width: XW, display: 'flex', justifyContent: 'center', gap: 40}}>
+            {[['📄', 'Vehicle RC', 'RC'], ['🪪', 'KYC documents', 'KYC']].map(([e, l, w]) => {
+              const t = on(L.w(8, w));
+              return <div key={l} style={{width: 300, padding: '30px 0', borderRadius: 26, background: '#fff', boxShadow: '0 14px 32px rgba(30,45,90,0.15)', textAlign: 'center', opacity: t, transform: `translateY(${(1 - t) * 20}px)`}}><div style={{fontSize: 90}}>{e}</div><div style={{fontSize: 28, fontWeight: 800, color: U.ink, marginTop: 10}}>{l}</div></div>;
+            })}
+          </div>
+          <OnText f={f} a={L.w(8, 'KYC') + 20} y={720} size={26} color={U.slate} text="tag gets linked to your vehicle number" />
         </div>
       )}
     </>

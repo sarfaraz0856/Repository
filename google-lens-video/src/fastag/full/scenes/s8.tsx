@@ -14,7 +14,8 @@ export const Screen: React.FC<{f: number}> = ({f}) => f < L.c(4)
 export const Stage: React.FC<{f: number}> = ({f}) => {
   const on = (a: number) => ip(f, [a, a + 14], [0, 1], EO);
   const A = vis(f, 4, L.c(4));
-  const B = vis(f, L.c(4) - 4, L.dur);
+  const B = vis(f, L.c(4) - 4, L.c(6));
+  const C = vis(f, L.c(6) - 4, L.dur);
   const fill = ip(f, [L.c(1) + 10, L.c(2)], [0.08, 0.8], EIO);
   return (
     <>
@@ -50,6 +51,18 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
               <div><div style={{fontFamily: UF.head, fontSize: 30, fontWeight: 800}}>Long trip ahead?</div><div style={{fontSize: 22, color: U.slate, marginTop: 4}}>Recharge a little before you leave.</div></div>
             </div>
           </Panel>
+        </div>
+      )}
+      {C > 0.01 && (
+        <div style={{position: 'absolute', inset: 0, opacity: C, fontFamily: UF.ui}}>
+          <div style={{position: 'absolute', left: X0 + 140, top: 220, width: XW - 280, padding: '18px 22px', borderRadius: 22, background: '#fff', borderLeft: `6px solid #D97706`, boxShadow: '0 14px 30px rgba(30,45,90,0.15)', opacity: on(L.c(6)), transform: `translateY(${(1 - on(L.c(6))) * 16}px)`}}>
+            <div style={{fontSize: 16, color: U.slate, fontWeight: 700}}>SMS · Demo Bank</div>
+            <div style={{fontSize: 24, fontWeight: 700, color: U.ink, marginTop: 6}}>⚠️ Low balance in your FASTag wallet (DEMO 1234). Please recharge.</div>
+          </div>
+          <div style={{position: 'absolute', left: X0 + 140, top: 470, width: XW - 280, padding: '24px 26px', borderRadius: 22, background: '#fff', boxShadow: '0 14px 30px rgba(30,45,90,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', opacity: on(L.c(7))}}>
+            <div><div style={{fontSize: 28, fontWeight: 800, color: U.ink}}>Auto recharge</div><div style={{fontSize: 19, color: U.slate, marginTop: 4}}>tops up the wallet when balance runs low (some apps)</div></div>
+            <div style={{width: 84, height: 46, borderRadius: 23, background: f >= L.w(7, 'Option') ? U.green : '#CBD5E1', position: 'relative'}}><div style={{position: 'absolute', top: 5, left: f >= L.w(7, 'Option') ? 43 : 5, width: 36, height: 36, borderRadius: 18, background: '#fff'}} /></div>
+          </div>
         </div>
       )}
     </>

@@ -23,7 +23,8 @@ const Spot: React.FC<{x: number; y: number; ok: boolean; t: number}> = ({x, y, o
 export const Stage: React.FC<{f: number}> = ({f}) => {
   const on = (a: number) => ip(f, [a, a + 14], [0, 1], EO);
   const A = vis(f, 4, L.c(3));
-  const B = vis(f, L.c(3) - 4, L.dur);
+  const B = vis(f, L.c(3) - 4, L.c(7));
+  const C = vis(f, L.c(7) - 4, L.dur);
   return (
     <>
       <Header f={f} dur={L.dur} n="09" title="PROBLEMS & COMPLAINTS" />
@@ -58,6 +59,19 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
           <Panel x={X0 + 40} y={480} w={380} t={on(L.c(5))} glow={U.blue}>
             <div style={{fontSize: 17, fontWeight: 700, letterSpacing: 2, color: '#0F3A8A'}}>NHAI HIGHWAY HELPLINE</div>
             <div style={{fontFamily: UF.head, fontSize: 64, fontWeight: 800, color: deep(U.blue)}}>1033</div>
+          </Panel>
+        </div>
+      )}
+      {C > 0.01 && (
+        <div style={{position: 'absolute', inset: 0, opacity: C}}>
+          <Panel x={X0 + 160} y={260} w={XW - 320} t={on(L.c(7))} glow={U.blue}>
+            <div style={{fontSize: 20, fontWeight: 700, letterSpacing: 3, color: '#0F3A8A', marginBottom: 4}}>IN YOUR COMPLAINT, MENTION</div>
+            {[['Vehicle number', 'Vehicle'], ['Date & time', 'Date'], ['Toll plaza name', 'Plaza']].map(([t, w]) => (
+              <div key={t} style={{display: 'flex', alignItems: 'center', gap: 14, padding: '10px 0', opacity: on(L.w(7, w)), fontFamily: UF.ui}}>
+                <span style={{width: 30, height: 30, borderRadius: 15, background: U.blue, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800}}>✓</span>
+                <span style={{fontSize: 26, fontWeight: 600, color: U.ink}}>{t}</span>
+              </div>
+            ))}
           </Panel>
         </div>
       )}

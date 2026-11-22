@@ -37,7 +37,12 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
         const per = 70, a = L.c(6) + 10 + i * 35 + Math.floor((f - L.c(6) - 10 - i * 35) / per) * per;
         return <Packet key={i} f={f} pts={i ? [...route].reverse() : route} a={a} b={a + 60} color={i ? U.green : U.cyan} label="✉" />;
       })}
-      <OnText f={f} a={L.c(6) + 30} y={850} size={30} color={U.cyan} text="TAG • READER • PLAZA • ACQUIRER • NETC • ISSUER" />
+      <OnText f={f} a={L.c(6) + 30} b={L.c(7)} y={850} size={30} color={U.cyan} text="TAG • READER • PLAZA • ACQUIRER • NETC • ISSUER" />
+      <div style={{position: 'absolute', left: X0, top: 830, width: XW, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 16, fontFamily: UF.ui, opacity: on(L.c(7))}}>
+        {['Bank A tag', 'Bank B tag', 'Bank C tag'].map((b, i) => <span key={b} style={{padding: '10px 18px', borderRadius: 14, background: '#fff', boxShadow: '0 8px 20px rgba(30,45,90,0.12)', fontSize: 20, fontWeight: 800, color: U.ink, opacity: on(L.c(7) + i * 6)}}>🏷️ {b}</span>)}
+        <span style={{fontSize: 30, color: U.slate}}>→</span>
+        <span style={{padding: '10px 18px', borderRadius: 14, background: U.green, color: '#fff', fontSize: 20, fontWeight: 800, opacity: on(L.w(7, 'Toll'))}}>✓ every FASTag plaza</span>
+      </div>
       <div style={{position: 'absolute', left: X0, top: 140, width: XW, textAlign: 'center', fontFamily: UF.ui, fontSize: 15, color: U.slate, opacity: on(L.c(1))}}>Simplified view of the NETC (FASTag) system</div>
     </>
   );
