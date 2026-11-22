@@ -28,7 +28,7 @@ const useFonts = () => {
 };
 
 // ------------------------------------------------------------------ phone: lock screen -> toll SMS
-const LockScreen: React.FC<{f: number}> = ({f}) => {
+export const LockScreen: React.FC<{f: number}> = ({f}) => {
   const nav = ip(f, [FB.gantry - 10, FB.gantry + 10], [0, 1], EO) * ip(f, [FB.sms - 8, FB.sms + 4], [1, 0]);
   const sms = ip(f, [FB.sms, FB.sms + 16], [0, 1], EO);
   const hi = ip(f, [FB.debit, FB.debit + 10], [0, 1]);
@@ -62,7 +62,7 @@ const LockScreen: React.FC<{f: number}> = ({f}) => {
 };
 
 // ------------------------------------------------------------------ car (side view, facing right)
-const Car: React.FC<{x: number; y: number; f: number; tagGlow: number}> = ({x, y, f, tagGlow}) => {
+export const Car: React.FC<{x: number; y: number; f: number; tagGlow: number}> = ({x, y, f, tagGlow}) => {
   const spin = (x * 1.6) % 360;
   const wheel = (cx: number) => (
     <g transform={`translate(${cx} 122)`}>
@@ -94,7 +94,7 @@ const Car: React.FC<{x: number; y: number; f: number; tagGlow: number}> = ({x, y
 // ------------------------------------------------------------------ toll plaza
 const ROAD_Y = 760;
 const READER_X = 1440;
-const Road: React.FC<{f: number}> = ({f}) => {
+export const Road: React.FC<{f: number}> = ({f}) => {
   const out = ip(f, [FB.roadOut, FB.roadOut + 16], [1, 0], EIO);
   if (out <= 0.01) return null;
   const g = ip(f, [FB.gantry, FB.gantry + 20], [0, 1], EO);
@@ -142,7 +142,7 @@ const Road: React.FC<{f: number}> = ({f}) => {
   );
 };
 
-const ChipFly: React.FC<{f: number}> = ({f}) => {
+export const ChipFly: React.FC<{f: number}> = ({f}) => {
   const chip = ip(f, [FB.chip, FB.sms], [0, 1], EIO);
   if (chip <= 0 || chip >= 1) return null;
   const x0 = 1370 + (READER_X - 1370) * 1.25, y0 = 900 - (900 - 470) * 1.25; // badge position inside the 1.25x road scene
@@ -151,7 +151,7 @@ const ChipFly: React.FC<{f: number}> = ({f}) => {
 };
 
 // ------------------------------------------------------------------ "no cash, no card, no stopping?"
-const Questions: React.FC<{f: number}> = ({f}) => {
+export const Questions: React.FC<{f: number}> = ({f}) => {
   const out = ip(f, [FB.qOut, FB.qOut + 14], [1, 0], EIO);
   if (f < FB.cash - 10 || out <= 0.01) return null;
   const items: [string, string, number][] = [['💵', 'No cash', FB.cash], ['💳', 'No card', FB.card], ['🛑', 'No stopping', FB.stop]];
@@ -180,7 +180,7 @@ const Questions: React.FC<{f: number}> = ({f}) => {
 };
 
 // ------------------------------------------------------------------ windshield close-up with the sticker
-const Windshield: React.FC<{f: number}> = ({f}) => {
+export const Windshield: React.FC<{f: number}> = ({f}) => {
   const a = ip(f, [FB.windshield, FB.windshield + 20], [0, 1], EO);
   const out = ip(f, [FB.title - 10, FB.title + 6], [1, 0], EIO);
   if (f < FB.windshield || out <= 0.01) return null;
@@ -212,7 +212,7 @@ const Windshield: React.FC<{f: number}> = ({f}) => {
 };
 
 // ------------------------------------------------------------------ title
-const Title: React.FC<{f: number}> = ({f}) => {
+export const Title: React.FC<{f: number}> = ({f}) => {
   const a = FB.title;
   const t1 = ip(f, [a, a + 20], [0, 1], EO), t2 = ip(f, [a + 10, a + 30], [0, 1], EO), line = ip(f, [a + 6, a + 34], [0, 1], EIO);
   if (f < a) return null;

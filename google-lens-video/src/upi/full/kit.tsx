@@ -50,6 +50,13 @@ export const Icon: React.FC<{k: string; s?: number}> = ({k, s = 30}) => {
     check: <path d="M5 12.5l4.2 4.2L19 7" {...st} strokeWidth={3} />,
     cross: <path d="M6 6l12 12M18 6L6 18" {...st} strokeWidth={3} />,
     mail: <><rect x="3" y="5" width="18" height="14" rx="2" {...st} /><path d="M3 7l9 6 9-6" {...st} /></>,
+    tag: <><rect x="3" y="6" width="18" height="12" rx="2" {...st} /><rect x="14" y="9" width="4" height="4" fill="#fff" /><path d="M6 10h5M6 13h5" {...st} /></>,
+    car: <><path d="M3 15v-3l2-5h14l2 5v3z" {...st} /><circle cx="7.5" cy="16.5" r="2" fill="#fff" /><circle cx="16.5" cy="16.5" r="2" fill="#fff" /><path d="M6 11h12" {...st} /></>,
+    antenna: <><path d="M12 12v10M8 22h8" {...st} /><circle cx="12" cy="10" r="2" fill="#fff" /><path d="M7.5 5.5a6.5 6.5 0 0 0 0 9M16.5 5.5a6.5 6.5 0 0 1 0 9M4.5 3a10 10 0 0 0 0 14M19.5 3a10 10 0 0 1 0 14" {...st} /></>,
+    truck: <><path d="M2 6h12v10H2zM14 9h4l3 3v4h-7z" {...st} /><circle cx="6" cy="17.5" r="1.8" fill="#fff" /><circle cx="17" cy="17.5" r="1.8" fill="#fff" /></>,
+    wallet: <><rect x="3" y="6" width="18" height="14" rx="2" {...st} /><path d="M16 13h3" {...st} /><path d="M5 6l10-3 1 3" {...st} /></>,
+    satellite: <><rect x="9" y="9" width="6" height="6" rx="1" {...st} transform="rotate(45 12 12)" /><path d="M5 5l3 3M16 16l3 3M3 9l4-4M15 21l4-4" {...st} /></>,
+    camera: <><rect x="3" y="7" width="18" height="12" rx="2" {...st} /><circle cx="12" cy="13" r="3.5" {...st} /><path d="M8 7l1.5-3h5L16 7" {...st} /></>,
     db: <><ellipse cx="12" cy="5" rx="8" ry="3" {...st} /><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" {...st} /></>,
   };
   return <svg width={s} height={s} viewBox="0 0 24 24">{paths[k]}</svg>;
