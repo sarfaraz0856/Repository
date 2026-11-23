@@ -1,0 +1,196 @@
+==================================================================
+ YOUTUBE UPLOAD DETAILS – FASTag कैसे काम करता है?
+ (Hindi • Hinglish • English)
+==================================================================
+
+YouTube Studio → "Test & Compare" में 3 थंबनेल एक साथ test करें।
+हर थंबनेल के साथ उससे मेल खाता title नीचे दिया है।
+Video language = Hindi रखें। English title/description "Languages" में अलग से डालें (नीचे steps हैं)।
+
+
+##################################################################
+ PART 1 – HINDI (Main – वीडियो की language Hindi है, यही मुख्य title/description है)
+##################################################################
+
+------------------------------------------------------------------
+1) 3 TITLES (थंबनेल के साथ जोड़ी में)
+------------------------------------------------------------------
+[A]  fastag-kaise-kaam-karta-hai-thumbnail-a.jpg  –  "FASTag कैसे काम करता है?"
+     FASTag कैसे काम करता है? | Toll Plaza पर बिना रुके पैसा कैसे कटता है (2026)
+
+[B]  bina-ruke-toll-kaise-katta-hai-fastag-thumbnail-b.jpg  –  "बिना रुके Toll कैसे कटा?"
+     बिना रुके Toll कैसे कटता है? FASTag Behind the Scenes | RFID, NETC, NPCI Explained
+
+[C]  fastag-rfid-sticker-kaise-kaam-karta-hai-thumbnail-c.jpg  –  "इस Sticker में क्या छुपा है?"
+     FASTag Sticker में क्या छुपा है? बिना Battery के कैसे काम करता है | FASTag Explained in Hindi
+
+(Chapters title में नहीं – title लंबा होकर mobile पर कट जाता है। Chapters description में हैं।)
+
+------------------------------------------------------------------
+2) DESCRIPTION (पूरा copy-paste करें)
+------------------------------------------------------------------
+FASTag कैसे काम करता है? 🚗 Toll Plaza पर आप बिना रुके निकल जाते हैं और कुछ seconds में phone पर "Toll का पैसा कट गया" का SMS आ जाता है – लेकिन ये होता कैसे है? इस वीडियो में आसान Hinglish में समझिए: Windshield पर लगा RFID Sticker बिना Battery के कैसे काम करता है, Toll Plaza का Reader Tag की ID कैसे पढ़ता है, और NPCI के NETC System के ज़रिए Acquirer Bank और Issuer Bank मिलकर आपके FASTag Wallet से Toll कैसे Debit करते हैं – सब कुछ step by step, animation के साथ।
+
+इस वीडियो में आप सीखेंगे:
+✅ FASTag क्या है और NETC / NPCI का role
+✅ FASTag System के Main Parts – Tag, RFID Reader, Plaza System, Acquirer Bank, Issuer Bank
+✅ RFID बिना Battery के कैसे काम करता है (Passive RFID, UHF)
+✅ Toll Plaza पर पूरा सफ़र – Tag Read से Debit और SMS तक
+✅ Toll Amount कैसे तय होता है (Vehicle Class)
+✅ Low Balance, Blacklist, KYC और One Vehicle One FASTag
+✅ FASTag Recharge कैसे करें – UPI, Bank App, Auto Recharge
+✅ Double Deduction / गलत Toll कटे तो Complaint और Refund
+✅ FASTag Safety Tips और Fraud से बचाव
+✅ Future: Satellite (GNSS) Based Tolling
+
+⏱️ Chapters
+0:00 Introduction – बिना रुके Toll कैसे कटा?
+0:30 FASTag क्या है?
+1:13 FASTag System के Main Parts
+1:57 RFID कैसे काम करता है (No Battery!)
+3:00 Toll Plaza पर पूरा सफ़र – Step by Step
+4:11 Toll Amount कैसे तय होता है?
+4:49 Low Balance, Blacklist और KYC
+5:27 FASTag Recharge कैसे करें
+6:04 Problems, Complaint और Refund
+6:43 FASTag Safety Tips
+7:16 Future और Summary
+
+❓ अक्सर पूछे जाने वाले सवाल (FAQ)
+Q. FASTag kaise kaam karta hai?
+A. Toll Plaza का RFID Reader आपके FASTag की Unique ID पढ़ता है, Plaza System Tag का Status check करता है, फिर NPCI के NETC System के ज़रिए आपका Issuer Bank Wallet से Toll Debit करता है।
+
+Q. FASTag mein battery hoti hai kya?
+A. नहीं। FASTag Passive RFID है – Reader की Radio Waves से ही Chip को Energy मिलती है।
+
+Q. FASTag blacklist kyon hota hai?
+A. Low Balance, KYC पूरी न होना या Vehicle Details match न होना आम कारण हैं। Recharge / KYC के बाद Status फिर Active हो जाता है।
+
+Q. FASTag se double toll kat gaya to kya kare?
+A. SMS और Transaction Details रखें और अपने Issuer Bank में Complaint करें। Highway help के लिए NHAI Helpline 1033 है।
+
+Q. FASTag recharge kaise kare?
+A. Issuer Bank की App, Net Banking या UPI Payment Apps से। कुछ Banks Auto Recharge भी देते हैं।
+
+👍 अगर आपको ये video अच्छा लगा हो, तो please इसे like और share, और channel को subscribe कीजिए। Thank you!
+
+📌 Note:
+- यह एक educational explainer video है। इस channel का NHAI, NPCI, IHMCL या किसी Bank / App से कोई संबंध नहीं है।
+- वीडियो में दिखाए गए नाम (Demo Bank, DEMO 1234), Tag ID, amounts, toll rates और SMS सिर्फ़ समझाने के लिए बनाए गए examples हैं।
+- FASTag से जुड़े नियम (जैसे बिना valid FASTag के लगने वाला toll) समय-समय पर बदलते हैं – latest जानकारी NHAI / official sources से check करें।
+- इस वीडियो का voiceover मेरी अपनी आवाज़ के AI voice clone से बनाया गया है।
+
+#FASTag #TollPlaza #TechHindi
+
+
+##################################################################
+ PART 2 – HINGLISH (Roman script – चाहें तो title test या Shorts/Community post में use करें)
+##################################################################
+
+TITLES
+[A] FASTag Kaise Kaam Karta Hai? | Toll Plaza Par Bina Ruke Paisa Kaise Katta Hai
+[B] Bina Ruke Toll Kaise Katta Hai? FASTag RFID, NETC Explained in Hindi
+[C] FASTag Sticker Mein Kya Chhupa Hai? Bina Battery Kaise Kaam Karta Hai | FASTag Explained
+
+DESCRIPTION
+FASTag kaise kaam karta hai? 🚗 Toll plaza par aap bina ruke nikal jaate hain aur kuch seconds mein phone par "toll ka paisa kat gaya" ka SMS aa jaata hai – lekin ye hota kaise hai? Is video mein aasaan Hinglish mein samjhiye: windshield par laga RFID sticker bina battery ke kaise kaam karta hai, toll plaza ka reader tag ki ID kaise padhta hai, aur NPCI ke NETC system ke zariye Acquirer Bank aur Issuer Bank milkar aapke FASTag wallet se toll kaise debit karte hain – sab kuch step by step, animation ke saath.
+
+Chapters
+0:00 Introduction – Bina ruke toll kaise kata?
+0:30 FASTag kya hai?
+1:13 FASTag system ke main parts
+1:57 RFID kaise kaam karta hai (No battery!)
+3:00 Toll plaza par poora safar – step by step
+4:11 Toll amount kaise tay hota hai?
+4:49 Low balance, blacklist aur KYC
+5:27 FASTag recharge kaise karein
+6:04 Problems, complaint aur refund
+6:43 FASTag safety tips
+7:16 Future aur summary
+
+Agar aapko ye video achha laga ho, to please ise like aur share, aur channel ko subscribe kijiye. Thank you!
+(Note: Video mein dikhaye gaye naam, amounts aur messages sirf examples hain. Voiceover meri apni awaaz ke AI voice clone se banaya gaya hai.)
+
+
+##################################################################
+ PART 3 – ENGLISH (Studio → Languages → Add language → English → "Title & description")
+##################################################################
+
+TITLE
+How FASTag Works | How Toll Is Paid Without Stopping – RFID & NETC Explained
+
+DESCRIPTION
+How does FASTag work? 🚗 You drive through a toll plaza without stopping, and within seconds an SMS says the toll has been deducted – but how? In this animated explainer, see how the RFID sticker on your windshield works without a battery, how the toll plaza's reader reads the tag ID, and how NPCI's NETC system connects the acquirer bank and the issuer bank to debit the toll from your FASTag wallet – step by step.
+
+In this video you will learn:
+✅ What FASTag is, and the role of NETC / NPCI
+✅ The main parts – tag, RFID reader, plaza system, acquirer bank, issuer bank
+✅ How RFID works without a battery (passive RFID, UHF)
+✅ The full journey at the toll plaza – from tag read to debit and SMS
+✅ How the toll amount is decided (vehicle class)
+✅ Low balance, blacklist, KYC and One Vehicle One FASTag
+✅ How to recharge FASTag – UPI, bank app, auto recharge
+✅ Double or wrong deduction – complaint and refund
+✅ FASTag safety tips
+✅ The future: satellite (GNSS) based tolling
+
+⏱️ Chapters
+0:00 Introduction – How was the toll paid without stopping?
+0:30 What is FASTag?
+1:13 The main components
+1:57 How RFID works (no battery!)
+3:00 The journey at the toll plaza – step by step
+4:11 How the toll amount is decided
+4:49 Low balance, blacklist & KYC
+5:27 How FASTag recharge works
+6:04 Problems, complaints & refunds
+6:43 FASTag safety tips
+7:16 The future & summary
+
+👍 If you enjoyed this video, please like and share it, and subscribe to the channel. Thank you!
+
+📌 Note:
+- This is an educational explainer. This channel is not affiliated with NHAI, NPCI, IHMCL or any bank or app.
+- Names (Demo Bank, DEMO 1234), tag IDs, amounts, toll rates and messages shown are illustrative examples.
+- FASTag rules change from time to time – check NHAI / official sources for the latest information.
+- The voiceover was created with an AI clone of my own voice.
+
+#FASTag #TollPlaza #TechExplained
+
+
+##################################################################
+ TAGS (Studio के "Tags" box में paste करें – 500 characters के अंदर)
+##################################################################
+fastag kaise kaam karta hai, how fastag works, fastag explained, fastag in hindi, fastag kya hai, fastag rfid, fastag recharge kaise kare, fastag blacklist, fastag kyc, fastag double deduction, fastag complaint, toll plaza kaise kaam karta hai, netc fastag, npci fastag, one vehicle one fastag, fastag balance check, toll tax kaise katta hai, rfid kya hai, fastag new rules, tech hindi
+
+
+##################################################################
+ HASHTAGS (description के आख़िर में पहले से जोड़ दिए हैं)
+##################################################################
+#FASTag #TollPlaza #TechHindi
+(Extra, चाहें तो: #RFID #NHAI #TechExplained)
+
+
+##################################################################
+ UPLOAD CHECKLIST
+##################################################################
+[ ] Video file: fastag-kaise-kaam-karta-hai-how-fastag-works-hindi.mp4  (1920x1080, 30fps, 8:05)
+[ ] Thumbnails: ...-thumbnail-a / b / c.jpg (1280x720, हर एक 2MB से कम) → "Test & Compare" में तीनों डालें
+[ ] Title, Description, Tags: PART 1 (Hindi) से copy करें
+[ ] Languages → Add language → English → Title & description: PART 3 (English) paste करें
+[ ] Subtitles (Studio → Subtitles):
+      Hindi    → fastag-kaise-kaam-karta-hai-hindi-subtitles.srt     ("With timing")
+      English  → how-fastag-works-explained-english-subtitles.srt    ("With timing")
+      Hinglish → fastag-kaise-kaam-karta-hai-hinglish-subtitles.srt  → Language: "Hindi (Latin)" चुनें ("With timing")
+[ ] "Altered or synthetic content" → YES (voiceover AI voice clone है – ज़रूरी disclosure, इससे monetization नहीं रुकता)
+[ ] Audience: "No, it's not made for kids"
+[ ] Category: Education (या Science & Technology)
+[ ] Video language: Hindi
+[ ] Chapters अपने आप बन जाएँगे (description के timestamps से)
+[ ] End screen (आख़िरी 20 सेकंड): subscribe button + UPI वाला वीडियो जोड़ें (Digital Payment playlist)
+
+💡 Ranking tips:
+- UPI, FASTag (और आगे ATM/OTP) को एक "Digital Payment कैसे काम करता है" playlist में रखें।
+- पहले 24–48 घंटे में video को WhatsApp/Instagram/community पर share करें।
+- Pinned comment में पूछें: "आपका FASTag कभी blacklist हुआ है? Comment में बताइए।"
+- Test & Compare का result आने तक थंबनेल न बदलें।

@@ -10,6 +10,7 @@ import {UPIFull} from './upi/full/UPIFull';
 import {FT} from './upi/full/tl';
 import {FastagSample} from './fastag/FastagSample';
 import {FastagFull} from './fastag/full/FastagFull';
+import {FastagThumbA, FastagThumbB, FastagThumbC} from './fastag/thumb/FastagThumb';
 import {FT as FFT} from './fastag/full/tl';
 import {UPIThumbA, UPIThumbB, UPIThumbC, UPIThumbEN} from './upi/thumb/UPIThumb';
 import {FPS, DURATION, WIDTH, HEIGHT} from './theme';
@@ -31,6 +32,9 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="UPISample" component={UPISample} durationInFrames={900} fps={FPS} width={WIDTH} height={HEIGHT} />
   <Composition id="UPIFull" component={UPIFull} durationInFrames={FT.durationInFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
   <Composition id="FastagFull" component={FastagFull} durationInFrames={FFT.durationInFrames} fps={FPS} width={WIDTH} height={HEIGHT} />
+  <Composition id="FastagThumbA" component={FastagThumbA} durationInFrames={1} fps={FPS} width={1280} height={720} />
+  <Composition id="FastagThumbB" component={FastagThumbB} durationInFrames={1} fps={FPS} width={1280} height={720} />
+  <Composition id="FastagThumbC" component={FastagThumbC} durationInFrames={1} fps={FPS} width={1280} height={720} />
   <Composition id="FastagSample" component={FastagSample} durationInFrames={900} fps={FPS} width={WIDTH} height={HEIGHT} />
   <Composition id="UPIThumbA" component={UPIThumbA} durationInFrames={1} fps={FPS} width={1280} height={720} />
   <Composition id="UPIThumbB" component={UPIThumbB} durationInFrames={1} fps={FPS} width={1280} height={720} />

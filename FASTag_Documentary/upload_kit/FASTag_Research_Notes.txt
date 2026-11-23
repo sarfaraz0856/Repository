@@ -1,0 +1,16 @@
+FASTag documentary – fact notes (for the creator)
+
+The video explains the general working of FASTag / NETC in simplified form. Key points used:
+- FASTag: passive RFID (UHF band) sticker on the windshield, linked to a prepaid wallet or bank account.
+- NETC (National Electronic Toll Collection) programme, developed by NPCI.
+- Roles: tag, lane RFID reader/antenna, toll plaza system, acquirer bank (toll plaza side), NETC switch (NPCI), issuer bank (tag holder side).
+- FASTag made mandatory for most vehicles from February 2021.
+- NHAI "One Vehicle One FASTag" policy: one active FASTag per vehicle.
+- Common reasons for tag issues: low balance, blacklist, incomplete KYC, vehicle detail mismatch, damaged/misplaced tag.
+- NHAI highway helpline: 1033.
+- GNSS / satellite-based tolling: being worked on / piloted.
+
+Verify before publishing / when rules change:
+- Rules about the toll charged without a valid FASTag change from time to time – the video does NOT state a multiplier and asks viewers to check official rules.
+- Check the latest on NHAI (nhai.gov.in), NPCI NETC (npci.org.in) and your issuer bank's website.
+- All amounts, toll rates, names (Demo Bank, DEMO 1234), tag IDs and SMS texts in the video are illustrative.
