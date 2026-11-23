@@ -110,7 +110,7 @@
    "cues": [
     {
      "file": "fastag/vo/s3_1.wav",
-     "text": "FASTag Transaction को समझने के लिए, पहले इसके Main Components को समझते हैं।",
+     "text": "चलिए, पहले FASTag System के Main Parts को समझते हैं।",
      "from": 2224,
      "dur": 156
     },
@@ -374,7 +374,7 @@
     },
     {
      "file": "fastag/vo/s6_8.wav",
-     "text": "किसी Toll Plaza का Fee Rate, आप NHAI की Official Website या App पर देख सकते हैं।",
+     "text": "हर Toll Plaza का Fee Rate, NHAI की Official Website या App पर देखा जा सकता है।",
      "from": 8506,
      "dur": 164
     }
