@@ -15,13 +15,13 @@ Video language = Hindi रखें। English title/description "Languages" म
 ------------------------------------------------------------------
 1) 3 TITLES (थंबनेल के साथ जोड़ी में)
 ------------------------------------------------------------------
-[A]  fastag-kaise-kaam-karta-hai-thumbnail-a.jpg  –  "FASTag कैसे काम करता है?"
+[A]  fastag-kaise-kaam-karta-hai-toll-plaza-thumbnail-a.jpg  –  "FASTag कैसे काम करता है?"
      FASTag कैसे काम करता है? | Toll Plaza पर बिना रुके पैसा कैसे कटता है (2026)
 
-[B]  bina-ruke-toll-kaise-katta-hai-fastag-thumbnail-b.jpg  –  "बिना रुके Toll कैसे कटा?"
+[B]  bina-ruke-toll-kaise-katta-hai-fastag-toll-tax-thumbnail-b.jpg  –  "बिना रुके Toll कैसे कटा?"
      बिना रुके Toll कैसे कटता है? FASTag Behind the Scenes | RFID, NETC, NPCI Explained
 
-[C]  fastag-rfid-sticker-kaise-kaam-karta-hai-thumbnail-c.jpg  –  "इस Sticker में क्या छुपा है?"
+[C]  fastag-rfid-sticker-kaise-kaam-karta-hai-no-battery-thumbnail-c.jpg  –  "इस Sticker में क्या छुपा है?"
      FASTag Sticker में क्या छुपा है? बिना Battery के कैसे काम करता है | FASTag Explained in Hindi
 
 (Chapters title में नहीं – title लंबा होकर mobile पर कट जाता है। Chapters description में हैं।)
@@ -174,14 +174,14 @@ fastag kaise kaam karta hai, how fastag works, fastag explained, fastag in hindi
 ##################################################################
  UPLOAD CHECKLIST
 ##################################################################
-[ ] Video file: fastag-kaise-kaam-karta-hai-how-fastag-works-hindi.mp4  (1920x1080, 30fps, 8:05)
+[ ] Video file: fastag-kaise-kaam-karta-hai-how-fastag-works-toll-plaza-rfid-hindi.mp4  (1920x1080, 30fps, 8:05)
 [ ] Thumbnails: ...-thumbnail-a / b / c.jpg (1280x720, हर एक 2MB से कम) → "Test & Compare" में तीनों डालें
 [ ] Title, Description, Tags: PART 1 (Hindi) से copy करें
 [ ] Languages → Add language → English → Title & description: PART 3 (English) paste करें
-[ ] Languages → English → Dub: 02-English-Dub-Pack.zip की how-fastag-works-explained-english-dub.wav upload करें
+[ ] Languages → English → Dub: 02-how-fastag-works-english-dub-pack.zip की how-fastag-works-english-dub-audio.wav upload करें
 [ ] Subtitles (Studio → Subtitles):
       Hindi    → fastag-kaise-kaam-karta-hai-hindi-subtitles.srt     ("With timing")
-      English  → how-fastag-works-explained-english-subtitles.srt    ("With timing")
+      English  → how-fastag-works-english-subtitles.srt    ("With timing")
       Hinglish → fastag-kaise-kaam-karta-hai-hinglish-subtitles.srt  → Language: "Hindi (Latin)" चुनें ("With timing")
 [ ] "Altered or synthetic content" → YES (voiceover AI voice clone है – ज़रूरी disclosure, इससे monetization नहीं रुकता)
 [ ] Audience: "No, it's not made for kids"

@@ -1,0 +1,49 @@
+==================================================================
+ FASTag कैसे काम करता है? – YouTube Upload Kit
+==================================================================
+
+01-upload-video-thumbnail-subtitles/                  → ये सब YouTube पर upload करना है
+02-how-fastag-works-english-dub-pack.zip           → English dub (ZIP के अंदर ZIP) – Studio → Languages → English
+03-extra-files-upload-nahi-karna/ → सिर्फ़ आपके record के लिए (Short teaser चाहें तो डाल सकते हैं)
+
+------------------------------------------------------------------
+01-upload-video-thumbnail-subtitles/
+------------------------------------------------------------------
+fastag-kaise-kaam-karta-hai-how-fastag-works-toll-plaza-rfid-hindi.mp4
+    → मुख्य वीडियो (Hinglish, 8:05, 1920x1080). Studio → Create → Upload video
+
+fastag-kaise-kaam-karta-hai-toll-plaza-thumbnail-a.jpg              → थंबनेल A: "FASTag कैसे काम करता है?"
+bina-ruke-toll-kaise-katta-hai-fastag-toll-tax-thumbnail-b.jpg    → थंबनेल B: "बिना रुके Toll कैसे कटा?"
+fastag-rfid-sticker-kaise-kaam-karta-hai-no-battery-thumbnail-c.jpg → थंबनेल C: "इस Sticker में क्या छुपा है?"
+    → तीनों "Test & Compare" में डालें
+
+fastag-kaise-kaam-karta-hai-youtube-title-description-tags.txt
+    → PART 1 Hindi (main) · PART 2 Hinglish (Roman) · PART 3 English
+      + Tags, Hashtags, Upload Checklist
+
+(subtitles – इसी folder में)
+    fastag-kaise-kaam-karta-hai-hindi-subtitles.srt     → Hindi (देवनागरी)
+    how-fastag-works-english-subtitles.srt    → English
+    fastag-kaise-kaam-karta-hai-hinglish-subtitles.srt  → Hinglish (Roman) – Studio में "Hindi (Latin)" चुनें
+    → Studio → Subtitles → Add language → Upload file → "With timing"
+
+------------------------------------------------------------------
+02-how-fastag-works-english-dub-pack.zip   (unzip करें)
+------------------------------------------------------------------
+how-fastag-works-english-dub-audio.wav
+    → English आवाज़ + music, बिल्कुल वीडियो जितनी लंबी (8:05)
+    → Studio → Languages → Add language → English → Dub → Add → upload → Publish
+how-fastag-works-toll-plaza-english-thumbnail.jpg  → English थंबनेल ("How FASTag Really Works")
+how-fastag-works-english-subtitles.srt  → English subtitles (English आवाज़ की timing पर)
+how-fastag-works-english-title-description.txt                     → English Title + Description + पूरे upload steps
+
+------------------------------------------------------------------
+03-extra-files-upload-nahi-karna/
+------------------------------------------------------------------
+fastag-kaise-kaam-karta-hai-narration-voice-only.wav            → सिर्फ़ आवाज़ (बिना music)
+fastag-kaise-kaam-karta-hai-voiceover-script-hindi-hinglish-english.txt  → पूरी script: Hinglish + Roman Hinglish + English, timing के साथ
+fastag-research-notes.txt             → facts के notes और क्या verify करना है
+fastag-kaise-kaam-karta-hai-shorts-teaser-30sec.mp4     → 30 second teaser – चाहें तो YouTube Short / Instagram पर डालें
+
+ज़रूरी: "Altered or synthetic content" → YES चुनें (आवाज़ AI voice clone है)।
+File names search keywords से बने हैं (lowercase, शब्दों के बीच "-")।
