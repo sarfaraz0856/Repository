@@ -3,7 +3,8 @@
 ==================================================================
 
 01-Video-Upload/                  → ये सब YouTube पर upload करना है
-02-Extra-Files-Upload-Nahi-Karna/ → सिर्फ़ आपके record के लिए (Short teaser चाहें तो डाल सकते हैं)
+02-English-Dub-Pack.zip           → English dub (ZIP के अंदर ZIP) – Studio → Languages → English
+03-Extra-Files-Upload-Nahi-Karna/ → सिर्फ़ आपके record के लिए (Short teaser चाहें तो डाल सकते हैं)
 
 ------------------------------------------------------------------
 01-Video-Upload/
@@ -27,7 +28,17 @@ Subtitles/
     → Studio → Subtitles → Add language → Upload file → "With timing"
 
 ------------------------------------------------------------------
-02-Extra-Files-Upload-Nahi-Karna/
+02-English-Dub-Pack.zip   (unzip करें)
+------------------------------------------------------------------
+how-fastag-works-explained-english-dub.wav
+    → English आवाज़ + music, बिल्कुल वीडियो जितनी लंबी (8:05)
+    → Studio → Languages → Add language → English → Dub → Add → upload → Publish
+how-fastag-works-explained-english-thumbnail.jpg  → English थंबनेल ("How FASTag Really Works")
+how-fastag-works-explained-english-subtitles.srt  → English subtitles (English आवाज़ की timing पर)
+English_Title_Description.txt                     → English Title + Description + पूरे upload steps
+
+------------------------------------------------------------------
+03-Extra-Files-Upload-Nahi-Karna/
 ------------------------------------------------------------------
 FASTag_Narration_Audio.wav            → सिर्फ़ आवाज़ (बिना music)
 FASTag_Complete_Voiceover_Script.txt  → पूरी script: Hinglish + Roman Hinglish + English, timing के साथ

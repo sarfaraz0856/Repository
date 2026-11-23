@@ -9,7 +9,7 @@ import {U, UF} from '../../upi/theme';
 import {Car} from '../FastagSample';
 import {Sticker} from '../full/art';
 
-type V = 'A' | 'B' | 'C';
+type V = 'A' | 'B' | 'C' | 'EN';
 const useFonts = () => {
   const [h] = useState(() => delayRender('fonts'));
   useEffect(() => {
@@ -43,11 +43,13 @@ export const FastagThumb: React.FC<{v: V}> = ({v}) => {
     A: <>FASTag कैसे<br /><span style={{color: '#FFD43B'}}>काम करता है?</span></>,
     B: <>बिना रुके Toll<br /><span style={{color: '#FFD43B'}}>कैसे कटा?</span></>,
     C: <>इस Sticker में<br /><span style={{color: '#FFD43B'}}>क्या छुपा है?</span></>,
+    EN: <>How FASTag<br /><span style={{color: '#FFD43B'}}>Really Works</span></>,
   }[v];
   const bottom = {
     A: 'RFID · NETC · Bank – पूरी जानकारी हिंदी में',
     B: 'Toll Plaza → NPCI → Bank · Behind the Scenes',
     C: 'बिना Battery के कैसे चलता है FASTag?',
+    EN: 'Toll paid without stopping · RFID & NETC explained',
   }[v];
   return (
     <AbsoluteFill style={{overflow: 'hidden', background: 'radial-gradient(ellipse 90% 120% at 78% 50%, #1F4FB8 0%, #0E2A6B 45%, #070F2A 100%)'}}>
@@ -56,7 +58,7 @@ export const FastagThumb: React.FC<{v: V}> = ({v}) => {
       ))}
       <AbsoluteFill style={{backgroundImage: 'radial-gradient(rgba(255,255,255,0.10) 1.4px, transparent 1.5px)', backgroundSize: '26px 26px', WebkitMaskImage: 'linear-gradient(90deg, transparent 0%, #000 40%, #000 100%)'}} />
 
-      {v === 'A' && <Toll x={700} />}
+      {(v === 'A' || v === 'EN') && <Toll x={700} />}
       {v === 'B' && (
         <>
           <Toll x={740} />
@@ -80,14 +82,14 @@ export const FastagThumb: React.FC<{v: V}> = ({v}) => {
           <span style={{width: 44, height: 44, borderRadius: 22, background: `linear-gradient(135deg, ${U.blue}, ${U.green})`, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontFamily: UF.head, fontWeight: 800, fontSize: 16}}>TAG</span>
           <span style={{fontFamily: UF.head, fontWeight: 800, fontSize: 32, color: U.ink, letterSpacing: -0.5}}>FASTag Explained</span>
         </div>
-        <div style={{fontFamily: UF.hi, fontWeight: 800, fontSize: 92, lineHeight: 1.2, color: '#FFFFFF', marginTop: 26, textShadow: shadow, whiteSpace: 'nowrap'}}>{head}</div>
+        <div style={{fontFamily: v === 'EN' ? UF.head : UF.hi, fontWeight: 800, fontSize: v === 'EN' ? 100 : 92, lineHeight: v === 'EN' ? 1.05 : 1.2, letterSpacing: v === 'EN' ? -2 : 0, color: '#FFFFFF', marginTop: 26, textShadow: shadow, whiteSpace: 'nowrap'}}>{head}</div>
         <div style={{display: 'flex', gap: 14, marginTop: 28}}>
           <Chip bg={U.blue}>RFID</Chip>
           <Chip bg={U.saffron}>NETC</Chip>
           <Chip bg={U.green}>NO STOP ✓</Chip>
         </div>
       </div>
-      <div style={{position: 'absolute', left: 56, bottom: 40, fontFamily: UF.hi, fontWeight: 700, fontSize: 28, color: 'rgba(255,255,255,0.92)'}}>{bottom}</div>
+      <div style={{position: 'absolute', left: 56, bottom: 40, fontFamily: v === 'EN' ? UF.ui : UF.hi, fontWeight: 700, fontSize: 28, color: 'rgba(255,255,255,0.92)'}}>{bottom}</div>
     </AbsoluteFill>
   );
 };
@@ -95,3 +97,4 @@ export const FastagThumb: React.FC<{v: V}> = ({v}) => {
 export const FastagThumbA: React.FC = () => <FastagThumb v="A" />;
 export const FastagThumbB: React.FC = () => <FastagThumb v="B" />;
 export const FastagThumbC: React.FC = () => <FastagThumb v="C" />;
+export const FastagThumbEN: React.FC = () => <FastagThumb v="EN" />;

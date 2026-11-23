@@ -44,7 +44,7 @@ Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
          EN: In India, FASTag was made mandatory for most vehicles from February 2021.
   01:03  इससे Toll Plaza पर लंबी लाइनें कम हुईं, और Cash का झंझट भी।
          Isse toll plaza par lambi lines kam huin, aur cash ka jhanjhat bhi.
-         EN: This reduced long queues at toll plazas, and the hassle of cash too.
+         EN: Queues got shorter, and the cash hassle went away.
   01:08  FASTag लेते समय, गाड़ी की RC और KYC Documents की ज़रूरत होती है।
          FASTag lete samay, gaadi ki RC aur KYC documents ki zaroorat hoti hai.
          EN: To get a FASTag, you need the vehicle's RC and KYC documents.
@@ -56,7 +56,7 @@ Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
          EN: Let's first understand the main parts of the FASTag system.
   01:19  पहला है FASTag Tag, जिसमें एक Unique Tag ID होती है।
          Pehla hai FASTag tag, jismein ek unique Tag ID hoti hai.
-         EN: First is the FASTag itself, which has a unique Tag ID.
+         EN: First, the FASTag itself, with a unique Tag ID.
   01:22  दूसरा है Toll Plaza का RFID Reader और Antenna, जो Lane के ऊपर लगे होते हैं।
          Doosra hai toll plaza ka RFID reader aur antenna, jo lane ke upar lage hote hain.
          EN: Second is the toll plaza's RFID reader and antenna, fixed above the lane.
@@ -74,7 +74,7 @@ Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
          EN: And between them all is NPCI's NETC system, which routes messages to the right bank.
   01:49  अलग-अलग Banks Tag Issue करते हैं, लेकिन NETC की वजह से, आपका Tag देश के हर FASTag Toll Plaza पर काम करता है।
          Alag-alag banks tag issue karte hain, lekin NETC ki wajah se, aapka tag desh ke har FASTag toll plaza par kaam karta hai.
-         EN: Different banks issue tags, but thanks to NETC, your tag works at every FASTag toll plaza in the country.
+         EN: Different banks issue FASTags, but thanks to NETC, your tag works at every FASTag toll plaza in India.
 
 [01:57]  S4 · HOW RFID WORKS (NO BATTERY!)
 
@@ -200,7 +200,7 @@ Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
          EN: Incomplete KYC, or vehicle details that don't match, can also be a reason.
   05:08  NHAI की One Vehicle One FASTag Policy के तहत, एक गाड़ी पर एक ही Active FASTag होना चाहिए।
          NHAI ki One Vehicle One FASTag policy ke tahat, ek gaadi par ek hi active FASTag hona chahiye.
-         EN: Under NHAI's One Vehicle One FASTag policy, a vehicle should have only one active FASTag.
+         EN: Under the One Vehicle One FASTag policy of NHAI, a vehicle should have only one active FASTag.
   05:15  Valid FASTag न होने पर, आपको Normal से ज़्यादा Toll देना पड़ सकता है।
          Valid FASTag na hone par, aapko normal se zyaada toll dena pad sakta hai.
          EN: Without a valid FASTag, you may have to pay more than the normal toll.
@@ -215,7 +215,7 @@ Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
 
   05:28  अब बात करते हैं Recharge की।
          Ab baat karte hain recharge ki.
-         EN: Now let's talk about recharge.
+         EN: Now, let's talk about recharging your FASTag.
   05:31  ज़्यादातर FASTag, Prepaid Wallet की तरह काम करते हैं, जिसे आप पहले से Recharge करते हैं।
          Zyaadatar FASTag, prepaid wallet ki tarah kaam karte hain, jise aap pehle se recharge karte hain.
          EN: Most FASTags work like a prepaid wallet that you recharge in advance.
@@ -242,7 +242,7 @@ Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
 
   06:05  अगर FASTag से जुड़ी कोई Problem हो, तो क्या करें?
          Agar FASTag se judi koi problem ho, to kya karein?
-         EN: If you have a problem with your FASTag, what should you do?
+         EN: Got a FASTag problem? Here's what to do.
   06:08  कभी Tag Read नहीं होता, क्योंकि वो खराब हो गया है, या गलत जगह लगा है।
          Kabhi tag read nahi hota, kyonki wo kharaab ho gaya hai, ya galat jagah laga hai.
          EN: Sometimes the tag is not read, because it's damaged or fixed in the wrong place.
@@ -272,7 +272,7 @@ Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
          EN: FASTag is safe, but it's important to keep a few things in mind.
   06:47  FASTag सिर्फ़ Bank, Official App या Authorized Point से ही लें।
          FASTag sirf bank, official app ya authorized point se hi lein.
-         EN: Get FASTag only from a bank, an official app or an authorised point.
+         EN: Buy FASTag only from a bank or an official app.
   06:50  FASTag या KYC के नाम पर आए Call या Link पर, अपना OTP या PIN Share मत कीजिए।
          FASTag ya KYC ke naam par aaye call ya link par, apna OTP ya PIN share mat kijiye.
          EN: Never share your OTP or PIN on calls or links about FASTag or KYC.
@@ -281,7 +281,7 @@ Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
          EN: Don't remove the tag and stick it on another vehicle, because a tag is for one vehicle only.
   07:00  गाड़ी बेचते समय पुराना FASTag Close करवाना न भूलें।
          Gaadi bechte samay puraana FASTag close karwana na bhoolein.
-         EN: When you sell your vehicle, don't forget to close the old FASTag.
+         EN: Selling your car? Close the old FASTag.
   07:04  और SMS Alerts हमेशा On रखें, ताकि हर Deduction की जानकारी मिलती रहे।
          Aur SMS alerts hamesha on rakhein, taaki har deduction ki jaankaari milti rahe.
          EN: And always keep SMS alerts on, so you know about every deduction.

@@ -178,6 +178,7 @@ fastag kaise kaam karta hai, how fastag works, fastag explained, fastag in hindi
 [ ] Thumbnails: ...-thumbnail-a / b / c.jpg (1280x720, हर एक 2MB से कम) → "Test & Compare" में तीनों डालें
 [ ] Title, Description, Tags: PART 1 (Hindi) से copy करें
 [ ] Languages → Add language → English → Title & description: PART 3 (English) paste करें
+[ ] Languages → English → Dub: 02-English-Dub-Pack.zip की how-fastag-works-explained-english-dub.wav upload करें
 [ ] Subtitles (Studio → Subtitles):
       Hindi    → fastag-kaise-kaam-karta-hai-hindi-subtitles.srt     ("With timing")
       English  → how-fastag-works-explained-english-subtitles.srt    ("With timing")

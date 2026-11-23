@@ -10,16 +10,16 @@ Its job is to pay the toll automatically, without stopping at the toll plaza.
 FASTag is part of the National Electronic Toll Collection, or NETC, programme.
 The NETC system was developed by NPCI, the same NPCI that runs UPI.
 In India, FASTag was made mandatory for most vehicles from February 2021.
-This reduced long queues at toll plazas, and the hassle of cash too.
+Queues got shorter, and the cash hassle went away.
 To get a FASTag, you need the vehicle's RC and KYC documents.
 Let's first understand the main parts of the FASTag system.
-First is the FASTag itself, which has a unique Tag ID.
+First, the FASTag itself, with a unique Tag ID.
 Second is the toll plaza's RFID reader and antenna, fixed above the lane.
 Third is the toll plaza's computer system, which handles the data of every lane.
 Fourth is the acquirer bank, the bank that collects payment on behalf of the toll plaza.
 Fifth is the issuer bank, the bank that issued your FASTag and holds your wallet.
 And between them all is NPCI's NETC system, which routes messages to the right bank.
-Different banks issue tags, but thanks to NETC, your tag works at every FASTag toll plaza in the country.
+Different banks issue FASTags, but thanks to NETC, your tag works at every FASTag toll plaza in India.
 Now the most interesting question. This small sticker has no battery, so how does it work?
 FASTag uses RFID technology, which means Radio Frequency Identification.
 Inside the sticker there is a tiny chip, with a thin antenna around it.
@@ -57,11 +57,11 @@ Sometimes a vehicle gets stopped at the toll plaza even with a FASTag. Why?
 The most common reason is low balance.
 If the wallet doesn't have enough balance, the tag can go into low-balance or blacklist status.
 Incomplete KYC, or vehicle details that don't match, can also be a reason.
-Under NHAI's One Vehicle One FASTag policy, a vehicle should have only one active FASTag.
+Under the One Vehicle One FASTag policy of NHAI, a vehicle should have only one active FASTag.
 Without a valid FASTag, you may have to pay more than the normal toll.
 So check your balance and tag status before a trip.
 After you recharge, the tag's status becomes active again within some time.
-Now let's talk about recharge.
+Now, let's talk about recharging your FASTag.
 Most FASTags work like a prepaid wallet that you recharge in advance.
 You can recharge through the issuer bank's app, net banking, or UPI payment apps.
 Some banks also give the option to link FASTag directly to your bank account.
@@ -69,7 +69,7 @@ After a recharge, the balance can sometimes take a little time to update.
 So before a long journey, it's better to recharge a little in advance.
 Many banks also send an SMS alert when the balance is low.
 Some apps also have an auto-recharge option, which tops up the wallet as soon as the balance runs low.
-If you have a problem with your FASTag, what should you do?
+Got a FASTag problem? Here's what to do.
 Sometimes the tag is not read, because it's damaged or fixed in the wrong place.
 FASTag should be fixed on the windshield, behind the rear-view mirror, in the centre.
 Sometimes the same toll is deducted twice, or a wrong amount is deducted.
@@ -78,10 +78,10 @@ For highway-related help, there is also NHAI's helpline number, 1033.
 After checking, if the deduction is found to be wrong, you can get a refund.
 When you complain, be sure to mention the vehicle number, date, time and toll plaza name.
 FASTag is safe, but it's important to keep a few things in mind.
-Get FASTag only from a bank, an official app or an authorised point.
+Buy FASTag only from a bank or an official app.
 Never share your OTP or PIN on calls or links about FASTag or KYC.
 Don't remove the tag and stick it on another vehicle, because a tag is for one vehicle only.
-When you sell your vehicle, don't forget to close the old FASTag.
+Selling your car? Close the old FASTag.
 And always keep SMS alerts on, so you know about every deduction.
 If your FASTag is lost or stolen, inform your issuer bank right away and get the tag blocked.
 In future, toll collection is going to get even smarter.
