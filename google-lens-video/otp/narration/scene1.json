@@ -1,0 +1,35 @@
+{
+ "voice": {
+  "engine": "chatterbox-multilingual 0.1.7 (MIT)",
+  "voice": "creator's cloned voice (same reference + settings as the UPI / FASTag videos)",
+  "language": "Hinglish"
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "title": "THE 6-DIGIT CODE THAT PROTECTS YOUR MONEY",
+   "lines": [
+    {
+     "hi": "Imagine कीजिए, आप Online Payment कर रहे हैं, और Pay पर Tap करते ही आपके Phone पर एक SMS आता है।",
+     "say": "इमैजिन कीजिए, आप ऑनलाइन पेमेंट कर रहे हैं, और पे पर टैप करते ही आपके फ़ोन पर एक एसएमएस आता है।"
+    },
+    {
+     "hi": "उसमें एक 6-digit Code है, जो सिर्फ़ कुछ minutes के लिए Valid है।",
+     "say": "उसमें एक सिक्स डिजिट कोड है, जो सिर्फ़ कुछ मिनट्स के लिए वैलिड है।"
+    },
+    {
+     "hi": "आप ये OTP Enter करते हैं, और Payment तुरंत Confirm हो जाता है।",
+     "say": "आप ये ओटीपी एंटर करते हैं, और पेमेंट तुरंत कन्फ़र्म हो जाता है।"
+    },
+    {
+     "hi": "लेकिन ये Code बनता कहाँ है, आपके Phone तक कैसे पहुँचता है, और Bank को कैसे पता चलता है कि Code सही है?",
+     "say": "लेकिन ये कोड बनता कहाँ है, आपके फ़ोन तक कैसे पहुँचता है, और बैंक को कैसे पता चलता है कि कोड सही है?"
+    },
+    {
+     "hi": "आज हम OTP के पीछे की Technology को, Step by Step समझेंगे।",
+     "say": "आज हम ओटीपी के पीछे की टेक्नोलॉजी को, स्टेप बाय स्टेप समझेंगे।"
+    }
+   ]
+  }
+ ]
+}
