@@ -74,7 +74,7 @@ export const OtpPhone: React.FC<{f: number}> = ({f}) => {
       <div style={{position: 'absolute', top: 420, width: '100%', textAlign: 'center', fontSize: 15, color: U.sub}}>Resend OTP in 0:{String(resend).padStart(2, '0')}</div>
       {verifying && <div style={{position: 'absolute', top: 480, width: '100%', textAlign: 'center', fontSize: 17, fontWeight: 700, color: U.blue}}>Verifying…</div>}
       {/* SMS banner */}
-      <div style={{position: 'absolute', top: 14, left: 12, right: 12, padding: '14px 16px', borderRadius: 22, background: 'rgba(255,255,255,0.98)', boxShadow: '0 14px 34px rgba(0,0,0,0.22)', opacity: banner, transform: `translateY(${(1 - banner) * -60}px)`, zIndex: 9}}>
+      <div style={{position: 'absolute', top: 54, left: 12, right: 12, padding: '14px 16px', borderRadius: 22, background: 'rgba(255,255,255,0.98)', boxShadow: '0 14px 34px rgba(0,0,0,0.22)', opacity: banner, transform: `translateY(${(1 - banner) * -60}px)`, zIndex: 9}}>
         <div style={{display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: U.sub}}>
           <span style={{width: 24, height: 24, borderRadius: 7, background: U.green, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13}}>✉</span>
           <b style={{color: U.ink}}>MESSAGES</b><span style={{marginLeft: 'auto'}}>now</span>

@@ -48,5 +48,5 @@ B['title'] = c[4] + 6
 B['end'] = TOTAL
 out = {'fps': FPS, 'durationInFrames': TOTAL, 'cues': cues, 'beats': B}
 json.dump(out, open(os.path.join(ROOT, 'src', 'otp', 'timeline.json'), 'w'), ensure_ascii=False, indent=1)
-for k, v in B.items(): print(f'{k:12s} {v:4d} ({v / FPS:.2f}s)')
+for k, v in B.items(): print(f'{k:12s} {v}')
 print(f'speech ends {end_speech / FPS:.1f} s')

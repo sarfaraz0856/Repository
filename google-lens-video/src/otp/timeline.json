@@ -1,0 +1,61 @@
+{
+ "fps": 30,
+ "durationInFrames": 900,
+ "cues": [
+  {
+   "file": "otp/vo/s1_1.wav",
+   "text": "Imagine कीजिए, आप Online Payment कर रहे हैं, और Pay पर Tap करते ही आपके Phone पर एक SMS आता है।",
+   "from": 24,
+   "dur": 183
+  },
+  {
+   "file": "otp/vo/s1_2.wav",
+   "text": "उसमें एक 6-digit Code है, जो सिर्फ़ कुछ minutes के लिए Valid है।",
+   "from": 232,
+   "dur": 102
+  },
+  {
+   "file": "otp/vo/s1_3.wav",
+   "text": "आप ये OTP Enter करते हैं, और Payment तुरंत Confirm हो जाता है।",
+   "from": 359,
+   "dur": 121
+  },
+  {
+   "file": "otp/vo/s1_4.wav",
+   "text": "लेकिन ये Code बनता कहाँ है, आपके Phone तक कैसे पहुँचता है, और Bank को कैसे पता चलता है कि Code सही है?",
+   "from": 505,
+   "dur": 198
+  },
+  {
+   "file": "otp/vo/s1_5.wav",
+   "text": "आज हम OTP के पीछे की Technology को, Step by Step समझेंगे।",
+   "from": 729,
+   "dur": 120
+  }
+ ],
+ "beats": {
+  "checkout": 6,
+  "tap": 132,
+  "otpScreen": 140,
+  "sms": 186,
+  "code": 259,
+  "timer": 296,
+  "type": 375,
+  "digits": [
+   375,
+   379,
+   383,
+   387,
+   391,
+   395
+  ],
+  "verify": 439,
+  "success": 451,
+  "smsOut": 499,
+  "q1": 532,
+  "q2": 596,
+  "q3": 689,
+  "title": 735,
+  "end": 900
+ }
+}
