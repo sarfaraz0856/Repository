@@ -21,7 +21,11 @@ Code: `google-lens-video/` (Remotion). Finished outputs: `UPI_Documentary/`, `FA
 - 30 s sample first → wait for approval → full video (target 8–10 min, ≥ 8 min for mid-roll ads).
 - 1920×1080, 30 fps, H.264 + AAC, -14 LUFS. Light Google-Lens-style background, enlarged phone, no burned-in subtitles.
 - Soft background music (no harsh ticks/hats/buzz), smooth ducking under the voice.
-- Illustrative data only (Demo names, non-payable QR, demo IDs); never imply affiliation with NPCI/NHAI/banks/apps.
+- Illustrative data only (non-payable QR, made-up IDs); never imply affiliation with NPCI/NHAI/banks/apps.
+- **Never use the word "Demo" in names** (no "Demo Bank", "Demo Store", "DEMO 1234", "@demo").
+  Use realistic-looking but fictional names instead, e.g. bank "Navyug Bank", shop "Kiran Electronics" /
+  "Sharma General Store", vehicle "MH 12 KX 4821"-style plates, UPI ID like "sharmastore@navyug".
+  Do not use real bank/app/brand names for the made-up entities. A small "illustrative" note on screen is fine.
 
 ## Upload kit (ZIP)
 - One ZIP with folders: `01-upload-…` (video, 3 thumbnails, SRTs, title/description/tags txt),

@@ -28,7 +28,7 @@ const useFonts = () => {
 
 export const SmsText: React.FC<{size?: number; codeHi?: number}> = ({size = 16, codeHi = 0}) => (
   <span style={{fontSize: size, lineHeight: 1.45, color: U.ink}}>
-    <b style={{background: `rgba(49,133,255,${0.18 * codeHi})`, color: codeHi > 0.5 ? deep(U.blue) : U.ink, borderRadius: 6, padding: '0 3px', letterSpacing: 1}}>{CODE}</b> is your OTP for ₹499 at Demo Store. Valid for 5 minutes. Do not share it with anyone. – Demo Bank
+    <b style={{background: `rgba(49,133,255,${0.18 * codeHi})`, color: codeHi > 0.5 ? deep(U.blue) : U.ink, borderRadius: 6, padding: '0 3px', letterSpacing: 1}}>{CODE}</b> is your OTP for ₹499 at Kiran Electronics. Valid for 5 minutes. Do not share it with anyone. – Navyug Bank
   </span>
 );
 
@@ -44,7 +44,7 @@ export const OtpPhone: React.FC<{f: number}> = ({f}) => {
       <div style={{position: 'absolute', inset: 0, background: '#F4F7FC', fontFamily: UF.ui}}>
         <Bar dark />
         <div style={{position: 'absolute', top: 62, left: 22, fontSize: 20, fontWeight: 800, color: U.ink}}>Checkout</div>
-        <div style={{position: 'absolute', top: 92, left: 22, fontSize: 13, color: U.sub}}>Demo Store · illustrative</div>
+        <div style={{position: 'absolute', top: 92, left: 22, fontSize: 13, color: U.sub}}>Kiran Electronics · illustrative</div>
         <div style={{position: 'absolute', top: 130, left: 18, right: 18, padding: 18, borderRadius: 22, background: '#fff', boxShadow: '0 6px 16px rgba(30,45,90,0.08)', display: 'flex', gap: 16, alignItems: 'center'}}>
           <div style={{width: 84, height: 84, borderRadius: 18, background: 'linear-gradient(135deg,#E0E7FF,#C7D2FE)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 44}}>🎧</div>
           <div><div style={{fontSize: 18, fontWeight: 800, color: U.ink}}>Wireless Earbuds</div><div style={{fontSize: 14, color: U.sub, marginTop: 4}}>Qty 1</div><div style={{fontSize: 22, fontWeight: 800, color: U.ink, marginTop: 6}}>₹499</div></div>
@@ -86,7 +86,7 @@ export const OtpPhone: React.FC<{f: number}> = ({f}) => {
           <div style={{width: 110, height: 110, borderRadius: 55, background: '#fff', color: U.green, fontSize: 60, fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center', transform: `scale(${0.7 + 0.3 * ok})`}}>✓</div>
           <div style={{fontSize: 26, fontWeight: 800, marginTop: 30}}>Payment Successful</div>
           <div style={{fontSize: 56, fontWeight: 800, marginTop: 8}}>₹499</div>
-          <div style={{fontSize: 15, opacity: 0.9, marginTop: 10}}>Demo Store · illustrative</div>
+          <div style={{fontSize: 15, opacity: 0.9, marginTop: 10}}>Kiran Electronics · illustrative</div>
         </div>
       )}
     </div>
@@ -103,7 +103,7 @@ export const Intro: React.FC<{f: number}> = ({f}) => {
       <div style={{position: 'absolute', left: 900, top: 120, width: 940, textAlign: 'center', fontSize: 20, fontWeight: 700, letterSpacing: 6, color: '#0F3A8A'}}>ONLINE PAYMENT</div>
       <div style={{...GLASS, position: 'absolute', left: 1070, top: 260, width: 600, padding: 34, borderRadius: 30, boxSizing: 'border-box', textAlign: 'center', transform: `translateY(${(1 - a) * 24}px)`}}>
         <div style={{fontSize: 90}}>🛒</div>
-        <div style={{fontFamily: UF.head, fontSize: 44, fontWeight: 800, color: U.ink, marginTop: 8}}>₹499 · Demo Store</div>
+        <div style={{fontFamily: UF.head, fontSize: 44, fontWeight: 800, color: U.ink, marginTop: 8}}>₹499 · Kiran Electronics</div>
         <div style={{fontSize: 20, color: U.slate, marginTop: 6}}>Card •••• 4321</div>
         <div style={{margin: '26px auto 0', width: 300, padding: '18px 0', borderRadius: 18, background: U.blue, color: '#fff', fontWeight: 800, fontSize: 26, transform: `scale(${1 - 0.06 * tap})`, boxShadow: `0 12px 28px ${U.blue}55`}}>Pay ₹499</div>
       </div>
@@ -125,7 +125,7 @@ export const CodeCard: React.FC<{f: number}> = ({f}) => {
       <div style={{position: 'absolute', left: 900, top: 120, width: 940, textAlign: 'center', fontSize: 20, fontWeight: 700, letterSpacing: 6, color: '#0F3A8A'}}>ONE-TIME PASSWORD</div>
       <div style={{...GLASS, position: 'absolute', left: 960, top: 200, width: 820, padding: 30, borderRadius: 30, boxSizing: 'border-box', transform: `translateY(${(1 - a) * 24}px)`}}>
         <div style={{display: 'flex', alignItems: 'center', gap: 12, fontSize: 18, color: U.slate, fontWeight: 700}}>
-          <span style={{width: 34, height: 34, borderRadius: 10, background: U.green, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>✉</span> SMS · Demo Bank
+          <span style={{width: 34, height: 34, borderRadius: 10, background: U.green, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>✉</span> SMS · Navyug Bank
         </div>
         <div style={{display: 'flex', justifyContent: 'center', gap: 14, marginTop: 26}}>
           {CODE.split('').map((d, i) => {

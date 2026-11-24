@@ -1,0 +1,626 @@
+{
+ "fps": 30,
+ "durationInFrames": 15020,
+ "scenes": [
+  {
+   "id": "s1",
+   "title": "THE 6-DIGIT CODE THAT PROTECTS YOUR MONEY",
+   "from": 0,
+   "dur": 900,
+   "cues": [
+    {
+     "file": "otp/vo/s1_1.wav",
+     "text": "Imagine कीजिए, आप Online Payment कर रहे हैं, और Pay पर Tap करते ही आपके Phone पर एक SMS आता है।",
+     "from": 24,
+     "dur": 183
+    },
+    {
+     "file": "otp/vo/s1_2.wav",
+     "text": "उसमें एक 6-digit Code है, जो सिर्फ़ कुछ minutes के लिए Valid है।",
+     "from": 232,
+     "dur": 102
+    },
+    {
+     "file": "otp/vo/s1_3.wav",
+     "text": "आप ये OTP Enter करते हैं, और Payment तुरंत Confirm हो जाता है।",
+     "from": 359,
+     "dur": 121
+    },
+    {
+     "file": "otp/vo/s1_4.wav",
+     "text": "लेकिन ये Code बनता कहाँ है, आपके Phone तक कैसे पहुँचता है, और Bank को कैसे पता चलता है कि Code सही है?",
+     "from": 505,
+     "dur": 198
+    },
+    {
+     "file": "otp/vo/s1_5.wav",
+     "text": "आज हम OTP के पीछे की Technology को, Step by Step समझेंगे।",
+     "from": 729,
+     "dur": 120
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "WHAT IS AN OTP?",
+   "from": 900,
+   "dur": 1528,
+   "cues": [
+    {
+     "file": "otp/vo/s2_1.wav",
+     "text": "सबसे पहले समझते हैं कि OTP actually है क्या।",
+     "from": 922,
+     "dur": 100
+    },
+    {
+     "file": "otp/vo/s2_2.wav",
+     "text": "OTP का Full Form है One-Time Password, यानी ऐसा Password जो सिर्फ़ एक बार काम करता है।",
+     "from": 1035,
+     "dur": 185
+    },
+    {
+     "file": "otp/vo/s2_3.wav",
+     "text": "आपका Normal Password लंबे समय तक same रहता है, लेकिन OTP हर बार नया बनता है।",
+     "from": 1233,
+     "dur": 162
+    },
+    {
+     "file": "otp/vo/s2_4.wav",
+     "text": "और ये कुछ ही minutes में Expire भी हो जाता है।",
+     "from": 1408,
+     "dur": 98
+    },
+    {
+     "file": "otp/vo/s2_5.wav",
+     "text": "OTP का use Online Payment, Bank Login, App Sign Up, और Password Reset जैसी जगहों पर होता है।",
+     "from": 1519,
+     "dur": 195
+    },
+    {
+     "file": "otp/vo/s2_6.wav",
+     "text": "इसे Two-Factor Authentication का हिस्सा माना जाता है।",
+     "from": 1727,
+     "dur": 102
+    },
+    {
+     "file": "otp/vo/s2_7.wav",
+     "text": "मतलब, आपके पास सिर्फ़ Password ही नहीं, बल्कि अपना Phone भी होना चाहिए।",
+     "from": 1841,
+     "dur": 143
+    },
+    {
+     "file": "otp/vo/s2_8.wav",
+     "text": "इसलिए अगर किसी को आपका Password पता भी चल जाए, तो भी OTP के बिना वो आगे नहीं बढ़ पाता।",
+     "from": 1998,
+     "dur": 185
+    },
+    {
+     "file": "otp/vo/s2_9.wav",
+     "text": "कई Apps में OTP Email पर भी आता है, लेकिन Banking में ज़्यादातर SMS OTP ही use होता है।",
+     "from": 2195,
+     "dur": 203
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "THE MAIN PARTS",
+   "from": 2428,
+   "dur": 1175,
+   "cues": [
+    {
+     "file": "otp/vo/s3_1.wav",
+     "text": "OTP System को समझने के लिए, पहले इसके Main Parts को समझते हैं।",
+     "from": 2450,
+     "dur": 139
+    },
+    {
+     "file": "otp/vo/s3_2.wav",
+     "text": "पहला है आपका App या Website, जहाँ आप Login या Payment कर रहे हैं।",
+     "from": 2603,
+     "dur": 131
+    },
+    {
+     "file": "otp/vo/s3_3.wav",
+     "text": "दूसरा है Bank या Company का Authentication Server, जो OTP बनाता और Check करता है।",
+     "from": 2746,
+     "dur": 158
+    },
+    {
+     "file": "otp/vo/s3_4.wav",
+     "text": "तीसरा है SMS Gateway, जो Server से Message लेकर आगे भेजता है।",
+     "from": 2917,
+     "dur": 123
+    },
+    {
+     "file": "otp/vo/s3_5.wav",
+     "text": "चौथा है आपका Telecom Operator, जिसका Network SMS को आपके Phone तक पहुँचाता है।",
+     "from": 3053,
+     "dur": 162
+    },
+    {
+     "file": "otp/vo/s3_6.wav",
+     "text": "और पाँचवाँ है आपका Phone, जहाँ OTP आता है।",
+     "from": 3228,
+     "dur": 94
+    },
+    {
+     "file": "otp/vo/s3_7.wav",
+     "text": "इन सबके बीच हर Step पर, Data को Secure रखने की कोशिश की जाती है।",
+     "from": 3334,
+     "dur": 137
+    },
+    {
+     "file": "otp/vo/s3_8.wav",
+     "text": "चलिए अब इन Steps को एक-एक करके समझते हैं।",
+     "from": 3484,
+     "dur": 89
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "HOW AN OTP IS CREATED",
+   "from": 3603,
+   "dur": 1721,
+   "cues": [
+    {
+     "file": "otp/vo/s4_1.wav",
+     "text": "अब सवाल ये है, OTP बनता कैसे है?",
+     "from": 3626,
+     "dur": 75
+    },
+    {
+     "file": "otp/vo/s4_2.wav",
+     "text": "जब आप Pay या Login पर Tap करते हैं, तो Server एक Random Number बनाता है।",
+     "from": 3713,
+     "dur": 139
+    },
+    {
+     "file": "otp/vo/s4_3.wav",
+     "text": "ये Number ऐसा होता है, जिसका पहले से अंदाज़ा लगाना बहुत मुश्किल हो।",
+     "from": 3866,
+     "dur": 135
+    },
+    {
+     "file": "otp/vo/s4_4.wav",
+     "text": "इसके लिए Secure Random Number Generator का use होता है।",
+     "from": 4014,
+     "dur": 106
+    },
+    {
+     "file": "otp/vo/s4_5.wav",
+     "text": "OTP आमतौर पर चार से आठ Digits का होता है, और ज़्यादातर छह Digits का।",
+     "from": 4133,
+     "dur": 154
+    },
+    {
+     "file": "otp/vo/s4_6.wav",
+     "text": "छह Digits में कुल दस लाख Combinations बनते हैं, इसलिए Guess करना बहुत मुश्किल है।",
+     "from": 4299,
+     "dur": 164
+    },
+    {
+     "file": "otp/vo/s4_7.wav",
+     "text": "फिर Server इस OTP को कुछ Details के साथ Save करता है।",
+     "from": 4476,
+     "dur": 114
+    },
+    {
+     "file": "otp/vo/s4_8.wav",
+     "text": "जैसे, ये OTP किस User और किस Transaction के लिए है, और कब Expire होगा।",
+     "from": 4603,
+     "dur": 162
+    },
+    {
+     "file": "otp/vo/s4_9.wav",
+     "text": "कई Systems OTP को सीधे Save करने की जगह, उसका Hash Save करते हैं।",
+     "from": 4778,
+     "dur": 139
+    },
+    {
+     "file": "otp/vo/s4_10.wav",
+     "text": "Hash एक तरह का Digital Fingerprint है, जिससे Original Number वापस निकालना बहुत मुश्किल होता है।",
+     "from": 4930,
+     "dur": 189
+    },
+    {
+     "file": "otp/vo/s4_11.wav",
+     "text": "इससे अगर Database तक कोई पहुँच भी जाए, तो उसे असली OTP आसानी से नहीं मिलता।",
+     "from": 5132,
+     "dur": 162
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "title": "HOW IT REACHES YOUR PHONE",
+   "from": 5324,
+   "dur": 1662,
+   "cues": [
+    {
+     "file": "otp/vo/s5_1.wav",
+     "text": "अब देखते हैं, OTP आपके Phone तक कैसे पहुँचता है।",
+     "from": 5346,
+     "dur": 106
+    },
+    {
+     "file": "otp/vo/s5_2.wav",
+     "text": "Server, OTP वाला Message एक SMS Gateway को भेजता है।",
+     "from": 5466,
+     "dur": 112
+    },
+    {
+     "file": "otp/vo/s5_3.wav",
+     "text": "SMS Gateway इस Message को आपके Telecom Operator के Network तक पहुँचाता है।",
+     "from": 5591,
+     "dur": 147
+    },
+    {
+     "file": "otp/vo/s5_4.wav",
+     "text": "Operator का SMS Center, Message को Store करके आपके Phone को Deliver करता है।",
+     "from": 5751,
+     "dur": 149
+    },
+    {
+     "file": "otp/vo/s5_5.wav",
+     "text": "आपका Phone Network से Connected है, इसलिए Message कुछ ही seconds में आ जाता है।",
+     "from": 5914,
+     "dur": 156
+    },
+    {
+     "file": "otp/vo/s5_6.wav",
+     "text": "Banks Message में एक Registered Sender ID use करते हैं, ताकि आप पहचान सकें कि SMS असली है।",
+     "from": 6082,
+     "dur": 193
+    },
+    {
+     "file": "otp/vo/s5_7.wav",
+     "text": "कई Phones में OTP Autofill होता है, जिसमें Phone खुद SMS से Code पढ़कर भर देता है।",
+     "from": 6288,
+     "dur": 178
+    },
+    {
+     "file": "otp/vo/s5_8.wav",
+     "text": "कभी-कभी Network Busy होने पर, OTP आने में थोड़ी देर भी लग सकती है।",
+     "from": 6480,
+     "dur": 147
+    },
+    {
+     "file": "otp/vo/s5_9.wav",
+     "text": "Roaming में भी, OTP आने में कभी-कभी ज़्यादा time लग सकता है।",
+     "from": 6640,
+     "dur": 131
+    },
+    {
+     "file": "otp/vo/s5_10.wav",
+     "text": "इसीलिए Apps में Resend OTP का Option होता है, जो कुछ seconds बाद Active होता है।",
+     "from": 6784,
+     "dur": 172
+    }
+   ]
+  },
+  {
+   "id": "s6",
+   "title": "HOW THE BANK CHECKS IT",
+   "from": 6986,
+   "dur": 1680,
+   "cues": [
+    {
+     "file": "otp/vo/s6_1.wav",
+     "text": "अब आप OTP Enter करते हैं, तो आगे क्या होता है?",
+     "from": 7008,
+     "dur": 102
+    },
+    {
+     "file": "otp/vo/s6_2.wav",
+     "text": "App आपका Entered OTP, Secure Connection के ज़रिए Server को भेजता है।",
+     "from": 7123,
+     "dur": 154
+    },
+    {
+     "file": "otp/vo/s6_3.wav",
+     "text": "Server Check करता है कि OTP सही है या नहीं।",
+     "from": 7290,
+     "dur": 92
+    },
+    {
+     "file": "otp/vo/s6_4.wav",
+     "text": "साथ ही ये भी देखता है कि OTP Expire तो नहीं हुआ, और पहले use तो नहीं हुआ।",
+     "from": 7395,
+     "dur": 166
+    },
+    {
+     "file": "otp/vo/s6_5.wav",
+     "text": "ज़्यादातर Systems में, गलत OTP डालने के Attempts भी Limited होते हैं।",
+     "from": 7574,
+     "dur": 158
+    },
+    {
+     "file": "otp/vo/s6_6.wav",
+     "text": "कुछ गलत Attempts के बाद, OTP Block हो सकता है, या थोड़ी देर इंतज़ार करना पड़ सकता है।",
+     "from": 7744,
+     "dur": 189
+    },
+    {
+     "file": "otp/vo/s6_7.wav",
+     "text": "अगर सब सही है, तो Server Approve करता है, और आपका Payment या Login पूरा हो जाता है।",
+     "from": 7946,
+     "dur": 166
+    },
+    {
+     "file": "otp/vo/s6_8.wav",
+     "text": "और एक बार use होने के बाद, वही OTP दोबारा काम नहीं करता।",
+     "from": 8125,
+     "dur": 127
+    },
+    {
+     "file": "otp/vo/s6_9.wav",
+     "text": "Payment वाला OTP उसी Transaction से जुड़ा होता है, इसलिए किसी दूसरे Payment में काम नहीं आता।",
+     "from": 8265,
+     "dur": 199
+    },
+    {
+     "file": "otp/vo/s6_10.wav",
+     "text": "Card Payments में, ये Verification अक्सर आपके Bank के Secure Page पर होता है।",
+     "from": 8477,
+     "dur": 160
+    }
+   ]
+  },
+  {
+   "id": "s7",
+   "title": "AUTHENTICATOR APP OTP (TOTP)",
+   "from": 8666,
+   "dur": 1672,
+   "cues": [
+    {
+     "file": "otp/vo/s7_1.wav",
+     "text": "अब एक Interesting बात। कुछ OTP SMS से नहीं, बल्कि Authenticator App में बनते हैं।",
+     "from": 8688,
+     "dur": 176
+    },
+    {
+     "file": "otp/vo/s7_2.wav",
+     "text": "इन Apps में हर तीस seconds में एक नया Code बनता है, और ये Internet के बिना भी काम करते हैं।",
+     "from": 8878,
+     "dur": 185
+    },
+    {
+     "file": "otp/vo/s7_3.wav",
+     "text": "ये TOTP Method से चलता है, यानी Time-based One-Time Password।",
+     "from": 9076,
+     "dur": 131
+    },
+    {
+     "file": "otp/vo/s7_4.wav",
+     "text": "Setup के समय, Website और आपकी App, दोनों एक Secret Key Share करते हैं।",
+     "from": 9219,
+     "dur": 141
+    },
+    {
+     "file": "otp/vo/s7_5.wav",
+     "text": "अक्सर ये Secret Key, एक QR Code Scan करके App में Save होती है।",
+     "from": 9374,
+     "dur": 135
+    },
+    {
+     "file": "otp/vo/s7_6.wav",
+     "text": "फिर App, Secret Key और Current Time को मिलाकर, एक Code Calculate करता है।",
+     "from": 9522,
+     "dur": 139
+    },
+    {
+     "file": "otp/vo/s7_7.wav",
+     "text": "Server भी उसी Secret Key और उसी Time से, same Calculation करता है।",
+     "from": 9674,
+     "dur": 129
+    },
+    {
+     "file": "otp/vo/s7_8.wav",
+     "text": "अगर दोनों Codes Match हो जाएँ, तो Login Approve हो जाता है।",
+     "from": 9815,
+     "dur": 116
+    },
+    {
+     "file": "otp/vo/s7_9.wav",
+     "text": "ये Codes Time पर Depend करते हैं, इसलिए Phone की Time Setting सही होना ज़रूरी है।",
+     "from": 9945,
+     "dur": 164
+    },
+    {
+     "file": "otp/vo/s7_10.wav",
+     "text": "Server थोड़े Time Difference को भी Accept कर लेता है, ताकि छोटी सी देरी से Login Fail न हो।",
+     "from": 10122,
+     "dur": 187
+    }
+   ]
+  },
+  {
+   "id": "s8",
+   "title": "HOW OTP FRAUD HAPPENS",
+   "from": 10338,
+   "dur": 1645,
+   "cues": [
+    {
+     "file": "otp/vo/s8_1.wav",
+     "text": "OTP बहुत useful है, लेकिन Fraud करने वाले भी इसे निशाना बनाते हैं।",
+     "from": 10360,
+     "dur": 152
+    },
+    {
+     "file": "otp/vo/s8_2.wav",
+     "text": "सबसे Common तरीका है, Call करके OTP माँगना।",
+     "from": 10525,
+     "dur": 92
+    },
+    {
+     "file": "otp/vo/s8_3.wav",
+     "text": "कोई खुद को Bank, Delivery या KYC Team का बताकर, OTP Share करने को कहता है।",
+     "from": 10630,
+     "dur": 168
+    },
+    {
+     "file": "otp/vo/s8_4.wav",
+     "text": "याद रखिए, Bank कभी भी Call या Message करके आपका OTP नहीं माँगता।",
+     "from": 10811,
+     "dur": 135
+    },
+    {
+     "file": "otp/vo/s8_5.wav",
+     "text": "दूसरा तरीका है Fake Link, जहाँ एक नकली Website आपसे OTP डलवाती है।",
+     "from": 10959,
+     "dur": 145
+    },
+    {
+     "file": "otp/vo/s8_6.wav",
+     "text": "तीसरा तरीका है SIM Swap, जिसमें धोखे से आपके Number की नई SIM निकलवाई जाती है।",
+     "from": 11117,
+     "dur": 160
+    },
+    {
+     "file": "otp/vo/s8_7.wav",
+     "text": "ऐसे में आपके OTP, Fraud करने वाले के Phone पर जाने लगते हैं।",
+     "from": 11290,
+     "dur": 133
+    },
+    {
+     "file": "otp/vo/s8_8.wav",
+     "text": "अगर अचानक आपके Phone का Network चला जाए, और कोई वजह न दिखे, तो तुरंत अपने Operator से Contact करें।",
+     "from": 11436,
+     "dur": 203
+    },
+    {
+     "file": "otp/vo/s8_9.wav",
+     "text": "Screen Share वाले Apps से भी, Fraud करने वाले आपका OTP देख सकते हैं।",
+     "from": 11652,
+     "dur": 152
+    },
+    {
+     "file": "otp/vo/s8_10.wav",
+     "text": "इसलिए किसी अनजान के कहने पर, कोई Remote Access App Install मत कीजिए।",
+     "from": 11816,
+     "dur": 137
+    }
+   ]
+  },
+  {
+   "id": "s9",
+   "title": "OTP SAFETY TIPS",
+   "from": 11983,
+   "dur": 1390,
+   "cues": [
+    {
+     "file": "otp/vo/s9_1.wav",
+     "text": "अब कुछ आसान Safety Tips।",
+     "from": 12006,
+     "dur": 54
+    },
+    {
+     "file": "otp/vo/s9_2.wav",
+     "text": "OTP कभी किसी के साथ Share मत कीजिए, चाहे सामने वाला कोई भी हो।",
+     "from": 12073,
+     "dur": 135
+    },
+    {
+     "file": "otp/vo/s9_3.wav",
+     "text": "OTP SMS को ध्यान से पढ़िए, उसमें Amount और Merchant का नाम Check कीजिए।",
+     "from": 12221,
+     "dur": 156
+    },
+    {
+     "file": "otp/vo/s9_4.wav",
+     "text": "अगर आपने कोई Transaction शुरू ही नहीं किया, और OTP आया है, तो उसे Ignore कीजिए, और Bank को बताइए।",
+     "from": 12389,
+     "dur": 212
+    },
+    {
+     "file": "otp/vo/s9_5.wav",
+     "text": "Phone में Screen Lock रखिए, ताकि Notification में दिखने वाला OTP कोई और न पढ़ सके।",
+     "from": 12614,
+     "dur": 174
+    },
+    {
+     "file": "otp/vo/s9_6.wav",
+     "text": "अपने Bank Account में, Registered Mobile Number हमेशा Updated रखिए।",
+     "from": 12801,
+     "dur": 131
+    },
+    {
+     "file": "otp/vo/s9_7.wav",
+     "text": "जहाँ Option हो, Important Accounts में Authenticator App वाला Two-Factor भी On कर सकते हैं।",
+     "from": 12945,
+     "dur": 183
+    },
+    {
+     "file": "otp/vo/s9_8.wav",
+     "text": "और Fraud होने पर, तुरंत Bank को बताइए, और Cyber Crime Helpline 1930 पर Call कीजिए।",
+     "from": 13141,
+     "dur": 203
+    }
+   ]
+  },
+  {
+   "id": "s10",
+   "title": "THE FUTURE & SUMMARY",
+   "from": 13373,
+   "dur": 1647,
+   "cues": [
+    {
+     "file": "otp/vo/s10_1.wav",
+     "text": "आगे चलकर, Login के और भी नए तरीके आ रहे हैं।",
+     "from": 13396,
+     "dur": 92
+    },
+    {
+     "file": "otp/vo/s10_2.wav",
+     "text": "जैसे Passkeys और Biometric Login, जिनमें Fingerprint या Face से Verification होता है।",
+     "from": 13500,
+     "dur": 178
+    },
+    {
+     "file": "otp/vo/s10_3.wav",
+     "text": "Passkeys में, Fake Website पर Login करवाना बहुत मुश्किल हो जाता है।",
+     "from": 13691,
+     "dur": 137
+    },
+    {
+     "file": "otp/vo/s10_4.wav",
+     "text": "लेकिन आज भी, OTP Security की एक Important Layer है।",
+     "from": 13842,
+     "dur": 120
+    },
+    {
+     "file": "otp/vo/s10_5.wav",
+     "text": "तो Recap करें, Server एक Random OTP बनाता है, और उसे Expiry के साथ Save करता है।",
+     "from": 13975,
+     "dur": 174
+    },
+    {
+     "file": "otp/vo/s10_6.wav",
+     "text": "SMS Gateway और Telecom Network, उसे आपके Phone तक पहुँचाते हैं।",
+     "from": 14162,
+     "dur": 131
+    },
+    {
+     "file": "otp/vo/s10_7.wav",
+     "text": "आप OTP Enter करते हैं, Server उसे Check करता है, और Approve कर देता है।",
+     "from": 14306,
+     "dur": 145
+    },
+    {
+     "file": "otp/vo/s10_8.wav",
+     "text": "अगर आपको Technology के पीछे के ऐसे Systems समझना अच्छा लगता है, तो Video को Like कीजिए, और Channel को Subscribe कीजिए।",
+     "from": 14464,
+     "dur": 245
+    },
+    {
+     "file": "otp/vo/s10_9.wav",
+     "text": "मिलते हैं अगले Video में। Thank you!",
+     "from": 14722,
+     "dur": 73
+    }
+   ]
+  }
+ ]
+}
