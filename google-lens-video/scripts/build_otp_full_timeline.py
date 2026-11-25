@@ -8,7 +8,7 @@ FPS = 30
 script = json.load(open(os.path.join(ROOT, 'otp', 'narration', 'script_full.json')))
 sample = json.load(open(os.path.join(ROOT, 'src', 'otp', 'timeline.json')))
 VO = os.path.join(ROOT, 'public', 'otp', 'vo')
-LEAD, GAP, TAIL = 0.75, 0.58, 1.3
+LEAD, GAP, TAIL = 0.75, 0.58, 1.45
 TAIL_LAST = 7.5   # final title + subscribe + fade-out
 
 
