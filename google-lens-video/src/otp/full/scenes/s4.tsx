@@ -70,7 +70,8 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
             </div>
           )}
           <OnText f={f} a={L.c(9)} b={L.c(10)} y={700} size={30} color={'#7C5CFF'} text="A DIGITAL FINGERPRINT · CAN'T BE TURNED BACK EASILY" />
-          <OnText f={f} a={L.c(10)} y={700} size={30} color={U.green} text="DATABASE LEAKED? THE REAL OTP ISN'T THERE" />
+          <OnText f={f} a={L.c(10)} b={L.c(11)} y={700} size={30} color={U.green} text="DATABASE LEAKED? THE REAL OTP ISN'T THERE" />
+          <OnText f={f} a={L.c(11)} y={700} size={34} color={U.saffron} text="⏱ EXPIRY: USUALLY 5–10 MINUTES" />
         </div>
       )}
     </>

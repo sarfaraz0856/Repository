@@ -68,7 +68,11 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
             <div style={{position: 'absolute', left: '50%', top: -16, width: 4, height: 92, background: U.ink}} />
           </div>
           <div style={{position: 'absolute', left: X0, top: 400, width: XW, textAlign: 'center', fontSize: 26, fontWeight: 800, color: deep(U.green), opacity: on(L.c(9) + 10)}}>a small time difference is still accepted</div>
-          <div style={{position: 'absolute', left: X0, top: 480, width: XW, textAlign: 'center', fontSize: 80, opacity: on(L.c(8))}}>🕘 ⇄ 🕘</div>
+          <div style={{position: 'absolute', left: X0, top: 480, width: XW, textAlign: 'center', fontSize: 80, opacity: on(L.c(8)) * ip(f, [L.c(10) - 10, L.c(10)], [1, 0])}}>🕘 ⇄ 🕘</div>
+          <div style={{position: 'absolute', left: X0 + 120, top: 520, width: XW - 240, padding: '24px 28px', borderRadius: 24, background: '#fff', border: `3px solid ${U.green}`, boxShadow: '0 14px 30px rgba(30,45,90,0.14)', opacity: on(L.c(10))}}>
+            <div style={{fontFamily: UF.head, fontSize: 32, fontWeight: 800, color: deep(U.green)}}>🛡 Not tied to your SIM</div>
+            <div style={{fontSize: 22, color: U.slate, marginTop: 6}}>so a SIM-swap fraud can't receive these codes</div>
+          </div>
         </div>
       )}
     </>

@@ -55,7 +55,8 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
             <div style={{fontSize: 60, color: U.red}}>⇢</div>
             <div style={{fontSize: 130}}>👀</div>
           </div>
-          <div style={{position: 'absolute', left: X0 + 100, top: 640, width: XW - 200, padding: '22px 0', borderRadius: 22, background: '#FEF2F2', border: `3px solid ${U.red}`, textAlign: 'center', fontSize: 28, fontWeight: 800, color: deep(U.red), opacity: on(L.c(9))}}>✕ Never install a remote-access app because a stranger asked</div>
+          <div style={{position: 'absolute', left: X0 + 100, top: 600, width: XW - 200, padding: '22px 0', borderRadius: 22, background: '#FEF2F2', border: `3px solid ${U.red}`, textAlign: 'center', fontSize: 28, fontWeight: 800, color: deep(U.red), opacity: on(L.c(9))}}>✕ Never install a remote-access app because a stranger asked</div>
+          <div style={{position: 'absolute', left: X0 + 100, top: 740, width: XW - 200, padding: '20px 0', borderRadius: 22, background: '#fff', border: `3px solid ${U.blue}`, textAlign: 'center', fontSize: 26, fontWeight: 800, color: deep(U.blue), opacity: on(L.c(10))}}>📞 Fake "customer care" numbers online → use only the official website</div>
         </div>
       )}
     </>

@@ -66,6 +66,7 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
             <div style={{fontFamily: UF.head, fontSize: 30, fontWeight: 800, marginTop: 14}}>Card payment verification</div>
             <div style={{fontSize: 20, color: U.slate, marginTop: 6}}>Often done on your bank's own secure page</div>
           </Panel>
+          <OnText f={f} a={L.c(10)} y={760} size={30} color={'#7C5CFF'} text="LOGIN OTP ↔ THAT SAME LOGIN SESSION ONLY" />
         </div>
       )}
     </>
