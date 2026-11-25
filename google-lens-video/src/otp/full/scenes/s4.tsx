@@ -25,7 +25,7 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
       {A > 0.01 && (
         <div style={{position: 'absolute', inset: 0, opacity: A, fontFamily: UF.ui}}>
           <div style={{position: 'absolute', left: 1370 - 300, top: 220, width: 600, padding: 30, borderRadius: 30, background: '#0F172A', boxShadow: '0 24px 50px rgba(30,45,90,0.3)', opacity: on(L.c(1)), color: '#fff'}}>
-            <div style={{display: 'flex', alignItems: 'center', gap: 12, fontSize: 18, fontWeight: 700, color: '#93C5FD'}}><Icon k="server" s={26} /> AUTH SERVER · Navyug Bank</div>
+            <div style={{display: 'flex', alignItems: 'center', gap: 12, fontSize: 18, fontWeight: 700, color: '#93C5FD'}}><Icon k="server" s={26} /> AUTH SERVER · SBK Bank</div>
             <div style={{display: 'flex', justifyContent: 'center', gap: 12, marginTop: 24}}>
               {digits.map((d, i) => <div key={i} style={{width: 72, height: 92, borderRadius: 16, background: f >= settle + i * 4 ? '#1D4ED8' : '#1E293B', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: UF.head, fontSize: 52, fontWeight: 800}}>{f >= L.w(1, 'Random') ? d : '–'}</div>)}
             </div>

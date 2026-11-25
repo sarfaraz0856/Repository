@@ -41,8 +41,8 @@ YouTube's monetization policy penalises channels whose videos look template-made
 - Before starting a new video, tell the creator which new look/theme is planned.
 - Illustrative data only (non-payable QR, made-up IDs); never imply affiliation with NPCI/NHAI/banks/apps.
 - **Never use the word "Demo" in names** (no "Demo Bank", "Demo Store", "DEMO 1234", "@demo").
-  Use realistic-looking but fictional names instead, e.g. bank "Navyug Bank", shop "Kiran Electronics" /
-  "Sharma General Store", vehicle "MH 12 KX 4821"-style plates, UPI ID like "sharmastore@navyug".
+  Use realistic-looking but fictional names instead, e.g. bank "SBK Bank" (initials-style, creator approved; avoid look-alikes of real lenders such as HDB/HDFC), shop "Kiran Electronics" /
+  "Sharma General Store", vehicle "MH 12 KX 4821"-style plates, UPI ID like "sharmastore@sbkbank".
   Do not use real bank/app/brand names for the made-up entities. A small "illustrative" note on screen is fine.
 
 ## Upload kit (ZIP)

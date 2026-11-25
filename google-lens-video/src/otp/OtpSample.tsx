@@ -28,7 +28,7 @@ const useFonts = () => {
 
 export const SmsText: React.FC<{size?: number; codeHi?: number}> = ({size = 16, codeHi = 0}) => (
   <span style={{fontSize: size, lineHeight: 1.45, color: U.ink}}>
-    <b style={{background: `rgba(49,133,255,${0.18 * codeHi})`, color: codeHi > 0.5 ? deep(U.blue) : U.ink, borderRadius: 6, padding: '0 3px', letterSpacing: 1}}>{CODE}</b> is your OTP for ₹499 at Kiran Electronics. Valid for 5 minutes. Do not share it with anyone. – Navyug Bank
+    <b style={{background: `rgba(49,133,255,${0.18 * codeHi})`, color: codeHi > 0.5 ? deep(U.blue) : U.ink, borderRadius: 6, padding: '0 3px', letterSpacing: 1}}>{CODE}</b> is your OTP for ₹499 at Kiran Electronics. Valid for 5 minutes. Do not share it with anyone. – SBK Bank
   </span>
 );
 
@@ -125,7 +125,7 @@ export const CodeCard: React.FC<{f: number}> = ({f}) => {
       <div style={{position: 'absolute', left: 900, top: 120, width: 940, textAlign: 'center', fontSize: 20, fontWeight: 700, letterSpacing: 6, color: '#0F3A8A'}}>ONE-TIME PASSWORD</div>
       <div style={{...GLASS, position: 'absolute', left: 960, top: 200, width: 820, padding: 30, borderRadius: 30, boxSizing: 'border-box', transform: `translateY(${(1 - a) * 24}px)`}}>
         <div style={{display: 'flex', alignItems: 'center', gap: 12, fontSize: 18, color: U.slate, fontWeight: 700}}>
-          <span style={{width: 34, height: 34, borderRadius: 10, background: U.green, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>✉</span> SMS · Navyug Bank
+          <span style={{width: 34, height: 34, borderRadius: 10, background: U.green, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>✉</span> SMS · SBK Bank
         </div>
         <div style={{display: 'flex', justifyContent: 'center', gap: 14, marginTop: 26}}>
           {CODE.split('').map((d, i) => {

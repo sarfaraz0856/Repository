@@ -5,14 +5,14 @@ import {Bar, Tap} from '../../upi/full/screens';
 import {Icon} from '../../upi/full/kit';
 import {CODE} from '../OtpSample';
 
-/** Illustrative bank app + OTP screens. Fictional names: Navyug Bank, Kiran Electronics. */
-export const BANK = 'Navyug Bank';
+/** Illustrative bank app + OTP screens. Fictional names: SBK Bank, Kiran Electronics. */
+export const BANK = 'SBK Bank';
 export const SHOP = 'Kiran Electronics';
-export const SENDER = 'VM-NAVYUG';
+export const SENDER = 'VM-SBKBNK';
 
 const Brand: React.FC<{title: string; sub?: string}> = ({title, sub = `${BANK} · illustrative app`}) => (
   <div style={{position: 'absolute', top: 58, left: 0, right: 0, height: 64, display: 'flex', alignItems: 'center', gap: 12, padding: '0 22px', boxSizing: 'border-box'}}>
-    <div style={{width: 40, height: 40, borderRadius: 12, background: `linear-gradient(135deg, #7C5CFF, ${U.blue})`, color: '#fff', fontWeight: 800, fontSize: 15, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>N</div>
+    <div style={{width: 40, height: 40, borderRadius: 12, background: `linear-gradient(135deg, #7C5CFF, ${U.blue})`, color: '#fff', fontWeight: 800, fontSize: 15, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>S</div>
     <div><div style={{fontSize: 19, fontWeight: 800, color: U.ink}}>{title}</div><div style={{fontSize: 12.5, color: U.sub}}>{sub}</div></div>
   </div>
 );
@@ -124,7 +124,7 @@ export const ScamPhone: React.FC<{f: number; linkAt: number; simAt: number}> = (
   if (f < simAt) return (
     <div style={{position: 'absolute', inset: 0, background: '#F4F7FC', fontFamily: UF.ui}}>
       <Bar dark />
-      <div style={{position: 'absolute', top: 60, left: 14, right: 14, padding: '10px 14px', borderRadius: 14, background: '#FEE2E2', color: '#B91C1C', fontSize: 14, fontWeight: 700}}>⚠ navyug-bank-kyc-update.example</div>
+      <div style={{position: 'absolute', top: 60, left: 14, right: 14, padding: '10px 14px', borderRadius: 14, background: '#FEE2E2', color: '#B91C1C', fontSize: 14, fontWeight: 700}}>⚠ sbk-bank-kyc-update.example</div>
       <div style={{position: 'absolute', top: 140, width: '100%', textAlign: 'center', fontSize: 22, fontWeight: 800, color: U.ink}}>KYC Update – Enter OTP</div>
       <div style={{position: 'absolute', top: 200, left: 30, right: 30, padding: 20, borderRadius: 18, background: '#fff', border: '2px dashed #FCA5A5', textAlign: 'center', color: U.sub, fontSize: 16}}>Fake website · looks real<br />but is not the bank</div>
       <div style={{position: 'absolute', top: 360, left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: 9}}>{[0, 1, 2, 3, 4, 5].map((i) => <div key={i} style={{width: 46, height: 56, borderRadius: 12, background: '#fff', border: '2px solid #FCA5A5'}} />)}</div>

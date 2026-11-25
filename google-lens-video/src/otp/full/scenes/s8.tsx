@@ -30,7 +30,7 @@ export const Stage: React.FC<{f: number}> = ({f}) => {
         <div style={{position: 'absolute', inset: 0, opacity: B, fontFamily: UF.ui}}>
           <OnText f={f} a={L.c(4)} y={170} size={40} color={U.red} text="② A FAKE LINK / WEBSITE" />
           <div style={{position: 'absolute', left: X0 + 120, top: 300, width: XW - 240, padding: 30, borderRadius: 26, background: '#fff', boxShadow: '0 14px 32px rgba(30,45,90,0.15)', opacity: on(L.c(4) + 6)}}>
-            <div style={{padding: '10px 16px', borderRadius: 12, background: '#FEE2E2', color: '#B91C1C', fontSize: 22, fontWeight: 700}}>⚠ navyug-bank-kyc-update.example</div>
+            <div style={{padding: '10px 16px', borderRadius: 12, background: '#FEE2E2', color: '#B91C1C', fontSize: 22, fontWeight: 700}}>⚠ sbk-bank-kyc-update.example</div>
             <div style={{fontSize: 26, color: U.ink, marginTop: 18, fontWeight: 700}}>Looks like the bank… but it is not.</div>
             <div style={{fontSize: 22, color: U.slate, marginTop: 6}}>Whatever OTP you type here goes to the fraudster.</div>
           </div>
