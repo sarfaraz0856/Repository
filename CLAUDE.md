@@ -1,6 +1,6 @@
 # Channel video production – standing preferences
 
-Tech explainer videos for the creator's YouTube channel (so far: Google Lens, UPI, FASTag).
+Tech explainer videos for the creator's YouTube channel (so far: Google Lens, UPI, FASTag, OTP).
 Code: `google-lens-video/` (Remotion). Finished outputs: `UPI_Documentary/`, `FASTag_Documentary/`, etc.
 
 ## Language of deliverables (IMPORTANT)
@@ -19,8 +19,26 @@ Code: `google-lens-video/` (Remotion). Finished outputs: `UPI_Documentary/`, `FA
 
 ## Video style & workflow
 - 30 s sample first → wait for approval → full video (target 8–10 min, ≥ 8 min for mid-roll ads).
-- 1920×1080, 30 fps, H.264 + AAC, -14 LUFS. Light Google-Lens-style background, enlarged phone, no burned-in subtitles.
-- Soft background music (no harsh ticks/hats/buzz), smooth ducking under the voice.
+- 1920×1080, 30 fps, H.264 + AAC, -14 LUFS. No burned-in subtitles. Soft background music (no harsh ticks/hats/buzz),
+  smooth ducking under the voice.
+
+## Every video must look & sound DIFFERENT (avoid YouTube "mass-produced / repetitive content")
+YouTube's monetization policy penalises channels whose videos look template-made. From the next video onward
+(Google Lens, UPI, FASTag and OTP all used the same light background + same phone layout + same music – do NOT repeat that):
+- **Background / colour theme:** new for every video (e.g. dark navy, warm paper/beige, teal gradient, isometric grid,
+  night-city, illustrated landscape…). Never reuse the previous video's `Backdrop` as-is.
+- **Layout:** vary where things sit (phone left / right / centre / no phone at all; full-screen diagrams, split screen,
+  device mock-ups other than a phone – ATM, laptop, car dashboard, etc.).
+- **Typography & accent colours:** a different heading font / accent palette per video.
+- **Intro & title card:** a different hook style each time (cold-open story, question, quick stats, animated map…),
+  and a different title-card animation.
+- **Scene transitions & motion style:** vary (slide, zoom, wipe, morph) instead of the same fade.
+- **Music:** different key, tempo and instrument set per video (not the same pad + pluck loop); different SFX palette.
+- **Narration structure:** vary chapter order/format (e.g. myth-vs-fact segment, real-life story, quiz, comparison table),
+  not always the identical 10-scene pattern; add a genuine original insight or example in every video.
+- **Thumbnails:** a different visual style per video (not always the same blue gradient + headline-left layout).
+- Keep a short note in each video's folder of the theme chosen, and check it differs from the previous videos.
+- Before starting a new video, tell the creator which new look/theme is planned.
 - Illustrative data only (non-payable QR, made-up IDs); never imply affiliation with NPCI/NHAI/banks/apps.
 - **Never use the word "Demo" in names** (no "Demo Bank", "Demo Store", "DEMO 1234", "@demo").
   Use realistic-looking but fictional names instead, e.g. bank "Navyug Bank", shop "Kiran Electronics" /
