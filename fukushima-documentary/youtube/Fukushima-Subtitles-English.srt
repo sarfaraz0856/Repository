@@ -1,0 +1,304 @@
+1
+00:00:00,650 --> 00:00:05,870
+11 March 2011. 2:46 in the afternoon.
+
+2
+00:00:06,220 --> 00:00:09,120
+First the ground shook. Then the sea rose.
+
+3
+00:00:09,470 --> 00:00:12,590
+And then a nuclear plant lost its power.
+
+4
+00:00:12,940 --> 00:00:15,220
+This is the story of Fukushima.
+
+5
+00:00:21,820 --> 00:00:23,225
+The east coast of Japan.
+
+6
+00:00:23,245 --> 00:00:27,660
+On the shore of the Pacific, the Fukushima Daiichi nuclear power plant.
+
+7
+00:00:28,010 --> 00:00:33,110
+Six reactors. A large share of Tokyo's electricity came from here.
+
+8
+00:00:33,460 --> 00:00:40,620
+That day, units 1, 2 and 3 were running. Units 4, 5 and 6 were shut for maintenance.
+
+9
+00:00:40,970 --> 00:00:46,550
+All of unit 4's fuel had been taken out of the reactor and placed in a pool of water.
+
+10
+00:00:46,900 --> 00:00:50,560
+At the entrance to the nearby town of Futaba stood a sign.
+
+11
+00:00:50,910 --> 00:00:53,890
+"Nuclear power: energy for a bright future."
+
+12
+00:00:59,290 --> 00:01:04,950
+2:46 in the afternoon. Under the sea, two plates of the earth slipped.
+
+13
+00:01:05,300 --> 00:01:10,160
+Magnitude 9. The biggest earthquake in Japan's recorded history.
+
+14
+00:01:10,510 --> 00:01:13,290
+The ground shook for about six minutes.
+
+15
+00:01:13,640 --> 00:01:18,640
+The plant's reactors shut down automatically. The control rods went in.
+
+16
+00:01:18,990 --> 00:01:23,950
+Power from outside was cut. Then the emergency diesel generators started.
+
+17
+00:01:24,300 --> 00:01:27,825
+In the control room, everything was still under control.
+
+18
+00:01:27,845 --> 00:01:30,260
+But the real danger was in the sea.
+
+19
+00:01:35,660 --> 00:01:39,760
+About fifty minutes after the earthquake, the sea began to draw back.
+
+20
+00:01:40,110 --> 00:01:43,650
+Then, one after another, the tsunami waves came.
+
+21
+00:01:44,000 --> 00:01:47,800
+The plant had been designed for a wave of about six metres.
+
+22
+00:01:48,150 --> 00:01:52,070
+But the wave that came was fourteen to fifteen metres high.
+
+23
+00:01:52,420 --> 00:01:55,436
+Water filled the basements of the turbine buildings.
+
+24
+00:01:55,456 --> 00:01:57,700
+That is where the generators stood.
+
+25
+00:01:58,050 --> 00:02:00,990
+One by one, all the generators stopped.
+
+26
+00:02:06,390 --> 00:02:09,530
+Units 1 to 4 lost all power.
+
+27
+00:02:09,880 --> 00:02:13,560
+The control room went dark. The instruments died.
+
+28
+00:02:13,910 --> 00:02:19,010
+The reactors were shut down, but the fuel was still giving off tremendous heat.
+
+29
+00:02:19,360 --> 00:02:24,460
+Keeping it cool needed pumps. And pumps needed electricity.
+
+30
+00:02:24,810 --> 00:02:29,910
+Workers took batteries out of cars in the car park, so they could read the gauges.
+
+31
+00:02:30,260 --> 00:02:34,100
+Inside the reactors, the water was boiling away.
+
+32
+00:02:39,500 --> 00:02:43,920
+As the water fell, the fuel rods were exposed to the air.
+
+33
+00:02:44,270 --> 00:02:47,130
+The temperature went above two thousand degrees.
+
+34
+00:02:47,480 --> 00:02:52,000
+The fuel began to melt. First in unit 1, then in units 2 and 3.
+
+35
+00:02:52,350 --> 00:02:56,790
+The reaction between hot metal and steam began to make hydrogen gas.
+
+36
+00:02:57,140 --> 00:03:01,140
+The gas kept collecting under the roof of the reactor building.
+
+37
+00:03:06,540 --> 00:03:09,800
+12 March, 3:36 in the afternoon.
+
+38
+00:03:10,150 --> 00:03:13,490
+A hydrogen explosion tore through the unit 1 building.
+
+39
+00:03:13,840 --> 00:03:17,600
+The roof was blown off. Radioactive dust spread into the air.
+
+40
+00:03:17,950 --> 00:03:22,850
+The evacuation zone kept growing. Two kilometres, then ten, then twenty.
+
+41
+00:03:23,200 --> 00:03:28,160
+People left with a single bag. They thought it would be a matter of a few days.
+
+42
+00:03:33,560 --> 00:03:37,700
+14 March. An even bigger explosion in unit 3.
+
+43
+00:03:38,050 --> 00:03:41,530
+15 March. The unit 4 building blew apart too.
+
+44
+00:03:41,880 --> 00:03:44,259
+Even though its reactor was empty.
+
+45
+00:03:44,279 --> 00:03:48,500
+The hydrogen had come from the next unit, through a pipe.
+
+46
+00:03:48,850 --> 00:03:53,030
+The same day, unit 2 released the most radiation of all.
+
+47
+00:03:53,380 --> 00:03:58,880
+The wind was blowing to the north-west. The radiation drifted towards the villages.
+
+48
+00:04:04,280 --> 00:04:07,400
+Most of the workers were pulled out.
+
+49
+00:04:07,750 --> 00:04:12,990
+But some stayed behind. The world called them the Fukushima 50.
+
+50
+00:04:13,340 --> 00:04:18,640
+They took turns going into the dark buildings, to open valves by hand.
+
+51
+00:04:18,990 --> 00:04:25,910
+Plant manager Masao Yoshida kept pumping sea water into the reactor, despite orders from above.
+
+52
+00:04:26,260 --> 00:04:32,740
+He knew the reactor would be ruined for good. But there was no other way.
+
+53
+00:04:38,140 --> 00:04:43,340
+17 March. Army helicopters began dropping sea water from above.
+
+54
+00:04:43,690 --> 00:04:47,930
+The radiation was so strong they could not stay over the plant for long.
+
+55
+00:04:48,280 --> 00:04:52,540
+Then came fire engines, and concrete pump trucks with long booms.
+
+56
+00:04:52,890 --> 00:04:55,436
+The biggest fear was the unit 4 pool.
+
+57
+00:04:55,456 --> 00:04:59,470
+If it dried out, the fuel could catch fire in the open.
+
+58
+00:04:59,820 --> 00:05:03,480
+Even a plan to evacuate Tokyo had been discussed.
+
+59
+00:05:08,880 --> 00:05:12,560
+About one hundred and fifty thousand people had to leave their homes.
+
+60
+00:05:12,910 --> 00:05:16,990
+Schools, shops, farms. All left just as they were.
+
+61
+00:05:17,340 --> 00:05:20,860
+Cows and pets wandered the streets.
+
+62
+00:05:21,210 --> 00:05:26,070
+Poisoned soil was scraped up and packed into black bags. Millions of bags.
+
+63
+00:05:26,420 --> 00:05:31,360
+In April, Japan rated it level 7. The same as Chernobyl.
+
+64
+00:05:36,760 --> 00:05:41,500
+To keep the melted fuel cool, water is still poured in today.
+
+65
+00:05:41,850 --> 00:05:47,570
+That water becomes radioactive. It was stored in more than a thousand tanks.
+
+66
+00:05:47,920 --> 00:05:53,440
+To hold back the groundwater, the soil was frozen into a wall of ice.
+
+67
+00:05:53,790 --> 00:05:58,510
+In 2023, treated water began to be released into the sea.
+
+68
+00:05:58,860 --> 00:06:01,434
+Robots were sent inside the reactors.
+
+69
+00:06:01,454 --> 00:06:05,300
+Many broke down on the way, ruined by the radiation.
+
+70
+00:06:10,700 --> 00:06:15,610
+Just a hundred kilometres away, the Onagawa plant stood on higher ground.
+
+71
+00:06:15,630 --> 00:06:16,640
+It survived.
+
+72
+00:06:16,990 --> 00:06:23,450
+There had been warnings before. A big tsunami had been predicted years earlier.
+
+73
+00:06:23,800 --> 00:06:29,060
+After Fukushima, Germany decided to shut down its nuclear plants.
+
+74
+00:06:29,410 --> 00:06:33,490
+Cleaning up the plant completely will take thirty to forty years.
+
+75
+00:06:33,840 --> 00:06:38,060
+Chernobyl showed what human error can do.
+
+76
+00:06:38,410 --> 00:06:43,630
+Fukushima taught that, in front of nature, any wall can turn out to be too small.
+
