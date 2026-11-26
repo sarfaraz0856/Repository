@@ -24,7 +24,7 @@ Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
 
   00:30  सबसे पहले समझते हैं कि OTP actually है क्या।
          Sabse pehle samajhte hain ki OTP actually hai kya.
-         EN: First, let's understand what an OTP actually is.
+         EN: First, what exactly is an OTP?
   00:33  OTP का Full Form है One-Time Password, यानी ऐसा Password जो सिर्फ़ एक बार काम करता है।
          OTP ka full form hai One-Time Password, yaani aisa password jo sirf ek baar kaam karta hai.
          EN: OTP stands for One-Time Password, a password that works only once.
@@ -48,7 +48,7 @@ Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
          EN: So even if someone learns your password, they can't get in without the OTP.
   01:08  कई Apps में OTP Email पर भी आता है, लेकिन Banking में ज़्यादातर SMS OTP ही use होता है।
          Kai apps mein OTP email par bhi aata hai, lekin banking mein zyaadatar SMS OTP hi use hota hai.
-         EN: Many apps also send OTPs by email, but banking mostly uses SMS OTPs.
+         EN: Many apps also send OTPs by email, but banks mostly use SMS.
 
 [01:15]  S3 · THE MAIN PARTS
 
@@ -63,10 +63,10 @@ Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
          EN: Second is the bank's or company's authentication server, which creates and checks the OTP.
   01:31  तीसरा है SMS Gateway, जो Server से Message लेकर आगे भेजता है।
          Teesra hai SMS gateway, jo server se message lekar aage bhejta hai.
-         EN: Third is the SMS gateway, which takes the message from the server and passes it on.
+         EN: Third, the SMS gateway passes the message on.
   01:34  चौथा है आपका Telecom Operator, जिसका Network SMS को आपके Phone तक पहुँचाता है।
          Chautha hai aapka telecom operator, jiska network SMS ko aapke phone tak pahunchata hai.
-         EN: Fourth is your telecom operator, whose network carries the SMS to your phone.
+         EN: Fourth, your telecom operator's network carries it to you.
   01:39  और पाँचवाँ है आपका Phone, जहाँ OTP आता है।
          Aur paanchvaan hai aapka phone, jahan OTP aata hai.
          EN: And fifth is your phone, where the OTP arrives.
@@ -114,7 +114,7 @@ Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
          EN: So even if someone reaches the database, they can't easily find the real OTP.
   02:43  OTP की Expiry आमतौर पर कुछ minutes की होती है, जैसे पाँच या दस minutes।
          OTP ki expiry aamtaur par kuch minutes ki hoti hai, jaise paanch ya das minutes.
-         EN: An OTP usually expires in a few minutes, like five or ten minutes.
+         EN: An OTP expires quickly, usually in five or ten minutes.
 
 [02:49]  S5 · HOW IT REACHES YOUR PHONE
 
@@ -129,10 +129,10 @@ Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
          EN: The SMS gateway passes this message to your telecom operator's network.
   03:02  Operator का SMS Center, Message को Store करके आपके Phone को Deliver करता है।
          Operator ka SMS center, message ko store karke aapke phone ko deliver karta hai.
-         EN: The operator's SMS center stores the message and delivers it to your phone.
+         EN: The operator's message center stores it and delivers it to your phone.
   03:06  आपका Phone Network से Connected है, इसलिए Message कुछ ही seconds में आ जाता है।
          Aapka phone network se connected hai, isliye message kuch hi seconds mein aa jaata hai.
-         EN: Your phone is connected to the network, so the message arrives within seconds.
+         EN: Your phone is online, so it arrives within seconds.
   03:11  Banks Message में एक Registered Sender ID use करते हैं, ताकि आप पहचान सकें कि SMS असली है।
          Banks message mein ek registered sender ID use karte hain, taaki aap pehchaan sakein ki SMS asli hai.
          EN: Banks use a registered sender ID in the message, so you can recognise that the SMS is genuine.
@@ -171,7 +171,7 @@ Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
          EN: After a few wrong attempts, the OTP may be blocked, or you may have to wait a while.
   04:07  अगर सब सही है, तो Server Approve करता है, और आपका Payment या Login पूरा हो जाता है।
          Agar sab sahi hai, to server approve karta hai, aur aapka payment ya login poora ho jaata hai.
-         EN: If everything is correct, the server approves, and your payment or login is completed.
+         EN: If all is correct, the server approves your payment or login.
   04:12  और एक बार use होने के बाद, वही OTP दोबारा काम नहीं करता।
          Aur ek baar use hone ke baad, wahi OTP dobaara kaam nahi karta.
          EN: And once it's used, the same OTP won't work again.
@@ -189,7 +189,7 @@ Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
 
   04:35  अब एक Interesting बात। कुछ OTP SMS से नहीं, बल्कि Authenticator App में बनते हैं।
          Ab ek interesting baat. Kuch OTP SMS se nahi, balki authenticator app mein bante hain.
-         EN: Now something interesting. Some OTPs don't come by SMS, but are created in an authenticator app.
+         EN: Some OTPs don't come by SMS at all; an authenticator app makes them.
   04:40  इन Apps में हर तीस seconds में एक नया Code बनता है, और ये Internet के बिना भी काम करते हैं।
          In apps mein har tees seconds mein ek naya code banta hai, aur ye internet ke bina bhi kaam karte hain.
          EN: These apps make a new code every thirty seconds, and they work even without the internet.
@@ -231,10 +231,10 @@ Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
          EN: The most common trick is to call and ask for your OTP.
   05:38  कोई खुद को Bank, Delivery या KYC Team का बताकर, OTP Share करने को कहता है।
          Koi khud ko bank, delivery ya KYC team ka batakar, OTP share karne ko kehta hai.
-         EN: Someone pretends to be from the bank, a delivery company or a KYC team, and asks you to share the OTP.
+         EN: Someone claims to be from the bank or a KYC team, and asks for your OTP.
   05:43  याद रखिए, Bank कभी भी Call या Message करके आपका OTP नहीं माँगता।
          Yaad rakhiye, bank kabhi bhi call ya message karke aapka OTP nahi maangta.
-         EN: Remember, a bank never asks for your OTP by call or message.
+         EN: Remember, a bank never asks for your OTP by call, or by message.
   05:48  दूसरा तरीका है Fake Link, जहाँ एक नकली Website आपसे OTP डलवाती है।
          Doosra tareeka hai fake link, jahan ek nakli website aapse OTP dalwaati hai.
          EN: The second trick is a fake link, where a fake website gets you to enter your OTP.
@@ -243,7 +243,7 @@ Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
          EN: The third trick is SIM swap, where a new SIM for your number is obtained by deception.
   05:57  ऐसे में आपके OTP, Fraud करने वाले के Phone पर जाने लगते हैं।
          Aise mein aapke OTP, fraud karne waale ke phone par jaane lagte hain.
-         EN: Then your OTPs start going to the fraudster's phone.
+         EN: Then your OTPs go to the fraudster instead.
   06:01  अगर अचानक आपके Phone का Network चला जाए, और कोई वजह न दिखे, तो तुरंत अपने Operator से Contact करें।
          Agar achaanak aapke phone ka network chala jaaye, aur koi wajah na dikhe, to turant apne operator se contact karein.
          EN: If your phone's network suddenly disappears for no clear reason, contact your operator right away.
@@ -306,7 +306,7 @@ Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
          EN: So, to recap: the server creates a random OTP and saves it with an expiry time.
   07:35  SMS Gateway और Telecom Network, उसे आपके Phone तक पहुँचाते हैं।
          SMS gateway aur telecom network, use aapke phone tak pahunchaate hain.
-         EN: The SMS gateway and the telecom network deliver it to your phone.
+         EN: The gateway and the mobile network deliver it to your phone.
   07:39  आप OTP Enter करते हैं, Server उसे Check करता है, और Approve कर देता है।
          Aap OTP enter karte hain, server use check karta hai, aur approve kar deta hai.
          EN: You enter the OTP, the server checks it, and approves it.

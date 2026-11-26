@@ -3,7 +3,7 @@ It has a 6-digit code that's valid for only a few minutes.
 You enter this OTP, and the payment is confirmed instantly.
 But where is this code made, how does it reach your phone, and how does the bank know the code is right?
 Today, let's understand the technology behind OTP, step by step.
-First, let's understand what an OTP actually is.
+First, what exactly is an OTP?
 OTP stands for One-Time Password, a password that works only once.
 Your normal password stays the same for a long time, but an OTP is new every time.
 And it expires within a few minutes.
@@ -11,12 +11,12 @@ OTPs are used for online payments, bank logins, app sign-ups and password resets
 It's considered part of two-factor authentication.
 That means you need not just your password, but your phone as well.
 So even if someone learns your password, they can't get in without the OTP.
-Many apps also send OTPs by email, but banking mostly uses SMS OTPs.
+Many apps also send OTPs by email, but banks mostly use SMS.
 To understand the OTP system, let's first look at its main parts.
 First is your app or website, where you're logging in or paying.
 Second is the bank's or company's authentication server, which creates and checks the OTP.
-Third is the SMS gateway, which takes the message from the server and passes it on.
-Fourth is your telecom operator, whose network carries the SMS to your phone.
+Third, the SMS gateway passes the message on.
+Fourth, your telecom operator's network carries it to you.
 And fifth is your phone, where the OTP arrives.
 At every step in between, there's an effort to keep the data secure.
 Now let's go through these steps one by one.
@@ -31,12 +31,12 @@ Like which user and which transaction this OTP is for, and when it will expire.
 Many systems don't store the OTP directly, but store its hash instead.
 A hash is like a digital fingerprint, and it's very hard to get the original number back from it.
 So even if someone reaches the database, they can't easily find the real OTP.
-An OTP usually expires in a few minutes, like five or ten minutes.
+An OTP expires quickly, usually in five or ten minutes.
 Now let's see how the OTP reaches your phone.
 The server sends the OTP message to an SMS gateway.
 The SMS gateway passes this message to your telecom operator's network.
-The operator's SMS center stores the message and delivers it to your phone.
-Your phone is connected to the network, so the message arrives within seconds.
+The operator's message center stores it and delivers it to your phone.
+Your phone is online, so it arrives within seconds.
 Banks use a registered sender ID in the message, so you can recognise that the SMS is genuine.
 Many phones have OTP autofill, where the phone reads the code from the SMS and fills it in.
 Sometimes, when the network is busy, the OTP can take a little longer.
@@ -48,12 +48,12 @@ The server checks whether the OTP is correct.
 It also checks that the OTP hasn't expired and hasn't been used before.
 In most systems, the number of wrong attempts is also limited.
 After a few wrong attempts, the OTP may be blocked, or you may have to wait a while.
-If everything is correct, the server approves, and your payment or login is completed.
+If all is correct, the server approves your payment or login.
 And once it's used, the same OTP won't work again.
 A payment OTP is tied to that one transaction, so it won't work for any other payment.
 In card payments, this verification often happens on your bank's secure page.
 In the same way, a login OTP is tied to that login session.
-Now something interesting. Some OTPs don't come by SMS, but are created in an authenticator app.
+Some OTPs don't come by SMS at all; an authenticator app makes them.
 These apps make a new code every thirty seconds, and they work even without the internet.
 This works with the TOTP method, a Time-based One-Time Password.
 During setup, the website and your app share one secret key.
@@ -66,11 +66,11 @@ The server also accepts a small time difference, so a small delay doesn't make t
 And it isn't tied to your SIM, so it's considered safer against frauds like SIM swap.
 OTPs are very useful, but fraudsters target them too.
 The most common trick is to call and ask for your OTP.
-Someone pretends to be from the bank, a delivery company or a KYC team, and asks you to share the OTP.
-Remember, a bank never asks for your OTP by call or message.
+Someone claims to be from the bank or a KYC team, and asks for your OTP.
+Remember, a bank never asks for your OTP by call, or by message.
 The second trick is a fake link, where a fake website gets you to enter your OTP.
 The third trick is SIM swap, where a new SIM for your number is obtained by deception.
-Then your OTPs start going to the fraudster's phone.
+Then your OTPs go to the fraudster instead.
 If your phone's network suddenly disappears for no clear reason, contact your operator right away.
 Fraudsters can also see your OTP through screen-sharing apps.
 So never install a remote-access app just because a stranger asked you to.
@@ -89,7 +89,7 @@ Like passkeys and biometric login, where verification is done with a fingerprint
 With passkeys, it becomes very hard to trick you into logging in on a fake website.
 But even today, OTP is an important layer of security.
 So, to recap: the server creates a random OTP and saves it with an expiry time.
-The SMS gateway and the telecom network deliver it to your phone.
+The gateway and the mobile network deliver it to your phone.
 You enter the OTP, the server checks it, and approves it.
 If you enjoy understanding the systems behind technology, please like this video and subscribe to the channel.
 See you in the next video. Thank you!""".split('\n')
