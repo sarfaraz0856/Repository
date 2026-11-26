@@ -1,0 +1,71 @@
+==================================================================
+ ENGLISH DUB PACK – How OTP Works
+==================================================================
+
+Files in this pack:
+- how-otp-works-english-dub-audio.wav          → English audio track (voice + music), exactly 8:00.4 – same length as the video
+- how-otp-works-english-thumbnail.jpg          → English thumbnail
+- how-otp-works-english-subtitles.srt          → English subtitles (timed to the English voice)
+- how-otp-works-english-title-description.txt  → this file
+
+------------------------------------------------------------------
+TITLE
+How OTP Really Works | Where the 6-Digit Code Comes From – OTP Explained
+
+DESCRIPTION
+How does an OTP work? 🔐 You pay online or log in, a 6-digit code arrives on your phone, and the moment you enter it the payment is confirmed – but where is that code made, how does it reach your phone, and how does the bank know it's right? In this animated explainer: how the server creates a random OTP, what a hash is, how the SMS gateway and telecom network deliver it, how the bank verifies it, how authenticator-app codes (TOTP) work offline – and how to stay safe from OTP fraud.
+
+In this video you will learn:
+✅ What an OTP is – one-time passwords and two-factor authentication
+✅ The main parts – app, auth server, SMS gateway, telecom operator, phone
+✅ How an OTP is created – random numbers, one million combinations, hashing, expiry
+✅ How it reaches your phone – SMS center, sender ID, autofill
+✅ How the bank checks it – expiry, limited attempts, single use
+✅ How authenticator apps (TOTP) work
+✅ How OTP fraud happens – fake calls, fake links, SIM swap, screen-share apps
+✅ OTP safety tips (India Cyber Crime Helpline: 1930)
+✅ The future: passkeys and biometric login
+
+⏱️ Chapters
+0:00 Introduction – The 6-digit code
+0:30 What is an OTP?
+1:15 The main parts
+1:51 How an OTP is created
+2:49 How it reaches your phone
+3:38 How the bank checks it
+4:34 Authenticator app OTP (TOTP)
+5:30 How OTP fraud happens
+6:25 OTP safety tips
+7:10 The future & summary
+
+👍 If you enjoyed this video, please like and share it, and subscribe to the channel. Thank you!
+
+📌 Note:
+- This is an educational explainer. This channel is not affiliated with any bank, app or telecom company.
+- Names (SBK Bank, Kiran Electronics, VM-SBKBNK), codes, numbers and messages shown are fictional examples.
+- Real systems may differ in details – this is a simplified explanation.
+- The voiceover was created with an AI clone of my own voice.
+
+#OTP #CyberSafety #TechExplained
+
+------------------------------------------------------------------
+HOW TO UPLOAD (YouTube Studio)
+------------------------------------------------------------------
+Step A – English audio (dub)
+  1. Studio → Content → open the OTP video → left menu "Languages".
+  2. Video language should already be "Hindi".
+  3. "Add language" → English → "Dub" column → "Add".
+  4. Upload how-otp-works-english-dub-audio.wav → Publish.
+
+Step B – English title & description
+  Same "Languages" page → English row → "Title & description" → "Add" → paste the TITLE and DESCRIPTION above → Publish.
+
+Step C – English subtitles
+  Same page → English row → "Subtitles" → "Add" → Upload file → how-otp-works-english-subtitles.srt → "With timing".
+
+Step D – English thumbnail
+  If Studio shows a thumbnail option for English, upload how-otp-works-english-thumbnail.jpg there;
+  otherwise use it in "Test & Compare" or for an English Short / community post.
+
+Note: keep "Altered or synthetic content" = YES (the English voice is also an AI clone of your own voice).
+Names shown (SBK Bank, Kiran Electronics, VM-SBKBNK) are fictional.

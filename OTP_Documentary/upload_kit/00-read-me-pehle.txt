@@ -1,0 +1,48 @@
+==================================================================
+ OTP कैसे काम करता है? – YouTube Upload Kit  (Hinglish)
+ English version: 00-read-me-first-english.txt
+==================================================================
+
+01-upload-video-thumbnail-subtitles/  → ये सब YouTube पर upload करना है
+02-how-otp-works-english-dub-pack.zip → English dub (ZIP के अंदर ZIP) – Studio → Languages → English
+03-extra-files-upload-nahi-karna/     → सिर्फ़ आपके record के लिए (Short teaser चाहें तो डाल सकते हैं)
+
+------------------------------------------------------------------
+01-upload-video-thumbnail-subtitles/
+------------------------------------------------------------------
+otp-kaise-kaam-karta-hai-how-otp-works-one-time-password-hindi.mp4
+    → मुख्य वीडियो (Hinglish, 8:00, 1920x1080). Studio → Create → Upload video
+
+otp-kaise-kaam-karta-hai-sms-server-thumbnail-a.jpg   → थंबनेल A: "OTP कैसे काम करता है?"
+otp-fraud-se-kaise-bache-thumbnail-b.jpg              → थंबनेल B: "OTP Fraud से कैसे बचें?"
+otp-code-kahan-se-aata-hai-totp-thumbnail-c.jpg       → थंबनेल C: "6 Digit का Code कहाँ से आता है?"
+    → तीनों "Test & Compare" में डालें
+
+otp-kaise-kaam-karta-hai-youtube-title-description-tags.txt
+    → PART 1 Hindi (main) · PART 2 Hinglish (Roman) · PART 3 English + Tags, Hashtags, Upload Checklist
+
+otp-kaise-kaam-karta-hai-hindi-subtitles.srt      → Hindi (देवनागरी)
+how-otp-works-english-subtitles.srt               → English
+otp-kaise-kaam-karta-hai-hinglish-subtitles.srt   → Hinglish (Roman) – Studio में "Hindi (Latin)" चुनें
+    → Studio → Subtitles → Add language → Upload file → "With timing"
+
+------------------------------------------------------------------
+02-how-otp-works-english-dub-pack.zip   (unzip करें)
+------------------------------------------------------------------
+how-otp-works-english-dub-audio.wav            → English आवाज़ + music, बिल्कुल वीडियो जितनी लंबी (8:00)
+    → Studio → Languages → Add language → English → Dub → Add → upload → Publish
+how-otp-works-english-thumbnail.jpg            → English थंबनेल ("How OTP Really Works")
+how-otp-works-english-subtitles.srt            → English subtitles (English आवाज़ की timing पर)
+how-otp-works-english-title-description.txt    → English Title + Description + upload steps
+
+------------------------------------------------------------------
+03-extra-files-upload-nahi-karna/
+------------------------------------------------------------------
+otp-kaise-kaam-karta-hai-narration-voice-only.wav                → सिर्फ़ आवाज़ (बिना music)
+otp-kaise-kaam-karta-hai-voiceover-script-hindi-hinglish-english.txt → पूरी script, timing के साथ, तीनों भाषाओं में
+otp-research-notes-hinglish-english.txt                          → facts के notes (Hinglish + English)
+otp-kaise-kaam-karta-hai-shorts-teaser-30sec.mp4                 → 30 second teaser – YouTube Short / Instagram के लिए
+
+ज़रूरी: "Altered or synthetic content" → YES चुनें (आवाज़ AI voice clone है)।
+वीडियो के नाम (SBK Bank, Kiran Electronics, VM-SBKBNK) काल्पनिक हैं।
+File names search keywords से बने हैं (lowercase, शब्दों के बीच "-")।

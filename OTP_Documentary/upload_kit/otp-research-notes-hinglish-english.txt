@@ -1,0 +1,30 @@
+OTP documentary – fact notes / research notes
+==================================================================
+
+--- HINGLISH ---
+Video OTP ka general kaam simplified tareeke se samjhata hai. Use kiye gaye main points:
+- OTP = One-Time Password; ek baar aur kuch minutes ke liye valid; two-factor authentication ka hissa.
+- Server secure random number generator se OTP banata hai; aksar 4–8 digits, zyaadatar 6 digits (10,00,000 combinations).
+- Server OTP ko user, transaction aur expiry ke saath save karta hai; kai systems OTP ka hash save karte hain.
+- SMS route: Auth server → SMS gateway → telecom operator ka SMS center → phone. Banks registered sender ID use karte hain.
+- Verification: OTP sahi ho, expire na hua ho, pehle use na hua ho; galat attempts limited hote hain; OTP usi transaction/session se juda hota hai.
+- TOTP (authenticator apps): secret key (QR se setup) + current time → har ~30 second naya code; server thoda time difference accept karta hai; SIM se juda nahi.
+- Fraud: fake call, fake link (phishing), SIM swap, screen-share / remote-access apps, fake customer-care numbers.
+- India Cyber Crime Helpline: 1930 (aur cybercrime.gov.in).
+- Future: passkeys aur biometric login (phishing ke against zyaada mazboot).
+Verify karein: banks / apps ke exact rules (expiry time, attempts) alag-alag hote hain – video mein "aamtaur par / zyaadatar" bola gaya hai.
+Sabhi naam (SBK Bank, Kiran Electronics, VM-SBKBNK), OTP aur numbers kaalpanik examples hain.
+
+--- ENGLISH ---
+The video explains how OTPs generally work, in simplified form. Key points used:
+- OTP = One-Time Password; valid once and for a few minutes; part of two-factor authentication.
+- The server creates the OTP with a secure random number generator; usually 4–8 digits, most often 6 (1,000,000 combinations).
+- The server stores the OTP with the user, transaction and expiry; many systems store a hash of the OTP instead.
+- SMS route: auth server → SMS gateway → telecom operator's SMS center → phone. Banks use registered sender IDs.
+- Verification: the OTP must match, not be expired and not be used before; wrong attempts are limited; the OTP is tied to that transaction/session.
+- TOTP (authenticator apps): secret key (set up via QR) + current time → a new code about every 30 seconds; the server accepts a small time drift; not tied to the SIM.
+- Fraud: fake calls, fake links (phishing), SIM swap, screen-share / remote-access apps, fake customer-care numbers.
+- India Cyber Crime Helpline: 1930 (and cybercrime.gov.in).
+- Future: passkeys and biometric login (more resistant to phishing).
+To verify: exact rules (expiry time, number of attempts) differ between banks and apps – the video says "usually / most".
+All names (SBK Bank, Kiran Electronics, VM-SBKBNK), codes and numbers are fictional examples.

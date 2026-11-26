@@ -1,0 +1,318 @@
+OTP कैसे काम करता है – Complete Voiceover Script / पूरी script
+Hindi-Hinglish (spoken) · Hinglish (Roman) · English
+Voice: creator's own cloned voice. Times = mm:ss from the start of the video.
+
+[00:00]  S1 · THE 6-DIGIT CODE THAT PROTECTS YOUR MONEY
+
+  00:00  Imagine कीजिए, आप Online Payment कर रहे हैं, और Pay पर Tap करते ही आपके Phone पर एक SMS आता है।
+         Imagine kijiye, aap online payment kar rahe hain, aur Pay par tap karte hi aapke phone par ek SMS aata hai.
+         EN: Imagine you're paying online, and the moment you tap Pay, an SMS arrives on your phone.
+  00:07  उसमें एक 6-digit Code है, जो सिर्फ़ कुछ minutes के लिए Valid है।
+         Usmein ek 6-digit code hai, jo sirf kuch minutes ke liye valid hai.
+         EN: It has a 6-digit code that's valid for only a few minutes.
+  00:11  आप ये OTP Enter करते हैं, और Payment तुरंत Confirm हो जाता है।
+         Aap ye OTP enter karte hain, aur payment turant confirm ho jaata hai.
+         EN: You enter this OTP, and the payment is confirmed instantly.
+  00:16  लेकिन ये Code बनता कहाँ है, आपके Phone तक कैसे पहुँचता है, और Bank को कैसे पता चलता है कि Code सही है?
+         Lekin ye code banta kahan hai, aapke phone tak kaise pahunchta hai, aur bank ko kaise pata chalta hai ki code sahi hai?
+         EN: But where is this code made, how does it reach your phone, and how does the bank know the code is right?
+  00:24  आज हम OTP के पीछे की Technology को, Step by Step समझेंगे।
+         Aaj hum OTP ke peeche ki technology ko, step by step samjhenge.
+         EN: Today, let's understand the technology behind OTP, step by step.
+
+[00:30]  S2 · WHAT IS AN OTP?
+
+  00:30  सबसे पहले समझते हैं कि OTP actually है क्या।
+         Sabse pehle samajhte hain ki OTP actually hai kya.
+         EN: First, let's understand what an OTP actually is.
+  00:33  OTP का Full Form है One-Time Password, यानी ऐसा Password जो सिर्फ़ एक बार काम करता है।
+         OTP ka full form hai One-Time Password, yaani aisa password jo sirf ek baar kaam karta hai.
+         EN: OTP stands for One-Time Password, a password that works only once.
+  00:40  आपका Normal Password लंबे समय तक same रहता है, लेकिन OTP हर बार नया बनता है।
+         Aapka normal password lambe samay tak same rehta hai, lekin OTP har baar naya banta hai.
+         EN: Your normal password stays the same for a long time, but an OTP is new every time.
+  00:45  और ये कुछ ही minutes में Expire भी हो जाता है।
+         Aur ye kuch hi minutes mein expire bhi ho jaata hai.
+         EN: And it expires within a few minutes.
+  00:48  OTP का use Online Payment, Bank Login, App Sign Up, और Password Reset जैसी जगहों पर होता है।
+         OTP ka use online payment, bank login, app sign up, aur password reset jaisi jagahon par hota hai.
+         EN: OTPs are used for online payments, bank logins, app sign-ups and password resets.
+  00:54  इसे Two-Factor Authentication का हिस्सा माना जाता है।
+         Ise two-factor authentication ka hissa maana jaata hai.
+         EN: It's considered part of two-factor authentication.
+  00:57  मतलब, आपके पास सिर्फ़ Password ही नहीं, बल्कि अपना Phone भी होना चाहिए।
+         Matlab, aapke paas sirf password hi nahi, balki apna phone bhi hona chahiye.
+         EN: That means you need not just your password, but your phone as well.
+  01:01  इसलिए अगर किसी को आपका Password पता भी चल जाए, तो भी OTP के बिना वो आगे नहीं बढ़ पाता।
+         Isliye agar kisi ko aapka password pata bhi chal jaaye, to bhi OTP ke bina wo aage nahi badh paata.
+         EN: So even if someone learns your password, they can't get in without the OTP.
+  01:08  कई Apps में OTP Email पर भी आता है, लेकिन Banking में ज़्यादातर SMS OTP ही use होता है।
+         Kai apps mein OTP email par bhi aata hai, lekin banking mein zyaadatar SMS OTP hi use hota hai.
+         EN: Many apps also send OTPs by email, but banking mostly uses SMS OTPs.
+
+[01:15]  S3 · THE MAIN PARTS
+
+  01:16  OTP System को समझने के लिए, पहले इसके Main Parts को समझते हैं।
+         OTP system ko samajhne ke liye, pehle iske main parts ko samajhte hain.
+         EN: To understand the OTP system, let's first look at its main parts.
+  01:21  पहला है आपका App या Website, जहाँ आप Login या Payment कर रहे हैं।
+         Pehla hai aapka app ya website, jahan aap login ya payment kar rahe hain.
+         EN: First is your app or website, where you're logging in or paying.
+  01:25  दूसरा है Bank या Company का Authentication Server, जो OTP बनाता और Check करता है।
+         Doosra hai bank ya company ka authentication server, jo OTP banata aur check karta hai.
+         EN: Second is the bank's or company's authentication server, which creates and checks the OTP.
+  01:31  तीसरा है SMS Gateway, जो Server से Message लेकर आगे भेजता है।
+         Teesra hai SMS gateway, jo server se message lekar aage bhejta hai.
+         EN: Third is the SMS gateway, which takes the message from the server and passes it on.
+  01:34  चौथा है आपका Telecom Operator, जिसका Network SMS को आपके Phone तक पहुँचाता है।
+         Chautha hai aapka telecom operator, jiska network SMS ko aapke phone tak pahunchata hai.
+         EN: Fourth is your telecom operator, whose network carries the SMS to your phone.
+  01:39  और पाँचवाँ है आपका Phone, जहाँ OTP आता है।
+         Aur paanchvaan hai aapka phone, jahan OTP aata hai.
+         EN: And fifth is your phone, where the OTP arrives.
+  01:43  इन सबके बीच हर Step पर, Data को Secure रखने की कोशिश की जाती है।
+         In sabke beech har step par, data ko secure rakhne ki koshish ki jaati hai.
+         EN: At every step in between, there's an effort to keep the data secure.
+  01:47  चलिए अब इन Steps को एक-एक करके समझते हैं।
+         Chaliye ab in steps ko ek-ek karke samajhte hain.
+         EN: Now let's go through these steps one by one.
+
+[01:51]  S4 · HOW AN OTP IS CREATED
+
+  01:51  अब सवाल ये है, OTP बनता कैसे है?
+         Ab sawaal ye hai, OTP banta kaise hai?
+         EN: So the question is, how is an OTP created?
+  01:54  जब आप Pay या Login पर Tap करते हैं, तो Server एक Random Number बनाता है।
+         Jab aap Pay ya Login par tap karte hain, to server ek random number banata hai.
+         EN: When you tap Pay or Login, the server creates a random number.
+  02:00  ये Number ऐसा होता है, जिसका पहले से अंदाज़ा लगाना बहुत मुश्किल हो।
+         Ye number aisa hota hai, jiska pehle se andaaza lagana bahut mushkil ho.
+         EN: It's a number that's very hard to predict in advance.
+  02:03  इसके लिए Secure Random Number Generator का use होता है।
+         Iske liye secure random number generator ka use hota hai.
+         EN: A secure random number generator is used for this.
+  02:07  OTP आमतौर पर चार से आठ Digits का होता है, और ज़्यादातर छह Digits का।
+         OTP aamtaur par chaar se aath digits ka hota hai, aur zyaadatar chhah digits ka.
+         EN: An OTP is usually four to eight digits long, and most often six.
+  02:11  छह Digits में कुल दस लाख Combinations बनते हैं, इसलिए Guess करना बहुत मुश्किल है।
+         Chhah digits mein kul das lakh combinations bante hain, isliye guess karna bahut mushkil hai.
+         EN: Six digits give one million possible combinations, so guessing is very hard.
+  02:18  फिर Server इस OTP को कुछ Details के साथ Save करता है।
+         Phir server is OTP ko kuch details ke saath save karta hai.
+         EN: Then the server saves this OTP along with some details.
+  02:21  जैसे, ये OTP किस User और किस Transaction के लिए है, और कब Expire होगा।
+         Jaise, ye OTP kis user aur kis transaction ke liye hai, aur kab expire hoga.
+         EN: Like which user and which transaction this OTP is for, and when it will expire.
+  02:27  कई Systems OTP को सीधे Save करने की जगह, उसका Hash Save करते हैं।
+         Kai systems OTP ko seedhe save karne ki jagah, uska hash save karte hain.
+         EN: Many systems don't store the OTP directly, but store its hash instead.
+  02:31  Hash एक तरह का Digital Fingerprint है, जिससे Original Number वापस निकालना बहुत मुश्किल होता है।
+         Hash ek tarah ka digital fingerprint hai, jisse original number wapas nikaalna bahut mushkil hota hai.
+         EN: A hash is like a digital fingerprint, and it's very hard to get the original number back from it.
+  02:38  इससे अगर Database तक कोई पहुँच भी जाए, तो उसे असली OTP आसानी से नहीं मिलता।
+         Isse agar database tak koi pahunch bhi jaaye, to use asli OTP aasaani se nahi milta.
+         EN: So even if someone reaches the database, they can't easily find the real OTP.
+  02:43  OTP की Expiry आमतौर पर कुछ minutes की होती है, जैसे पाँच या दस minutes।
+         OTP ki expiry aamtaur par kuch minutes ki hoti hai, jaise paanch ya das minutes.
+         EN: An OTP usually expires in a few minutes, like five or ten minutes.
+
+[02:49]  S5 · HOW IT REACHES YOUR PHONE
+
+  02:50  अब देखते हैं, OTP आपके Phone तक कैसे पहुँचता है।
+         Ab dekhte hain, OTP aapke phone tak kaise pahunchta hai.
+         EN: Now let's see how the OTP reaches your phone.
+  02:53  Server, OTP वाला Message एक SMS Gateway को भेजता है।
+         Server, OTP waala message ek SMS gateway ko bhejta hai.
+         EN: The server sends the OTP message to an SMS gateway.
+  02:57  SMS Gateway इस Message को आपके Telecom Operator के Network तक पहुँचाता है।
+         SMS gateway is message ko aapke telecom operator ke network tak pahunchata hai.
+         EN: The SMS gateway passes this message to your telecom operator's network.
+  03:02  Operator का SMS Center, Message को Store करके आपके Phone को Deliver करता है।
+         Operator ka SMS center, message ko store karke aapke phone ko deliver karta hai.
+         EN: The operator's SMS center stores the message and delivers it to your phone.
+  03:06  आपका Phone Network से Connected है, इसलिए Message कुछ ही seconds में आ जाता है।
+         Aapka phone network se connected hai, isliye message kuch hi seconds mein aa jaata hai.
+         EN: Your phone is connected to the network, so the message arrives within seconds.
+  03:11  Banks Message में एक Registered Sender ID use करते हैं, ताकि आप पहचान सकें कि SMS असली है।
+         Banks message mein ek registered sender ID use karte hain, taaki aap pehchaan sakein ki SMS asli hai.
+         EN: Banks use a registered sender ID in the message, so you can recognise that the SMS is genuine.
+  03:18  कई Phones में OTP Autofill होता है, जिसमें Phone खुद SMS से Code पढ़कर भर देता है।
+         Kai phones mein OTP autofill hota hai, jismein phone khud SMS se code padhkar bhar deta hai.
+         EN: Many phones have OTP autofill, where the phone reads the code from the SMS and fills it in.
+  03:23  कभी-कभी Network Busy होने पर, OTP आने में थोड़ी देर भी लग सकती है।
+         Kabhi-kabhi network busy hone par, OTP aane mein thodi der bhi lag sakti hai.
+         EN: Sometimes, when the network is busy, the OTP can take a little longer.
+  03:27  Roaming में भी, OTP आने में कभी-कभी ज़्यादा time लग सकता है।
+         Roaming mein bhi, OTP aane mein kabhi-kabhi zyaada time lag sakta hai.
+         EN: In roaming too, an OTP can sometimes take longer to arrive.
+  03:31  इसीलिए Apps में Resend OTP का Option होता है, जो कुछ seconds बाद Active होता है।
+         Isiliye apps mein Resend OTP ka option hota hai, jo kuch seconds baad active hota hai.
+         EN: That's why apps have a Resend OTP option, which becomes active after a few seconds.
+
+[03:38]  S6 · HOW THE BANK CHECKS IT
+
+  03:39  अब आप OTP Enter करते हैं, तो आगे क्या होता है?
+         Ab aap OTP enter karte hain, to aage kya hota hai?
+         EN: Now when you enter the OTP, what happens next?
+  03:44  App आपका डाला हुआ OTP, Secure Connection के ज़रिए Server को भेजता है।
+         App aapka daala hua OTP, secure connection ke zariye server ko bhejta hai.
+         EN: The app sends the OTP you entered to the server over a secure connection.
+  03:48  Server Check करता है कि OTP सही है या नहीं।
+         Server check karta hai ki OTP sahi hai ya nahi.
+         EN: The server checks whether the OTP is correct.
+  03:52  साथ ही ये भी देखता है कि OTP Expire तो नहीं हुआ, और पहले use तो नहीं हुआ।
+         Saath hi ye bhi dekhta hai ki OTP expire to nahi hua, aur pehle use to nahi hua.
+         EN: It also checks that the OTP hasn't expired and hasn't been used before.
+  03:57  ज़्यादातर Systems में, गलत OTP डालने के Attempts भी Limited होते हैं।
+         Zyaadatar systems mein, galat OTP daalne ke attempts bhi limited hote hain.
+         EN: In most systems, the number of wrong attempts is also limited.
+  04:01  कुछ गलत Attempts के बाद, OTP Block हो सकता है, या थोड़ी देर इंतज़ार करना पड़ सकता है।
+         Kuch galat attempts ke baad, OTP block ho sakta hai, ya thodi der intezaar karna pad sakta hai.
+         EN: After a few wrong attempts, the OTP may be blocked, or you may have to wait a while.
+  04:07  अगर सब सही है, तो Server Approve करता है, और आपका Payment या Login पूरा हो जाता है।
+         Agar sab sahi hai, to server approve karta hai, aur aapka payment ya login poora ho jaata hai.
+         EN: If everything is correct, the server approves, and your payment or login is completed.
+  04:12  और एक बार use होने के बाद, वही OTP दोबारा काम नहीं करता।
+         Aur ek baar use hone ke baad, wahi OTP dobaara kaam nahi karta.
+         EN: And once it's used, the same OTP won't work again.
+  04:17  Payment वाला OTP उसी Transaction से जुड़ा होता है, इसलिए किसी दूसरे Payment में काम नहीं आता।
+         Payment waala OTP usi transaction se juda hota hai, isliye kisi doosre payment mein kaam nahi aata.
+         EN: A payment OTP is tied to that one transaction, so it won't work for any other payment.
+  04:24  Card Payments में, ये Verification अक्सर आपके Bank के Secure Page पर होता है।
+         Card payments mein, ye verification aksar aapke bank ke secure page par hota hai.
+         EN: In card payments, this verification often happens on your bank's secure page.
+  04:29  इसी तरह Login वाला OTP भी, उसी Login Session से जुड़ा होता है।
+         Isi tarah login waala OTP bhi, usi login session se juda hota hai.
+         EN: In the same way, a login OTP is tied to that login session.
+
+[04:34]  S7 · AUTHENTICATOR APP OTP (TOTP)
+
+  04:35  अब एक Interesting बात। कुछ OTP SMS से नहीं, बल्कि Authenticator App में बनते हैं।
+         Ab ek interesting baat. Kuch OTP SMS se nahi, balki authenticator app mein bante hain.
+         EN: Now something interesting. Some OTPs don't come by SMS, but are created in an authenticator app.
+  04:40  इन Apps में हर तीस seconds में एक नया Code बनता है, और ये Internet के बिना भी काम करते हैं।
+         In apps mein har tees seconds mein ek naya code banta hai, aur ye internet ke bina bhi kaam karte hain.
+         EN: These apps make a new code every thirty seconds, and they work even without the internet.
+  04:46  ये TOTP Method से चलता है, यानी Time-based One-Time Password।
+         Ye TOTP method se chalta hai, yaani Time-based One-Time Password.
+         EN: This works with the TOTP method, a Time-based One-Time Password.
+  04:51  Setup के समय, Website और आपकी App, दोनों एक Secret Key Share करते हैं।
+         Setup ke samay, website aur aapki app, dono ek secret key share karte hain.
+         EN: During setup, the website and your app share one secret key.
+  04:56  अक्सर ये Secret Key, एक QR Code Scan करके App में Save होती है।
+         Aksar ye secret key, ek QR code scan karke app mein save hoti hai.
+         EN: This secret key is usually saved in the app by scanning a QR code.
+  05:00  फिर App, Secret Key और Current Time को मिलाकर, एक Code Calculate करता है।
+         Phir app, secret key aur current time ko milakar, ek code calculate karta hai.
+         EN: Then the app combines the secret key with the current time to calculate a code.
+  05:05  Server भी उसी Secret Key और उसी Time से, same Calculation करता है।
+         Server bhi usi secret key aur usi time se, same calculation karta hai.
+         EN: The server does the same calculation with the same secret key and the same time.
+  05:09  अगर दोनों Codes Match हो जाएँ, तो Login Approve हो जाता है।
+         Agar dono codes match ho jaayein, to login approve ho jaata hai.
+         EN: If both codes match, the login is approved.
+  05:13  ये Codes Time पर Depend करते हैं, इसलिए Phone की Time Setting सही होना ज़रूरी है।
+         Ye codes time par depend karte hain, isliye phone ki time setting sahi hona zaroori hai.
+         EN: These codes depend on time, so your phone's time setting must be correct.
+  05:18  Server थोड़े Time Difference को भी Accept कर लेता है, ताकि छोटी सी देरी से Login Fail न हो।
+         Server thode time difference ko bhi accept kar leta hai, taaki chhoti si deri se login fail na ho.
+         EN: The server also accepts a small time difference, so a small delay doesn't make the login fail.
+  05:24  और ये SIM से जुड़ा नहीं होता, इसलिए SIM Swap जैसे Fraud में भी ज़्यादा Safe माना जाता है।
+         Aur ye SIM se juda nahi hota, isliye SIM swap jaise fraud mein bhi zyaada safe maana jaata hai.
+         EN: And it isn't tied to your SIM, so it's considered safer against frauds like SIM swap.
+
+[05:30]  S8 · HOW OTP FRAUD HAPPENS
+
+  05:31  OTP बहुत useful है, लेकिन Fraud करने वाले भी इसे निशाना बनाते हैं।
+         OTP bahut useful hai, lekin fraud karne waale bhi ise nishaana banaate hain.
+         EN: OTPs are very useful, but fraudsters target them too.
+  05:35  सबसे Common तरीका है, Call करके OTP माँगना।
+         Sabse common tareeka hai, call karke OTP maangna.
+         EN: The most common trick is to call and ask for your OTP.
+  05:38  कोई खुद को Bank, Delivery या KYC Team का बताकर, OTP Share करने को कहता है।
+         Koi khud ko bank, delivery ya KYC team ka batakar, OTP share karne ko kehta hai.
+         EN: Someone pretends to be from the bank, a delivery company or a KYC team, and asks you to share the OTP.
+  05:43  याद रखिए, Bank कभी भी Call या Message करके आपका OTP नहीं माँगता।
+         Yaad rakhiye, bank kabhi bhi call ya message karke aapka OTP nahi maangta.
+         EN: Remember, a bank never asks for your OTP by call or message.
+  05:48  दूसरा तरीका है Fake Link, जहाँ एक नकली Website आपसे OTP डलवाती है।
+         Doosra tareeka hai fake link, jahan ek nakli website aapse OTP dalwaati hai.
+         EN: The second trick is a fake link, where a fake website gets you to enter your OTP.
+  05:53  तीसरा तरीका है SIM Swap, जिसमें धोखे से आपके Number की नई SIM निकलवाई जाती है।
+         Teesra tareeka hai SIM swap, jismein dhokhe se aapke number ki nayi SIM nikalwaai jaati hai.
+         EN: The third trick is SIM swap, where a new SIM for your number is obtained by deception.
+  05:57  ऐसे में आपके OTP, Fraud करने वाले के Phone पर जाने लगते हैं।
+         Aise mein aapke OTP, fraud karne waale ke phone par jaane lagte hain.
+         EN: Then your OTPs start going to the fraudster's phone.
+  06:01  अगर अचानक आपके Phone का Network चला जाए, और कोई वजह न दिखे, तो तुरंत अपने Operator से Contact करें।
+         Agar achaanak aapke phone ka network chala jaaye, aur koi wajah na dikhe, to turant apne operator se contact karein.
+         EN: If your phone's network suddenly disappears for no clear reason, contact your operator right away.
+  06:09  Screen Share वाले Apps से भी, Fraud करने वाले आपका OTP देख सकते हैं।
+         Screen share waale apps se bhi, fraud karne waale aapka OTP dekh sakte hain.
+         EN: Fraudsters can also see your OTP through screen-sharing apps.
+  06:13  इसलिए किसी अनजान के कहने पर, कोई Remote Access App Install मत कीजिए।
+         Isliye kisi anjaan ke kehne par, koi remote access app install mat kijiye.
+         EN: So never install a remote-access app just because a stranger asked you to.
+  06:18  कुछ लोग Internet पर Fake Customer Care Number भी डाल देते हैं, इसलिए Number हमेशा Official Website से ही लें।
+         Kuch log internet par fake customer care number bhi daal dete hain, isliye number hamesha official website se hi lein.
+         EN: Some people even post fake customer care numbers online, so always take numbers from the official website.
+
+[06:25]  S9 · OTP SAFETY TIPS
+
+  06:25  अब कुछ आसान Safety Tips।
+         Ab kuch aasaan safety tips.
+         EN: Now a few simple safety tips.
+  06:27  OTP कभी किसी के साथ Share मत कीजिए, चाहे सामने वाला कोई भी हो।
+         OTP kabhi kisi ke saath share mat kijiye, chahe saamne waala koi bhi ho.
+         EN: Never share your OTP with anyone, whoever they may be.
+  06:32  OTP SMS को ध्यान से पढ़िए, उसमें Amount और Merchant का नाम Check कीजिए।
+         OTP SMS ko dhyaan se padhiye, usmein amount aur merchant ka naam check kijiye.
+         EN: Read the OTP SMS carefully, and check the amount and the merchant's name.
+  06:37  अगर आपने कोई Transaction शुरू ही नहीं किया, और OTP आया है, तो उसे Ignore कीजिए, और Bank को बताइए।
+         Agar aapne koi transaction shuru hi nahi kiya, aur OTP aaya hai, to use ignore kijiye, aur bank ko bataiye.
+         EN: If you didn't start any transaction and an OTP arrives, ignore it and tell your bank.
+  06:45  Phone में Screen Lock रखिए, ताकि Notification में दिखने वाला OTP कोई और न पढ़ सके।
+         Phone mein screen lock rakhiye, taaki notification mein dikhne waala OTP koi aur na padh sake.
+         EN: Keep a screen lock on your phone, so no one else can read the OTP shown in a notification.
+  06:50  अपने Bank Account में, Registered Mobile Number हमेशा Updated रखिए।
+         Apne bank account mein, registered mobile number hamesha updated rakhiye.
+         EN: Always keep your registered mobile number updated with your bank.
+  06:54  जहाँ Option हो, Important Accounts में Authenticator App वाला Two-Factor भी On कर सकते हैं।
+         Jahan option ho, important accounts mein authenticator app waala two-factor bhi on kar sakte hain.
+         EN: Where the option exists, you can also turn on authenticator-app two-factor for important accounts.
+  06:59  और Fraud होने पर, तुरंत Bank को बताइए, और Cyber Crime Helpline 1930 पर Call कीजिए।
+         Aur fraud hone par, turant bank ko bataiye, aur Cyber Crime Helpline 1930 par call kijiye.
+         EN: And if fraud happens, tell your bank immediately and call the Cyber Crime Helpline, 1930.
+  07:06  और Bank की तरफ़ से आने वाले Alerts को, कभी Off मत कीजिए।
+         Aur bank ki taraf se aane waale alerts ko, kabhi off mat kijiye.
+         EN: And never turn off the alerts from your bank.
+
+[07:10]  S10 · THE FUTURE & SUMMARY
+
+  07:11  आगे चलकर, Login के और भी नए तरीके आ रहे हैं।
+         Aage chalkar, login ke aur bhi naye tareeke aa rahe hain.
+         EN: In the future, even newer ways to log in are coming.
+  07:14  जैसे Passkeys और Biometric Login, जिनमें Fingerprint या Face से Verification होता है।
+         Jaise passkeys aur biometric login, jinmein fingerprint ya face se verification hota hai.
+         EN: Like passkeys and biometric login, where verification is done with a fingerprint or face.
+  07:21  Passkeys में, Fake Website पर Login करवाना बहुत मुश्किल हो जाता है।
+         Passkeys mein, fake website par login karwana bahut mushkil ho jaata hai.
+         EN: With passkeys, it becomes very hard to trick you into logging in on a fake website.
+  07:25  लेकिन आज भी, OTP Security की एक Important Layer है।
+         Lekin aaj bhi, OTP security ki ek important layer hai.
+         EN: But even today, OTP is an important layer of security.
+  07:28  तो Recap करें, Server एक Random OTP बनाता है, और उसे Expiry के साथ Save करता है।
+         To recap karein, server ek random OTP banata hai, aur use expiry ke saath save karta hai.
+         EN: So, to recap: the server creates a random OTP and saves it with an expiry time.
+  07:35  SMS Gateway और Telecom Network, उसे आपके Phone तक पहुँचाते हैं।
+         SMS gateway aur telecom network, use aapke phone tak pahunchaate hain.
+         EN: The SMS gateway and the telecom network deliver it to your phone.
+  07:39  आप OTP Enter करते हैं, Server उसे Check करता है, और Approve कर देता है।
+         Aap OTP enter karte hain, server use check karta hai, aur approve kar deta hai.
+         EN: You enter the OTP, the server checks it, and approves it.
+  07:44  अगर आपको Technology के पीछे के ऐसे Systems समझना अच्छा लगता है, तो Video को Like कीजिए, और Channel को Subscribe कीजिए।
+         Agar aapko technology ke peeche ke aise systems samajhna achha lagta hai, to video ko like kijiye, aur channel ko subscribe kijiye.
+         EN: If you enjoy understanding the systems behind technology, please like this video and subscribe to the channel.
+  07:51  मिलते हैं अगले Video में। Thank you!
+         Milte hain agle video mein. Thank you!
+         EN: See you in the next video. Thank you!

@@ -1,0 +1,192 @@
+==================================================================
+ YOUTUBE UPLOAD DETAILS – OTP कैसे काम करता है?
+ (Hindi • Hinglish • English)
+==================================================================
+
+YouTube Studio → "Test & Compare" में 3 थंबनेल एक साथ test करें।
+हर थंबनेल के साथ उससे मेल खाता title नीचे दिया है।
+Video language = Hindi रखें। English title/description "Languages" में अलग से डालें।
+
+
+##################################################################
+ PART 1 – HINDI (Main – वीडियो की language Hindi है)
+##################################################################
+
+------------------------------------------------------------------
+1) 3 TITLES (थंबनेल के साथ जोड़ी में)
+------------------------------------------------------------------
+[A]  otp-kaise-kaam-karta-hai-sms-server-thumbnail-a.jpg  –  "OTP कैसे काम करता है?"
+     OTP कैसे काम करता है? | 6 Digit Code कहाँ से आता है – पूरी जानकारी हिंदी में (2026)
+
+[B]  otp-fraud-se-kaise-bache-thumbnail-b.jpg  –  "OTP Fraud से कैसे बचें?"
+     OTP Fraud से कैसे बचें? Fake Call, Fake Link, SIM Swap | OTP कैसे काम करता है
+
+[C]  otp-code-kahan-se-aata-hai-totp-thumbnail-c.jpg  –  "6 Digit का Code कहाँ से आता है?"
+     6 Digit का OTP Code कहाँ से आता है? Server, SMS Gateway, TOTP Explained in Hindi
+
+(Chapters title में नहीं – title लंबा होकर mobile पर कट जाता है। Chapters description में हैं।)
+
+------------------------------------------------------------------
+2) DESCRIPTION (पूरा copy-paste करें)
+------------------------------------------------------------------
+OTP कैसे काम करता है? 🔐 Online payment या login करते ही phone पर 6-digit code आता है, और डालते ही payment confirm हो जाता है – लेकिन ये code बनता कहाँ है, आपके phone तक कैसे पहुँचता है, और bank को कैसे पता चलता है कि code सही है? इस वीडियो में आसान Hinglish में समझिए: Server पर Random OTP कैसे बनता है, Hash क्या होता है, SMS Gateway और Telecom Network OTP को phone तक कैसे पहुँचाते हैं, Bank OTP को कैसे verify करता है, Authenticator App वाला TOTP बिना internet के कैसे काम करता है – और OTP Fraud (fake call, fake link, SIM swap) से कैसे बचें।
+
+इस वीडियो में आप सीखेंगे:
+✅ OTP क्या है – One-Time Password और Two-Factor Authentication
+✅ OTP System के Main Parts – App, Auth Server, SMS Gateway, Telecom Operator, Phone
+✅ OTP कैसे बनता है – Random Number, 10 लाख combinations, Hash, Expiry
+✅ OTP आपके Phone तक कैसे पहुँचता है – SMS Center, Sender ID, Autofill
+✅ Bank OTP कैसे check करता है – Expiry, Attempts limit, एक बार ही use
+✅ Authenticator App (TOTP) कैसे काम करता है
+✅ OTP Fraud कैसे होता है – Fake call, Fake link, SIM swap, Screen-share apps
+✅ OTP Safety Tips और Cyber Crime Helpline 1930
+✅ Future: Passkeys और Biometric Login
+
+⏱️ Chapters
+0:00 Introduction – 6 Digit का Code
+0:30 OTP क्या है?
+1:15 OTP System के Main Parts
+1:51 OTP कैसे बनता है?
+2:49 OTP आपके Phone तक कैसे पहुँचता है?
+3:38 Bank OTP कैसे Check करता है?
+4:34 Authenticator App OTP (TOTP)
+5:30 OTP Fraud कैसे होता है?
+6:25 OTP Safety Tips
+7:10 Future और Summary
+
+❓ अक्सर पूछे जाने वाले सवाल (FAQ)
+Q. OTP ka full form kya hai?
+A. One-Time Password – ऐसा password जो सिर्फ़ एक बार और कुछ minutes के लिए काम करता है।
+
+Q. OTP kaise banta hai?
+A. Bank/Company का Server एक Random Number बनाता है, उसे user, transaction और expiry के साथ save करता है (अक्सर Hash के रूप में), और SMS से भेजता है।
+
+Q. Kya bank OTP maangta hai?
+A. नहीं। Bank कभी भी call या message करके आपका OTP नहीं माँगता। OTP किसी के साथ share न करें।
+
+Q. OTP nahi aa raha to kya kare?
+A. Network busy या roaming में देर हो सकती है – कुछ seconds बाद "Resend OTP" करें।
+
+Q. Fraud ho jaye to kya kare?
+A. तुरंत अपने Bank को बताइए और Cyber Crime Helpline 1930 पर call कीजिए।
+
+👍 अगर आपको ये video अच्छा लगा हो, तो please इसे like और share, और channel को subscribe कीजिए। Thank you!
+
+📌 Note:
+- यह एक educational explainer video है। इस channel का किसी Bank, App या Telecom company से कोई संबंध नहीं है।
+- वीडियो में दिखाए गए नाम (SBK Bank, Kiran Electronics, VM-SBKBNK), OTP, नंबर और messages सिर्फ़ समझाने के लिए बनाए गए काल्पनिक examples हैं।
+- असली systems में steps थोड़े अलग हो सकते हैं – ये simplified explanation है।
+- इस वीडियो का voiceover मेरी अपनी आवाज़ के AI voice clone से बनाया गया है।
+
+#OTP #CyberSafety #TechHindi
+
+
+##################################################################
+ PART 2 – HINGLISH (Roman script – title test / Shorts / Community post)
+##################################################################
+
+TITLES
+[A] OTP Kaise Kaam Karta Hai? | 6 Digit Code Kahan Se Aata Hai – Full Explained
+[B] OTP Fraud Se Kaise Bachein? Fake Call, Fake Link, SIM Swap | OTP Explained
+[C] 6 Digit OTP Code Kahan Se Aata Hai? Server, SMS Gateway, TOTP Explained in Hindi
+
+DESCRIPTION
+OTP kaise kaam karta hai? 🔐 Online payment ya login karte hi phone par 6-digit code aata hai – lekin ye code banta kahan hai, phone tak kaise pahunchta hai, aur bank ko kaise pata chalta hai ki code sahi hai? Is video mein aasaan Hinglish mein samjhiye: server par random OTP kaise banta hai, hash kya hota hai, SMS gateway aur telecom network OTP ko phone tak kaise pahunchaate hain, bank OTP ko kaise verify karta hai, authenticator app waala TOTP bina internet ke kaise kaam karta hai – aur OTP fraud se kaise bachein.
+
+Chapters
+0:00 Introduction – 6 digit ka code
+0:30 OTP kya hai?
+1:15 OTP system ke main parts
+1:51 OTP kaise banta hai?
+2:49 OTP phone tak kaise pahunchta hai?
+3:38 Bank OTP kaise check karta hai?
+4:34 Authenticator app OTP (TOTP)
+5:30 OTP fraud kaise hota hai?
+6:25 OTP safety tips
+7:10 Future aur summary
+
+Agar aapko ye video achha laga ho, to please ise like aur share, aur channel ko subscribe kijiye. Thank you!
+(Note: Video mein dikhaye gaye naam, OTP aur messages sirf examples hain. Voiceover meri apni awaaz ke AI voice clone se banaya gaya hai.)
+
+
+##################################################################
+ PART 3 – ENGLISH (Studio → Languages → Add language → English → "Title & description")
+##################################################################
+
+TITLE
+How OTP Really Works | Where the 6-Digit Code Comes From – OTP Explained
+
+DESCRIPTION
+How does an OTP work? 🔐 You pay online or log in, a 6-digit code arrives on your phone, and the moment you enter it the payment is confirmed – but where is that code made, how does it reach your phone, and how does the bank know it's right? In this animated explainer: how the server creates a random OTP, what a hash is, how the SMS gateway and telecom network deliver it, how the bank verifies it, how authenticator-app codes (TOTP) work offline – and how to stay safe from OTP fraud.
+
+In this video you will learn:
+✅ What an OTP is – one-time passwords and two-factor authentication
+✅ The main parts – app, auth server, SMS gateway, telecom operator, phone
+✅ How an OTP is created – random numbers, one million combinations, hashing, expiry
+✅ How it reaches your phone – SMS center, sender ID, autofill
+✅ How the bank checks it – expiry, limited attempts, single use
+✅ How authenticator apps (TOTP) work
+✅ How OTP fraud happens – fake calls, fake links, SIM swap, screen-share apps
+✅ OTP safety tips (India Cyber Crime Helpline: 1930)
+✅ The future: passkeys and biometric login
+
+⏱️ Chapters
+0:00 Introduction – The 6-digit code
+0:30 What is an OTP?
+1:15 The main parts
+1:51 How an OTP is created
+2:49 How it reaches your phone
+3:38 How the bank checks it
+4:34 Authenticator app OTP (TOTP)
+5:30 How OTP fraud happens
+6:25 OTP safety tips
+7:10 The future & summary
+
+👍 If you enjoyed this video, please like and share it, and subscribe to the channel. Thank you!
+
+📌 Note:
+- This is an educational explainer. This channel is not affiliated with any bank, app or telecom company.
+- Names (SBK Bank, Kiran Electronics, VM-SBKBNK), codes, numbers and messages shown are fictional examples.
+- Real systems may differ in details – this is a simplified explanation.
+- The voiceover was created with an AI clone of my own voice.
+
+#OTP #CyberSafety #TechExplained
+
+
+##################################################################
+ TAGS (Studio के "Tags" box में paste करें – 500 characters के अंदर)
+##################################################################
+otp kaise kaam karta hai, how otp works, otp explained, otp kya hai, otp full form, one time password, otp in hindi, otp fraud se kaise bache, otp fraud, sim swap fraud, otp kaise banta hai, totp kya hai, authenticator app, two factor authentication, sms otp, otp nahi aa raha, cyber crime helpline 1930, cyber safety hindi, online payment otp, tech hindi
+
+
+##################################################################
+ HASHTAGS (description के आख़िर में पहले से जोड़ दिए हैं)
+##################################################################
+#OTP #CyberSafety #TechHindi
+(Extra, चाहें तो: #OnlineSafety #TechExplained #SIMSwap)
+
+
+##################################################################
+ UPLOAD CHECKLIST
+##################################################################
+[ ] Video file: otp-kaise-kaam-karta-hai-how-otp-works-one-time-password-hindi.mp4  (1920x1080, 30fps, 8:00)
+[ ] Thumbnails: ...-thumbnail-a / b / c.jpg (1280x720, हर एक 2MB से कम) → "Test & Compare" में तीनों डालें
+[ ] Title, Description, Tags: PART 1 (Hindi) से copy करें
+[ ] Languages → Add language → English → Title & description: PART 3 (English) paste करें
+[ ] Languages → English → Dub: 02-how-otp-works-english-dub-pack.zip की how-otp-works-english-dub-audio.wav upload करें
+[ ] Subtitles (Studio → Subtitles):
+      Hindi    → otp-kaise-kaam-karta-hai-hindi-subtitles.srt      ("With timing")
+      English  → how-otp-works-english-subtitles.srt               ("With timing")
+      Hinglish → otp-kaise-kaam-karta-hai-hinglish-subtitles.srt   → Language: "Hindi (Latin)" ("With timing")
+[ ] "Altered or synthetic content" → YES (voiceover AI voice clone है – ज़रूरी disclosure, इससे monetization नहीं रुकता)
+[ ] Audience: "No, it's not made for kids"
+[ ] Category: Education (या Science & Technology)
+[ ] Video language: Hindi
+[ ] Chapters अपने आप बन जाएँगे (description के timestamps से)
+[ ] End screen (आख़िरी 20 सेकंड): subscribe button + UPI / FASTag वीडियो (Digital Payment playlist)
+
+💡 Ranking tips:
+- UPI, FASTag और OTP को एक "Digital Payment & Safety" playlist में रखें।
+- पहले 24–48 घंटे में video को WhatsApp/Instagram/community पर share करें।
+- Pinned comment में पूछें: "क्या आपके पास कभी OTP माँगने वाली fraud call आई है? Comment में बताइए।"
+- Test & Compare का result आने तक थंबनेल न बदलें।
