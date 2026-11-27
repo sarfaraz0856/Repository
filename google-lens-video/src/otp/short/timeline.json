@@ -1,0 +1,98 @@
+{
+ "fps": 30,
+ "durationInFrames": 1385,
+ "cues": [
+  {
+   "id": "s1_1",
+   "file": "otp/vo/s1_1.wav",
+   "text": "Imagine कीजिए, आप Online Payment कर रहे हैं, और Pay पर Tap करते ही आपके Phone पर एक SMS आता है।",
+   "from": 15,
+   "dur": 183
+  },
+  {
+   "id": "s1_2",
+   "file": "otp/vo/s1_2.wav",
+   "text": "उसमें एक 6-digit Code है, जो सिर्फ़ कुछ minutes के लिए Valid है।",
+   "from": 207,
+   "dur": 102
+  },
+  {
+   "id": "s4_2",
+   "file": "otp/vo/s4_2.wav",
+   "text": "जब आप Pay या Login पर Tap करते हैं, तो Server एक Random Number बनाता है।",
+   "from": 327,
+   "dur": 153
+  },
+  {
+   "id": "s5_2",
+   "file": "otp/vo/s5_2.wav",
+   "text": "Server, OTP वाला Message एक SMS Gateway को भेजता है।",
+   "from": 497,
+   "dur": 96
+  },
+  {
+   "id": "s5_3",
+   "file": "otp/vo/s5_3.wav",
+   "text": "SMS Gateway इस Message को आपके Telecom Operator के Network तक पहुँचाता है।",
+   "from": 602,
+   "dur": 120
+  },
+  {
+   "id": "s6_3",
+   "file": "otp/vo/s6_3.wav",
+   "text": "Server Check करता है कि OTP सही है या नहीं।",
+   "from": 739,
+   "dur": 82
+  },
+  {
+   "id": "s6_4",
+   "file": "otp/vo/s6_4.wav",
+   "text": "साथ ही ये भी देखता है कि OTP Expire तो नहीं हुआ, और पहले use तो नहीं हुआ।",
+   "from": 831,
+   "dur": 133
+  },
+  {
+   "id": "s8_4",
+   "file": "otp/vo/s8_4.wav",
+   "text": "याद रखिए, Bank कभी भी Call या Message करके आपका OTP नहीं माँगता।",
+   "from": 981,
+   "dur": 118
+  },
+  {
+   "id": "s9_2",
+   "file": "otp/vo/s9_2.wav",
+   "text": "OTP कभी किसी के साथ Share मत कीजिए, चाहे सामने वाला कोई भी हो।",
+   "from": 1116,
+   "dur": 129
+  },
+  {
+   "id": "cta",
+   "file": "otp/short/cta.wav",
+   "text": "पूरा Process समझने के लिए, Full Video ज़रूर देखिए।",
+   "from": 1254,
+   "dur": 83
+  }
+ ],
+ "beats": {
+  "tap": 121,
+  "sms": 177,
+  "code": 234,
+  "timer": 271,
+  "make": 327,
+  "random": 431,
+  "route": 497,
+  "gw": 556,
+  "op": 665,
+  "net": 685,
+  "check": 739,
+  "expire": 884,
+  "used": 926,
+  "type": 729,
+  "ok": 958,
+  "warn": 981,
+  "never": 1009,
+  "share": 1116,
+  "cta": 1254,
+  "end": 1385
+ }
+}

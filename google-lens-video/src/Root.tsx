@@ -11,6 +11,8 @@ import {FT} from './upi/full/tl';
 import {FastagSample} from './fastag/FastagSample';
 import {OtpSample} from './otp/OtpSample';
 import {OtpFull} from './otp/full/OtpFull';
+import {OtpShort} from './otp/short/OtpShort';
+import OST from './otp/short/timeline.json';
 import {OtpThumbA, OtpThumbB, OtpThumbC, OtpThumbEN} from './otp/thumb/OtpThumb';
 import {FT as OFT} from './otp/full/tl';
 import {FastagFull} from './fastag/full/FastagFull';
@@ -46,6 +48,7 @@ export const RemotionRoot: React.FC = () => (
   <Composition id="OtpThumbC" component={OtpThumbC} durationInFrames={1} fps={FPS} width={1280} height={720} />
   <Composition id="OtpThumbEN" component={OtpThumbEN} durationInFrames={1} fps={FPS} width={1280} height={720} />
   <Composition id="OtpSample" component={OtpSample} durationInFrames={900} fps={FPS} width={WIDTH} height={HEIGHT} />
+  <Composition id="OtpShort" component={OtpShort} durationInFrames={OST.durationInFrames} fps={FPS} width={1080} height={1920} />
   <Composition id="FastagSample" component={FastagSample} durationInFrames={900} fps={FPS} width={WIDTH} height={HEIGHT} />
   <Composition id="UPIThumbA" component={UPIThumbA} durationInFrames={1} fps={FPS} width={1280} height={720} />
   <Composition id="UPIThumbB" component={UPIThumbB} durationInFrames={1} fps={FPS} width={1280} height={720} />
