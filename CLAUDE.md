@@ -7,7 +7,7 @@
 - Shorts: start each Short at #1 (it is a standalone video); add a short spoken intro about the topic and end with a call to watch the full video (link below).
 - Shorts: show the thumbnail/intro card only for the first 1.3 seconds (fade out 1.0–1.3 s), then the real video screen (voice intro continues over the video).
 - Give title, description and tags together in ONE .txt file (e.g. <seo-name>-title-description-tags.txt). Each zip contains everything: video, thumbnail, .srt and that one .txt.
-- Brother-voice (F5) lines: avoid commas mid-phrase (they cause stalls); generate several takes and pick by ASR + internal pause check.
+- Brother-voice (F5) lines: avoid commas mid-phrase (they cause stalls); do not start a line with "तो" (F5 often repeats it: "तो तो"), start with "अब/और/फिर" instead; generate several takes and pick by ASR + internal pause check; always run timestamped ASR on the FINAL full video audio before delivering, to catch repeated words.
 - Do NOT say in the video narration that we are using / making it in Microsoft 365 (no "Microsoft 365" mention in the voice).
 - English dub zip: always include English subtitles (.srt in English) along with the dub WAV, thumbnail and text.
 - Long (full) videos: the normal Hindi zip must include THREE subtitle files: -hindi.srt (Devanagari), -hinglish.srt (Roman Hindi) and -english.srt.
