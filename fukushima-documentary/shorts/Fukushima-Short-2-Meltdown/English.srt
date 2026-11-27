@@ -1,0 +1,40 @@
+1
+00:00:00,300 --> 00:00:02,830
+Even a shut-down reactor can melt.
+
+2
+00:00:02,880 --> 00:00:06,250
+After the power was lost, the water in the reactor began to boil.
+
+3
+00:00:06,300 --> 00:00:09,850
+The water kept falling, and the fuel rods were left exposed.
+
+4
+00:00:09,900 --> 00:00:12,790
+The temperature went above 2,000 degrees.
+
+5
+00:00:12,840 --> 00:00:16,150
+The fuel melted and collected at the bottom of the reactor.
+
+6
+00:00:16,200 --> 00:00:20,390
+At the same time, hydrogen gas formed and filled up under the roof.
+
+7
+00:00:20,440 --> 00:00:25,830
+On 12 March, unit 1 exploded. Then units 3 and 4.
+
+8
+00:00:25,880 --> 00:00:27,770
+Three reactors had melted down.
+
+9
+00:00:27,820 --> 00:00:31,710
+It was rated a level 7 accident, the same as Chernobyl.
+
+10
+00:00:31,760 --> 00:00:34,650
+For the full story, subscribe to the channel.
+
