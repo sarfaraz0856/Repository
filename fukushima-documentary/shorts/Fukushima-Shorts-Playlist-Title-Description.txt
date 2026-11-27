@@ -17,8 +17,8 @@ PLAYLIST SETTINGS
 ------------------------------------------------------------
 • Visibility: Public
 • Order: Manual, in this order:
-  1. Fukushima-Short-1-The-Wave
-  2. Fukushima-Short-2-Meltdown
-  3. Fukushima-Short-3-Fukushima-50
-  4. Fukushima-Short-4-The-Sign
+  1. Short-11-Fukushima-The-Wave
+  2. Short-12-Fukushima-Meltdown
+  3. Short-13-Fukushima-50
+  4. Short-14-Fukushima-The-Sign
 • Add the full Fukushima documentary at the top of the playlist.
