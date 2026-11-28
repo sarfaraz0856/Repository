@@ -1,0 +1,158 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+html{--bg:#F7E7CE}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);font-family:Roboto,"Segoe UI",Inter,system-ui,Arial,"Noto Color Emoji",sans-serif}
+#bg{position:absolute;inset:0;background:radial-gradient(circle at 88% 10%,rgba(196,148,40,.20),transparent 40%),radial-gradient(circle at 40% 60%,rgba(201,150,40,.18),transparent 45%),linear-gradient(135deg,color-mix(in srgb,var(--bg) 40%,#fff) 0%,var(--bg) 70%)}
+#dots_bg{position:absolute;inset:0;background-image:radial-gradient(rgba(120,85,20,.09) 1.2px,transparent 1.3px);background-size:28px 28px}
+/* laptop */
+#lap{position:absolute;left:40px;top:34px;width:1292px}
+#lid{width:1292px;height:826px;border-radius:24px 24px 6px 6px;background:#0d0d10;padding:22px 16px 16px;box-shadow:0 0 0 2px #2b2b30,0 30px 70px rgba(40,30,10,.35)}
+#cam{position:absolute;left:646px;top:9px;width:7px;height:7px;margin-left:-3px;border-radius:50%;background:#2c3550}
+#screen{position:relative;width:1260px;height:788px;overflow:hidden;background:#fff;border-radius:3px}
+#scaler{position:absolute;left:0;top:0;width:1280px;height:800px;transform:scale(.984375);transform-origin:0 0}
+#content{position:absolute;inset:0}
+#base{position:relative;left:-60px;width:1412px;height:24px;border-radius:0 0 18px 18px;background:linear-gradient(180deg,#d9d9de,#9a9aa2);box-shadow:0 14px 30px rgba(40,30,10,.25)}
+#base:before{content:"";position:absolute;left:50%;top:0;width:180px;height:9px;margin-left:-90px;border-radius:0 0 10px 10px;background:#8a8a92}
+/* browser chrome */
+.tabs{position:absolute;left:0;right:0;top:0;height:40px;background:#dee3ea;display:flex;align-items:flex-end;padding-left:80px}
+.wbtn{position:absolute;left:16px;top:14px;display:flex;gap:8px}.wbtn i{width:12px;height:12px;border-radius:50%;display:block}
+.tab{height:32px;width:330px;white-space:nowrap;overflow:hidden;background:#fff;border-radius:10px 10px 0 0;display:flex;align-items:center;gap:8px;padding:0 12px;font-size:13px;color:#202124}
+.fav{width:16px;height:12px;border-radius:3px;background:#ff0000;flex:none;position:relative}.fav.g{background:#1a73e8}
+.toolbar{position:absolute;left:0;right:0;top:40px;height:44px;background:#fff;border-bottom:1px solid #e3e3e3;display:flex;align-items:center;gap:16px;padding:0 14px;color:#5f6368;font-size:17px}
+.url{flex:1;height:32px;border-radius:16px;background:#f1f3f4;display:flex;align-items:center;gap:10px;padding:0 16px;font-size:14px;color:#202124}
+.url b{font-weight:400;color:#5f6368}
+.pav{width:28px;height:28px;border-radius:50%;background:#7b1fa2;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.page{position:absolute;left:0;right:0;top:84px;bottom:0;opacity:0;overflow:hidden}
+/* studio */
+.shead{position:absolute;left:0;right:0;top:0;height:56px;border-bottom:1px solid #e5e5e5;display:flex;align-items:center;gap:18px;padding:0 20px;background:#fff}
+.slogo{display:flex;align-items:center;gap:6px;font-weight:700;font-size:20px;color:#0f0f0f;letter-spacing:-.5px}
+.ytl{width:30px;height:21px;border-radius:6px;background:#ff0000;display:inline-flex;align-items:center;justify-content:center}.ytl:after{content:"";border-left:8px solid #fff;border-top:5px solid transparent;border-bottom:5px solid transparent;margin-left:2px}
+.ssearch{margin-left:120px;width:520px;height:40px;border:1px solid #ccc;border-radius:4px;display:flex;align-items:center;padding:0 14px;color:#909090;font-size:14px}
+.createb{margin-left:auto;border:1px solid #ccc;border-radius:4px;padding:7px 14px;font-size:13px;font-weight:600;color:#0f0f0f;letter-spacing:.5px}
+.side{position:absolute;left:0;top:56px;bottom:0;width:240px;border-right:1px solid #e5e5e5;background:#fff}
+.slg{position:absolute;left:84px;top:24px;width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#d31027,#8a0b1c);color:#fff;font-weight:900;font-size:26px;display:flex;align-items:center;justify-content:center}
+.syc{position:absolute;left:0;right:0;top:108px;text-align:center;font-size:13px;color:#0f0f0f;font-weight:500}.syc small{display:block;color:#606060;font-weight:400;font-size:12px;margin-top:2px}
+.mi{position:absolute;left:0;right:0;height:44px;display:flex;align-items:center;gap:22px;padding-left:26px;font-size:15px;color:#0f0f0f}
+.mi i{font-style:normal;width:22px;text-align:center;color:#606060;font-size:17px}
+.mi.on{background:#f2f2f2;font-weight:600}.mi.on:before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:#ff0000}.mi.on i{color:#ff0000}
+.main{position:absolute;left:240px;right:0;top:56px;bottom:0;background:#f9f9f9;padding:24px 40px}
+.mt{font-size:26px;font-weight:600;color:#0f0f0f}
+.card{position:absolute;left:40px;right:40px;background:#fff;border:1px solid #e5e5e5;border-radius:10px}
+.dcard{position:absolute;top:80px;width:300px;height:250px;background:#fff;border:1px solid #e5e5e5;border-radius:10px;padding:18px;font-size:15px;color:#0f0f0f;font-weight:600}
+.dcard p{font-weight:400;color:#606060;font-size:13px;margin-top:10px;line-height:1.6}.dcard .big{font-size:34px;color:#0f0f0f;font-weight:500;margin-top:8px}
+.ypp{top:80px;height:130px;padding:20px 24px}.ypp b{font-size:18px;color:#0f0f0f}.ypp .ok{color:#188038;font-weight:600;font-size:14px;margin-top:4px;display:block}
+.ypp p{font-size:14px;color:#0f0f0f;margin-top:10px;line-height:1.6}
+.steps{top:226px;height:290px}
+.row{position:absolute;left:0;right:0;height:96px;border-bottom:1px solid #eee;display:flex;align-items:center;gap:18px;padding:0 24px;font-size:16px;color:#0f0f0f}
+.row small{display:block;font-size:13.5px;color:#606060;margin-top:3px}
+.stc{width:34px;height:34px;border-radius:50%;border:2px solid #5f6368;color:#202124;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex:none}
+.stc.ok2{border-color:#188038;background:#188038;color:#fff}
+.startb{margin-left:auto;background:#065fd4;color:#fff;border-radius:4px;padding:9px 22px;font-size:14px;font-weight:600;letter-spacing:.5px}
+.startb.done{background:#e6f4ea;color:#188038}
+.toast{position:absolute;left:24px;bottom:24px;background:#323232;color:#fff;border-radius:6px;padding:14px 20px;font-size:14px;opacity:0}
+/* google chooser */
+.gpage{background:#f0f4f9}
+.gcard{position:absolute;left:290px;top:70px;width:700px;height:470px;background:#fff;border-radius:28px;padding:40px}
+.gG{font-size:30px;font-weight:700;color:#1a73e8}
+.gct{font-size:32px;color:#202124;margin-top:18px}.gcs{font-size:15px;color:#444;margin-top:8px}
+.gr{position:absolute;left:40px;right:40px;height:66px;border-bottom:1px solid #e8eaed;display:flex;align-items:center;gap:16px;font-size:15px;color:#202124}
+.gr small{color:#5f6368;font-size:13px}
+.aav{width:36px;height:36px;border-radius:50%;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+/* adsense */
+.ahead{position:absolute;left:0;right:0;top:0;height:60px;border-bottom:1px solid #e5e5e5;display:flex;align-items:center;gap:8px;padding:0 24px;background:#fff}
+.alg{font-weight:800;font-size:22px;color:#1a73e8;letter-spacing:-.3px}.alg2{font-size:16px;color:#5f6368}
+.ah{position:absolute;left:340px;top:96px;font-size:28px;font-weight:600;color:#202124}
+.fld{position:absolute;left:340px;width:600px;height:58px;border:1px solid #bbb;border-radius:6px;padding:8px 14px;font-size:16px;color:#202124}
+.fld small{display:block;font-size:12px;color:#5f6368;margin-bottom:2px}
+.fld.ro{background:#f6f8fc}.fld.focus{border:2px solid #1a73e8}
+.fld .dd{position:absolute;right:16px;top:18px;font-style:normal;color:#5f6368}
+.ph{color:#9aa0a6}.grey{color:#9aa0a6}
+.caret{display:inline-block;width:2px;height:20px;background:#1a73e8;margin-left:1px;vertical-align:middle}
+.chk{position:absolute;left:340px;width:600px;display:flex;gap:12px;font-size:14.5px;color:#202124;align-items:center}
+.box{width:22px;height:22px;border:2px solid #5f6368;border-radius:4px;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;font-weight:800}
+.box.on{background:#1a73e8;border-color:#1a73e8}
+.btn{position:absolute;left:340px;width:180px;height:44px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600}
+.note{position:absolute;left:340px;width:600px;top:146px;background:#fef7e0;border-radius:6px;padding:10px 14px;font-size:14px;color:#5f4300}
+/* cursor & effects */
+#cursor{position:absolute;left:0;top:0;width:26px;height:26px;z-index:50;pointer-events:none;filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))}
+.ripple{position:absolute;border-radius:50%;border:3px solid #ffb300;opacity:0;z-index:49}
+.hl{position:absolute;border:3px solid #ffd400;border-radius:10px;box-shadow:0 0 0 5px rgba(255,212,0,.25);opacity:0;z-index:40}
+/* panel */
+#brand{position:absolute;left:1390px;top:60px;display:flex;align-items:center;gap:12px;color:#14141c;font-weight:800;font-size:22px}
+#brand .lg{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#d31027,#6c2bd9);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px}
+#panel{position:absolute;left:1390px;top:0;width:500px;height:880px;color:#14141c}
+#pwrap{position:absolute;left:0;right:0;top:140px}
+.kick{display:inline-block;font-size:22px;font-weight:900;letter-spacing:2px;background:#ff0033;color:#fff;padding:5px 14px;border-radius:9px}
+.ptitle{font-size:46px;font-weight:900;line-height:1.08;margin-top:20px}
+.psub{font-size:26px;font-weight:500;color:#45455a;margin-top:16px;line-height:1.35}
+.y{color:#e0002b}
+.bul{display:flex;gap:12px;align-items:flex-start;font-size:24px;font-weight:600;margin-top:14px;opacity:0}
+.bul i{flex:none;width:30px;height:30px;border-radius:50%;background:#1fb866;color:#fff;font-style:normal;font-size:17px;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.bul.neg i{background:#e0002b}
+#pb{margin-top:8px}
+#cap{position:absolute;left:40px;top:912px;width:1840px;min-height:96px;background:#14141c;border-radius:18px;padding:20px 34px;color:#fff;font-size:32px;font-weight:600;line-height:1.3;display:flex;align-items:center;box-shadow:0 14px 34px rgba(20,20,40,.25)}
+#note{position:absolute;left:44px;top:1032px;color:#7a7a8c;font-size:17px}
+.conf{position:absolute;width:14px;height:22px;border-radius:3px;opacity:0}
+#confw{position:absolute;left:0;top:0;width:500px;height:880px;overflow:hidden}
+#fade{position:absolute;inset:0;background:#000;opacity:1;z-index:100}
+</style></head><body>
+<div id="bg"></div><div id="dots_bg"></div>
+<div id="lap"><div id="lid"><span id="cam"></span><div id="screen"><div id="scaler"><div id="content">
+ <div class="tabs"><div class="wbtn"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+  <div class="tab"><span class="fav" id="fav"></span><span id="tabt">Channel dashboard - YouTube Studio</span></div></div>
+ <div class="toolbar"><span>←</span><span>→</span><span>↻</span><div class="url">🔒 <span id="urlt"></span></div><span class="pav">R</span></div>
+
+ <div class="page" id="studio">
+  <div class="shead"><span style="font-size:20px">☰</span><span class="slogo"><span class="ytl"></span>Studio</span><div class="ssearch">🔍 &nbsp;Search across your channel</div><span class="createb">⊕ CREATE</span><span class="pav">R</span></div>
+  <div class="side"><div class="slg">SL</div><div class="syc">Your channel<small>Smart Learning Hindi</small></div>
+   <div id="menu"></div></div>
+  <div class="main">
+   <div id="dash"><div class="mt">Channel dashboard</div>
+    <div class="dcard" style="left:40px">Channel analytics<p>Current subscribers</p><div class="big">1,024</div><p>Watch time (hours) · Last 365 days<br><b style="color:#0f0f0f;font-size:16px">4,210</b></p></div>
+    <div class="dcard" style="left:360px">Latest video performance<p>Mobile Se YouTube Channel Kaise Banaye 2026</p><p>Views · 12.4K<br>Avg. view duration · 6:48</p></div>
+    <div class="dcard" style="left:680px">News<p>Your channel is eligible for the YouTube Partner Program. Go to Earn to apply.</p></div>
+   </div>
+   <div id="earnv"><div class="mt">Earn</div>
+    <div class="card ypp"><b>YouTube Partner Program</b><span class="ok">✓ You're eligible to apply</span><p>✓ 1,000 subscribers &nbsp;&nbsp; ✓ 4,000 public watch hours</p></div>
+    <div class="card steps">
+     <div class="row" style="top:0"><span class="stc ok2">✓</span><div><b>Review Partner Program terms</b><small>Done</small></div></div>
+     <div class="row" style="top:96px"><span class="stc" id="st2">2</span><div><b>Sign up for AdSense for YouTube</b><small>Link an AdSense account to get paid</small></div><span class="startb" id="startb">START</span></div>
+     <div class="row" style="top:192px;border:none"><span class="stc">3</span><div><b>Get reviewed</b><small id="st3s">Complete the steps above first</small></div></div>
+    </div></div>
+  </div>
+  <div class="toast" id="astoast">✓ AdSense account linked</div>
+ </div>
+
+ <div class="page gpage" id="gacct"><div class="gcard"><div class="gG">Google</div><div class="gct">Choose an account</div><div class="gcs">to continue to AdSense for YouTube</div>
+  <div class="gr" style="top:230px"><span class="aav" style="background:#7b1fa2">R</span><div><b>Rahul Sharma</b><br><small>rahul.sharma•••@gmail.com</small></div></div>
+  <div class="gr" style="top:300px"><span class="aav" style="background:#e8eaed;color:#444">+</span><div>Use another account</div></div></div></div>
+
+ <div class="page" id="ads1"><div class="ahead"><span class="alg">AdSense</span><span class="alg2">for YouTube</span></div>
+  <div class="ah">Let's get started</div>
+  <div class="fld ro" style="top:156px"><small>Your YouTube channel</small>youtube.com/@SmartLearningHindi</div>
+  <div class="fld" style="top:236px"><small>Country or territory</small><span id="v_country" class="grey">Select</span><i class="dd">▾</i></div>
+  <div class="chk" style="top:322px"><span class="box" id="agreebox"></span><span>I've read and agree to the AdSense for YouTube terms and conditions</span></div>
+  <div class="btn" style="top:388px" id="as1btn">Continue</div></div>
+
+ <div class="page" id="ads2"><div class="ahead"><span class="alg">AdSense</span><span class="alg2">for YouTube</span></div>
+  <div class="ah">Payee information</div>
+  <div class="note">Enter your name exactly as it appears on your bank account.</div>
+  <div class="fld ro" style="top:200px"><small>Account type</small>Individual<i class="dd">▾</i></div>
+  <div class="fld" style="top:272px" id="f_pname"><small>Name</small><span id="v_pname"></span><span class="caret" id="c_pname"></span><span class="ph" id="ph_pname">Full name</span></div>
+  <div class="fld" style="top:344px" id="f_paddr"><small>Address</small><span id="v_paddr"></span><span class="caret" id="c_paddr"></span><span class="ph" id="ph_paddr">Street address</span></div>
+  <div class="fld" style="top:416px;width:290px" id="f_pcity"><small>City</small><span id="v_pcity"></span><span class="caret" id="c_pcity"></span><span class="ph" id="ph_pcity">City</span></div>
+  <div class="fld" style="top:416px;left:650px;width:290px" id="f_ppin"><small>PIN code</small><span id="v_ppin"></span><span class="caret" id="c_ppin"></span><span class="ph" id="ph_ppin">PIN code</span></div>
+  <div class="btn" style="top:500px;background:#065fd4;color:#fff">Submit</div></div>
+
+ <div class="hl" id="hl"></div><div class="ripple" id="rip"></div>
+ <svg id="cursor" viewBox="0 0 26 26"><path d="M3 2 L3 21 L8 16 L11.5 24 L15 22.5 L11.5 14.8 L18.5 14.8 Z" fill="#fff" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/></svg>
+</div></div></div></div><div id="base"></div></div>
+
+<div id="brand"><div class="lg">SL</div>Smart Learning Hindi</div>
+<div id="panel"><div id="pwrap"><span class="kick" id="pk"></span><div class="ptitle" id="pt"></div><div class="psub" id="ps"></div><div id="pb"></div></div><div id="confw"></div></div>
+<div id="cap"><span id="captxt"></span></div>
+<div id="note">RECORDING GUIDE · Read the Hindi line shown below in your own voice</div>
+<div id="fade"></div>
+<script src="timeline_desk_guide.js"></script>
+<script src="engine_desk.js"></script>
+</body></html>

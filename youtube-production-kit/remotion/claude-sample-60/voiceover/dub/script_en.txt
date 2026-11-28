@@ -1,0 +1,85 @@
+If your video is only in Hindi, it mostly reaches people who understand Hindi.
+But if the same video can also be heard in English, new viewers around the world can watch it.
+And you don't need to upload a second video for this.
+With YouTube's multi-language audio feature, you can add an audio track in another language to the same video.
+Today I'll show you, step by step, how to dub your YouTube video in English.
+From translating the script, to making the English voice, syncing the audio, and uploading it in YouTube Studio.
+I just did this whole process for one of my own videos, so I'll show you the practical way.
+First, let's understand what multi-language audio is.
+Your video stays the same. Same link, same views, same comments.
+It just has more than one audio track inside, like one in Hindi and one in English.
+Viewers click the gear icon in the player, and choose their language under Audio track.
+And often, YouTube plays the right track automatically, based on the viewer's language.
+The benefit is that one video can reach viewers in many different countries.
+Now, one important thing. This feature isn't on every channel yet.
+YouTube is rolling it out gradually, to creators who have access to advanced features.
+To check, open Settings in YouTube Studio, then Channel, then Feature eligibility.
+See whether advanced features are on. If needed, start with phone verification.
+If you still don't see the option to add an audio track, the feature hasn't reached your channel yet.
+Even then, you can still add an English title, description and subtitles.
+So how do you make the dub? There are two ways.
+The first is YouTube's automatic dubbing, where YouTube itself creates the translated audio for you.
+It's available in twenty-seven languages, and those videos are labelled auto-dubbed.
+It's easy, but you don't get full control over the voice and translation.
+The second way is making your own dub, where you decide the script, the voice and the timing.
+Today we'll learn this second way, because it gives you full control over quality.
+Remember, if a language already has an auto dub, you need to delete it before uploading your own.
+Step one, translate your script into English.
+The easiest way is to give your Hindi script or subtitle file to Claude, or another AI tool.
+And ask it for a natural English translation of every line, not word by word.
+Here's a very important trick. Ask it to keep the English lines short and clear.
+English often runs longer than Hindi, and then it won't fit in the time of the Hindi line.
+So give the timing with every line, so the translation is written for that duration.
+Once you get the translation, read it yourself, and check technical words, names and numbers.
+The better the translation, the more natural the dub will sound.
+Step two, get the English voice ready.
+If your English is good, the best option is to record it in your own voice.
+Another option is a text-to-speech tool, where you paste the English script and get a voiceover.
+Some tools can also clone your own voice, so the English dub still sounds like you.
+But only clone your own voice, or someone else's with their permission.
+Make a separate file for each line, so if there's a mistake, you only redo that line.
+Then listen to every line carefully. Check for wrong or repeated words, or strange sounds at the end.
+My dub had mistakes like that in a few lines. I regenerated them, and then the audio was clean.
+Step three, sync the audio with the video. This is the most important step.
+Place each English line exactly where the Hindi line starts in the video.
+If an English line is longer than its slot, speed it up a little, or shorten the translation.
+But don't speed it up too much, or the voice will sound unnatural.
+Then add the same background music and sound effects as the original video.
+Because when a viewer picks the English track, the whole audio changes, not just the voice.
+The final audio must be exactly as long as the video, with loudness close to the original.
+Then export it as an audio file, like WAV or MP3. It shouldn't contain any video.
+Step four, now let's upload the dub to YouTube.
+Open YouTube Studio on a computer, and click Languages in the left menu.
+On some accounts, this option may be called Subtitles.
+Now choose the video you want to add the dub to.
+Click Add language, and select English.
+Now in the English row, click Add under Audio.
+Select your English audio file, and let the upload finish.
+After uploading, listen once in the preview to check the sync, then click Publish.
+That's it. Your video now has an English audio track.
+Step five, add an English title and description.
+In the same English row, click Add under Title and description.
+Write the title in English, using the words people actually search for in English.
+In the description, add an English summary, chapters and important links.
+This helps English viewers find your video in search, and see the title in their language.
+Then click Publish.
+Step six, add English subtitles too.
+In the English row, click Add under Subtitles, and choose Upload file.
+Select With timing, and upload your English SRT file.
+Subtitles help people who watch without sound understand the video too.
+And if you used an AI voice or a voice clone, answering Yes to the altered content question in the video details is the safe choice.
+Now let's check that everything works.
+Open your video, click the gear icon, choose English under Audio track, and listen to a few parts.
+Check the start, the middle and the end, to make sure the voice matches the screen.
+Now, some common mistakes to avoid.
+First, an audio file that's a different length from the video.
+Second, forgetting the background music in the English track, which makes the video feel empty.
+Third, adding music or content that isn't in the original audio. YouTube may even remove that track.
+And fourth, using the AI translation without reading it.
+So let's recap.
+First, check that your channel has multi-language audio, then translate the script.
+Then make the English voice, sync it with the video, and build the final audio with music.
+After that, add the English audio, title, description and subtitles in YouTube Studio.
+That's all it takes for one video to reach viewers in two languages.
+If this video helped, give it a like, and subscribe for more YouTube and AI tutorials.
+See you in the next video. Thank you!

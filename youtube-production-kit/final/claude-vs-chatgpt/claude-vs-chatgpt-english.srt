@@ -1,0 +1,140 @@
+1
+00:00:00,800 --> 00:00:09,657
+Claude or ChatGPT? Both are among the most popular AI assistants today, and both can do a lot.
+
+2
+00:00:10,107 --> 00:00:17,443
+But which one is better for your work? Studying, writing, coding or making images?
+
+3
+00:00:18,543 --> 00:00:25,549
+In this video we'll compare them in six rounds, and at the end I'll tell you who should pick which.
+
+4
+00:00:26,649 --> 00:00:33,974
+First, a quick intro. Claude is made by Anthropic, and ChatGPT by OpenAI.
+
+5
+00:00:34,424 --> 00:00:42,448
+With both you can chat, upload files and search the web, and both have memory and voice mode.
+
+6
+00:00:42,898 --> 00:00:50,050
+So both handle the basics well. The real difference shows in the plans, and in a few specific tasks.
+
+7
+00:00:51,150 --> 00:00:56,514
+Round one: price. Both have a free plan, so you can try both without paying.
+
+8
+00:00:56,964 --> 00:01:04,131
+ChatGPT also has a cheaper Go plan with higher limits than Free. It may include ads.
+
+9
+00:01:04,581 --> 00:01:14,699
+The main paid plan for both is about twenty dollars a month: Claude Pro and ChatGPT Plus. Claude Pro is a little cheaper on yearly billing.
+
+10
+00:01:15,149 --> 00:01:25,665
+For heavy use, both have bigger plans from one hundred to two hundred dollars. Always check the exact rupee price in your app, because taxes and offers keep changing.
+
+11
+00:01:26,765 --> 00:01:33,375
+Round two: writing. Emails, articles, scripts or assignments, both write well.
+
+12
+00:01:33,825 --> 00:01:41,270
+But many users and reviewers feel Claude's writing sounds more natural, and it follows long instructions carefully.
+
+13
+00:01:41,720 --> 00:01:50,583
+ChatGPT is fast and versatile, and great for short answers, ideas and brainstorming. A slight edge to Claude in this round.
+
+14
+00:01:51,683 --> 00:01:57,773
+Round three: coding. Both write code, explain it and find bugs.
+
+15
+00:01:58,223 --> 00:02:07,093
+Claude has Claude Code, which reads your project files and makes changes itself. In the last video we watched it fix a bug live.
+
+16
+00:02:07,543 --> 00:02:16,679
+ChatGPT also has a coding agent called Codex. Still, Claude is very popular with developers for coding, so this round also goes to Claude.
+
+17
+00:02:17,779 --> 00:02:25,948
+Round four: long documents. Say you have a hundred-page PDF, or a whole book.
+
+18
+00:02:26,398 --> 00:02:36,820
+Claude can read a very large amount of text at once, up to a million tokens on some models. So summaries and Q and A on long files work very well.
+
+19
+00:02:37,270 --> 00:02:43,956
+ChatGPT reads files too, but for very long documents Claude is ahead.
+
+20
+00:02:45,056 --> 00:02:49,945
+Round five: images and media. Here ChatGPT is clearly ahead.
+
+21
+00:02:50,395 --> 00:02:56,751
+ChatGPT can create images from text, like a thumbnail idea, a poster or an illustration.
+
+22
+00:02:57,201 --> 00:03:07,770
+Claude doesn't generate images itself right now. It can make diagrams, charts and small websites in Artifacts, but for images, pick ChatGPT.
+
+23
+00:03:08,870 --> 00:03:16,713
+Round six: extra features. ChatGPT has custom GPTs, small assistants set up for a specific job.
+
+24
+00:03:17,163 --> 00:03:27,072
+Claude has Projects, Artifacts, Connectors and Skills. Both also have features like projects, deep research and scheduled tasks.
+
+25
+00:03:27,522 --> 00:03:33,650
+For sheer variety of features ChatGPT is a little ahead, so this round goes to ChatGPT.
+
+26
+00:03:34,750 --> 00:03:41,041
+So let's see the score. Claude leads in writing, coding and long documents.
+
+27
+00:03:41,491 --> 00:03:51,147
+ChatGPT leads in images and features, and price is about even, with ChatGPT's cheaper Go plan giving it a small advantage.
+
+28
+00:03:52,247 --> 00:04:00,649
+Now the key question: which should you pick? If you're a student on a tight budget, start with the free plans of both.
+
+29
+00:04:01,099 --> 00:04:10,235
+If you write, code, or work with long files, Claude will suit you better.
+
+30
+00:04:10,685 --> 00:04:16,336
+If you need to make images, or want lots of features in one app, choose ChatGPT.
+
+31
+00:04:16,786 --> 00:04:24,333
+And if you're a content creator, many people use both: the script from Claude, the thumbnail idea from ChatGPT.
+
+32
+00:04:25,433 --> 00:04:32,832
+My tip: ask both the same question and compare the answers. Within a week you'll know which one you like.
+
+33
+00:04:33,282 --> 00:04:41,986
+And remember, AI can make mistakes, so check important information yourself, and never share passwords or private data.
+
+34
+00:04:43,086 --> 00:04:49,695
+To learn Claude from the start, watch my Claude AI Complete Guide series, link in the description.
+
+35
+00:04:50,145 --> 00:05:00,095
+Tell me in the comments which one you use, Claude or ChatGPT. If you liked the video, like and subscribe. See you in the next video. Thank you!
+

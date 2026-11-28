@@ -1,0 +1,207 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--cl:#ff8a5c;--gp:#5aa2ff;--y:#ffd400;--ink:#f4efe9;--mut:#b9b0a8;--card:rgba(255,255,255,.06);--line:rgba(255,255,255,.12)}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#0d0c10;color:var(--ink);font-family:Inter,Arial,sans-serif}
+#bg{position:absolute;inset:-200px;background:radial-gradient(circle at 25% 40%,rgba(217,119,87,.30),transparent 45%),radial-gradient(circle at 78% 60%,rgba(70,130,255,.24),transparent 45%),linear-gradient(135deg,#0c0c10,#17141a 60%,#1b1512)}
+#dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1.6px,transparent 1.7px);background-size:36px 36px}
+.scene{position:absolute;inset:0;opacity:0}
+.a{opacity:0;transform:translateY(26px)}
+.top{position:absolute;left:110px;top:80px;right:110px;display:flex;align-items:center;gap:22px}
+.rnd{background:var(--y);color:#141414;font-weight:900;font-size:34px;padding:10px 24px;border-radius:14px;letter-spacing:1px}
+.ttl{font-size:64px;font-weight:900;letter-spacing:-1px}
+.cols{position:absolute;left:110px;right:110px;top:230px;display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.col{background:var(--card);border:2px solid var(--line);border-radius:30px;padding:38px 44px;min-height:560px;position:relative}
+.col.cl{border-color:rgba(255,138,92,.55)} .col.gp{border-color:rgba(90,162,255,.55)}
+.nm{font-size:54px;font-weight:900;margin-bottom:26px}
+.cl .nm{color:var(--cl)} .gp .nm{color:var(--gp)}
+.pt{font-size:36px;line-height:1.3;margin:0 0 22px;padding-left:46px;position:relative;color:var(--ink)}
+.pt:before{content:"";position:absolute;left:4px;top:15px;width:18px;height:18px;border-radius:50%;background:currentColor;opacity:.5}
+.cl .pt:before{background:var(--cl);opacity:1} .gp .pt:before{background:var(--gp);opacity:1}
+.win{position:absolute;right:-18px;top:-30px;background:var(--y);color:#141414;font-weight:900;font-size:32px;padding:10px 22px;border-radius:14px;transform:rotate(4deg);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.col.won{box-shadow:0 0 0 4px var(--y),0 0 60px rgba(255,212,0,.25)}
+.note{position:absolute;left:110px;right:110px;bottom:70px;text-align:center;font-size:32px;color:var(--mut)}
+/* intro */
+.hero{position:absolute;left:0;right:0;top:300px;text-align:center}
+.hero h1{font-size:180px;font-weight:900;letter-spacing:-5px;line-height:1}
+.hero .vs{display:inline-block;margin:0 30px;color:#fff;background:#e0002b;font-size:90px;padding:6px 30px;border-radius:24px;vertical-align:middle;transform:rotate(-4deg)}
+.chips{display:flex;justify-content:center;gap:24px;margin-top:70px}
+.chip{background:#fff;color:#151515;font-weight:900;font-size:44px;padding:14px 34px;border-radius:18px}
+.chip:nth-child(odd){background:var(--y)}
+.rounds{position:absolute;left:160px;right:160px;top:250px;display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.rc{background:var(--card);border:2px solid var(--line);border-radius:24px;padding:34px;font-size:44px;font-weight:800}
+.rc b{display:block;color:var(--y);font-size:30px;letter-spacing:2px;margin-bottom:10px}
+/* tables */
+.tbl{position:absolute;left:110px;right:110px;top:230px;border-radius:28px;overflow:hidden;border:2px solid var(--line)}
+.tr{display:grid;grid-template-columns:1.1fr 1fr 1fr;border-top:2px solid var(--line);background:var(--card)}
+.tr:first-child{border-top:0;background:rgba(255,255,255,.1)}
+.tr div{padding:26px 34px;font-size:36px;line-height:1.25}
+.tr div:first-child{font-weight:800;color:var(--mut)}
+.th div{font-size:44px;font-weight:900}
+.ok{color:#3ee07a;font-weight:900}
+.small{font-size:26px;color:var(--mut);display:block;margin-top:6px}
+/* score */
+.sc .tr{grid-template-columns:1.4fr 1fr 1fr}
+.sc .tr div{padding:18px 34px}
+.dot{display:inline-block;padding:6px 22px;border-radius:12px;font-weight:900;font-size:32px}
+.dcl{background:var(--cl);color:#1a1a1a}.dgp{background:var(--gp);color:#0d1a33}.deq{background:#555;color:#fff}
+/* verdict */
+.grid4{position:absolute;left:110px;right:110px;top:230px;display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.pc{background:var(--card);border:2px solid var(--line);border-radius:28px;padding:34px 40px;min-height:300px}
+.pc .who{font-size:44px;font-weight:900;margin-bottom:14px}
+.pc .why{font-size:32px;color:var(--mut);line-height:1.3;margin-bottom:22px}
+.pick{display:inline-block;font-size:38px;font-weight:900;padding:10px 26px;border-radius:14px}
+/* tip */
+.prompt{position:absolute;left:260px;right:260px;top:260px;background:#1d1b20;border:2px solid var(--line);border-radius:28px;padding:40px 50px;font-size:44px}
+.prompt small{display:block;font-size:28px;color:var(--mut);margin-bottom:16px;letter-spacing:2px}
+.arrows{position:absolute;left:260px;right:260px;top:520px;display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.ans{border-radius:24px;padding:30px 40px;font-size:40px;font-weight:900;text-align:center}
+.warn{position:absolute;left:260px;right:260px;top:740px;background:rgba(224,0,43,.15);border:3px solid #e0002b;border-radius:24px;padding:28px 40px;font-size:36px;line-height:1.35}
+/* outro */
+.sub{position:absolute;left:0;right:0;top:640px;text-align:center}
+.subbtn{display:inline-block;background:#e0002b;color:#fff;font-weight:900;font-size:64px;padding:22px 70px;border-radius:24px}
+.pl{position:absolute;left:460px;right:460px;top:250px;background:var(--card);border:3px solid var(--cl);border-radius:30px;padding:40px;text-align:center}
+.pl b{display:block;color:var(--y);font-size:32px;letter-spacing:3px;margin-bottom:12px}
+.pl span{font-size:60px;font-weight:900}
+.brand{position:absolute;right:50px;bottom:36px;font-size:24px;font-weight:800;color:rgba(255,255,255,.45);letter-spacing:1px}
+</style></head><body>
+<div id="bg"></div><div id="dots"></div>
+
+<div class="scene" data-scene="intro">
+  <div class="hero a" data-at="i1"><h1><span style="color:var(--cl)">CLAUDE</span><span class="vs">VS</span><span style="color:var(--gp)">CHATGPT</span></h1>
+    <div class="a" data-at="i1" data-d="1.2" style="font-size:52px;font-weight:800;color:var(--mut);margin-top:40px">Kaun better hai? <span style="color:var(--y)">2026 Full Comparison</span></div>
+    <div class="chips"><span class="chip a" data-at="i2">Padhai</span><span class="chip a" data-at="i2" data-d=".25">Likhai</span><span class="chip a" data-at="i2" data-d=".5">Coding</span><span class="chip a" data-at="i2" data-d=".75">Photo</span></div></div>
+</div>
+<div class="scene" data-scene="intro2">
+  <div class="top"><span class="rnd">6 ROUNDS</span><span class="ttl">Kaun jeetega?</span></div>
+  <div class="rounds">
+    <div class="rc a" data-at="i3"><b>ROUND 1</b>Price</div><div class="rc a" data-at="i3" data-d=".3"><b>ROUND 2</b>Writing</div><div class="rc a" data-at="i3" data-d=".6"><b>ROUND 3</b>Coding</div>
+    <div class="rc a" data-at="i3" data-d=".9"><b>ROUND 4</b>Long Documents</div><div class="rc a" data-at="i3" data-d="1.2"><b>ROUND 5</b>Images</div><div class="rc a" data-at="i3" data-d="1.5"><b>ROUND 6</b>Features</div>
+  </div>
+  <div class="note a" data-at="i3" data-d="2.2">Aakhir me: aapke liye kaunsa?</div>
+</div>
+
+<div class="scene" data-scene="basics">
+  <div class="top"><span class="ttl">Pehle basic intro</span></div>
+  <div class="tbl">
+    <div class="tr th"><div></div><div style="color:var(--cl)">Claude</div><div style="color:var(--gp)">ChatGPT</div></div>
+    <div class="tr a" data-at="b1"><div>Company</div><div>Anthropic</div><div>OpenAI</div></div>
+    <div class="tr a" data-at="b2"><div>Chat + File upload</div><div class="ok">✓</div><div class="ok">✓</div></div>
+    <div class="tr a" data-at="b2" data-d="1.2"><div>Web search</div><div class="ok">✓</div><div class="ok">✓</div></div>
+    <div class="tr a" data-at="b2" data-d="2.4"><div>Memory + Voice mode</div><div class="ok">✓</div><div class="ok">✓</div></div>
+  </div>
+  <div class="note a" data-at="b3">Basic kaam dono ache se karte hain. Asli fark: <b style="color:var(--y)">plans</b> aur <b style="color:var(--y)">khaas kaam</b></div>
+</div>
+
+<div class="scene" data-scene="price">
+  <div class="top"><span class="rnd">ROUND 1</span><span class="ttl">Price &amp; Plans</span></div>
+  <div class="tbl">
+    <div class="tr th"><div></div><div style="color:var(--cl)">Claude</div><div style="color:var(--gp)">ChatGPT</div></div>
+    <div class="tr a" data-at="p1"><div>Free plan</div><div class="ok">✓ Free</div><div class="ok">✓ Free</div></div>
+    <div class="tr a" data-at="p2"><div>Sasta plan</div><div>—</div><div>Go<span class="small">Free se zyada limit, ads aa sakte hain</span></div></div>
+    <div class="tr a" data-at="p3"><div>Main paid plan</div><div>Pro ≈ $20/mahina<span class="small">Yearly lene par ≈ $17/mahina</span></div><div>Plus ≈ $20/mahina</div></div>
+    <div class="tr a" data-at="p4"><div>Heavy use</div><div>Max $100 · Ultra $200</div><div>Pro $100 se shuru</div></div>
+  </div>
+  <div class="note a" data-at="p4" data-d="3">₹ ka sahi price apne app me check karein (tax aur offers badalte rehte hain)</div>
+</div>
+
+<div class="scene" data-scene="writing">
+  <div class="top"><span class="rnd">ROUND 2</span><span class="ttl">Writing</span></div>
+  <div class="cols">
+    <div class="col cl" data-win="w3"><div class="nm">Claude</div><div class="pt a" data-at="w1">Email, article, script, assignment</div><div class="pt a" data-at="w2">Likhai zyada natural lagti hai</div><div class="pt a" data-at="w2" data-d="2.5">Lambe instructions dhyan se follow</div><div class="win a" data-at="w3" data-d="3.5">HALKI BADHAT</div></div>
+    <div class="col gp"><div class="nm">ChatGPT</div><div class="pt a" data-at="w1">Email, article, script, assignment</div><div class="pt a" data-at="w3">Tez aur versatile</div><div class="pt a" data-at="w3" data-d="1.2">Short answers, ideas, brainstorming</div></div>
+  </div>
+</div>
+
+<div class="scene" data-scene="coding">
+  <div class="top"><span class="rnd">ROUND 3</span><span class="ttl">Coding</span></div>
+  <div class="cols">
+    <div class="col cl" data-win="c3"><div class="nm">Claude</div><div class="pt a" data-at="c1">Code likhna, samjhana, bug dhoondhna</div><div class="pt a" data-at="c2">Claude Code: project files padh kar khud badlav</div><div class="pt a" data-at="c2" data-d="3">Pichhle video me live bug fix dekha</div><div class="pt a" data-at="c3" data-d="2.5">Developers me kaafi pasand</div><div class="win a" data-at="c3" data-d="4">WINNER</div></div>
+    <div class="col gp"><div class="nm">ChatGPT</div><div class="pt a" data-at="c1">Code likhna, samjhana, bug dhoondhna</div><div class="pt a" data-at="c3">Codex coding agent</div></div>
+  </div>
+</div>
+
+<div class="scene" data-scene="docs">
+  <div class="top"><span class="rnd">ROUND 4</span><span class="ttl">Long Documents</span></div>
+  <div class="cols">
+    <div class="col cl" data-win="d3"><div class="nm">Claude</div><div class="pt a" data-at="d1">100 page PDF? Poori kitaab?</div><div class="pt a" data-at="d2">Kuch models me 10 lakh tokens tak ek saath</div><div class="pt a" data-at="d2" data-d="3">Lambi files ka summary aur Q&amp;A</div><div class="win a" data-at="d3" data-d="1.5">WINNER</div></div>
+    <div class="col gp"><div class="nm">ChatGPT</div><div class="pt a" data-at="d1">100 page PDF? Poori kitaab?</div><div class="pt a" data-at="d3">Files padhta hai</div><div class="pt a" data-at="d3" data-d="1">Bahut lambe docs me Claude aage</div></div>
+  </div>
+</div>
+
+<div class="scene" data-scene="images">
+  <div class="top"><span class="rnd">ROUND 5</span><span class="ttl">Images &amp; Media</span></div>
+  <div class="cols">
+    <div class="col cl"><div class="nm">Claude</div><div class="pt a" data-at="m3">Khud photo generate nahi karta (abhi)</div><div class="pt a" data-at="m3" data-d="2.5">Diagram, chart, chhoti website: Artifacts me</div></div>
+    <div class="col gp" data-win="m1"><div class="nm">ChatGPT</div><div class="pt a" data-at="m2">Text se photo banata hai</div><div class="pt a" data-at="m2" data-d="2.5">Thumbnail idea, poster, illustration</div><div class="win a" data-at="m1" data-d="1.5">WINNER</div></div>
+  </div>
+</div>
+
+<div class="scene" data-scene="features">
+  <div class="top"><span class="rnd">ROUND 6</span><span class="ttl">Extra Features</span></div>
+  <div class="cols">
+    <div class="col cl"><div class="nm">Claude</div><div class="pt a" data-at="f2">Projects, Artifacts</div><div class="pt a" data-at="f2" data-d="1.5">Connectors, Skills</div><div class="pt a" data-at="f2" data-d="3.5">Research, scheduled tasks</div></div>
+    <div class="col gp" data-win="f3"><div class="nm">ChatGPT</div><div class="pt a" data-at="f1">Custom GPTs</div><div class="pt a" data-at="f2" data-d="3.5">Projects, deep research, scheduled tasks</div><div class="pt a" data-at="f3">Zyada variety</div><div class="win a" data-at="f3" data-d="2">WINNER</div></div>
+  </div>
+</div>
+
+<div class="scene" data-scene="score">
+  <div class="top"><span class="rnd">SCORECARD</span><span class="ttl">Final score</span></div>
+  <div class="tbl sc">
+    <div class="tr th"><div>Round</div><div>Winner</div><div></div></div>
+    <div class="tr a" data-at="s2" data-d="3"><div>1 · Price</div><div><span class="dot deq">Lagbhag barabar</span></div><div style="font-size:28px;color:var(--mut)">Go plan se ChatGPT ko halka fayda</div></div>
+    <div class="tr a" data-at="s1" data-d="1"><div>2 · Writing</div><div><span class="dot dcl">Claude</span></div><div></div></div>
+    <div class="tr a" data-at="s1" data-d="1.6"><div>3 · Coding</div><div><span class="dot dcl">Claude</span></div><div></div></div>
+    <div class="tr a" data-at="s1" data-d="2.2"><div>4 · Long Documents</div><div><span class="dot dcl">Claude</span></div><div></div></div>
+    <div class="tr a" data-at="s2"><div>5 · Images</div><div><span class="dot dgp">ChatGPT</span></div><div></div></div>
+    <div class="tr a" data-at="s2" data-d="1"><div>6 · Features</div><div><span class="dot dgp">ChatGPT</span></div><div></div></div>
+  </div>
+  <div class="note a" data-at="s2" data-d="5" style="font-size:44px;font-weight:900;color:var(--ink);bottom:50px"><span style="color:var(--cl)">Claude 3</span> &nbsp;·&nbsp; <span style="color:var(--gp)">ChatGPT 2</span> &nbsp;·&nbsp; Barabar 1</div>
+</div>
+
+<div class="scene" data-scene="verdict">
+  <div class="top"><span class="rnd">VERDICT</span><span class="ttl">Aapke liye kaunsa?</span></div>
+  <div class="grid4">
+    <div class="pc a" data-at="v1"><div class="who">Student, kam budget</div><div class="why">Pehle dono ka free plan</div><span class="pick deq">Dono Free</span></div>
+    <div class="pc a" data-at="v2"><div class="who">Writing, coding, lambi files</div><div class="why">Natural likhai, Claude Code, bade documents</div><span class="pick dcl">Claude</span></div>
+    <div class="pc a" data-at="v3"><div class="who">Photo banana, zyada features</div><div class="why">Image creation, custom GPTs</div><span class="pick dgp">ChatGPT</span></div>
+    <div class="pc a" data-at="v4"><div class="who">Content creator</div><div class="why">Script: Claude · Thumbnail idea: ChatGPT</div><span class="pick" style="background:var(--y);color:#141414">Dono saath</span></div>
+  </div>
+</div>
+
+<div class="scene" data-scene="tip">
+  <div class="top"><span class="rnd">MERI TIP</span><span class="ttl">Khud test karo</span></div>
+  <div class="prompt a" data-at="t1"><small>EK HI SAWAL, DONO SE</small>"Mujhe 7 din ka study plan bana do"</div>
+  <div class="arrows"><div class="ans a" data-at="t1" data-d="2" style="background:rgba(255,138,92,.18);border:2px solid var(--cl);color:var(--cl)">Claude ka jawab</div><div class="ans a" data-at="t1" data-d="2.4" style="background:rgba(90,162,255,.18);border:2px solid var(--gp);color:var(--gp)">ChatGPT ka jawab</div></div>
+  <div class="warn a" data-at="t2">⚠ AI se galti ho sakti hai: zaroori jaankari khud check karein. Password ya private data kabhi share na karein.</div>
+</div>
+
+<div class="scene" data-scene="outro">
+  <div class="pl a" data-at="o1"><b>PLAYLIST</b><span>Claude AI Complete Guide</span><div style="font-size:30px;color:var(--mut);margin-top:12px">Link description me</div></div>
+  <div class="hero a" data-at="o2" style="top:520px"><div style="font-size:56px;font-weight:900">Aap kaunsa use karte ho? <span style="color:var(--cl)">Claude</span> ya <span style="color:var(--gp)">ChatGPT</span>?</div><div style="font-size:34px;color:var(--mut);margin-top:12px">Comment me batao</div></div>
+  <div class="sub a" data-at="o2" data-d="3" style="top:780px"><span class="subbtn">SUBSCRIBE</span></div>
+</div>
+
+
+<script src="timeline.js"></script>
+<script>
+const L={};TL.lines.forEach(l=>L[l.id]=l);
+const scenes=[...document.querySelectorAll('.scene')];
+// scene windows: from its first line start to the next scene's first line start
+const firstAt=s=>Math.min(...[...s.querySelectorAll('[data-at]')].map(e=>L[e.dataset.at].start));
+const sw=scenes.map(s=>({el:s,a:TL.scenes[s.dataset.scene]}));
+const ease=x=>x<0?0:x>1?1:1-Math.pow(1-x,3);
+window.render=function(t){
+  document.getElementById('bg').style.transform=`translate(${Math.sin(t/9)*40}px,${Math.cos(t/11)*30}px)`;
+  sw.forEach((s,i)=>{const a=s.a[0],b=s.a[1];
+    let o=Math.min(ease((t-a+0.25)/0.5),1-ease((t-b+0.25)/0.5));
+    s.el.style.opacity=Math.max(0,o);s.el.style.display=o<=0?'none':'block';
+    if(o<=0)return;
+    s.el.querySelectorAll('[data-at]').forEach(e=>{const st=L[e.dataset.at].start+(+e.dataset.d||0);const p=ease((t-st)/0.45);
+      e.style.opacity=p;e.style.transform=`translateY(${(1-p)*26}px)`+(e.classList.contains('win')?' rotate(4deg) scale('+(1+0.25*(1-p))+')':'');});
+    s.el.querySelectorAll('[data-win]').forEach(e=>{const l=L[e.dataset.win];const st=l.start+ (+(e.querySelector('.win')?.dataset.d)||0);e.classList.toggle('won',t>=st);});
+  });
+};
+window.render(0);
+</script>
+</body></html>
