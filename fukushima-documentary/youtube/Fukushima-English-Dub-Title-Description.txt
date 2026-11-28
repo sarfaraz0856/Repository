@@ -1,0 +1,61 @@
+FUKUSHIMA – ENGLISH DUB – YOUTUBE TEXT
+======================================
+Audio track: Fukushima-English-Dub.wav, 6:49, the same length as the video.
+Thumbnail:   Fukushima-English-Dub-Thumbnail.jpg (B is an alternative)
+
+How to add it in YouTube Studio:
+1. Open the video > Languages (left menu) > Add language > English.
+2. Under "Dub", click Add > upload Fukushima-English-Dub.wav.
+3. Under "Title & description", paste the English title and description below and publish.
+4. Thumbnail: when adding the dub, YouTube can show a separate thumbnail to English viewers if your channel has the option; if not, the main thumbnail is used.
+
+
+1. TITLE  (English)
+--------
+Fukushima: The Day the Sea Shut Down a Nuclear Plant | Full Documentary (2011 Nuclear Disaster)
+
+Other options:
+- What Really Happened at Fukushima? | The Full Story of Japan's 2011 Nuclear Disaster
+- Fukushima Explained: Earthquake, Tsunami and Meltdown | Full Documentary
+
+
+2. DESCRIPTION  (English)
+--------------
+The full story of the Fukushima Daiichi nuclear disaster: the day a magnitude 9.0 earthquake and a 15-metre tsunami cut the power to a nuclear plant on Japan's Pacific coast, and three reactors melted down.
+
+At 2:46 p.m. on March 11, 2011, the biggest earthquake in Japan's recorded history struck under the sea. The reactors shut down safely, but about fifty minutes later the tsunami flooded the emergency generators. With no power to cool the fuel, the cores melted, hydrogen built up, and explosions tore through the reactor buildings. About 154,000 people had to leave their homes.
+
+▶ In this video
+• The earthquake, and why the plant was ready for a 6-metre wave but not a 15-metre one
+• The station blackout: operators reading gauges by torchlight with car batteries
+• Inside the reactor: how the water boiled away and the fuel melted
+• The hydrogen explosions in units 1, 3 and 4
+• The Fukushima 50, plant manager Masao Yoshida and the sea water
+• Army helicopters and fire engines pouring water onto the reactors
+• The empty towns, the evacuation zone and INES level 7
+• The water tanks, the ice wall and the long clean-up
+• The lesson Fukushima left the world
+
+⏱️ Chapters
+0:00 Intro
+0:18 The Quiet Coast
+0:55 The Great Earthquake (14:46, Magnitude 9.0)
+1:32 The Wave (14–15 m Tsunami)
+2:02 Station Blackout
+2:36 The Meltdown
+3:03 The First Explosion (Unit 1)
+3:30 Three Reactors (Units 3, 4 and 2)
+4:00 The Fukushima 50
+4:34 Water from the Sky
+5:05 The Empty Towns
+5:33 The Water Problem (Tanks and the Ice Wall)
+6:07 The Lesson
+
+This is a cinematic historical reconstruction made with 3D animation (CGI). The narration is an English dub of the original Hindi documentary, with an AI-assisted voice.
+
+#Fukushima #NuclearDisaster #Documentary #Japan #History
+
+
+3. TAGS (optional – tags are set once for the whole video)
+-------
+fukushima, fukushima disaster, fukushima documentary, fukushima nuclear disaster, fukushima 2011, japan tsunami 2011, japan earthquake 2011, fukushima daiichi, fukushima meltdown, fukushima 50, nuclear disaster documentary, chernobyl vs fukushima

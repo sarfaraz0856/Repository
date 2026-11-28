@@ -1,0 +1,66 @@
+BHOPAL GAS TRAGEDY – 3-MINUTE TRAILER (for YouTube ads)
+=======================================================
+
+UPLOAD ORDER (do it in this order)
+----------------------------------
+1. Upload the FULL documentary first (Bhopal-Gas-Tragedy-Documentary-in-Hindi.mp4) and make it Public.
+   Copy its link (for example https://youtu.be/XXXXXXXXXXX).
+2. Then upload this trailer (Bhopal-Gas-Tragedy-Trailer-Hindi.mp4).
+   - Put the full-film link in the FIRST line of the description (replace FULL_FILM_LINK below).
+   - Post the same link as a comment and pin it.
+   - End screen: add a "Video" element that points to the full documentary, placed at the bottom of the
+     screen so it does not cover the "WATCH THE FULL FILM" text (the last 8 seconds).
+   - Visibility: Public (it also brings organic views). Unlisted works too if you only want it as an ad.
+3. Run the Google Ads campaign on the trailer. Goal: "Product and brand consideration" or "Video views".
+   The trailer is the ad; the full film is where viewers go.
+Why this order: the trailer's description and end screen must point to a video that already exists. If you upload
+the trailer first, its first viewers find no link.
+
+
+TITLE (pick one)
+----------------
+1. Bhopal Gas Tragedy in 3 Minutes | What Really Happened on 2 December 1984 (Hindi)   <- recommended
+2. The Night Bhopal Could Not Breathe | Bhopal 1984 Short Documentary (Hindi)
+3. Bhopal 1984: 40 Tonnes of Gas, One Sleeping City | Trailer
+
+
+DESCRIPTION
+-----------
+▶ Watch the full 15-minute documentary: FULL_FILM_LINK
+▶ पूरी डॉक्यूमेंट्री यहाँ देखें: FULL_FILM_LINK
+
+On the night of 2–3 December 1984, about 40 tonnes of methyl isocyanate gas leaked from Union Carbide's pesticide plant in Bhopal. The city was asleep.
+
+In 3 minutes: what went wrong inside the plant, how people fled through the poisoned lanes, the station master who sent a train away in time, the doctors who did not know which gas it was, the toll, Warren Anderson's release, the settlement, and the poison that is still in the ground.
+
+This is a short cut of our full Hindi documentary. The full story, chapter by chapter, is at the link above.
+
+A cinematic historical reconstruction (CGI). Hindi narration with English captions.
+
+#bhopal #bhopalgastragedy #shortdocumentary #history #hindidocumentary #1984
+
+
+TAGS
+----
+bhopal gas tragedy, bhopal gas tragedy in 3 minutes, bhopal gas tragedy short documentary, bhopal 1984, bhopal disaster explained, union carbide, methyl isocyanate, MIC gas leak, warren anderson, ghulam dastagir, bhopal gas kand, भोपाल गैस त्रासदी, भोपाल गैस कांड, hindi documentary, history in hindi, short documentary hindi, documentary trailer, worst industrial disaster, 2 december 1984, india history
+
+
+PINNED COMMENT
+--------------
+पूरी 15 मिनट की डॉक्यूमेंट्री यहाँ देखें 👉 FULL_FILM_LINK
+Watch the full documentary here 👉 FULL_FILM_LINK
+
+
+THUMBNAILS
+----------
+Bhopal-Trailer-Thumbnail-A.jpg   people running through the gas, "3 मिनट में पूरी कहानी"   <- recommended for the ad
+Bhopal-Trailer-Thumbnail-B.jpg   a field of candles, "एक रात, हज़ारों मौतें"
+Bhopal-Trailer-Thumbnail-C.jpg   the plane, "ANDERSON – जो कभी नहीं लौटा"
+Use "Test & compare" in YouTube Studio with all three if it is offered.
+
+
+SETTINGS
+--------
+Altered or synthetic content: YES (CGI visuals and an AI-cloned voice).
+Audience: not made for kids.   Category: Education.   Video language: Hindi.
+Subtitles: not needed; the English captions are burned into the picture.
