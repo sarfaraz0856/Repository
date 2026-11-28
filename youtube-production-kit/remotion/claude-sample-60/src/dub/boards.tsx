@@ -2,19 +2,19 @@
 // visual language as the Claude-screen video overlays.
 import React from "react";
 import { Chapter, Sfx, Typing } from "../real/chat";
-import { Cursor, K, SANS, SERIF, StepChip, p01 } from "../real/ui";
-import type { P } from "../real/shell";
+import { K, SANS, SERIF, StepChip, p01 } from "../real/ui";
+import { HP, HumanCursor } from "../real/human";
 
 export const BoardShell: React.FC<{
   f: number; dur: number; n: number; chapter: string; children?: React.ReactNode;
-  steps?: { from: number; to: number; n: number; text: string }[]; cursor?: P[]; clicks?: number[]; typing?: Typing[];
-}> = ({ f, dur, n, chapter, children, steps = [], cursor, clicks = [], typing = [] }) => (
+  steps?: { from: number; to: number; n: number; text: string }[]; cursor?: HP[]; clicks?: number[]; typing?: Typing[]; holds?: [number, number][];
+}> = ({ f, dur, n, chapter, children, steps = [], cursor, clicks = [], typing = [], holds = [] }) => (
   <div style={{ position: "absolute", inset: 0, background: K.page, fontFamily: SANS, color: K.text, overflow: "hidden", opacity: Math.min(p01(f, 0, 6), 1 - p01(f, dur - 4, 4)) }}>
     <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(60,50,30,0.07) 1.5px, transparent 1.5px)", backgroundSize: "36px 36px" }} />
     {children}
     <StepChip f={f} steps={steps} />
     <Chapter f={f} n={n} title={chapter} />
-    {cursor ? <Cursor f={f} path={cursor} clicks={clicks} /> : null}
+    {cursor ? <HumanCursor f={f} path={cursor} clicks={clicks} holds={holds} /> : null}
     <Sfx clicks={clicks} typing={typing} />
   </div>
 );

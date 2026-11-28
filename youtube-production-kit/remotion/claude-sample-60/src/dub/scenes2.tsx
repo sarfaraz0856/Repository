@@ -4,7 +4,8 @@ import { useCurrentFrame } from "remotion";
 import type { SceneProps } from "../full/kit";
 import { at } from "../full/kit";
 import { Callout } from "../real/chat";
-import { Shell, path } from "../real/shell";
+import { Shell } from "../real/shell";
+import { hpath } from "../real/human";
 import { K, Ring, SERIF, p01, typed } from "../real/ui";
 import { BI, BIcon, BoardShell, Card, Mark, MiniWave, Pill, Title, rise } from "./boards";
 import {
@@ -35,8 +36,22 @@ export const D07: React.FC<SceneProps> = ({ dur, L }) => {
   const laneY = (i: number) => TL.y + 70 + i * 104;
   const exportO = p01(f, a(6) - 4, 14);
   const switchO = Math.min(p01(f, a(5), 12), 1 - p01(f, a(6) - 8, 8));
+  const fx = a(2, 0.55);
+  const clipX = (k: number) => TL.x + TL.lab + HI[k][0] * W;
+  const edge0 = clipX(3) + HI[3][1] * 1.25 * W - 4, edge1 = clipX(3) + HI[3][1] * 0.98 * W - 4;
+  const engY = laneY(2) + 42;
   return (
-    <BoardShell f={f} dur={dur} n={7} chapter="Step 3: Sync the audio" steps={[{ from: a(0), to: dur, n: 3, text: "Sync the audio" }]}>
+    <BoardShell
+      f={f} dur={dur} n={7} chapter="Step 3: Sync the audio" steps={[{ from: a(0), to: dur, n: 3, text: "Sync the audio" }]}
+      cursor={hpath(
+        [0, [960, 1000]], [a(0, 0.5), [700, laneY(0) + 42]], [a(1, 0.12), [clipX(0) + 30, engY]], [a(1, 0.12) + 46, [clipX(5) + 30, engY]],
+        [a(2, 0.2), [clipX(3) + 90, engY]], [fx - 8, [edge0, engY]], [fx + 16, [edge1, engY], 18], [a(3, 0.4), [clipX(3) + 70, engY + 6]],
+        [a(4, 0.25), [760, laneY(3) + 42]], [a(4, 0.65), [980, laneY(4) + 42]], [a(5, 0.3), [250, laneY(1) + 42]],
+        [a(6, 0.15), [720, 457]], [a(6, 0.55), [720, 523]], [a(7, 0.15), [720, 590]], [a(7, 0.45), [760, 674]], [dur, [760, 674]],
+      )}
+      clicks={[]}
+      holds={[[fx - 3, fx + 17]]}
+    >
       <div style={{ position: "absolute", left: 120, top: 120, ...rise(f, a(0)) }}>
         <div style={{ fontSize: 24, fontWeight: 700, letterSpacing: 3, color: K.clay }}>STEP 3 · MOST IMPORTANT</div>
         <div style={{ fontFamily: SERIF, fontSize: 56, marginTop: 4 }}>Put every English line where the Hindi line starts</div>
@@ -119,13 +134,14 @@ export const D08: React.FC<SceneProps> = ({ dur, L }) => {
   if (f >= cEng) rows.push({ lang: "English", audio: f >= cPub ? "published" : "add", title: "add", subs: "add" });
   const modalO = f >= cAudio && f < cPub + 10 ? Math.min(p01(f, cAudio, 10), 1 - p01(f, cPub, 10)) : 0;
   const phase: 0 | 1 | 2 = f < upA ? 0 : f < upB ? 1 : 2;
-  const play = phase === 2 ? Math.min(1, (f - upB) / Math.max(30, a(7, 0.7) - upB)) * 0.35 : 0;
+  const cPlay = upB + 14;
+  const play = phase === 2 && f >= cPlay ? Math.min(1, (f - cPlay) / Math.max(30, a(7, 0.7) - cPlay)) * 0.35 : 0;
   const pickO = f >= cAdd && f < cEng + 6 ? 1 : 0;
   const q = typed("Eng", f, typeAt, 7);
   const a1 = cellPt(1, "audio");
   return (
     <Shell
-      f={f} dur={dur} n={8} chapter="Step 4: Upload in YouTube Studio" url={page === 0 ? "studio.youtube.com/channel/dashboard" : page === 1 ? "studio.youtube.com/channel/translations" : "studio.youtube.com/video/translations"}
+      human f={f} dur={dur} n={8} chapter="Step 4: Upload in YouTube Studio" url={page === 0 ? "studio.youtube.com/channel/dashboard" : page === 1 ? "studio.youtube.com/channel/translations" : "studio.youtube.com/video/translations"}
       tabs={STUDIO_TAB} side={null} steps={[{ from: a(0), to: dur, n: 4, text: "Upload in YouTube Studio" }]}
       screen={
         <Studio active={page === 0 ? 0 : 4} hover={f >= cNav - 24 && f < cNav ? 4 : undefined}>
@@ -143,11 +159,13 @@ export const D08: React.FC<SceneProps> = ({ dur, L }) => {
           <Callout f={f} from={a(8)} to={dur} x={1300} y={sy(560)} w={560} tone="ok" title="English audio track added" lines={["Viewers can now pick English"]} />
         </>
       }
-      cursor={path(
-        [0, [1000, 600]], [cNav - 8, navPt(4)], [cRow - 10, subRowPt(0)], [cAdd - 8, ADD_LANG_PT], [cEng - 10, langOptPt(0)],
-        [a(5, 0.3), [a1[0], a1[1] + 60]], [cAudio - 6, a1], [cSel - 8, selectFilePt], [upB, [1200, 700]], [cPub - 8, audioPublishPt], [dur, [1300, 760]],
+      cursor={hpath(
+        [0, [1000, 600]], [a(1, 0.1), [700, 420]], [cNav - 8, navPt(4)], [a(2, 0.35), [640, sy(500)]], [a(3, 0.15), [subRowPt(0)[0] + 260, subRowPt(0)[1] + 190]], [a(3, 0.32), [subRowPt(0)[0] + 120, subRowPt(0)[1] + 95]],
+        [cRow - 10, subRowPt(0)], [cAdd - 8, ADD_LANG_PT], [cEng - 10, langOptPt(0)],
+        [a(5, 0.3), [a1[0], a1[1] + 60]], [cAudio - 6, a1], [cSel - 8, selectFilePt], [a(6, 0.6), [1150, 640]], [cPlay - 7, [479, sy(531)]], [a(7, 0.75), [900, sy(560)]],
+        [cPub - 8, audioPublishPt], [a(8, 0.3), [1480, sy(600)]], [dur, [1480, sy(600)]],
       )}
-      clicks={[cNav, cRow, cAdd, cEng, cAudio, cSel, cPub]}
+      clicks={[cNav, cRow, cAdd, cEng, cAudio, cSel, cPlay, cPub]}
       typing={[{ at: typeAt, len: 14 }]}
     />
   );
@@ -177,7 +195,7 @@ export const D09: React.FC<SceneProps> = ({ dur, L }) => {
   const t1 = cellPt(1, "title");
   return (
     <Shell
-      f={f} dur={dur} n={9} chapter="Step 5: English title & description" url="studio.youtube.com/video/translations" tabs={STUDIO_TAB} side={null}
+      human f={f} dur={dur} n={9} chapter="Step 5: English title & description" url="studio.youtube.com/video/translations" tabs={STUDIO_TAB} side={null}
       steps={[{ from: a(0), to: dur, n: 5, text: "English title & description" }]}
       screen={
         <Studio active={4}>
@@ -193,7 +211,7 @@ export const D09: React.FC<SceneProps> = ({ dur, L }) => {
           <Callout f={f} from={a(4)} to={a(5)} x={1070} y={96} w={560} tone="ok" title="Found in English search" lines={["English viewers see the title in English"]} />
         </>
       }
-      cursor={path([0, [1100, 700]], [cAdd - 8, t1], [tA - 10, tdTitlePt], [cDesc - 8, tdDescPt], [cPub - 8, tdPublishPt], [dur, [1300, 760]])}
+      cursor={hpath([0, [1100, 700]], [a(0, 0.6), [t1[0] - 220, t1[1] + 10]], [cAdd - 8, t1], [tA - 10, tdTitlePt], [cDesc - 8, tdDescPt], [a(4, 0.3), [tdDescPt[0] + 160, tdDescPt[1] + 120]], [cPub - 8, tdPublishPt], [dur, [1300, 760]])}
       clicks={[cAdd, tA - 6, cDesc, cPub]}
       typing={[{ at: tA, len: tB - tA }, { at: dA, len: dB - dA }]}
     />
@@ -219,7 +237,7 @@ export const D10: React.FC<SceneProps> = ({ dur, L }) => {
   const s1 = cellPt(1, "subs");
   return (
     <Shell
-      f={f} dur={dur} n={10} chapter="Step 6: English subtitles" url={details ? "studio.youtube.com/video/edit" : "studio.youtube.com/video/translations"} tabs={STUDIO_TAB} side={null}
+      human f={f} dur={dur} n={10} chapter="Step 6: English subtitles" url={details ? "studio.youtube.com/video/edit" : "studio.youtube.com/video/translations"} tabs={STUDIO_TAB} side={null}
       steps={[{ from: a(0), to: dur, n: 6, text: "English subtitles" }]}
       screen={
         <Studio active={details ? 1 : 4}>
@@ -237,7 +255,7 @@ export const D10: React.FC<SceneProps> = ({ dur, L }) => {
           <Callout f={f} from={a(4, 0.3)} to={dur} x={1370} y={sy(470)} w={480} tone="warn" title="Used an AI voice or a voice clone?" lines={["Answer Yes here. It is the safe choice."]} />
         </>
       }
-      cursor={path([0, [1100, 700]], [cAdd - 8, s1], [cUp - 8, subMenuPt(0)], [cWith - 8, withTimingPt], [cCont - 8, stContinuePt], [cPub - 8, tdPublishPt], [a(4), [800, 600]], [cYes - 8, ALT_YES_PT], [dur, [700, 700]])}
+      cursor={hpath([0, [1100, 700]], [a(0, 0.6), [s1[0] - 240, s1[1] + 8]], [cAdd - 8, s1], [cUp - 8, subMenuPt(0)], [cWith - 8, withTimingPt], [cCont - 8, stContinuePt], [cPub - 8, tdPublishPt], [a(3, 0.4), [1500, sy(590)]], [a(4, 0.1), [800, 600]], [cYes - 8, ALT_YES_PT], [dur, [700, 700]])}
       clicks={[cAdd, cUp, cWith, cCont, cPub, cYes]}
     />
   );
@@ -257,10 +275,17 @@ export const D11: React.FC<SceneProps> = ({ dur, L }) => {
   const gear = a(1, 0.15), audioItem = a(1, 0.38), eng = a(1, 0.62);
   const menu: 0 | 1 | 2 = f >= gear && f < audioItem ? 1 : f >= audioItem && f < eng + 8 ? 2 : 0;
   const track: 0 | 1 = f >= eng ? 1 : 0;
-  const prog = f < a(2) ? 0.05 : 0.05 + 0.9 * Math.min(1, (f - a(2)) / Math.max(30, (L[2]?.d ?? 150) * 0.9));
+  const seek = [a(2, 0.12), a(2, 0.42), a(2, 0.72)];
+  const SEEK = [0.04, 0.5, 0.95];
+  const barY = sy(22 + 720 - 58 + 2), barX = (m: number) => 70 + 20 + m * 1240;
+  const si = seek.filter((c) => f >= c).length - 1;
+  const prog = si < 0 ? 0.05 : Math.min(0.99, SEEK[si] + (f - seek[si]) * 0.00004);
   if (board)
     return (
-      <BoardShell f={f} dur={dur} n={11} chapter="Check + common mistakes">
+      <BoardShell
+        f={f} dur={dur} n={11} chapter="Check + common mistakes"
+        cursor={hpath([0, [1268, barY]], [a(3, 0.3), [900, 260]], ...MISTAKES.map((_, i) => [a(4 + i, 0.25), [120 + (i % 2) * 850 + 470, 330 + Math.floor(i / 2) * 290 + 170]] as [number, [number, number]]), [dur, [1060, 950]])}
+      >
         <Title f={f} at={a(3) - 6} kicker="AVOID THESE" text="Common mistakes" />
         {MISTAKES.map((m, i) => (
           <Card key={m} x={120 + (i % 2) * 850} y={330 + Math.floor(i / 2) * 290} w={810} h={250} style={{ padding: "40px 44px", ...rise(f, a(4 + i)) }}>
@@ -275,24 +300,34 @@ export const D11: React.FC<SceneProps> = ({ dur, L }) => {
     );
   return (
     <Shell
-      f={f} dur={dur} n={11} chapter="Check + common mistakes" url="youtube.com/watch?v=claude-ai-assistant" tabs={[{ t: "YouTube", kind: "studio" }]} side={null}
-      screen={<Watch f={f} menu={menu} track={track} hoverItem={menu === 1 ? 0 : menu === 2 ? 2 : undefined} progress={prog} badge={track ? p01(f, eng + 6, 10) : 0} markers={f >= a(2) ? f - a(2) : 0} />}
+      human f={f} dur={dur} n={11} chapter="Check + common mistakes" url="youtube.com/watch?v=claude-ai-assistant" tabs={[{ t: "YouTube", kind: "studio" }]} side={null}
+      screen={<Watch f={f} menu={menu} track={track} hoverItem={menu === 1 ? 0 : menu === 2 ? 2 : undefined} progress={prog} badge={track ? p01(f, eng + 6, 10) : 0} markers={f >= seek[0] ? f - seek[0] + 1 : 0} markGap={seek[1] - seek[0]} />}
       over={<Callout f={f} from={a(0, 0.2)} to={a(1)} x={1384} y={560} w={500} title="Open your video and test the English track" />}
-      cursor={path([0, [900, 560]], [gear - 6, GEAR_PT], [audioItem - 6, menuItemPt(0)], [eng - 6, menuItemPt(2)], [eng + 30, [1000, 600]])}
-      clicks={[gear, audioItem, eng]}
+      cursor={hpath([0, [900, 560]], [a(0, 0.3), [1500, 640]], [gear - 6, GEAR_PT], [audioItem - 6, menuItemPt(0)], [eng - 6, menuItemPt(2)], [eng + 34, [1000, 600]], ...seek.map((c, i) => [c - 7, [barX(SEEK[i]), barY]] as [number, [number, number]]), [dur, [1268, barY]])}
+      clicks={[gear, audioItem, eng, ...seek]}
     />
   );
 };
 
 // ------------------------------------------------------------------ 12 · Recap + outro
+const LIKE_PT = [797, 380] as const, SUB_PT = [1083, 380] as const;
 const RECAP = ["Check multi-language audio on your channel", "Translate the script", "Make the English voice", "Sync it with the video", "Final audio with music", "Upload audio, title, description, subtitles"];
 export const D12: React.FC<SceneProps> = ({ dur, L }) => {
   const f = useCurrentFrame();
   const a = useA(L);
   const when = [a(1), a(1, 0.55), a(2), a(2, 0.35), a(2, 0.7), a(3)];
   const outro = f >= a(5) - 6;
+  const cLike = a(5, 0.3), cSub = a(5, 0.62);
+  const liked = f >= cLike, subbed = f >= cSub;
   return (
-    <BoardShell f={f} dur={dur} n={12} chapter="Recap">
+    <BoardShell
+      f={f} dur={dur} n={12} chapter="Recap"
+      cursor={hpath(
+        [0, [960, 1000]], ...when.map((w, i) => [w + 8, [460, 382 + i * 96]] as [number, [number, number]]), [a(4, 0.3), [1530, 520]],
+        [cLike - 8, [LIKE_PT[0], LIKE_PT[1]]], [cSub - 8, [SUB_PT[0], SUB_PT[1]]], [a(6, 0.3), [1260, 700]], [dur, [1260, 700]],
+      )}
+      clicks={[cLike, cSub]}
+    >
       {!outro ? (
         <>
           <Title f={f} at={a(0)} kicker="RECAP" text="Dub your video in 6 steps" />
@@ -313,8 +348,8 @@ export const D12: React.FC<SceneProps> = ({ dur, L }) => {
       ) : (
         <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
           <div style={{ display: "flex", gap: 26, ...rise(f, a(5) - 6) }}>
-            <Pill style={{ fontSize: 34, padding: "18px 36px" }}>Like</Pill>
-            <Pill tone="dark" style={{ fontSize: 34, padding: "18px 36px", transform: `scale(${1 + 0.06 * Math.max(0, Math.sin((f - a(5)) / 6)) * (f < a(6) ? 1 : 0)})` }}>Subscribe</Pill>
+            <Pill tone={liked ? "clay" : "plain"} style={{ fontSize: 34, padding: "18px 36px", width: 220, justifyContent: "center", boxSizing: "border-box" }}>{liked ? "Liked" : "Like"}</Pill>
+            <Pill tone={subbed ? "plain" : "dark"} style={{ fontSize: 34, padding: "18px 36px", width: 300, justifyContent: "center", boxSizing: "border-box", transform: `scale(${1 + 0.06 * Math.max(0, Math.sin((f - a(5)) / 6)) * (f < cSub ? 1 : 0)})` }}>{subbed ? "Subscribed" : "Subscribe"}</Pill>
           </div>
           <div style={{ fontSize: 30, color: K.sub, marginTop: 30, ...rise(f, a(5, 0.4)) }}>More YouTube and AI tutorials every week</div>
           <div style={{ fontFamily: SERIF, fontSize: 84, marginTop: 70, textAlign: "center", lineHeight: 1.15, ...rise(f, a(6), 30, 18) }}>See you in the next video.<br /><span style={{ color: K.clay }}>Thank you!</span></div>

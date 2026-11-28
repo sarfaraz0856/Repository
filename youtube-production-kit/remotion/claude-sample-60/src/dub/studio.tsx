@@ -439,7 +439,7 @@ export const GEAR_PT = [PLAYER.x + PLAYER.w - 74, sy(PLAYER.y + PLAYER.h - 30)] 
 export const MENU = { x: PLAYER.x + PLAYER.w - 420, w: 400 };
 export const menuItemPt = (i: number, rows = 4) => [MENU.x + 200, sy(PLAYER.y + PLAYER.h - 64 - rows * 58 + i * 58 + 29)] as [number, number];
 /** menu: 0 closed, 1 main settings, 2 audio track list. track: 0 hindi, 1 english. */
-export const Watch: React.FC<{ f: number; menu: 0 | 1 | 2; track: 0 | 1; hoverItem?: number; progress?: number; badge?: number; markers?: number }> = ({ f, menu, track, hoverItem, progress = 0.22, badge = 0, markers = 0 }) => {
+export const Watch: React.FC<{ f: number; menu: 0 | 1 | 2; track: 0 | 1; hoverItem?: number; progress?: number; badge?: number; markers?: number; markGap?: number }> = ({ f, menu, track, hoverItem, progress = 0.22, badge = 0, markers = 0, markGap = 14 }) => {
   const P = PLAYER;
   const main = [["Audio track", track ? "English" : "Hindi (original)"], ["Subtitles/CC", "Off"], ["Playback speed", "Normal"], ["Quality", "1080p HD"]];
   const tracks = ["Hindi (original)", "English"];
@@ -452,7 +452,7 @@ export const Watch: React.FC<{ f: number; menu: 0 | 1 | 2; track: 0 | 1; hoverIt
         <div style={{ position: "absolute", left: 20, right: 20, bottom: 58, height: 5, background: "rgba(255,255,255,0.3)", borderRadius: 3 }}>
           <div style={{ width: `${progress * 100}%`, height: 5, background: S.red, borderRadius: 3 }} />
           {markers > 0 ? [0.04, 0.5, 0.95].map((m, i) => (
-            <div key={m} style={{ position: "absolute", left: `${m * 100}%`, top: -54, transform: "translateX(-50%)", opacity: p01(markers, i * 14, 10), display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <div key={m} style={{ position: "absolute", left: `${m * 100}%`, top: -54, transform: "translateX(-50%)", opacity: p01(markers, i * markGap, 10), display: "flex", flexDirection: "column", alignItems: "center" }}>
               <div style={{ background: S.green, color: "#fff", fontSize: 16, fontWeight: 700, borderRadius: 8, padding: "5px 10px" }}>✓ {["Start", "Middle", "End"][i]}</div>
               <div style={{ width: 2, height: 22, background: S.green }} />
             </div>

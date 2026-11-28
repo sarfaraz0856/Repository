@@ -5,7 +5,8 @@ import { useCurrentFrame } from "remotion";
 import type { SceneProps } from "../full/kit";
 import { at } from "../full/kit";
 import { Callout, ChatView, Msg, chatGeo, chatTyping } from "../real/chat";
-import { Shell, path } from "../real/shell";
+import { Shell } from "../real/shell";
+import { hpath } from "../real/human";
 import { K, Ring, SERIF, p01 } from "../real/ui";
 import { BI, BIcon, BoardShell, Card, Mark, MiniWave, Pill, Title, rise } from "./boards";
 import {
@@ -25,7 +26,13 @@ export const D01: React.FC<SceneProps> = ({ dur, L }) => {
   const partB = f >= a(4) - 8;
   const out = 1 - p01(f, a(4) - 14, 10);
   return (
-    <BoardShell f={f} dur={dur} n={1} chapter="Intro">
+    <BoardShell
+      f={f} dur={dur} n={1} chapter="Intro"
+      cursor={hpath(
+        [0, [1010, 1000]], [a(0, 0.35), [800, 628]], [a(0, 0.75), [330, 716]], [a(1, 0.3), [1440, 480]], [a(1, 0.75), [1640, 330]],
+        [a(2, 0.25), [1300, 832]], [a(2, 0.6), [1590, 832]], [a(3, 0.3), [640, 936]], [a(4, 0.2), [1520, 780]], [a(6, 0.15), [1080, 928]], [dur, [1080, 928]],
+      )}
+    >
       {!partB ? (
         <div style={{ position: "absolute", inset: 0, opacity: out }}>
           <div style={{ position: "absolute", left: 130, top: 200, ...rise(f, 6) }}>
@@ -98,7 +105,7 @@ export const D02: React.FC<SceneProps> = ({ dur, L }) => {
   const m0 = menuItemPt(0), m2 = menuItemPt(2);
   return (
     <Shell
-      f={f} dur={dur} n={2} chapter="What is multi-language audio?" url="youtube.com/watch?v=claude-ai-assistant" tabs={YT_TAB} side={null}
+      human f={f} dur={dur} n={2} chapter="What is multi-language audio?" url="youtube.com/watch?v=claude-ai-assistant" tabs={YT_TAB} side={null}
       screen={<Watch f={f} menu={menu} track={track} hoverItem={menu === 1 ? 0 : menu === 2 ? 2 : undefined} progress={0.18 + (f / dur) * 0.1} badge={track ? Math.min(p01(f, eng + 6, 10), 1 - p01(f, a(5), 12)) : 0} />}
       over={
         <>
@@ -119,7 +126,7 @@ export const D02: React.FC<SceneProps> = ({ dur, L }) => {
           <Ring x={GEAR_PT[0] - 24} y={GEAR_PT[1] - 24} w={48} h={48} r={24} f={f} from={a(3) - 6} to={gear + 4} />
         </>
       }
-      cursor={path([0, [900, 560]], [a(3), [1100, 700]], [gear - 4, GEAR_PT], [audioItem - 4, m0], [eng - 4, m2], [eng + 30, [1000, 600]])}
+      cursor={hpath([0, [900, 560]], [a(1, 0.25), [420, 872]], [a(1, 0.7), [1520, 230]], [a(2, 0.35), [1600, 650]], [a(3, 0.05), [1100, 700]], [gear - 6, GEAR_PT], [audioItem - 6, m0], [eng - 6, m2], [a(4, 0.3), [1560, 610]], [a(5, 0.3), [1600, 640]], [dur, [1600, 640]])}
       clicks={[gear, audioItem, eng]}
     />
   );
@@ -133,7 +140,7 @@ export const D03: React.FC<SceneProps> = ({ dur, L }) => {
   const setO = p01(f, cSet, 10);
   return (
     <Shell
-      f={f} dur={dur} n={3} chapter="Who gets this feature?" url="studio.youtube.com/channel/dashboard" tabs={STUDIO_TAB} side={null}
+      human f={f} dur={dur} n={3} chapter="Who gets this feature?" url="studio.youtube.com/channel/dashboard" tabs={STUDIO_TAB} side={null}
       screen={
         <Studio active={0} settingsHover={f >= cSet - 20 && f < cSet}>
           <Dashboard />
@@ -150,7 +157,7 @@ export const D03: React.FC<SceneProps> = ({ dur, L }) => {
           <Callout f={f} from={a(5)} to={dur} x={1240} y={130} w={600} tone="ok" title="You can still add in English:" lines={["Title and description", "Subtitles"]} />
         </>
       }
-      cursor={path([0, [1100, 620]], [cSet - 6, SETTINGS_PT], [cChan - 6, setItemPt(1)], [cTab - 6, setTabPt(2)], [a(3, 0.3), [1300, sy(FE_CARD_Y(2) + 58)]], [dur, [1300, sy(FE_CARD_Y(2) + 58)]])}
+      cursor={hpath([0, [1100, 620]], [a(0, 0.45), [1520, 795]], [a(1, 0.35), [1540, 912]], [cSet - 6, SETTINGS_PT], [cChan - 6, setItemPt(1)], [cTab - 6, setTabPt(2)], [a(3, 0.3), [1300, sy(FE_CARD_Y(2) + 58)]], [a(4, 0.3), [1560, 200]], [a(5, 0.3), [1500, 210]], [dur, [1500, 210]])}
       clicks={[cSet, cChan, cTab]}
     />
   );
@@ -161,8 +168,17 @@ export const D04: React.FC<SceneProps> = ({ dur, L }) => {
   const f = useCurrentFrame();
   const a = useA(L);
   const warnO = p01(f, a(6), 14);
+  const cDel = a(6, 0.62);
+  const del = f >= cDel;
   return (
-    <BoardShell f={f} dur={dur} n={4} chapter="Auto dubbing vs your own dub">
+    <BoardShell
+      f={f} dur={dur} n={4} chapter="Auto dubbing vs your own dub"
+      cursor={hpath(
+        [0, [960, 1000]], [a(1, 0.3), [470, 372]], [a(2, 0.3), [262, 512]], [a(2, 0.7), [530, 512]], [a(3, 0.15), [330, 584]], [a(3, 0.55), [470, 632]],
+        [a(4, 0.25), [1330, 372]], [a(4, 0.65), [1230, 560]], [a(5, 0.35), [1330, 676]], [a(6, 0.3), [1400, 560]], [cDel - 8, [1520, 480]], [dur, [1480, 600]],
+      )}
+      clicks={[cDel]}
+    >
       <Title f={f} at={a(0)} kicker="TWO WAYS" text="How do you make the dub?" y={110} />
       <div style={{ position: "absolute", inset: 0, opacity: 1 - 0.75 * warnO }}>
         <Card x={120} y={300} w={800} h={560} style={{ padding: "40px 46px", ...rise(f, a(1)) }}>
@@ -187,9 +203,9 @@ export const D04: React.FC<SceneProps> = ({ dur, L }) => {
             <div style={{ fontSize: 34, fontWeight: 700 }}>Auto dub already there? Delete it first</div>
             <div style={{ marginTop: 26, border: `1px solid ${S.line}`, borderRadius: 14, height: 90, display: "flex", alignItems: "center", padding: "0 28px", gap: 40, fontSize: 24, background: "#fff" }}>
               <b style={{ width: 160 }}>English</b>
-              <span style={{ color: S.sub, width: 380 }}>Audio: Auto-dubbed · Published</span>
+              <span style={{ color: S.sub, width: 380, textDecoration: del ? "line-through" : "none" }}>Audio: Auto-dubbed · Published</span>
               <div style={{ flex: 1 }} />
-              <span style={{ color: "#B3261E", fontWeight: 700, border: "2px solid #B3261E", borderRadius: 10, padding: "8px 18px", boxShadow: `0 0 ${12 + 8 * Math.sin(f / 6)}px rgba(217,69,61,0.35)` }}>DELETE</span>
+              <span style={{ color: del ? "#fff" : "#B3261E", background: del ? "#B3261E" : "transparent", fontWeight: 700, border: "2px solid #B3261E", borderRadius: 10, padding: "8px 18px", boxShadow: del ? "none" : `0 0 ${12 + 8 * Math.sin(f / 6)}px rgba(217,69,61,0.35)` }}>{del ? "DELETED" : "DELETE"}</span>
             </div>
             <div style={{ fontSize: 24, color: K.sub, marginTop: 22 }}>Then upload your own English audio for that language.</div>
           </Card>
@@ -228,7 +244,7 @@ export const D05: React.FC<SceneProps> = ({ dur, L }) => {
   const g = chatGeo(false, true);
   return (
     <Shell
-      f={f} dur={dur} n={5} chapter="Step 1: Translate the script" url="claude.ai/chat/english-dub" side={{ active: "Chats" }}
+      human f={f} dur={dur} n={5} chapter="Step 1: Translate the script" url="claude.ai/chat/english-dub" side={{ active: "Chats" }}
       screen={<ChatView f={f} msgs={msgs} title="English dub translation" project="" narrow />}
       steps={[{ from: a(0), to: dur, n: 1, text: "Translate the script" }]}
       over={
@@ -240,8 +256,8 @@ export const D05: React.FC<SceneProps> = ({ dur, L }) => {
           <Callout f={f} from={a(7)} to={dur} x={1320} y={200} w={560} tone="ok" title="Better translation = more natural dub" />
         </>
       }
-      cursor={path([0, [1000, 700]], [typeAt - 12, g.field], [send - 8, g.send], [send + 40, [1100, 640]])}
-      clicks={[typeAt - 6, send]}
+      cursor={hpath([0, [1000, 700]], [a(1, 0.02), [g.left + 34, g.top + g.h - 38]], [typeAt - 12, g.field], [send - 8, g.send], [a(4, 0.6), [1150, 640]], [a(5, 0.3), [1000, 560]], [a(6, 0.25), [1060, 600]], [a(6, 0.7), [1060, 660]], [a(7, 0.3), [1180, 700]], [dur, [1180, 700]])}
+      clicks={[a(1, 0.02) + 6, typeAt - 6, send]}
       typing={chatTyping(msgs)}
     />
   );
@@ -258,8 +274,23 @@ export const D06: React.FC<SceneProps> = ({ dur, L }) => {
   const f = useCurrentFrame();
   const a = useA(L);
   const listO = p01(f, a(5) - 6, 14);
+  const gap = Math.round((L[6]?.d ?? 150) * 0.13);
+  const checkAt = (i: number) => a(6, 0.05) + i * gap;
+  const fixAt = (i: number) => a(7, 0.25 + (i === 5 ? 0.2 : 0));
+  const playC = FILES.map((_, i) => checkAt(i) - 10);
+  const redoC = [fixAt(3) - 8, fixAt(5) - 8];
+  const rowY = (i: number) => 383 + i * 94;
+  const playing = (i: number) => playC.some((c, k) => k === i && f >= c && f < checkAt(i) + 4) || [3, 5].some((r, k) => r === i && f >= redoC[k] && f < fixAt(i) + 4);
   return (
-    <BoardShell f={f} dur={dur} n={6} chapter="Step 2: English voice" steps={[{ from: a(0), to: dur, n: 2, text: "Make the English voice" }]}>
+    <BoardShell
+      f={f} dur={dur} n={6} chapter="Step 2: English voice" steps={[{ from: a(0), to: dur, n: 2, text: "Make the English voice" }]}
+      cursor={hpath(
+        [0, [960, 1000]], [a(1, 0.3), [400, 500]], [a(2, 0.3), [970, 500]], [a(3, 0.3), [1540, 500]], [a(4, 0.3), [1460, 756]], [a(5, 0.3), [700, 940]],
+        ...FILES.map((_, i) => [playC[i] - 5, [184, rowY(i)]] as [number, [number, number]]),
+        [redoC[0] - 6, [184, rowY(3)]], [redoC[1] - 6, [184, rowY(5)]], [dur, [420, 950]],
+      )}
+      clicks={[...playC, ...redoC]}
+    >
       <div style={{ position: "absolute", inset: 0, opacity: 1 - listO }}>
         <Title f={f} at={a(0)} kicker="STEP 2" text="Get the English voice ready" />
         {OPTS.map((o, i) => (
@@ -278,14 +309,14 @@ export const D06: React.FC<SceneProps> = ({ dur, L }) => {
           <Title f={f} at={a(5) - 6} kicker="ONE FILE PER LINE" text="Then listen to every line" />
           <Card x={120} y={310} w={1680} h={620} style={{ padding: "26px 40px" }}>
             {FILES.map((n, i) => {
-              const checkAt = a(6, 0.05) + i * Math.round((L[6]?.d ?? 150) * 0.13);
               const bad = i === 3 || i === 5;
-              const fixed = f >= a(7, 0.25 + (i === 5 ? 0.2 : 0));
-              const checked = f >= checkAt;
+              const fixed = f >= fixAt(i);
+              const checked = f >= checkAt(i);
               return (
                 <div key={n} style={{ display: "flex", alignItems: "center", gap: 30, height: 94, borderBottom: i < 5 ? `1px solid ${K.border}` : "none", ...rise(f, a(5) + i * 6, 12, 10) }}>
+                  <div style={{ width: 48, height: 48, borderRadius: 24, flexShrink: 0, background: playing(i) ? K.clay : "#F3F1EA", color: playing(i) ? "#fff" : K.text, display: "grid", placeItems: "center", fontSize: 18 }}>{playing(i) ? "❚❚" : "▶"}</div>
                   <div style={{ width: 220, fontSize: 26, fontWeight: 600, fontFamily: "monospace" }}>{n}</div>
-                  <MiniWave w={820} h={46} color={bad && checked && !fixed ? "#D6453D" : K.clay} seed={1.1 + i * 0.37} bars={90} />
+                  <MiniWave w={760} h={46} color={bad && checked && !fixed ? "#D6453D" : K.clay} seed={1.1 + i * 0.37} bars={90} />
                   <div style={{ flex: 1, display: "flex", alignItems: "center", gap: 14, fontSize: 24, opacity: checked ? 1 : 0 }}>
                     {bad && !fixed ? <><Mark ok={false} /><span style={{ color: "#B3261E" }}>{i === 3 ? "Repeated word" : "Noise at the end"}</span></> : <><Mark ok /><span style={{ color: "#1E7B3A" }}>{bad ? "Regenerated, clean" : "Clean"}</span></>}
                   </div>
