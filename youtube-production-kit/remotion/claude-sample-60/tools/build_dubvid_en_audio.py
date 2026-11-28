@@ -61,6 +61,16 @@ NS = int(TOTAL_S * SR); voice = np.zeros(NS, np.float32); vmask = np.zeros(NS, n
 for l, c in zip(lines, clips):
     a = int(l["start"] * SR); b = min(NS, a + len(c)); voice[a:b] += c[:b - a]; vmask[a:b] = 1
 voice /= np.abs(voice).max() + 1e-9
+# de-glitch: silence isolated clicks/blips (<200 ms of sound with >=150 ms of silence on both sides)
+H = int(SR * .01); m = NS // H
+vdb = 20 * np.log10(np.sqrt((voice[:m * H].reshape(m, H) ** 2).mean(1)) + 1e-9); act = vdb > np.percentile(vdb, 99) - 40
+edges = np.flatnonzero(np.diff(np.concatenate([[0], act.astype(np.int8), [0]])))
+isl = list(zip(edges[::2], edges[1::2])); gmask = np.ones(NS, np.float32); nblip = 0
+for k, (a, b) in enumerate(isl):
+    pre = a - (isl[k - 1][1] if k else 0); post = (isl[k + 1][0] if k + 1 < len(isl) else m) - b
+    if b - a < 20 and pre >= 15 and post >= 15: gmask[max(0, (a - 2) * H):(b + 2) * H] = 0; nblip += 1
+fk = int(SR * .01); voice *= np.convolve(gmask, np.ones(fk) / fk, mode="same").astype(np.float32)
+print("deglitched blips:", nblip)
 rng = np.random.default_rng(7)
 def tone(fq, amp, dec, ln, f2=None):
     tt = np.arange(int(ln * SR)) / SR; fr = fq if f2 is None else fq + (f2 - fq) * tt / ln
