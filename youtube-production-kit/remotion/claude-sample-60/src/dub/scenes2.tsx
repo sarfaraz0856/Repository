@@ -153,7 +153,7 @@ export const D08: React.FC<SceneProps> = ({ dur, L }) => {
       }
       over={
         <>
-          <Callout f={f} from={a(2)} to={a(3)} x={330} y={sy(470)} w={560} title="Some accounts show it as 'Languages'" />
+          <Callout f={f} from={a(2)} to={a(3)} x={330} y={sy(470)} w={560} title="Some accounts show it as 'Subtitles'" />
           <Ring x={a1[0] - 46} y={a1[1] - 26} w={92} h={52} r={10} f={f} from={a(5)} to={cAudio + 4} />
           <Callout f={f} from={a(7, 0.1)} to={a(7, 0.75)} x={1380} y={140} w={500} tone="warn" title="Listen first: is the sync right?" />
           <Callout f={f} from={a(8)} to={dur} x={1300} y={sy(560)} w={560} tone="ok" title="English audio track added" lines={["Viewers can now pick English"]} />
