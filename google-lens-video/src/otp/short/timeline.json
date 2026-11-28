@@ -1,6 +1,6 @@
 {
  "fps": 30,
- "durationInFrames": 1385,
+ "durationInFrames": 1419,
  "cues": [
   {
    "id": "s1_1",
@@ -68,9 +68,9 @@
   {
    "id": "cta",
    "file": "otp/short/cta.wav",
-   "text": "पूरा Process समझने के लिए, Full Video ज़रूर देखिए।",
+   "text": "पूरा Process समझने के लिए, Full Video ज़रूर देखिए। Thank you!",
    "from": 1254,
-   "dur": 83
+   "dur": 117
   }
  ],
  "beats": {
@@ -93,6 +93,6 @@
   "never": 1009,
   "share": 1116,
   "cta": 1254,
-  "end": 1385
+  "end": 1419
  }
 }

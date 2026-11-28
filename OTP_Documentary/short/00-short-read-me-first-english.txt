@@ -1,7 +1,7 @@
 OTP SHORT – Read me (English)
-- Video: otp-kaise-kaam-karta-hai-shorts-vertical-hindi.mp4 (1080x1920 vertical, ~46 s, -14 LUFS, no burned-in subtitles)
+- Video: otp-kaise-kaam-karta-hai-shorts-vertical-hindi.mp4 (1080x1920 vertical, ~47 s, -14 LUFS, no burned-in subtitles)
 - Title / description / tags: otp-short-title-description-tags.txt (Hindi + Hinglish + English)
-- Voice: your cloned voice – already-checked lines from the full video + 1 new closing line ("watch the full video")
+- Voice: your cloned voice – already-checked lines from the full video + 1 new closing line ("watch the full video… Thank you!")
 - Look: dark graphite + neon (matches the OTP thumbnails); heading on top, phone in the centre, animated card below. Music differs from the full video (D minor, 104 BPM, marimba).
 - Link the OTP full video as the Short's "Related video".
 - Theme note: vertical layout (no 16:9 reuse), graphite/neon palette, Plus Jakarta Sans + Noto Sans Devanagari headings, new D-minor marimba bed – differs from the Google Lens / UPI / FASTag looks.

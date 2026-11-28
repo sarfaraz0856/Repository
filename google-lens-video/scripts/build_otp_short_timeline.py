@@ -7,7 +7,7 @@ FPS = 30
 d = json.load(open(os.path.join(ROOT, 'otp', 'narration', 'script_full.json')))
 H = {f"{s['id']}_{i+1}": l['hi'] for s in d['scenes'] for i, l in enumerate(s['lines'])}
 LINES = ['s1_1', 's1_2', 's4_2', 's5_2', 's5_3', 's6_3', 's6_4', 's8_4', 's9_2', 'cta']
-CTA = 'पूरा Process समझने के लिए, Full Video ज़रूर देखिए।'
+CTA = 'पूरा Process समझने के लिए, Full Video ज़रूर देखिए। Thank you!'
 
 
 def dur(p):
