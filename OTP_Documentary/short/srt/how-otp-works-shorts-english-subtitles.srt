@@ -1,0 +1,40 @@
+1
+00:00:00,500 --> 00:00:04,827
+Imagine you're paying online, and the moment you tap Pay, an SMS arrives on your phone.
+
+2
+00:00:06,900 --> 00:00:09,765
+It has a 6-digit code that's valid for only a few minutes.
+
+3
+00:00:10,900 --> 00:00:14,777
+When you tap Pay or Login, the server creates a random number.
+
+4
+00:00:16,567 --> 00:00:19,720
+The server sends the OTP message to an SMS gateway.
+
+5
+00:00:20,067 --> 00:00:23,458
+The SMS gateway passes this message to your telecom operator's network.
+
+6
+00:00:24,633 --> 00:00:26,631
+The server checks whether the OTP is correct.
+
+7
+00:00:27,700 --> 00:00:31,196
+It also checks that the OTP hasn't expired and hasn't been used before.
+
+8
+00:00:32,700 --> 00:00:36,202
+Remember, a bank never asks for your OTP by call, or by message.
+
+9
+00:00:37,200 --> 00:00:40,162
+Never share your OTP with anyone, whoever they may be.
+
+10
+00:00:41,800 --> 00:00:45,280
+To understand the whole process, watch the full video. Thank you!
+

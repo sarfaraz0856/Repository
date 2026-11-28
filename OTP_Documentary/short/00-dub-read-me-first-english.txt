@@ -1,0 +1,7 @@
+ENGLISH DUB PACK – OTP SHORT (English)
+1) After the Short is uploaded: YouTube Studio → Content → Shorts → click the Short → Languages.
+2) "Add language" → English.
+3) Dub → Add → upload how-otp-works-shorts-english-dub-audio.wav (exactly 47.3 s, same as the video).
+4) Title & description → paste from how-otp-works-shorts-english-title-description.txt.
+5) Subtitles → how-otp-works-shorts-english-subtitles.srt ("With timing").
+Note: If the Dub option isn't visible on your channel yet, it may not be rolled out to every channel at once.

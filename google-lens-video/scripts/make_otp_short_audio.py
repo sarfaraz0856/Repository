@@ -1,12 +1,14 @@
 """Vertical OTP Short soundtrack: a lighter, faster bed (D minor, 104 BPM, soft marimba-like plucks + warm pad + soft kick),
 SFX synced to src/otp/short/timeline.json, narration with smooth ducking.
-Output: public/otp/short/short_soundtrack.wav (48 kHz stereo, -14 LUFS)."""
+Output: public/otp/short/short_soundtrack.wav (48 kHz stereo, -14 LUFS).
+OTP_DUB=en: English dub (public/otp/vo_en + short/cta_en.wav) -> short_soundtrack_en.wav."""
 import json, os, subprocess, wave
 import numpy as np
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 SR = 48000
 TL = json.load(open(os.path.join(ROOT, 'src', 'otp', 'short', 'timeline.json')))
+DUB = os.environ.get('OTP_DUB', '')
 FPS = TL['fps']; DUR = TL['durationInFrames'] / FPS; N = int(SR * DUR); B = TL['beats']
 fr = lambda x: x / FPS
 rng = np.random.default_rng(21)
@@ -123,13 +125,14 @@ L = lowpass(L, 6500, 2); R = lowpass(R, 6500, 2)
 pk = max(np.abs(L).max(), np.abs(R).max()); L /= pk; R /= pk
 voice = np.zeros(N)
 for q in TL['cues']:
-    with wave.open(os.path.join(ROOT, 'public', q['file']), 'rb') as wv:
+    qf = q['file'] if not DUB else ('otp/short/cta_en.wav' if q['id'] == 'cta' else q['file'].replace('otp/vo/', 'otp/vo_en/'))
+    with wave.open(os.path.join(ROOT, 'public', qf), 'rb') as wv:
         x = np.frombuffer(wv.readframes(wv.getnframes()), np.int16).astype(float) / 32768
     x /= np.abs(x).max() + 1e-9; i = int(fr(q['from']) * SR); m = min(len(x), N - i); voice[i:i + m] += x[:m]
 hop = SR // 100; nf = N // hop
 rms = np.sqrt((voice[:nf * hop] ** 2).reshape(nf, hop).mean(1))
 gate = (np.convolve(rms, np.ones(5) / 5, 'same') > 0.02).astype(float)
-gate = (np.convolve(gate, np.ones(120), 'same') > 0).astype(float)
+gate = (np.convolve(gate, np.ones(320 if DUB else 120), 'same') > 0).astype(float)
 act = np.convolve(gate, np.hanning(60) / np.hanning(60).sum(), 'same')
 act = np.interp(np.arange(N) / hop, np.arange(nf), act)
 duck = 1 - 0.45 * np.clip(act, 0, 1)
@@ -139,6 +142,6 @@ os.makedirs(os.path.join(ROOT, 'public', 'otp', 'short'), exist_ok=True)
 tmp = os.path.join(ROOT, 'public', 'otp', 'short', '_pre.wav')
 with wave.open(tmp, 'wb') as wv:
     wv.setnchannels(2); wv.setsampwidth(2); wv.setframerate(SR); wv.writeframes((np.stack([L, R], 1) * 32767).astype(np.int16).tobytes())
-out = os.path.join(ROOT, 'public', 'otp', 'short', 'short_soundtrack.wav')
+out = os.path.join(ROOT, 'public', 'otp', 'short', 'short_soundtrack_en.wav' if DUB else 'short_soundtrack.wav')
 subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', tmp, '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11', '-ar', str(SR), '-ac', '2', '-c:a', 'pcm_s16le', out], check=True)
 os.remove(tmp); print('wrote', out)

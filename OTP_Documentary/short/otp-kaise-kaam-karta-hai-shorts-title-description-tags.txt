@@ -51,6 +51,9 @@ otp kaise kaam karta hai, how otp works, otp kya hai, otp shorts, otp fraud, one
  UPLOAD TIPS
 ------------------------------------------------------------------
 - Upload: YouTube app / Studio → Create → Upload → otp-kaise-kaam-karta-hai-shorts-vertical-hindi.mp4 (60 sec से कम = अपने आप Short बनेगा)
+- Subtitles: Hindi → otp-kaise-kaam-karta-hai-shorts-hindi-subtitles.srt, English → how-otp-works-shorts-english-subtitles.srt, Hinglish → otp-kaise-kaam-karta-hai-shorts-hinglish-subtitles.srt (Language: "Hindi (Latin)") – सब "With timing"।
+- Cover: YouTube app में upload करते समय "Thumbnail/Cover" से 6-digit code वाला frame चुनें (otp-kaise-kaam-karta-hai-shorts-cover.jpg जैसा)।
+- English dub: 02 वाला folder देखें।
 - "Related video" में OTP Full Video link करें (Shorts → Full video traffic)।
 - "Altered or synthetic content" → YES (AI voice clone)। Audience: Not made for kids।
 - Short को Full Video के 1–2 दिन बाद post करें।

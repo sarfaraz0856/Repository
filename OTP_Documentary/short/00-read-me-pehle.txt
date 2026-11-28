@@ -1,0 +1,21 @@
+OTP SHORT – YOUTUBE UPLOAD KIT (Hinglish)
+=========================================
+Is ZIP mein 2 folder hain:
+
+01-upload-otp-short-hindi  →  YouTube par yahi upload karna hai
+  - otp-kaise-kaam-karta-hai-shorts-vertical-hindi.mp4   (Short video, 1080x1920, 47 sec)
+  - otp-kaise-kaam-karta-hai-shorts-title-description-tags.txt  (Title, description, tags: Hindi + Hinglish + English, aur upload tips)
+  - srt/  (Hindi, English, Hinglish subtitles – Hinglish ko "Hindi (Latin)" mein daalein)
+  - otp-kaise-kaam-karta-hai-shorts-cover.jpg  (Cover ke liye reference frame)
+  - otp-kaise-kaam-karta-hai-shorts-audio-hindi.wav  (Hindi audio WAV – backup, upload ki zaroorat nahi)
+
+02-otp-short-english-dub-pack  →  Languages → English mein lagana hai
+  - how-otp-works-shorts-english-dub-audio.wav  (English dub, 47.3 sec = video jitna)
+  - how-otp-works-shorts-english-title-description.txt
+  - how-otp-works-shorts-english-subtitles.srt
+  - 00-dub-read-me-pehle.txt / 00-dub-read-me-first-english.txt  (step-by-step)
+
+Yaad rakhein:
+  - "Altered or synthetic content" → YES (AI voice clone).  Audience → Not made for kids.
+  - Short ke "Related video" mein OTP ka Full Video link karein.
+  - Look: dark graphite + neon, music Full Video se alag (D minor, 104 BPM, marimba).

@@ -1,0 +1,40 @@
+1
+00:00:00,500 --> 00:00:06,750
+Imagine kijiye, aap online payment kar rahe hain, aur Pay par tap karte hi aapke phone par ek SMS aata hai.
+
+2
+00:00:06,900 --> 00:00:10,450
+Usmein ek 6-digit code hai, jo sirf kuch minutes ke liye valid hai.
+
+3
+00:00:10,900 --> 00:00:16,150
+Jab aap Pay ya Login par tap karte hain, to server ek random number banata hai.
+
+4
+00:00:16,567 --> 00:00:19,917
+Server, OTP waala message ek SMS gateway ko bhejta hai.
+
+5
+00:00:20,067 --> 00:00:24,217
+SMS gateway is message ko aapke telecom operator ke network tak pahunchata hai.
+
+6
+00:00:24,633 --> 00:00:27,517
+Server check karta hai ki OTP sahi hai ya nahi.
+
+7
+00:00:27,700 --> 00:00:32,283
+Saath hi ye bhi dekhta hai ki OTP expire to nahi hua, aur pehle use to nahi hua.
+
+8
+00:00:32,700 --> 00:00:36,783
+Yaad rakhiye, bank kabhi bhi call ya message karke aapka OTP nahi maangta.
+
+9
+00:00:37,200 --> 00:00:41,650
+OTP kabhi kisi ke saath share mat kijiye, chahe saamne waala koi bhi ho.
+
+10
+00:00:41,800 --> 00:00:45,850
+Poora process samajhne ke liye, Full Video zaroor dekhiye. Thank you!
+

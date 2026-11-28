@@ -1,0 +1,21 @@
+OTP SHORT – YOUTUBE UPLOAD KIT (English)
+========================================
+This ZIP has 2 folders:
+
+01-upload-otp-short-hindi  →  upload these to YouTube
+  - otp-kaise-kaam-karta-hai-shorts-vertical-hindi.mp4   (the Short, 1080x1920, 47 s)
+  - otp-kaise-kaam-karta-hai-shorts-title-description-tags.txt  (title, description, tags in Hindi + Hinglish + English, plus upload tips)
+  - srt/  (Hindi, English, Hinglish subtitles – upload Hinglish as "Hindi (Latin)")
+  - otp-kaise-kaam-karta-hai-shorts-cover.jpg  (reference frame for the cover)
+  - otp-kaise-kaam-karta-hai-shorts-audio-hindi.wav  (Hindi audio WAV – backup, no need to upload)
+
+02-otp-short-english-dub-pack  →  goes into Languages → English
+  - how-otp-works-shorts-english-dub-audio.wav  (English dub, 47.3 s = same length as the video)
+  - how-otp-works-shorts-english-title-description.txt
+  - how-otp-works-shorts-english-subtitles.srt
+  - 00-dub-read-me-pehle.txt / 00-dub-read-me-first-english.txt  (step by step)
+
+Remember:
+  - "Altered or synthetic content" → YES (AI voice clone).  Audience → Not made for kids.
+  - Link the OTP full video as the Short's "Related video".
+  - Look: dark graphite + neon; music differs from the full video (D minor, 104 BPM, marimba).
