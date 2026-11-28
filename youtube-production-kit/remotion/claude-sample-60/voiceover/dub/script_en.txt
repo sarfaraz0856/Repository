@@ -49,8 +49,8 @@ Because when a viewer picks the English track, the whole audio changes, not just
 The final audio must be exactly as long as the video, with loudness close to the original.
 Then export it as an audio file, like WAV or MP3. It shouldn't contain any video.
 Step four, now let's upload the dub to YouTube.
-Open YouTube Studio on a computer, and click Subtitles in the left menu.
-On some accounts, this option may be called Languages.
+Open YouTube Studio on a computer, and click Languages in the left menu.
+On some accounts, this option may be called Subtitles.
 Now choose the video you want to add the dub to.
 Click Add language, and select English.
 Now in the English row, click Add under Audio.

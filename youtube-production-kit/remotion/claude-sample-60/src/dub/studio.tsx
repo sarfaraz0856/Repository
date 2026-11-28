@@ -53,7 +53,7 @@ export const Avatar: React.FC<{ size: number; style?: React.CSSProperties }> = (
   <div style={{ width: size, height: size, borderRadius: size / 2, background: "linear-gradient(135deg,#D97757,#B4532F)", color: "#fff", display: "grid", placeItems: "center", fontWeight: 700, fontSize: size * 0.46, fontFamily: SANS, ...style }}>S</div>
 );
 
-export const NAV = ["Dashboard", "Content", "Analytics", "Community", "Subtitles", "Copyright", "Earn", "Customization", "Audio library"] as const;
+export const NAV = ["Dashboard", "Content", "Analytics", "Community", "Languages", "Copyright", "Earn", "Customization", "Audio library"] as const;
 const NAV_IC = [SI.dash, SI.content, SI.analytics, SI.community, SI.subtitles, SI.copyright, SI.earn, SI.custom, SI.audio];
 export const NAV_W = 290;
 export const navY = (i: number) => 262 + i * 56; // page y of item centre
@@ -109,9 +109,9 @@ export const Studio: React.FC<{ active?: number; hover?: number; settingsHover?:
 );
 
 export const VIDEOS = [
-  { t: "Claude AI Ko YouTube Content Assistant Kaise Banaye (Step by Step 2026)", img: "dub/thumbA.png", d: "11:12", langs: "1", mod: "Nov 20, 2026" },
-  { t: "Claude vs ChatGPT: YouTube Creators Ke Liye Kaun Better Hai?", img: "dub/thumbB.png", d: "9:48", langs: "1", mod: "Nov 12, 2026" },
-  { t: "Mobile Se YouTube Channel Kaise Banaye 2026 | Full Guide", img: "dub/thumbC.png", d: "12:05", langs: "1", mod: "Nov 02, 2026" },
+  { t: "Claude AI Ko YouTube Content Assistant Kaise Banaye (Step by Step Process)", img: "dub/thumbA.png", d: "11:12", langs: "1", mod: "Nov 20" },
+  { t: "Claude vs ChatGPT: YouTube Creators Ke Liye Kaun Better Hai?", img: "dub/thumbB.png", d: "9:48", langs: "1", mod: "Nov 12" },
+  { t: "Mobile Se YouTube Channel Kaise Banaye | Full Guide", img: "dub/thumbC.png", d: "12:05", langs: "1", mod: "Nov 02" },
 ];
 export const Thumb: React.FC<{ img: string; w: number; d?: string; style?: React.CSSProperties }> = ({ img, w, d, style }) => (
   <div style={{ position: "relative", width: w, height: (w * 9) / 16, borderRadius: 8, overflow: "hidden", background: "#222", flexShrink: 0, ...style }}>
@@ -147,7 +147,7 @@ export const SUB_ROW_Y = (i: number) => 290 + i * 128;
 export const subRowPt = (i: number) => [760, sy(SUB_ROW_Y(i) + 56)] as [number, number];
 export const SubtitlesList: React.FC<{ hover?: number }> = ({ hover }) => (
   <>
-    <div style={{ position: "absolute", left: 330, top: 100, fontSize: 32, fontWeight: 700 }}>Channel subtitles</div>
+    <div style={{ position: "absolute", left: 330, top: 100, fontSize: 32, fontWeight: 700 }}>Channel languages</div>
     <div style={{ position: "absolute", left: 330, top: 160, display: "flex", gap: 34, fontSize: 18, color: S.sub }}>
       {["All", "Drafts", "Published"].map((t, i) => <div key={t} style={{ paddingBottom: 12, borderBottom: i === 0 ? `3px solid ${S.text}` : "none", color: i === 0 ? S.text : S.sub, fontWeight: i === 0 ? 600 : 400 }}>{t}</div>)}
     </div>
@@ -199,7 +199,7 @@ export const VideoLanguages: React.FC<{ rows: LangRow[]; hl?: { row: number; col
     {rows.map((r, i) => (
       <div key={r.lang} style={{ position: "absolute", left: 330, right: 60, top: LROW_Y(i), height: 86, borderBottom: `1px solid ${S.line}`, fontSize: 18 }}>
         <div style={{ position: "absolute", left: 0, top: 18, lineHeight: 1.3 }}><div style={{ fontWeight: 600 }}>{r.lang}</div>{r.note ? <div style={{ fontSize: 15, color: S.sub }}>{r.note}</div> : null}</div>
-        <div style={{ position: "absolute", left: LANG_COLS.mod - 330, top: 30, color: S.sub }}>{r.audio === "add" && r.title === "add" ? "-" : "Nov 28, 2026"}</div>
+        <div style={{ position: "absolute", left: LANG_COLS.mod - 330, top: 30, color: S.sub }}>{r.audio === "add" && r.title === "add" ? "-" : "Nov 28"}</div>
         {(["audio", "title", "subs"] as const).map((c) => (
           <div key={c} style={{ position: "absolute", left: LANG_COLS[c] - 330 + (r[c] === "add" ? 0 : 14), top: r[c] === "auto" ? 18 : 28 }}>
             <CellView c={r[c]} hl={hl?.row === i && hl.col === c} />

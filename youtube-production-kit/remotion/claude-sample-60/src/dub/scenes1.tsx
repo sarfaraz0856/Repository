@@ -77,7 +77,7 @@ export const D01: React.FC<SceneProps> = ({ dur, L }) => {
               <Pill tone="dark">HI</Pill><span style={{ fontSize: 44, color: K.clay, lineHeight: "58px" }}>→</span><Pill tone="clay">EN</Pill>
             </div>
             <div style={{ fontFamily: SERIF, fontSize: 76, marginTop: 30, lineHeight: 1.1 }}>How to Dub Your YouTube Video<br />in English</div>
-            <div style={{ fontSize: 28, color: K.sub, marginTop: 18 }}>Step by step · 2026</div>
+            <div style={{ fontSize: 28, color: K.sub, marginTop: 18 }}>Step by step process</div>
             <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 14, margin: "44px 90px 0" }}>
               {AGENDA.map((t, i) => (
                 <div key={t} style={{ ...rise(f, a(5, 0.08) + i * Math.round((L[5]?.d ?? 180) * 0.13), 14, 10) }}>

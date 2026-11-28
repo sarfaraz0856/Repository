@@ -181,7 +181,7 @@ const DashboardLite: React.FC = () => (
 );
 
 // ------------------------------------------------------------------ 9 · Step 5 English title & description
-const EN_T = "How to Turn Claude AI Into Your YouTube Content Assistant (Step by Step 2026)";
+const EN_T = "How to Turn Claude AI Into Your YouTube Content Assistant (Step by Step Process)";
 const EN_D = "Don't use Claude AI like a normal chatbot. In this video I show you, step by step, how to set up Claude as your personal YouTube content assistant.\n\nChapters\n0:00 Intro\n0:55 What is Claude AI?\n1:43 Why Projects matter\n2:40 Create a Project";
 const HI_D = "Claude AI ko sirf ek normal chatbot ki tarah use mat kijiye. Is video mein maine step by step dikhaya hai…\n\nChapters\n0:00 Intro\n0:55 Claude AI kya hai?\n1:43 Projects kyun zaroori hain?";
 export const D09: React.FC<SceneProps> = ({ dur, L }) => {
