@@ -11,3 +11,4 @@
 - Do NOT say in the video narration that we are using / making it in Microsoft 365 (no "Microsoft 365" mention in the voice).
 - English dub zip: always include English subtitles (.srt in English) along with the dub WAV, thumbnail and text.
 - Long (full) videos: the normal Hindi zip must include THREE subtitle files: -hindi.srt (Devanagari), -hinglish.srt (Roman Hindi) and -english.srt.
+- Mouse cursor in videos must look like a real human is using it, never robotic straight lines: curved/arched paths, speed that starts slow, speeds up and slows down near the target, a small overshoot then correction, tiny idle drift/jitter while waiting, a short pause before each click, and click points slightly off-centre (not always the exact middle of a cell/button).
